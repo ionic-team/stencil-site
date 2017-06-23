@@ -14,7 +14,7 @@ Stencil's build pipeline creates Custom Elements that come pre-baked with effici
 
 It helps to think of Stencil as a tool that generates highly performant but 100% Web Component compatible code for you automatically, with most of the work happening at build time so there's practically no additional code needed at runtime.
 
-Because Stencil is primarily a build tool, it requires using a specific syntax that has been inspired by Angular, React, and Vue, and uses TypeScript out of the box.
+Because Stencil is primarily a build tool, it requires using a specific syntax that has been inspired by Angular, React, and Vue. Stencil components are built with TypeScript and a flavor of JSX, blending the best concepts from leading frameworks into a simple and familiar component class system.
 
 ## Credits
 
