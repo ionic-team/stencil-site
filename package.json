@@ -1,0 +1,28 @@
+{
+  "name": "@stencil/starter",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stencil Starter App",
+  "scripts": {
+    "build": "stencil build --prod",
+    "dev": "stencil build --watch",
+    "serve": "stencil-dev-server",
+    "start": "npm install && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/stencil-starter.git"
+  },
+  "dependencies": {
+    "@stencil/core": "next"
+  },
+  "devDependencies": {
+    "@stencil/dev-server": "latest"
+  },
+  "author": "Ionic Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic-team/stencil"
+  },
+  "homepage": "https://github.com/ionic-team/stencil"
+}
