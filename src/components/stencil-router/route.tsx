@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, State, h } from '@stencil/core';
 
 /**
   * @name Route
@@ -9,6 +9,8 @@ import { Component, Prop, h } from '@stencil/core';
   tag: 'stencil-route'
 })
 export class Route {
+  routerInstance: any;
+
   @Prop() url: string;
 
   @Prop() component: string;
@@ -21,7 +23,7 @@ export class Route {
   //@Prop() match: any;
   @State() match: any = {};
 
-  ionViewWillLoad() {
+  componentWillLoad() {
     this.routerInstance = document.querySelector(this.router)
 
     // HACK
@@ -40,7 +42,7 @@ export class Route {
     //return <p></p>;
 
     if(match.url == this.url) {
-      console.log(`  <ion-route> Rendering route ${this.url}`, router, match);
+      console.log(`  <ion-route> Rendering route ${this.url}`, this.router, match);
       return (<ChildComponent props={this.componentProps} />);
     } else {
       return null;

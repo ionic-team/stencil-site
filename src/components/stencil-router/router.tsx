@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 
 /**
   * @name Router
@@ -30,7 +30,7 @@ export class Router {
     console.log('Route match', this.routeMatch);
 
     console.log('Emitting event');
-    Ionic.emit(this.$instance, 'ionRouterNavigation', { detail: this.routeMatch });
+    //Ionic.emit(this.$instance, 'ionRouterNavigation', { detail: this.routeMatch });
   }
 
   componentWillLoad() {
