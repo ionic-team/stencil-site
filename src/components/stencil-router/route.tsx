@@ -9,7 +9,9 @@ import { Component, Prop, State, h } from '@stencil/core';
   tag: 'stencil-route'
 })
 export class Route {
-  routerInstance: any;
+  $el: any;
+
+  @State() routerInstance: any;
 
   @Prop() url: string;
 
@@ -24,15 +26,21 @@ export class Route {
   @State() match: any = {};
 
   componentWillLoad() {
-    this.routerInstance = document.querySelector(this.router)
+    const routerElement = document.querySelector(this.router)
 
-    // HACK
-    this.routerInstance.addEventListener('ionRouterNavigation', (e) => {
+    routerElement.addEventListener('stencilRouterLoaded', (e) => {
+      console.log('Stencil router loaded', e);
+      this.routerInstance = routerElement;
+    })
+
+    routerElement.addEventListener('stencilRouterNavigation', (e) => {
       this.match = e.detail;
     })
   }
 
   render() {
+    if(!this.routerInstance) { return null; }
+
     this.match.url = this.routerInstance.$instance.routeMatch.url;
     const match = this.match
     const ChildComponent = this.component

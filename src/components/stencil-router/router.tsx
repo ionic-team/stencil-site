@@ -9,6 +9,8 @@ import { Component, h, Prop, State } from '@stencil/core';
   tag: 'stencil-router'
 })
 export class Router {
+  $el: any;
+
   base: string;
 
   @Prop() root: string = '';
@@ -45,6 +47,10 @@ export class Router {
       url: "/" + withoutBase
     }
     console.log('Route match', this.routeMatch);
+  }
+
+  componentDidLoad() {
+    this.$el.dispatchEvent(new (window as any).CustomEvent('stencilRouterLoaded'))
   }
 
   handlePopState(e) {
