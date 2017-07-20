@@ -7,20 +7,14 @@ import { Component, h, Prop } from '@stencil/core';
 export class DocsPage {
   render() {
     console.log('Rendering docs page')
-    return [
-      <ion-menu ssr="false" content="#menu-content">
-        <ion-header>
-          Documentation
-        </ion-header>
-        <ion-content>
-          <ion-list>
-            <ion-item>Getting Started</ion-item>
-          </ion-list>
-        </ion-content>
-      </ion-menu>,
-
-      <ion-page id="menu-content">
-      </ion-page>
-    ];
+    return (
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h2>Documentation</h2>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    )
   }
 }
