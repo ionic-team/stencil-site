@@ -6,6 +6,7 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class DocsPage {
   render() {
+    console.log('Rendering docs page')
     return [
       <ion-menu ssr="false" content="#menu-content">
         <ion-header>

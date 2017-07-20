@@ -7,7 +7,7 @@
     "build": "stencil build --prod",
     "dev": "stencil build --watch",
     "serve": "stencil-dev-server",
-    "start": "npm install && npm run dev"
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",

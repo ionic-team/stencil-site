@@ -10,7 +10,7 @@ export class App {
   render() {
     return (
       <div class="app">
-        <stencil-router id="router" root="/demos/stencil-site/">
+        <stencil-router id="router">
 
           <site-header />
 
