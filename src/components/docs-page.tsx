@@ -17,7 +17,7 @@ export class DocsPage {
             </ul>
           </ion-col>
           <ion-col>
-            <stencil-route url="/docs/getting-started" component="getting-started" router="#router" />
+            <stencil-route path="/docs/getting-started" component="getting-started" router="#router" />
           </ion-col>
         </ion-row>
       </ion-grid>

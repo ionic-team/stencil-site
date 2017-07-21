@@ -13,10 +13,10 @@ export class LandingPage {
         <h1>The magical, reusable web component generator.</h1>
         <h4>Reactive Web Component build tool for modern web development.</h4>
 
-        <stencil-route-link router="#router" url="docs" custom={true}>
+        <stencil-route-link router="#router" url="/docs" custom={true}>
           <ion-button color="purple">Get started</ion-button>
         </stencil-route-link>
-        
+
       </div>
     );
   }
