@@ -1,0 +1,25 @@
+docs-page {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    margin: 0;
+  }
+
+  .section {
+    margin-bottom: 15px;
+  }
+
+  .section-title {
+    a {
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  ul > li > ul > li {
+    padding: 3px 0;
+  }
+}
