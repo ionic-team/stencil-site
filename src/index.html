@@ -3,12 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Stencil</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
+
+  <meta name="theme-color" content="black">
+  <link rel="manifest" href="manifest.json">
+
   <script src="build/app.js"></script>
 </head>
 <body>
   <stencil-site></stencil-site>
+
+  <script>
+    /*window.addEventListener('load', () => {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.error('Error', err));
+      }
+    })*/
+  </script>
 </body>
 </html>
