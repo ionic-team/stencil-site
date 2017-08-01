@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "description": "Stencil Starter App",
   "scripts": {
-    "build": "stencil build --prod",
-    "dev": "sd concurrent \"stencil build --watch\" \"stencil-dev-server\" ",
+    "build": "stencil build",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "test": "stencil build --watch",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ionic/core": "0.0.1",
-    "@stencil/core": "0.0.4-2"
+    "@stencil/core": "0.0.4-3"
   },
   "author": "Ionic Team",
   "license": "MIT",
