@@ -6,7 +6,7 @@ exports.config = {
   ],
   collections: [
     { name: '@ionic/core' },
-    { name: '@stencil/router' }
+    /*{ name: '@stencil/router'}*/
   ]
 };
 
