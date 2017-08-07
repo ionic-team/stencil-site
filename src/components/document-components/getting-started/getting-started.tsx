@@ -1,25 +1,23 @@
 import { Component } from '@stencil/core';
 
-
 @Component({
-  tag: 'docs-page',
-  styleUrl: 'docs-page.scss'
+  tag: 'getting-started',
+  styleUrl: 'getting-started.scss'
 })
-export class DocsPage {
+export class GettingStarted {
 
   render() {
-    console.log('Rendering docs page')
-    return (
+    return [
       <ion-grid>
         <ion-row>
           <ion-col>
             <site-menu></site-menu>
           </ion-col>
           <ion-col col-9>
-            {/*<stencil-route url="/docs/getting-started" component="getting-started" router="#router" />*/}
+            <app-marked doc='start/index.md'></app-marked>
           </ion-col>
         </ion-row>
       </ion-grid>
-    )
+    ]
   }
 }
