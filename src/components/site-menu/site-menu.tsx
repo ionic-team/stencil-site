@@ -8,7 +8,7 @@ export class SiteMenu {
 
    @State() menu = [
     {
-      title: '',
+      title: 'Getting Started',
       url: '',
       items: [
         { title: 'What is Stencil?', url: '/docs/what-is-stencil' },
@@ -55,7 +55,7 @@ export class SiteMenu {
                 <ul>
                   {s.items.map(i => {
                     return (
-                      <li><stencil-route-link url={`${s.url}${i.url}`} router="#router" custom={true}>{i.title}</stencil-route-link></li>
+                      <li><stencil-route-link url={`${s.url}${i.url}`} router="#router">{i.title}</stencil-route-link></li>
                     )
                   })}
                 </ul>
