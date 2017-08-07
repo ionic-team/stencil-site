@@ -39,11 +39,11 @@ export class DocsPage {
             <ul>
               {this.menu.map(s => {
                 return (
-                <li class="section"><stencil-route-link url={`/docs${s.url}`} router="#router" class="section-title">{s.title}</stencil-route-link>
+                <li class="section"><stencil-route-link url={`/docs${s.url}`} router="#router" class="section-title" custom={true}>{s.title}</stencil-route-link>
                   <ul>
                     {s.items.map(i => {
                       return (
-                        <li><stencil-route-link url={`/docs${s.url}${i.url}`} router="#router">{i.title}</stencil-route-link></li>
+                        <li><stencil-route-link url={`/docs${s.url}${i.url}`} router="#router" custom={true}>{i.title}</stencil-route-link></li>
                       )
                     })}
                   </ul>
@@ -53,7 +53,7 @@ export class DocsPage {
             </ul>
           </ion-col>
           <ion-col col-9>
-            <stencil-route path="/docs/getting-started" component="getting-started" router="#router" />
+            <stencil-route url="/docs/getting-started" component="getting-started" router="#router" />
           </ion-col>
         </ion-row>
       </ion-grid>
