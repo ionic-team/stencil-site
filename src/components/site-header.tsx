@@ -15,9 +15,15 @@ export class SiteHeader {
                 <img class="logo" src="img/text-logo.png" />
               </ion-col>
               <ion-col class="links">
-                <stencil-route-link router="#router" url="/">Home</stencil-route-link>
-                <stencil-route-link router="#router" url="/docs">Docs</stencil-route-link>
-                <stencil-route-link router="#router" url="/demos">Demos</stencil-route-link>
+                <stencil-route-link router="#router" url="/" custom={true}>
+                  <ion-button clear>Home</ion-button>
+                </stencil-route-link>
+                <stencil-route-link router="#router" url="/docs" custom={true}>
+                  <ion-button clear>Docs</ion-button>
+                </stencil-route-link>
+                <stencil-route-link router="#router" url="/demos" custom={true}>
+                  <ion-button clear>Demos</ion-button>
+                </stencil-route-link>
               </ion-col>
             </ion-row>
           </ion-grid>
