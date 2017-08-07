@@ -1,4 +1,13 @@
 site-menu {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #f3f3f3;
+  width: 20em;
+  padding-top: 60px;
+  padding-left: 20px;
+
   ul {
     margin: 0;
     padding: 0;
