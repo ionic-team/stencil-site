@@ -20,6 +20,7 @@ export class SiteMenu {
       url: '/basics',
       items: [
         { title: 'Components', url: '/components' },
+        { title: 'Code Splitting', url: '/code-splitting'}
       ]
     },
     {

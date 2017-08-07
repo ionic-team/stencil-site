@@ -1,25 +1,23 @@
 import { Component } from '@stencil/core';
 
-
 @Component({
-  tag: 'docs-page',
-  styleUrl: 'docs-page.scss'
+  tag: 'stencil-ssr',
+  styleUrl: 'stencil-ssr.scss'
 })
-export class DocsPage {
+export class StencilSsr {
 
   render() {
-    console.log('Rendering docs page')
-    return (
+    return [
       <ion-grid>
         <ion-row>
           <ion-col>
             <site-menu></site-menu>
           </ion-col>
           <ion-col col-9>
-            <app-marked doc='start/index.md'></app-marked>
+            <app-marked doc='advanced/ssr/index.md'></app-marked>
           </ion-col>
         </ion-row>
       </ion-grid>
-    )
+    ]
   }
 }

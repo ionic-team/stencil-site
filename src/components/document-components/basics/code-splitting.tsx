@@ -1,25 +1,23 @@
 import { Component } from '@stencil/core';
 
-
 @Component({
-  tag: 'docs-page',
-  styleUrl: 'docs-page.scss'
+  tag: 'code-splitting',
+  styleUrl: 'code-splitting.scss'
 })
-export class DocsPage {
+export class CodeSplitting {
 
   render() {
-    console.log('Rendering docs page')
-    return (
+    return [
       <ion-grid>
         <ion-row>
           <ion-col>
             <site-menu></site-menu>
           </ion-col>
           <ion-col col-9>
-            <app-marked doc='start/index.md'></app-marked>
+            <app-marked doc='basics/code-splitting.md'></app-marked>
           </ion-col>
         </ion-row>
       </ion-grid>
-    )
+    ]
   }
 }

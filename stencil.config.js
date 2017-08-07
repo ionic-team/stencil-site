@@ -2,7 +2,7 @@ exports.config = {
   publicPath: 'build',
   bundles: [
     { components: ['stencil-site', 'site-header', 'landing-page', 'stencil-router', 'stencil-route-link', 'stencil-route'] },
-    { components: ['docs-page', 'demos-page', 'app-marked', 'getting-started', 'basics-components', 'compiler-config', 'what-is', 'site-menu'] },
+    { components: ['docs-page', 'demos-page', 'app-marked', 'getting-started', 'basics-components', 'compiler-config', 'what-is', 'code-splitting', 'stencil-ssr', 'site-menu'] },
     /*{ components: ['getting-started'] },
     { components: ['what-is'] }*/
   ],
