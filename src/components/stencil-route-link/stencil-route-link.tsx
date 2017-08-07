@@ -17,6 +17,8 @@ export class RouteLink {
   @Prop() router: any;
 
   handleClick(e) {
+    e.preventDefault();
+    
     console.log('Route link click', e);
     const router = document.querySelector(this.router);
     if(!router) {
@@ -25,9 +27,6 @@ export class RouteLink {
     }
 
     router.navigateTo(this.url);
-
-    //Uncomment once https://github.com/ionic-team/stencil/issues/58 is fixed
-    //e.preventDefault();
   }
 
   render() {
