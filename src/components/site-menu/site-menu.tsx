@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 
 @Component({
   tag: 'site-menu',
@@ -6,7 +6,7 @@ import { Component } from '@stencil/core';
 })
 export class SiteMenu {
 
-   menu = [
+   @State() menu = [
     {
       title: '',
       url: '',
