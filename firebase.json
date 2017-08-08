@@ -6,6 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [
+      {
+        "source": "/",
+        "headers": [{"key": "Link", "value": "</build/app/app.h1cdl7wyaiaz.js>;rel=preload;as=script,</build/app/fvzmx6x7sq7d.js>;rel=preload;as=script,</build/app/70p7wwvlegtj.css>;rel=preload;as=style,</build/app/bguadrwnacsq.js>;rel=preload;as=script,</build/app/qnsivgokm6pk.css>;rel=preload;as=style,</build/app/hzwxaxykomyq.js>;rel=preload;as=script,</build/app/mgekeaoebvgm.css>;rel=preload;as=style,</build/app/ssu9bfpodst2.css>;rel=preload;as=style,</build/app/vvxutv45sbdw.js>;rel=preload;as=script,</img/text-logo.png>;rel=preload;as=image"}]
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
