@@ -10,16 +10,18 @@ export class DocsPage {
   render() {
     console.log('Rendering docs page')
     return (
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <site-menu></site-menu>
-          </ion-col>
-          <ion-col col-9>
-            <app-marked doc='start/index.md'></app-marked>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-scroll>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <site-menu></site-menu>
+            </ion-col>
+            <ion-col col-9>
+              <slot></slot>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-scroll>
     )
   }
 }

@@ -8,16 +8,9 @@ export class StencilSsr {
 
   render() {
     return [
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <site-menu></site-menu>
-          </ion-col>
-          <ion-col col-9>
-            <app-marked doc='advanced/ssr/index.md'></app-marked>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <docs-page>
+        <app-marked doc='advanced/ssr/index.md'></app-marked>
+      </docs-page>
     ]
   }
 }
