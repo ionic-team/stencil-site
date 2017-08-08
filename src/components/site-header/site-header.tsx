@@ -14,7 +14,7 @@ export class SiteHeader {
               <ion-col>
                 <img class="logo" src="img/text-logo.png" />
               </ion-col>
-              <ion-col class="links">
+              <ion-col class="links" col-8>
                 <stencil-route-link router="#router" url="/" custom={true}>
                   <ion-button clear>Home</ion-button>
                 </stencil-route-link>
