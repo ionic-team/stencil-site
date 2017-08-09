@@ -24,7 +24,13 @@ site-menu {
     padding: 3px 0;
   }
 
+  @media(max-width: 695px) {
+     display: block;
+     text-align: center;
+  }
+
   @media(min-width: 1170px) {
+    text-align: left;
     position: fixed;
     height: 100%;
     left: 0;
