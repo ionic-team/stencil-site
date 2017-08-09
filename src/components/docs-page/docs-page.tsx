@@ -10,18 +10,17 @@ export class DocsPage {
   render() {
     console.log('Rendering docs page')
     return (
-      <ion-scroll>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <site-menu></site-menu>
-            </ion-col>
-            <ion-col col-9>
-              <slot></slot>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-scroll>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h2>Documentation</h2>
+            <site-menu></site-menu>
+          </ion-col>
+          <ion-col col-9>
+            <stencil-route path="/docs/getting-started" component="getting-started" router="#router" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     )
   }
 }
