@@ -14,9 +14,7 @@ export class AppMarked {
     fetch(`/docs-md/${this.doc}`).then((response) => {
       return response.text()
     }).then((data) => {
-      console.log(data);
       this.markup = marked(data);
-      console.log(this.markup);
     })
   }
 

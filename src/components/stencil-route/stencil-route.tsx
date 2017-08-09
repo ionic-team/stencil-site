@@ -29,12 +29,10 @@ export class Route {
 
   componentWillLoad() {
     setTimeout(() => {
-      console.log(document.querySelector(this.router));
       const routerElement = document.querySelector(this.router);
 
       if (routerElement) {
         setTimeout(() => {
-          console.log(routerElement);
           this.routerInstance = routerElement;
         })
       }
@@ -56,7 +54,6 @@ export class Route {
   }
 
   render() {
-    console.log('render called');
     if (!this.routerInstance) {
       return null;
     }
@@ -65,7 +62,6 @@ export class Route {
     this.match.url = this.routerInstance.match().url;
     const match = this.match;
     const ChildComponent = this.component;
-    console.log('this.component', this.component);
 
     const cleanedUrl = this.url.split('/').join().replace(/ /g, '');
     const cleanedMatchUrl = match.url.split('/').join().replace(/ /g, '');
@@ -74,10 +70,6 @@ export class Route {
     const isInPath = cleanedMatchUrl.indexOf(cleanedUrl) === 0;
 
     const matches = this.exact ? cleanedMatchUrl === cleanedUrl : isInPath;
-    console.log('in path', isInPath)
-    console.log('is exact', this.exact);
-    console.log('match.url', match.url);
-    console.log('this.url', this.url);
     
     // const matches = match.url === this.url;
 

@@ -54,12 +54,18 @@ export class Router {
   }
 
   handlePopState() {
-    console.log('handled pop state called', window.location.pathname);
-    window.history.pushState(null, null, window.location.pathname || '/');
-    this.routeMatch = {
-      url: window.location.pathname
+    if (window.location.pathname !== oldPathName) {
+      console.log('were here');
+      this.routeMatch = {
+        url: window.location.pathname
+      }
+
+      this.el.dispatchEvent(new (window as any).CustomEvent('stencilRouterNavigation', { detail: this.routeMatch }))
+    } else {
+      this.navigateTo(window.location.pathname);
     }
-    this.el.dispatchEvent(new (window as any).CustomEvent('stencilRouterNavigation', { detail: this.routeMatch}));
+    
+    var oldPathName = window.location.pathname;
   }
 
   handleHashChange(e) {
