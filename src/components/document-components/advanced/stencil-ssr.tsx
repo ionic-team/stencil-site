@@ -8,9 +8,7 @@ export class StencilSsr {
 
   render() {
     return [
-      <docs-page>
-        <app-marked doc='advanced/ssr/index.md'></app-marked>
-      </docs-page>
+      <app-marked doc='advanced/ssr/index.md'></app-marked>
     ]
   }
 }

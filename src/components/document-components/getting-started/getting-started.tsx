@@ -8,9 +8,7 @@ export class GettingStarted {
 
   render() {
     return [
-      <docs-page>
-        <app-marked doc='start/index.md'></app-marked>
-      </docs-page>
+      <app-marked doc='start/index.md'></app-marked>
     ]
   }
 }

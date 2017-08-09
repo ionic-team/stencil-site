@@ -8,9 +8,7 @@ export class CodeSplitting {
 
   render() {
     return [
-      <docs-page>
-        <app-marked doc='basics/code-splitting.md'></app-marked>
-      </docs-page>
+      <app-marked doc='basics/code-splitting.md'></app-marked>
     ]
   }
 }

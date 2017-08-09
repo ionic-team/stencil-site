@@ -8,9 +8,7 @@ export class BasicsComponents {
 
   render() {
     return [
-      <docs-page>
-        <app-marked doc='basics/components.md'></app-marked>
-      </docs-page>
+      <app-marked doc='basics/components.md'></app-marked>
     ]
   }
 }

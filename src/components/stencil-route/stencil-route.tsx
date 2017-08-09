@@ -67,15 +67,19 @@ export class Route {
     const ChildComponent = this.component;
     console.log('this.component', this.component);
 
-    // Check if this route is in the matching URL (for example, a parent route)
-    // const isInPath = this.match.url.indexOf(this.url) == 0;
+    const cleanedUrl = this.url.split('/').join().replace(/ /g, '');
+    const cleanedMatchUrl = match.url.split('/').join().replace(/ /g, '');
 
-    // const matches = this.exact ? match.url == this.url : isInPath;
+    // Check if this route is in the matching URL (for example, a parent route)
+    const isInPath = cleanedMatchUrl.indexOf(cleanedUrl) === 0;
+
+    const matches = this.exact ? cleanedMatchUrl === cleanedUrl : isInPath;
+    console.log('in path', isInPath)
     console.log('is exact', this.exact);
     console.log('match.url', match.url);
     console.log('this.url', this.url);
     
-    const matches = match.url === this.url;
+    // const matches = match.url === this.url;
 
     console.log(`\tDoes ${match.url} match our path ${this.url}?`, matches)
 

@@ -9,15 +9,15 @@ export class SiteMenu {
    @State() menu = [
     {
       title: 'Getting Started',
-      url: '',
+      url: '/docs',
       items: [
-        { title: 'What is Stencil?', url: '/docs/what-is-stencil' },
-        { title: 'Getting Started', url: '/docs/getting-started' },
+        { title: 'What is Stencil?', url: '/what-is-stencil' },
+        { title: 'Getting Started', url: '/getting-started' },
       ]
     },
     {
       title: 'Basics',
-      url: '/basics',
+      url: '/docs/basics',
       items: [
         { title: 'Components', url: '/components' },
         { title: 'Code Splitting', url: '/code-splitting'}
@@ -25,21 +25,21 @@ export class SiteMenu {
     },
     {
       title: 'Advanced',
-      url: '/advanced',
+      url: '/docs/advanced',
       items: [
         { title: 'Server Side Rendering', url: '/server-side-rendering' },
       ]
     },
     {
       title: 'Compiler',
-      url:'/compiler',
+      url:'/docs/compiler',
       items: [
         { title: 'Config', url: '/config' }
       ]
     },
     {
       title: 'API',
-      url: '/api',
+      url: '/docs/api',
       items: []
     }
   ];
