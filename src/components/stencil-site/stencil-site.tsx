@@ -5,19 +5,26 @@ import { Component } from '@stencil/core';
   styleUrl: 'stencil-site.scss'
 })
 export class App {
-  constructor() {
-  }
+  constructor() {}
   render() {
     return (
       <div class="app">
+      <site-header />
+
         <stencil-router id="router">
 
-          <site-header />
-          <div>
-            <stencil-route url="/" router="#router" component="landing-page" exact={true}/>
-            <stencil-route url="/docs" router="#router" component="docs-page"/>
-            <stencil-route url="/demos" router="#router" component="demos-page" />
-          </div>
+            <stencil-route
+              url="/"
+              router="#router"
+              component="docs-page"
+              exact={true}
+            />
+
+            <stencil-route
+              url="/demos"
+              router="#router"
+              component="demos-page"
+            />
         </stencil-router>
       </div>
     );

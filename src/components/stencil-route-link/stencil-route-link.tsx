@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, Element } from '@stencil/core';
 
 /**
   * @name Route
@@ -9,6 +9,7 @@ import { Component, Prop } from '@stencil/core';
   tag: 'stencil-route-link'
 })
 export class RouteLink {
+  @Element() el: HTMLElement;
   @Prop() url: string;
 
   @Prop() custom: boolean = false;
@@ -18,7 +19,6 @@ export class RouteLink {
 
   handleClick(e) {
     e.preventDefault();
-    
     console.log('Route link click', e);
     const router = document.querySelector(this.router);
     if(!router) {

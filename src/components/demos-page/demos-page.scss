@@ -1,20 +1,7 @@
 demos-page {
   display: block;
-  max-width: 600px;
-  margin: 200px auto 0 auto;
-
   text-align: center;
-
   #demos-desc {
     text-align: justify;
-  }
-
-  ion-card {
-    height: 13em;
-
-    ion-card-header {
-      font-size: 1.4em;
-      font-weight: bold;
-    }
   }
 }

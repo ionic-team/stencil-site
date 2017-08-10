@@ -5,65 +5,53 @@ import { Component, State } from '@stencil/core';
   styleUrl: 'site-menu.scss'
 })
 export class SiteMenu {
-
-   @State() menu = [
-    {
-      title: 'Getting Started',
-      url: '/docs',
-      items: [
-        { title: 'What is Stencil?', url: '/what-is-stencil' },
-        { title: 'Getting Started', url: '/getting-started' },
-      ]
-    },
-    {
-      title: 'Basics',
-      url: '/docs/basics',
-      items: [
-        { title: 'Components', url: '/components' },
-        { title: 'Code Splitting', url: '/code-splitting'}
-      ]
-    },
-    {
-      title: 'Advanced',
-      url: '/docs/advanced',
-      items: [
-        { title: 'Server Side Rendering', url: '/server-side-rendering' },
-      ]
-    },
-    {
-      title: 'Compiler',
-      url:'/docs/compiler',
-      items: [
-        { title: 'Config', url: '/config' }
-      ]
-    },
-    {
-      title: 'API',
-      url: '/docs/api',
-      items: []
-    }
-  ];
-
   render() {
     return (
-      <ion-col>
-        <h2>Documentation</h2>
+      <div>
         <ul>
-          {this.menu.map(s => {
-            return (
-              <li class="section"><stencil-route-link url={`s${s.url}`} router="#router" class="section-title" custom={true}>{s.title}</stencil-route-link>
-                <ul>
-                  {s.items.map(i => {
-                    return (
-                      <li><stencil-route-link url={`${s.url}${i.url}`} router="#router">{i.title}</stencil-route-link></li>
-                    )
-                  })}
-                </ul>
+          <li>
+            <h4>Intro</h4>
+            <ul>
+              <li>
+                <stencil-route-link url="/what-is-stencil" router="#content-routes" custom={true}>
+                  What is stencil
+            </stencil-route-link>
               </li>
-            )
-          })}
+              <li>
+                <stencil-route-link url="/getting-started" router="#content-routes" custom={true}>
+                  Getting Started
+                </stencil-route-link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h4>Basics</h4>
+            <ul>
+              <li>
+                <stencil-route-link url="/components" router="#content-routes" custom={true}>
+                  Components
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/code-splitting" router="#content-routes" custom={true}>
+                  Code Splitting
+                </stencil-route-link>
+              </li>
+            </ul>
+            </li>
+
+          <li>
+            <h4>Advanced</h4>
+            <ul>
+              <li>
+                <stencil-route-link url="/server-side-rendering" router="#content-routes" custom={true}>
+                  Server Side Rendering
+                </stencil-route-link>
+              </li>
+            </ul>
+          </li>
         </ul>
-      </ion-col>
-    )
+      </div>
+    );
   }
 }

@@ -11,9 +11,6 @@ export class SiteHeader {
         <img class="logo pull-left" src="img/text-logo.png" />
         <div class="pull-right">
           <stencil-route-link router="#router" url="/" custom={true}>
-            Home
-          </stencil-route-link>
-          <stencil-route-link router="#router" url="/docs" custom={true}>
             Docs
           </stencil-route-link>
           <stencil-route-link router="#router" url="/demos" custom={true}>

@@ -13,20 +13,27 @@
 
   <script src="build/app.js"></script>
   <style>
-    *{
+    * {
       box-sizing: border-box;
     }
 
-  stencil-route-link {
-    margin: 10px;
-    font-size: 20px;
+    html,
+    body {
+      font-family: sans-serif;
+      height: 100%;
+      width: 100%;
+      padding:0;
+      margin:0;
+    }
 
-  }
-  stencil-route-link:hover{
+    stencil-route-link {
+      font-size: 20px;
+    }
+
+    stencil-route-link:hover {
       text-decoration: underline;
       cursor: pointer;
     }
-
   </style>
 </head>
 
@@ -35,12 +42,12 @@
 
   <script>
     /*window.addEventListener('load', () => {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.error('Error', err));
-      }
-    })*/
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+              .then(() => console.log('service worker installed'))
+              .catch(err => console.error('Error', err));
+          }
+        })*/
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js" async defer></script>
