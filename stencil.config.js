@@ -6,8 +6,7 @@ exports.config = {
     { components: ['demos-page', 'site-demo'] }
   ],
   collections: [
-    { name: '@ionic/core' }/*,
-    { name: '@stencil/router'}*/
+    /*{ name: '@stencil/router'}*/
   ]
 };
 

@@ -1,11 +1,14 @@
 landing-page {
   display: block;
-  max-width: 600px;
-  margin: 200px auto 0 auto;
-
   text-align: center;
 
-  ion-button .button {
+  .button-docs {
+    color: #ffffff;
     background-color: #5661F7;
+    padding: 10px 15px;
+    border-radius: 2px;
+    height: 3.6rem;
+    font-size: 1.4rem;
+    font-weight: 500;
   }
 }

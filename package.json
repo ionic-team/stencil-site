@@ -5,7 +5,7 @@
   "description": "Stencil Starter App",
   "scripts": {
     "build": "stencil build && workbox-cli generate:sw",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"http-server www\" ",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "test": "stencil build --watch",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ionic/core": "0.0.2-2",
-    "@stencil/core": "0.0.4-6"
+    "@stencil/core": "0.0.3"
   },
   "author": "Ionic Team",
   "license": "MIT",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/ionic-team/stencil",
   "devDependencies": {
-    "@stencil/dev-server": "0.0.11",
+    "@stencil/dev-server": "0.0.13",
     "@stencil/utils": "0.0.3",
     "workbox-cli": "^1.2.0"
   }

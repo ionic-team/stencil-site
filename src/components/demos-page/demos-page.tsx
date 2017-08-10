@@ -25,29 +25,10 @@ export class DemosPage {
   }
 
   render() {
-    const demoObjects = this.demos.map((demo) => {
-      return (
-        <ion-col>
-          <site-demo demo={demo}></site-demo>
-        </ion-col>
-      )
-    });
-
     return (
       <div>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <h1>Demos</h1>
-
-              <h4>Awesome demos of apps built using Stencil and Ionic</h4>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            {demoObjects}
-          </ion-row>
-        </ion-grid>
+        <h1>Demos</h1>
+        <h4>Awesome demos of apps built using Stencil and Ionic</h4>
       </div>
     )
 

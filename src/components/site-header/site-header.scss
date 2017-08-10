@@ -1,15 +1,44 @@
 site-header {
-  a {
-    color: #2b2b38;
+    position: sticky;
+    position: -webkit-sticky;
+  .site-header {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
   }
   .logo {
-    height: 32px;
+      width: 150px;
   }
-  .links {
+  stencil-route-link {
+    margin: 10px;
+    font-size: 20px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .pull-right {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: center;
     text-align: right;
-    a {
-      vertical-align: middle;
-      margin: 0px 15px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  site-header {
+    img {
+      padding-bottom: 20px;
+    }
+    .site-header, .pull-right {
+      display: block;
+      text-align: center;
     }
   }
 }

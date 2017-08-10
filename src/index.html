@@ -12,12 +12,26 @@
   <link rel="manifest" href="manifest.json">
 
   <script src="build/app.js"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+  stencil-route-link {
+    margin: 10px;
+    font-size: 20px;
+
+  }
+  stencil-route-link:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+  </style>
 </head>
 
 <body>
-  <ion-app>
-    <stencil-site></stencil-site>
-  </ion-app>
+  <stencil-site></stencil-site>
 
   <script>
     /*window.addEventListener('load', () => {

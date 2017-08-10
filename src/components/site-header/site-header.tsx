@@ -7,28 +7,20 @@ import { Component } from '@stencil/core';
 export class SiteHeader {
   render() {
     return (
-      <ion-header>
-        <ion-toolbar color='clear'>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img class="logo" src="img/text-logo.png" />
-              </ion-col>
-              <ion-col class="links" col-8>
-                <stencil-route-link router="#router" url="/" custom={true}>
-                  <ion-button clear>Home</ion-button>
-                </stencil-route-link>
-                <stencil-route-link router="#router" url="/docs" custom={true}>
-                  <ion-button clear>Docs</ion-button>
-                </stencil-route-link>
-                <stencil-route-link router="#router" url="/demos" custom={true}>
-                  <ion-button clear>Demos</ion-button>
-                </stencil-route-link>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-toolbar>
-      </ion-header>
-    )
+      <div class="site-header">
+        <img class="logo pull-left" src="img/text-logo.png" />
+        <div class="pull-right">
+          <stencil-route-link router="#router" url="/" custom={true}>
+            Home
+          </stencil-route-link>
+          <stencil-route-link router="#router" url="/docs" custom={true}>
+            Docs
+          </stencil-route-link>
+          <stencil-route-link router="#router" url="/demos" custom={true}>
+            Demos
+          </stencil-route-link>
+        </div>
+      </div>
+    );
   }
 }
