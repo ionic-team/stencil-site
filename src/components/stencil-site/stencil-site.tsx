@@ -18,7 +18,7 @@ export class App {
             <stencil-router id="router">
               <stencil-route url="/" component="landing-page" router="#router" exact={true} />
               <stencil-route url="/demos" router="#router" component="demos-page" />
-              <stencil-route url="/getting-started" component="getting-started" router="#router" />
+              <stencil-route url="/docs/getting-started" component="getting-started" router="#router" />
               <stencil-route url="/what-is-stencil" component="what-is" router="#router" />
               <stencil-route url="/components" component="basics-components" router="#router" />
               <stencil-route url="/code-splitting" component="code-splitting" router="#router" />

@@ -70,14 +70,14 @@ export class Route {
     const isInPath = cleanedMatchUrl.indexOf(cleanedUrl) === 0;
 
     const matches = this.exact ? cleanedMatchUrl === cleanedUrl : isInPath;
-    
+
     // const matches = match.url === this.url;
 
-    console.log(`\tDoes ${match.url} match our path ${this.url}?`, matches)
+    // console.log(`\tDoes ${match.url} match our path ${this.url}?`, matches)
 
     if (matches) {
-      console.log('childComponent', ChildComponent);
-      console.log(`  <ion-route> Rendering route ${this.url}`, this.router, match);
+      // console.log('childComponent', ChildComponent);
+      // console.log(`  <ion-route> Rendering route ${this.url}`, this.router, match);
       return (<ChildComponent props={this.componentProps} />);
     } else {
       return <span></span>;

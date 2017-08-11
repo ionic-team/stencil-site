@@ -30,12 +30,12 @@ export class Router {
       url: url
     }
 
-    console.log('\n<stencil-router> dispatching event', this.routeMatch)
+    // console.log('\n<stencil-router> dispatching event', this.routeMatch)
     this.el.dispatchEvent(new (window as any).CustomEvent('stencilRouterNavigation', { detail: this.routeMatch }))
   }
 
   componentWillLoad() {
-    console.log('<stencil-router> loaded');
+    // console.log('<stencil-router> loaded');
     window.addEventListener('popstate', this.handlePopState.bind(this));
     // window.addEventListener('hashchange', this.handleHashChange.bind(this));
     window.onhashchange = this.handleHashChange.bind(this);
@@ -43,7 +43,7 @@ export class Router {
     const initialPath = window.location.pathname;
     //const withoutBase = '';
     const withoutBase = initialPath.replace(this.root, '')
-
+    console.log(withoutBase)
     this.routeMatch = {
       url: "/" + withoutBase
     }
@@ -55,7 +55,7 @@ export class Router {
 
   handlePopState() {
     if (window.location.pathname !== oldPathName) {
-      console.log('were here');
+      // console.log('were here');
       this.routeMatch = {
         url: window.location.pathname
       }
@@ -64,15 +64,16 @@ export class Router {
     } else {
       this.navigateTo(window.location.pathname);
     }
-    
+
     var oldPathName = window.location.pathname;
   }
 
   handleHashChange(e) {
-    console.log('Hash change', e)
+    // console.log('Hash change', e)
   }
 
   render() {
+    console.log('rendering')
     return (
       <slot></slot>
     );
