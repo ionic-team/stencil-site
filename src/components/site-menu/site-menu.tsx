@@ -13,12 +13,10 @@ export class SiteMenu {
             <h4>Intro</h4>
             <ul>
               <li>
-                <stencil-route-link url="/what-is-stencil" router="#content-routes" custom={true}>
-                  What is stencil
-            </stencil-route-link>
+                <stencil-route-link url="/what-is-stencil" router="#router" > What is stencil </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/getting-started" router="#content-routes" custom={true}>
+                <stencil-route-link url="/getting-started" router="#router" >
                   Getting Started
                 </stencil-route-link>
               </li>
@@ -28,23 +26,23 @@ export class SiteMenu {
             <h4>Basics</h4>
             <ul>
               <li>
-                <stencil-route-link url="/components" router="#content-routes" custom={true}>
+                <stencil-route-link url="/components" router="#router" >
                   Components
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/code-splitting" router="#content-routes" custom={true}>
+                <stencil-route-link url="/code-splitting" router="#router" >
                   Code Splitting
                 </stencil-route-link>
               </li>
             </ul>
-            </li>
+          </li>
 
           <li>
             <h4>Advanced</h4>
             <ul>
               <li>
-                <stencil-route-link url="/server-side-rendering" router="#content-routes" custom={true}>
+                <stencil-route-link url="/server-side-rendering" router="#router" >
                   Server Side Rendering
                 </stencil-route-link>
               </li>

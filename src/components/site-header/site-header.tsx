@@ -10,10 +10,10 @@ export class SiteHeader {
       <div class="site-header">
         <img class="logo pull-left" src="img/text-logo.png" />
         <div class="pull-right">
-          <stencil-route-link router="#router" url="/" custom={true}>
+          <stencil-route-link router="#router" url="/">
             Docs
           </stencil-route-link>
-          <stencil-route-link router="#router" url="/demos" custom={true}>
+          <stencil-route-link router="#router" url="/demos">
             Demos
           </stencil-route-link>
         </div>

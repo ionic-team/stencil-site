@@ -7,3 +7,20 @@
   margin: 15px;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.pull-left {
+  min-width: 200px;
+  max-width: 200px;
+}
+.pull-right {
+  padding-left: 15px;
+  flex: 1 1 auto;
+}

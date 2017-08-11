@@ -5,27 +5,28 @@ import { Component } from '@stencil/core';
   styleUrl: 'stencil-site.scss'
 })
 export class App {
-  constructor() {}
+  constructor() { }
   render() {
     return (
       <div class="app">
-      <site-header />
-
-        <stencil-router id="router">
-
-            <stencil-route
-              url="/"
-              router="#router"
-              component="docs-page"
-              exact={true}
-            />
-
-            <stencil-route
-              url="/demos"
-              router="#router"
-              component="demos-page"
-            />
-        </stencil-router>
+        <site-header />
+        <div class="wrapper">
+          <div class="pull-left">
+            <site-menu />
+          </div>
+          <div class="pull-right">
+            <stencil-router id="router">
+              <stencil-route url="/" component="landing-page" router="#router" exact={true} />
+              <stencil-route url="/demos" router="#router" component="demos-page" />
+              <stencil-route url="/getting-started" component="getting-started" router="#router" />
+              <stencil-route url="/what-is-stencil" component="what-is" router="#router" />
+              <stencil-route url="/components" component="basics-components" router="#router" />
+              <stencil-route url="/code-splitting" component="code-splitting" router="#router" />
+              <stencil-route url="/config" component="compiler-config" router="#router" />
+              <stencil-route url="/server-side-rendering" component="stencil-ssr" router="#router" />
+            </stencil-router>
+          </div>
+        </div>
       </div>
     );
   }
