@@ -1,32 +1,31 @@
 {
-  "name": "@stencil/starter",
+  "name": "@stencil/stencil-site",
   "private": true,
   "version": "0.0.1",
-  "description": "Stencil Starter App",
+  "description": "Stencil Site",
   "scripts": {
     "build": "stencil build && workbox-cli generate:sw",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
-    "test": "stencil build --watch",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-starter.git"
-  },
   "dependencies": {
-    "@ionic/core": "0.0.2-3",
-    "@stencil/core": "0.0.4-9"
+    "@ionic/core": "^0.0.2-6",
+    "@stencil/core": "^0.0.5-0"
+  },
+  "devDependencies": {
+    "@stencil/dev-server": "latest",
+    "@stencil/utils": "latest",
+    "workbox-cli": "^1.2.0"
   },
   "author": "Ionic Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/stencil-site.git"
+  },
   "bugs": {
     "url": "https://github.com/ionic-team/stencil"
   },
-  "homepage": "https://github.com/ionic-team/stencil",
-  "devDependencies": {
-    "@stencil/dev-server": "0.0.14",
-    "@stencil/utils": "0.0.4",
-    "workbox-cli": "^1.2.0"
-  }
+  "homepage": "https://github.com/ionic-team/stencil"
 }
