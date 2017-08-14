@@ -5,7 +5,7 @@
   "description": "Stencil Site",
   "scripts": {
     "docs": "gulp",
-    "build": "stencil build",
+    "build": "gulp && stencil build",
     "build-old": "stencil build && workbox-cli generate:sw",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && gh-pages -d www",
