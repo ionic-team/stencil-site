@@ -1,4 +1,5 @@
-import { Component, State } from '@stencil/core';
+import { Component } from '@stencil/core';
+
 
 @Component({
   tag: 'site-menu',
@@ -13,10 +14,10 @@ export class SiteMenu {
             <h4>Introduction</h4>
             <ul>
               <li>
-              <stencil-route-link url="/docs/intro" router="#router" custom="true" > What is stencil </stencil-route-link>
+              <stencil-route-link url="/docs/intro" router="#router"> What is stencil </stencil-route-link>
               </li>
               <li>
-              <stencil-route-link url="/docs/getting-started" router="#router" custom="true" >
+              <stencil-route-link url="/docs/getting-started" router="#router">
                   Getting Started
                 </stencil-route-link>
               </li>
@@ -26,12 +27,12 @@ export class SiteMenu {
             <h4>Basics</h4>
             <ul>
               <li>
-                <stencil-route-link url="/components" router="#router"  custom="true">
+                <stencil-route-link url="/components" router="#router">
                   Components
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/code-splitting" router="#router"  custom="true">
+                <stencil-route-link url="/code-splitting" router="#router">
                   Code Splitting
                 </stencil-route-link>
               </li>
@@ -42,7 +43,7 @@ export class SiteMenu {
             <h4>Advanced</h4>
             <ul>
               <li>
-                <stencil-route-link url="/server-side-rendering" router="#router"  custom="true">
+                <stencil-route-link url="/server-side-rendering" router="#router">
                   Server Side Rendering
                 </stencil-route-link>
               </li>
