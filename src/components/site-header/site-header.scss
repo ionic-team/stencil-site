@@ -1,9 +1,9 @@
 site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
   .site-header {
     max-width: 1080px;
     margin: auto;
@@ -20,11 +20,7 @@ site-header {
   }
   stencil-route-link {
     margin: 10px 20px;
-
-    &:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
+    color: #484854;
   }
   .pull-right {
     order: 0;
