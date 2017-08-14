@@ -14,15 +14,18 @@ export class SiteMenu {
             <h4>Introduction</h4>
             <ul>
               <li>
-              <stencil-route-link url="/docs/intro" router="#router"> What is stencil </stencil-route-link>
+                <stencil-route-link url="/docs/intro" router="#router">
+                  What is stencil
+                </stencil-route-link>
               </li>
               <li>
-              <stencil-route-link url="/docs/getting-started" router="#router">
+                <stencil-route-link url="/docs/getting-started" router="#router">
                   Getting Started
                 </stencil-route-link>
               </li>
             </ul>
           </li>
+
           <li>
             <h4>Basics</h4>
             <ul>

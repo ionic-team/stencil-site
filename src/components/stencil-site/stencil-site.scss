@@ -34,9 +34,15 @@ h2 {
   font-size: 20px;
   font-weight: bold;
 }
+h3 {
+  margin-top: 48px;
+}
 p {
   color: #484854;
   font-size: 14px;
+}
+a, stencil-route-link {
+  color: #5850ff;
 }
 stencil-route-link:hover {
   text-decoration: underline;
@@ -82,7 +88,7 @@ pre {
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-  .pull-right{
+  .pull-right {
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -93,7 +99,7 @@ pre {
     background-color: #16161d;
 
     * {
-      color: #ffffff
+      color: #ffffff;
     }
   }
 }
