@@ -5,9 +5,7 @@
 .wrapper {
   padding-top: 60px;
   margin: 15px;
-}
 
-.wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -22,6 +20,7 @@
 }
 .pull-right {
   padding-left: 15px;
+  padding-right: 40px;
   flex: 1 1 auto;
 }
 
@@ -29,6 +28,11 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre-wrap;
+}
+@media screen and (max-width: 450px) {
+  .wrapper {
+    padding-top: 80px;
+  }
 }
 @media screen and (max-width: 575px) {
   .wrapper {

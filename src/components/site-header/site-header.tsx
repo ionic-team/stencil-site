@@ -10,10 +10,10 @@ export class SiteHeader {
       <div class="site-header">
         <img class="logo" src="/img/text-logo.png" />
         <div class="pull-right">
-          <stencil-route-link router="#router" url="/">
+          <stencil-route-link router="#router" url="/" custom="true">
             Docs
           </stencil-route-link>
-          <stencil-route-link router="#router" url="/demos">
+          <stencil-route-link router="#router" url="/demos" custom="true">
             Demos
             </stencil-route-link>
           <a href="http://github.com/ionic-team/stencil-site" target="_blank" class="button">Stencil</a>
