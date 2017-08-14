@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "description": "Stencil Site",
   "scripts": {
-    "build": "stencil build && workbox-cli generate:sw",
+    "build": "stencil build",
+    "build-old": "stencil build && workbox-cli generate:sw",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
