@@ -1,26 +1,21 @@
 import { Component, Prop, State } from '@stencil/core';
-
-declare var marked: any;
-
 @Component({
   tag: 'app-marked',
 })
 export class AppMarked {
 
   @Prop() doc: any;
-  @State() markup: any;
+  @State() content: any;
 
   ionViewWillLoad() {
-    fetch(`/docs-md/${this.doc}`).then((response) => {
-      return response.text()
-    }).then((data) => {
-      this.markup = marked(data);
-    })
+    fetch(`/docs-content/${this.doc}`)
+    .then(response => response.text())
+    .then(data => this.content = data)
   }
 
   render() {
     return (
-      <div innerHTML={this.markup}>
+      <div innerHTML={this.content}>
       </div>
     )
   }

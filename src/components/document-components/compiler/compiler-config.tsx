@@ -8,7 +8,7 @@ export class CompilerConfig {
 
   render() {
     return [
-      <app-marked doc='compiler/config.md'></app-marked>
+      <app-marked doc='compiler/config.html'></app-marked>
     ]
   }
 }

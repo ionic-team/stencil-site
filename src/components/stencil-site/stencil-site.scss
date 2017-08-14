@@ -17,10 +17,29 @@
 }
 
 .pull-left {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 300px;
+  max-width: 300px;
 }
 .pull-right {
   padding-left: 15px;
   flex: 1 1 auto;
+}
+
+pre {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+@media screen and (max-width: 575px) {
+  .wrapper {
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 999px) {
+  .pull-left {
+    min-width: 200px;
+    max-width: 200px;
+  }
 }

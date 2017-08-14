@@ -1,0 +1,52 @@
+<h1 id="server-side-rendering">Server Side Rendering</h1>
+<p>One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser.</p>
+<p>Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the <code>@stencil/core</code> package.</p>
+<h2 id="node-js-example">Node.js example</h2>
+<pre><code class="lang-javascript">var express = require(&#39;express&#39;);
+var app = express();
+var fs = require(&#39;fs&#39;);
+var path = require(&#39;path&#39;);
+
+var stencil = require(&#39;@stencil/core&#39;);
+
+// Create the stencil SSR renderer
+var renderer = stencil.createRenderer({
+  rootDir: path.join(__dirname, &#39;./&#39;),
+  buildDir: path.join(__dirname, &#39;./dist/&#39;),
+  namespace: &#39;Ionic&#39;,
+  logLevel: &#39;debug&#39;
+});
+
+// If you want to use HTML5 style routing in your client, keep the catch-all route handler here,
+// otherwise change it to a more specific route
+app.get(&#39;/*&#39;, function (req, res, next) {
+  console.log(`serve: ${req.url}`);
+
+  var filePath = path.join(__dirname, &#39;www/index.html&#39;);
+
+  fs.readFile(filePath, &#39;utf-8&#39;, (err, html) =&gt; {
+    if (err) {
+      console.error(err);
+      res.send(err);
+      return;
+    }
+
+    // Render the initial app content through Stencil
+    renderer.hydrateToString({
+      html: html,
+      req: req,
+      config: {}
+    }, function(err, html) {
+      if (err) {
+        // Handle the error hydrating
+        console.error(err);
+        return res.sendStatus(500);
+      }
+
+      // Send the hydrated data back
+      res.send(html);
+    });
+  });
+
+});
+</code></pre>

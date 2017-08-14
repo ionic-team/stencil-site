@@ -1,3 +1,0 @@
-# Understanding stencil.config.js
-
-

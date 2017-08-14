@@ -8,9 +8,9 @@ export class WhatIs {
 
   render() {
     return [
-      <app-marked doc='intro/index.md'></app-marked>,
-      <app-marked doc='intro/why.md'></app-marked>,
-      <app-marked doc='intro/history.md'></app-marked>
+      <app-marked doc='intro/index.html'></app-marked>,
+      <app-marked doc='intro/why.html'></app-marked>,
+      <app-marked doc='intro/history.html'></app-marked>
     ]
   }
 }

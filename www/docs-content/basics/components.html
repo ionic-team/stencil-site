@@ -1,0 +1,29 @@
+<h1 id="creating-components">Creating components</h1>
+<p>Stencil components are plan ES6/TypeScript classes with some decorator metadata.</p>
+<p>Create new components by creating files with a <code>.tsx</code> extension, such as <code>my-component.tsx</code>, and place them in <code>src/components</code>.</p>
+<pre><code class="lang-typescript">// Import the Component decorator, and h, the virtual dom call that our JSX compiles to.
+import { Component, Prop, State } from &#39;@stencil/core&#39;;
+
+@Component({
+  tag: &#39;my-component&#39;,
+  styleUrl: &#39;my-component.scss&#39;
+})
+export class MyComponent {
+  // Indicate that name should be a property on our new component
+  @Prop() name: string;
+
+  @State() isVisible: boolean = true;
+
+  render() {
+    return (
+      &lt;p&gt;
+        My name is {this.name}
+      &lt;/p&gt;
+    );
+  }
+}
+</code></pre>
+<p>Note: the <code>.tsx</code> extension is required, as this is the standard for TypeScript classes that use JSX.</p>
+<p>To use this component, just use it like any other HTML tag:</p>
+<pre><code class="lang-html">&lt;my-component name=&quot;Max&quot;&gt;&lt;/my-component&gt;
+</code></pre>

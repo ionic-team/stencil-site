@@ -1,9 +1,9 @@
 site-header {
   .site-header {
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     right: 0;
     padding: 10px 15px;
     display: flex;
@@ -15,11 +15,10 @@ site-header {
     width: 100%;
   }
   .logo {
-      width: 150px;
+    width: 150px;
   }
   stencil-route-link {
-    margin: 10px;
-    font-size: 20px;
+    margin: 10px 20px;
 
     &:hover {
       text-decoration: underline;
@@ -31,6 +30,17 @@ site-header {
     flex: 1 1 auto;
     align-self: center;
     text-align: right;
+  }
+  .button {
+    color: #ffffff;
+    background-color: #5661F7;
+    padding: 5px 15px;
+    border-radius: 2px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
