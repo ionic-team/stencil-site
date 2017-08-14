@@ -1,18 +1,15 @@
-<h1 id="creating-components">Creating components</h1>
-<p>Stencil components are plan ES6/TypeScript classes with some decorator metadata.</p>
-<p>Create new components by creating files with a <code>.tsx</code> extension, such as <code>my-component.tsx</code>, and place them in <code>src/components</code>.</p>
-<pre><code class="lang-typescript">// Import the Component decorator, and h, the virtual dom call that our JSX compiles to.
-import { Component, Prop, State } from &#39;@stencil/core&#39;;
+<h1 id="creating-stencil-components">Creating Stencil Components</h1>
+<p>Create Stencil components by creating a file with a <code>.tsx</code> extension, such as <code>my-first-component.tsx</code>, and place them in the <code>src/components</code> directory. The <code>.tsx</code> extension is required since Stencil components are built using <a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a>.</p>
+<p>Here is an example of what a Stencil component look like:</p>
+<pre><code class="lang-typescript">import { Component, Prop } from &#39;@stencil/core&#39;;
 
 @Component({
-  tag: &#39;my-component&#39;,
-  styleUrl: &#39;my-component.scss&#39;
+  tag: &#39;my-first-component&#39;,
+  styleUrl: &#39;my-first-component.scss&#39;
 })
 export class MyComponent {
-  // Indicate that name should be a property on our new component
+  // Indicate that name should be a public property on the component
   @Prop() name: string;
-
-  @State() isVisible: boolean = true;
 
   render() {
     return (
@@ -23,7 +20,15 @@ export class MyComponent {
   }
 }
 </code></pre>
-<p>Note: the <code>.tsx</code> extension is required, as this is the standard for TypeScript classes that use JSX.</p>
-<p>To use this component, just use it like any other HTML tag:</p>
-<pre><code class="lang-html">&lt;my-component name=&quot;Max&quot;&gt;&lt;/my-component&gt;
+<p>Once compiled, this component can be used in HTML just like any other tag.</p>
+<pre><code class="lang-html">&lt;my-first-component name=&quot;Max&quot;&gt;&lt;/my-first-component&gt;
 </code></pre>
+<p>When rendered, the browser will display <code>My name is Max</code>.</p>
+<h2 id="details">Details</h2>
+<p>So what&#39;s really going on here?</p>
+<p>For starters, at the top of the component, there are a few <code>imports</code> from the <code>@stencil/core</code> package. These imports are what pull in the <code>@Component()</code> and <code>@Prop()</code> decorators so TypeScript knows about it.</p>
+<p>The <code>@Component()</code> decorator is used to metadata about the component to the compiler. Use the <code>tag</code> property to specify the name of the HTML Tag/Element. The <code>styleUrl</code> property can be used to provide a relative path to a <code>.scss</code> file for providing the component&#39;s css.</p>
+<p>Below the <code>@Component()</code> decorator, we have an ES2015 class. This is where you&#39;ll write the bulk of your code to bring your Stencil component to life. Here is where you&#39;d write functions or provide business logic.</p>
+<p>Each Component class must implement a <code>render</code> function. This function is used to write <code>JSX</code> to provide the HTML mark-up for the component. In our simple case above, we are simply rendering a <code>&lt;p&gt;</code> tag with basic content it in, and using one-way data binding to render the value of the <code>name</code> property on the class.</p>
+<p>The <code>name</code> property on the ES2015 class is special in the sense that is decorated with a <code>@Prop()</code> decorator. To those coming from a <a href="https://facebook.github.io/react/">ReactJS</a> background, <code>@Prop()</code> should be very familiar. When something is decorated with the <code>@Prop()</code> decorator, it tells that compiler that the property is a part of the public API of the component, and can be set on the element. An example of this is setting the <code>name</code> field on the <code>my-first-component</code> element above.</p>
+<p>Any property decorated with <code>@Props()</code> is also automatically watched for changes. If we were to change our <code>my-first-component</code> element&#39;s <code>name</code> property at runtime, the <code>render</code> function would automatically be called, ensuring that our rendered content is always up to date. Likewise, if the ES2015 property <code>name</code> is changed programmatically, the <code>render</code> function will be called as well.</p>
