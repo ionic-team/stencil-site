@@ -8,6 +8,7 @@
     "build": "stencil build",
     "build-old": "stencil build && workbox-cli generate:sw",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "deploy": "npm run build && gh-pages -d www",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
   },
@@ -18,9 +19,10 @@
   "devDependencies": {
     "@stencil/dev-server": "0.0.16",
     "@stencil/utils": "0.0.4",
-    "workbox-cli": "1.3.0",
+    "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
-    "gulp-markdown": "^1.2.0"
+    "gulp-markdown": "^1.2.0",
+    "workbox-cli": "1.3.0"
   },
   "author": "Ionic Team",
   "license": "MIT",
