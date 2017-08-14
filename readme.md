@@ -1,32 +1,9 @@
-# Stencil Starter App
+# Stencil Site
 
-Stencil is a compiler for building fast web apps using Web Components.
+The Stencil site is the place for documentation on how to use Stencil.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+## Contributing
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all. In many cases, Stencil can be used as a drop in replacement for traditional frontend frameworks given the capabilities now available in the browser, though using it as such is certainly not required.
+Ensure you're using `npm 5` and `node 8`.
 
-Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
-
-## Getting Started
-
-To start a new project using Stencil, clone this repo and run:
-
-```bash
-npm start
-```
-
-To view the build, start an HTTP server inside of the `/www` directory.
-
-To watch for file changes during develop, run:
-
-```bash
-npm run dev
-```
-
-To build the app for production, run:
-
-```bash
-npm run build
-```
-
+Then run `npm install`, and then `npm run dev` to launch the site in development mode.
