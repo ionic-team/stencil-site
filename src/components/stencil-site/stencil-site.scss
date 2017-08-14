@@ -1,8 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+::selection {
+  background: #e7e7f2;
+}
+::-moz-selection {
+  background: #e7e7f2;
+}
+html, body {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-weight: 300;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+h1, h2, h3, h4 {
+  color: #16161d;
+}
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+p {
+  color: #484854;
+  font-size: 14px;
+}
+stencil-route-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .app {
   height: 100%;
+  max-width: 1080px;
+  margin: auto;
 }
-
 .wrapper {
+  line-height: 32px;
+  min-height: 100%;
   padding-top: 60px;
   margin: 15px;
 
@@ -13,17 +60,6 @@
   align-content: stretch;
   align-items: flex-start;
 }
-
-.pull-left {
-  min-width: 300px;
-  max-width: 300px;
-}
-.pull-right {
-  padding-left: 15px;
-  padding-right: 40px;
-  flex: 1 1 auto;
-}
-
 pre {
   word-break: break-all;
   word-wrap: break-word;
@@ -34,16 +70,41 @@ pre {
     padding-top: 80px;
   }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 590px) {
   .wrapper {
+    margin-right: 0;
+    margin-left: 0;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-}
-@media screen and (max-width: 999px) {
+  .pull-right{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
   .pull-left {
-    min-width: 200px;
-    max-width: 200px;
+    padding: 15px;
+    width: 100%;
+    bottom: 0;
+    background-color: #16161d;
+
+    * {
+      color: #ffffff
+    }
+  }
+}
+@media screen and (min-width: 590px) {
+  .pull-left {
+    min-width: 250px;
+    max-width: 250px;
+  }
+  .pull-right {
+    padding-left: 15px;
+    padding-right: 40px;
+    flex: 1 1 auto;
   }
 }

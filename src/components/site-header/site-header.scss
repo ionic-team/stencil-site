@@ -1,10 +1,12 @@
 site-header {
-  .site-header {
-    background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+  .site-header {
+    max-width: 1080px;
+    margin: auto;
     padding: 10px 15px;
     display: flex;
     flex-direction: row;
@@ -12,10 +14,9 @@ site-header {
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 100%;
   }
   .logo {
-    width: 150px;
+    width: 120px;
   }
   stencil-route-link {
     margin: 10px 20px;
@@ -33,7 +34,7 @@ site-header {
   }
   .button {
     color: #ffffff;
-    background-color: #5661F7;
+    background-color: #5850ff;
     padding: 5px 15px;
     border-radius: 2px;
     text-decoration: none;
@@ -43,7 +44,6 @@ site-header {
     }
   }
 }
-
 @media screen and (max-width: 450px) {
   site-header {
     img {

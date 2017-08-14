@@ -8,7 +8,7 @@ export class SiteHeader {
   render() {
     return (
       <div class="site-header">
-        <img class="logo" src="/img/text-logo.png" />
+        <img class="logo" src="/img/text-logo.svg" />
         <div class="pull-right">
           <stencil-route-link router="#router" url="/" custom="true">
             Docs
