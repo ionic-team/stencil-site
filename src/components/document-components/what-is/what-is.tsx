@@ -10,7 +10,6 @@ export class WhatIs {
     return [
       <app-marked doc='intro/index.html'></app-marked>,
       <app-marked doc='intro/why.html'></app-marked>,
-      <app-marked doc='intro/history.html'></app-marked>
     ]
   }
 }

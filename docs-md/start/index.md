@@ -1,8 +1,13 @@
 # Getting Started
 
-(Stencil requires Node 8 and NPM 5 or greater)
+### Requirements
 
-To start a new project using Stencil, clone the starter project and get to work:
+Stencil requires Node 8 and NPM 5 or greater.
+
+
+### App Base
+
+To start a new project, simply clone the app-base from Github:
 
 ```bash
 git clone git@github.com:ionic-team/stencil-starter my-app
@@ -11,8 +16,28 @@ git remote rm origin
 npm install
 ```
 
-To build your new Stencil project, just run
+Then, to start a live-reload server, run:
 
 ```bash
 npm start
 ```
+
+### Updates
+
+Changes made while the live-reload server will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
+
+We can ignore most of the content here, but we'll look at our `render` method. Inside the return statement, let's modify what we have.
+
+```typescript
+render() {
+    return (
+      <p>
+        Hello, my props are {this.first} and {this.last}
+      </p>
+    );
+  }
+
+```
+
+When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/components" router="#router"  custom="true">component docs</stencil-route-link>
+
