@@ -5,7 +5,7 @@
 Stencil requires Node 8 and NPM 5 or greater.
 
 
-### App Base
+### Starting a new project
 
 To start a new project, simply clone the app-base from Github:
 
@@ -22,7 +22,7 @@ Then, to start a live-reload server, run:
 npm start
 ```
 
-### Updates
+### Developing
 
 Changes made while the live-reload server will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
 
