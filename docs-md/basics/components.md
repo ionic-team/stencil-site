@@ -174,6 +174,49 @@ render() {
 
 # Stencil Basics
 
+## Embedding or Nesting Components
+
+Compose components can easily be nested within each other by simply adding the HTML tag to the JSX in the `render` method. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
+
+Here's an example of using a component within another component
+
+```
+import { Component, Prop } from '@stencil/core';
+
+@Component({
+  tag: 'my-embedded-component'
+})
+export class MyEmbeddedComponent {
+  @Prop() color: string = 'blue';
+
+  render() {
+    return (
+    <div>My favorite color is {this.color}</div>
+    );
+  }
+}
+```
+
+```
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'my-parent-component'
+})
+export class MyParentComponent {
+
+  render() {
+    return (
+      <div>
+        <my-embedded-component color="red"></my-embedded-component>
+      </div>
+    );
+  }
+}
+```
+
+The `my-parent-component` includes a reference to the `my-embedded-component` in the `render()` function.
+
 ## Component Decorator
 
 Each Stencil Component must be decorated with an `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide a HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
@@ -194,7 +237,7 @@ export class TodoList {
 
 ## Prop Decorator
 
-Props are custom attribute/properties exposed on the element that developer's can provide values for. Basically, they're the public API for an element. Props can be a `number`, `string`, `boolean`, or even an `Object`. By default, when a member decorated with `@Prop()` decorator is set, the component will efficiently re-render.
+Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object`. By default, when a member decorated with `@Prop()` decorator is set, the component will efficiently re-render.
 
 ```
 import { Prop } from '@stencil/core';
@@ -233,11 +276,12 @@ todoListElement.color = 'orange';
 
 ## PropWillChange and PropDidChange Decorators
 
-`PropWillChange()` and `PropDidChange()` are decorators that can be applied to functions that will be invoked immediately before and after a member decorated with `@Prop` is changed.
+`PropWillChange()` and `PropDidChange()` are decorators applied to functions that will be invoked immediately before and after a member decorated with `@Prop` is changed.
 
 ```
 import { Prop, PropDidChange, PropWillChange } from '@stencil/core';
 
+...
 export class LoadingIndicator {
   @Prop() activated: boolean;
 
@@ -261,11 +305,12 @@ The `@State()` decorator is very similar to the `@Prop()` decorator except it is
 ```
 import { State } from '@stencil/core';
 
+...
 export class TodoList {
-  @State() selectedTodos: Todo[];
+  @State() completedTodos: Todo[];
 
-  selectTodo(todo: Todo) {
-    this.selectedTodos = this.selectedTodos.concat([]).push(todo);
+  completeTodo(todo: Todo) {
+    this.completedTodos = this.completedTodos.concat([]).push(todo);
   }
 }
 ```
@@ -277,6 +322,7 @@ The `@Method()` decorator is used to expose methods on the public API. Functions
 ```
 import { Method } from '@stencil/core';
 
+...
 export class TodoList {
 
   @Method()
@@ -295,6 +341,15 @@ todoListElement.showPrompt();
 
 ## Element Decorator
 
+The `@Element` decorator is how to get access to the host element within the class instance.
+
+```
+import { Element } from '@stencil/core';
+
+export class TodoList {
+  @Element element: HTMLElement;
+}
+```
 
 ## Event Decorator and Event Emitters
 
@@ -302,10 +357,65 @@ todoListElement.showPrompt();
 
 ## Stencil Config
 
-## Lazy Loading
-
 ## Life Cycle Events
 
-## Embedding or Nesting Components
+Each Stencil Component can optionally receive life cycle notifications for the `componentWillLoad`, `componentDidLoad` and `componentDidUnload` events. Simply implement the method and Stencil will automatically call it.
+
+`componentWillLoad` is the ideal time to do any necessary DOM manipulations before the view is rendered in the DOM.
+
+```
+...
+export class TodoList {
+
+  componentWillLoad() {
+    console.log('The view is about to be rendered');
+  }
+
+  componentDidLoad() {
+    console.log('The view has been rendered');
+  }
+
+  componentDidUnload() {
+    console.log('The view has been removed from the DOM');
+  }
+}
+```
 
 ## Change Detection
+
+Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the `@Prop` and `@State` decorators and set the value.
+
+The example below WILL NOT trigger a re-render
+
+```
+import { State } from '@stencil/core';
+
+...
+export class TodoList {
+  @State() completedTodos: Todo[];
+
+  completeTodo(todo: Todo) {
+    this.completedTodos.push(todo);
+  }
+}
+```
+
+In the above example, we are changing the contents of the `completedTodos` array. A re-render is not performed because Stencil does not deeply watch items for change.
+
+In order to trigger a re-render, simply call the `completedTodos` setter like this:
+
+```
+import { State } from '@stencil/core';
+
+...
+export class TodoList {
+  @State() completedTodos: Todo[];
+
+  completeTodo(todo: Todo) {
+    const completedTodos = this.completedTodos.concat([]);
+    completedTodos.push(todo);
+    // by setting the value, Stencil re-renders
+    this.completedTodos = completedTodos
+  }
+}
+```
