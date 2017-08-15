@@ -4,7 +4,7 @@ Create Stencil components by creating a file with a `.tsx` extension, such as `m
 
 Here is an example of what a Stencil component look like:
 
-```typescript
+```jsx
 import { Component, Prop } from '@stencil/core';
 
 @Component({
@@ -56,7 +56,7 @@ Stencil components are rendered using JSX, a popular, declarative template synta
 
 The example below uses a basic if-else statement to determine what to render.
 
-```typescript
+```jsx
 render() {
   if (this.name) {
     return (<p>
@@ -78,7 +78,7 @@ Looping (for loops, while loops) works just like it does in javascript.
 
 In the example below, we're going to assume the component has a local property called `todos` which is a list of todo objects. We'll use the [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function on the array to loop over each item in the map, and to convert it to something else - in this case JSX.
 
-```typescript
+```jsx
 render() {
   const todosHtml = this.todos.map((todo: any) => {
     return (
@@ -100,7 +100,7 @@ Stencil uses native [DOM events](https://developer.mozilla.org/en-US/docs/Web/Ev
 
 Here's an example of handling a button click. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
-```typescript
+```jsx
 ...
 export class MyComponent {
   handleClick(event: UIEvent) {
@@ -117,7 +117,7 @@ export class MyComponent {
 
 Here's another of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
-```typescript
+```jsx
 ...
 export class MyComponent {
   inputChanged(event: UIEvent) {

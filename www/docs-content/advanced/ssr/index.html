@@ -2,48 +2,48 @@
 <p>One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser.</p>
 <p>Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the <code>@stencil/core</code> package.</p>
 <h2 id="node-js-example">Node.js example</h2>
-<pre><code class="lang-javascript">var express = require(&#39;express&#39;);
-var app = express();
-var fs = require(&#39;fs&#39;);
-var path = require(&#39;path&#39;);
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
 
-var stencil = require(&#39;@stencil/core&#39;);
+<span class="hljs-keyword">var</span> stencil = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/core'</span>);
 
-// Create the stencil SSR renderer
-var renderer = stencil.createRenderer({
-  rootDir: path.join(__dirname, &#39;./&#39;),
-  buildDir: path.join(__dirname, &#39;./dist/&#39;),
-  namespace: &#39;Ionic&#39;,
-  logLevel: &#39;debug&#39;
+<span class="hljs-comment">// Create the stencil SSR renderer</span>
+<span class="hljs-keyword">var</span> renderer = stencil.createRenderer({
+  rootDir: path.join(__dirname, <span class="hljs-string">'./'</span>),
+  buildDir: path.join(__dirname, <span class="hljs-string">'./dist/'</span>),
+  <span class="hljs-keyword">namespace</span>: <span class="hljs-string">'Ionic'</span>,
+  logLevel: <span class="hljs-string">'debug'</span>
 });
 
-// If you want to use HTML5 style routing in your client, keep the catch-all route handler here,
-// otherwise change it to a more specific route
-app.get(&#39;/*&#39;, function (req, res, next) {
-  console.log(`serve: ${req.url}`);
+<span class="hljs-comment">// If you want to use HTML5 style routing in your client, keep the catch-all route handler here,</span>
+<span class="hljs-comment">// otherwise change it to a more specific route</span>
+app.get(<span class="hljs-string">'/*'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res, next</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`serve: <span class="hljs-subst">${req.url}</span>`</span>);
 
-  var filePath = path.join(__dirname, &#39;www/index.html&#39;);
+  <span class="hljs-keyword">var</span> filePath = path.join(__dirname, <span class="hljs-string">'www/index.html'</span>);
 
-  fs.readFile(filePath, &#39;utf-8&#39;, (err, html) =&gt; {
-    if (err) {
-      console.error(err);
+  fs.readFile(filePath, <span class="hljs-string">'utf-8'</span>, <span class="hljs-function">(<span class="hljs-params">err, html</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (err) {
+      <span class="hljs-built_in">console</span>.error(err);
       res.send(err);
-      return;
+      <span class="hljs-keyword">return</span>;
     }
 
-    // Render the initial app content through Stencil
+    <span class="hljs-comment">// Render the initial app content through Stencil</span>
     renderer.hydrateToString({
       html: html,
       req: req,
       config: {}
-    }, function(err, html) {
-      if (err) {
-        // Handle the error hydrating
-        console.error(err);
-        return res.sendStatus(500);
+    }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, html</span>) </span>{
+      <span class="hljs-keyword">if</span> (err) {
+        <span class="hljs-comment">// Handle the error hydrating</span>
+        <span class="hljs-built_in">console</span>.error(err);
+        <span class="hljs-keyword">return</span> res.sendStatus(<span class="hljs-number">500</span>);
       }
 
-      // Send the hydrated data back
+      <span class="hljs-comment">// Send the hydrated data back</span>
       res.send(html);
     });
   });

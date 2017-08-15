@@ -28,7 +28,7 @@ Changes made while the live-reload server will automatically be reflected. Let's
 
 We can ignore most of the content here, but we'll look at our `render` method. Inside the return statement, let's modify what we have.
 
-```typescript
+```jsx
 render() {
     return (
       <p>

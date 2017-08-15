@@ -4,22 +4,22 @@
 <p>First thing, ensure that the <code>collections</code> entry in <code>stencil.config.js</code> has the <code>@stencil/router</code> package. If it does not, please add it.</p>
 <h2 id="configuring-the-router">Configuring the Router</h2>
 <p>Applications built with Stencil should have one <code>stencil-router</code> element for the entire application. Make sure to specify an <code>id</code> attribute on it.</p>
-<pre><code>&lt;stencil-router id=&quot;router&quot;&gt;
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">stencil-router</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"router"</span>&gt;</span>
 ...
-&lt;/stencil-router&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">stencil-router</span>&gt;</span>
 </code></pre><p>Within the <code>stencil-router</code> element, we want to declare our set of <code>stencil-route</code>s. Each <code>stencil-route</code> needs to take a reference to the router, a url, and then an HTML element tag name.</p>
-<pre><code>&lt;stencil-router id=&quot;router&quot;&gt;
-  &lt;stencil-route url=&quot;/&quot; component=&quot;landing-page&quot; router=&quot;#router&quot; exact={true}/&gt;
-  &lt;stencil-route url=&quot;/demos&quot; router=&quot;#router&quot; component=&quot;demos-page&quot;/&gt;
-  &lt;stencil-route url=&quot;/demos/rendering&quot; router=&quot;#router&quot; component=&quot;fiber-demo&quot;/&gt;
-  &lt;stencil-route url=&quot;/docs&quot; router=&quot;#router&quot; component=&quot;docs&quot;/&gt;
-  &lt;stencil-route url=&quot;/docs/getting-started&quot; router=&quot;#router&quot; component=&quot;getting-started&quot;/&gt;
-  &lt;stencil-route url=&quot;/components&quot; router=&quot;#router&quot; component=&quot;basics-components&quot;/&gt;
-&lt;/stencil-router&gt;
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">stencil-router</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"router"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"landing-page"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">exact</span>=<span class="hljs-string">{true}/</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/demos"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"demos-page"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/demos/rendering"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"fiber-demo"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/docs"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"docs"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/docs/getting-started"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"getting-started"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/components"</span> <span class="hljs-attr">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"basics-components"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">stencil-router</span>&gt;</span>
 </code></pre><p>When navigating to <code>/demos/rendering</code> based on the above configuration, the <code>demos-page</code> component will be loaded with a child component <code>fiber-demo</code>. Nested routes/components just work.</p>
 <h2 id="navigating">Navigating</h2>
 <p>To navigate around an app, use the <code>stencil-route-link</code> component.</p>
-<pre><code>&lt;stencil-route-link router=&quot;#router&quot; url=&quot;/&quot;&gt;
-&lt;stencil-route-link router=&quot;#router&quot; url=&quot;/demos&quot;&gt;
-&lt;stencil-route-link router=&quot;#router&quot; url=&quot;/docs/getting-started&quot;&gt;
+<pre><code>&lt;stencil-route-link <span class="hljs-attribute">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attribute">url</span>=<span class="hljs-string">"/"</span>&gt;
+&lt;stencil-route-link <span class="hljs-attribute">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attribute">url</span>=<span class="hljs-string">"/demos"</span>&gt;
+&lt;stencil-route-link <span class="hljs-attribute">router</span>=<span class="hljs-string">"#router"</span> <span class="hljs-attribute">url</span>=<span class="hljs-string">"/docs/getting-started"</span>&gt;
 </code></pre>
