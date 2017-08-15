@@ -1,4 +1,4 @@
-<h1 id="creating-stencil-components">Creating Stencil Components</h1>
+<h1 id="creating-my-first-stencil-component">Creating My First Stencil Component</h1>
 <p>Create Stencil components by creating a file with a <code>.tsx</code> extension, such as <code>my-first-component.tsx</code>, and place them in the <code>src/components</code> directory. The <code>.tsx</code> extension is required since Stencil components are built using <a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a>.</p>
 <p>Here is an example of what a Stencil component look like:</p>
 <pre><code class="lang-typescript">import { Component, Prop } from &#39;@stencil/core&#39;;
@@ -13,9 +13,9 @@ export class MyComponent {
 
   render() {
     return (
-      &lt;p&gt;
-        My name is {this.name}
-      &lt;/p&gt;
+    &lt;p&gt;
+      My name is {this.name}
+    &lt;/p&gt;
     );
   }
 }
@@ -24,7 +24,7 @@ export class MyComponent {
 <pre><code class="lang-html">&lt;my-first-component name=&quot;Max&quot;&gt;&lt;/my-first-component&gt;
 </code></pre>
 <p>When rendered, the browser will display <code>My name is Max</code>.</p>
-<h2 id="details">Details</h2>
+<h2 id="my-first-stencil-component-details">My First Stencil Component Details</h2>
 <p>So what&#39;s really going on here?</p>
 <p>For starters, at the top of the component, there are a few <code>imports</code> from the <code>@stencil/core</code> package. These imports are what pull in the <code>@Component()</code> and <code>@Prop()</code> decorators so TypeScript knows about it.</p>
 <p>The <code>@Component()</code> decorator is used to metadata about the component to the compiler. Use the <code>tag</code> property to specify the name of the HTML Tag/Element. The <code>styleUrl</code> property can be used to provide a relative path to a <code>.scss</code> file for providing the component&#39;s css.</p>
@@ -32,3 +32,192 @@ export class MyComponent {
 <p>Each Component class must implement a <code>render</code> function. This function is used to write <code>JSX</code> to provide the HTML mark-up for the component. In our simple case above, we are simply rendering a <code>&lt;p&gt;</code> tag with basic content it in, and using one-way data binding to render the value of the <code>name</code> property on the class.</p>
 <p>The <code>name</code> property on the ES2015 class is special in the sense that is decorated with a <code>@Prop()</code> decorator. To those coming from a <a href="https://facebook.github.io/react/">ReactJS</a> background, <code>@Prop()</code> should be very familiar. When something is decorated with the <code>@Prop()</code> decorator, it tells that compiler that the property is a part of the public API of the component, and can be set on the element. An example of this is setting the <code>name</code> field on the <code>my-first-component</code> element above.</p>
 <p>Any property decorated with <code>@Props()</code> is also automatically watched for changes. If we were to change our <code>my-first-component</code> element&#39;s <code>name</code> property at runtime, the <code>render</code> function would automatically be called, ensuring that our rendered content is always up to date. Likewise, if the ES2015 property <code>name</code> is changed programmatically, the <code>render</code> function will be called as well.</p>
+<h1 id="jsx-basics">JSX Basics</h1>
+<p>Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a <code>render</code> function that returns the JSX content.</p>
+<h2 id="if-else-conditional-logic">If Else Conditional Logic</h2>
+<p>The example below uses a basic if-else statement to determine what to render.</p>
+<pre><code class="lang-typescript">render() {
+  if (this.name) {
+    return (&lt;p&gt;
+      Hello, my name is {this.name}
+    &lt;/p&gt;);
+  } else {
+    return (&lt;p&gt;
+      Hello, World
+    &lt;/p&gt;);
+  }
+}
+</code></pre>
+<p>Go ahead and toggle the <code>name</code> property on the <code>my-first-component</code> element. Different content will be rendered conditionally.</p>
+<h2 id="loops">Loops</h2>
+<p>Looping (for loops, while loops) works just like it does in javascript.</p>
+<p>In the example below, we&#39;re going to assume the component has a local property called <code>todos</code> which is a list of todo objects. We&#39;ll use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map</a> function on the array to loop over each item in the map, and to convert it to something else - in this case JSX.</p>
+<pre><code class="lang-typescript">render() {
+  const todosHtml = this.todos.map((todo: any) =&gt; {
+    return (
+      &lt;div&gt;
+        &lt;div&gt;{todo.taskName}&lt;/div&gt;
+        &lt;div&gt;{todo.isCompleted}&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  });
+  return todosHtml;
+}
+</code></pre>
+<p>Each item in the <code>this.todos</code> list is looped over, and <code>JSX</code> is returned for it. The array of JSX content is then returned.</p>
+<h2 id="handling-user-input">Handling User Input</h2>
+<p>Stencil uses native <a href="https://developer.mozilla.org/en-US/docs/Web/Events">DOM events</a>.</p>
+<p>Here&#39;s an example of handling a button click. Note the use of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow function</a>.</p>
+<pre><code class="lang-typescript">...
+export class MyComponent {
+  handleClick(event: UIEvent) {
+    alert(&#39;Received the button click!&#39;);
+  }
+
+  render() {
+    return (
+      &lt;button onClick={ (event: UIEvent) =&gt; this.handleClick(event)}&gt;Click Me!&lt;/button&gt;
+    );
+  }
+}
+</code></pre>
+<p>Here&#39;s another of listening to input <code>change</code>. Note the use of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow function</a>.</p>
+<p>``typescript
+...
+export class MyComponent {
+  inputChanged(event: UIEvent) {
+    console.log(&#39;input changed: &#39;, event.target.value);
+  }</p>
+<p>  render() {
+    return (
+      <input onChange={ (event: UIEvent) => this.inputChanged(event)}&gt;
+    );
+  }
+}</p>
+<pre><code>
+## Complex Template Content
+
+In the example above, there is only a single element, a `&lt;p&gt;` tag, rendered. Tags are nestable just like in standard HTML.
+</code></pre><p>render() {
+  return (
+  <div class="container">
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </div>
+  );
+}</p>
+<pre><code>
+In the case where a component has multiple &quot;top level&quot; elements, the `render` function must return an array.
+</code></pre><p>render() {
+  return ([
+  // first top level element
+  <div class="container">
+    <ul>
+      <li>Item #1</li>
+      <li>Item #2</li>
+      <li>Item #3</li>
+    </ul>
+  </div>,</p>
+<p>  // second top level element, note the , above
+  <div class="another-container">
+    ... more html content ...
+  </div>
+  ]);
+}</p>
+<pre><code>
+# Stencil Basics
+
+## Component Decorator
+
+Each Stencil Component must be decorated with an `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer&#39;s must provide a HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
+
+Use a relative url to the `.scss` file for the styleUrl(s).
+</code></pre><p>import { Component } from &#39;@stencil/core&#39;;</p>
+<p>@Component({
+  tag: &#39;todo-list&#39;,
+  styleUrl: &#39;todo-list.scss&#39;
+})
+export class TodoList {
+  ...
+}</p>
+<pre><code>
+## Prop Decorator
+
+Props are custom attribute/properties exposed on the element that developer&#39;s can provide values for. Basically, they&#39;re the public API for an element. Props can be a `number`, `string`, `boolean`, or even an `Object`. By default, when a member decorated with `@Prop()` decorator is set, the component will efficiently re-render.
+</code></pre><p>import { Prop } from &#39;@stencil/core&#39;;
+...
+export class TodoList {
+  @Prop() color: string;
+  @Prop() favoriteNumber: number;
+  @Prop() isSelected: boolean;
+  @Prop() myHttpService: MyHttpService;
+}</p>
+<pre><code>
+Within the `TodoList` class, the Props are accessed via the `this` operator.
+</code></pre><p>...
+colorChanged(newColor: string) {
+  this.color = newColor;
+}
+...</p>
+<pre><code>
+Externally, Props are accessed directly on the element.
+</code></pre><p><todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list></p>
+<pre><code>
+They can also be accessed via JS from the element.
+</code></pre><p>const todoListElement = document.querySelector(&#39;todo-list&#39;);
+todoListElement.myHttpService = someObject;
+todoListElement.color = &#39;orange&#39;;</p>
+<pre><code>
+## PropWillChange and PropDidChange Decorators
+
+`PropWillChange()` and `PropDidChange()` are decorators that can be applied to functions that will be invoked immediately before and after a member decorated with `@Prop` is changed.
+</code></pre><p>import { Prop, PropDidChange, PropWillChange } from &#39;@stencil/core&#39;;</p>
+<p>export class LoadingIndicator {
+  @Prop() activated: boolean;</p>
+<p>  @PropWillChange(&#39;activated&#39;)
+  willChangeHandler(newValue: boolean) {
+    console.log(&#39;The new value of activated is: &#39;, newValue);
+  }</p>
+<p>  @PropDidChange(&#39;activated&#39;)
+  didChangeHandler(newValue: boolean) {
+    // do something now that <code>activated</code> has changed
+  }
+}</p>
+<pre><code>
+## State Decorator
+
+The `@State()` decorator is very similar to the `@Prop()` decorator except it is used for managing internal state instead of the public API. Decorating a class member with `@State()` will trigger efficient re-renders when the value is set, but it won&#39;t be accessible through the Element.
+</code></pre><p>import { State } from &#39;@stencil/core&#39;;</p>
+<p>export class TodoList {
+  @State() selectedTodos: Todo[];</p>
+<p>  selectTodo(todo: Todo) {
+    this.selectedTodos = this.selectedTodos.concat([]).push(todo);
+  }
+}</p>
+<pre><code>
+## Method Decorator
+
+The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
+</code></pre><p>import { Method } from &#39;@stencil/core&#39;;</p>
+<p>export class TodoList {</p>
+<p>  @Method()
+  showPrompt() {
+    // show a prompt
+  }
+}</p>
+<pre><code>
+Call the method like this
+</code></pre><p>const todoListElement = document.querySelector(&#39;todo-list&#39;);
+todoListElement.showPrompt();
+```</p>
+<h2 id="element-decorator">Element Decorator</h2>
+<h2 id="event-decorator-and-event-emitters">Event Decorator and Event Emitters</h2>
+<h2 id="listen-decorator">Listen Decorator</h2>
+<h2 id="stencil-config">Stencil Config</h2>
+<h2 id="lazy-loading">Lazy Loading</h2>
+<h2 id="life-cycle-events">Life Cycle Events</h2>
+<h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
+<h2 id="change-detection">Change Detection</h2>
