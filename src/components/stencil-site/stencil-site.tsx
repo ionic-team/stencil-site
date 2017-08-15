@@ -21,6 +21,7 @@ export class App {
               <stencil-route url="/docs/getting-started" component="getting-started" router="#router" />
               <stencil-route url="/docs/intro" component="what-is" router="#router" />
               <stencil-route url="/components" component="basics-components" router="#router" />
+              <stencil-route url="/routing" component="basics-routing" router="#router" />
               <stencil-route url="/config" component="compiler-config" router="#router" />
               <stencil-route url="/server-side-rendering" component="stencil-ssr" router="#router" />
             </stencil-router>

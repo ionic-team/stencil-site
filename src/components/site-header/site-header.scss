@@ -6,6 +6,10 @@ site-header {
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+
+  *{
+    font-weight: bolder;
+  }
   .site-header {
     padding: 20px 15px;
     max-width: 1080px;
@@ -41,7 +45,7 @@ site-header {
   .button {
     color: #ffffff;
     background-color: #5850ff;
-    padding: 5px 15px;
+    padding: 8px 14px;
     border-radius: 2px;
     text-decoration: none;
 

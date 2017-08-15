@@ -34,6 +34,11 @@ export class SiteMenu {
                   Components
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/routing" router="#router">
+                  Router
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 
