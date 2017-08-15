@@ -176,7 +176,7 @@ render() {
 
 ## Embedding or Nesting Components
 
-Compose components can easily be nested within each other by simply adding the HTML tag to the JSX in the `render` method. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
+Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
 
 Here's an example of using a component within another component
 
@@ -346,16 +346,67 @@ The `@Element` decorator is how to get access to the host element within the cla
 ```
 import { Element } from '@stencil/core';
 
+...
 export class TodoList {
+
   @Element element: HTMLElement;
 }
 ```
 
 ## Event Decorator and Event Emitters
 
+To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) up for other components to handle, use the `@Event()` decorator.
+
+```
+import { Event, EventEmitter } from '@stencil/core';
+
+...
+export class TodoList {
+
+  @Event() todoCompleted: EventEmitter;
+
+  todoCompletedHandler(todo: Todo) {
+    this.todoCompleted.emit(todo);
+  }
+}
+
+```
+
+The code above will dispatch a custom DOM event called `todoCompleted`.
+
 ## Listen Decorator
 
-## Stencil Config
+The `Listen()` decorator is for listening and responding to DOM events from a child.
+
+In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
+
+```
+import { Listen } from '@stencil/core';
+
+...
+export class TodoApp {
+
+  @Listen('todoCompleted')
+  todoCompletedHandler(event: CustomEvent) {
+    console.log('Received the custom todoCompleted event: ', event.data);
+  }
+}
+```
+
+Handlers can also be registered for an event on a specific element. This is useful for listening to application-wide events. In the example below, we're going to listen for the escape key's keyup event.
+
+```
+import { Listen } from '@stencil/core';
+
+...
+export class TodoList {
+
+  @Listen('body:keyup.escape')
+  escapeKeyUp() {
+    console.log('the escape key was clicked');
+  }
+}
+```
 
 ## Life Cycle Events
 
@@ -419,3 +470,30 @@ export class TodoList {
   }
 }
 ```
+
+## Stencil Config
+
+The `stencil.config.js` file is where all Stencil configuration happens.
+
+Here's an example configuration:
+
+```
+exports.config = {
+  publicPath: '/build',
+  bundles: [
+    { components: ['stencil-site', 'site-header', 'landing-page'] },
+    { components: ['app-marked', 'getting-started', 'basics-components', 'compiler-config', 'what-is', 'code-splitting', 'stencil-ssr', 'site-menu'] },
+    { components: ['demos-page'] }
+  ],
+  collections: [
+    { name: '@stencil/router'}
+  ]
+};
+```
+
+The `publicPath` field should start with a `/` and be the URL root that you intend to use for deployment. By default, it will be set to `/` which will work in most cases.
+
+`bundles` is an array of objects that represent how components are grouped together in lazy-loaded bundles. It is important to note that every Stencil component be included in a bundle. In the example above, each object in the `bundles` array has it's own `components` array, which is the HTML tag name for each component. In general, the simplest approach is to give each component it's own bundle. A more advanced optimization would be grouping commonly used components together.
+
+`collections` is a field to specify a list of 3rd party Stencil libraries. Since everything is Stencil is async and lazy loaded by default, it is important to NOT have any hard `import` statements linking components together. Any library listed in the list `collections` entry will be recognized and included in the application by the Stencil compiler. By default, the `@Stencil/router` will be included.
+
