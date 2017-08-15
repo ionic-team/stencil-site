@@ -7,7 +7,7 @@ site-header {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 
-  *{
+  * {
     font-weight: bold;
   }
   .site-header {
@@ -63,7 +63,7 @@ site-header {
   }
   a.svg-button svg:hover {
     fill: #5850ff;
-    transform: scale(1.2)
+    transform: scale(1.2);
   }
 }
 @media screen and (max-width: 450px) {
@@ -74,6 +74,14 @@ site-header {
     .site-header, .pull-right {
       display: block;
       text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 495px) {
+  site-header {
+    .button {
+      display: none;
     }
   }
 }
