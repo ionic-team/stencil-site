@@ -1,6 +1,6 @@
 # Stencil Router
 
-The `@stencil/router` is shipped with Stencil apps by default. The developer experience of the router is designed to be similar to [React Router](https://reacttraining.com/react-router/), and it should make it easy to build apps of all size, from the very simple to the very complex.
+The developer experience of the router is designed to be similar to [React Router](https://reacttraining.com/react-router/), and it should make it easy to build apps of all size, from the very simple to the very complex.
 
 ## Adding the collection
 
