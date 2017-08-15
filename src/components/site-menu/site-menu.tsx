@@ -34,11 +34,6 @@ export class SiteMenu {
                   Components
                 </stencil-route-link>
               </li>
-              <li>
-                <stencil-route-link url="/code-splitting" router="#router">
-                  Code Splitting
-                </stencil-route-link>
-              </li>
             </ul>
           </li>
 

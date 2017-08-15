@@ -30,15 +30,18 @@ h1 {
   font-size: 28px;
   font-weight: bold;
 }
+h1:not(:first-child){
+  margin-top: 48px;
+}
 h2 {
   font-size: 20px;
   font-weight: bold;
 }
-h3 {
+h2,h3 {
   margin-top: 48px;
   margin-bottom: 8px;
 }
-p {
+p, ul {
   color: #484854;
   font-size: 14px;
 }
@@ -73,8 +76,17 @@ pre {
   white-space: pre-wrap;
   background-color: #16161d;
   color: #ffffff;
-  padding: 10px;
+   margin: 24px 0px 28px;
+  padding: 16px 24px;
+  border-radius: 4px;
+
+code {
+   box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
 }
+}
+
 @media screen and (max-width: 450px) {
   .wrapper {
     padding-top: 80px;

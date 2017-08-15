@@ -1,6 +1,6 @@
 # Stencil: A Compiler for Web Components
 
-Stencil is a build tool for generated vanilla Web Components. It combines the best concepts of the most popular frameworks into a straight-forward, compile-time tool.
+Stencil is a build tool for generating vanilla Web Components. It combines the best concepts of the most popular frameworks into a straight-forward, compile-time tool.
 
 Stencil takes advantage of
 

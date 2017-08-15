@@ -7,9 +7,10 @@ site-header {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
   .site-header {
+
+     padding: 20px 15px;
     max-width: 1080px;
     margin: auto;
-    padding: 10px 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -18,7 +19,7 @@ site-header {
     align-items: center;
   }
   .logo {
-    width: 120px;
+    width: 96px;
   }
   stencil-route-link a {
     margin: 10px 20px;
