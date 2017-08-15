@@ -97,6 +97,7 @@ pre {
     margin-left: 15px;
   }
   .pull-left {
+    position: relative;
     padding: 15px;
     width: 100%;
     bottom: 0;
@@ -111,6 +112,9 @@ pre {
   .pull-left {
     min-width: 250px;
     max-width: 250px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
   }
   .pull-right {
     padding-left: 15px;
