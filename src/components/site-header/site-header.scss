@@ -3,7 +3,9 @@ site-header {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   .site-header {
     max-width: 1080px;
     margin: auto;
@@ -18,9 +20,10 @@ site-header {
   .logo {
     width: 120px;
   }
-  stencil-route-link {
+  stencil-route-link a {
     margin: 10px 20px;
     color: #484854;
+    text-decoration: none;
   }
   .pull-right {
     order: 0;

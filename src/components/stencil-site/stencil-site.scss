@@ -36,6 +36,7 @@ h2 {
 }
 h3 {
   margin-top: 48px;
+  margin-bottom: 8px;
 }
 p {
   color: #484854;
@@ -70,6 +71,9 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre-wrap;
+  background-color: #16161d;
+  color: #ffffff;
+  padding: 10px;
 }
 @media screen and (max-width: 450px) {
   .wrapper {
