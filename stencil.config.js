@@ -2,15 +2,13 @@ exports.config = {
   publicPath: '/build',
   bundles: [
     { components: ['stencil-site', 'site-header', 'landing-page'] },
-    { components: ['app-marked', 'getting-started', 'basics-components','basics-routing','compiler-config', 'what-is', 'code-splitting', 'stencil-ssr', 'site-menu'] },
-    { components: ['demos-page'] }
+    { components: ['app-marked', 'site-menu'] },
+    { components: ['demos-page', 'document-component'] }
   ],
-  collections: [
-    { name: '@stencil/router'}
-  ]
+  collections: [{ name: '@stencil/router' }]
 };
 
 exports.devServer = {
   root: 'www',
   watchGlob: '**/**'
-}
+};

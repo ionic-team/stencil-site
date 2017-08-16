@@ -30,12 +30,12 @@ export class SiteMenu {
             <h4>Basics</h4>
             <ul>
               <li>
-                <stencil-route-link url="/components" router="#router">
+              <stencil-route-link url="/docs/components" router="#router">
                   Components
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/routing" router="#router">
+              <stencil-route-link url="/docs/routing" router="#router">
                   Router
                 </stencil-route-link>
               </li>
@@ -46,7 +46,7 @@ export class SiteMenu {
             <h4>Advanced</h4>
             <ul>
               <li>
-                <stencil-route-link url="/server-side-rendering" router="#router">
+              <stencil-route-link url="/docs/server-side-rendering" router="#router">
                   Server Side Rendering
                 </stencil-route-link>
               </li>
