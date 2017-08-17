@@ -341,7 +341,7 @@ todoListElement.showPrompt();
 
 ## Element Decorator
 
-The `@Element` decorator is how to get access to the host element within the class instance.
+The `@Element()` decorator is how to get access to the host element within the class instance.
 
 ```
 import { Element } from '@stencil/core';
@@ -349,7 +349,7 @@ import { Element } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Element element: HTMLElement;
+  @Element() element: HTMLElement;
 }
 ```
 
