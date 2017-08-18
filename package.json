@@ -8,6 +8,7 @@
     "build": "gulp && stencil build",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && workbox-cli generate:sw && firebase deploy",
+    "prerender": "stencil prerender",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
   },
