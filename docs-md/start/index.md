@@ -1,10 +1,5 @@
 # Getting Started
 
-## Requirements
-
-Stencil requires Node 8 and NPM 5 or greater.
-
-
 ## Starting a new project
 
 To start a new project, simply clone the app-base from Github:
