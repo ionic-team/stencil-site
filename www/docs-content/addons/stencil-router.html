@@ -5,7 +5,18 @@
 <p>In your project directory, run <code>npm install @stencil/router</code>.</p>
 <h2 id="adding-to-stencil-config-collection">Adding to Stencil Config Collection</h2>
 <p>First thing, ensure that the <code>collections</code> entry in <code>stencil.config.js</code> has the <code>@stencil/router</code> package. If it does not, please add it.</p>
-<h2 id="configuring-the-router">Configuring the Router</h2>
+<p>Open the project&#39;s <code>stencil.config.js</code> file, and look for the <code>config</code> export.</p>
+<p>From there, add an object with a name of <code>@stencil/router</code> to the <code>collections</code> array if it&#39;s not already there.</p>
+<pre><code>exports.config = {
+  publicPath: <span class="hljs-string">'/build'</span>,
+  bundles: [
+    { components: [<span class="hljs-string">'stencil-site'</span>, <span class="hljs-string">'site-header'</span>, <span class="hljs-string">'landing-page'</span>] },
+    { components: [<span class="hljs-string">'app-marked'</span>, <span class="hljs-string">'site-menu'</span>] },
+    { components: [<span class="hljs-string">'demos-page'</span>, <span class="hljs-string">'document-component'</span>] }
+  ],
+  collections: [{ name: <span class="hljs-string">'@stencil/router'</span> }]
+};
+</code></pre><h2 id="configuring-the-router">Configuring the Router</h2>
 <p>Applications built with Stencil should have one <code>stencil-router</code> element for the entire application. Make sure to specify an <code>id</code> attribute on it.</p>
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">stencil-router</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"router"</span>&gt;</span>
 ...
