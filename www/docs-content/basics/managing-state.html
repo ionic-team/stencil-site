@@ -1,0 +1,13 @@
+<h1 id="managing-component-state">Managing Component State</h1>
+<p>The <code>@State()</code> decorator is very similar to the <a href="">@Prop() decorator</a> except it is used for managing internal state instead of the public API. Decorating a class member with <code>@State()</code> will trigger efficient re-renders when the value is set, but it won&#39;t be accessible through the Element.</p>
+<pre><code><span class="hljs-keyword">import</span> { State } from <span class="hljs-string">'@stencil/core'</span>;
+
+...
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+  <span class="hljs-meta">@State()</span> completedTodos: Todo[];
+
+  completeTodo(todo: Todo) {
+    <span class="hljs-keyword">this</span>.completedTodos = <span class="hljs-keyword">this</span>.completedTodos.concat([]).push(todo);
+  }
+}
+</code></pre>

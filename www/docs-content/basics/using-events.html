@@ -1,0 +1,41 @@
+<h1 id="events">Events</h1>
+<p>Stencil composed talk to eachother through DOM events.</p>
+<h2 id="event-decorator-and-event-emitter">Event Decorator and Event Emitter</h2>
+<p>To dispatch <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events">Custom DOM events</a> up for other components to handle, use the <code>@Event()</code> decorator.</p>
+<pre><code><span class="hljs-keyword">import</span> { Event, EventEmitter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+
+  @Event() todoCompleted: EventEmitter;
+
+  todoCompletedHandler(todo: Todo) {
+    <span class="hljs-keyword">this</span>.todoCompleted.emit(todo);
+  }
+}
+</code></pre><p>The code above will dispatch a custom DOM event called <code>todoCompleted</code>.</p>
+<h2 id="listening-for-events">Listening for Events</h2>
+<p>The <code>Listen()</code> decorator is for listening and responding to DOM events from a child.</p>
+<p>In the example below, assume that a child component, <code>TodoList</code>, emits a <code>todoCompleted</code> event using the <code>EventEmitter</code>.</p>
+<pre><code><span class="hljs-keyword">import</span> { Listen } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoApp</span> {</span>
+
+  @Listen(<span class="hljs-string">'todoCompleted'</span>)
+  todoCompletedHandler(event: CustomEvent) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Received the custom todoCompleted event: '</span>, event.data);
+  }
+}
+</code></pre><p>Handlers can also be registered for an event on a specific element. This is useful for listening to application-wide events. In the example below, we&#39;re going to listen for the escape key&#39;s keyup event.</p>
+<pre><code><span class="hljs-keyword">import</span> { Listen } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+
+  @Listen(<span class="hljs-string">'body:keyup.escape'</span>)
+  escapeKeyUp() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'the escape key was clicked'</span>);
+  }
+}
+</code></pre>

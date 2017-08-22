@@ -1,0 +1,29 @@
+<h2 id="change-detection">Change Detection</h2>
+<p>Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the <code>@Prop</code> and <code>@State</code> decorators and set the value.</p>
+<p>The example below WILL NOT trigger a re-render</p>
+<pre><code><span class="hljs-keyword">import</span> { State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+  @State() completedTodos: Todo[];
+
+  completeTodo(todo: Todo) {
+    <span class="hljs-keyword">this</span>.completedTodos.push(todo);
+  }
+}
+</code></pre><p>In the above example, we are changing the contents of the <code>completedTodos</code> array. A re-render is not performed because Stencil does not deeply watch items for change.</p>
+<p>In order to trigger a re-render, simply call the <code>completedTodos</code> setter like this:</p>
+<pre><code><span class="hljs-keyword">import</span> { State } from <span class="hljs-string">'@stencil/core'</span>;
+
+...
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+  <span class="hljs-meta">@State()</span> completedTodos: Todo[];
+
+  completeTodo(todo: Todo) {
+    const completedTodos = <span class="hljs-keyword">this</span>.completedTodos.concat([]);
+    completedTodos.push(todo);
+    <span class="hljs-comment">// by setting the value, Stencil re-renders</span>
+    <span class="hljs-keyword">this</span>.completedTodos = completedTodos
+  }
+}
+</code></pre>

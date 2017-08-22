@@ -16,17 +16,20 @@ export class App {
           </div>
           <div class="pull-right">
             <stencil-router id="router">
+
               <stencil-route
                 url="/"
                 component="landing-page"
                 router="#router"
                 exact={true}
               />
+
               <stencil-route
                 url="/demos"
                 router="#router"
                 component="demos-page"
               />
+
               <stencil-route
                 url="/docs/intro"
                 router="#router"
@@ -35,6 +38,7 @@ export class App {
                   pages: ['intro/index.html', 'intro/why.html']
                 }}
               />
+
               <stencil-route
                 url="/docs/getting-started"
                 component="document-component"
@@ -43,22 +47,61 @@ export class App {
                   pages: ['start/index.html']
                 }}
               />
+
               <stencil-route
-                url="/docs/components"
+                url="/docs/my-first-component"
                 component="document-component"
                 router="#router"
                 componentProps={{
-                  pages: ['basics/components.html']
+                  pages: ['basics/my-first-component.html']
                 }}
               />
+
               <stencil-route
-                url="/docs/routing"
+                url="/docs/learning-jsx"
                 component="document-component"
                 router="#router"
                 componentProps={{
-                  pages: ['basics/stencil-router.html']
+                  pages: ['basics/learning-jsx.html']
                 }}
               />
+
+              <stencil-route
+                url="/docs/building-components"
+                component="document-component"
+                router="#router"
+                componentProps={{
+                  pages: ['basics/building-components.html']
+                }}
+              />
+
+              <stencil-route
+                url="/docs/using-events"
+                component="document-component"
+                router="#router"
+                componentProps={{
+                  pages: ['basics/using-events.html']
+                }}
+              />
+
+              <stencil-route
+                url="/docs/component-lifecycle"
+                component="document-component"
+                router="#router"
+                componentProps={{
+                  pages: ['basics/component-lifecycle.html']
+                }}
+              />
+
+              <stencil-route
+                url="/docs/stencil-config"
+                component="document-component"
+                router="#router"
+                componentProps={{
+                  pages: ['basics/stencil-config.html']
+                }}
+              />
+
               <stencil-route
                 url="/docs/config"
                 component="document-component"
@@ -67,6 +110,7 @@ export class App {
                   pages: ['compiler/config.html']
                 }}
               />
+
               <stencil-route
                 url="/docs/server-side-rendering"
                 component="document-component"
@@ -75,6 +119,16 @@ export class App {
                   pages: ['advanced/ssr/index.html']
                 }}
               />
+
+              <stencil-route
+                url="/docs/routing"
+                component="document-component"
+                router="#router"
+                componentProps={{
+                  pages: ['addons/stencil-router.html']
+                }}
+              />
+
             </stencil-router>
           </div>
         </div>

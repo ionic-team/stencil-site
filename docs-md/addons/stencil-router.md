@@ -1,8 +1,14 @@
 # Stencil Router
 
+`@stencil/router` is a package on NPM that contains a router that can be used in Stencil apps.
+
 The developer experience of the router is designed to be similar to [React Router](https://reacttraining.com/react-router/), and it should make it easy to build apps of all size, from the very simple to the very complex.
 
-## Adding the collection
+## Installing
+
+In your project directory, run `npm install @stencil/router`.
+
+## Adding to Stencil Config Collection
 
 First thing, ensure that the `collections` entry in `stencil.config.js` has the `@stencil/router` package. If it does not, please add it.
 

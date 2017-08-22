@@ -1,0 +1,33 @@
+<h1 id="embedding-or-nesting-components">Embedding or Nesting Components</h1>
+<p>Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
+<p>Here&#39;s an example of using a component within another component</p>
+<pre><code><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;
+
+<span class="hljs-meta">@Component({
+  tag: <span class="hljs-meta-string">'my-embedded-component'</span>
+})</span>
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmbeddedComponent</span> </span>{
+  <span class="hljs-meta">@Prop()</span> color: string = <span class="hljs-string">'blue'</span>;
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+    &lt;div&gt;My favorite color <span class="hljs-keyword">is</span> {<span class="hljs-keyword">this</span>.color}&lt;/div&gt;
+    );
+  }
+}
+</code></pre><pre><code><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+@Component({
+  <span class="hljs-attr">tag</span>: <span class="hljs-string">'my-parent-component'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyParentComponent</span> </span>{
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">my-embedded-component</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-embedded-component</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    );
+  }
+}</span>
+</code></pre><p>The <code>my-parent-component</code> includes a reference to the <code>my-embedded-component</code> in the <code>render()</code> function.</p>

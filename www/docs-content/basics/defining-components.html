@@ -1,0 +1,15 @@
+<h1 id="defining-components">Defining Components</h1>
+<p>Stencil Components always end in a <code>.tsx</code> extension. This is TypeScript&#39;s version of a JSX file.</p>
+<h2 id="component-decorator">Component Decorator</h2>
+<p>Each Stencil Component must be decorated with an <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide a HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
+<p>Use a relative url to the <code>.scss</code> file for the styleUrl(s).</p>
+<pre><code><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+@Component({
+  tag: <span class="hljs-string">'todo-list'</span>,
+  styleUrl: <span class="hljs-string">'todo-list.scss'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+  ...
+}
+</code></pre>
