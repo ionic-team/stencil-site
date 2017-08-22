@@ -12,6 +12,24 @@ In your project directory, run `npm install @stencil/router`.
 
 First thing, ensure that the `collections` entry in `stencil.config.js` has the `@stencil/router` package. If it does not, please add it.
 
+Open the project's `stencil.config.js` file, and look for the `config` export.
+
+From there, add an object with a name of `@stencil/router` to the `collections` array if it's not already there.
+
+```
+exports.config = {
+  publicPath: '/build',
+  bundles: [
+    { components: ['stencil-site', 'site-header', 'landing-page'] },
+    { components: ['app-marked', 'site-menu'] },
+    { components: ['demos-page', 'document-component'] }
+  ],
+  collections: [{ name: '@stencil/router' }]
+};
+```
+
+
+
 ## Configuring the Router
 
 Applications built with Stencil should have one `stencil-router` element for the entire application. Make sure to specify an `id` attribute on it.
