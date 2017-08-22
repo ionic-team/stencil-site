@@ -11,4 +11,4 @@ Stencil takes advantage of
 
 With this in place, Stencil generates a Web Component that follows web standards and no particular framework.
 
-Since Stencil generates standards compliant, they can work with many popular frameworks right out of the box, and can even be used without a framework. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
+Since Stencil generates standards compliant web components, they can work with many popular frameworks right out of the box, and can even be used without a framework. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
