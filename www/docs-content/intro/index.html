@@ -1,11 +1,19 @@
 <h1 id="stencil-a-compiler-for-web-components">Stencil: A Compiler for Web Components</h1>
-<p>Stencil is a build tool for generating vanilla Web Components. It combines the best concepts of the most popular frameworks into a straight-forward, compile-time tool.</p>
-<p>Stencil takes advantage of</p>
+<p>Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.</p>
+<p>Stencil takes features such as</p>
 <ul>
+<li>Virtual DOM</li>
+<li>Async rendering (inspired by React Fiber)</li>
+<li>Reactive data-binding</li>
 <li>TypeScript</li>
 <li>JSX</li>
-<li>Async rendering</li>
-<li>V-DOM</li>
 </ul>
-<p>With this in place, Stencil generates a Web Component that follows web standards and no particular framework.</p>
-<p>Since Stencil generates standards compliant web components, they can work with many popular frameworks right out of the box, and can even be used without a framework. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).</p>
+<p>and then generates standards-based Web Components with these features baked in.</p>
+<p>Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can even be used without a framework. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).</p>
+<p>Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.</p>
+<h3 id="why-stencil-">Why Stencil?</h3>
+<p>Stencil was created by the <a href="http://ionicframework.com/">Ionic Framework</a> team to help build faster, more capable components that worked across all major frameworks.</p>
+<p>While Ionic primarily targeted Cordova apps, the emergence of Progressive Web Apps as a rapidly growing target for web developers demanded a different approach to web app development performance. With Ionic&#39;s classic use of traditional frameworks and bundling techniques, the team was struggling to meet latency and code size demands for Progressive Web Apps that ran equally well on fast and slow networks, across a diversity of platforms and devices.</p>
+<p>Additionally, framework fragmentation had created a web development interoperability nightmare, where components built for one framework didn&#39;t work with another framework.</p>
+<p>Web Components offered a solution to both problems, pushing more work to the browser for better performance, and targeting a standards-based component model that all frameworks could use.</p>
+<p>However, Web Components by themselves weren&#39;t enough. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.</p>

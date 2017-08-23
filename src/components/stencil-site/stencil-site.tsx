@@ -35,7 +35,7 @@ export class App {
                 router="#router"
                 component="document-component"
                 componentProps={{
-                  pages: ['intro/index.html', 'intro/why.html']
+                  pages: ['intro/index.html']
                 }}
               />
 
