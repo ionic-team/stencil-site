@@ -53,7 +53,7 @@ exports.config = {
 
 By default, `www/index.html` (the `indexHtmlSrc` config property), is automatically prerendered.
 This means that the index.html already has all of the HTML the client-side code "would" have created,
-except it was done it at build-time. It also inlines the exact CSS needed for the HTML, and inlines
+except it was done at build-time. It also inlines the exact CSS needed for the HTML, and inlines
 the loader script. Prerendering the index.html file allows for blazing fast startup times, while also
 allowing the app to become a Single Page App.
 
