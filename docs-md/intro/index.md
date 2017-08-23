@@ -16,6 +16,8 @@ Since Stencil generates standards-compliant web components, they can work with m
 
 Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
+The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
+
 ### Why Stencil?
 
 Stencil was created by the [Ionic Framework](http://ionicframework.com/) team to help build faster, more capable components that worked across all major frameworks.
