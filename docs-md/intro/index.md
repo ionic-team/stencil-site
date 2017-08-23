@@ -12,7 +12,7 @@ Stencil takes features such as
 
 and then generates standards-based Web Components with these features baked in.
 
-Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can even be used without a framework. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
+Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can be used without a framework because they are just web components. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
 
 Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
@@ -27,3 +27,7 @@ Additionally, framework fragmentation had created a web development interoperabi
 Web Components offered a solution to both problems, pushing more work to the browser for better performance, and targeting a standards-based component model that all frameworks could use.
 
 However, Web Components by themselves weren't enough. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.
+
+<stencil-route-link url="/docs/getting-started" router="#router" custom="true" class="button">
+  Get Started with Stencil
+</stencil-route-link>

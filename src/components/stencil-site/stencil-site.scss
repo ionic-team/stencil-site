@@ -1,12 +1,15 @@
 * {
   box-sizing: border-box;
 }
+
 ::selection {
   background: #e7e7f2;
 }
+
 ::-moz-selection {
   background: #e7e7f2;
 }
+
 html, body {
   font-family: -apple-system,
     BlinkMacSystemFont,
@@ -23,40 +26,50 @@ html, body {
   padding: 0;
   margin: 0;
 }
+
 h1, h2, h3, h4 {
   color: #16161d;
 }
+
 h1 {
   font-size: 28px;
   font-weight: bold;
 }
+
 h1:not(:first-child) {
   margin-top: 48px;
 }
+
 h2 {
   font-size: 20px;
   font-weight: bold;
 }
+
 h2, h3 {
   margin-top: 48px;
   margin-bottom: 8px;
 }
+
 p, ul {
   color: #484854;
   font-size: 14px;
 }
+
 a, stencil-route-link {
   color: #5850ff;
 }
+
 stencil-route-link:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .app {
   height: 100%;
   max-width: 1080px;
   margin: auto;
 }
+
 .wrapper {
   line-height: 32px;
   min-height: 100%;
@@ -70,6 +83,7 @@ stencil-route-link:hover {
   align-content: stretch;
   align-items: flex-start;
 }
+
 pre {
   word-break: break-all;
   word-wrap: break-word;
@@ -95,6 +109,18 @@ code {
   font-weight: 400;
   font-family: "Source Code Pro", monospace;
   font-size: 14px;
+}
+
+.button {
+  color: #ffffff;
+  background-color: #5850ff;
+  padding: 8px 14px;
+  border-radius: 2px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .hljs-comment, .hljs-quote {

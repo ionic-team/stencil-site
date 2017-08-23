@@ -7,6 +7,10 @@ site-header {
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
 
+  .logo-link a {
+    margin: 0;
+  }
+
   * {
     font-weight: bold;
   }
@@ -41,17 +45,6 @@ site-header {
     order: 0;
     flex: 1 1 auto;
     text-align: right;
-  }
-  .button {
-    color: #ffffff;
-    background-color: #5850ff;
-    padding: 8px 14px;
-    border-radius: 2px;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   a.svg-button svg {
