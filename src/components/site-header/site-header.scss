@@ -6,6 +6,7 @@ site-header {
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+  z-index: 99;
 
   .logo-link a {
     margin: 0;
