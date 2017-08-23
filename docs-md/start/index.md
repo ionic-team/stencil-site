@@ -5,7 +5,7 @@
 To start a new project, simply clone the app-base from Github:
 
 ```bash
-git clone https://github.com/ionic-team/stencil.git my-app
+git clone https://github.com/ionic-team/stencil-starter.git my-app
 cd my-app
 git remote rm origin
 npm install
