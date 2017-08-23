@@ -22,7 +22,7 @@ export class TodoList {
 
 ## Prop Decorator
 
-Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object`. By default, when a member decorated with `@Prop()` decorator is set, the component will efficiently re-render.
+Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with `@Prop()` decorator is set, the component will efficiently re-render.
 
 ```
 import { Prop } from '@stencil/core';

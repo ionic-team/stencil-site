@@ -18,7 +18,7 @@ exports.config = {
 };
 ```
 
-The `publicPath` field should start with a `/` and be the URL root that you intend to use for deployment. By default, it will be set to `/` which will work in most cases.
+The `publicPath` field should start with a `/` and be the directory that you intend to use for deployment. By default, it will be set to `/build` which will work in most cases.
 
 `bundles` is an array of objects that represent how components are grouped together in lazy-loaded bundles. It is important to note that every Stencil component be included in a bundle. In the example above, each object in the `bundles` array has it's own `components` array, which is the HTML tag name for each component. In general, the simplest approach is to give each component it's own bundle. A more advanced optimization would be grouping commonly used components together.
 

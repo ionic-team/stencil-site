@@ -1,8 +1,8 @@
 # My First Stencil Component
 
-Create Stencil components by creating a file with a `.tsx` extension, such as `my-first-component.tsx`, and place them in the `src/components` directory. The `.tsx` extension is required since Stencil components are built using [JSX](https://facebook.github.io/react/docs/introducing-jsx.html).
+Create Stencil components by creating a file with a `.tsx` extension, such as `my-first-component.tsx`, and place them in the `src/components` directory. The `.tsx` extension is required since Stencil components are built using [JSX](https://facebook.github.io/react/docs/introducing-jsx.html) and TypeScript.
 
-Here is an example of what a Stencil component look like:
+Here is an example of what a Stencil component looks like:
 
 ```jsx
 import { Component, Prop } from '@stencil/core';
