@@ -18,6 +18,9 @@
 <p>Additionally, framework fragmentation had created a web development interoperability nightmare, where components built for one framework didn&#39;t work with another framework.</p>
 <p>Web Components offered a solution to both problems, pushing more work to the browser for better performance, and targeting a standards-based component model that all frameworks could use.</p>
 <p>However, Web Components by themselves weren&#39;t enough. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.</p>
+<h3 id="browser-support">Browser support</h3>
+<p>Web components, as of the V1 spec, are now cross browser. They are natively supported in Chrome and Safari and are coming to both Edge
+and Firefox. Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil&#39;s browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.</p>
 <p><stencil-route-link url="/docs/getting-started" router="#router" custom="true" class="button">
   Get Started with Stencil
 </stencil-route-link></p>

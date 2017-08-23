@@ -18,7 +18,7 @@ export class SiteHeader {
           <stencil-route-link router="#router" url="/demos">
             Demos
           </stencil-route-link>
-          <a class="svg-button" href="https://github.com/ionic-team/stencil-site" target="_blank">
+          <a class="svg-button" href="https://github.com/ionic-team/stencil" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
