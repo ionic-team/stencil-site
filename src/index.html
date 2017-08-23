@@ -11,6 +11,8 @@
   <meta name="theme-color" content="black">
   <link rel="manifest" href="manifest.json">
 
+  <script src="promise-poly.js"></script>
+
   <script src="/build/app.js"></script>
 </head>
 
@@ -18,13 +20,29 @@
   <stencil-site></stencil-site>
 
   <script>
-    /*window.addEventListener('load', () => {
-                      if ('serviceWorker' in navigator) {
-                        navigator.serviceWorker.register('sw.js')
-                          .then(() => console.log('service worker installed'))
-                          .catch(err => console.error('Error', err));
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((reg) => {
+              reg.onupdatefound = () => {
+                const installingWorker = reg.installing;
+                installingWorker.onstatechange = () => {
+                  switch (installingWorker.state) {
+                    case 'installed':
+                      if (navigator.serviceWorker.controller) {
+                        alert('New or updated content is available, please refresh');
                       }
-                    })*/
+                      break;
+                    case 'redundant':
+                      console.error('The installing service worker became redundant.');
+                      break;
+                  }
+                }
+              }
+            })
+            .catch(err => console.log('Error', err));
+        });
+    }
   </script>
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
