@@ -76,7 +76,7 @@ export class MyComponent {
 
   render() {
     return (
-      <input onChange={ (event: UIEvent) => this.inputChanged(event)}>
+      <input onChange={ (event: UIEvent) => this.inputChanged(event)}/>
     );
   }
 }
