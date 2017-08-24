@@ -71,7 +71,7 @@ Here's another of listening to input `change`. Note the use of the [Arrow functi
 ...
 export class MyComponent {
   inputChanged(event: UIEvent) {
-    console.log('input changed: ', event.target.value);
+    console.log('input changed: ', (event.target as any).value);
   }
 
   render() {
