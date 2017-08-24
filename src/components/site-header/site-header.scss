@@ -35,7 +35,6 @@ site-header {
   }
   .logo {
     width: 96px;
-    height: 27px;
   }
   stencil-route-link a, a {
     font-size: 13px;
@@ -78,5 +77,11 @@ site-header {
     .button {
       display: none;
     }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .logo {
+    height: 27px;
   }
 }
