@@ -47,8 +47,12 @@ colorChanged(newColor: string) {
 
 Externally, Props are accessed directly on the element.
 
+```html
+<todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
 ```
-<todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
+Note: you need to hyphenated the propName to set it as an attribute in the HTML, but inside JSX template you can use propName:
+```jsx
+<todo-list color="blue" isSelected={true}></todo-list>
 ```
 
 They can also be accessed via JS from the element.
