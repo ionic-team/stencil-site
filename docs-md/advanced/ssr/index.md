@@ -18,7 +18,7 @@ var stencil = require('@stencil/core');
 // Create the stencil SSR renderer
 var renderer = stencil.createRenderer({
   rootDir: path.join(__dirname, './'),
-  buildDir: path.join(__dirname, './dist/build/'),
+  buildDir: path.join(__dirname, './www/build/'),
   namespace: 'app',
   logLevel: 'debug'
 });
