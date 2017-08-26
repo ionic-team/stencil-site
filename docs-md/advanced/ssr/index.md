@@ -18,8 +18,8 @@ var stencil = require('@stencil/core');
 // Create the stencil SSR renderer
 var renderer = stencil.createRenderer({
   rootDir: path.join(__dirname, './'),
-  buildDir: path.join(__dirname, './dist/'),
-  namespace: 'Ionic',
+  buildDir: path.join(__dirname, './dist/build/'),
+  namespace: 'app',
   logLevel: 'debug'
 });
 
