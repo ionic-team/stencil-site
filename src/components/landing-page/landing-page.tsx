@@ -16,7 +16,8 @@ export class LandingPage {
         </p>
         <p>
           Stencil was created by the <a href="http://ionicframework.com/">Ionic Framework</a> team to build faster, more powerful mobile and web apps. Stencil is the foundation for the next generation of Ionic Framework, but is completely independent of Ionic or any other UI framework.
-        </p>
+            </p>
+          <youtube-video video="UfD-k7aHkQE"/>
         <p>
           <stencil-route-link url="/docs/intro" router="#router" custom="true" class="button">
             Learn More about Stencil

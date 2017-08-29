@@ -13,7 +13,7 @@
   ...
 }
 </code></pre><h2 id="prop-decorator">Prop Decorator</h2>
-<p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code>. By default, when a member decorated with <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
+<p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
 <pre><code><span class="hljs-keyword">import</span> { Prop } from <span class="hljs-string">'@stencil/core'</span>;
 ...
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
