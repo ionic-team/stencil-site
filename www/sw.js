@@ -168,7 +168,11 @@ const fileManifest = [
   },
   {
     "url": "manifest.json",
+<<<<<<< Updated upstream
     "revision": "64d82272b788fb4288790cb7e2aa8b66"
+=======
+    "revision": "ab5e18864e5002962d50ca783462119e"
+>>>>>>> Stashed changes
   },
   {
     "url": "promise-poly.js",
