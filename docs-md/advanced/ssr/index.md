@@ -18,10 +18,14 @@ var stencil = require('@stencil/core');
 // Create the stencil SSR renderer
 var renderer = stencil.createRenderer({
   rootDir: path.join(__dirname, './'),
-  buildDir: path.join(__dirname, './dist/'),
-  namespace: 'Ionic',
+  buildDir: path.join(__dirname, './www/build/'),
+  namespace: 'app',
   logLevel: 'debug'
 });
+
+// host the build directory as static files
+// so the app can pull client side scripts
+app.use('/build', express.static('www/build'));
 
 // If you want to use HTML5 style routing in your client, keep the catch-all route handler here,
 // otherwise change it to a more specific route
