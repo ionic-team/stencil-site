@@ -37,7 +37,7 @@ export class TodoApp {
 
   @Listen('todoCompleted')
   todoCompletedHandler(event: CustomEvent) {
-    console.log('Received the custom todoCompleted event: ', event.data);
+    console.log('Received the custom todoCompleted event: ', event.detail);
   }
 }
 ```
