@@ -9,19 +9,19 @@
 })</span>
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> </span>{
   <span class="hljs-comment">// Indicate that name should be a public property on the component</span>
-  <span class="hljs-meta">@Prop()</span> firstName: string;
+  <span class="hljs-meta">@Prop()</span> name: string;
 
   render() {
     <span class="hljs-keyword">return</span> (
     &lt;p&gt;
-      My name <span class="hljs-keyword">is</span> {<span class="hljs-keyword">this</span>.firstName}
+      My name <span class="hljs-keyword">is</span> {<span class="hljs-keyword">this</span>.name}
     &lt;/p&gt;
     );
   }
 }
 </code></pre>
 <p>Once compiled, this component can be used in HTML just like any other tag.</p>
-<pre><code class="lang-html">&lt;<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component <span class="hljs-keyword">first</span>-<span class="hljs-built_in">name</span>=<span class="hljs-string">"Max"</span>&gt;&lt;/<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component&gt;
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component <span class="hljs-built_in">name</span>=<span class="hljs-string">"Max"</span>&gt;&lt;/<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component&gt;
 </code></pre>
 <p>When rendered, the browser will display <code>My name is Max</code>.</p>
 <h2 id="so-what-s-really-going-on-here-">So what&#39;s really going on here?</h2>

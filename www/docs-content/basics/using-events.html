@@ -24,7 +24,7 @@
 
   @Listen(<span class="hljs-string">'todoCompleted'</span>)
   todoCompletedHandler(event: CustomEvent) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Received the custom todoCompleted event: '</span>, event.data);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Received the custom todoCompleted event: '</span>, event.detail);
   }
 }
 </code></pre><p>Handlers can also be registered for an event on a specific element. This is useful for listening to application-wide events. In the example below, we&#39;re going to listen for the escape key&#39;s keyup event.</p>

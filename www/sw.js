@@ -68,7 +68,7 @@ const fileManifest = [
   },
   {
     "url": "docs-content/advanced/ssr/index.html",
-    "revision": "7389e661fabb7f0af4c59d04495d48c7"
+    "revision": "ba42258303b5dd9e4d42b9d18047b79e"
   },
   {
     "url": "docs-content/basics/building-components.html",
@@ -104,7 +104,7 @@ const fileManifest = [
   },
   {
     "url": "docs-content/basics/my-first-component.html",
-    "revision": "d16fb7ae5139aaf40bc9016d7a9a282b"
+    "revision": "d0d3ff2ecef30b8187a8cc49c59a14cf"
   },
   {
     "url": "docs-content/basics/nesting-components.html",
@@ -120,7 +120,7 @@ const fileManifest = [
   },
   {
     "url": "docs-content/basics/using-events.html",
-    "revision": "a6f7713d764bcd8e3f5ff3c61757f842"
+    "revision": "19a6a896852145a3fc6e737d6c938cf9"
   },
   {
     "url": "docs-content/compiler/config.html",

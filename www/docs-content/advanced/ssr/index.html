@@ -12,10 +12,14 @@
 <span class="hljs-comment">// Create the stencil SSR renderer</span>
 <span class="hljs-keyword">var</span> renderer = stencil.createRenderer({
   rootDir: path.join(__dirname, <span class="hljs-string">'./'</span>),
-  buildDir: path.join(__dirname, <span class="hljs-string">'./dist/'</span>),
-  <span class="hljs-keyword">namespace</span>: <span class="hljs-string">'Ionic'</span>,
+  buildDir: path.join(__dirname, <span class="hljs-string">'./www/build/'</span>),
+  <span class="hljs-keyword">namespace</span>: <span class="hljs-string">'app'</span>,
   logLevel: <span class="hljs-string">'debug'</span>
 });
+
+<span class="hljs-comment">// host the build directory as static files</span>
+<span class="hljs-comment">// so the app can pull client side scripts</span>
+app.use(<span class="hljs-string">'/build'</span>, express.static(<span class="hljs-string">'www/build'</span>));
 
 <span class="hljs-comment">// If you want to use HTML5 style routing in your client, keep the catch-all route handler here,</span>
 <span class="hljs-comment">// otherwise change it to a more specific route</span>
