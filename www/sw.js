@@ -20,15 +20,11 @@ importScripts('workbox-sw.prod.v1.3.0.js');
 const fileManifest = [
   {
     "url": "build/app.js",
-    "revision": "6df0374b8161297df34c275058063f55"
+    "revision": "5b48b1f18196a4c6d0acbb39f42e0f05"
   },
   {
     "url": "build/app.registry.json",
-    "revision": "acb59701d3fce523a0105d75e358733b"
-  },
-  {
-    "url": "build/app/3x82ohz2.js",
-    "revision": "0318c44178157a261f3ec34ac84a167a"
+    "revision": "64166630f98f635612fd316f3aae2f69"
   },
   {
     "url": "build/app/6v733emd.js",
@@ -51,6 +47,10 @@ const fileManifest = [
     "revision": "e40a8ba930f4eb73a154610c5d7dcf48"
   },
   {
+    "url": "build/app/f75pnqyv.js",
+    "revision": "47df6e770ea28a7681d6f33d2f3b4e41"
+  },
+  {
     "url": "build/app/uv6m42td.css",
     "revision": "60b2ed49acbcce7fde95f690ce777268"
   },
@@ -59,8 +59,8 @@ const fileManifest = [
     "revision": "fb08a4d742ae908800b6945c89925b9a"
   },
   {
-    "url": "build/app/vzntfe8p.js",
-    "revision": "6a15dfab918d60074529b0fe1b1fe617"
+    "url": "build/app/yztayque.js",
+    "revision": "17d11c2cdca1e6a40b75c18e71d20358"
   },
   {
     "url": "docs-content/addons/stencil-router.html",
@@ -112,7 +112,7 @@ const fileManifest = [
   },
   {
     "url": "docs-content/basics/stencil-config.html",
-    "revision": "f8b7a2a09220ddcc6471f74ce948292b"
+    "revision": "d8e760aa4a936b2109b52b7a5becf72d"
   },
   {
     "url": "docs-content/basics/stencil-router.html",
@@ -164,15 +164,11 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "0ad3560cc7158d4ab6650e275b8c6546"
+    "revision": "84c3cf32fe54d906bdecb5b8cfa1b033"
   },
   {
     "url": "manifest.json",
-<<<<<<< Updated upstream
-    "revision": "64d82272b788fb4288790cb7e2aa8b66"
-=======
     "revision": "ab5e18864e5002962d50ca783462119e"
->>>>>>> Stashed changes
   },
   {
     "url": "promise-poly.js",

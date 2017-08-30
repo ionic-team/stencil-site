@@ -24,21 +24,7 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('sw.js')
             .then((reg) => {
-              reg.onupdatefound = () => {
-                const installingWorker = reg.installing;
-                installingWorker.onstatechange = () => {
-                  switch (installingWorker.state) {
-                    case 'installed':
-                      if (navigator.serviceWorker.controller) {
-                        alert('New or updated content is available, please refresh');
-                      }
-                      break;
-                    case 'redundant':
-                      console.error('The installing service worker became redundant.');
-                      break;
-                  }
-                }
-              }
+              console.log('service worker registered', reg);
             })
             .catch(err => console.log('Error', err));
         });
