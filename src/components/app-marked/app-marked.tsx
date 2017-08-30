@@ -8,9 +8,9 @@ export class AppMarked {
   @State() content: any;
 
   ionViewWillLoad() {
-    fetch(`/docs-content/${this.doc}`)
-    .then(response => response.text())
-    .then(data => this.content = data)
+    return fetch(`/docs-content/${this.doc}`)
+      .then(response => response.text())
+      .then(data => this.content = data);
   }
 
   render() {
