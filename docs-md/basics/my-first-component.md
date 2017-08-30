@@ -13,12 +13,12 @@ import { Component, Prop } from '@stencil/core';
 })
 export class MyComponent {
   // Indicate that name should be a public property on the component
-  @Prop() firstName: string;
+  @Prop() name: string;
 
   render() {
     return (
     <p>
-      My name is {this.firstName}
+      My name is {this.name}
     </p>
     );
   }
@@ -27,7 +27,7 @@ export class MyComponent {
 Once compiled, this component can be used in HTML just like any other tag.
 
 ```html
-<my-first-component first-name="Max"></my-first-component>
+<my-first-component name="Max"></my-first-component>
 ```
 
 When rendered, the browser will display `My name is Max`.
