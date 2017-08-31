@@ -31,7 +31,6 @@ export class App {
               <stencil-route
                 url="/docs/:pageName"
                 routeRender={( props: { [key: string]: any}) => {
-                  console.log(props);
                   const map = {
                     'intro': 'intro/index.html',
                     'getting-started': 'start/index.html',
