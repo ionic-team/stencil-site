@@ -5,7 +5,6 @@ import { Component } from '@stencil/core';
   styleUrl: 'stencil-site.scss'
 })
 export class App {
-  constructor() {}
   render() {
     return (
       <div class="app">

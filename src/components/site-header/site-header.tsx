@@ -12,10 +12,10 @@ export class SiteHeader {
           <img class="logo" alt="Stencil" src="/img/text-logo.svg" />
         </stencil-route-link>
         <div class="pull-right">
-          <stencil-route-link url="/">
+          <stencil-route-link url="/"  exact={true}>
             Docs
           </stencil-route-link>
-          <stencil-route-link url="/demos">
+          <stencil-route-link url="/demos"  exact={true}>
             Demos
           </stencil-route-link>
           <a class="svg-button" id="stencil-repo" href="https://github.com/ionic-team/stencil" target="_blank">
