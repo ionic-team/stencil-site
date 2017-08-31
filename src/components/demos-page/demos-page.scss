@@ -1,6 +1,9 @@
 demos-page {
-  display: block;
-  #demos-desc {
-    text-align: justify;
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
