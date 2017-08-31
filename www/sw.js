@@ -19,36 +19,48 @@ importScripts('workbox-sw.prod.v1.3.0.js');
  */
 const fileManifest = [
   {
+    "url": "build/app.global.js",
+    "revision": "2eab51fa98ed28b23cf1de2416e32427"
+  },
+  {
     "url": "build/app.js",
-    "revision": "9905cdfa1cfda85da81f58f36d16710d"
+    "revision": "68dfaeafa930593caa7a4d940943942c"
   },
   {
     "url": "build/app.registry.json",
-    "revision": "2d2e9c56610ce74111d1dea9e4cdd485"
+    "revision": "58501685588b7843b37691a9a4eea7c5"
   },
   {
-    "url": "build/app/6v733emd.js",
-    "revision": "f89923f8eeb517c89603d4b0d68ad078"
+    "url": "build/app/8yf4sryn.js",
+    "revision": "34fbc26d799dfd7ac2ab5501f4a053a5"
   },
   {
     "url": "build/app/9czo4spw.js",
     "revision": "69b839324c4328b3fe9d3bdeddc4fd69"
   },
   {
-    "url": "build/app/app.gtigwtmi.js",
-    "revision": "8199b908daa0643b4001bfa58d7024a4"
+    "url": "build/app/ajbdpw8g.js",
+    "revision": "15cce814d25e18cd79415389e41a3a6a"
   },
   {
-    "url": "build/app/app.zudmckuo.pf.js",
-    "revision": "cec19c25e1c2db47af86be71be5c5007"
+    "url": "build/app/app.rhubgapg.js",
+    "revision": "37ceca1d1ca8a94d2f0f3b1f67e8cc9a"
+  },
+  {
+    "url": "build/app/app.yvc3k2aj.pf.js",
+    "revision": "72aeae512b6f647f5d6387a928c46809"
+  },
+  {
+    "url": "build/app/dkrz2obe.js",
+    "revision": "2d55f2c3131ca103e2b8b1014e961c3a"
   },
   {
     "url": "build/app/dmcjncaa.css",
     "revision": "e40a8ba930f4eb73a154610c5d7dcf48"
   },
   {
-    "url": "build/app/f75pnqyv.js",
-    "revision": "47df6e770ea28a7681d6f33d2f3b4e41"
+    "url": "build/app/gnprv4gv.js",
+    "revision": "b8d20b8094c30ee5daba81444088205c"
   },
   {
     "url": "build/app/uxpeeopc.css",
@@ -57,10 +69,6 @@ const fileManifest = [
   {
     "url": "build/app/v0hkoshm.css",
     "revision": "fb08a4d742ae908800b6945c89925b9a"
-  },
-  {
-    "url": "build/app/yztayque.js",
-    "revision": "17d11c2cdca1e6a40b75c18e71d20358"
   },
   {
     "url": "docs-content/addons/stencil-router.html",
@@ -164,7 +172,7 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "a2a1632d1cab6946966b8768db661d9c"
+    "revision": "3560986765121d3f1b68dc859fa556fa"
   },
   {
     "url": "manifest.json",
