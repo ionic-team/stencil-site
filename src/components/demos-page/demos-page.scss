@@ -3,4 +3,12 @@ demos-page {
   #demos-desc {
     text-align: justify;
   }
+  p a {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
