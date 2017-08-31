@@ -11,34 +11,20 @@
     { name: <span class="hljs-string">'@stencil/router'</span> }
   ]
 };
-</code></pre><table>
-<thead>
-<tr>
-<th>Config</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bundles</code></td>
-<td>The <code>bundles</code> config is an array of objects that represent how components are grouped together in lazy-loaded bundles. It is important to note that every Stencil component be included in a bundle. In the example above, each object in the <code>bundles</code> array has its own <code>components</code> array, which is the HTML tag name for each component. In general, the simplest approach is to give each component its own bundle. A more advanced optimization would be grouping commonly used components together.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>collections</code></td>
-<td>The <code>collections</code> config specifies a list of third-party Stencil libraries. Since everything in Stencil is async and lazy loaded by default, it is important to NOT have any hard <code>import</code> statements linking components together. Any library listed in the list <code>collections</code> entry will be recognized and included in the application by the Stencil compiler. By default, the <code>@stencil/router</code> will be included.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>publicPath</code></td>
-<td>The <code>publicPath</code> config sets the client-side base path for all Stencil build assets, and it&#39;s usually best to have it start with <code>/</code>. Note that this only sets the base path the browser requests, but this does not set where files are saved during build. To change where files are saved at build time, use the <code>buildDir</code> config.</td>
-<td><code>/build</code></td>
-</tr>
-<tr>
-<td><code>buildDir</code></td>
-<td>The <code>buildDir</code> config specifies where files are saved after each build. These are the public files which will be requested by the browser. To change the base path of the browser&#39;s request use the <code>publicPath</code> config.</td>
-<td><code>www/build</code></td>
-</tr>
-</tbody>
-</table>
+</code></pre><h3 id="config-entries">Config entries</h3>
+<ul>
+<li><code>bundles</code></li>
+</ul>
+<p>The <code>bundles</code> config is an array of objects that represent how components are grouped together in lazy-loaded bundles. It is important to note that every Stencil component be included in a bundle. In the example above, each object in the <code>bundles</code> array has its own <code>components</code> array, which is the HTML tag name for each component. In general, the simplest approach is to give each component its own bundle. A more advanced optimization would be grouping commonly used components together.</p>
+<ul>
+<li><code>collections</code></li>
+</ul>
+<p>The <code>collections</code> config specifies a list of third-party Stencil libraries. Since everything in Stencil is async and lazy loaded by default, it is important to NOT have any hard <code>import</code> statements linking components together. Any library listed in the list <code>collections</code> entry will be recognized and included in the application by the Stencil compiler. By default, the <code>@stencil/router</code> will be included.</p>
+<ul>
+<li><code>publicPath</code>, default value: <code>/build</code></li>
+</ul>
+<p>The <code>publicPath</code> config sets the client-side base path for all Stencil build assets, and it&#39;s usually best to have it start with <code>/</code>. Note that this only sets the base path the browser requests, but this does not set where files are saved during build. To change where files are saved at build time, use the <code>buildDir</code> config.</p>
+<ul>
+<li><code>buildDir</code>,  default value: <code>www/build</code></li>
+</ul>
+<p>The <code>buildDir</code> config specifies where files are saved after each build. These are the public files which will be requested by the browser. To change the base path of the browser&#39;s request use the <code>publicPath</code> config.</p>
