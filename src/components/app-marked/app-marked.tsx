@@ -1,4 +1,4 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, Prop, PropDidChange, State } from '@stencil/core';
 @Component({
   tag: 'app-marked',
 })
@@ -8,6 +8,11 @@ export class AppMarked {
   @State() content: any;
 
   ionViewWillLoad() {
+    return this.fetchNewContent();
+  }
+
+  @PropDidChange('doc')
+  fetchNewContent() {
     return fetch(`/docs-content/${this.doc}`)
       .then(response => response.text())
       .then(data => this.content = data);

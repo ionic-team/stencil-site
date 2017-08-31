@@ -8,14 +8,14 @@ export class SiteHeader {
   render() {
     return (
       <div class="site-header">
-        <stencil-route-link router="#router" url="/docs/intro" class="logo-link">
+        <stencil-route-link url="/docs/intro" class="logo-link">
           <img class="logo" alt="Stencil" src="/img/text-logo.svg" />
         </stencil-route-link>
         <div class="pull-right">
-          <stencil-route-link router="#router" url="/">
+          <stencil-route-link url="/">
             Docs
           </stencil-route-link>
-          <stencil-route-link router="#router" url="/demos">
+          <stencil-route-link url="/demos">
             Demos
           </stencil-route-link>
           <a class="svg-button" id="stencil-repo" href="https://github.com/ionic-team/stencil" target="_blank">
