@@ -6,4 +6,12 @@ demos-page {
       text-decoration: underline;
     }
   }
+  p a {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

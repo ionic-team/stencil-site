@@ -21,6 +21,10 @@ site-menu {
  a, stencil-route-link{
   color: #484854;
   text-decoration: none;
+
+  .link-active {
+    text-decoration: underline;
+  }
 }
 
 }
