@@ -1,6 +1,5 @@
 import { Component } from '@stencil/core';
 
-
 @Component({
   tag: 'site-menu',
   styleUrl: 'site-menu.scss'
@@ -27,7 +26,7 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Component Basics</h4>
+            <h4>Basics</h4>
             <ul>
 
               <li>
@@ -37,14 +36,14 @@ export class SiteMenu {
               </li>
 
               <li>
-                <stencil-route-link url="/docs/learning-jsx">
-                  Learning JSX
+                <stencil-route-link url="/docs/templating">
+                  Templating
                 </stencil-route-link>
               </li>
 
               <li>
-                <stencil-route-link url="/docs/building-components">
-                  Building Components
+                <stencil-route-link url="/docs/decorators">
+                  Decorators
                 </stencil-route-link>
               </li>
 
@@ -60,12 +59,6 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
-              <li>
-                <stencil-route-link url="/docs/stencil-config">
-                  Stencil Configuration
-                </stencil-route-link>
-              </li>
-
             </ul>
           </li>
 
@@ -73,7 +66,12 @@ export class SiteMenu {
             <h4>Advanced</h4>
             <ul>
               <li>
-              <stencil-route-link url="/docs/server-side-rendering">
+                <stencil-route-link url="/docs/stencil-config">
+                  Stencil Configuration
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/docs/server-side-rendering">
                   Server Side Rendering
                 </stencil-route-link>
               </li>

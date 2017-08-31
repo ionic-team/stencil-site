@@ -1,4 +1,4 @@
-# Building Components
+# Decorators
 
 Stencil makes it easy to build rich, interactive components. Let's start with the basics.
 
@@ -37,15 +37,13 @@ export class TodoList {
 
 Within the `TodoList` class, the Props are accessed via the `this` operator.
 
-```
-...
-colorChanged(newColor: string) {
-  this.color = newColor;
+```typescript
+logColor() {
+  console.log(this.color)
 }
-...
 ```
 
-Externally, Props are accessed directly on the element.
+Externally, Props are set on the element.
 
 ```
 <todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
@@ -55,18 +53,20 @@ They can also be accessed via JS from the element.
 
 ```
 const todoListElement = document.querySelector('todo-list');
-todoListElement.myHttpService = someObject;
-todoListElement.color = 'orange';
+console.log(todoListElement.myHttpService); // MyHttpService
+console.log(todoListElement.color); // blue
 ```
+
+It's important to know, that `@Prop` is immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
 ## PropWillChange and PropDidChange Decorators
 
-`PropWillChange()` and `PropDidChange()` are decorators applied to functions that will be invoked immediately before and after a member decorated with `@Prop` is changed.
+When a user updates a property, `PropDidChange` and `PropWillChange` will fire what ever method they're attached to.
 
-```
+
+```typescript
 import { Prop, PropDidChange, PropWillChange } from '@stencil/core';
 
-...
 export class LoadingIndicator {
   @Prop() activated: boolean;
 
@@ -85,7 +85,8 @@ export class LoadingIndicator {
 
 # Managing Component State
 
-The `@State()` decorator is very similar to the [@Prop() decorator]() except it is used for managing internal state instead of the public API. Decorating a class member with `@State()` will trigger efficient re-renders when the value is set, but it won't be accessible through the Element.
+The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify the property from outside the component, but the component can modify it how ever it sees fit. Any changes to a `@State()` property will cause the components render function to be called again.
+
 
 ```
 import { State } from '@stencil/core';
@@ -95,7 +96,12 @@ export class TodoList {
   @State() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
+    // This will cause our render function to be called again
     this.completedTodos = this.completedTodos.concat([]).push(todo);
+  }
+
+  render() {
+    //
   }
 }
 ```
@@ -126,7 +132,7 @@ todoListElement.showPrompt();
 
 ## Element Decorator
 
-The `@Element()` decorator is how to get access to the host element within the class instance.
+The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
 
 ```
 import { Element } from '@stencil/core';
@@ -134,7 +140,11 @@ import { Element } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Element() element: HTMLElement;
+  @Element() todoListEl: HTMLElement;
+
+  addClass(){
+    this.todoListEl.classList.add('active');
+  }
 }
 ```
 
@@ -145,7 +155,7 @@ Stencil does not actively perform change detection. In order to trigger an effic
 
 The example below WILL NOT trigger a re-render
 
-```
+```typescript
 import { State } from '@stencil/core';
 
 ...
@@ -158,9 +168,10 @@ export class TodoList {
 }
 ```
 
-In the above example, we are changing the contents of the `completedTodos` array. A re-render is not performed because Stencil does not deeply watch items for change.
+In the above example, we are changing the contents of the `completedTodos` array.
+A re-render is not performed because Stencil does not deeply watch items for change.
 
-In order to trigger a re-render, simply call the `completedTodos` setter like this:
+In order to trigger a re-render, the value needs to be set to a new array:
 
 ```
 import { State } from '@stencil/core';
@@ -178,7 +189,8 @@ export class TodoList {
 }
 ```
 
-In the above example, the key line is `this.completedTodos = completedTodos;`. This calls the `completedTodos` setter, which triggers the re-render.
+In the above example, the key line is `this.completedTodos = completedTodos;`.
+This calls the `completedTodos` setter, which triggers the re-render.
 
 
 ## Embedding or Nesting Components
