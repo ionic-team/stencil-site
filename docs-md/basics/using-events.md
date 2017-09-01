@@ -56,3 +56,10 @@ export class TodoList {
   }
 }
 ```
+
+There is another keyup events that can be registered such as
+
+- Enter
+- Escape
+- Space
+- Tab
