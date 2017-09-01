@@ -31,7 +31,7 @@ export class SiteMenu {
 
               <li>
                 <stencil-route-link url="/docs/my-first-component">
-                  My First Stencil Component
+                  My First Component
                 </stencil-route-link>
               </li>
 
@@ -48,8 +48,8 @@ export class SiteMenu {
               </li>
 
               <li>
-                <stencil-route-link url="/docs/using-events">
-                  Using Events
+                <stencil-route-link url="/docs/events">
+                  Events
                 </stencil-route-link>
               </li>
 

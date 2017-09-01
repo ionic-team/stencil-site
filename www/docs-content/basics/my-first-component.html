@@ -1,5 +1,6 @@
-<h1 id="my-first-stencil-component">My First Stencil Component</h1>
-<p>Create Stencil components by creating a file with a <code>.tsx</code> extension, such as <code>my-first-component.tsx</code>, and place them in the <code>src/components</code> directory. The <code>.tsx</code> extension is required since Stencil components are built using <a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a> and TypeScript.</p>
+<h1 id="my-first-component">My First Component</h1>
+<p>Stencil components are created by adding a new file with a <code>.tsx</code> extension, such as <code>my-first-component.tsx</code>, and placing them in the <code>src/components</code> directory.
+The <code>.tsx</code> extension is required since Stencil components are built using <a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a> and TypeScript.</p>
 <p>Here is an example of what a Stencil component looks like:</p>
 <pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;
 
@@ -8,6 +9,7 @@
   styleUrl: <span class="hljs-meta-string">'my-first-component.scss'</span>
 })</span>
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> </span>{
+
   <span class="hljs-comment">// Indicate that name should be a public property on the component</span>
   <span class="hljs-meta">@Prop()</span> name: string;
 
@@ -20,15 +22,28 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   }
 }
 </code></pre>
+<blockquote>
+<p>Don&#39;t fully understand what&#39;s going on? Do worry, we&#39;ll explain each pieces in detail later on.</p>
+</blockquote>
 <p>Once compiled, this component can be used in HTML just like any other tag.</p>
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component <span class="hljs-built_in">name</span>=<span class="hljs-string">"Max"</span>&gt;&lt;/<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component&gt;
 </code></pre>
 <p>When rendered, the browser will display <code>My name is Max</code>.</p>
 <h2 id="so-what-s-really-going-on-here-">So what&#39;s really going on here?</h2>
 <p>Let&#39;s dive in.</p>
-<p>At the top of the component, there are a few <code>import</code> statements from the <code>@stencil/core</code> package. These imports are what pull in the <code>@Component()</code> and <code>@Prop()</code> decorators so TypeScript knows about it.</p>
-<p>The <code>@Component()</code> decorator is used to metadata about the component to the compiler. Use the <code>tag</code> property to specify the name of the HTML Tag/Element. The <code>styleUrl</code> property can be used to provide a relative path to a <code>.scss</code> file for providing the component&#39;s css.</p>
-<p>Below the <code>@Component()</code> decorator, we have an ES2015 class. This is where you&#39;ll write the bulk of your code to bring your Stencil component to life. Here is where you&#39;d write functions or provide business logic.</p>
-<p>Each Component class must implement a <code>render</code> function. This function is used to write <code>JSX</code> to provide the HTML mark-up for the component. In our simple case above, we are simply rendering a <code>&lt;p&gt;</code> tag with basic content it in, and using one-way data binding to render the value of the <code>name</code> property on the class.</p>
-<p>The <code>name</code> property on the ES2015 class is special in the sense that is decorated with a <code>@Prop()</code> decorator. To those coming from a <a href="https://facebook.github.io/react/">ReactJS</a> background, <code>@Prop()</code> should be very familiar. When something is decorated with the <code>@Prop()</code> decorator, it tells the compiler that the property is a part of the public API of the component, and can be set on the element. An example of this is setting the <code>name</code> field on the <code>my-first-component</code> element above.</p>
-<p>Any property decorated with <code>@Props()</code> is also automatically watched for changes. If we were to change our <code>my-first-component</code> element&#39;s <code>name</code> property at runtime, the <code>render</code> function would automatically be called, ensuring that our rendered content is always up to date. Likewise, if the ES2015 property <code>name</code> is changed programmatically, the <code>render</code> function will be called as well.</p>
+<p>The first piece we see is the <code>@Component</code> decorator.
+This decorator provides metadata about our component to the Stencil compiler.
+Information, such as the tag to use, and external styles, can be set here and picked up by the compiler.</p>
+<p>Below the <code>@Component()</code> decorator, we have a standard JavaScript class.
+This is where you&#39;ll write the bulk of your code to bring your Stencil component to life.
+Here is where you&#39;d write functions or provide business logic.</p>
+<p>In order for the component to render something to the screen, we must declare a render function that returns JSX.
+If you&#39;re not sure what JSX is, don&#39;t worry, we&#39;ll go over it in detail in the <stencil-route-link url="/docs/templating">Templating Docs</stencil-router-link>.
+The quick idea is that our render function needs to return a representation of the HTML we want to push to the DOM.</p>
+<p>The <code>name</code> property on the class also has a decorator applied to it, <code>@Prop()</code>.
+This decorator tells the compiler that the property is public to the component, and the user should be setting it.
+We set this property like so:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component <span class="hljs-built_in">name</span>=<span class="hljs-string">"Max"</span>&gt;&lt;/<span class="hljs-keyword">my</span>-<span class="hljs-keyword">first</span>-component&gt;
+</code></pre>
+<p>Any property decorated with <code>@Props()</code> is also automatically watched for changes.
+If a user of our component were to change the element&#39;s <code>name</code> property, our component would fire it&#39;s <code>render</code> function again, updating the displayed content.</p>

@@ -24,11 +24,11 @@ const fileManifest = [
   },
   {
     "url": "build/app.js",
-    "revision": "5e9e384278ff62b9f2a5d92955d2107e"
+    "revision": "cee82523ac6d99c5b120e4e746fcc3a9"
   },
   {
     "url": "build/app.registry.json",
-    "revision": "f6225843a9db86566405f11ea8ccae2b"
+    "revision": "004679da068edbff644779cf5ce27f52"
   },
   {
     "url": "build/app/1ydqlcjk.js",
@@ -51,10 +51,6 @@ const fileManifest = [
     "revision": "72aeae512b6f647f5d6387a928c46809"
   },
   {
-    "url": "build/app/dkrz2obe.js",
-    "revision": "2d55f2c3131ca103e2b8b1014e961c3a"
-  },
-  {
     "url": "build/app/dmcjncaa.css",
     "revision": "e40a8ba930f4eb73a154610c5d7dcf48"
   },
@@ -63,8 +59,12 @@ const fileManifest = [
     "revision": "eebf4b0bd8b013ee19cb731fa9b8fb16"
   },
   {
-    "url": "build/app/mfreoxjz.js",
-    "revision": "3c778f56838c272da61c4724543e8cda"
+    "url": "build/app/ij4n8ovj.js",
+    "revision": "74034fe0d5f569d362041876d53949a4"
+  },
+  {
+    "url": "build/app/q1k89pr2.js",
+    "revision": "e5cff96da5075807c513d1e1cf93bc66"
   },
   {
     "url": "build/app/yjborbvy.css",
@@ -79,56 +79,28 @@ const fileManifest = [
     "revision": "ba42258303b5dd9e4d42b9d18047b79e"
   },
   {
-    "url": "docs-content/basics/building-components.html",
-    "revision": "805d62732e1055d29516a80224c2b7d4"
-  },
-  {
-    "url": "docs-content/basics/change-detection.html",
-    "revision": "8535ccbf1a1b9337c3f151560637c69e"
-  },
-  {
-    "url": "docs-content/basics/code-splitting.html",
-    "revision": "b9caed6ff6a055b4ac9c05822e7fe416"
-  },
-  {
     "url": "docs-content/basics/component-lifecycle.html",
     "revision": "bfcdd02a6b35979d290ef6bc17a943ed"
   },
   {
-    "url": "docs-content/basics/components.html",
-    "revision": "ab1bda4baad03cea64089b74f7f4c321"
+    "url": "docs-content/basics/decorators.html",
+    "revision": "19c4621b1af950f6d0ad6eafe142fce9"
   },
   {
-    "url": "docs-content/basics/defining-components.html",
-    "revision": "8929e96daf4f74837f7fc3aac5cd43ac"
-  },
-  {
-    "url": "docs-content/basics/learning-jsx.html",
-    "revision": "3f41f3a8d753fd2fb0935204beef77c7"
-  },
-  {
-    "url": "docs-content/basics/managing-state.html",
-    "revision": "58e73536ecfee107a338ba06aa1af955"
+    "url": "docs-content/basics/events.html",
+    "revision": "477e813c70037a93a2ccc4eb1fae8676"
   },
   {
     "url": "docs-content/basics/my-first-component.html",
-    "revision": "d0d3ff2ecef30b8187a8cc49c59a14cf"
-  },
-  {
-    "url": "docs-content/basics/nesting-components.html",
-    "revision": "65281e952c881fb90a474e5310074c7d"
+    "revision": "cab5689d87bef6a95d073ce4023d2aae"
   },
   {
     "url": "docs-content/basics/stencil-config.html",
     "revision": "1247b36348a4312f9bd909a5ca5625c0"
   },
   {
-    "url": "docs-content/basics/stencil-router.html",
-    "revision": "e2f079693db64c05e634ed9327d3dd33"
-  },
-  {
-    "url": "docs-content/basics/using-events.html",
-    "revision": "19a6a896852145a3fc6e737d6c938cf9"
+    "url": "docs-content/basics/templating.html",
+    "revision": "169d137a513f451cc4484ea3ed4bc0cb"
   },
   {
     "url": "docs-content/compiler/config.html",
@@ -172,7 +144,7 @@ const fileManifest = [
   },
   {
     "url": "index.html",
-    "revision": "a5aff2ce5f1eb809475412d05c7512ba"
+    "revision": "5f462289af118f4c9fd51661502d92b3"
   },
   {
     "url": "manifest.json",

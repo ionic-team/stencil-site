@@ -36,7 +36,7 @@ export class App {
                     'my-first-component': 'basics/my-first-component.html',
                     'templating': 'basics/templating.html',
                     'decorators': 'basics/decorators.html',
-                    'using-events': 'basics/using-events.html',
+                    'events': 'basics/events.html',
                     'component-lifecycle': 'basics/component-lifecycle.html',
                     'stencil-config': 'basics/stencil-config.html',
                     'config': 'compiler/config.html',
