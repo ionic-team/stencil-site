@@ -65,7 +65,7 @@ render() {
   return (
     <div>
     {this.name
-      ? <p>Hello {this.name</p>
+      ? <p>Hello {this.name}</p>
       : <p>Hello World</p>
     }
     </div>
