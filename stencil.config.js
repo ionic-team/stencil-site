@@ -6,9 +6,6 @@ exports.config = {
   ],
   collections: [{ name: '@stencil/router' }],
   copy: {
-    cname: {
-      src: 'CNAME'
-    },
     sw: {
       src: 'sw.js'
     },
