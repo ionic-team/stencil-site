@@ -1,8 +1,8 @@
 exports.config = {
   publicPath: '/build',
   bundles: [
-    { components: ['stencil-site', 'site-header', 'landing-page', 'youtube-video'] },
-    { components: ['app-marked', 'site-menu'] },
+    { components: ['stencil-site', 'site-header', 'landing-page', 'youtube-video', 'site-menu'] },
+    { components: ['app-marked'] },
     { components: ['demos-page', 'document-component'] }
   ],
   collections: [{ name: '@stencil/router' }]
