@@ -19,20 +19,44 @@ importScripts('workbox-sw.prod.v1.3.0.js');
  */
 const fileManifest = [
   {
+    "url": "assets/icon/favicon.ico",
+    "revision": "d2f619d796fbe8bed6200da2691aa5b6"
+  },
+  {
+    "url": "assets/img/icon.png",
+    "revision": "b96ad6e1e0b755c8cd45e6aec40bca25"
+  },
+  {
+    "url": "assets/img/logo.png",
+    "revision": "21ba838516e785b6bc724260c55edc26"
+  },
+  {
+    "url": "assets/img/text-logo.png",
+    "revision": "983fa7783e22e13fa84159ee8c8ddd1a"
+  },
+  {
+    "url": "assets/img/text-logo.svg",
+    "revision": "4f658c2a420d5dd7f30d09c2c87781cf"
+  },
+  {
     "url": "build/app.global.js",
-    "revision": "2eab51fa98ed28b23cf1de2416e32427"
+    "revision": "020981ce0e013720203a6ed7eb819474"
   },
   {
     "url": "build/app.js",
-    "revision": "cee82523ac6d99c5b120e4e746fcc3a9"
+    "revision": "cf312747c8ff9e94919c756f0559f350"
   },
   {
     "url": "build/app.registry.json",
-    "revision": "004679da068edbff644779cf5ce27f52"
+    "revision": "35b6afcc280e43159927c1f090370cd0"
   },
   {
     "url": "build/app/1ydqlcjk.js",
     "revision": "f63b72302312b7b5e59e37875c7c7266"
+  },
+  {
+    "url": "build/app/3oma1xxx.js",
+    "revision": "af09fc4a47e165c739a52bcd2be53bca"
   },
   {
     "url": "build/app/8yf4sryn.js",
@@ -43,28 +67,20 @@ const fileManifest = [
     "revision": "15cce814d25e18cd79415389e41a3a6a"
   },
   {
-    "url": "build/app/app.rhubgapg.js",
-    "revision": "37ceca1d1ca8a94d2f0f3b1f67e8cc9a"
+    "url": "build/app/app.7rwi7g0s.pf.js",
+    "revision": "f37de62f1c55a76a07968be19b26ffa5"
   },
   {
-    "url": "build/app/app.yvc3k2aj.pf.js",
-    "revision": "72aeae512b6f647f5d6387a928c46809"
+    "url": "build/app/app.pdfjoyqw.js",
+    "revision": "5c0f28ed346e2d227c0814ca4770c7b4"
   },
   {
-    "url": "build/app/dmcjncaa.css",
-    "revision": "e40a8ba930f4eb73a154610c5d7dcf48"
+    "url": "build/app/c1o6if1w.css",
+    "revision": "e856b7f3ba40bcb65266800b6804d015"
   },
   {
-    "url": "build/app/i9v8j59r.css",
-    "revision": "eebf4b0bd8b013ee19cb731fa9b8fb16"
-  },
-  {
-    "url": "build/app/ij4n8ovj.js",
-    "revision": "74034fe0d5f569d362041876d53949a4"
-  },
-  {
-    "url": "build/app/q1k89pr2.js",
-    "revision": "e5cff96da5075807c513d1e1cf93bc66"
+    "url": "build/app/xqtddulu.js",
+    "revision": "3c6a0e49b328da2d85a1874ab2ffc2f9"
   },
   {
     "url": "build/app/yjborbvy.css",
@@ -100,51 +116,23 @@ const fileManifest = [
   },
   {
     "url": "docs-content/basics/templating.html",
-    "revision": "169d137a513f451cc4484ea3ed4bc0cb"
+    "revision": "f2c1a55d348c99638cfb5c3d37cbc509"
   },
   {
     "url": "docs-content/compiler/config.html",
     "revision": "4ea31abcf3133107443e6dbc2baa55d3"
   },
   {
-    "url": "docs-content/intro/history.html",
-    "revision": "775cdfbd4c9d13f5922b75b9d29fed3e"
-  },
-  {
     "url": "docs-content/intro/index.html",
     "revision": "c0b731fa4ae07cd540794da401d5eae6"
-  },
-  {
-    "url": "docs-content/intro/why.html",
-    "revision": "d307ce93528d8ee21a7c36808ee4fa79"
   },
   {
     "url": "docs-content/start/index.html",
     "revision": "bca27fcf8d3e95fec4eb0f33ba321eb8"
   },
   {
-    "url": "favicon.ico",
-    "revision": "d2f619d796fbe8bed6200da2691aa5b6"
-  },
-  {
-    "url": "img/icon.png",
-    "revision": "b96ad6e1e0b755c8cd45e6aec40bca25"
-  },
-  {
-    "url": "img/logo.png",
-    "revision": "21ba838516e785b6bc724260c55edc26"
-  },
-  {
-    "url": "img/text-logo.png",
-    "revision": "983fa7783e22e13fa84159ee8c8ddd1a"
-  },
-  {
-    "url": "img/text-logo.svg",
-    "revision": "4f658c2a420d5dd7f30d09c2c87781cf"
-  },
-  {
     "url": "index.html",
-    "revision": "5f462289af118f4c9fd51661502d92b3"
+    "revision": "6082275ba6e6ba37bf134d00bc715539"
   },
   {
     "url": "manifest.json",

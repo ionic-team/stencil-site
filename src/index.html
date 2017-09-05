@@ -8,6 +8,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="theme-color" content="#16161d">
   <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
   <script src="/build/app.js"></script>
 </head>
 <body>
@@ -16,13 +17,13 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js')
-            .then((reg) => {
-              console.log('service worker registered', reg);
-            })
-            .catch(err => console.log('Error', err));
-        });
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then((reg) => {
+            console.log('service worker registered', reg);
+          })
+          .catch(err => console.log('Error', err));
+      });
     }
   </script>
 
