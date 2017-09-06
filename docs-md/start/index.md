@@ -34,7 +34,7 @@ render() {
 
 ```
 
-When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/components" router="#router">component docs</stencil-route-link>
+When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/docs/my-first-component" router="#router">component docs</stencil-route-link>
 
 ## Building for Production
 
