@@ -4,12 +4,7 @@ exports.config = {
     { components: ['app-marked'] },
     { components: ['demos-page', 'document-component'] }
   ],
-  collections: [{ name: '@stencil/router' }],
-  copy: {
-    manifest: {
-      src: 'manifest.json'
-    }
-  }
+  collections: [{ name: '@stencil/router' }]
 };
 
 exports.devServer = {
