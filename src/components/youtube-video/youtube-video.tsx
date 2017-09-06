@@ -3,9 +3,11 @@ import { Component, Prop } from '@stencil/core';
   tag: 'youtube-video',
   styleUrl: 'youtube-video.scss'
 })
-export class DocumentComponent {
+export class YoutubeVideo {
+
   @Prop() video: string;
   @Prop() title: string;
+
   render() {
     return (
       <div>
