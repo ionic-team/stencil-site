@@ -18,9 +18,9 @@ site-menu {
     font-weight: 300;
   }
 
- a, stencil-route-link{
-  color: #484854;
-  text-decoration: none;
-}
+  stencil-route-link a{
+   color: #484854;
+   text-decoration: none;
+  }
 
 }
