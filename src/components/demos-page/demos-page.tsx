@@ -5,6 +5,7 @@ import { Component, State } from '@stencil/core';
   styleUrl: 'demos-page.scss'
 })
 export class DemosPage {
+
   @State() demos = [
     {
       title: 'Stenciljs.com',
@@ -27,7 +28,11 @@ export class DemosPage {
       url: 'https://stencilnews.firebaseapp.com/'
     }
   ];
-  
+
+  constructor() {
+    document.title = `Stencil Demos`;
+  }
+
   render() {
     return (
       <div>

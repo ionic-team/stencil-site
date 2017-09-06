@@ -6,6 +6,11 @@ import { Component } from '@stencil/core';
   styleUrl: 'landing-page.scss'
 })
 export class LandingPage {
+
+  constructor() {
+    document.title = `Stencil`;
+  }
+
   render() {
     return (
       <div>

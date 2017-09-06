@@ -4,8 +4,8 @@ import { Component, Prop, PropDidChange, State } from '@stencil/core';
 })
 export class AppMarked {
 
-  @Prop() doc: any;
-  @State() content: any;
+  @Prop() doc: string;
+  @State() content: string;
 
   ionViewWillLoad() {
     return this.fetchNewContent();
@@ -15,13 +15,19 @@ export class AppMarked {
   fetchNewContent() {
     return fetch(`/docs-content/${this.doc}`)
       .then(response => response.text())
-      .then(data => this.content = data);
+      .then(data => {
+        this.content = data;
+
+        const el = document.createElement('div');
+        el.innerHTML = data;
+        const headerEl = el.querySelector('h1');
+        document.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
+      });
   }
 
   render() {
     return (
-      <div innerHTML={this.content}>
-      </div>
+      <div innerHTML={this.content}></div>
     )
   }
 }
