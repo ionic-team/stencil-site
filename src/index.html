@@ -16,20 +16,7 @@
   <stencil-site></stencil-site>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then((reg) => {
-            console.log('service worker registered', reg);
-          })
-          .catch(err => console.log('Error', err));
-      });
-    }
-  </script>
-
-  <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-
     ga('create', 'UA-44023830-34', 'auto');
     ga('send', 'pageview');
   </script>

@@ -5,16 +5,15 @@
   "description": "Stencil Site",
   "scripts": {
     "docs": "gulp",
-    "build": "gulp && stencil build && workbox-cli generate:sw",
+    "build": "gulp && stencil build",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && firebase deploy",
-    "prerender": "stencil prerender",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
   },
   "dependencies": {
-    "@stencil/core": "0.0.5-13",
-    "@stencil/router": "0.0.7-5"
+    "@stencil/core": "0.0.5-15",
+    "@stencil/router": "0.0.10-0"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
