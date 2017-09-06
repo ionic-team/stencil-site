@@ -27,7 +27,7 @@ export class LandingPage {
           the next generation of Ionic Framework, but is completely independent of
           Ionic or any other UI framework.
         </p>
-          <youtube-video video="UfD-k7aHkQE"/>
+          <youtube-video video="UfD-k7aHkQE" title="Ionic team at Polymer Summit video"/>
         <p>
           <stencil-route-link url="/docs/intro" custom="true" class="button">
             Learn More about Stencil

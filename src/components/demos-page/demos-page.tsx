@@ -42,7 +42,7 @@ export class DemosPage {
           return [
             <h4>{demo.title}</h4>,
             <p>{demo.description}</p>,
-            <p><a target="_blank" href={demo.url}>Demo</a></p>
+            <p><a target="_blank" rel="noopener" href={demo.url}>Demo</a></p>
           ];
         })}
       </div>
