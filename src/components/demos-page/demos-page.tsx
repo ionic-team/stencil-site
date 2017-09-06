@@ -1,4 +1,4 @@
-import { Component, State } from '@stencil/core';
+import { Component } from '@stencil/core';
 
 @Component({
   tag: 'demos-page',
@@ -6,7 +6,7 @@ import { Component, State } from '@stencil/core';
 })
 export class DemosPage {
 
-  @State() demos = [
+  demos = [
     {
       title: 'Stenciljs.com',
       description: 'Yep, this site is also built with Stencil!',
