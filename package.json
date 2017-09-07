@@ -6,7 +6,7 @@
   "scripts": {
     "docs": "gulp",
     "build": "gulp && stencil build --prerender",
-    "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "dev": "gulp && sd concurrent \"stencil build --dev --watch --prerender\" \"stencil-dev-server\" ",
     "deploy": "npm run build && firebase deploy",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
@@ -16,7 +16,7 @@
     "@stencil/router": "0.0.10-0"
   },
   "devDependencies": {
-    "@stencil/dev-server": "latest",
+    "@stencil/dev-server": "0.0.17",
     "@stencil/utils": "latest",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",

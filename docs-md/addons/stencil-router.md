@@ -35,7 +35,7 @@ exports.config = {
 Applications built with Stencil should have one `stencil-router` element for the entire application. Make sure to specify an `id` attribute on it.
 
 ```
-<stencil-router id="router">
+<stencil-router>
 ...
 </stencil-router>
 ```
@@ -43,13 +43,13 @@ Applications built with Stencil should have one `stencil-router` element for the
 Within the `stencil-router` element, we want to declare our set of `stencil-route`s. Each `stencil-route` needs to take a reference to the router, a url, and then an HTML element tag name.
 
 ```
-<stencil-router id="router">
-  <stencil-route url="/" component="landing-page" router="#router" exact={true}/>
-  <stencil-route url="/demos" router="#router" component="demos-page"/>
-  <stencil-route url="/demos/rendering" router="#router" component="fiber-demo"/>
-  <stencil-route url="/docs" router="#router" component="docs"/>
-  <stencil-route url="/docs/getting-started" router="#router" component="getting-started"/>
-  <stencil-route url="/components" router="#router" component="basics-components"/>
+<stencil-router>
+  <stencil-route url="/" component="landing-page" exact={true}/>
+  <stencil-route url="/demos" component="demos-page"/>
+  <stencil-route url="/demos/rendering" component="fiber-demo"/>
+  <stencil-route url="/docs" component="docs"/>
+  <stencil-route url="/docs/getting-started" component="getting-started"/>
+  <stencil-route url="/components" component="basics-components"/>
 </stencil-router>
 ```
 
@@ -60,7 +60,7 @@ When navigating to `/demos/rendering` based on the above configuration, the `dem
 To navigate around an app, use the `stencil-route-link` component.
 
 ```
-<stencil-route-link router="#router" url="/">
-<stencil-route-link router="#router" url="/demos">
-<stencil-route-link router="#router" url="/docs/getting-started">
+<stencil-route-link url="/">
+<stencil-route-link url="/demos">
+<stencil-route-link url="/docs/getting-started">
 ```

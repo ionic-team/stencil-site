@@ -7,7 +7,6 @@ Stencil components are rendered using JSX, a popular, declarative template synta
 The render functions returns something very similar to HTML
 
 ```typscript
-
 render() {
   return (
     <div>Hello World</div>
@@ -24,7 +23,6 @@ A common need of components is to render data that is based on a property.
 Like many popular frameworks, we can use this with `{}`.
 
 ```typscript
-
 render() {
   return (
     <div>Hello {this.name}</div>
@@ -51,7 +49,7 @@ Here, if `name` is not defined, we can just render our a different element.
 ```jsx
 render() {
   if (this.name) {
-  return ( <div>Hello {this.name}</div> )
+    return ( <div>Hello {this.name}</div> )
   } else {
     return ( <div>Hello, World</div> )
   }
@@ -121,7 +119,6 @@ export class MyComponent {
 An alternate syntax for this is to use
 
 ```jsx
-
   handleClick(event: UIEvent) {
     alert('Received the button click!');
   }
@@ -178,7 +175,7 @@ Note the comma in between the `<div>` elements.
 
 ```jsx
 render() {
-  return [
+  return ([
   // first top level element
   <div class="container">
     <ul>
@@ -192,6 +189,6 @@ render() {
   <div class="another-container">
     ... more html content ...
   </div>
-  ];
+  ]);
 }
 ```

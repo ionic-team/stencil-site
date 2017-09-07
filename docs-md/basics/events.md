@@ -16,7 +16,6 @@ export class TodoList {
     this.todoCompleted.emit(todo);
   }
 }
-
 ```
 
 The code above will dispatch a custom DOM event called `todoCompleted`.

@@ -80,7 +80,6 @@ export class LoadingIndicator {
     // do something now that `activated` has changed
   }
 }
-
 ```
 
 # Managing Component State

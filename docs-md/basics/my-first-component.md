@@ -19,9 +19,9 @@ export class MyComponent {
 
   render() {
     return (
-    <p>
-      My name is {this.name}
-    </p>
+      <p>
+        My name is {this.name}
+      </p>
     );
   }
 }
