@@ -18,6 +18,9 @@ export class SiteHeader {
           <stencil-route-link url="/demos"  exact={true}>
             Demos
           </stencil-route-link>
+          <stencil-route-link url="/resources"  exact={true}>
+            Resources
+          </stencil-route-link>
           <a class="svg-button" id="stencil-repo" href="https://github.com/ionic-team/stencil" target="_blank" rel="noopener"
             title="Open the stencil site repository on github">
             <svg

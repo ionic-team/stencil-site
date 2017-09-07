@@ -49,6 +49,11 @@ export class App {
                 }}
               />
 
+              <stencil-route
+                url="/resources"
+                component="resources-page"
+              />
+
             </stencil-router>
           </div>
         </div>
