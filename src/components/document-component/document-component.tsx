@@ -4,7 +4,7 @@ import { Component, Prop, PropDidChange } from '@stencil/core';
   styleUrl: 'document-component.scss'
 })
 export class DocumentComponent {
-  @Prop() pages: string[];
+  @Prop() pages: string[] = [];
 
   @PropDidChange('pages')
   onDocChanged() {
