@@ -4,7 +4,18 @@ exports.config = {
     { components: ['app-marked'] },
     { components: ['demos-page', 'document-component'] }
   ],
-  collections: [{ name: '@stencil/router' }]
+  collections: [{ name: '@stencil/router' }],
+  serviceWorker: {
+    globPatterns: [
+      '**/*.{js,css,json,ico,png,svg}'
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: /docs/,
+        handler: 'networkFirst'
+      }
+    ]
+  }
 };
 
 exports.devServer = {
