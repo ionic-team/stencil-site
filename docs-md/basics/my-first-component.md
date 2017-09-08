@@ -26,7 +26,7 @@ export class MyComponent {
   }
 }
 ```
-> Don't fully understand what's going on? Do worry, we'll explain each pieces in detail later on.
+> Don't fully understand what's going on? Don't worry, we'll explain each pieces in detail later on.
 
 
 Once compiled, this component can be used in HTML just like any other tag.
