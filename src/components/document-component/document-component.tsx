@@ -8,7 +8,7 @@ export class DocumentComponent {
 
   @PropDidChange('pages')
   onDocChanged() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }
 
   render() {

@@ -1,4 +1,5 @@
 import { Component, Prop, PropDidChange, State } from '@stencil/core';
+
 @Component({
   tag: 'app-marked',
 })
@@ -7,7 +8,7 @@ export class AppMarked {
   @Prop() doc: string;
   @State() content: string;
 
-  ionViewWillLoad() {
+  componentWillLoad() {
     return this.fetchNewContent();
   }
 
@@ -20,8 +21,13 @@ export class AppMarked {
 
         const el = document.createElement('div');
         el.innerHTML = data;
+
         const headerEl = el.querySelector('h1');
         document.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
+
+        requestAnimationFrame(() => {
+          window.scrollTo(0, 0);
+        })
       });
   }
 
