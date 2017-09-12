@@ -55,3 +55,32 @@ export class TodoList {
   }
 }
 ```
+
+For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the keycode, or some constants Stencil provides.
+
+```typescript
+@Listen('keydown')
+handleKeyDown(ev){
+  if(ev.keyCode === 40){
+    console.log('down arrow pressed')
+  }
+}
+
+@Listen('keydown.up')
+handleUpArrow(ev){
+  console.log('will fire when up arrow is pressed');
+}
+
+```
+
+Stencil provides constants for the following keys, accessible via `keydown.<CONSTANT>`
+
+- enter
+- escape
+- space
+- tab
+- left
+- up
+- right
+- down
+

@@ -15,8 +15,10 @@ export class ResourcesPage {
         <h1>Resources</h1>
         <h4>Resources to help you get more out of Stencil</h4>
         <div>
-          <h2>Present Stencil</h2>
-          <iframe style={{border: '1px solid #eee'}} src="https://ionic-team.github.io/stencil-present/" width="560" height="315"></iframe>
+        <h2>Present Stencil</h2>
+        <div class="slide-wrapper">
+          <iframe style={{border: '1px solid #eee'}} src="https://ionic-team.github.io/stencil-present/"></iframe>
+        </div>
           <p>
             A forkable presentation for your next meetup or conference
             talk on Stencil.
