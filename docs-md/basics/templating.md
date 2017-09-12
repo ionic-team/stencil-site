@@ -139,7 +139,7 @@ Here's another of listening to input `change`. Note the use of the [Arrow functi
 ```jsx
 ...
 export class MyComponent {
-  inputChanged(event: UIEvent) {
+  inputChanged(event) {
     console.log('input changed: ', event.target.value);
   }
 
