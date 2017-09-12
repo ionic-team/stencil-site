@@ -2,7 +2,7 @@
 
 Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a `render` function that returns the JSX content.
 
-#### Basics
+### Basics
 
 The render functions returns something very similar to HTML
 
@@ -17,7 +17,7 @@ render() {
 Here we're returning a JSX representation of a `div`, with the inner content being "Hello World".
 
 
-#### Data Binding
+### Data Binding
 
 A common need of components is to render data that is based on a property.
 Like many popular frameworks, we can use this with `{}`.
@@ -72,6 +72,57 @@ render() {
 ```
 In this case, we need to render child components in the conditional.
 
+
+### Slots
+
+Sometimes you want to pass more JSX/HTML as child elements. For example:
+
+```jsx
+render(){
+  return(
+    <my-component>
+      <p>Child Element</p>
+    </my-component>
+  )
+}
+```
+
+To do this, you can use the `slot` tag inside of your `my-component`
+
+```jsx
+// my-component.tsx
+
+render(){
+  return <slot />
+}
+
+```
+
+[Slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) is a special tag in Web Components that allows you to place child elements inside your own custom element.
+Slots can also have `name`s, allowing you to render content in certain places.
+
+```jsx
+// my-component.tsx
+
+render(){
+  return[
+    <slot name="item-start"/>,
+    <h1>Here is my main content</h1>,
+    <slot name="item-end"/>
+  ]
+}
+```
+
+```jsx
+render(){
+  return(
+    <my-component>
+      <p slot="item-start">I'll be placed before the h1</p>
+      <p slot="item-end">I'll be placed after the h1</p>
+    </my-component>
+  )
+}
+```
 
 ### Loops
 
