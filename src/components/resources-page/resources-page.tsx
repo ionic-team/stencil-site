@@ -43,6 +43,7 @@ export class ResourcesPage {
             <li><a target="_blank" href="https://github.com/aaronksaunders/stencil-mobx">Stencil with MobX</a></li>
             <li><a target="_blank" href="https://www.datacodedesign.de/webkomponenten-mit-stencil-ein-erster-ueberblick/">Webkomponenten mit Stencil – Ein erster Überblick (in German)</a></li>
             <li><a target="_blank" href="https://medium.com/t%C3%BCrkiye/stencile-giri%C5%9F-41e90e37595d">Stencil’e Giriş (in Turkish)</a></li>
+            <li><a target="_blank" href="https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9">Stencil’de Bileşenler Arası Haberleşme (in Turkish)</a></li>
           </ul>
         </div>
       </div>
