@@ -176,7 +176,7 @@ An alternate syntax for this is to use
 
   render() {
     return (
-      <button onClick={this.handleClick.bind(this)>Click Me!</button>
+      <button onClick={this.handleClick.bind(this)}>Click Me!</button>
     );
   }
 ```
