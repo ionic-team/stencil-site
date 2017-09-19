@@ -42,7 +42,8 @@ exports.config = {
 | `prerenderIndex`       | Config for prerendering the index.html file.       | [Prerender Config](#prerender-index) |
 | `namespace`            | App namespace.                                     | `App`             |
 | `publicPath`           | Client-side url path to the build directory.       | `build/`          |
-| `generateCollection`   | Generate a library collection for sharing.         | `false`           |
+| `generateDistribution` | Generate a library collection for sharing.         | `false`           |
+| `generateWWW`          | Generate a WWW directory                           | `true`
 | `collectionDir`        | Collection directory for distribution.             | `dist/collection` |
 | `hashFileNames`        | If filenames should be hashed or not in prod mode. | `true`            |
 | `hashedFileNameLength` | Number of hash characters in the filenames.        | `8`               |
