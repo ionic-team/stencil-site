@@ -47,7 +47,7 @@ exports.config = {
 | `hashFileNames`        | If filenames should be hashed or not in prod mode. | `true`            |
 | `hashedFileNameLength` | Number of hash characters in the filenames.        | `8`               |
 | `global`               | Global source file to bundled with the core.       | `null`            |
-
+| `serviceWorker`        | Service worker workbox config                      | [Service Worker Config](#service-worker) |
 
 ### Prerender Index
 
@@ -90,3 +90,18 @@ exports.config = {
 ### Global
 
 In general, apps should strive to not have anything that is global across all components. Components should be self-contained and should not be dependent on anything else. That said, there may be a few cases where a global property or object is needed. In Ionic's case, all components need access to its global `config` object. By using the `global` config property, Ionic's stencil.config.js file points to an entry typescript file, that gets bundled into the core.
+
+
+### Service Worker
+
+The service worker config can use any of the Workbox config options found [here](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Our default config is as follows: 
+
+```
+{
+  skipWaiting: true,
+  clientsClaim: true,
+  globPatterns: [
+    '**/*.{js,css,json,html,ico,png,svg}'
+  ]
+};
+```
