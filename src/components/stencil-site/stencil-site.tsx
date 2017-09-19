@@ -41,7 +41,8 @@ export class App {
                     'stencil-config': 'basics/stencil-config.html',
                     'config': 'compiler/config.html',
                     'server-side-rendering': 'advanced/ssr/index.html',
-                    'routing': 'addons/stencil-router.html'
+                    'routing': 'addons/stencil-router.html',
+                    'service-workers': 'advanced/service-worker/index.html'
                   };
                   return (
                     <document-component pages={[map[props.match.params.pageName]]} />

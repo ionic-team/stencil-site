@@ -75,6 +75,11 @@ export class SiteMenu {
                   Server Side Rendering
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/service-workers">
+                  Service Workers
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 
