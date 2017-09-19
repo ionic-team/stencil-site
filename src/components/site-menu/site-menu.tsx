@@ -80,6 +80,11 @@ export class SiteMenu {
                   Service Workers
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/distribution">
+                  Distribution
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 
