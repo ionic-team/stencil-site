@@ -62,3 +62,10 @@ There are three ways we recommend using web components built with Stencil.
 - Then you can use the element anywhere in your template, JSX, html etc
 
 
+<stencil-route-link url="/docs/service-workers" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/routing" custom="true" class="nextButton">
+  Next
+</stencil-route-link>

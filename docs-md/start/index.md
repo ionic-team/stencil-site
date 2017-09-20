@@ -34,7 +34,7 @@ render() {
 
 ```
 
-When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/docs/my-first-component" router="#router">component docs</stencil-route-link>
+When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/docs/my-first-component">component docs</stencil-route-link>
 
 ## Building for Production
 
@@ -45,3 +45,11 @@ npm run build
 ```
 
 This will generate a minified distribution of your stencil components.
+
+<stencil-route-link url="/docs/intro" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/my-first-component" custom="true" class="nextButton">
+  Next
+</stencil-route-link>

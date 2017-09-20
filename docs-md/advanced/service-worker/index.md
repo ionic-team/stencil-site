@@ -39,3 +39,11 @@ exports.config = {
   }
 };
 ```
+
+<stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/distribution" custom="true" class="nextButton">
+  Next
+</stencil-route-link>

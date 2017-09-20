@@ -60,3 +60,11 @@ app.get('/*', function (req, res, next) {
 
 });
 ```
+
+<stencil-route-link url="/docs/prerendering" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/service-workers" custom="true" class="nextButton">
+  Next
+</stencil-route-link>

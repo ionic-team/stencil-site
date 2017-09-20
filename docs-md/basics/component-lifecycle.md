@@ -57,3 +57,10 @@ export class MyComponent {
 }
 ```
 
+<stencil-route-link url="/docs/events" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/stencil-config" custom="true" class="nextButton">
+  Next
+</stencil-route-link>

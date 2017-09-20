@@ -96,3 +96,7 @@ To navigate around an app, use the `stencil-route-link` component.
 <stencil-route-link url="/demos">
 <stencil-route-link url="/docs/getting-started">
 ```
+
+<stencil-route-link url="/docs/distribution" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
