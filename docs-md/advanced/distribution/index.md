@@ -10,7 +10,7 @@ The easiest way to build and distribute web components with Stencil is by using 
 
 ### Distribution Config
 
-To easily build a web component with Stencil that you can easily share and use in different frameworks you need to turn on the following configs in your Stencil config:
+Configuring Stencil for distribution is easy. Simply set the following config options in the `stencil.config.js` file:
 
 ```
 exports.config = {
