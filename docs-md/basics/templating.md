@@ -134,7 +134,7 @@ In the example below, we're going to assume the component has a local property c
 render() {
   return (
     <div>
-      {this.todos.map( todo => {
+      {this.todos.map((todo) => {
         <div>
           <div>{todo.taskName}</div>
           <div>{todo.isCompleted}</div>
