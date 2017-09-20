@@ -85,6 +85,11 @@ export class SiteMenu {
                   Distribution
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/prerendering">
+                  Prerendering
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

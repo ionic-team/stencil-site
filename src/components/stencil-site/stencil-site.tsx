@@ -43,7 +43,8 @@ export class App {
                     'server-side-rendering': 'advanced/ssr/index.html',
                     'routing': 'addons/stencil-router.html',
                     'service-workers': 'advanced/service-worker/index.html',
-                    'distribution': 'advanced/distribution/index.html'
+                    'distribution': 'advanced/distribution/index.html',
+                    'prerendering': 'advanced/pre-rendering/index.html'
                   };
                   return (
                     <document-component pages={[map[props.match.params.pageName]]} />
