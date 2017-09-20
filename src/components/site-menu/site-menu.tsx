@@ -71,6 +71,11 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
+                <stencil-route-link url="/docs/prerendering">
+                  Prerendering
+                </stencil-route-link>
+              </li>
+              <li>
                 <stencil-route-link url="/docs/server-side-rendering">
                   Server Side Rendering
                 </stencil-route-link>
@@ -83,11 +88,6 @@ export class SiteMenu {
               <li>
                 <stencil-route-link url="/docs/distribution">
                   Distribution
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/prerendering">
-                  Prerendering
                 </stencil-route-link>
               </li>
             </ul>
