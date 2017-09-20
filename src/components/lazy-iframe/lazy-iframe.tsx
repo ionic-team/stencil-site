@@ -23,8 +23,8 @@ export class LazyIframe {
           this.cleanup();
         }
       });
-  
-      this.io.observe(this.el.querySelector('.iframeWrapper'));
+
+      this.io.observe(this.el.querySelector('iframe'));
     } else {
       this.handleIframe();
     }
@@ -51,9 +51,7 @@ export class LazyIframe {
   render() {
     return (
       <div>
-        <div class="iframeWrapper">
-          <iframe frameBorder="0" title={this.title} allowFullScreen={true} width="560" height="315" src={this.realSrc} ></iframe>
-        </div>
+        <iframe frameBorder="0" title={this.title} allowFullScreen={true} width="560" height="315" src={this.realSrc} ></iframe>
       </div>
     );
   }
