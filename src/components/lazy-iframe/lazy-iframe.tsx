@@ -1,14 +1,15 @@
 import { Component, Element, Prop, State } from '@stencil/core';
-@Component({
-  tag: 'youtube-video',
-  styleUrl: 'youtube-video.scss'
-})
-export class YoutubeVideo {
 
-  @Prop() video: string;
+@Component({
+  tag: 'lazy-iframe',
+  styleUrl: 'lazy-iframe.scss'
+})
+export class LazyIframe {
+
+  @Prop() src: string;
   @Prop() title: string;
 
-  @State() fullSrc: string = '';
+  @State() realSrc: string;
 
   @Element() el: HTMLElement;
 
@@ -23,7 +24,7 @@ export class YoutubeVideo {
         }
       });
   
-      this.io.observe(this.el.querySelector('.videoWrapper'));
+      this.io.observe(this.el.querySelector('.iframeWrapper'));
     } else {
       this.handleIframe();
     }
@@ -34,7 +35,7 @@ export class YoutubeVideo {
   }
 
   handleIframe() {
-    this.fullSrc = `https://www.youtube.com/embed/${this.video}`;
+    this.realSrc = this.src
   }
 
   cleanup() {
@@ -50,8 +51,8 @@ export class YoutubeVideo {
   render() {
     return (
       <div>
-        <div class="videoWrapper">
-          <iframe frameBorder="0" title={this.title} allowFullScreen={true} width="560" height="315" src={this.fullSrc} ></iframe>
+        <div class="iframeWrapper">
+          <iframe frameBorder="0" title={this.title} allowFullScreen={true} width="560" height="315" src={this.realSrc} ></iframe>
         </div>
       </div>
     );

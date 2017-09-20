@@ -28,20 +28,7 @@ export class ResourcesPage {
       <div>
         <h1>Resources</h1>
         <h4>Resources to help you get more out of Stencil</h4>
-        <div>
-        <h2>Present Stencil</h2>
-        <div class="slide-wrapper">
-          <iframe style={{border: '1px solid #eee'}} src="https://ionic-team.github.io/stencil-present/"></iframe>
-        </div>
-          <p>
-            A forkable presentation for your next meetup or conference
-            talk on Stencil.
-            Built with <a href="lab.hakim.se/reveal-js/">Reveal.js</a>
-          </p>
-          <a target="_blank" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
-          <br />
-          <a target="_blank" href="https://github.com/ionic-team/stencil-present/">Source</a>
-        </div>
+
         <div>
           <h2>Community Articles/Blogs</h2>
           <p>
@@ -62,6 +49,7 @@ export class ResourcesPage {
             <li><a target="_blank" href="https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9">Stencil’de Bileşenler Arası Haberleşme (in Turkish)</a></li>
           </ul>
         </div>
+
         <div>
           <h2>Third-party Components/Templates</h2>
           <ul>
@@ -72,6 +60,21 @@ export class ResourcesPage {
             return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
           })}
           </ul>
+        </div>
+
+        <div>
+        <h2>Present Stencil</h2>
+        <div class="slide-wrapper">
+          <lazy-iframe style={{border: '1px solid #eee'}} src="https://ionic-team.github.io/stencil-present/" title="Present Stencil"></lazy-iframe>
+        </div>
+          <p>
+            A forkable presentation for your next meetup or conference
+            talk on Stencil.
+            Built with <a href="lab.hakim.se/reveal-js/">Reveal.js</a>
+          </p>
+          <a target="_blank" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
+          <br />
+          <a target="_blank" href="https://github.com/ionic-team/stencil-present/">Source</a>
         </div>
       </div>
     );
