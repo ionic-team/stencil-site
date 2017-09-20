@@ -7,13 +7,22 @@
         "destination": "/index.html"
       }
     ],
+    "redirects": [
+      {
+        "source": "/docs/building-components",
+        "destination": "/docs/my-first-component",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "sw.js",
-        "headers" : [ {
-          "key" : "Cache-Control",
-          "value" : "no-cache"
-        } ]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
       }
     ]
   }
