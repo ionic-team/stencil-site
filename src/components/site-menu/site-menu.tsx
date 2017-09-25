@@ -59,6 +59,12 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
+              <li>
+                <stencil-route-link url="/docs/forms">
+                  Forms
+                </stencil-route-link>
+              </li>
+
             </ul>
           </li>
 
