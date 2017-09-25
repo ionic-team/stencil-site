@@ -39,7 +39,7 @@ exports.config = {
   This component renders based on whether the supplied url matches the current location.
 
   *properties*:
-  - **url** (*string*): the pathname to match on.  Accepts paths similar to expressjs.  So that you can define parameters in the url `/foo/:bar` where bar would be available in incoming props.
+  - **url** (*Array || string*): the pathnames to match on. Can also pass an array of paths so one stencil-route matches multiple paths. Accepts paths similar to expressjs so that you can define parameters in the url `/foo/:bar` where bar would be available in incoming props.
   - **component** (*string*): the component name that you would like the route to render
   - **componentProps** (*key/value Object*): a key value object(`{ 'red': true, 'blue': 'white'}`) containing props that should be passed to the defined component when rendered.
   - **routeRender** (*function*): function that accepts props as an argument. If this exists it will be used in place of the component defined.
