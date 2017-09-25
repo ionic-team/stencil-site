@@ -103,6 +103,18 @@ export class SiteMenu {
               </li>
             </ul>
           </li>
+
+          <li>
+            <h4>Community</h4>
+            <ul>
+              <li>
+                <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjQ2MzkyMTY0MTk0LTQ4ODgzYjFjNjdkNDY3YWVhMmNlMTljMWQxNTM3Yjg0ZTIyZTM1MmU2YWE5YzNjNzE1MmQ3ZTk2NjQ1YzM5ZDM" title="Stencil slack channel">Stencil Slack</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/stenciljs">Stencil on Twitter</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     );
