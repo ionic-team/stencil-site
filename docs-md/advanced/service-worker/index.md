@@ -4,7 +4,7 @@
 
 ### Usage
 
-When doing a production build of an app built using Stencil, the Stencil compiler will automatically generate a service worker for you and inject the necessary code to register the service worker in your index.html. Also, because the files Stencil generates are hashed, everytime you do a production build and push an update to your app the service worker will know to update therefore ensuring your users are never stuck on a stale version of your site.
+When doing a production build of an app built using Stencil, the Stencil compiler will automatically generate a service worker for you and inject the necessary code to register the service worker in your index.html. Also, because the files Stencil generates are hashed, everytime you do a production build and push an update to your app the service worker will know to update, therefore ensuring your users are never stuck on a stale version of your site.
 
 ### Config
 
