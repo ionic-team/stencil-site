@@ -46,15 +46,15 @@ app.get('/*', function (req, res, next) {
       html: html,
       req: req,
       config: {}
-    }, function(err, html) {
-      if (err) {
+    }, function(results) {
+      if (results.diagnostics.length) {
         // Handle the error hydrating
-        console.error(err);
+        console.error(results.diagnostics);
         return res.sendStatus(500);
       }
 
       // Send the hydrated data back
-      res.send(html);
+      res.send(results.html);
     });
   });
 
