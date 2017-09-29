@@ -122,7 +122,7 @@ export class TodoList {
 }
 ```
 
-Call the method like this
+Call the method like this:
 
 ```
 const todoListElement = document.querySelector('todo-list');
@@ -152,7 +152,7 @@ export class TodoList {
 
 Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the `@State` decorator to update the local state and trigger a re-render.
 
-The example below WILL NOT trigger a re-render
+The example below WILL NOT trigger a re-render:
 
 ```typescript
 import { State } from '@stencil/core';
@@ -196,7 +196,7 @@ This calls the `completedTodos` setter, which triggers the re-render.
 
 Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
 
-Here's an example of using a component within another component
+Here's an example of using a component within another component:
 
 ```
 import { Component, Prop } from '@stencil/core';

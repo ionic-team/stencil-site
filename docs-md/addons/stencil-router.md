@@ -40,7 +40,7 @@ exports.config = {
 
   *properties*:
   - **url** (*Array || string*): the pathnames to match on. Can also pass an array of paths so one stencil-route matches multiple paths. Accepts paths similar to expressjs so that you can define parameters in the url `/foo/:bar` where bar would be available in incoming props.
-  - **component** (*string*): the component name that you would like the route to render
+  - **component** (*string*): the component name that you would like the route to render.
   - **componentProps** (*key/value Object*): a key value object(`{ 'red': true, 'blue': 'white'}`) containing props that should be passed to the defined component when rendered.
   - **routeRender** (*function*): function that accepts props as an argument. If this exists it will be used in place of the component defined.
   - **exact** (*boolean*): If true then only render this route when the url matches exactly to the location, if false it will render if the current url 'matches' the url defined.
@@ -85,7 +85,7 @@ Within the `stencil-router` element, we want to declare our set of `stencil-rout
 </stencil-router>
 ```
 
-When navigating to `/demos/rendering` based on the above configuration, the `demos-page` component will be loaded with a child component `fiber-demo`. They will both be loaded as children of their coresponding stencil-routes but they are not related other than both match the route. Nested routes/components just work.
+When navigating to `/demos/rendering` based on the above configuration, the `demos-page` component will be loaded with a child component `fiber-demo`. They will both be loaded as children of their corresponding stencil-routes but they are not related other than both match the route. Nested routes/components just work.
 
 ## Navigating
 

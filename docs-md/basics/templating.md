@@ -4,7 +4,7 @@ Stencil components are rendered using JSX, a popular, declarative template synta
 
 ### Basics
 
-The render function returns something very similar to HTML
+The render functions returns something very similar to HTML.
 
 ```typscript
 render() {
@@ -87,7 +87,7 @@ render(){
 }
 ```
 
-To do this, you can use the `slot` tag inside of your `my-component`
+To do this, you can use the `slot` tag inside of your `my-component`.
 
 ```jsx
 // my-component.tsx
@@ -167,7 +167,7 @@ export class MyComponent {
 }
 ```
 
-An alternate syntax for this is to use
+An alternate syntax for this is to use the following:
 
 ```jsx
   handleClick(event: UIEvent) {
