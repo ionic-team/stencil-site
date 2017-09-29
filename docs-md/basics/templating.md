@@ -19,8 +19,8 @@ Here we're returning a JSX representation of a `div`, with the inner content bei
 
 ### Data Binding
 
-A common need of components is to render data that is based on a property.
-Like many popular frameworks, we can use this with `{}`.
+A common need of components is to render data based on a property.
+Like many popular frameworks, we can use `{}`.
 
 ```typscript
 render() {
@@ -44,7 +44,7 @@ Hello {this.name}
 ### Conditionals
 
 If want to conditionally render different content, we can simply use JavaScript if/else statements:
-Here, if `name` is not defined, we can just render out a different element.
+Here, if `name` is not defined, we can just render a different element.
 
 ```jsx
 render() {
@@ -185,7 +185,7 @@ Both options are valid.
 
 
 
-Here's another of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+Here's another example of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ```jsx
 ...

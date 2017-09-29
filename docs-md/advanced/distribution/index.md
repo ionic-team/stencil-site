@@ -58,8 +58,8 @@ There are three ways we recommend using web components built with Stencil.
 
 ### In a stencil-starter app
 - Run `npm install my-name --save`
-- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-starter/blob/master/stencil.config.js#L5)
-- Then you can use the element anywhere in your template, JSX, html etc.
+- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5)
+- Then you can use the element anywhere in your template, JSX, html etc
 
 
 <stencil-route-link url="/docs/service-workers" router="#router" custom="true" class="backButton">
