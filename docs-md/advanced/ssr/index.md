@@ -1,64 +1,78 @@
 # Server Side Rendering
 
-One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser.
+One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser. Additionally, before deciding to render each page on-demand on a server, it may best to look into using [prerendering](/docs/prerendering) instead.
 
-Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the `@stencil/core` package.
+Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the `@stencil/core` package. To see a full example, please take a look at the [Stencil SSR Starter](https://github.com/ionic-team/stencil-ssr-starter).
 
 
-## Node.js example
+## Stencil SSR Express Middleware
+
+Easiest way to run SSR is to use the Express Middleware:
 
 ```javascript
-var express = require('express');
-var app = express();
-var fs = require('fs');
-var path = require('path');
+const express = require('express');
+const stencil = require('@stencil/core/server');
 
-var stencil = require('@stencil/core');
+// create the express app
+const app = express();
 
-// Create the stencil SSR renderer
-var renderer = stencil.createRenderer({
-  rootDir: path.join(__dirname, './'),
-  buildDir: path.join(__dirname, './www/build/'),
-  namespace: 'app',
-  logLevel: 'debug'
-});
+// set which port express it will be using
+const port = 3030;
 
-// host the build directory as static files
-// so the app can pull client side scripts
-app.use('/build', express.static('www/build'));
+// load the stencil config
+const config = stencil.loadConfig(__dirname);
 
-// If you want to use HTML5 style routing in your client, keep the catch-all route handler here,
-// otherwise change it to a more specific route
-app.get('/*', function (req, res, next) {
-  console.log(`serve: ${req.url}`);
+// serve-side render html pages
+app.use(stencil.ssrPathRegex, stencil.ssrMiddleware({ config }));
 
-  var filePath = path.join(__dirname, 'www/index.html');
+// serve all static files from www directory
+app.use(express.static(config.wwwDir));
 
-  fs.readFile(filePath, 'utf-8', (err, html) => {
-    if (err) {
-      console.error(err);
-      res.send(err);
-      return;
-    }
+// start the server
+app.listen(port, () => config.logger.info(`server started at http://localhost:${ port }`));
 
-    // Render the initial app content through Stencil
-    renderer.hydrateToString({
-      html: html,
-      req: req,
-      config: {}
-    }, function(results) {
-      if (results.diagnostics.length) {
-        // Handle the error hydrating
-        console.error(results.diagnostics);
-        return res.sendStatus(500);
-      }
+```
 
-      // Send the hydrated data back
-      res.send(results.html);
+
+## Node.js Example
+
+```javascript
+const express = require('express');
+const fs = require('fs');
+const stencil = require('@stencil/core/server');
+
+// load the config
+const config = stencil.loadConfig(__dirname);
+
+// create the renderer
+const renderer = stencil.createRenderer(config);
+
+let srcIndexHtml: string;
+try {
+  // load the source index.html
+  srcIndexHtml = fs.readFileSync(config.srcIndexHtml, 'utf-8');
+
+} catch (e) {
+  console.error(`error loading srcIndexHtml: ${e}`);
+}
+
+return function(req: any, res: any) {
+
+  // hydrate level 4, please!
+  renderer.hydrateToString({
+    html: srcIndexHtml,
+    req: req
+  }).then(results => {
+
+    // console log any diagnostics
+    results.diagnostics.forEach(d => {
+      console.log(d.messageText);
     });
-  });
 
-});
+    // respond with the hydrated html
+    res.send(results.html);
+  });
+};
 ```
 
 <stencil-route-link url="/docs/prerendering" router="#router" custom="true" class="backButton">
