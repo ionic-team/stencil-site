@@ -28,7 +28,7 @@ Thanks for your interest in contributing to the Stencil Docs! :tada:
 1. Fork the repo.
 2. Clone your fork.
 3. Make a branch for your change.
-4. Run `npm install` (make sure you have [node](https://nodejs.org/en/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm) installed first)
+4. Run `npm install` (make sure you have [node](https://nodejs.org/en/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm) installed first).
 
 
 #### Developing
@@ -41,15 +41,15 @@ Thanks for your interest in contributing to the Stencil Docs! :tada:
 1. To add documentation first create a new markdown file in `docs-md` in the folder that fits your doc best. For example, if your doc is covering something in the Stencil compiler, you would put it in `docs-md/compiler`.
 2. Write your documentation following the style in the other docs markdown files. Try to aim for being as clear and concise as possible. We recommend checking out the [vue.js docs](https://vuejs.org/) for examples of good docs.
 3. Open `src/components/stencil-site.tsx` in your editor and add the path to your new docs markdown file but using `.html` instead of `.md` to [here](https://github.com/ionic-team/stencil-site/blob/master/src/components/stencil-site/stencil-site.tsx#L33). For example, if my new doc was located at `docs-md/basics/my-cool-doc.md` I would add `'my-cool-doc': 'basics/my-cool-doc.html',` to that object.
-4. Open `src/components/site-menu.tsx` in your editor and add a new `<stencil-route-link />` with the `url` attribute poining to the path for your new doc. For example, if I just added the doc mentioned above, my path would be `basics/my-cool-doc`.
-5. Run `npm run dev` to make sure your doc shows up in the menu, that you can navigate to the doc and that your docs layout looks correct.
+4. Open `src/components/site-menu.tsx` in your editor and add a new `<stencil-route-link />` with the `url` attribute pointing to the path for your new doc. For example, if I just added the doc mentioned above, my path would be `basics/my-cool-doc`.
+5. Run `npm run dev` to make sure your doc shows up in the menu, that you can navigate to the doc, and that your docs layout looks correct.
 
 
 #### Modifying documentation
 
 1. Locate the doc you want to modify in `docs-md/`.
 2. Modify the documentation, making sure to keep the format the same as the rest of the doc.
-3. Run `npm run dev` to make sure your changes look correct
+3. Run `npm run dev` to make sure your changes look correct.
 
 ## Commit Message Format
 
@@ -64,7 +64,7 @@ Should be `docs`
 The scope can be anything specifying the place of the commit change. For example `router`, `prerendering`, etc. If you make multiple commits for the same doc, please keep the naming of this doc consistent. For example, if you make a change to the router docs and the first commit is `docs(router)`, you should continue to use `router` for any more commits related to navigation.
 
 #### Subject
-The subject contains succinct description of the change:
+The subject contains a succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
 * do not capitalize first letter
