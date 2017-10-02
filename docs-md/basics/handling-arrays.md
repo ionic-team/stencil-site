@@ -1,35 +1,31 @@
 # Handling arrays and objects
 
-### Updating an array
+Stencil components update when props or state on a component change. For performance and simplicity, Stencil only compares references for changes, and will not re-render when data inside of an array or object changes.
 
-JavaScript arrays can be mutated with the following methods:
+Treating data as non-mutable is an industry trend and these techniques will soon become a trusted part of your JavaScript toolbox.
 
-- push()
-- pop()
-- shift()
-- unshift()
-- splice()
-- sort()
-- reverse()
+### Updating arrays
 
-These methods all change the original array, but do not return new arrays. Mutating the original array will not trigger a view update in Stencil. But, returning a new copy of the array will. Below is an example of our recommended way to update an array:
+For arrays, this means that the standard mutable array operations such as `push()` and `unshift()` won't work. Instead, non-mutable array operators such as `map()` and `filter()`, and the ES6 spread operator syntax, should be used as they return a copy of a new array.
+
+For example, to push a new item to an array, create a new array with the existing values and the new value at the end:
 
 ```
 // our original array
-let originalArray = ['ionic', 'stencil', 'webcomponents'];
+this.items = ['ionic', 'stencil', 'webcomponents'];
 
 // update the array
-originalArray = [
-  ...originalArray,
+this.items = [
+  ...this.items,
   'awesomeness'
 ]
 ```
 
-This example will return a new copy of the array with your updated field, which will trigger a view update. If you have not seen the `...originalArray` syntax before, this is a relatively new method called the spread operator added in ES2015 that you can read about [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
+The `...this.items` syntax is a relatively new feature of JavaScript that "expands" the given object in place. Read more about the Spread operator [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
 
 ### Updating an object
 
-You can also use the spread operator to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:
+The spread operator should also be used to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:
 
 ```
 // our original object
@@ -39,6 +35,3 @@ let myCoolObject = {first: '1', second: '2'}
 myCoolObject = { ...myCoolObject, third: '3' }
 
 ```
-
-
-
