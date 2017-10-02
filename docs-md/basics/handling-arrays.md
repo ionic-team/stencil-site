@@ -2,7 +2,7 @@
 
 Stencil components update when props or state on a component change. For performance and simplicity, Stencil only compares references for changes, and will not re-render when data inside of an array or object changes.
 
-Treating data as non-mutable is an industry trend and these techniques will soon become a trusted part of your JavaScript toolbox.
+To update array or object data, use the following techniques which are fast-becoming a core part of the modern JavaScript Developer toolbox.
 
 ### Updating arrays
 
