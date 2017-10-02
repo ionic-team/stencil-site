@@ -150,9 +150,17 @@ export class TodoList {
 
 ## Change Detection
 
-Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the `@State` decorator to update the local state and trigger a re-render.
+Stencil **does not** perform change detection, a feature you may be familiar
+with from larger, more complex tools/frameworks. This means that Stencil will
+not re-render because the contents of an object or array (contained in some
+`@State` or `@Prop`) changes; watching for such changes adds complexity, size,
+and execution time.
 
-The example below WILL NOT trigger a re-render:
+Rather, in a Stencil component re-rendering is triggered by changing an object
+reference or primitive value in a `@State`-decorated field. This is efficient,
+predictable, and compact, but requires taking an "immutable" approach to
+managing data that kept stencil should re-render. The example below **will not**
+trigger a re-render:
 
 ```typescript
 import { State } from '@stencil/core';
@@ -168,9 +176,9 @@ export class TodoList {
 ```
 
 In the above example, we are changing the contents of the `completedTodos` array.
-A re-render is not performed because Stencil does not deeply watch items for change.
+A re-render is not performed because Stencil does not watch array contents for changes.
 
-In order to trigger a re-render, the value needs to be set to a new array:
+In order to trigger a re-render, the `@State`-level value needs to be set to a new array:
 
 ```typescript 
 import { State } from '@stencil/core';
@@ -189,8 +197,8 @@ export class TodoList {
 ```
 
 In the above example, the key line is `this.completedTodos = completedTodos;`.
-This calls the `completedTodos` setter, which triggers the re-render.
-
+This calls the `completedTodos` setter, which triggers the re-render. Please see
+the additional documentation on <stencil-route-link url="/docs/handling-arrays">how to manipulate array and object contents</stencil-route-link>
 
 ## Embedding or Nesting Components
 
