@@ -39,6 +39,7 @@ export class App {
                     'events': 'basics/events.html',
                     'component-lifecycle': 'basics/component-lifecycle.html',
                     'stencil-config': 'basics/stencil-config.html',
+                    'forms': 'basics/forms.html',
                     'handling-arrays': 'basics/handling-arrays.html',
                     'config': 'compiler/config.html',
                     'server-side-rendering': 'advanced/ssr/index.html',
