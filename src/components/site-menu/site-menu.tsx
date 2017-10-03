@@ -60,6 +60,14 @@ export class SiteMenu {
               </li>
 
               <li>
+
+                <stencil-route-link url="/docs/forms">
+                  Forms
+                </stencil-route-link>
+              </li>
+              
+              <li>
+
                 <stencil-route-link url="/docs/handling-arrays">
                   Updating Arrays and Objects
                 </stencil-route-link>
