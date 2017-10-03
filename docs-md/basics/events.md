@@ -1,8 +1,8 @@
 # Events
 
-Components can emits data and events using the Event Emitter decorator.
+Components can emit data and events using the Event Emitter decorator.
 
-To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) up for other components to handle, use the `@Event()` decorator.
+To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) for other components to handle, use the `@Event()` decorator.
 
 ```typescript
 import { Event, EventEmitter } from '@stencil/core';

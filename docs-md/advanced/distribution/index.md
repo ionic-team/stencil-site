@@ -22,7 +22,7 @@ exports.config = {
 ```
 
 <stencil-route-link url="/docs/stencil-config" router="#router" custom="true">
-  Learn more about these config options here
+  Learn more about these config options here.
 </stencil-route-link>
 
 
@@ -54,11 +54,11 @@ There are three ways we recommend using web components built with Stencil.
 ### Node Modules
 - Run `npm install my-name --save`
 - Put a script tag similar to this `<script src='node_modules/my-name/dist/myname.js></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+- Then you can use the element anywhere in your template, JSX, html etc.
 
 ### In a stencil-starter app
 - Run `npm install my-name --save`
-- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-starter/blob/master/stencil.config.js#L5)
+- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5)
 - Then you can use the element anywhere in your template, JSX, html etc
 
 

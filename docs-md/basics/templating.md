@@ -4,7 +4,7 @@ Stencil components are rendered using JSX, a popular, declarative template synta
 
 ### Basics
 
-The render functions returns something very similar to HTML
+The render functions returns something very similar to HTML.
 
 ```typscript
 render() {
@@ -19,8 +19,8 @@ Here we're returning a JSX representation of a `div`, with the inner content bei
 
 ### Data Binding
 
-A common need of components is to render data that is based on a property.
-Like many popular frameworks, we can use this with `{}`.
+A common need of components is to render data based on a property.
+Like many popular frameworks, we can use `{}`.
 
 ```typscript
 render() {
@@ -44,7 +44,7 @@ Hello {this.name}
 ### Conditionals
 
 If want to conditionally render different content, we can simply use JavaScript if/else statements:
-Here, if `name` is not defined, we can just render our a different element.
+Here, if `name` is not defined, we can just render a different element.
 
 ```jsx
 render() {
@@ -56,7 +56,7 @@ render() {
 }
 ```
 
-A more complex example of this use JSX shorthand:
+A more complex example of this using JSX shorthand:
 
 ```jsx
 render() {
@@ -87,7 +87,7 @@ render(){
 }
 ```
 
-To do this, you can use the `slot` tag inside of your `my-component`
+To do this, you can use the `slot` tag inside of your `my-component`.
 
 ```jsx
 // my-component.tsx
@@ -167,7 +167,7 @@ export class MyComponent {
 }
 ```
 
-An alternate syntax for this is to use
+An alternate syntax for this is to use the following:
 
 ```jsx
   handleClick(event: UIEvent) {
@@ -185,7 +185,7 @@ Both options are valid.
 
 
 
-Here's another of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+Here's another example of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ```jsx
 ...

@@ -8,7 +8,7 @@ Each Stencil Component must be decorated with an `@Component()` decorator from t
 
 Use a relative url to the `.scss` file for the styleUrl(s).
 
-```
+```typescript 
 import { Component } from '@stencil/core';
 
 @Component({
@@ -24,7 +24,7 @@ export class TodoList {
 
 Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
 
-```
+```typescript 
 import { Prop } from '@stencil/core';
 ...
 export class TodoList {
@@ -45,13 +45,13 @@ logColor() {
 
 Externally, Props are set on the element.
 
-```
+```typescript 
 <todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
 ```
 
 They can also be accessed via JS from the element.
 
-```
+```typescript 
 const todoListElement = document.querySelector('todo-list');
 console.log(todoListElement.myHttpService); // MyHttpService
 console.log(todoListElement.color); // blue
@@ -87,7 +87,7 @@ export class LoadingIndicator {
 The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify the property from outside the component, but the component can modify it how ever it sees fit. Any changes to a `@State()` property will cause the components render function to be called again.
 
 
-```
+```typescript 
 import { State } from '@stencil/core';
 
 ...
@@ -109,7 +109,7 @@ export class TodoList {
 
 The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
 
-```
+```typescript 
 import { Method } from '@stencil/core';
 
 ...
@@ -122,9 +122,9 @@ export class TodoList {
 }
 ```
 
-Call the method like this
+Call the method like this:
 
-```
+```typescript 
 const todoListElement = document.querySelector('todo-list');
 todoListElement.showPrompt();
 ```
@@ -152,7 +152,7 @@ export class TodoList {
 
 Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the `@State` decorator to update the local state and trigger a re-render.
 
-The example below WILL NOT trigger a re-render
+The example below WILL NOT trigger a re-render:
 
 ```typescript
 import { State } from '@stencil/core';
@@ -172,7 +172,7 @@ A re-render is not performed because Stencil does not deeply watch items for cha
 
 In order to trigger a re-render, the value needs to be set to a new array:
 
-```
+```typescript 
 import { State } from '@stencil/core';
 
 ...
@@ -196,9 +196,9 @@ This calls the `completedTodos` setter, which triggers the re-render.
 
 Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
 
-Here's an example of using a component within another component
+Here's an example of using a component within another component:
 
-```
+```typescript 
 import { Component, Prop } from '@stencil/core';
 
 @Component({
@@ -215,7 +215,7 @@ export class MyEmbeddedComponent {
 }
 ```
 
-```
+```typescript 
 import { Component } from '@stencil/core';
 
 @Component({

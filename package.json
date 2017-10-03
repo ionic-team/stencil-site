@@ -6,13 +6,13 @@
   "scripts": {
     "docs": "gulp",
     "build": "gulp && stencil build --prerender",
-    "dev": "gulp && sd concurrent \"stencil build --dev --watch --prerender\" \"stencil-dev-server\" ",
+    "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && firebase deploy",
     "serve": "stencil-dev-server",
     "start": "npm run dev"
   },
   "dependencies": {
-    "@stencil/core": "0.0.5",
+    "@stencil/core": "0.0.6-4",
     "@stencil/router": "0.0.10-0"
   },
   "devDependencies": {
