@@ -17,6 +17,23 @@ Then, to start a live-reload server, run:
 npm start
 ```
 
+## Testing
+
+The Stencil Application Starter uses Jest and a small testing API in order to test the components. There are two ways to run the unit tests.
+They can be run once on command, or they can be live-reloaded and run with each source change.
+
+To run the tests once, run:
+
+```bash
+npm test
+```
+
+To run the tests and live-reload them, run:
+
+```bash
+npm run test.watch
+```
+
 ## Developing
 
 Changes made while the live-reload server will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
