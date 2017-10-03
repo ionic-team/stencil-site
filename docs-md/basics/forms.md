@@ -13,7 +13,8 @@ export class MyName {
 
   @State() value: string;
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault()
     console.log(this.value);
     // send data to our backend
   }
@@ -24,7 +25,7 @@ export class MyName {
 
   render() {
     return (
-      <form onSubmit={() => this.handleSubmit()}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           Name:
           <input type="text" value={this.value} onInput={() => this.handleChange(event)} />
@@ -72,10 +73,10 @@ export class MyName {
 
   render() {
     return (
-      <form onSubmit={() => this.handleSubmit()}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           Email:
-          <input type="email" value={this.value} onInput={() => this.handleChange(event)} />
+          <input type="email" value={this.value} onInput={(e) => this.handleChange(e)} />
         </label>
 
         <select value={this.selectValue} onInput={() => this.handleSelect(event)}>
