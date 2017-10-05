@@ -7,7 +7,8 @@ import { Component } from '@stencil/core';
 export class ResourcesPage {
   LINKS = {
     TEMPLATES: [
-      { title: 'Official Stencil Starter Project', url: 'https://github.com/ionic-team/stencil-starter' },
+      { title: 'Official Stencil App Starter Project', url: 'https://github.com/ionic-team/stencil-app-starter' },
+      { title: 'Official Stencil Component Starter Project', url: 'https://github.com/ionic-team/stencil-component-starter' },
       { title: 'Stencil Boilerplate with Server Side Rendering', url: 'https://github.com/mitchellsimoens/stencil-boilerplate' },
       { title: 'Angular Stencil: use Stencil-built components in Angular', url: 'https://github.com/seveves/angular-stencil' }
     ],

@@ -56,7 +56,7 @@ There are three ways we recommend using web components built with Stencil.
 - Put a script tag similar to this `<script src='node_modules/my-name/dist/myname.js></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
 
-### In a stencil-starter app
+### In a stencil-app-starter app
 - Run `npm install my-name --save`
 - Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5)
 - Then you can use the element anywhere in your template, JSX, html etc
