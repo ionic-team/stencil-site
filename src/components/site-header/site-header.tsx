@@ -21,14 +21,17 @@ export class SiteHeader {
           <stencil-route-link url="/resources"  exact={true}>
             Resources
           </stencil-route-link>
-          <a class="github-button" 
-             href="https://github.com/ionic-team/stencil" 
-             data-icon="octicon-star" 
-             aria-label="Star Stencil on GitHub" 
-             rel="noopener" 
-             title="Start Stencil on Github">
-            <svg version="1.1" width="12.25" height="14" viewBox="0 0 14 16" class="octicon octicon-star" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
-            <span>Star</span>
+          <a class="svg-button" id="stencil-repo" href="https://github.com/ionic-team/stencil" target="_blank" rel="noopener"
+            title="Open the stencil site repository on github">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 512 512"
+            >
+              <path d="M256 32C132.3 32 32 135 32 261.7c0 101.5 64.2 187.5 153.2 218l3.8.3c8.3 0 11.5-6 11.5-11.4l-.3-39c-8.4 1.8-16 2.6-22.6 2.6-43 0-53-33.5-53-33.5-10-26.5-24.8-33.6-24.8-33.6-19.5-13.6 0-14 1.4-14 22.6 2 34.4 23.8 34.4 23.8 11.2 19.6 26.2 25 39.6 25 10.5 0 20-3.3 25.6-6 2-14.7 7.8-24.8 14.2-30.6-49.7-5.8-102-25.5-102-113.5 0-25 8.7-45.6 23-61.6-2.3-5.7-10-29 2.2-60.7 0 0 1.6-.5 5-.5 8 0 26.4 3 56.6 24 18-5 37-7.5 56-7.6 19 0 38.3 2.6 56.2 7.7 30.2-21 48.5-24.2 56.6-24.2 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.2 23 36.7 23 61.7 0 88.2-52.4 107.6-102.3 113.3 8 7 15.2 21 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3 11.5 11.4 11.5 1.2 0 2.6 0 4-.4 89-30.4 153.2-116.5 153.2-218C480 135 379.7 32 256 32z" />
+            </svg>
+
           </a>
           <a class="svg-button"
             id="stencil-twitter"
