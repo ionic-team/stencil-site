@@ -51,6 +51,7 @@ Here is where you'd write functions or provide business logic.
 
 In order for the component to render something to the screen, we must declare a render function that returns JSX.
 If you're not sure what JSX is, don't worry, we'll go over it in detail in the <stencil-route-link url="/docs/templating">Templating Docs</stencil-router-link>.
+
 The quick idea is that our render function needs to return a representation of the HTML we want to push to the DOM.
 
 The `name` property on the class also has a decorator applied to it, `@Prop()`.
