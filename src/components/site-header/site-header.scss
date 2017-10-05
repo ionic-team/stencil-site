@@ -60,6 +60,31 @@ site-header {
     transform: scale(1.2);
   }
 }
+
+.github-button {
+  background-color: #eff3f6;
+  height: 18px;
+  padding: 3px 4px;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid #d1d2d3;
+  border-radius: 0.25em;
+  color: #24292e;
+
+  span {
+    padding-left: 3px;
+  }
+}
+
+.octicon {
+  position: relative;
+  display: inline-block;
+  fill: currentColor;
+  height: 14px;
+  top: 2px;
+}
+
+
 @media screen and (max-width: 450px) {
   site-header {
     img {
