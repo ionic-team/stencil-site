@@ -13,6 +13,19 @@ exports.config = {
   ],
   collections: [
     { name: '@stencil/router' }
+  ],
+  serviceWorker: {
+    globPatterns: [
+      '**/*.{js,css,json,html,ico,png,jpeg}'
+    ],
+    globIgnores: [
+      'build/app/svg/*.js'
+    ]
+  },
+  copy: [
+    {
+       image: 'image.jpg'
+    }
   ]
 };
 ```
