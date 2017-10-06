@@ -61,6 +61,6 @@ export class MyComponent {
   Back
 </stencil-route-link>
 
-<stencil-route-link url="/docs/stencil-config" custom="true" class="nextButton">
+<stencil-route-link url="/docs/forms" custom="true" class="nextButton">
   Next
 </stencil-route-link>

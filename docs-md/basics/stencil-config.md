@@ -58,7 +58,7 @@ set any of the values listed [here in the Workbox documentation](https://workbox
 The `copy` config specifies any files that you would like to
 get copied over to your `buildDir` when a build is performed.
 
-<stencil-route-link url="/docs/component-lifecycle" router="#router" custom="true" class="backButton">
+<stencil-route-link url="/docs/testing" router="#router" custom="true" class="backButton">
   Back
 </stencil-route-link>
 

@@ -35,3 +35,11 @@ let myCoolObject = {first: '1', second: '2'}
 myCoolObject = { ...myCoolObject, third: '3' }
 
 ```
+
+<stencil-route-link url="/docs/forms" router="#router" custom="true" class="backButton">
+  Back
+</stencil-route-link>
+
+<stencil-route-link url="/docs/testing" custom="true" class="nextButton">
+  Next
+</stencil-route-link>
