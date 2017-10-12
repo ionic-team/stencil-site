@@ -43,7 +43,7 @@ Hello {this.name}
 
 ### Conditionals
 
-If want to conditionally render different content, we can simply use JavaScript if/else statements:
+If we want to conditionally render different content, we can simply use JavaScript if/else statements:
 Here, if `name` is not defined, we can just render a different element.
 
 ```jsx
