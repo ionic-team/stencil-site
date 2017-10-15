@@ -23,6 +23,11 @@ export class SiteMenu {
                   Getting Started
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/browser-support">
+                  Browser Support
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

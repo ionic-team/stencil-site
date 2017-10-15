@@ -32,6 +32,7 @@ export class App {
                 routeRender={( props: { [key: string]: any}) => {
                   const map = {
                     'intro': 'intro/index.html',
+                    'browser-support': 'intro/browsers.html',
                     'getting-started': 'start/index.html',
                     'my-first-component': 'basics/my-first-component.html',
                     'templating': 'basics/templating.html',
