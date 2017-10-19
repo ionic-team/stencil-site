@@ -32,7 +32,7 @@ NPM scripts are set up in order to run the tests:
   },
 ```
 
-Jest is configured to find test fils and to use the Stencil preprocessor script to compile the sources:
+Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:
 
 ```
   "jest": {
