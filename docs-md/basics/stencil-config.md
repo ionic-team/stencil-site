@@ -21,7 +21,11 @@ exports.config = {
     globIgnores: [
       'build/app/svg/*.js'
     ]
-  }
+  },
+  copy: [
+    { src: 'images' },
+    { src: 'styles', dest: 'css' }
+  ]
 };
 ```
 
@@ -58,8 +62,8 @@ set any of the values listed [here in the Workbox documentation](https://workbox
 
 -  `copy`
 
-The `copy` config specifies any files that you would like to
-get copied over to your `buildDir` when a build is performed.
+The `copy` config is an array of objects that define any files or folders that you would like to
+get copied over to your `buildDir` when a build is performed. Each object in the array must include a `src` property which can be either an `absolute path`, a `relative path` or a `glob pattern`. You can also provide the optional `dest` property which can be either an `absolute path` or a path `relative` to your `buildDir`.
 
 <stencil-route-link url="/docs/testing" router="#router" custom="true" class="backButton">
   Back
