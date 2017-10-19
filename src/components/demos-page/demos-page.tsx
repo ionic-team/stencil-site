@@ -10,8 +10,8 @@ export class DemosPage {
     {
       title: 'Stenciljs.com',
       description: 'Yep, this site is also built with Stencil!',
-      url: 'https://github.com/ionic-team/stencil-site',
-      source: 'https://github.com/ionic-team/stencil-site',
+      url: 'https://stenciljs.com/',
+      source: 'https://stenciljs.com/',
     },
     {
       title: 'IonicHN',

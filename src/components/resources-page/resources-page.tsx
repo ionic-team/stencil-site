@@ -71,7 +71,7 @@ export class ResourcesPage {
           <p>
             A forkable presentation for your next meetup or conference
             talk on Stencil.
-            Built with <a href="lab.hakim.se/reveal-js/">Reveal.js</a>
+            Built with <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
           </p>
           <a target="_blank" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
           <br />

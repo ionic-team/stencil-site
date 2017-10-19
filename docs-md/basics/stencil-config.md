@@ -8,7 +8,7 @@ Here's an example configuration:
 exports.config = {
   bundles: [
     { components: ['stencil-site', 'site-header', 'landing-page'] },
-    { components: ['app-marked', 'getting-started', 'basics-components', 'compiler-config', 'what-is', 'code-splitting', 'stencil-ssr', 'site-menu'] },
+    { components: ['getting-started', 'code-splitting', 'stencil-ssr', 'site-menu'] },
     { components: ['demos-page'] }
   ],
   collections: [
@@ -39,13 +39,21 @@ The `bundles` config is an array of objects that represent how components are gr
 
 The `collections` config specifies a list of third-party Stencil libraries. Since everything in Stencil is async and lazy loaded by default, it is important to NOT have any hard `import` statements linking components together. Any library listed in the list `collections` entry will be recognized and included in the application by the Stencil compiler. By default, the `@stencil/router` will be included.
 
+- `srcDir`,  default value: `src`
+
+The `srcDir` config specifies the source directory.
+
+- `wwwDir`,  default value: `www`
+
+The `wwwDir` config specifies the public web distribution directory. This directory is commonly the root directory for a server, where all static files can be served. This directory is built and rebuilt directly from the source files. We recommend this directory is not committed to a repository.
+
+- `buildDir`,  default value: `build`
+
+The `buildDir` config specifies where stencil's build files are saved after each build. These are the generated scripts which will be requested by the browser. The build direcory should be relative to the `wwwDir` setting.
+
 - `publicPath`, default value: `/build`
 
 The `publicPath` config sets the client-side base path for all Stencil build assets, and it's usually best to have it start with `/`. Note that this only sets the base path the browser requests, but this does not set where files are saved during build. To change where files are saved at build time, use the `buildDir` config.
-
-- `buildDir`,  default value: `www/build`
-
-The `buildDir` config specifies where files are saved after each build. These are the public files which will be requested by the browser. To change the base path of the browser's request use the `publicPath` config.
 
 - `serviceWorker`
 
