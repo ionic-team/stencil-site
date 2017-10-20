@@ -2,7 +2,7 @@
 
 ### What is Shadow Dom
 
-Shadow Dom is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow Dom shields our component from the outside world, meaning that we do not need to think about things such as scoping our css correctly, or worrying about our internal DOM being interfered with by the world outside our component.
+[Shadow Dom](https://developers.google.com/web/fundamentals/web-components/shadowdom) is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow Dom shields our component from the outside world, meaning that we do not need to think about things such as scoping our css correctly, or worrying about our internal DOM being interfered with by the world outside our component.
 
 ### Browser Support
 
@@ -37,5 +37,3 @@ export class ShadowComponent {
 - QuerySelector: When using Shadow Dom and you want to query an element inside your web component you must use `this.el.shadowRoot.querySelector()`. This is because all of your DOM inside your web component is in a shadowRoot that Shadow Dom creates.
 
 - Global Styles: If you have any global styles in your project, they will not be able to style your component that uses Shadow Dom. All of your styles for a component must be local to that component.
-
-
