@@ -4,7 +4,7 @@
 
 ### Usage
 
-When doing a production build of an app built using Stencil, the Stencil compiler will automatically generate a service worker for you and inject the necessary code to register the service worker in your index.html. Also, because the files Stencil generates are hashed, everytime you do a production build and push an update to your app the service worker will know to update, therefore ensuring your users are never stuck on a stale version of your site.
+When doing a production build of an app built using Stencil, the Stencil compiler will automatically generate a service worker for you and inject the necessary code to register the service worker in your index.html. Also, because the files Stencil generates are hashed, every time you do a production build and push an update to your app the service worker will know to update, therefore ensuring your users are never stuck on a stale version of your site.
 
 ### Config
 
@@ -39,6 +39,43 @@ exports.config = {
   }
 };
 ```
+
+### Using a custom service worker
+
+Already have a service worker or want to include some custom code? We support that too.
+
+Lets go through the steps needed for this functionality:
+
+- First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
+
+```
+exports.config = {
+  bundles: [
+    ...
+  ],
+  collections: [
+    ...
+  ],
+  serviceWorker: {
+    swSrc: 'src/sw.js'
+  }
+};
+```
+
+- Now we need to include some boilerplate code in our custom service worker:
+
+```
+importScripts('workbox-sw.prod.v2.1.0.js');
+
+const workboxSW = new self.WorkboxSW();
+
+// your custom service worker code
+
+workboxSW.precache([]);
+```
+This code imports the workbox library, creates a new instance of the service worker and tells workbox where to insert the pre-cache array.
+
+
 
 <stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true" class="backButton">
   Back
