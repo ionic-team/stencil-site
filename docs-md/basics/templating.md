@@ -1,4 +1,4 @@
-# Templating
+# Using JSX
 
 Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a `render` function that returns the JSX content.
 

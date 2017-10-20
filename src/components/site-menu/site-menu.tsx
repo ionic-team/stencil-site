@@ -43,7 +43,7 @@ export class SiteMenu {
 
               <li>
                 <stencil-route-link url="/docs/templating">
-                  Templating
+                  Using JSX
                 </stencil-route-link>
               </li>
 
