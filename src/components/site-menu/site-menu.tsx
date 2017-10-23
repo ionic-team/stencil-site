@@ -110,6 +110,11 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
+                <stencil-route-link url="/docs/shadow-dom">
+                  Shadow Dom
+                </stencil-route-link>
+              </li>
+              <li>
                 <stencil-route-link url="/docs/distribution">
                   Distribution
                 </stencil-route-link>
