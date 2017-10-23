@@ -32,8 +32,30 @@ export class ShadowComponent {
 }
 ```
 
-### Things to remember
+### Things to remember with Shadow Dom
 
 - QuerySelector: When using Shadow Dom and you want to query an element inside your web component you must use `this.el.shadowRoot.querySelector()`. This is because all of your DOM inside your web component is in a shadowRoot that Shadow Dom creates.
 
 - Global Styles: If you have any global styles in your project, they will not be able to style your component that uses Shadow Dom. All of your styles for a component must be local to that component.
+
+- Normally you would wrap your styles in the tag name of the component like so:
+
+```
+my-element {
+  div {
+    background: blue;
+  }
+}
+```
+
+With Shadow Dom you do not need to do this as the css is scoped automatically to the element. So with Shadow Dom turned on in your component the above css would simply be:
+
+```
+div {
+  background: blue;
+}
+```
+
+### Scoped CSS
+
+In browsers that do not currently support Shadow Dom, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow Dom polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute automatically at run time. 
