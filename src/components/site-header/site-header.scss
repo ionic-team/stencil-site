@@ -15,6 +15,7 @@ site-header {
   * {
     font-weight: bold;
   }
+  
   .site-header {
     padding: 20px 15px;
     max-width: 1080px;
@@ -33,15 +34,22 @@ site-header {
     -ms-flex-align: center;
     align-items: center;
   }
+
   .logo {
     width: 96px;
   }
+
   stencil-route-link a, a {
     font-size: 13px;
     margin: 10px 10px;
     color: #484854;
     text-decoration: none;
   }
+
+  stencil-route-link:hover {
+    text-decoration: none !important;
+  }
+
   .pull-right {
     order: 0;
     flex: 1 1 auto;
