@@ -119,6 +119,11 @@ export class SiteMenu {
                   Distribution
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/webpack">
+                  Webpack
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

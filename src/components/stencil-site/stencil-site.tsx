@@ -48,6 +48,7 @@ export class App {
                     'routing': 'addons/stencil-router.html',
                     'service-workers': 'advanced/service-worker/index.html',
                     'distribution': 'advanced/distribution/index.html',
+                    'webpack': 'advanced/webpack/index.html',
                     'prerendering': 'advanced/pre-rendering/index.html',
                     'shadow-dom': 'advanced/shadow-dom/index.html'
                   };
