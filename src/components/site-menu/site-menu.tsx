@@ -111,7 +111,7 @@ export class SiteMenu {
               </li>
               <li>
                 <stencil-route-link url="/docs/shadow-dom">
-                  Shadow Dom
+                  Shadow DOM
                 </stencil-route-link>
               </li>
               <li>
