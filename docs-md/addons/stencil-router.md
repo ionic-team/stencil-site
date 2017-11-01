@@ -97,6 +97,55 @@ To navigate around an app, use the `stencil-route-link` component.
 <stencil-route-link url="/docs/getting-started">
 ```
 
+If you would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:
+
+```
+import { RouterHistory } from '@stencil/router';
+
+export class askPage {
+  @Prop() history: RouterHistory;
+}
+```
+
+You can then use the the `push` method on the history object to navigate to a new page:
+
+```
+this.history.push(`/demos`, {});
+```
+
+## URL Params
+
+You may be familiar with the concept of URL params from [React Router](https://reacttraining.com/react-router/web/example/url-params). URL params allow you to pass data to a component through the route. To set this up in the Stencil router we first need to set up our route to take a param. Here is an example:
+
+```
+ <stencil-route url='/show/:pageNum' component='show-page' />
+```
+
+The key part in this route is the `:pageNum` syntax. This means that we can now pass data to that route and it will be accessible through the `pageNum` variable. Below is an example of how we would pass data to this route:
+
+```
+<stencil-route-link url=`/show/${someData}` />
+```
+
+Now lets go over how to access this data from the `show-page` component we are routing too.
+
+
+First, we need to pass the `match` prop to our `show-page` component:
+
+```
+export class ShowPage {
+  @Prop() match: any;
+}
+```
+
+Then we can use that `match` prop to access our data:
+
+```
+// myData is now the data we passed in our stencil-route-link above
+const myData = this.match.params.pageNum
+```
+
+
 <stencil-route-link url="/docs/distribution" router="#router" custom="true" class="backButton">
   Back
 </stencil-route-link>
