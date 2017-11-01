@@ -213,6 +213,12 @@ code {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 355px) {
+  .wrapper {
+    padding-top: 100px;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .wrapper {
     padding-top: 80px;
