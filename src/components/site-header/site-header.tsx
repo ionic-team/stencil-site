@@ -18,6 +18,9 @@ export class SiteHeader {
           <stencil-route-link url="/demos"  exact={true}>
             Demos
           </stencil-route-link>
+          <stencil-route-link url="/pwa" exact={true}>
+            PWAs
+          </stencil-route-link>
           <stencil-route-link url="/resources"  exact={true}>
             Resources
           </stencil-route-link>
