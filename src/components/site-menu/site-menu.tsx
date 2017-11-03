@@ -11,11 +11,11 @@ export class SiteMenu {
         <iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></iframe>
         <ul>
           <li>
-            <h4>Introduction</h4>
+            <h4>Essentials</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/intro">
-                  What is Stencil?
+                  Introduction
                 </stencil-route-link>
               </li>
               <li>
@@ -26,6 +26,11 @@ export class SiteMenu {
               <li>
                 <stencil-route-link url="/docs/browser-support">
                   Browser Support
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/pwa'>
+                  PWAs
                 </stencil-route-link>
               </li>
             </ul>
