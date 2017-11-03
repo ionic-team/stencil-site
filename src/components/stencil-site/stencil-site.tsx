@@ -63,6 +63,11 @@ export class App {
                 component="resources-page"
               />
 
+              <stencil-route
+                url="/pwa"
+                component="pwas-page"
+              />
+
             </stencil-router>
           </div>
         </div>
