@@ -10,9 +10,9 @@ export class App {
       <div class="app">
         <site-header />
         <div class="wrapper">
-          <div class="pull-left">
+          {/*<div class="pull-left">
             <site-menu />
-          </div>
+    </div>*/}
           <div class="pull-right">
             <stencil-router>
 

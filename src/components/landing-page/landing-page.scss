@@ -1,18 +1,51 @@
 landing-page {
-  a {
-    margin-left: 4px
+  main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5em;
   }
 
-  lazy-iframe div {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
+  img {
+    width: 4em;
   }
 
-  lazy-iframe iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+  #action-call {
+    font-size: 2.6em;
+    text-align: center;
+    width: 12em;
+    line-height: normal;
+    margin-top: 20px;
+  }
+
+  button {
+    margin:10px;
+  }
+
+  #get-started {
+    border: none;
+    background: #5851ff;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 1.6em;
+    width: 12em;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+  #learn-more {
+    border: none;
+    background: white;
+    color: #5851ff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 1.6em;
+    width: 12em;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 }
