@@ -50,8 +50,10 @@ h2, h3 {
 }
 
 p, ul {
-  color: #16161d;
+  color: #2d2d4c;
   font-size: 15px;
+  line-height: 2em;
+  margin: 24px 0px;
 }
 
 a, stencil-route-link {
@@ -275,8 +277,8 @@ code {
     }
 
     .pull-right {
-      padding-left: 20px;
-      padding-right: 40px;
+      padding-left: 48px;
+      padding-right: 48px;
       flex: 1 1 auto;
       overflow: auto;
     }
