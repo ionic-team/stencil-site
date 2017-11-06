@@ -141,6 +141,7 @@ code {
   box-shadow: 0px 3px 8px rgba(0,0,0,0.08), 0px 1px 2px rgba(0,0,0,0.1);
   font-weight: 500;
   transition: all .15s ease;
+  margin: 0px 4px 12px;
 
 
   &:hover {
@@ -161,6 +162,7 @@ code {
   box-shadow: 0px 3px 8px rgba(0,0,0,0.08), 0px 1px 2px rgba(0,0,0,0.1);
   font-weight: 500;
   transition: all .15s ease;
+  margin: 0px 4px;
 
   &:hover {
     text-decoration: none;
@@ -235,6 +237,14 @@ code {
 @media screen and (max-width: 450px) {
   .wrapper {
     padding-top: 80px;
+  }
+
+  site-header a {
+    display: none;
+  }
+
+  site-header stencil-route-link a {
+    display: initial;
   }
 }
 @media screen and (max-width: 590px) {
