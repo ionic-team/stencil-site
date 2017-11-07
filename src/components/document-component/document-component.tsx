@@ -8,8 +8,14 @@ export class DocumentComponent {
 
   render() {
     return (
-      <div>
-        {this.pages.map(page => <app-marked doc={page} />)}
+      <div class="wrapper">
+        <div class="pull-left">
+          <site-menu />
+        </div>
+
+        <div class="pull-right">
+          {this.pages.map(page => <app-marked doc={page} />)}
+        </div>
       </div>
     );
   }

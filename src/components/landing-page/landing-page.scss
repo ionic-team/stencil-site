@@ -4,48 +4,135 @@ landing-page {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 5em;
+    margin-top: 10em;
   }
 
-  img {
+  #logo {
     width: 4em;
   }
 
   #action-call {
-    font-size: 2.6em;
+    font-size: 3.2em;
     text-align: center;
-    width: 12em;
+    width: 16em;
     line-height: normal;
     margin-top: 20px;
   }
 
   button {
-    margin:10px;
+    margin: 8px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border-radius: 2px;
+    box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);
+    outline: none;
+    letter-spacing: 0.04em;
+    transition: all .15s ease;
+    cursor: pointer;
+  }
+
+  button:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);
+    transform: translateY(1px);
   }
 
   #get-started {
-    border: none;
     background: #5851ff;
     color: white;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 1.6em;
-    width: 12em;
-    border-radius: 2px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   #learn-more {
-    border: none;
     background: white;
     color: #5851ff;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 1.6em;
-    width: 12em;
-    border-radius: 2px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+  #three-points {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 3.2em;
+    margin-bottom: 2.8em;
+  }
+
+  .point-card {
+    margin: 2.4em;
+    position: relative;
+
+    h2 {
+      margin-top: 72px;
+    }
+
+    p {
+      color: #626177;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      line-height: 30px;
+    }
+
+    &::before {
+      position: absolute;
+      background: url(assets/img/feature-icons.png) no-repeat; 
+      background-size: 48px;
+      height: 48px;
+      width: 48px;
+      content: "";
+      top: 0;
+      left: calc(50% - 24px);
+    }
+
+    &.performant::before {
+      background-position: 0 -48px;
+    }
+
+    &.future-proof::before {
+      background-position: 0 -96px;
+    }
+  }
+
+  #launch-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 4;
+    transition: all .2s ease;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      height: 1.2em;
+    }
+
+    span {
+      font-size: 14px;
+      margin-left: 8px;
+      color: #5851ff;
+      font-weight: 500;
+      transition: all .15s ease;
+    }
+  }
+
+  @media screen and (max-width: 722px) {
+    #action-call {
+      width: auto;
+    }
+
+    #three-points {
+      flex-direction: column;
+      text-align: left;
+
+      .point-card {
+        margin: 1em 2.4em;
+      }
+      
+      .point-card::before {
+        left: 0;
+      }
+    }
   }
 }
