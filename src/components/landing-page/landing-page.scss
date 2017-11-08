@@ -54,14 +54,16 @@ landing-page {
     transition: opacity 0.3s, transform 0.3s cubic-bezier(0.36,0.66,0.04,1);
     position: absolute;
     z-index: 9999;
-    transform: scale(3);
     pointer-events: none;
-    top: 25em;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    width: 100%;
   }
 
   .youtube-show {
     opacity: 1 !important;
-    transform: scale(3) translatey(-30px) !important;
+    transform: /*scale(3)*/ translatey(-30px) !important;
     pointer-events: auto !important;
   }
 
@@ -129,13 +131,15 @@ landing-page {
     }
   }
 
-  #launch-video {
+  #launch-video, #mobile-video {
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 4;
     transition: all .2s ease;
     cursor: pointer;
+    text-decoration: none;
+    outline: none;
     
     &:hover {
       opacity: 0.7;
@@ -154,9 +158,17 @@ landing-page {
     }
   }
 
-  @media screen and (max-width: 722px) {
+  @media screen and (max-width: 740px) {
     #action-call {
       width: auto;
+    }
+
+    #launch-video {
+      display: none;
+    }
+
+    #youtube-video {
+      display: none;
     }
 
     #three-points {

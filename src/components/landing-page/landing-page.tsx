@@ -34,7 +34,12 @@ export class LandingPage {
     return (
       <div>
 
-        <div onClick={() => { this.closeBackground() }} id="background"></div>
+        <div onClick={() => { this.closeBackground() }} id="background">
+        </div>
+
+        <div id="youtube-video" onClick={() => { this.closeBackground() }}>
+          <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" title="Ionic team at Polymer Summit video" />
+        </div>
 
         <main>
           <img id="logo" src="/assets/img/logo.png"></img>
@@ -59,12 +64,9 @@ export class LandingPage {
               <img src="/assets/img/video-icon.png"></img><span>Watch launch video</span>
             </div>
 
-            <div id="background">
-            </div>
-
-            <div id="youtube-video">
-              <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" title="Ionic team at Polymer Summit video" />
-            </div>
+            <a href="https://youtu.be/UfD-k7aHkQE" rel="noopener" id="mobile-video">
+              <img src="/assets/img/video-icon.png"></img><span>Watch launch video</span>
+            </a>
           </section>
         </main>
 
