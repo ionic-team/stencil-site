@@ -2,6 +2,7 @@ import { Component, Prop, PropDidChange, State } from '@stencil/core';
 
 @Component({
   tag: 'app-marked',
+  styleUrl: 'app-marked.scss'
 })
 export class AppMarked {
 

@@ -96,7 +96,7 @@ export class TodoList {
 
   completeTodo(todo: Todo) {
     // This will cause our render function to be called again
-    this.completedTodos = this.completedTodos.concat([]).push(todo);
+    this.completedTodos = [...this.completedTodos, todo]; 
   }
 
   render() {
@@ -180,15 +180,13 @@ export class TodoList {
   @State() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
-    const completedTodos = this.completedTodos.concat([]);
-    completedTodos.push(todo);
-    // by setting the value, Stencil re-renders
-    this.completedTodos = completedTodos;
+    this.completedTodos = [...this.completedTodos, todo];
   }
 }
 ```
 
-In the above example, the key line is `this.completedTodos = completedTodos;`.
+In the above example, we set `this.completedTodos` to a new array made up of the existing `completedTodos` and our new `todo`.
+
 This calls the `completedTodos` setter, which triggers the re-render.
 
 
