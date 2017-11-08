@@ -49,6 +49,42 @@ landing-page {
     color: #5851ff;
   }
 
+  #youtube-video {
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s cubic-bezier(0.36,0.66,0.04,1);
+    position: absolute;
+    z-index: 9999;
+    transform: scale(3);
+    pointer-events: none;
+    top: 25em;
+  }
+
+  .youtube-show {
+    opacity: 1 !important;
+    transform: scale(3) translatey(-30px) !important;
+    pointer-events: auto !important;
+  }
+
+  #background {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 8888;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    background-color: #000;
+    transition: opacity 0.3s cubic-bezier(0.36,0.66,0.04,1);
+  }
+
+  .background-show {
+    opacity: 0.4 !important;
+    pointer-events: auto !important;
+  }
+
   #three-points {
     display: flex;
     justify-content: space-around;
@@ -99,6 +135,7 @@ landing-page {
     justify-content: center;
     line-height: 4;
     transition: all .2s ease;
+    cursor: pointer;
     
     &:hover {
       opacity: 0.7;

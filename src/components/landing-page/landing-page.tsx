@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import { Component, Element } from '@stencil/core';
 
 
 @Component({
@@ -7,13 +7,34 @@ import { Component } from '@stencil/core';
 })
 export class LandingPage {
 
+  @Element() el: Element;
+
   constructor() {
     document.title = `Stencil`;
+  }
+
+  openYoutube() {
+    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
+    const background = (this.el.querySelector('#background') as HTMLElement);
+
+    youtube.classList.add('youtube-show');
+    background.classList.add('background-show');
+  }
+
+  closeBackground() {
+    console.log('hello world');
+    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
+    const background = (this.el.querySelector('#background') as HTMLElement);
+
+    youtube.classList.remove('youtube-show');
+    background.classList.remove('background-show');
   }
 
   render() {
     return (
       <div>
+
+        <div onClick={() => { this.closeBackground() }} id="background"></div>
 
         <main>
           <img id="logo" src="/assets/img/logo.png"></img>
@@ -28,12 +49,21 @@ export class LandingPage {
             </button>
             </stencil-route-link>
 
-            <button id="learn-more">
-              Learn More
+            <stencil-route-link url="/docs/intro">
+              <button id="learn-more">
+                Learn More
           </button>
+            </stencil-route-link>
 
-            <div id="launch-video">
+            <div onClick={() => { this.openYoutube() }} id="launch-video">
               <img src="/assets/img/video-icon.png"></img><span>Watch launch video</span>
+            </div>
+
+            <div id="background">
+            </div>
+
+            <div id="youtube-video">
+              <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" title="Ionic team at Polymer Summit video" />
             </div>
           </section>
         </main>

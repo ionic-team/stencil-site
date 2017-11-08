@@ -7,7 +7,7 @@ import { Component } from '@stencil/core';
 export class App {
   render() {
     return [
-      <div class="main-div">
+      <div id="main-div">
         <site-header />
         <div class="app">
           <stencil-router>
