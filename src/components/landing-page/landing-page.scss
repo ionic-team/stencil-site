@@ -59,6 +59,11 @@ landing-page {
     justify-content: center;
     left: 0;
     width: 100%;
+
+    iframe {
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.15), 0px 20px 40px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
   }
 
   .youtube-show {
@@ -78,7 +83,7 @@ landing-page {
     right: 0;
     opacity: 0;
     pointer-events: none;
-    background-color: #000;
+    background-color: #040019;
     transition: opacity 0.3s cubic-bezier(0.36,0.66,0.04,1);
   }
 
@@ -158,6 +163,10 @@ landing-page {
     }
   }
 
+  #mobile-video {
+    display: none;
+  }
+
   @media screen and (max-width: 740px) {
     #action-call {
       width: auto;
@@ -169,6 +178,10 @@ landing-page {
 
     #youtube-video {
       display: none;
+    }
+
+    #mobile-video {
+      display: flex;
     }
 
     #three-points {

@@ -11,6 +11,8 @@ stencil-site {
 
 #main-div {
   flex-grow: 1;
+  flex-shrink: 0;
+  min-height: 100vh;
 }
 
 ::selection {
