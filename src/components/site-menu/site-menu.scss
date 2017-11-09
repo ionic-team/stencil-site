@@ -20,6 +20,10 @@ site-menu {
 
       ul {
         padding: 0;
+        color: #2d2d4c;
+        font-size: 15px;
+        line-height: 2em;
+        margin: 0px 0 28px;
       }
 
       li {
@@ -27,7 +31,7 @@ site-menu {
         margin: 0;
         text-indent: 0;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
       }
   
     }
@@ -37,23 +41,17 @@ site-menu {
       text-decoration: none;
      }
 
-  stencil-route-link:hover {
-    text-decoration: none!important;
-    color: #2f2f35;
-    font-weight: 400;
-    letter-spacing: -0.006em;
-  }
-
     stencil-route-link .link-active {
-      font-weight: bold;
+      font-weight: bold !important;
       color: #5850ff !important;
+      letter-spacing: -0.013em;
     }
   
-    stencil-route-link:hover {
-      text-decoration: none!important;
+    stencil-route-link:hover, a:hover {
+      text-decoration: none !important;
       color: #2f2f35;
-      font-weight: 400;
-      letter-spacing: -0.006em;
+      font-weight: 500;
+      letter-spacing: -0.013em;
     }
   
   }

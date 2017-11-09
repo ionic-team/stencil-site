@@ -71,7 +71,9 @@ export class App {
 
       <footer>
         <div id="open-source">
-          <img src="/assets/img/ionic-os-logo.png"></img>
+          <a href="http://ionicframework.com/" rel="noopener">
+            <img src="/assets/img/ionic-os-logo.png"></img>
+          </a>
           <p>Released under <span id="mit">MIT License</span> | Copyright @ 2017</p>
         </div>
 

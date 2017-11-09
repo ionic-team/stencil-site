@@ -12,7 +12,7 @@ export class SiteHeader {
           <img class="logo" alt="Stencil" src="/assets/img/text-logo.svg" />
         </stencil-route-link>
         <div class="pull-right">
-          <stencil-route-link url="/docs/intro"  exact={true}>
+          <stencil-route-link urlMatch="/docs" url="/docs/intro">
             Docs
           </stencil-route-link>
           <stencil-route-link url="/demos"  exact={true}>
@@ -24,9 +24,9 @@ export class SiteHeader {
           <stencil-route-link url="/resources"  exact={true}>
             Resources
           </stencil-route-link>
-          <stencil-route-link url="https://github.com/ionic-team/stencil" exact={true}>
+          <a href="https://github.com/ionic-team/stencil">
             GitHub
-          </stencil-route-link>
+          </a>
         </div>
       </div>
     );

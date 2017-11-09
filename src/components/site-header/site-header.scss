@@ -35,7 +35,7 @@ site-header {
     width: 96px;
   }
 
-  stencil-route-link {
+  stencil-route-link, a {
     margin-right: 1.4em;
   }
 
@@ -50,13 +50,8 @@ site-header {
     transition: all .2s ease;
   }
 
-  stencil-route-link a:hover, a:hover {
-    color: #2b2b38;
-    text-decoration: none;
-  }
-
-  stencil-route-link a:active, a:active {
-    color: #2b2b38;
+  stencil-route-link a:hover, stencil-route-link a.link-active {
+    color: #2b2b38 !important;
     text-decoration: none;
   }
 

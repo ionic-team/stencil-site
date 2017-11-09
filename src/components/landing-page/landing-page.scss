@@ -9,6 +9,7 @@ landing-page {
 
   #logo {
     width: 4em;
+    height: 4em;
   }
 
   #action-call {
@@ -83,7 +84,7 @@ landing-page {
     right: 0;
     opacity: 0;
     pointer-events: none;
-    background-color: #040019;
+    background-color: #00082d;
     transition: opacity 0.3s cubic-bezier(0.36,0.66,0.04,1);
   }
 
