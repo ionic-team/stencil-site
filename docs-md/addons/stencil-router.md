@@ -124,7 +124,7 @@ You may be familiar with the concept of URL params from [React Router](https://r
 The key part in this route is the `:pageNum` syntax. This means that we can now pass data to that route and it will be accessible through the `pageNum` variable. Below is an example of how we would pass data to this route:
 
 ```
-<stencil-route-link url=`/show/${someData}` />
+<stencil-route-link url={`/show/${someData}`} />
 ```
 
 Now lets go over how to access this data from the `show-page` component we are routing too.
