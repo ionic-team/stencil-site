@@ -63,10 +63,14 @@ npm run build
 
 This will generate a minified distribution of your stencil components.
 
-<stencil-route-link url="/docs/intro" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/intro" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/my-first-component" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/my-first-component" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

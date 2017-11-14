@@ -75,10 +75,14 @@ return function(req: any, res: any) {
 };
 ```
 
-<stencil-route-link url="/docs/prerendering" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/prerendering" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/service-workers" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/service-workers" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

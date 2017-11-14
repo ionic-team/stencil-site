@@ -57,10 +57,14 @@ export class MyComponent {
 }
 ```
 
-<stencil-route-link url="/docs/events" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/events" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/forms" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/forms" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

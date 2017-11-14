@@ -145,6 +145,8 @@ Then we can use that `match` prop to access our data:
 const myData = this.match.params.pageNum
 ```
 
-<stencil-route-link url="/docs/webpack" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/webpack" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>

@@ -42,7 +42,7 @@ export class LandingPage {
         </div>
 
         <main>
-          <img id="logo" src="/assets/img/logo.png"></img>
+          <img id="logo" src="/assets/img/logo.png" alt="Stencil Logo"></img>
 
           <h1 id="action-call">The magical, reusable web component compiler</h1>
 
@@ -61,11 +61,11 @@ export class LandingPage {
             </stencil-route-link>
 
             <div onClick={() => { this.openYoutube() }} id="launch-video">
-              <img src="/assets/img/video-icon.png"></img><span>Watch launch video</span>
+              <img src="/assets/img/video-icon.png" alt="Icon for Video"></img><span>Watch launch video</span>
             </div>
 
             <a href="https://youtu.be/UfD-k7aHkQE" rel="noopener" id="mobile-video">
-              <img src="/assets/img/video-icon.png"></img><span>Watch launch video</span>
+              <img src="/assets/img/video-icon.png" alt="Icon for video link"></img><span>Watch launch video</span>
             </a>
           </section>
         </main>

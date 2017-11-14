@@ -30,10 +30,14 @@ componentWillLoad() {
 }
 ```
 
-<stencil-route-link url="/docs/stencil-config" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/stencil-config" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/server-side-rendering" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/server-side-rendering" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

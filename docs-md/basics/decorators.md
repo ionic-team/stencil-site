@@ -233,10 +233,14 @@ export class MyParentComponent {
 
 The `my-parent-component` includes a reference to the `my-embedded-component` in the `render()` function.
 
-<stencil-route-link url="/docs/templating" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/templating" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/events" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/events" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

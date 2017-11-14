@@ -36,10 +36,14 @@ myCoolObject = { ...myCoolObject, third: '3' }
 
 ```
 
-<stencil-route-link url="/docs/forms" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/forms" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/testing" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/testing" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

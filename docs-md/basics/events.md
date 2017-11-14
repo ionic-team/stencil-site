@@ -84,10 +84,14 @@ Stencil provides constants for the following keys, accessible via `keydown.<CONS
 - right
 - down
 
-<stencil-route-link url="/docs/decorators" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/decorators" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/component-lifecycle" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/component-lifecycle" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

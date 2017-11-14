@@ -75,10 +75,14 @@ Once you have this set up, a build (`npm run build` for example) will copy the c
 **Important:** If you are in an Angular CLI project, you must first eject the project in order to modify the `webpack.config.js` file.
 
 
-<stencil-route-link url="/docs/distribution" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/distribution" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/routing" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/routing" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>

@@ -64,10 +64,14 @@ The first step for all three of these strategies is to
 - Then you can use the element anywhere in your template, JSX, html etc
 
 
-<stencil-route-link url="/docs/service-workers" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/service-workers" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/webpack" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/webpack" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
 </stencil-route-link>
