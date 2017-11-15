@@ -28,8 +28,10 @@ declare global {
   }
   namespace JSXElements {
       export interface AppMarkedAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
-          doc?: any
+          doc?: string
       }
   }
 }
@@ -56,6 +58,8 @@ declare global {
   }
   namespace JSXElements {
       export interface DemosPageAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -83,6 +87,8 @@ declare global {
   }
   namespace JSXElements {
       export interface DocumentComponentAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
           pages?: any
       }
@@ -111,6 +117,8 @@ declare global {
   }
   namespace JSXElements {
       export interface LandingPageAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -138,9 +146,11 @@ declare global {
   }
   namespace JSXElements {
       export interface LazyIframeAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
-          src?: any,
-          title?: any
+          src?: string,
+          title?: string
       }
   }
 }
@@ -167,6 +177,8 @@ declare global {
   }
   namespace JSXElements {
       export interface PwasPageAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -194,6 +206,8 @@ declare global {
   }
   namespace JSXElements {
       export interface ResourcesPageAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -221,6 +235,8 @@ declare global {
   }
   namespace JSXElements {
       export interface SiteHeaderAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -248,6 +264,8 @@ declare global {
   }
   namespace JSXElements {
       export interface SiteMenuAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }
@@ -275,6 +293,8 @@ declare global {
   }
   namespace JSXElements {
       export interface StencilSiteAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
         
       }
   }

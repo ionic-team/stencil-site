@@ -8,6 +8,10 @@ site-header {
   backdrop-filter: saturate(180%) blur(20px);
   z-index: 99;
 
+  .logo {
+    width: 96px;
+  }
+
   .logo-link a {
     margin: 0;
   }
@@ -31,17 +35,10 @@ site-header {
     align-items: center;
   }
 
-  .logo {
-    width: 96px;
-  }
-
-  stencil-route-link, a {
-    margin-right: 1.4em;
-  }
-
   stencil-route-link a, a {
     font-size: 14px;
     margin: 8px 8px;
+    margin-right: 1.4em;
     color: #86869c;
     text-decoration: none;
     font-weight: 500;
@@ -50,7 +47,7 @@ site-header {
     transition: all .2s ease;
   }
 
-  stencil-route-link a:hover, stencil-route-link a.link-active {
+  stencil-route-link a:hover, stencil-route-link a.link-active, a:hover {
     color: #2b2b38 !important;
     text-decoration: none;
   }
@@ -59,19 +56,6 @@ site-header {
     order: 0;
     flex: 1 1 auto;
     text-align: right;
-  }
-
-  a.svg-button svg {
-    vertical-align: text-bottom;
-    transition: 200ms;
-    transition-timing-function: ease-in-out;
-    -webkit-transition: 200ms;
-    -webkit-transition-timing-function: ease-in-out;
-  }
-
-  a.svg-button svg:hover {
-    fill: #5850ff;
-    transform: scale(1.2);
   }
 
   @media screen and (max-width: 450px) {
@@ -116,27 +100,4 @@ site-header {
       margin-right: unset;
     }
   }
-}
-
-.github-button {
-  background-color: #eff3f6;
-  height: 18px;
-  padding: 3px 4px;
-  line-height: 18px;
-  cursor: pointer;
-  border: 1px solid #d1d2d3;
-  border-radius: 0.25em;
-  color: #24292e;
-
-  span {
-    padding-left: 3px;
-  }
-}
-
-.octicon {
-  position: relative;
-  display: inline-block;
-  fill: currentColor;
-  height: 14px;
-  top: 2px;
 }

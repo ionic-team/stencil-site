@@ -5,7 +5,6 @@
 stencil-site {
   height: 100%;
   display: flex;
-  /* margin: 0 auto; */
   flex-flow: column;
 }
 
@@ -49,10 +48,6 @@ h1 {
   font-weight: bold;
 }
 
-h1:not(:first-child) {
-  margin-top: 48px;
-}
-
 h2 {
   font-size: 20px;
   font-weight: bold;
@@ -70,22 +65,8 @@ p, ul {
   margin: 24px 0px;
 }
 
-a, stencil-route-link {
-  color: #5850ff;
-  .link-active {
-    // font-weight: bold;
-    // color: #5850ff !important;
-  }
-}
-
 stencil-route-link:hover {
   cursor: pointer;
-}
-
-.app {
-  height: 100%;
-  max-width: 1080px;
-  margin: auto;
 }
 
 .wrapper {
@@ -111,7 +92,6 @@ pre {
   padding: 16px 24px;
   border-radius: 4px;
   color: #abb2bf;
-  // background: #282c34;
   background-color: #16161d;
   code {
     font-weight: 500;
@@ -129,18 +109,6 @@ code {
   font-weight: 400;
   font-family: "Source Code Pro", monospace;
   font-size: 14px;
-}
-
-.button {
-  color: #ffffff;
-  background-color: #5850ff;
-  padding: 8px 14px;
-  border-radius: 2px;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .nextButton {
