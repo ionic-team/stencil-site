@@ -8,6 +8,12 @@ stencil-site {
   flex-flow: column;
 }
 
+.app {
+  height: 100%;
+  max-width: 1080px;
+  margin: auto;
+}
+
 #main-div {
   flex-grow: 1;
   flex-shrink: 0;
