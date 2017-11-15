@@ -125,8 +125,8 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/webpack">
-                  Webpack
+                <stencil-route-link url="/docs/angular-integration">
+                  Angular Integration
                 </stencil-route-link>
               </li>
             </ul>
