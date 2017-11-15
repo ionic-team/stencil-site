@@ -66,10 +66,14 @@ During the build, the components need to be copied to the build output directory
       ],
 ```
 
-<stencil-route-link url="/docs/distribution" router="#router" custom="true" class="backButton">
-  Back
+<stencil-route-link url="/docs/distribution" router="#router" custom="true">
+  <button class='backButton'>
+    Back
+  </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/routing" custom="true" class="nextButton">
-  Next
+<stencil-route-link url="/docs/routing" custom="true">
+  <button class='nextButton'>
+    Next
+  </button>
 </stencil-route-link>
