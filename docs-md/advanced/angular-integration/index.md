@@ -2,13 +2,13 @@
 
 Using a Stencil built web component collection within an Angular CLI project is a three step process. We need to:
 
-1. Include the CUSTOM_ELEMENTS_SCHEMA in the `AppModule`
+1. Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components 
 1. Include the load script in `index.html`
 1. Copy the component collection during the build
 
 ## Including the Custom Elements Schema
 
-Including the CUSTOM_ELEMENTS_SCHEMA allows the use of the web components in the HTML markup without the compiler producing errors.
+Including the CUSTOM_ELEMENTS_SCHEMA in the nodule allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
