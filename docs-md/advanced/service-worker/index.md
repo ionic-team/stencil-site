@@ -1,6 +1,6 @@
 # Service Workers
 
-[Service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) are a very powerful api that is essential for [PWAs](https://blog.ionic.io/what-is-a-progressive-web-app/), but can be hard to use. To help with this, we decided to build support for Service Workers into Stencil itself using [Workbox](https://workboxjs.org/). 
+[Service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) are a very powerful api that is essential for [PWAs](https://blog.ionic.io/what-is-a-progressive-web-app/), but can be hard to use. To help with this, we decided to build support for Service Workers into Stencil itself using [Workbox](https://workboxjs.org/).
 
 ### Usage
 
@@ -44,7 +44,7 @@ exports.config = {
 
 Already have a service worker or want to include some custom code? We support that too.
 
-Lets go through the steps needed for this functionality:
+Let's go through the steps needed for this functionality:
 
 - First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
 
