@@ -44,19 +44,19 @@ export class LandingPage {
         <main>
           <img id="logo" src="/assets/img/logo.png" alt="Stencil Logo"></img>
 
-          <h1 id="action-call">The magical, reusable web component compiler</h1>
+          <h1 id="action-call">魔法般的，可复用的 web component 编译器</h1>
 
           <section id="buttons">
 
             <stencil-route-link url="/docs/getting-started">
               <button id="get-started">
-                Get Started
+                现在开始
             </button>
             </stencil-route-link>
 
             <stencil-route-link url="/docs/intro">
               <button id="learn-more">
-                Learn More
+                了解更多
           </button>
             </stencil-route-link>
 
@@ -72,30 +72,28 @@ export class LandingPage {
 
         <section id="three-points">
           <div class="point-card simple">
-            <h2>Simple</h2>
+            <h2>简单</h2>
 
             <p>
-              With intentionally small tooling,
-                a tiny API, zero configuration, and
-                TypeScript support, you're set.
+              有意设计的小工具，简洁的 API，零配置，TypeScript 支持，一切就绪。
               </p>
           </div>
 
           <div class="point-card performant">
-            <h2>Performant</h2>
+            <h2>高效</h2>
 
             <p>
-              6kb min+gzip runtime, server side rendering,
-                and the raw power of native Web Components.
+              gzip压缩后仅6kb的运行时, 服务端渲染,
+              发挥Web Components原生潜力。
               </p>
           </div>
 
           <div class="point-card future-proof">
-            <h2>Future proof</h2>
+            <h2>前沿</h2>
 
             <p>
-              Build versatile apps and components based 100%
-                on web standards. Break free of Framework Churn.
+              基于 100% 的 wweb 标准，构建多种多样的组件。
+              打破框架的约束。
               </p>
           </div>
         </section>

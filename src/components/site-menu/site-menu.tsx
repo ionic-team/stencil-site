@@ -11,21 +11,21 @@ export class SiteMenu {
         <iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></iframe>
         <ul id="menu-list">
           <li>
-            <h4>Essentials</h4>
+            <h4>概要</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/intro">
-                  Introduction
+                  介绍
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/getting-started">
-                  Getting Started
+                  现在开始
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/browser-support">
-                  Browser Support
+                  浏览器支持
                 </stencil-route-link>
               </li>
               <li>
@@ -37,54 +37,54 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Basics</h4>
+            <h4>基础</h4>
             <ul>
 
               <li>
                 <stencil-route-link url="/docs/my-first-component">
-                  My First Component
+                  我的第一个组件
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/templating">
-                  Using JSX
+                  使用 JSX
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/decorators">
-                  Decorators
+                  装饰器
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/events">
-                  Events
+                  事件
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/component-lifecycle">
-                  Component Life Cycle
+                  组件生命周期
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/forms">
-                  Forms
+                  表单
                 </stencil-route-link>
               </li>
               
               <li>
                 <stencil-route-link url="/docs/handling-arrays">
-                  Updating Arrays and Objects
+                  更新 Arrays 和 Objects
                 </stencil-route-link>
               </li>
 
               <li>
                 <stencil-route-link url="/docs/testing">
-                  Unit Testing
+                  单元测试
                 </stencil-route-link>
               </li>
 
@@ -92,21 +92,21 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Advanced</h4>
+            <h4>进阶</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/stencil-config">
-                  Stencil Configuration
+                  Stencil 配置
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/prerendering">
-                  Prerendering
+                  预渲染
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/server-side-rendering">
-                  Server Side Rendering
+                  服务端渲染
                 </stencil-route-link>
               </li>
               <li>
@@ -121,30 +121,30 @@ export class SiteMenu {
               </li>
               <li>
                 <stencil-route-link url="/docs/distribution">
-                  Distribution
+                  部署
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/angular-integration">
-                  Angular Integration
+                  Angular 集成
                 </stencil-route-link>
               </li>
             </ul>
           </li>
 
           <li>
-            <h4>Add-ons</h4>
+            <h4>插件(Add-ons)</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/routing">
-                  Router
+                  路由
                 </stencil-route-link>
               </li>
             </ul>
           </li>
 
           <li>
-            <h4>Community</h4>
+            <h4>社区</h4>
             <ul>
               <li>
                 <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM" title="Stencil slack channel">Stencil on Slack</a>
