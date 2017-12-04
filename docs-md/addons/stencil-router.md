@@ -35,7 +35,7 @@ exports.config = {
   You should have one single stencil-router component in your project.  This component controls all interactions with the browser history and it aggregates updates through an event system.
 
 - **stencil-route**
-  
+
   This component renders based on whether the supplied url matches the current location.
 
   *properties*:
@@ -127,7 +127,7 @@ The key part in this route is the `:pageNum` syntax. This means that we can now 
 <stencil-route-link url={`/show/${someData}`} />
 ```
 
-Now lets go over how to access this data from the `show-page` component we are routing too.
+Now let's go over how to access this data from the `show-page` component we are routing too.
 
 
 First, we need to pass the `match` prop to our `show-page` component:
