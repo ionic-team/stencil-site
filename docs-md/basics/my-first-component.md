@@ -63,8 +63,8 @@ We set this property like so:
 ```html
 <my-first-component name="Max"></my-first-component>
 ```
-Any property decorated with `@Props()` is also automatically watched for changes.
-If a user of our component were to change the element's `name` property, our component would fire it's `render` function again, updating the displayed content.
+Any property decorated with `@Prop()` is also automatically watched for changes.
+If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
 
 <stencil-route-link url="/docs/getting-started" router="#router" custom="true">
   <button class="backButton">
