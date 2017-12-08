@@ -1,14 +1,14 @@
-# Browser Support
+# 浏览器支持
 
-Stencil builds Web Components that run natively or near-natively in all widely used browsers.
+Stencil 构建的 Web 组件可以原生或接近原生地运行在所有被广泛使用了的浏览器中。
 
-Web Components are a set of standardized browser APIs centered around the Custom Elements v1 spec, a cross-browser way to define and create essentially new HTML tags, and is the successor to the now-defunct v0 spec.
+Web 组件是一组标准化的浏览器 API，Web 组件的核心是自定义元素 v1 标准 (Custom Elements v1 spec)。这个标准规定了如何跨浏览器实现定义和创建新的 HTML 标签。v1 标准是 v0 标准的继任者，v0 已经被废弃。
 
-Custom Elements are natively supported in Chrome and Safari (including iOS!) and are coming to both Edge
-and Firefox. In fact, Firefox has native support behind a flag, indicating full native support is near.
+自定义元素被 Chrome 和 Safari 浏览器原生支持 ( 包括 iOS！) ，并且再 Firefox 和 EDGE 中也将得到支持。
+实际上，Firefox 已经原生支持了这个特性，只需要打开一个标签开关(flag) 即可。
 
-For browsers without native support, a small polyfill helps developers use Custom Elements seamlessly and with little performance overhead.
+对于没有原生支持的浏览器，开发者可以使用补丁 (polyfill) 来无缝使用自定义元素，仅有微乎其微的性能损失。 
 
-Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil's browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.
+Stencil 使用动态加载器来加载自定义元素的补丁 (polyfill)，仅浏览器需要它们的时候才加载。算上补丁(polyfill)，Stencil 支持的浏览器涵盖了 Chrome (和所有以 Chrome 为核心的浏览器), Safari, Firefox, Edge, 和 IE11。
 
-Web Components are being used in production in 2017 with the above approach.
+Web 组件以以上的方式在2017年被用于生产环境中。

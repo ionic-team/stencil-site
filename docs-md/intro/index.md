@@ -1,22 +1,22 @@
-# Stencil: A Compiler for Web Components
+# Stencil: 一个为 Web 组件而生编译器
 
-Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
+Stencil 是一个生成 Web 组件 ( 确切地说，是自定义元素 ) 的编译器。Stencil 结合了最流行框架的最佳概念，并将其转化为了简单的构建时 (build-time) 工具。
 
-Stencil takes features such as
+Stencil 支持如下特性
 
 - Virtual DOM
-- Async rendering (inspired by React Fiber)
-- Reactive data-binding
+- 异步渲染(受 React Fiber 启发)
+- 响应式数据绑定
 - TypeScript
 - JSX
 
-and then generates standards-based Web Components with these features baked in.
+然后生成标准的 Web 组件。
 
-Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can be used without a framework because they are just web components. Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
+因为 Stencil 生成的是符合标准的 web 组件。所以它们能和很多其他流行的框架在一起使用。也可以不使用任何框架，因为它们就是 web 组件。Stencil 同时在 web 组件之上，启用了一系列关键的能力，特别是支持服务端渲染 (SSR) 而不需要运行一个无头浏览器(headless browser)，预渲染，和对象作为组件的属性(而不仅仅是字符串)。
 
-Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
+和直接使用自定义元素相比，Stencil 提供了额外的 API，使得编码更简单。诸如 VirtualDOM，JSX ，异步渲染这些 API，让编写快速而强大的组件工作更加容易，同时保持了与其他 web 组件的 100% 兼容。
 
-The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
+内置到编译器的可自动重载的服务，使得开发体验同时得到改善。
 
 ### Why Stencil?
 
@@ -32,6 +32,6 @@ However, Web Components by themselves weren't enough. Building fast web apps req
 
 <stencil-route-link url="/docs/getting-started" router="#router" custom="true">
   <button id="introButton">
-    Get Started with Stencil
+    开始使用 Stencil
   </button>
 </stencil-route-link>
