@@ -1,8 +1,8 @@
-# Events
+# 事件
 
-Components can emit data and events using the Event Emitter decorator.
+使用事件装饰器，可以让组件可以发送数据和事件。
 
-To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) for other components to handle, use the `@Event()` decorator.
+使用`@Event()`装饰器，可以给其他组件发送[自定义 DOM 事件](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events)。
 
 ```typescript
 import { Event, EventEmitter } from '@stencil/core';
@@ -18,13 +18,13 @@ export class TodoList {
 }
 ```
 
-The code above will dispatch a custom DOM event called `todoCompleted`.
+这段代码会发送一个名为 `todoCompleted` 的自定义 DOM 事件。
 
-## Listening for Events
+## 监听事件
 
-The `Listen()` decorator is for handling events dispatched from `@Events`.
+`Listen()` 装饰器用来监听来自 `@Events` 的事件。
 
-In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
+在下面的例子中，假设子组件 `TodoList` 使用 `EventEmitter` 发送了一个名为 `todoCompleted` 的事件。
 
 ```typescript
 import { Listen } from '@stencil/core';
@@ -39,9 +39,9 @@ export class TodoApp {
 }
 ```
 
-Handlers can also be registered for an event on a specific element.
-This is useful for listening to application-wide events.
-In the example below, we're going to listen for the scroll event.
+监听器也可以被注册来专门处理特定元素的事件。
+这对监听整个应用范围的事件很有用。
+下面的例子，我们会监听 body 的滚动事件。
 
 ```typescript
 import { Listen } from '@stencil/core';
@@ -56,7 +56,7 @@ export class TodoList {
 }
 ```
 
-For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the keycode, or some constants Stencil provides.
+要处理键盘事件，你可以在 `@Listen()` 中使用 `keydown` 事件并分辨出是哪一个 keycode, Stencil 同时提供了一些 keycode 的常量。
 
 ```typescript
 @Listen('keydown')
@@ -73,7 +73,7 @@ handleUpArrow(ev){
 
 ```
 
-Stencil provides constants for the following keys, accessible via `keydown.<CONSTANT>`
+Stencil 提供了如下的常量，可以通过 `keydown.<CONSTANT>` 的方式来访问
 
 - enter
 - escape
@@ -86,12 +86,12 @@ Stencil provides constants for the following keys, accessible via `keydown.<CONS
 
 <stencil-route-link url="/docs/decorators" router="#router" custom="true">
   <button class="backButton">
-    Back
+    返回
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/component-lifecycle" custom="true">
   <button class="nextButton">
-    Next
+    继续
   </button>
 </stencil-route-link>
