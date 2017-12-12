@@ -46,7 +46,7 @@ export class DemosPage {
 
         <div class="pull-right">
           <h1>Demos</h1>
-          <h4>Awesome demos of apps built using Stencil and Ionic</h4>
+          <h4>使用 Stencil and Ionic 构建的炫酷的 demos 和 apps</h4>
           {this.demos.map(demo => {
             return [
               <h4>{demo.title}</h4>,
@@ -54,7 +54,7 @@ export class DemosPage {
               <p>
                 <a target="_blank" rel="noopener" href={demo.url}>Demo</a>
                 &nbsp;&nbsp;
-              <a target="_blank" rel="noopener" href={demo.source}>Source</a>
+              <a target="_blank" rel="noopener" href={demo.source}>源码</a>
               </p>
             ];
           })}

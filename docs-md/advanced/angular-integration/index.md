@@ -1,14 +1,14 @@
-# Using Stencil Built Web Components with Angular
+# Angular + Stencil 构建 Web 组件
 
-Using a Stencil built web component collection within an Angular CLI project is a three step process. We need to:
+使用 Stencil 构建含有 Angular CLI 项目的 web 组件集合需要3个步骤。我们需要:
 
-1. Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components 
-1. Include the load script in `index.html`
-1. Copy the component collection during the build
+1. 在使用组件的 modules 中包含 CUSTOM_ELEMENTS_SCHEMA
+1. 在 `index.html` 中包含载入脚本
+1. 构建过程中复制组件集合
 
-## Including the Custom Elements Schema
+## 包含 Custom Elements Schema
 
-Including the CUSTOM_ELEMENTS_SCHEMA in the nodule allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
+在 modules 中包含 CUSTOM_ELEMENTS_SCHEMA 允许你使用 web 组件中而不会让编译器产生错误。这是一个将其添加到 `AppModule` 的例子：
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,9 +32,9 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-## Including the Load Script
+## 包含载入脚本
 
-A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application as such:
+一个由 Stencil 构建的组件集合，包含了一个主脚本用于载入这些组件集合。该脚本需要像这样在你的应用中载入：
 
 ```html
 <!doctype html>
@@ -54,9 +54,9 @@ A component collection built with Stencil includes a main script that is used to
 </html>
 ```
 
-## Copying the Components
+## 复制组件
 
-During the build, the components need to be copied to the build output directory. The easiest way to do this is to modify include the collection in the `assets` array of the `.angular-cli.json` file.
+在构建过程中，组件需要被复制到输出文件夹。最简单的方法是修改 `.angular-cli.json` 文件里的 `assets` 数组，将组件集合添加到其中。
 
 ```
       "assets": [
@@ -68,12 +68,12 @@ During the build, the components need to be copied to the build output directory
 
 <stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class='backButton'>
-    Back
+    返回
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/routing" custom="true">
   <button class='nextButton'>
-    Next
+    继续
   </button>
 </stencil-route-link>

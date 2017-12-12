@@ -1,55 +1,55 @@
-# Server Side Rendering
+# 服务端渲染
 
-One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser. Additionally, before deciding to render each page on-demand on a server, it may best to look into using [prerendering](/docs/prerendering) instead.
+使用 Stencil 的一个优点，是开启高效的服务端渲染(SSR)非常容易，不需要运行耗费资源的无头浏览器。此外，决定在服务端渲染每个页面之前，你最好看一下[预渲染](/docs/prerendering)的内容。
 
-Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the `@stencil/core` package. To see a full example, please take a look at the [Stencil SSR Starter](https://github.com/ionic-team/stencil-ssr-starter).
+Stencil 支持 Node.js 服务，并且 SSR 渲染引擎已经内嵌到  `@stencil/core` 包里了。要查看完整的例子，请看 [Stencil SSR Starter](https://github.com/ionic-team/stencil-ssr-starter)。
 
 
-## Stencil SSR Express Middleware
+## Stencil SSR Express 中间件
 
-Easiest way to run SSR is to use the Express Middleware:
+最简单的开启 SSR 的方法是使用 Express 中间件：
 
 ```javascript
 const express = require('express');
 const stencil = require('@stencil/core/server');
 
-// create the express app
+// 创建 express app
 const app = express();
 
-// set which port express it will be using
+// 设置 express 端口
 const port = 3030;
 
-// load the stencil config
+// 载入 stencil 设置
 const config = stencil.loadConfig(__dirname);
 
-// serve-side render html pages
+// 服务端渲染 html 页面
 app.use(stencil.ssrPathRegex, stencil.ssrMiddleware({ config }));
 
-// serve all static files from www directory
+// 从 www 文件夹托管所有静态文件
 app.use(express.static(config.wwwDir));
 
-// start the server
+// 开启服务
 app.listen(port, () => config.logger.info(`server started at http://localhost:${ port }`));
 
 ```
 
 
-## Node.js Example
+## Node.js 示例
 
 ```javascript
 const express = require('express');
 const fs = require('fs');
 const stencil = require('@stencil/core/server');
 
-// load the config
+// 载入 stencil 设置
 const config = stencil.loadConfig(__dirname);
 
-// create the renderer
+// 创建渲染器
 const renderer = stencil.createRenderer(config);
 
 let srcIndexHtml: string;
 try {
-  // load the source index.html
+  // 载入 index.html
   srcIndexHtml = fs.readFileSync(config.srcIndexHtml, 'utf-8');
 
 } catch (e) {
@@ -64,7 +64,7 @@ return function(req: any, res: any) {
     req: req
   }).then(results => {
 
-    // console log any diagnostics
+    // 记录诊断日志
     results.diagnostics.forEach(d => {
       console.log(d.messageText);
     });
@@ -77,12 +77,12 @@ return function(req: any, res: any) {
 
 <stencil-route-link url="/docs/prerendering" router="#router" custom="true">
   <button class="backButton">
-    Back
+    返回
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/service-workers" custom="true">
   <button class="nextButton">
-    Next
+    继续
   </button>
 </stencil-route-link>

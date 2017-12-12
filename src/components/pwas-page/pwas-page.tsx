@@ -19,45 +19,45 @@ export class pwasPage {
 
         <div class="pull-right">
           <h1>PWAs</h1>
-          <h4>Building PWAs with Stencil</h4>
+          <h4>用 Stencil 构建 PWAs</h4>
 
-          <p>Want to build a PWA with Stencil? Follow these instructions to instantly have a production ready PWA.</p>
+          <p>想要使用 Stencil 构建 PWAs？ 遵循下边的说明立刻获得一个可用于生产环境部署的PWA。</p>
 
           <ul>
             <li>
-              Run <code>git clone https://github.com/ionic-team/stencil-app-starter.git my-pwa</code> in your terminal.
+              在你的终端里运行 <code>git clone https://github.com/ionic-team/stencil-app-starter.git my-pwa</code>.
           </li>
             <li>
-              Run <code>npm run build</code>
+              运行 <code>npm run build</code>
             </li>
           </ul>
 
-          And with just those two commands you now have a PWA that scores 100 on lighthouse right out of the box.
+          这两条命令可以让你的 PWA 在 lighthouse 中达到100分。
 
         <img src="/assets/img/pwa.png"></img>
 
-          <h4>Under the hood</h4>
+          <h4>幕后发生了什么</h4>
 
           <h5>Service Worker</h5>
           <p>
-            When your run <code>npm run build</code> we automatically generate a Service Worker for you using <a href="https://workboxjs.org/">Workbox</a> that handles pre-caching your assets.
+            当你运行 <code>npm run build</code> 时，我们使用 <a href="https://workboxjs.org/">Workbox</a> 自动为你生成了可以预缓存资源的Service Worker。
         </p>
 
           <stencil-route-link url="/docs/service-workers">
-            Read more about Service Workers here.
+            阅读更多关于 Service Workers 的资源。
         </stencil-route-link>
 
           <h5>Web Manifest</h5>
           <p>
-            By default we include a Web Manifest that has all the neccessary entries to get the Add to Homescreen prompt. You can see that
-          web manifest <a href="https://github.com/ionic-team/stencil-app-starter/blob/master/src/manifest.json">here</a>.
+            默认地，我们会包含一份 Web Manifest，其中有所有需要的入口，和“添加到桌面”的弹窗提示。
+            在<a href="https://github.com/ionic-team/stencil-app-starter/blob/master/src/manifest.json">这里</a>你可以查看这些web manifest。
         </p>
 
-          <h4>PWAs built with Stencil</h4>
+          <h4>使用 Stencil 构建的 PWAs</h4>
 
           <ul>
             <li>
-              <a href="https://stenciljs.com/">This site! Yep stenciljs.com is a PWA</a>
+              <a href="https://stenciljs.com/">这个网站! 对 stenciljs.com 就是使用了 PWA（译者注：stenciljs.com 是原文档地址，此中文翻译文档同样使用了PWA）</a>
             </li>
             <li>
               <a href="https://corehacker-10883.firebaseapp.com/">Ionic HN as featured on <a href="https://hnpwa.com">HNPWA</a></a>

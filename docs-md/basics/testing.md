@@ -14,7 +14,7 @@ here primarily for informational purposes.
 
 Jest is installed as a development dependency:
 
-```
+```json
   "devDependencies": {
 	  ...
 	  "@types/jest": "^21.1.1",
@@ -24,7 +24,7 @@ Jest is installed as a development dependency:
 
 NPM scripts are set up in order to run the tests:
 
-```
+```json
   "scripts": {
   	...
 	  "test": "jest --no-cache",
@@ -34,7 +34,7 @@ NPM scripts are set up in order to run the tests:
 
 Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:
 
-```
+```json
   "jest": {
 	  "transform": {
   	  "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

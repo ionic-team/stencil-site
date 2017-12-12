@@ -1,25 +1,25 @@
 # Shadow DOM
 
-### What is Shadow DOM
+### 什么是 Shadow DOM
 
-[Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom) is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow DOM shields our component from the outside world, meaning that we do not need to think about things such as scoping our css correctly, or worrying about our internal DOM being interfered with by the world outside our component.
+[Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom) 是一个浏览器内建的 API ，允许包囊 DOM 和 样式。Shadow DOM 将我们的组件和外界隔绝开，这意味着我们不需要考虑诸如 css 正确的作用域，或者担心我们的 DOM 被外界其他的组件打扰。
 
-### Browser Support
+### 浏览器支持情况
 
-Shadow DOM is currently natively supported in the following browsers:
+Shadow DOM 被下列浏览器原生支持：
 
 - Chrome
 - Safari
 - Opera
-- Most Chromium based browsers
+- 大部分基于 Chromium 的浏览器
 
-In browsers which do not support Shadow DOM we fall back to scoped css. This gives you the style encapsulation that comes along with Shadow DOM but without loading in a huge Shadow DOM polyfill.
+对于不支持 Shadow DOM 的浏览器，我们将回退到私有化(scoped) css。这同样让你可以像 Shadow DOM 一样包囊住样式文件，而不是选择加载庞大的补丁 (polyfill)。
 
-> Confused about what scoped css is? Don't worry, we will explain this later in detail.
+> 对私有化(scoped) css 有疑惑？别担心，我们稍后将会详细解释。
 
-### Shadow DOM in Stencil
+###  Stencil 中到 Shadow DOM
 
-Shadow DOM is not currently turned on by default for web components built with Stencil. To turn on Shadow DOM in a web component built with Stencil, you can use the `shadow` param in the component decorator. Below is an example of this:
+使用 Stencil 构建 web 组件时候，Shadow DOM 并不是默认开启的。要在 web 组件中开启 Shadow DOM，可以在组件装饰器中使用 `shadow` 参数。  下面是一个例子：
 
 ```
 @Component({
@@ -32,13 +32,13 @@ export class ShadowComponent {
 }
 ```
 
-### Things to remember with Shadow DOM
+### 使用 Shadow DOM 时需要注意的事项
 
-- QuerySelector: When using Shadow DOM and you want to query an element inside your web component you must use `this.el.shadowRoot.querySelector()`. This is because all of your DOM inside your web component is in a shadowRoot that Shadow DOM creates.
+- 选择器 (QuerySelector)：使用 Shadow DOM 的时候，当你想在 web 组件内查询元素时，你必须使用 `this.el.shadowRoot.querySelector()`。 这是因为在所有在 Shadow DOM 的 web 组件中，所有的 DOM 都创建在 shadowRoot 里。
 
-- Global Styles: To externally style a component with Shadow DOM you must use [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) or the proposed [CSS Shadow Parts](https://tabatkins.github.io/specs/css-shadow-parts/).
+- 全局样式：要在 Shadow DOM 的组件外部定义一个组件的样式时，你必须使用 [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) 或者这个提案 [CSS Shadow Parts](https://tabatkins.github.io/specs/css-shadow-parts/)。
 
-- Normally you would wrap your styles in the tag name of the component like so:
+- 一般情况你只需要把你的样式用标签名包起来，就像这样：
 
 ```
 my-element {
@@ -48,7 +48,7 @@ my-element {
 }
 ```
 
-With Shadow DOM the css selector for the element is the `:host` selector. So, with Shadow DOM turned on in your component the above css would be:
+当使用 Shadow DOM 的时候，这个元素的 css 选择器是 `:host` 选择器. 所以, 在你的组件里开启 Shadow DOM 的时候，上边的代码会变成：
 
 ```
 :host {
@@ -58,6 +58,6 @@ With Shadow DOM the css selector for the element is the `:host` selector. So, wi
 }
 ```
 
-### Scoped CSS
+### 私有化 (Scoped) CSS
 
-In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute automatically at run time. 
+对于不支持 Shadow DOM 的浏览器，使用 Stencil 构建的 web 组件将会回退到使用私有化 (scoped) CSS ，而不是加载庞大的 Shadow DOM 补丁 (polyfill)。私有化 (Scoped) CSS 自动在运行时通过给你的每一个样式添加 data 属性来将其私有化到一个组件。

@@ -32,14 +32,13 @@ export class ResourcesPage {
         </div>
 
         <div class="pull-right">
-          <h1>Resources</h1>
-          <h4>Resources to help you get more out of Stencil</h4>
+          <h1>资源</h1>
+          <h4>可以帮助你学到更多关于 Stencil 的资源</h4>
 
           <div>
-            <h2>Community Articles/Blogs</h2>
+            <h2>社区文章/博客</h2>
             <p>
-              Disclaimer: these articles are community-created, and might contain
-            inaccurate, or outdated information and code snippets.
+              免责声名：这些文章由社区产出，并且可能包含不精准的，过时的信息和代码片段。
           </p>
             <ul>
               {/* TODO: Turn these into an auto array map to use science to our benefit */}
@@ -57,7 +56,7 @@ export class ResourcesPage {
           </div>
 
           <div>
-            <h2>Third-party Components/Templates</h2>
+            <h2>第三方组件/模版</h2>
             <ul>
               {this.LINKS.COMPONENTS.map(link => {
                 return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
@@ -74,13 +73,12 @@ export class ResourcesPage {
               <lazy-iframe style={{ border: '1px solid #eee' }} src="https://ionic-team.github.io/stencil-present/" title="Present Stencil"></lazy-iframe>
             </div>
             <p>
-              A forkable presentation for your next meetup or conference
-            talk on Stencil.
-            Built with <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
+            当你下次和别人见面和介绍Stencil时，可以fork的presentation。
+            使用<a href="https://github.com/hakimel/reveal.js">Reveal.js</a>构建。
             </p>
             <a target="_blank" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
             <br />
-            <a target="_blank" href="https://github.com/ionic-team/stencil-present/">Source</a>
+            <a target="_blank" href="https://github.com/ionic-team/stencil-present/">源码</a>
           </div>
         </div>
       </div>

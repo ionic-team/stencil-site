@@ -1,14 +1,14 @@
 # Service Workers
 
-[Service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) are a very powerful api that is essential for [PWAs](https://blog.ionic.io/what-is-a-progressive-web-app/), but can be hard to use. To help with this, we decided to build support for Service Workers into Stencil itself using [Workbox](https://workboxjs.org/).
+[Service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) 是一个非常强大的  api，作为 [PWAs](https://blog.ionic.io/what-is-a-progressive-web-app/) 的核心，但是却难于使用。为了帮助开发者使用它，我们决定在 Stencil 中使用 [Workbox](https://workboxjs.org/) 来支持 Service Workers。
 
-### Usage
+### 使用方法
 
-When doing a production build of an app built using Stencil, the Stencil compiler will automatically generate a service worker for you and inject the necessary code to register the service worker in your index.html. Also, because the files Stencil generates are hashed, every time you do a production build and push an update to your app the service worker will know to update, therefore ensuring your users are never stuck on a stale version of your site.
+当使用 Stencil 构建一个生产环境的版本版本时候，Stencil 编译器会自动生成一个 service worker，并且在你的 index.html 里注入必要的代码来注册 service worker。此外，因为 Stencil 生存的文件是被哈希过的，每一次当你更新生产环境的版本时，service worker 都会更新，因此可以确保你的用户永远都不会卡在一个过时的版本上。
 
-### Config
+### 配置
 
-Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Here is the default config Stencil uses:
+Stencil 内使用 Workbox，因此支持全部的 [Workbox 配置选项](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration)。这里是 Stencil 所使用的默认的配置：
 
 ```
 {
@@ -20,9 +20,9 @@ Stencil uses Workbox underneath and therefore supports all of the [Workbox confi
 };
 ```
 
-This configuration does pre-caching of all of your apps assets.
+该配置会预先缓存你的 app 里所有的资源。
 
-To modify this config you can use the `serviceWorker` param of your Stencil config. Here is an example:
+要修改这个配置，你可以在 Stencil 配置中使用 `serviceWorker` 参数。这里有一个例子：
 
 ```
 exports.config = {
@@ -40,13 +40,13 @@ exports.config = {
 };
 ```
 
-### Using a custom service worker
+### 使用自定义的 service worker
 
-Already have a service worker or want to include some custom code? We support that too.
+已经存在了一个 service worker 或者想要包含一些自定义的代码？我们同样支持。
 
-Let's go through the steps needed for this functionality:
+让我们探索一下实现这个功能所需要的步骤：
 
-- First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
+- 首先，我们需要传递一个我们自定义的 service worker 的路径，在 serviceWorker 配置中使用 `swSrc` 参数。这里有一个例子：
 
 ```
 exports.config = {
@@ -62,29 +62,29 @@ exports.config = {
 };
 ```
 
-- Now we need to include some boilerplate code in our custom service worker:
+- 现在，我们需要在自定义的 service worker 包含一些模版代码：
 
 ```
 importScripts('workbox-sw.prod.v2.1.0.js');
 
 const workboxSW = new self.WorkboxSW();
 
-// your custom service worker code
+// 你的自定义代码
 
 workboxSW.precache([]);
 ```
-This code imports the workbox library, creates a new instance of the service worker and tells workbox where to insert the pre-cache array.
+这段代码引入了 workbox 库，创建了一个 service worker 的实例，并且告诉了 workbox 应该预先缓存的数组。
 
 
 
 <stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true">
   <button class="backButton">
-    Back
+    返回
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/distribution" custom="true">
   <button class="nextButton">
-    Next
+    继续
   </button>
 </stencil-route-link>

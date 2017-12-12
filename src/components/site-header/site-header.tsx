@@ -13,7 +13,7 @@ export class SiteHeader {
         </stencil-route-link>
         <div class="pull-right">
           <stencil-route-link urlMatch="/docs" url="/docs/intro">
-            Docs
+            文档
           </stencil-route-link>
           <stencil-route-link url="/demos"  exact={true}>
             Demos
@@ -22,7 +22,7 @@ export class SiteHeader {
             PWAs
           </stencil-route-link>
           <stencil-route-link url="/resources"  exact={true}>
-            Resources
+            资源
           </stencil-route-link>
           <a href="https://github.com/ionic-team/stencil">
             GitHub

@@ -4,7 +4,7 @@ The `stencil.config.js` file is where all Stencil configuration happens.
 
 Here's an example configuration:
 
-```
+```js
 exports.config = {
   bundles: [
     { components: ['stencil-site', 'site-header', 'landing-page'] },
