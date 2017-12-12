@@ -1,16 +1,16 @@
-# Distributing web components built with Stencil
+# 使用 Stencil 分发 web 组件
 
-Stencil makes it easy to build and share web components across any framework.
-
-
-### Getting Started
-
-The easiest way to build and distribute web components with Stencil is by using our [stencil-component-starter](https://github.com/ionic-team/stencil-component-starter). This starter includes all of the config and package.json changes that are discussed below by default with instructions in the [readme](https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md).
+Stencil 让跨框架构建和分享 web 组件变得简单。
 
 
-### Distribution Config
+### 开始
 
-Configuring Stencil for distribution is easy. Simply set the following config options in the `stencil.config.js` file:
+使用 Stencil 最简单的构建和分发 web 组件的方法是使用我们的 [stencil-component-starter](https://github.com/ionic-team/stencil-component-starter). 这个开箱即用工具包含了所有配置，关于 package.json 的修改，在 [readme](https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md) 中已经讨论过了。
+
+
+### 分发配置
+
+很容易为分发而配置 Stencil。只需要在 `stencil.config.js` 文件中配置如下选项:
 
 ```
 exports.config = {
@@ -22,11 +22,11 @@ exports.config = {
 ```
 
 <stencil-route-link url="/docs/stencil-config" router="#router" custom="true">
-  Learn more about these config options here.
+  点击这里学习更多关于配置的选项
 </stencil-route-link>
 
 
-You also need to add the following to your `package.json`: 
+你也需要在你的 `package.json` 中添加如下选项： 
 
 ```
 {
@@ -41,37 +41,36 @@ You also need to add the following to your `package.json`:
 }
 ```
 
-## Using your component in a framework
+## 在框架中使用你的组件
 
-There are three strategies we recommend for using web components built with Stencil.
+有3种推荐的策略来使用 Stencil 构建的组件。
 
-The first step for all three of these strategies is to 
-[Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+3中策略都需要共同的第一步，[发布到 NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)。
 
-### Script tag
+### Script 标签
 
-- Put a script tag similar to this `<script src='https://unpkg.com/my-name@0.0.1/dist/myname.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+- 在你的 index.html 中放一个和 `<script src='https://unpkg.com/my-name@0.0.1/dist/myname.js'></script>` 类似的标签
+- 然后你就可以在任意地方使用你的 template，JSX，html 等等。
 
-### Node Modules
-- Run `npm install my-name --save`
-- Put a script tag similar to this `<script src='node_modules/my-name/dist/myname.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc.
+### Node 模块
+- 运行 `npm install my-name --save`
+- 在你的 index.html 中放一个和 `<script src='node_modules/my-name/dist/myname.js'></script>` 类似的标签
+- 然后你就可以在任意地方使用你的 template，JSX，html 等等。
 
-### In a stencil-app-starter app
-- Run `npm install my-name --save`
-- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5)
-- Then you can use the element anywhere in your template, JSX, html etc
+### 在 stencil-app-starter 的 app 中
+- 运行 `npm install my-name --save`
+- 添加 `{ name: 'my-name' }` 到你的 [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5) 中
+- 然后你就可以在任意地方使用你的 template，JSX，html 等等。
 
 
 <stencil-route-link url="/docs/service-workers" router="#router" custom="true">
   <button class="backButton">
-    Back
+    返回
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/angular-integration" custom="true">
   <button class="nextButton">
-    Next
+    继续
   </button>
 </stencil-route-link>
