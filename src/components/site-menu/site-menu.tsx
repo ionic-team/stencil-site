@@ -129,6 +129,11 @@ export class SiteMenu {
                   Framework Integration
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/css-variables">
+                  CSS Variables
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

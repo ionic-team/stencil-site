@@ -133,7 +133,7 @@ A component collection built with Stencil includes a main script that is used to
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/routing" custom="true">
+<stencil-route-link url="/docs/css-variables" custom="true">
   <button class='nextButton'>
     Next
   </button>

@@ -47,7 +47,8 @@ exports.config = {
 | `collectionDir`        | Collection directory for distribution.             | `dist/collection` |
 | `hashFileNames`        | If filenames should be hashed or not in prod mode. | `true`            |
 | `hashedFileNameLength` | Number of hash characters in the filenames.        | `8`               |
-| `global`               | Global source file to bundled with the core.       | `null`            |
+| `globalScript`         | Global source file to be bundled with the core.    | `null`            |
+| `globalStyle`          | Global stylesheet to be bundled with the core.     | `null`            |
 | `serviceWorker`        | Service worker workbox config                      | [Service Worker Config](#service-worker) |
 
 ### Prerender Index

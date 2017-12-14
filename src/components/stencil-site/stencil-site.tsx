@@ -19,27 +19,27 @@ export class App {
               url="/docs/:pageName"
               routeRender={(props: { [key: string]: any }) => {
                 const map = {
-                  intro: 'intro/index.html',
+                  'intro': 'intro/index.html',
                   'browser-support': 'intro/browsers.html',
                   'getting-started': 'start/index.html',
                   'my-first-component': 'basics/my-first-component.html',
-                  templating: 'basics/templating.html',
-                  decorators: 'basics/decorators.html',
-                  events: 'basics/events.html',
+                  'templating': 'basics/templating.html',
+                  'decorators': 'basics/decorators.html',
+                  'events': 'basics/events.html',
                   'component-lifecycle': 'basics/component-lifecycle.html',
                   'stencil-config': 'basics/stencil-config.html',
-                  forms: 'basics/forms.html',
+                  'forms': 'basics/forms.html',
                   'handling-arrays': 'basics/handling-arrays.html',
-                  testing: 'basics/testing.html',
-                  config: 'compiler/config.html',
+                  'testing': 'basics/testing.html',
+                  'config': 'compiler/config.html',
                   'server-side-rendering': 'advanced/ssr/index.html',
-                  routing: 'addons/stencil-router.html',
+                  'routing': 'addons/stencil-router.html',
                   'service-workers': 'advanced/service-worker/index.html',
-                  distribution: 'advanced/distribution/index.html',
-                  'framework-integration':
-                    'advanced/framework-integration/index.html',
-                  prerendering: 'advanced/pre-rendering/index.html',
-                  'shadow-dom': 'advanced/shadow-dom/index.html'
+                  'distribution': 'advanced/distribution/index.html',
+                  'framework-integration': 'advanced/framework-integration/index.html',
+                  'prerendering': 'advanced/pre-rendering/index.html',
+                  'shadow-dom': 'advanced/shadow-dom/index.html',
+                  'css-variables': 'advanced/css-variables/index.html'
                 };
                 return (
                   <document-component
@@ -53,7 +53,6 @@ export class App {
 
             <stencil-route url="/pwa" component="pwas-page" />
           </stencil-router>
-          {/*</div>*/}
         </div>
       </div>,
 
