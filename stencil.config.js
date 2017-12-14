@@ -6,7 +6,8 @@ exports.config = {
     { components: ['resources-page'] },
     { components: ['pwas-page'] }
   ],
-  collections: [{ name: '@stencil/router' }]
+  collections: [{ name: '@stencil/router' }],
+  globalStyle: 'src/global/variables.css'
 };
 
 exports.devServer = {

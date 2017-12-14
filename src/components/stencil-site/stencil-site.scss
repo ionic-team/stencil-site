@@ -118,7 +118,7 @@ code {
 }
 
 .nextButton {
-  background: #5851ff;
+  background: var(--primary-color);
   color: white;
   text-decoration: none;
 
@@ -145,7 +145,7 @@ code {
 }
 
 .backButton {
-  color: #5851ff;
+  color: var(--primary-color);
   background: white;
   text-decoration: none;
   float: left;
