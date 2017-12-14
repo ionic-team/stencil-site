@@ -70,7 +70,7 @@ The first step for all three of these strategies is to
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/angular-integration" custom="true">
+<stencil-route-link url="/docs/framework-integration" custom="true">
   <button class="nextButton">
     Next
   </button>
