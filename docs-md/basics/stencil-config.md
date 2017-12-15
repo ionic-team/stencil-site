@@ -49,7 +49,7 @@ The `wwwDir` config specifies the public web distribution directory. This direct
 
 - `buildDir`,  default value: `build`
 
-The `buildDir` config specifies where stencil's build files are saved after each build. These are the generated scripts which will be requested by the browser. The build direcory should be relative to the `wwwDir` setting.
+The `buildDir` config specifies where stencil's build files are saved after each build. These are the generated scripts which will be requested by the browser. The build directory should be relative to the `wwwDir` setting.
 
 - `publicPath`, default value: `/build`
 
