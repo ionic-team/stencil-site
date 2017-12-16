@@ -28,7 +28,7 @@ landing-page {
     text-transform: uppercase;
     padding: 16px 20px;
     border-radius: 2px;
-    box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);
+    box-shadow: var(--button-shadow);
     outline: none;
     letter-spacing: 0.04em;
     transition: all .15s ease;
@@ -36,18 +36,18 @@ landing-page {
   }
 
   button:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);
+    box-shadow: var(--button-shadow);
     transform: translateY(1px);
   }
 
   #get-started {
-    background: #5851ff;
+    background: var(--primary-color);
     color: white;
   }
 
   #learn-more {
     background: white;
-    color: #5851ff;
+    color: var(--primary-color);
   }
 
   #youtube-video {
@@ -158,7 +158,7 @@ landing-page {
     span {
       font-size: 14px;
       margin-left: 8px;
-      color: #5851ff;
+      color: var(--primary-color);
       font-weight: 500;
       transition: all .15s ease;
     }

@@ -125,8 +125,13 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/angular-integration">
-                  Angular Integration
+                <stencil-route-link url="/docs/framework-integration">
+                  Framework Integration
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/docs/css-variables">
+                  CSS Variables
                 </stencil-route-link>
               </li>
             </ul>
