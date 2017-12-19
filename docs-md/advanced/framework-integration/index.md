@@ -8,7 +8,7 @@ Using a Stencil built web component collection within an Angular CLI project is 
 
 1. Get the component collection(s), for example from NPM
 1. Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components 
-1. Include the load script(s) in `index.html`
+1. Import the packges in `app.module.ts` (or some other appropriate place)
 1. Copy the component collection(s) during the build
 
 ### Including the Custom Elements Schema
@@ -17,46 +17,32 @@ Including the CUSTOM_ELEMENTS_SCHEMA in the nodule allows the use of the web com
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
- 
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import 'test-components/testcomponents';
+
 import { AppComponent } from './app.component';
- 
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
-### Including the Load Script
+### Importing the Component Package(s) 
 
-A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application as such:
+A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be imported in your application as such (see full file listing above):
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Test Component Usage</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src='test-components/testcomponents.js'></script>
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+```ts
+...
+import 'test-components/testcomponents';
+...
 ```
 
 ### Copying the Components
@@ -67,7 +53,7 @@ During the build, the components need to be copied to the build output directory
       "assets": [
         "assets",
         "favicon.ico",
-        { "glob": "**/*", "input": "../node_modules/test-components", "output": "./test-components" }
+        { "glob": "**/*", "input": "../node_modules/test-components/testcomponents", "output": "./testcomponents" }
       ],
 ```
 
@@ -81,12 +67,14 @@ With an application built using the `create-react-app` script, there are two opt
 In this guide, we opt for the latter of the two options. This is a three-step process:
 
 1. Get the component collection(s), for example from NPM
-1. Copy the collection(s) to `public`
-1. Include the load script(s) in `index.html`
+1. Copy the collection(s) to `public/static/js`
+1. Import the collection(s) in `index.js`
 
 ### Copying the Collection(s) to `public`
 
 The React build process will automatically copy anything that is under the `public` folder to the `build` folder. The easiest way to copy the component collection(s) is to set up the npm `postinstall` script to do the copy after the packages are installed for the project.
+
+**Note:** the default React webpack configuration results in webpack bundles being built in `build/static/js`, so the component collections need to be copied into `public/static/js`. You may want to pre-create this directory and create a `.gitkeep` file in it to make sure the path exists.
 
 The following is a simple example of a `postinstall` script in the `package.jsom` file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your `postinstall` script.
 
@@ -96,35 +84,27 @@ The following is a simple example of a `postinstall` script in the `package.jsom
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "cp -R node_modules/my-components public"
+    "postinstall": "cp -R node_modules/my-components/mycomponents public/static/js"
   }
 ```
 
-**Note:** for the above example, you may also want to add a `/public/my-components` line to your `.gitignore` file.
+**Note:** for the above example, you may also want to add a `/public/static/js/mycomponents` line to your `.gitignore` file.
 
-### Including the Load Script
+### Importing the Component Package(s) 
 
-A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application by including it in your `pubic/index.html` file as such:
+A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application by importing it in your `index.js` file (or some other appropriate file) as such:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <script src='%PUBLIC_URL%/my-components/mycomponents.js'></script>
-    <title>Test Components in React</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-  </body>
-</html>
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+import 'test-components/testcomponents';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
 ```
 
 <stencil-route-link url="/docs/distribution" router="#router" custom="true">
