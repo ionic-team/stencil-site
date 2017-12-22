@@ -50,6 +50,7 @@ exports.config = {
 | `globalScript`         | Global source file to be bundled with the core.    | `null`            |
 | `globalStyle`          | Global stylesheet to be bundled with the core.     | `null`            |
 | `serviceWorker`        | Service worker workbox config                      | [Service Worker Config](#service-worker) |
+| `sassConfig`           | Sass compliler options                             | `null`            |
 
 ### Prerender Index
 
