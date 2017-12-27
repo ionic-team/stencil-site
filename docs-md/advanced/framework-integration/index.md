@@ -13,7 +13,7 @@ Using a Stencil built web component collection within an Angular CLI project is 
 
 ### Including the Custom Elements Schema
 
-Including the CUSTOM_ELEMENTS_SCHEMA in the nodule allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
+Including the CUSTOM_ELEMENTS_SCHEMA in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';

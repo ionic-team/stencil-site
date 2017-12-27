@@ -2,7 +2,7 @@
 
 ### What are CSS Variables?
 
-[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) are alot like [Sass Variables](https://ionicframework.com/docs/theming/sass-variables/), but built into the browser. CSS Variables allow you to specify CSS properties that can be used across your app.
+[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) are a lot like [Sass Variables](https://ionicframework.com/docs/theming/sass-variables/), but built into the browser. CSS Variables allow you to specify CSS properties that can be used across your app.
 
 ### Use Case
 
@@ -15,7 +15,7 @@ Here are the recommended steps to use CSS Variables in Stencil:
 - Create a css file to hold your variable definitions. We normally recommend creating a `variables.css` file in `src/global/`
 - You can then put this config `globalStyle: 'src/global/variables.css'` into your `stencil.config.js` file.
 
-Thats it! Now you can start defining your variables.
+That's it! Now you can start defining your variables.
 
 ### Defining CSS Variables
 
@@ -29,7 +29,7 @@ Here is an example of defining a CSS Variable:
 }
 ```
 
-In this example we have defined a CSS Variable called `--app-primary-color` that is set to the color `#488aff`. The `:root` selector in this example is a CSS pseudoselector that defines the variable on the root element of your project (usually `<html>`) so that the variable can be used across your app.
+In this example we have defined a CSS Variable called `--app-primary-color` that is set to the color `#488aff`. The `:root` selector in this example is a CSS pseudo selector that defines the variable on the root element of your project (usually `<html>`) so that the variable can be used across your app.
 
 ### Using a CSS Variable
 

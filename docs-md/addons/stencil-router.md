@@ -47,7 +47,7 @@ exports.config = {
 
 - **stencil-route-link**
 
-  This component is used to render links to defined routes.  It applys a specific style based on whether the link matches the current location.
+  This component is used to render links to defined routes.  It applies a specific style based on whether the link matches the current location.
 
   *properties*:
   - **url** (*string*): the pathname to link to.
