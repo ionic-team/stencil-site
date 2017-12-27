@@ -36,7 +36,7 @@ export class ShadowComponent {
 
 - QuerySelector: When using Shadow DOM and you want to query an element inside your web component you must use `this.el.shadowRoot.querySelector()`. This is because all of your DOM inside your web component is in a shadowRoot that Shadow DOM creates.
 
-- Global Styles: To externally style a component with Shadow DOM you must use [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) or the proposed [CSS Shadow Parts](https://tabatkins.github.io/specs/css-shadow-parts/).
+- Global Styles: To externally style a component with Shadow DOM you must use [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) or the proposed [CSS Shadow Parts](https://meowni.ca/posts/part-theme-explainer/).
 
 - Normally you would wrap your styles in the tag name of the component like so:
 
