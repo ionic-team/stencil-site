@@ -69,7 +69,7 @@ export class App {
             />
           </a>
           <p>
-            Released under <span id="mit">MIT License</span> | Copyright @ 2017
+            Released under <span id="mit">MIT License</span> | Copyright @ 2018
           </p>
         </div>
 
