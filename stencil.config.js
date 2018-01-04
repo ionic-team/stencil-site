@@ -7,7 +7,13 @@ exports.config = {
     { components: ['pwas-page'] }
   ],
   collections: [{ name: '@stencil/router' }],
-  globalStyle: 'src/global/variables.css'
+  globalStyle: 'src/global/variables.css',
+  serviceWorker: {
+    swSrc: 'src/sw.js',
+    globPatterns: [
+      '**/*.{js,css,json,ico,png}'
+    ]
+  }
 };
 
 exports.devServer = {
