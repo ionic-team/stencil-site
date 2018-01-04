@@ -13,6 +13,19 @@ export class LandingPage {
     document.title = `Stencil`;
   }
 
+  componentDidLoad() {
+    // unfortunately necessary hack because Edge
+    // dont show the animated youtube video in Edge because
+    // pointer-events: none; is broken in Edge
+    // just link to the youtube video directly like we do on mobile
+    if ((document as any).documentMode || /Edge/.test(navigator.userAgent)) {
+      (this.el.querySelector('#youtube-video') as HTMLElement).style.display = 'none';
+      (this.el.querySelector('#launch-video') as HTMLElement).style.display = 'none';
+      (this.el.querySelector('#background') as HTMLElement).style.display = 'none';
+      (this.el.querySelector('#mobile-video') as HTMLElement).style.display = 'flex';
+    }
+  }
+
   openYoutube() {
     const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
     const background = (this.el.querySelector('#background') as HTMLElement);
@@ -22,7 +35,6 @@ export class LandingPage {
   }
 
   closeBackground() {
-    console.log('hello world');
     const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
     const background = (this.el.querySelector('#background') as HTMLElement);
 
