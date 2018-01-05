@@ -9,7 +9,7 @@ export class SiteHeader {
     return (
       <div class="site-header">
         <stencil-route-link url="/" class="logo-link">
-          <img class="logo" alt="Stencil" src="/assets/img/text-logo.svg" />
+          <img class="logo" alt="Stencil" src="/assets/img/stencil-logo.svg" />
         </stencil-route-link>
         <div class="pull-right">
           <stencil-route-link urlMatch="/docs" url="/docs/intro">
