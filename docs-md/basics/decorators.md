@@ -109,7 +109,7 @@ export class TodoList {
   @Prop() name: string = 'Stencil';
   
   @Watch('name')
-  validateName(newValue: string) {
+  validateName(oldValue: string, newValue: string) {
     const isBlank = typeof newValue == null;
     const atLeast2chars = typeof newValue === 'string' && newValue.length >= 2;
     if (isBlank) { throw new Error('name: required') };
@@ -131,7 +131,7 @@ export class LoadingIndicator {
   @Prop() activated: boolean;
 
   @Watch('activated')
-  watchHandler(newValue: boolean) {
+  watchHandler(oldValue: boolean, newValue: boolean) {
     console.log('The new value of activated is: ', newValue);
   }
 }
