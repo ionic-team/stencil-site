@@ -67,25 +67,20 @@ console.log(todoListElement.color); // blue
 
 It's important to know, that `@Prop` is immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
-## PropWillChange and PropDidChange Decorators
+## Watch Decorator
 
-When a user updates a property, `PropDidChange` and `PropWillChange` will fire what ever method they're attached to.
+When a user updates a property, `Watch` will fire what ever method they're attached to.
 
 
 ```typescript
-import { Prop, PropDidChange, PropWillChange } from '@stencil/core';
+import { Prop, Watch } from '@stencil/core';
 
 export class LoadingIndicator {
   @Prop() activated: boolean;
 
-  @PropWillChange('activated')
-  willChangeHandler(newValue: boolean) {
+  @Watch('activated')
+  watchHandler(newValue: boolean) {
     console.log('The new value of activated is: ', newValue);
-  }
-
-  @PropDidChange('activated')
-  didChangeHandler(newValue: boolean) {
-    // do something now that `activated` has changed
   }
 }
 ```
