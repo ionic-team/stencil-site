@@ -15,7 +15,9 @@ export class MyComponent {
   /**
    * The component will load but has not rendered yet.
    * 
-   * This is a good place to make any last minute updates before rendering. 
+   * This is a good place to make any last minute updates before rendering.
+   * 
+   * Will only be called once 
    */
   componentWillLoad() {
     console.log('The component is about to be rendered');
@@ -25,6 +27,8 @@ export class MyComponent {
    * The component is loaded and has rendered.
    * 
    * Updating data in this event may cause the component to re-render.
+   * 
+   * Will only be called once
    */
   componentDidLoad() {
     console.log('The component has been rendered');
@@ -43,6 +47,8 @@ export class MyComponent {
    * The component finished updating.
    *
    * Called after componentWillUpdate
+   * 
+   * Called multiple times throughout the life of the component as it updates.
    */
   componentDidUpdate() {
     console.log('The component did update');
