@@ -89,6 +89,8 @@ When navigating to `/demos/rendering` based on the above configuration, the `dem
 
 ## Navigating
 
+### Navigating Statically
+
 To navigate around an app, use the `stencil-route-link` component.
 
 ```
@@ -97,7 +99,9 @@ To navigate around an app, use the `stencil-route-link` component.
 <stencil-route-link url="/docs/getting-started">
 ```
 
-If you would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:
+### Navigating Programtically
+
+If you are in a routed component ( a component that has been included in a `stencil-route`) and would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:
 
 ```
 import { RouterHistory } from '@stencil/router';
@@ -107,10 +111,26 @@ export class askPage {
 }
 ```
 
-You can then use the the `push` method on the history object to navigate to a new page:
+You can then use the following methods on the history object to navigate:
 
-```
+```typescript
+// pushing a route (going forwards to a certain route)
 this.history.push(`/demos`, {});
+
+// popping a route (going back to a certain route)
+this.history.pop('/home', {});
+
+// navigate back as if the user hit the back button in the browser
+this.history.goBack();
+
+// navigate forwards as if the user hit the forwards button in the browser
+this.history.goForward();
+
+// replace the current nav history and reset to a certain route
+this.history.replace('/', {});
+
+// navigate through the history stack by `n` entries
+this.history.go(n: number);
 ```
 
 ## URL Params
