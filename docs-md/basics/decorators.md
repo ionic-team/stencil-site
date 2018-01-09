@@ -45,7 +45,15 @@ logColor() {
 
 Externally, Props are set on the element.
 
-```typescript 
+**Note:** in HTML, you must set attributes using dash-case:
+
+```html 
+<todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
+```
+
+in JSX you set an attribute using camelCase:
+
+```typescript
 <todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
 ```
 
