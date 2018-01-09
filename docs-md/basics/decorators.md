@@ -88,6 +88,37 @@ console.log(todoListElement.color); // blue
 
 It's important to know, that `@Prop` is immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
+### Prop default values and validation
+
+Setting a default value on a `Prop`:
+
+```typescript 
+import { Prop } from '@stencil/core';
+...
+export class NameElement {
+  @Prop() name: string = 'Stencil';
+}
+```
+
+To do validation of a prop, you can use the `Watch` decorator:
+
+```typescript
+import { Prop, Watch } from '@stencil/core';
+...
+export class TodoList {
+  @Prop() name: string = 'Stencil';
+  
+  @Watch('name')
+  validateName(newValue: string) {
+    const isBlank = typeof newValue == null;
+    const atLeast2chars = typeof newValue === 'string' && newValue.length >= 2;
+    if (isBlank) { throw new Error('name: required') };
+    if ( !atLeast2chars ) { throw new Error('name: atLeast2chars') };
+  }
+}
+```
+
+
 ## Watch Decorator
 
 When a user updates a property, `Watch` will fire what ever method they're attached to.
