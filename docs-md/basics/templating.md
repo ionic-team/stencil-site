@@ -6,7 +6,7 @@ Stencil components are rendered using JSX, a popular, declarative template synta
 
 The render functions returns something very similar to HTML.
 
-```typscript
+```typescript
 render() {
   return (
     <div>Hello World</div>
@@ -22,7 +22,7 @@ Here we're returning a JSX representation of a `div`, with the inner content bei
 A common need of components is to render data based on a property.
 Like many popular frameworks, we can use `{}`.
 
-```typscript
+```typescript
 render() {
   return (
     <div>Hello {this.name}</div>
