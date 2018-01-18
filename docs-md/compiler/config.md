@@ -24,8 +24,18 @@ which can be used. Collections can be published and installed via `npm`.
 
 ```javascript
 exports.config = {
-  colllections: [
+  collections: [
     '@ionic/core'
+  ]
+}
+```
+
+By default, when you include a new collection that includes alot of components such as `@ionic/core`, we will put all of the components that @ionic/core includes into your www. This does not mean that all of those files get loaded into the browser, they just get put into that folder so when you do use a component our lazy loading implementation can find the file for that component. In the case where you have alot of collections and you dont want all of those files in your www folder (keeping in mind that just because those files are there does not mean they are getting loaded in the browser) then you can use the `includeBundledOnly` option in collections. Here is an example of how this option can be used:
+
+```javascript
+exports.config = {
+  collections: [
+    { name: '@ionic/core', includeBundledOnly: true }
   ]
 }
 ```
