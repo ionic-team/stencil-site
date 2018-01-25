@@ -8,7 +8,7 @@ Using a Stencil built web component collection within an Angular CLI project is 
 
 1. Get the component collection(s), for example from NPM
 1. Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components 
-1. Import the packges in `app.module.ts` (or some other appropriate place)
+1. Import the packages in `app.module.ts` (or some other appropriate place)
 1. Copy the component collection(s) during the build
 
 ### Including the Custom Elements Schema
