@@ -1,16 +1,17 @@
-importScripts('workbox-sw.prod.v2.1.1.js');
+importScripts('workbox-v3.0.0-alpha.3/workbox-sw.js')
 
-const workboxSW = new self.WorkboxSW();
+self.workbox.skipWaiting();
+self.workbox.clientsClaim();
 
-workboxSW.router.registerRoute(
+self.workbox.routing.registerRoute(
   /\.html$/,
-  workboxSW.strategies.networkFirst()
+  self.workbox.strategies.networkFirst()
 );
 
-workboxSW.router.registerRoute(
+self.workbox.routing.registerRoute(
   'https://sw-test-site.firebaseapp.com/',
-  workboxSW.strategies.networkFirst()
+  self.workbox.strategies.networkFirst()
 );
 
 
-workboxSW.precache([]);
+self.workbox.precaching.precacheAndRoute([]);
