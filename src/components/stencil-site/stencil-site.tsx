@@ -31,7 +31,7 @@ export class App {
                   'forms': 'basics/forms.html',
                   'handling-arrays': 'basics/handling-arrays.html',
                   'testing': 'basics/testing.html',
-                  'config': 'compiler/config.html',
+                  'config': 'advanced/compiler/index.html',
                   'server-side-rendering': 'advanced/ssr/index.html',
                   'routing': 'addons/stencil-router.html',
                   'service-workers': 'advanced/service-worker/index.html',

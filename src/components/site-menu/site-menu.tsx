@@ -95,7 +95,7 @@ export class SiteMenu {
             <h4>Advanced</h4>
             <ul>
               <li>
-                <stencil-route-link url="/docs/compiler-config">
+                <stencil-route-link url="/docs/config">
                   Stencil Configuration
                 </stencil-route-link>
               </li>
