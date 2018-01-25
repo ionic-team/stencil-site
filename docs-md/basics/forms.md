@@ -28,7 +28,7 @@ export class MyName {
       <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           Name:
-          <input type="text" value={this.value} onInput={() => this.handleChange(event)} />
+          <input type="text" value={this.value} onInput={(event) => this.handleChange(event)} />
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -79,7 +79,7 @@ export class MyName {
           <input type="email" value={this.value} onInput={(e) => this.handleChange(e)} />
         </label>
 
-        <select value={this.selectValue} onInput={() => this.handleSelect(event)}>
+        <select value={this.selectValue} onInput={(event) => this.handleSelect(event)}>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
           <option value="mercedes">Mercedes</option>
