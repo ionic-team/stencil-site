@@ -28,6 +28,9 @@ export class pwasPage {
               Run <code>git clone https://github.com/ionic-team/stencil-app-starter.git my-pwa</code> in your terminal.
           </li>
             <li>
+              Run <code>npm install</code>
+            </li>
+            <li>
               Run <code>npm run build</code>
             </li>
           </ul>
