@@ -36,7 +36,7 @@ npm run test.watch
 
 ## Developing
 
-Changes made while the live-reload server will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
+Changes made while the live-reload server is running will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
 
 We can ignore most of the content here, but we'll look at our `render` method. Inside the return statement, let's modify what we have.
 
