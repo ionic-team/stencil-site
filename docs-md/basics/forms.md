@@ -95,7 +95,7 @@ export class MyName {
 
 As you can see, this form is a little more advanced in that it has a select input along with an email input. We also do validity checking of our email input in the `handleChange` method. As you can see, we handle the `select` element exactly how we handle text inputs.
 
-For the validity checking, we are #usingtheplatform and are using the [constraint validation api](https://www.w3.org/TR/html5/forms.html#the-constraint-validation-api) that is built right into the browser to check if the user is actually entering an email or not.
+For the validity checking, we are #usingtheplatform and are using the [constraint validation api](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation) that is built right into the browser to check if the user is actually entering an email or not.
 
 <stencil-route-link url="/docs/component-lifecycle" router="#router" custom="true">
   <button class="backButton">
