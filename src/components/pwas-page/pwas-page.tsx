@@ -18,7 +18,7 @@ export class pwasPage {
         </div>
 
         <div class="pull-right">
-          <h1>PWAs</h1>
+          <h1>Progressive Web Apps</h1>
           <h4>Building PWAs with Stencil</h4>
 
           <p>Want to build a PWA with Stencil? Follow these instructions to instantly have a production ready PWA.</p>
