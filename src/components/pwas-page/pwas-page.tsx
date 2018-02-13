@@ -57,10 +57,10 @@ export class pwasPage {
 
           <ul>
             <li>
-              <a href="https://stenciljs.com/">This site! Yep stenciljs.com is a PWA</a>
+              <a href="https://stenciljs.com/">This site! That's right, stenciljs.com is a PWA</a>
             </li>
             <li>
-              <a href="https://corehacker-10883.firebaseapp.com/">Ionic HN as featured on <a href="https://hnpwa.com">HNPWA</a></a>
+              <a href="https://corehacker-10883.firebaseapp.com/">Ionic Hacker News as featured on <a href="https://hnpwa.com">HNPWA</a></a>
             </li>
             <li>
               <a href="https://stencilpaint-8ba3c.firebaseapp.com/">StencilPaint</a>
