@@ -30,13 +30,12 @@ You also need to add the following to your `package.json`:
 
 ```
 {
-  "main": "dist/collection/index.js",
-  "types": "dist/collection/index.d.ts",
+  "main": "dist/myname.js",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
-  ],
-  "browser": "dist/myname.js",
+  ]
   ...
 }
 ```
