@@ -6,14 +6,6 @@ Here's an example configuration:
 
 ```
 exports.config = {
-  bundles: [
-    { components: ['stencil-site', 'site-header', 'landing-page'] },
-    { components: ['getting-started', 'code-splitting', 'stencil-ssr', 'site-menu'] },
-    { components: ['demos-page'] }
-  ],
-  collections: [
-    { name: '@stencil/router' }
-  ],
   serviceWorker: {
     globPatterns: [
       '**/*.{js,css,json,html,ico,png,jpeg}'
@@ -33,11 +25,11 @@ exports.config = {
 
 - `bundles`
 
-The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. It is important to note that every Stencil component be included in a bundle. In the example above, each object in the `bundles` array has its own `components` array, which is the HTML tag name for each component. In general, the simplest approach is to give each component its own bundle. A more advanced optimization would be grouping commonly used components together.
+The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.
 
 - `collections`
 
-The `collections` config specifies a list of third-party Stencil libraries. Since everything in Stencil is async and lazy loaded by default, it is important to NOT have any hard `import` statements linking components together. Any library listed in the list `collections` entry will be recognized and included in the application by the Stencil compiler. By default, the `@stencil/router` will be included.
+The `collections` config specifies a list of third-party Stencil libraries. This config is rarely needed as Stencil handled this automatically behind the scenes.
 
 - `srcDir`,  default value: `src`
 
