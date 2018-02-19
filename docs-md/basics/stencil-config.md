@@ -57,6 +57,10 @@ set any of the values listed [here in the Workbox documentation](https://workbox
 The `copy` config is an array of objects that define any files or folders that you would like to
 get copied over to your `buildDir` when a build is performed. Each object in the array must include a `src` property which can be either an `absolute path`, a `relative path` or a `glob pattern`. You can also provide the optional `dest` property which can be either an `absolute path` or a path `relative` to your `buildDir`.
 
+- `plugins`
+
+The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. For example, to add the `@stencil/sass` plugin you would add `const sass = require('@stencil/sass');` to the top of the `stencil.config` file and then add `sass()` to the `plugins` array in your config file.
+
 <stencil-route-link url="/docs/testing" router="#router" custom="true">
   <button class="backButton">
     Back
