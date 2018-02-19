@@ -244,6 +244,12 @@ render() {
 }
 ```
 
+It is also possible to use `innerHTML` to inline content straight into an element. This can be helpful when, for example, loading an svg dynamically and then wanting to render that inside of a `div`. This works just like it does in normal HTML:
+
+```jsx
+<div innerHTML={svgContent}></div>
+```
+
 <stencil-route-link url="/docs/my-first-component" router="#router" custom="true">
   <button class="backButton">
     Back
