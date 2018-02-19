@@ -145,6 +145,11 @@ export class SiteMenu {
                   Router
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/sass">
+                  Sass
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

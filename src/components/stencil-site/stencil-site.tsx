@@ -34,6 +34,7 @@ export class App {
                   'config': 'advanced/compiler/index.html',
                   'server-side-rendering': 'advanced/ssr/index.html',
                   'routing': 'addons/stencil-router.html',
+                  'sass': 'addons/stencil-sass.html',
                   'service-workers': 'advanced/service-worker/index.html',
                   'distribution': 'advanced/distribution/index.html',
                   'framework-integration': 'advanced/framework-integration/index.html',

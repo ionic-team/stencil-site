@@ -170,3 +170,9 @@ const myData = this.match.params.pageNum
     Back
   </button>
 </stencil-route-link>
+
+<stencil-route-link url="/docs/sass" custom="true">
+  <button class='nextButton'>
+    Next
+  </button>
+</stencil-route-link>
