@@ -133,8 +133,10 @@ Now let's go over how to access this data from the `show-page` component we are 
 First, we need to pass the `match` prop to our `show-page` component:
 
 ```
+import { MatchResults } from '@stencil/router';
+...
 export class ShowPage {
-  @Prop() match: any;
+  @Prop() match: MatchResults;
 }
 ```
 
@@ -142,7 +144,7 @@ Then we can use that `match` prop to access our data:
 
 ```
 // myData is now the data we passed in our stencil-route-link above
-const myData = this.match.params.pageNum
+const myData = this.match.params.pageNum;
 ```
 
 <stencil-route-link url="/docs/css-variables" router="#router" custom="true">
