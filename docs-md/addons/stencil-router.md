@@ -6,27 +6,7 @@ The developer experience of the router is designed to be similar to [React Route
 
 ## Installing
 
-In your project directory, run `npm install @stencil/router`.
-
-## Adding to Stencil Config Collection
-
-First thing, ensure that the `collections` entry in `stencil.config.js` has the `@stencil/router` package. If it does not, please add it.
-
-Open the project's `stencil.config.js` file, and look for the `config` export.
-
-From there, add an object with a name of `@stencil/router` to the `collections` array if it's not already there.
-
-```
-exports.config = {
-  publicPath: '/build',
-  bundles: [
-    { components: ['stencil-site', 'site-header', 'landing-page'] },
-    { components: ['app-marked', 'site-menu'] },
-    { components: ['demos-page', 'document-component'] }
-  ],
-  collections: [{ name: '@stencil/router' }]
-};
-```
+In your project directory, run `npm install @stencil/router --save`. Then add `import '@stencil/router'` to your root component (normally the `my-app` component if your are using one of the starters).
 
 ## Included components
 
