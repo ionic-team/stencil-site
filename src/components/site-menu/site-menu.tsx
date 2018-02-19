@@ -1,13 +1,26 @@
-import { Component } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 
 @Component({
   tag: 'site-menu',
   styleUrl: 'site-menu.scss'
 })
 export class SiteMenu {
+
+  @State() version: string = 'Loading...';
+
+  componentDidLoad() {
+    fetch('https://unpkg.com/@stencil/core@0.6.2/package.json').then((res) => {
+      return res.json()
+    }).then((data) => {
+      this.version = data.version;
+    })
+  }
+
   render() {
     return (
       <div>
+        <div id='version'>v{this.version}</div>
+
         <iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></iframe>
         <ul id="menu-list">
           <li>
