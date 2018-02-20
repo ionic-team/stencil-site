@@ -9,7 +9,7 @@ export class SiteMenu {
   @State() version: string = 'Loading...';
 
   componentDidLoad() {
-    fetch('https://unpkg.com/@stencil/core@0.6.2/package.json').then((res) => {
+    fetch('https://unpkg.com/@stencil/core/package.json').then((res) => {
       return res.json()
     }).then((data) => {
       this.version = data.version;
