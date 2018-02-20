@@ -26,10 +26,16 @@ export class DemosPage {
       source: 'https://github.com/ionic-team/stencil-fiber-demo'
     },
     {
-      title: 'StencilNews',
-      description: 'Demo of how you could use @stencil/core to build a fast, modern News PWA',
-      url: 'https://stencilnews.firebaseapp.com/',
-      source: 'https://github.com/ionic-team/stencil-news'
+      title: 'IonicBeer',
+      description: 'Beer PWA built with @stencil/core and @ionic/core',
+      url: 'https://stencilbeer.firebaseapp.com/',
+      source: 'https://github.com/jgw96/stencil-beer'
+    },
+    {
+      title: 'InstaMusic',
+      description: 'A full featured music player buitl with @stencil/core and @ionic/core',
+      url: 'https://instamusic-c15fe.firebaseapp.com/',
+      source: 'https://github.com/jgw96/instamusic'
     }
   ];
 
