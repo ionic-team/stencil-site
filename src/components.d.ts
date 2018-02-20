@@ -151,8 +151,12 @@ declare global {
   }
   namespace JSXElements {
     export interface LazyIframeAttributes extends HTMLAttributes {
+      frameBorder?: string;
+      height?: string;
+      scrolling?: string;
       src?: string;
       title?: string;
+      width?: string;
     }
   }
 }

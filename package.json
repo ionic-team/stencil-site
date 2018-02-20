@@ -5,7 +5,7 @@
   "description": "Stencil Site",
   "scripts": {
     "docs": "gulp",
-    "build": "gulp && stencil build --prerender",
+    "build": "gulp && stencil build --prerender && node host-to-firebase.js",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && firebase deploy",
     "serve": "stencil-dev-server",

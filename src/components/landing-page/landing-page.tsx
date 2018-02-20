@@ -1,4 +1,4 @@
-import { Component, Element } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
 
 
 @Component({
@@ -8,6 +8,8 @@ import { Component, Element } from '@stencil/core';
 export class LandingPage {
 
   @Element() el: Element;
+
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   constructor() {
     document.title = `Stencil`;
@@ -49,9 +51,9 @@ export class LandingPage {
         <div onClick={() => { this.closeBackground() }} id="background">
         </div>
 
-        <div id="youtube-video" onClick={() => { this.closeBackground() }}>
-          <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" title="Ionic team at Polymer Summit video" />
-        </div>
+        {!this.isServer && window.matchMedia('(min-width: 740px)').matches ? <div id="youtube-video" onClick={() => { this.closeBackground() }}>
+          <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" width="700" height="450" title="Ionic team at Polymer Summit video" />
+        </div>: null}
 
         <main>
           <img id="logo" src="/assets/img/logo.png" alt="Stencil Logo"></img>
