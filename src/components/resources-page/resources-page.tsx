@@ -16,8 +16,25 @@ export class ResourcesPage {
       { title: 'Stencil Card Component', url: 'https://github.com/henriquecustodia/stencil-card-app' },
       { title: 'st-image: lazy loaded images', url: 'https://github.com/jgw96/st-img' },
       { title: 'st-payment: Stencil Payment API Component', url: 'https://github.com/Fdom92/stencil-payment' },
-      { title: 'st-fetch: A simple component for performing http fetch calls', url: 'https://github.com/Fdom92/stencil-fetch' }
-      //{ title: '', url: '' }
+      { title: 'st-fetch: A simple component for performing http fetch calls', url: 'https://github.com/Fdom92/stencil-fetch' },
+      { title: 'web-photo-filter: Use webGL for amazing instagram like filters', url: 'https://github.com/peterpeterparker/web-photo-filter' },
+      { title: 'stencil-flip-images: Awesome animated image gallery', url: 'https://github.com/jepiqueau/stencil-flip-images'}
+    ],
+    TOOLS: [
+      { title: 'yo Stencil: A yeoman generator for Stencil', url: 'https://github.com/AkashGutha/generator-stencil' },
+      { title: 'Stencil Snippets: A Stencil snippets package for VS Code', url: 'https://marketplace.visualstudio.com/items?itemName=fdom.stencil-snippets' }
+    ],
+    BLOGS: [
+      { title: 'Announcing Stencil.js', url: 'https://www.youtube.com/watch?v=UfD-k7aHkQE' },
+      { title: 'Stencil - Getting Started (video)', url: "https://www.youtube.com/watch?v=MqMYaT1GlWY" },
+      { title: 'Using a Stencil-built component in Angular', url: "https://github.com/ospatil/ng-components-integration" },
+      { title: 'Create your First Stencil Component', url: 'https://coryrylan.com/blog/create-your-first-web-component-with-stencil-js' },
+      { title: 'Getting Started with Stencil', url: 'https://alligator.io/stencil/getting-started/' },
+      { title: "Stencil.js: It's finally time for vanilla web components!", url: 'https://medium.com/@sinedied/stencil-js-its-finally-time-for-vanilla-web-components-927d26b573e1' },
+      { title: "Stencil with MobX", url: 'https://github.com/aaronksaunders/stencil-mobx'},
+      { title: "Webkomponenten mit Stencil – Ein erster Überblick (in German)", url: 'https://www.datacodedesign.de/webkomponenten-mit-stencil-ein-erster-ueberblick/' },
+      { title: 'Stencil’e Giriş (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencile-giri%C5%9F-41e90e37595d' },
+      { title: 'Stencil’de Bileşenler Arası Haberleşme (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9' }
     ]
   }
   constructor() {
@@ -37,27 +54,24 @@ export class ResourcesPage {
           inaccurate, or outdated information and code snippets.
         </p>
           <ul>
-            {/* TODO: Turn these into an auto array map to use science to our benefit */}
-            <li><a target="_blank" href="https://www.youtube.com/watch?v=UfD-k7aHkQE">Announcing Stencil.js</a></li>
-            <li><a target="_blank" href="https://www.youtube.com/watch?v=MqMYaT1GlWY">Stencil - Getting Started (video)</a></li>
-            <li><a target="_blank" href="https://github.com/ospatil/ng-components-integration">Using a Stencil-built component in Angular</a></li>
-            <li><a target="_blank" href="https://coryrylan.com/blog/create-your-first-web-component-with-stencil-js">Create your First Stencil Component</a></li>
-            <li><a target="_blank" href="https://alligator.io/stencil/getting-started/">Getting Started With Stencil</a></li>
-            <li><a target="_blank" href="https://medium.com/@sinedied/stencil-js-its-finally-time-for-vanilla-web-components-927d26b573e1">Stencil.js: It's finally time for vanilla web components!</a></li>
-            <li><a target="_blank" href="https://github.com/aaronksaunders/stencil-mobx">Stencil with MobX</a></li>
-            <li><a target="_blank" href="https://www.datacodedesign.de/webkomponenten-mit-stencil-ein-erster-ueberblick/">Webkomponenten mit Stencil – Ein erster Überblick (in German)</a></li>
-            <li><a target="_blank" href="https://medium.com/t%C3%BCrkiye/stencile-giri%C5%9F-41e90e37595d">Stencil’e Giriş (in Turkish)</a></li>
-            <li><a target="_blank" href="https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9">Stencil’de Bileşenler Arası Haberleşme (in Turkish)</a></li>
+            {
+              this.LINKS.BLOGS.map(link => {
+                return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+              })
+            }
           </ul>
         </div>
 
         <div>
-          <h2>Third-party Components/Templates</h2>
+          <h2>Third-party Components, Templates and Tools</h2>
           <ul>
             {this.LINKS.COMPONENTS.map(link => {
               return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
             })}
             {this.LINKS.TEMPLATES.map(link => {
+              return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+            })}
+            {this.LINKS.TOOLS.map(link => {
               return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
             })}
           </ul>
