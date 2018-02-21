@@ -1,3 +1,4 @@
+import '@stencil/router';
 import { Component } from '@stencil/core';
 
 @Component({

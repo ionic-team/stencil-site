@@ -8,10 +8,4 @@ self.workbox.routing.registerRoute(
   self.workbox.strategies.networkFirst()
 );
 
-self.workbox.routing.registerRoute(
-  'https://sw-test-site.firebaseapp.com/',
-  self.workbox.strategies.networkFirst()
-);
-
-
 self.workbox.precaching.precacheAndRoute([]);

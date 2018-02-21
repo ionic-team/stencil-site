@@ -3,7 +3,7 @@ var markdown = require('gulp-markdown');
 var hljs = require('highlight.js');
 gulp.task('default', function() {
   return gulp
-    .src('./docs-md/**/*.md')
+    .src('./src/docs-md/**/*.md')
     .pipe(
       markdown({
         highlight: function(code) {
@@ -11,5 +11,5 @@ gulp.task('default', function() {
         }
       })
     )
-    .pipe(gulp.dest('./www/docs-content'));
+    .pipe(gulp.dest('./src/docs-content'));
 });

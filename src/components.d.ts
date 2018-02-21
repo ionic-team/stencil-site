@@ -4,7 +4,14 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import '@stencil/router';
+
+declare global {
+  interface HTMLStencilElement extends HTMLElement {
+    componentOnReady(): Promise<this>;
+    componentOnReady(done: (ele?: this) => void): void;
+  }
+}
+
 
 
 import {
@@ -12,7 +19,7 @@ import {
 } from './components/app-marked/app-marked';
 
 declare global {
-  interface HTMLAppMarkedElement extends AppMarked, HTMLElement {
+  interface HTMLAppMarkedElement extends AppMarked, HTMLStencilElement {
   }
   var HTMLAppMarkedElement: {
     prototype: HTMLAppMarkedElement;
@@ -42,7 +49,7 @@ import {
 } from './components/demos-page/demos-page';
 
 declare global {
-  interface HTMLDemosPageElement extends DemosPage, HTMLElement {
+  interface HTMLDemosPageElement extends DemosPage, HTMLStencilElement {
   }
   var HTMLDemosPageElement: {
     prototype: HTMLDemosPageElement;
@@ -72,7 +79,7 @@ import {
 } from './components/document-component/document-component';
 
 declare global {
-  interface HTMLDocumentComponentElement extends DocumentComponent, HTMLElement {
+  interface HTMLDocumentComponentElement extends DocumentComponent, HTMLStencilElement {
   }
   var HTMLDocumentComponentElement: {
     prototype: HTMLDocumentComponentElement;
@@ -102,7 +109,7 @@ import {
 } from './components/landing-page/landing-page';
 
 declare global {
-  interface HTMLLandingPageElement extends LandingPage, HTMLElement {
+  interface HTMLLandingPageElement extends LandingPage, HTMLStencilElement {
   }
   var HTMLLandingPageElement: {
     prototype: HTMLLandingPageElement;
@@ -132,7 +139,7 @@ import {
 } from './components/lazy-iframe/lazy-iframe';
 
 declare global {
-  interface HTMLLazyIframeElement extends LazyIframe, HTMLElement {
+  interface HTMLLazyIframeElement extends LazyIframe, HTMLStencilElement {
   }
   var HTMLLazyIframeElement: {
     prototype: HTMLLazyIframeElement;
@@ -167,7 +174,7 @@ import {
 } from './components/pwas-page/pwas-page';
 
 declare global {
-  interface HTMLPwasPageElement extends PwasPage, HTMLElement {
+  interface HTMLPwasPageElement extends PwasPage, HTMLStencilElement {
   }
   var HTMLPwasPageElement: {
     prototype: HTMLPwasPageElement;
@@ -197,7 +204,7 @@ import {
 } from './components/resources-page/resources-page';
 
 declare global {
-  interface HTMLResourcesPageElement extends ResourcesPage, HTMLElement {
+  interface HTMLResourcesPageElement extends ResourcesPage, HTMLStencilElement {
   }
   var HTMLResourcesPageElement: {
     prototype: HTMLResourcesPageElement;
@@ -227,7 +234,7 @@ import {
 } from './components/site-header/site-header';
 
 declare global {
-  interface HTMLSiteHeaderElement extends SiteHeader, HTMLElement {
+  interface HTMLSiteHeaderElement extends SiteHeader, HTMLStencilElement {
   }
   var HTMLSiteHeaderElement: {
     prototype: HTMLSiteHeaderElement;
@@ -257,7 +264,7 @@ import {
 } from './components/site-menu/site-menu';
 
 declare global {
-  interface HTMLSiteMenuElement extends SiteMenu, HTMLElement {
+  interface HTMLSiteMenuElement extends SiteMenu, HTMLStencilElement {
   }
   var HTMLSiteMenuElement: {
     prototype: HTMLSiteMenuElement;
@@ -287,7 +294,7 @@ import {
 } from './components/stencil-site/stencil-site';
 
 declare global {
-  interface HTMLStencilSiteElement extends StencilSite, HTMLElement {
+  interface HTMLStencilSiteElement extends StencilSite, HTMLStencilElement {
   }
   var HTMLStencilSiteElement: {
     prototype: HTMLStencilSiteElement;
@@ -311,3 +318,4 @@ declare global {
   }
 }
 
+declare global { namespace JSX { interface StencilJSX {} } }
