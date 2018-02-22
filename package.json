@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@stencil/core": "0.6.5",
-    "@stencil/router": "0.0.17",
+    "@stencil/router": "0.0.25",
     "@stencil/sass": "0.0.2"
   },
   "devDependencies": {
