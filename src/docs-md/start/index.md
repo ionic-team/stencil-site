@@ -40,52 +40,6 @@ npm start
 
 This will give you a project with everything needed to build a fast, modern web app completely out of web components. It comes with the [stencil-router](/docs/routing) pre-installed.
 
-## Testing
-
-The Stencil Application Starter uses Jest and a small testing API in order to test the components. There are two ways to run the unit tests.
-They can be run once on command, or they can be live-reloaded and run with each source change.
-
-To run the tests once, run:
-
-```bash
-npm test
-```
-
-To run the tests and live-reload them, run:
-
-```bash
-npm run test.watch
-```
-
-## Developing
-
-Changes made while the live-reload server is running will automatically be reflected. Let's make a small edit to our component. Open `src/components/my-name/my-name.tsx` in your editor
-
-We can ignore most of the content here, but we'll look at our `render` method. Inside the return statement, let's modify what we have.
-
-```jsx
-render() {
-    return (
-      <p>
-        Hello, my props are {this.first} and {this.last}
-      </p>
-    );
-  }
-
-```
-
-When we save, we'll have our component updated with the new changes. To learn more about what's going on in this component, check out               <stencil-route-link url="/docs/my-first-component">component docs</stencil-route-link>
-
-## Building for Production
-
-To do a production build, run the following command
-
-```
-npm run build
-```
-
-This will generate a minified distribution of your stencil components.
-
 <stencil-route-link url="/docs/intro" router="#router" custom="true">
   <button class="backButton">
     Back
