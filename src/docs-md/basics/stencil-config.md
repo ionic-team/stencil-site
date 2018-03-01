@@ -45,7 +45,22 @@ The `buildDir` config specifies where stencil's build files are saved after each
 
 - `publicPath`, default value: `/build`
 
-The `publicPath` config sets the fallback client-side base path for all Stencil build assets. By default the loader script will automatically figure out the relative path to load your components, but uses `publicPath` as a fallback. It's recommended to have it start with `/`. Note that this only sets the base path the browser requests, but this does not set where files are saved during build. To change where files are saved at build time, use the `buildDir` config.
+The `publicPath` config sets the fallback client-side base path for all Stencil build assets. By default the loader script will automatically figure out the relative path to load your components, but uses `publicPath` as a fallback. It's recommended to have it start with `/`. Note that this only sets the base path the browser requests, but this does not set where files are saved during build. To change where files are saved at build time, use the `buildDir` config. You can also use the publicPath from in your components logic. This can be helpful when loading files into a component from JavaScript. Here is an example of this:
+
+```
+...
+export class SamplePage {
+  @Prop({ context: 'publicPath'}) private publicPath: string;
+
+ loadImage() {
+   fetch(`${this.publicPath}/assets/my-image.svg`).then(res => {
+     return res.text()
+   }).then(svg => {
+     console.log(svg)
+   })
+ }
+}
+```
 
 - `serviceWorker`
 
