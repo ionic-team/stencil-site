@@ -2,6 +2,8 @@
 
 ## Starting a new project
 
+Before getting started with Stencil you need to install [NodeJS](https://nodejs.org/en/) and NPM. NodeJS is a JavaScript runtime that allows tools built with JavaScript, like Stencil, to be run from the terminal. Npm is a package manager for JavaScript. Visit [this link](https://nodejs.org/en/download/) to download and intstall Node and NPM.
+
 ### Reusable Components
 
 If you are building a component or group of components meant to be used across multiple projects you just need to run the following commands in your terminal:
