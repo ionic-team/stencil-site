@@ -4,7 +4,7 @@
 <p>Using a Stencil built web component collection within an Angular CLI project is a four-step process. We need to:</p>
 <ol>
 <li>Get the component collection(s), for example from NPM</li>
-<li>Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components </li>
+<li>Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components</li>
 <li>Import the packages in <code>app.module.ts</code> (or some other appropriate place)</li>
 <li>Copy the component collection(s) during the build</li>
 </ol>
@@ -24,7 +24,7 @@
   imports: [BrowserModule, FormsModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 <span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> {}</span>
 </code></pre>
@@ -56,7 +56,7 @@
 <h3 id="copying-the-collection-s-to-public-">Copying the Collection(s) to <code>public</code></h3>
 <p>The React build process will automatically copy anything that is under the <code>public</code> folder to the <code>build</code> folder. The easiest way to copy the component collection(s) is to set up the npm <code>postinstall</code> script to do the copy after the packages are installed for the project.</p>
 <p><strong>Note:</strong> the default React webpack configuration results in webpack bundles being built in <code>build/static/js</code>, so the component collections need to be copied into <code>public/static/js</code>. You may want to pre-create this directory and create a <code>.gitkeep</code> file in it to make sure the path exists.</p>
-<p>The following is a simple example of a <code>postinstall</code> script in the <code>package.jsom</code> file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your <code>postinstall</code> script.</p>
+<p>The following is a simple example of a <code>postinstall</code> script in the <code>package.json</code> file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your <code>postinstall</code> script.</p>
 <pre><code class="lang-json">  <span class="hljs-string">"scripts"</span>: {
     <span class="hljs-string">"start"</span>: <span class="hljs-string">"react-scripts start"</span>,
     <span class="hljs-string">"build"</span>: <span class="hljs-string">"react-scripts build"</span>,
