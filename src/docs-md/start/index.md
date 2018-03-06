@@ -42,6 +42,11 @@ npm start
 
 This will give you a project with everything needed to build a fast, modern web app completely out of web components. It comes with the [stencil-router](/docs/routing) pre-installed.
 
+
+### Updating Stencil
+
+To get the latest version of @stenil/core you can run `npm install @stencil/core@latest --save-exact`. 
+
 <stencil-route-link url="/docs/intro" router="#router" custom="true">
   <button class="backButton">
     Back
