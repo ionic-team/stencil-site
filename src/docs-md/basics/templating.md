@@ -1,26 +1,29 @@
 # Using JSX
 
-Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a `render` function that returns the JSX content.
+Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a `render` function that returns a tree of components that are rendered to the DOM at runtime.
 
 ### Basics
 
-The render functions returns something very similar to HTML.
+The `render` function is used to output a tree of components that will be drawn to the screen. 
 
 ```typescript
-render() {
-  return (
-    <div>Hello World</div>
-  )
+class MyComponent {
+  render() {
+    return (
+      <div>
+        <h1>Hello World</h1>
+        <p>This is JSX!</p>
+      </div>
+    );
+  }
 }
 ```
 
-Here we're returning a JSX representation of a `div`, with the inner content being "Hello World".
-
+In this example we're returning the JSX representation of a `div`, with two child elements: an `h1` and a `p`. 
 
 ### Data Binding
 
-A common need of components is to render data based on a property.
-Like many popular frameworks, we can use `{}`.
+Components often need to render dynamic data. To do this in JSX, use `{ }` around a variable:
 
 ```typescript
 render() {
@@ -30,7 +33,7 @@ render() {
 }
 ```
 
-> A nice little hint is to think of the JSX databinding syntax as JavaScript template literals, just without the `$` in the front.
+> If you're familiar with ES6 template variables, JSX variables are very similar, just without the `$`:
 
 ```
 //ES6
@@ -56,7 +59,7 @@ render() {
 }
 ```
 
-A more complex example of this using JSX shorthand:
+Additionally, inline conditionals can be created using the JavaScript ternary operator:
 
 ```jsx
 render() {
@@ -70,12 +73,29 @@ render() {
   );
 }
 ```
-In this case, we need to render child components in the conditional.
-
 
 ### Slots
 
-Sometimes you want to pass more JSX/HTML as child elements. For example:
+Components often need to render dynamic children in specific locations in their component tree, allowing a developer to supply child content when using our component, with our component placing that child component in the proper location.
+
+To do this, you can use the [Slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) tag inside of your `my-component`.
+
+```jsx
+// my-component.tsx
+
+render() {
+  return (
+    <div>
+      <h2>A Component</h2>
+      <div><slot /></div>
+    </div>
+  );
+}
+
+```
+
+Then, if a user passes child components when creating our component `my-component`, then `my-component` will place that
+component inside of the second `<div>` above:
 
 ```jsx
 render(){
@@ -87,28 +107,16 @@ render(){
 }
 ```
 
-To do this, you can use the `slot` tag inside of your `my-component`.
+Slots can also have `name`s to allow for specifying slot output location:
 
 ```jsx
 // my-component.tsx
 
 render(){
-  return <slot />
-}
-
-```
-
-[Slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) is a special tag in Web Components that allows you to place child elements inside your own custom element.
-Slots can also have `name`s, allowing you to render content in certain places.
-
-```jsx
-// my-component.tsx
-
-render(){
-  return[
-    <slot name="item-start"/>,
+  return [
+    <slot name="item-start" />,
     <h1>Here is my main content</h1>,
-    <slot name="item-end"/>
+    <slot name="item-end" />
   ]
 }
 ```
@@ -126,7 +134,7 @@ render(){
 
 ### Loops
 
-Looping/Iterables works just like it does in JavaScript.
+Loops can be created in JSX using either traditional loops when creating JSX trees, or using array operators such as `map` when inlined in existing JSX.
 
 In the example below, we're going to assume the component has a local property called `todos` which is a list of todo objects. We'll use the [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function on the array to loop over each item in the map, and to convert it to something else - in this case JSX.
 
@@ -145,6 +153,7 @@ render() {
 }
 ```
 
+Each step through the `map` function creates a new JSX sub tree and adds it to the array returned from `map`, which is then drawn in the JSX tree above it.
 
 ### Handling User Input
 
@@ -205,21 +214,7 @@ export class MyComponent {
 
 ### Complex Template Content
 
-So far we've seen examples of how to return only a single root element. We can also nest elements inside our root element just like regular HTML:
-
-```jsx
-render() {
-  return (
-  <div class="container">
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </div>
-  );
-}
-```
+So far we've seen examples of how to return only a single root element. We can also nest elements inside our root element 
 
 In the case where a component has multiple "top level" elements, the `render` function can return an array.
 Note the comma in between the `<div>` elements.
