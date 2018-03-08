@@ -63,11 +63,9 @@ export class MyComponent {
 }
 ```
 
-## Practicle Example
+## Example
 
-Lets build a classic example of a simple component that takes advantages of lifecycle events, a timer.
-
-First lets look at the code for this component:
+This simple example starts a timer as soon as the component loads, and updates the curent time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
 
 ```jsx
 import { Component, State } from '@stencil/core';
@@ -101,9 +99,6 @@ export class CustomTimer {
   }
 }
 ```
-
-We create the timer once the component has loaded and rendered by using the `componentDidLoad` event. As noted above, this event only gets called once, so we do not have to worry about creating multiple timers. To make sure we stop our timer once this component has been un-loaded from the DOM, we clear our timer in the `componentDidUnload` event.
-
 
 <stencil-route-link url="/docs/events" router="#router" custom="true">
   <button class="backButton">
