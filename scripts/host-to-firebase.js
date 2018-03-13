@@ -1,18 +1,18 @@
 const fs = require('fs');
 
-fs.readFile('www/host.config.json', (err, data) => {
+fs.readFile('www/host.config.json', 'utf-8', (err, data) => {
   if (err) {
     console.log(`Something went wrong: ${err}`)
   } else {
     const headerData = JSON.parse(data).hosting.rules;
 
-    fs.readFile('firebase.json', (err, data) => {
+    fs.readFile('firebase.json', 'utf-8', (err, data) => {
       if (err) {
         console.log(`Something went wrong: ${err}`);
       } else {
         const firebaseData = JSON.parse(data);
         headerData.map((entry) => {
-      
+
           const newHeaderObject = {
             source: entry.include,
             headers: [{
