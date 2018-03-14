@@ -1,7 +1,8 @@
-import { Component, Prop, PropDidChange, State } from '@stencil/core';
+import { Component, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'app-marked',
+  styleUrl: 'app-marked.scss'
 })
 export class AppMarked {
 
@@ -14,7 +15,7 @@ export class AppMarked {
     return this.fetchNewContent();
   }
 
-  @PropDidChange('doc')
+  @Watch('doc')
   fetchNewContent() {
     return fetch(`/docs-content/${this.doc}`)
       .then(response => response.text())

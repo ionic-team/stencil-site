@@ -1,9 +1,19 @@
+const sass = require('@stencil/sass');
+
 exports.config = {
-  bundles: [
-    { components: ['stencil-site', 'site-header', 'landing-page', 'lazy-iframe', 'site-menu'] },
-    { components: ['app-marked', 'demos-page', 'resources-page', 'document-component'] }
+  plugins: [
+    sass()
   ],
-  collections: [{ name: '@stencil/router' }]
+  globalStyle: 'src/global/variables.css',
+  serviceWorker: {
+    swSrc: 'src/sw.js',
+    globPatterns: [
+      '**/*.{html,js,css,json,ico,png}'
+    ]
+  },
+  copy: [
+    {src: 'docs-content/'}
+  ]
 };
 
 exports.devServer = {

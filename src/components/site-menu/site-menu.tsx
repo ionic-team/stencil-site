@@ -1,25 +1,49 @@
-import { Component } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 
 @Component({
   tag: 'site-menu',
   styleUrl: 'site-menu.scss'
 })
 export class SiteMenu {
+
+  @State() version: string = 'Loading...';
+
+  componentDidLoad() {
+    fetch('https://unpkg.com/@stencil/core/package.json').then((res) => {
+      return res.json()
+    }).then((data) => {
+      this.version = data.version;
+    })
+  }
+
   render() {
     return (
       <div>
-        <ul>
+        <div id='version'>v{this.version}</div>
+
+        <lazy-iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></lazy-iframe>
+        <ul id="menu-list">
           <li>
-            <h4>Introduction</h4>
+            <h4>Essentials</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/intro">
-                  What is Stencil?
+                  Introduction
                 </stencil-route-link>
               </li>
               <li>
                 <stencil-route-link url="/docs/getting-started">
                   Getting Started
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/docs/browser-support">
+                  Browser Support
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/pwa'>
+                  PWAs
                 </stencil-route-link>
               </li>
             </ul>
@@ -37,7 +61,7 @@ export class SiteMenu {
 
               <li>
                 <stencil-route-link url="/docs/templating">
-                  Templating
+                  Using JSX
                 </stencil-route-link>
               </li>
 
@@ -104,8 +128,23 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
+                <stencil-route-link url="/docs/shadow-dom">
+                  Shadow DOM
+                </stencil-route-link>
+              </li>
+              <li>
                 <stencil-route-link url="/docs/distribution">
                   Distribution
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/docs/framework-integration">
+                  Framework Integration
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url="/docs/css-variables">
+                  CSS Variables
                 </stencil-route-link>
               </li>
             </ul>
@@ -119,6 +158,11 @@ export class SiteMenu {
                   Router
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/sass">
+                  Sass
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 
@@ -126,10 +170,15 @@ export class SiteMenu {
             <h4>Community</h4>
             <ul>
               <li>
-                <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjQ2MzkyMTY0MTk0LTQ4ODgzYjFjNjdkNDY3YWVhMmNlMTljMWQxNTM3Yjg0ZTIyZTM1MmU2YWE5YzNjNzE1MmQ3ZTk2NjQ1YzM5ZDM" title="Stencil slack channel">Stencil Slack</a>
+                <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM" title="Stencil slack channel">Stencil on Slack</a>
               </li>
               <li>
                 <a href="https://twitter.com/stenciljs">Stencil on Twitter</a>
+              </li>
+              <li>
+                <a href="https://github.com/ionic-team/stencil">
+                  Stencil on GitHub
+                </a>
               </li>
             </ul>
           </li>

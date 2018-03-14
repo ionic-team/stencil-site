@@ -1,0 +1,35 @@
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="starting-a-new-project">Starting a new project</h2>
+<p>Before getting started with Stencil you need to install <a href="https://nodejs.org/en/">NodeJS</a> and NPM. NodeJS is a JavaScript runtime that allows tools built with JavaScript, like Stencil, to be run from the terminal. Npm is a package manager for JavaScript. Visit <a href="https://nodejs.org/en/download/">this link</a> to download and intstall Node and NPM.</p>
+<h3 id="reusable-components">Reusable Components</h3>
+<p>If you are building a component or group of components meant to be used across multiple projects you just need to run the following commands in your terminal:</p>
+<pre><code class="lang-bash">git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/ionic-team/stencil-component-starter my-component
+cd my-component
+git remote rm origin
+npm install
+</code></pre>
+<p>Then, to start a live-reload server, run:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">npm</span> start
+</code></pre>
+<p>This will give you a project with the proper setup to build standalone web components that can be easily shared across projects.</p>
+<h3 id="building-an-app">Building an app</h3>
+<p>If you are looking to build an entire app using web components, you can use the app-starter. To use the app-starter you can run the following commands in your terminal:</p>
+<pre><code class="lang-bash">git clone https:<span class="hljs-comment">//github.com/ionic-team/stencil-app-starter my-app</span>
+<span class="hljs-keyword">cd</span> my-<span class="hljs-keyword">app</span>
+git remote <span class="hljs-keyword">rm</span> origin
+npm install
+</code></pre>
+<p>Then, to start a live-reload server, run:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">npm</span> start
+</code></pre>
+<p>This will give you a project with everything needed to build a fast, modern web app completely out of web components. It comes with the <a href="/docs/routing">stencil-router</a> pre-installed.</p>
+<p><stencil-route-link url="/docs/intro" router="#router" custom="true">
+  <button class="backButton">
+    Back
+  </button>
+</stencil-route-link></p>
+<p><stencil-route-link url="/docs/my-first-component" custom="true">
+  <button class="nextButton">
+    Next
+  </button>
+</stencil-route-link></p>

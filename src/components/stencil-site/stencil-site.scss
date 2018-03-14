@@ -2,6 +2,23 @@
   box-sizing: border-box;
 }
 
+stencil-site {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.app {
+  height: 100%;
+  max-width: 1080px;
+  margin: auto;
+}
+
+#main-div {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
 ::selection {
   background: #e7e7f2;
 }
@@ -20,10 +37,12 @@ html, body {
     "Apple Color Emoji",
     "Segoe UI Emoji",
     "Segoe UI Symbol";
-  height: 100%;
   width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
@@ -33,10 +52,6 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 28px;
   font-weight: bold;
-}
-
-h1:not(:first-child) {
-  margin-top: 48px;
 }
 
 h2 {
@@ -50,27 +65,14 @@ h2, h3 {
 }
 
 p, ul {
-  color: #16161d;
+  color: #2d2d4c;
   font-size: 15px;
-}
-
-a, stencil-route-link {
-  color: #5850ff;
-  .link-active {
-    font-weight: bold;
-    color: #5850ff !important;
-  }
+  line-height: 2em;
+  margin: 24px 0px;
 }
 
 stencil-route-link:hover {
-  text-decoration: underline;
   cursor: pointer;
-}
-
-.app {
-  height: 100%;
-  max-width: 1080px;
-  margin: auto;
 }
 
 .wrapper {
@@ -85,7 +87,7 @@ stencil-route-link:hover {
   justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
-}
+} 
 
 pre {
   word-break: break-all;
@@ -96,7 +98,6 @@ pre {
   padding: 16px 24px;
   border-radius: 4px;
   color: #abb2bf;
-  // background: #282c34;
   background-color: #16161d;
   code {
     font-weight: 500;
@@ -116,43 +117,57 @@ code {
   font-size: 14px;
 }
 
-.button {
-  color: #ffffff;
-  background-color: #5850ff;
-  padding: 8px 14px;
-  border-radius: 2px;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .nextButton {
-  color: #ffffff;
-  background-color: #5850ff;
-  padding: 8px 14px;
-  border-radius: 2px;
+  background: var(--primary-color);
+  color: white;
   text-decoration: none;
+
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  outline: none;
+  letter-spacing: 0.04em;
+  transition: all .15s ease;
+  cursor: pointer;
   float: right;
-  margin-bottom: 10px;
+  margin-right: 5px;
+
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    transform: translateY(1px);
+    box-shadow: var(--button-shadow-hover);
   }
 }
 
 .backButton {
-  color: #ffffff;
-  background-color: #5850ff;
-  padding: 8px 14px;
-  border-radius: 2px;
+  color: var(--primary-color);
+  background: white;
   text-decoration: none;
   float: left;
-  margin-bottom: 10px;
+
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  outline: none;
+  letter-spacing: 0.04em;
+  transition: all .15s ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-left: 5px;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    transform: translateY(1px);
+    box-shadow: var(--button-shadow-hover);
   }
 }
 
@@ -213,11 +228,61 @@ code {
   text-decoration: underline;
 }
 
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f8f8fc;
+  height: 8em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 0 0 8em;
+  margin-top: 32px;
+
+  .svg-button {
+    margin-left: 16px;
+    transition: all .15s ease;
+  }
+
+  .svg-button:hover {
+    opacity:0.5;
+  }
+}
+
+#open-source {
+  img {
+    width: 50%;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #a5a4b8;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .wrapper {
+    padding-top: 100px;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .wrapper {
     padding-top: 80px;
   }
+
+  site-header a {
+    display: none;
+  }
+
+  site-header stencil-route-link a {
+    display: initial;
+  }
 }
+
 @media screen and (max-width: 590px) {
   .wrapper {
     margin-right: 0;
@@ -232,6 +297,7 @@ code {
     .pull-right {
       padding: 0 15px;
       width: 100%;
+      min-height: 100vh;
     }
     .pull-left {
       position: relative;
@@ -246,6 +312,7 @@ code {
     }
   }
 }
+
 @media screen and (min-width: 590px) {
   .wrapper {
     .pull-left {
@@ -256,11 +323,16 @@ code {
       top: 50px;
     }
 
+    #version {
+      color: #484854;
+    }
+
     .pull-right {
-      padding-left: 20px;
-      padding-right: 40px;
+      padding-left: 96px;
+      padding-right: 32px;
       flex: 1 1 auto;
       overflow: auto;
+      min-height: 100vh;
     }
   }
 }

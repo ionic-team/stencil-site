@@ -1,4 +1,5 @@
 dist/
+www/
 
 *~
 *.sw[mnpcod]
@@ -9,6 +10,7 @@ dist/
 log.txt
 *.sublime-project
 *.sublime-workspace
+tags
 
 .idea/
 .vscode/

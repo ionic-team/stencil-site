@@ -8,6 +8,10 @@ export class LazyIframe {
 
   @Prop() src: string;
   @Prop() title: string;
+  @Prop() frameBorder: string;
+  @Prop() scrolling: string;
+  @Prop() width: string;
+  @Prop() height: string;
 
   @State() realSrc: string;
 
@@ -51,7 +55,7 @@ export class LazyIframe {
   render() {
     return (
       <div>
-        <iframe frameBorder="0" title={this.title} allowFullScreen={true} width="560" height="315" src={this.realSrc} ></iframe>
+        <iframe frameBorder="0" title={this.title} allowFullScreen={true} src={this.realSrc} frameborder={this.frameBorder} scrolling={this.scrolling} width={this.width} height={this.height}></iframe>
       </div>
     );
   }
