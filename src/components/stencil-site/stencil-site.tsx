@@ -54,7 +54,8 @@ export class App {
                             'framework-integration': 'advanced/framework-integration/index.html',
                             'prerendering': 'advanced/pre-rendering/index.html',
                             'shadow-dom': 'advanced/shadow-dom/index.html',
-                            'css-variables': 'advanced/css-variables/index.html'
+                            'css-variables': 'advanced/css-variables/index.html',
+                            'context': 'advanced/context/index.html'
                           };
                           return (
                             <document-component

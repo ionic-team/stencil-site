@@ -147,6 +147,11 @@ export class SiteMenu {
                   CSS Variables
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url="/docs/context">
+                  Context
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

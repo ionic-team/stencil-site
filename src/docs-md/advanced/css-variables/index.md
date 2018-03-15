@@ -49,7 +49,7 @@ This will apply the color we defined in our CSS Variable, in this case `#488aff`
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/routing" custom="true">
+<stencil-route-link url="/docs/context" custom="true">
   <button class='nextButton'>
     Next
   </button>
