@@ -4,6 +4,8 @@ In most cases, the `stencil.config.js` file does not require any customization s
 
 - [bundles](#bundles)
 - [copy](#copy)
+- [enableCache](#enableCache)
+- [globalStyle](#globalStyle)
 - [namespace](#namespace)
 - [outputTargets](#outputTargets)
   - [dist](#dist)
@@ -14,7 +16,7 @@ In most cases, the `stencil.config.js` file does not require any customization s
 
 Example `stencil.config.js`:
 
-```
+```js
 exports.config = {
   namespace: 'MyApp',
   srcDir: 'src'
@@ -28,7 +30,7 @@ By default, Stencil will statically analyze the application and generate a compo
 
 The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.
 
-```
+```js
 bundles: [
   { components: ['ion-button'] },
   { components: ['ion-card', 'ion-card-header'] }
@@ -43,10 +45,51 @@ The `copy` config is an array of objects that defines any files or folders that 
 
 In the copy config below, it will copy the entire directory from `src/docs-content` over to `www/docs-content`.
 
-```
+```js
   copy: [
     { src: 'docs-content' }
   ]
+```
+
+
+<a name="enableCache"></a>
+## `enableCache`
+
+*default: `true`*
+
+Stencil will cache build results in order to speed up rebuilds. To disable this feature, set `enableCache` to `false`.
+
+```js
+enableCache: true
+```
+
+
+<a name="globalStyle"></a>
+## `globalStyle`
+
+Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often use seful to set [CSS Variables](/docs/css-variables).
+
+Additonally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
+
+Below is an example folder structure containing a webapp's global sass file, named `app.scss`.
+
+```
+  src/
+    components/
+    globals/
+      app.css
+```
+
+The global style config takes an array of file paths. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
+
+```js
+globalStyle: ['src/globals/app.scss']
+```
+
+Next, the `app.css` can be simply referenced from the `index.html` file, such as:
+
+```html
+<link href="/build/app.css" rel="stylesheet">
 ```
 
 
@@ -59,7 +102,7 @@ The `namespace` config is a `string` representing a namespace for the app. For a
 
 In the copy config below, it will copy the entire directory from `src/docs-content` over to `www/docs-content`.
 
-```
+```js
   namespace: "Ionic"
 ```
 
@@ -71,7 +114,7 @@ Stencil is able to take an app's source and compile it to numerous targets, such
 
 The `outputTargets` config is an array of objects, with types of `www` and `dist`.
 
-```
+```js
 outputTargets: [
   { type: 'www' },
   { type: 'dist' }
@@ -89,7 +132,7 @@ The `dist` type is to generate the component(s) as a reusable library, such as [
 | `dir`    | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended this directory is not committed to a repository. | `dist`  |
 | `empty`  | By default, before each build the `dir` directory will be emptied of all files. However, to prevent this directory from being emptied simply change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
 
-```
+```js
 outputTargets: [
   {
     type: 'dist'
@@ -113,7 +156,7 @@ The `www` output target type is oriented for webapps and websites, hosted from a
 | `resourcesUrl`  | Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The `resourcesUrl` property is the url path to where this app's resources can be found, such as `/build/app/`. By default this url will point to where the `buildDir` property is set to. Setting this config allows for webapps to find resources which located in various directory or domains, rather than just `/build/app/`. Note that if the `resourcesUrl` config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values. | `/build/app/` |
 | `serviceWorker` | The `serviceWorker` config lets you customize the service worker that gets automatically generated by the Stencil compiler. To override Stencil's defaults, set any of the values listed in the [Workbox documentation](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration).                                                                                                                                                                                                                                                                                                                                   |               |
 
-```
+```js
 outputTargets: [
   {
     type: 'www',
@@ -133,7 +176,7 @@ outputTargets: [
 
 The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the plugin array.
 
-```
+```js
 const sass = require('@stencil/sass');
 
 exports.config = {
@@ -158,7 +201,7 @@ exports.config = {
 
 The `srcDir` config specifies the directory which should contain the source typescript files for each component. The standard for Stencil apps is to use `src`, which is the default.
 
-```
+```js
 srcDir: 'src'
 ```
 
