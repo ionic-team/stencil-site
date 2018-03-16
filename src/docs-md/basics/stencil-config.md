@@ -6,6 +6,8 @@ In most cases, the `stencil.config.js` file does not require any customization s
 - [copy](#copy)
 - [enableCache](#enableCache)
 - [globalStyle](#globalStyle)
+- [hashFileNames](#hashFileNames)
+- [hashedFileNameLength](#hashedFileNameLength)
 - [namespace](#namespace)
 - [outputTargets](#outputTargets)
   - [dist](#dist)
@@ -90,6 +92,30 @@ Next, the `app.css` can be simply referenced from the `index.html` file, such as
 
 ```html
 <link href="/build/app.css" rel="stylesheet">
+```
+
+
+<a name="hashFileNames"></a>
+## `hashFileNames`
+
+*default: `true`*
+
+During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn't updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can "forever-cache" the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.
+
+```js
+hashFileNames: true
+```
+
+
+<a name="hashedFileNameLength"></a>
+## `hashedFileNameLength`
+
+*default: `8`*
+
+When the `hashFileNames` config is set to `true`, and it is a production build, the `hashedFileNameLength` config is used to determine how many characters the file name's hash should be.
+
+```js
+hashedFileNameLength: 8
 ```
 
 
