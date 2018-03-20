@@ -83,7 +83,7 @@ This code imports the workbox library, creates a new instance of the service wor
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/distribution" custom="true">
+<stencil-route-link url="/docs/shadow-dom" custom="true">
   <button class="nextButton">
     Next
   </button>
