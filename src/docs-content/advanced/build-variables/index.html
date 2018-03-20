@@ -1,0 +1,29 @@
+<h1 id="build-constants">Build Constants</h1>
+<p>Build Constants in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.</p>
+<h3 id="using-build-constants">Using Build Constants</h3>
+<p>Lets dive in and look at an example of how to use our build constants:</p>
+<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { Component, Build } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+@Component({
+  tag: <span class="hljs-string">'stencil-app'</span>,
+  styleUrl: <span class="hljs-string">'stencil-app.scss'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StencilApp</span> {</span>
+
+  componentDidLoad() {
+    <span class="hljs-keyword">if</span> (Build.isDev) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'im in dev mode'</span>);
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'im running in production'</span>);
+    }
+  }
+}
+</code></pre>
+<p>As you can see from this example, we just need to import <code>Build</code> from <code>@stencil/core</code> and then we can use the <code>isDev</code> constant to detect when we are running in dev mode or production mode. </p>
+<h3 id="use-cases">Use Cases</h3>
+<p>Some use cases we have come up with are:</p>
+<ul>
+<li>Diagnostics code that runs in dev to make sure logic is working like you would expect</li>
+<li><code>console.log()</code>&#39;s that may be useful for debugging in dev mode but that you dont want to ship</li>
+<li>Disabling auth checks when in dev mode</li>
+</ul>
