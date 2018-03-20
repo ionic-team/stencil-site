@@ -28,7 +28,7 @@ exports.config = {
 <a name="bundles"></a>
 ## `bundles`
 
-By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be group depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
+By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
 
 The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.
 
@@ -124,7 +124,7 @@ hashedFileNameLength: 8
 
 *default: `App`*
 
-The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
+The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
 
 In the copy config below, it will copy the entire directory from `src/docs-content` over to `www/docs-content`.
 
@@ -136,7 +136,7 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
 <a name="outputTargets"></a>
 ##  `outputTargets`
 
-Stencil is able to take an app's source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributated on [npm](https://www.npmjs.com/). By default, Stencil apps have an output target type of `www`.
+Stencil is able to take an app's source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributed on [npm](https://www.npmjs.com/). By default, Stencil apps have an output target type of `www`.
 
 The `outputTargets` config is an array of objects, with types of `www` and `dist`.
 
@@ -179,7 +179,7 @@ The `www` output target type is oriented for webapps and websites, hosted from a
 | `dir`           | The `dir` config specifies the public web distribution directory. This directory is commonly the root directory of an app to be served, such as serving static files from. This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended this directory is not committed to a repository.                                                                                                                                                               | `www`         |
 | `empty`         | By default, before each build the `dir` directory will be emptied of all files. However, to prevent this directory from being emptied simply change this value to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `true`        |
 | `indexHtml`     | The `indexHtml` property represents the location of the root index html file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `index.html`  |
-| `resourcesUrl`  | Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The `resourcesUrl` property is the url path to where this app's resources can be found, such as `/build/app/`. By default this url will point to where the `buildDir` property is set to. Setting this config allows for webapps to find resources which located in various directory or domains, rather than just `/build/app/`. Note that if the `resourcesUrl` config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values. | `/build/app/` |
+| `resourcesUrl`  | Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The `resourcesUrl` property is the url path to where this app's resources can be found, such as `/build/app/`. By default this url will point to where the `buildDir` property is set to. Setting this config allows for webapps to find resources which are located in various directory or domains, rather than just `/build/app/`. Note that if the `resourcesUrl` config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values. | `/build/app/` |
 | `serviceWorker` | The `serviceWorker` config lets you customize the service worker that gets automatically generated by the Stencil compiler. To override Stencil's defaults, set any of the values listed in the [Workbox documentation](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration).                                                                                                                                                                                                                                                                                                                                   |               |
 
 ```js
