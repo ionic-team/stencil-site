@@ -33,7 +33,7 @@ export class DemosPage {
     },
     {
       title: 'InstaMusic',
-      description: 'A full featured music player buitl with @stencil/core and @ionic/core',
+      description: 'A full featured music player built with @stencil/core and @ionic/core',
       url: 'https://instamusic-c15fe.firebaseapp.com/',
       source: 'https://github.com/jgw96/instamusic'
     }
