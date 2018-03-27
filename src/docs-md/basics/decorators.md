@@ -143,6 +143,16 @@ export class TodoList {
 }
 ```
 
+### Reflect Properties to Attributes
+
+In some cases it may be useful to keep a property in sync with an attribute. In this case you can use the `reflectToAttr` option in the prop decorator:
+
+```typescript
+@Prop({
+  reflectToAttr: true
+})
+```
+
 <a href="watch"></a>
 ## Watch Decorator
 
