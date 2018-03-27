@@ -152,6 +152,11 @@ export class SiteMenu {
                   Context
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url='/docs/style-guide'>
+                  Style Guide
+                </stencil-route-link>
+              </li>
             </ul>
           </li>
 

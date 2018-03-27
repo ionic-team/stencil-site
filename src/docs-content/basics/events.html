@@ -66,6 +66,24 @@ handleKeyDown(ev){
 <li>right</li>
 <li>down</li>
 </ul>
+<h2 id="using-events-in-jsx">Using events in JSX</h2>
+<p>You can also bind listeners to events directly in JSX. This works very similar to normal DOM events such as <code>onClick</code>.</p>
+<p>Lets use our TodoList component from above:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Event, EventEmitter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+
+  @Event() todoCompleted: EventEmitter;
+
+  todoCompletedHandler(todo: Todo) {
+    <span class="hljs-keyword">this</span>.todoCompleted.emit(todo);
+  }
+}
+</code></pre>
+<p>We can now listen to this event directly on the component in our JSX using the following syntax:</p>
+<pre><code class="lang-jsx">&lt;todo-<span class="hljs-built_in">list</span> onTodoCompleted={ev =&gt; <span class="hljs-keyword">this</span>.someMethod(ev)}&gt;&lt;/todo-<span class="hljs-built_in">list</span>&gt;
+</code></pre>
 <p><stencil-route-link url="/docs/decorators" router="#router" custom="true">
   <button class="backButton">
     Back

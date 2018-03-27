@@ -63,7 +63,7 @@ export.config = {
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/routing" custom="true">
+<stencil-route-link url="/docs/style-guide" custom="true">
   <button class='nextButton'>
     Next
   </button>

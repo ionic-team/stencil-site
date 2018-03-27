@@ -55,7 +55,8 @@ export class App {
                             'prerendering': 'advanced/pre-rendering/index.html',
                             'shadow-dom': 'advanced/shadow-dom/index.html',
                             'css-variables': 'advanced/css-variables/index.html',
-                            'context': 'advanced/context/index.html'
+                            'context': 'advanced/context/index.html',
+                            'style-guide': 'advanced/style-guide/index.html'
                           };
                           return (
                             <document-component
