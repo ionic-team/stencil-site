@@ -8,7 +8,7 @@ Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. 
 
 Stencil can be used to create standalone components, or entire apps.
 
-To build standalone components, such as a reusable UI element or library, clone the component starter and get to work:
+To build standalone components, such as a reusable UI element or library, you can use the component starter:
 
 ```bash
 git clone https://github.com/ionic-team/stencil-component-starter my-component
@@ -25,7 +25,7 @@ npm start
 
 ### Building an app
 
-Stencil is a great option for building entire apps! To build an app with Stencil, we recommend cloning our App Starter:
+Stencil is also a great option for building entire apps! To build an app with Stencil, we recommend cloning our App Starter:
 
 ```bash
 git clone https://github.com/ionic-team/stencil-app-starter my-app
