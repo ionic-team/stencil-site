@@ -84,6 +84,32 @@ Stencil provides constants for the following keys, accessible via `keydown.<CONS
 - right
 - down
 
+## Using events in JSX
+
+You can also bind listeners to events directly in JSX. This works very similar to normal DOM events such as `onClick`.
+
+Lets use our TodoList component from above:
+
+```typescript
+import { Event, EventEmitter } from '@stencil/core';
+
+...
+export class TodoList {
+
+  @Event() todoCompleted: EventEmitter;
+
+  todoCompletedHandler(todo: Todo) {
+    this.todoCompleted.emit(todo);
+  }
+}
+```
+
+We can now listen to this event directly on the component in our JSX using the following syntax:
+
+```jsx
+<todo-list onTodoCompleted={ev => this.someMethod(ev)}></todo-list>
+```
+
 <stencil-route-link url="/docs/decorators" router="#router" custom="true">
   <button class="backButton">
     Back
