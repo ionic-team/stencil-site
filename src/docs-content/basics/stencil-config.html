@@ -24,7 +24,7 @@
 </code></pre>
 <p><a name="bundles"></a></p>
 <h2 id="-bundles-"><code>bundles</code></h2>
-<p>By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be group depending on their usage with one another within the app. By doing so it&#39;s able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the <code>bundles</code> config.</p>
+<p>By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it&#39;s able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the <code>bundles</code> config.</p>
 <p>The <code>bundles</code> config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.</p>
 <pre><code class="lang-js"><span class="hljs-string">bundles:</span> [
   { <span class="hljs-string">components:</span> [<span class="hljs-string">'ion-button'</span>] },
@@ -75,13 +75,13 @@
 <p><a name="namespace"></a></p>
 <h2 id="-namespace-"><code>namespace</code></h2>
 <p><em>default: <code>App</code></em></p>
-<p>The <code>namespace</code> config is a <code>string</code> representing a namespace for the app. For apps that are not meant to a library of reusable components, the default of <code>App</code> is just fine. However, if the app is meant to be consumed as a third-party library, such as <code>Ionic</code>, a unique namespace is required.</p>
+<p>The <code>namespace</code> config is a <code>string</code> representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of <code>App</code> is just fine. However, if the app is meant to be consumed as a third-party library, such as <code>Ionic</code>, a unique namespace is required.</p>
 <p>In the copy config below, it will copy the entire directory from <code>src/docs-content</code> over to <code>www/docs-content</code>.</p>
 <pre><code class="lang-js">  <span class="hljs-keyword">namespace</span>: <span class="hljs-string">"Ionic"</span>
 </code></pre>
 <p><a name="outputTargets"></a></p>
 <h2 id="-outputtargets-"><code>outputTargets</code></h2>
-<p>Stencil is able to take an app&#39;s source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributated on <a href="https://www.npmjs.com/">npm</a>. By default, Stencil apps have an output target type of <code>www</code>.</p>
+<p>Stencil is able to take an app&#39;s source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributed on <a href="https://www.npmjs.com/">npm</a>. By default, Stencil apps have an output target type of <code>www</code>.</p>
 <p>The <code>outputTargets</code> config is an array of objects, with types of <code>www</code> and <code>dist</code>.</p>
 <pre><code class="lang-js">outputTargets: [
   { <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">'ww</span>w' },
@@ -157,7 +157,7 @@
 </tr>
 <tr>
 <td><code>resourcesUrl</code></td>
-<td>Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The <code>resourcesUrl</code> property is the url path to where this app&#39;s resources can be found, such as <code>/build/app/</code>. By default this url will point to where the <code>buildDir</code> property is set to. Setting this config allows for webapps to find resources which located in various directory or domains, rather than just <code>/build/app/</code>. Note that if the <code>resourcesUrl</code> config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values.</td>
+<td>Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The <code>resourcesUrl</code> property is the url path to where this app&#39;s resources can be found, such as <code>/build/app/</code>. By default this url will point to where the <code>buildDir</code> property is set to. Setting this config allows for webapps to find resources which are located in various directory or domains, rather than just <code>/build/app/</code>. Note that if the <code>resourcesUrl</code> config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values.</td>
 <td><code>/build/app/</code></td>
 </tr>
 <tr>

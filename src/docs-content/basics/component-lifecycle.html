@@ -58,9 +58,8 @@
   }
 }
 </code></pre>
-<h2 id="practical-example">Practical Example</h2>
-<p>Lets build a classic example of a simple component that takes advantages of lifecycle events, a timer.</p>
-<p>First lets look at the code for this component:</p>
+<h2 id="example">Example</h2>
+<p>This simple example starts a timer as soon as the component loads, and updates the curent time every second. Since <code>componentDidLoad</code> is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.</p>
 <pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { Component, State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
 
