@@ -56,7 +56,19 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <span class="hljs-built_in">console</span>.log(todoListElement.myHttpService); <span class="hljs-comment">// MyHttpService</span>
 <span class="hljs-built_in">console</span>.log(todoListElement.color); <span class="hljs-comment">// blue</span>
 </code></pre>
-<p>It&#39;s important to know, that <code>@Prop</code> is immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.</p>
+<h3 id="prop-value-mutability">Prop value mutability</h3>
+<p>It&#39;s important to know, that <code>@Prop</code> is <em>by default</em> immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.</p>
+<p>However, it&#39;s possible to explicitly allow a <code>@Prop</code> to be mutated from inside the component, by declaring it as <strong>mutable</strong>, as in example blow:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+...
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NameElement</span> {</span>
+  @Prop({ mutable: <span class="hljs-literal">true</span> }) name: string = <span class="hljs-string">'Stencil'</span>;
+
+  componentDidLoad() {
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Stencil 0.7.0'</span>;
+  }
+}
+</code></pre>
 <h3 id="prop-default-values-and-validation">Prop default values and validation</h3>
 <p>Setting a default value on a <code>Prop</code>:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
@@ -103,7 +115,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
   completeTodo(todo: Todo) {
     <span class="hljs-comment">// This will cause our render function to be called again</span>
-    <span class="hljs-keyword">this</span>.completedTodos = [...<span class="hljs-keyword">this</span>.completedTodos, todo]; 
+    <span class="hljs-keyword">this</span>.completedTodos = [...<span class="hljs-keyword">this</span>.completedTodos, todo];
   }
 
   render() {
