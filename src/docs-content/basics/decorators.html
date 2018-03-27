@@ -102,6 +102,12 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   }
 }
 </code></pre>
+<h3 id="reflect-properties-to-attributes">Reflect Properties to Attributes</h3>
+<p>In some cases it may be useful to keep a property in sync with an attribute. In this case you can use the <code>reflectToAttr</code> option in the prop decorator:</p>
+<pre><code class="lang-typescript"><span class="hljs-string">@Prop({</span>
+<span class="hljs-attr">  reflectToAttr:</span> <span class="hljs-literal">true</span>
+<span class="hljs-string">})</span>
+</code></pre>
 <p><a href="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
 <p>When a user updates a property, <code>Watch</code> will fire what ever method they&#39;re attached to.</p>

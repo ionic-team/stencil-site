@@ -9,7 +9,7 @@ Stencil makes it easy to build rich, interactive components. Let's start with th
 - [method](#method)
 - [element](#element)
 
-<a href="component"></a>
+<a name="component"></a>
 ## Component Decorator
 
 Each Stencil Component must be decorated with an `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide a HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
@@ -49,7 +49,7 @@ When this component is used it will now have both the `todo` class and the `role
 <todo-list class='todo' role='list'></todo-list>
 ```
 
-<a href="prop"></a>
+<a name="prop"></a>
 ## Prop Decorator
 
 Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
@@ -153,7 +153,7 @@ In some cases it may be useful to keep a property in sync with an attribute. In 
 })
 ```
 
-<a href="watch"></a>
+<a name="watch"></a>
 ## Watch Decorator
 
 When a user updates a property, `Watch` will fire what ever method they're attached to.
@@ -195,7 +195,7 @@ export class TodoList {
 }
 ```
 
-<a href="method"></a>
+<a name="method"></a>
 ## Method Decorator
 
 The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
@@ -220,7 +220,7 @@ const todoListElement = document.querySelector('todo-list');
 todoListElement.showPrompt();
 ```
 
-<a href="element"></a>
+<a name="element"></a>
 ## Element Decorator
 
 The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
