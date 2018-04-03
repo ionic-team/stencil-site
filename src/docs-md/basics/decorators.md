@@ -52,7 +52,7 @@ When this component is used it will now have both the `todo` class and the `role
 <a name="prop"></a>
 ## Prop Decorator
 
-Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
+Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
 
 ```typescript
 import { Prop } from '@stencil/core';
@@ -99,7 +99,7 @@ console.log(todoListElement.color); // blue
 
 It's important to know, that `@Prop` is _by default_ immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
-However, it's possible to explicitly allow a `@Prop` to be mutated from inside the component, by declaring it as **mutable**, as in example blow:
+However, it's possible to explicitly allow a `@Prop` to be mutated from inside the component, by declaring it as **mutable**, as in the example below:
 
 ```typescript
 import { Prop } from '@stencil/core';
