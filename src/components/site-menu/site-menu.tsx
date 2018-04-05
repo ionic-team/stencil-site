@@ -24,11 +24,11 @@ export class SiteMenu {
         <lazy-iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></lazy-iframe>
         <ul id="menu-list">
           <li>
-            <h4>Essentials</h4>
+            <h4>Introduction</h4>
             <ul>
               <li>
                 <stencil-route-link url="/docs/intro">
-                  Introduction
+                  Why Stencil
                 </stencil-route-link>
               </li>
               <li>
@@ -37,31 +37,35 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/browser-support">
-                  Browser Support
+                <stencil-route-link url="/docs/my-first-component">
+                  My First Component
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url='/pwa'>
-                  PWAs
+                <stencil-route-link url='/docs/reusable-components'>
+                  Reusable Components
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/building-an-app'>
+                  Building an App
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/faq'>
+                  FAQ
                 </stencil-route-link>
               </li>
             </ul>
           </li>
 
           <li>
-            <h4>Basics</h4>
+            <h4>Reference</h4>
             <ul>
 
               <li>
-                <stencil-route-link url="/docs/my-first-component">
-                  My First Component
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url="/docs/templating">
-                  Using JSX
+                <stencil-route-link url="/docs/component-lifecycle">
+                  Component Life Cycle
                 </stencil-route-link>
               </li>
 
@@ -78,8 +82,20 @@ export class SiteMenu {
               </li>
 
               <li>
-                <stencil-route-link url="/docs/component-lifecycle">
-                  Component Life Cycle
+                <stencil-route-link url="/docs/handling-arrays">
+                  Reactive Data
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url="/docs/templating">
+                  Templating and JSX
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url="/docs/shadow-dom">
+                  Styling
                 </stencil-route-link>
               </li>
 
@@ -88,10 +104,10 @@ export class SiteMenu {
                   Forms
                 </stencil-route-link>
               </li>
-              
+
               <li>
-                <stencil-route-link url="/docs/handling-arrays">
-                  Updating Arrays and Objects
+                <stencil-route-link url="/docs/stencil-config">
+                  Config
                 </stencil-route-link>
               </li>
 
@@ -105,53 +121,68 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Advanced</h4>
+            <h4>Guides</h4>
             <ul>
-              <li>
-                <stencil-route-link url="/docs/stencil-config">
-                  Stencil Configuration
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/prerendering">
-                  Prerendering
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/server-side-rendering">
-                  Server Side Rendering
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/service-workers">
-                  Service Workers
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/shadow-dom">
-                  Shadow DOM
-                </stencil-route-link>
-              </li>
               <li>
                 <stencil-route-link url="/docs/distribution">
                   Distribution
                 </stencil-route-link>
               </li>
+
               <li>
-                <stencil-route-link url="/docs/framework-integration">
-                  Framework Integration
+                <stencil-route-link url='/docs/module-bundling'>
+                  Module Bundling
                 </stencil-route-link>
               </li>
+
               <li>
-                <stencil-route-link url="/docs/css-variables">
-                  CSS Variables
+                <stencil-route-link url="/docs/prerendering">
+                  Prerendering
                 </stencil-route-link>
               </li>
+
+              <li>
+                <stencil-route-link url="/docs/server-side-rendering">
+                  Server Side Rendering
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url="/docs/service-workers">
+                  Service Workers
+                </stencil-route-link>
+              </li>
+
               <li>
                 <stencil-route-link url="/docs/context">
                   Context
                 </stencil-route-link>
               </li>
+
+              <li>
+                <stencil-route-link url='/docs/performance'>
+                  Performance
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/unit-testing'>
+                  Unit Testing
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/dev-inspector'>
+                  Dev Inspector
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url="/docs/routing">
+                  Router
+                </stencil-route-link>
+              </li>
+
               <li>
                 <stencil-route-link url='/docs/style-guide'>
                   Style Guide
@@ -161,16 +192,26 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Add-ons</h4>
+            <h4>Framework Integration</h4>
             <ul>
               <li>
-                <stencil-route-link url="/docs/routing">
-                  Router
+                <stencil-route-link url='/docs/framework-integration/vanilla'>
+                  Vanilla
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/sass">
-                  Sass
+                <stencil-route-link url='/docs/framework-integration/angular'>
+                  Angular
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/framework-integration/react'>
+                  React
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/framework-integration/vue'>
+                  Vue
                 </stencil-route-link>
               </li>
             </ul>
@@ -180,15 +221,25 @@ export class SiteMenu {
             <h4>Community</h4>
             <ul>
               <li>
+                <stencil-route-link url='/docs/community/how-to-contribute'>
+                  How to Contribute
+                </stencil-route-link>
+              </li>
+              <li>
+                <a href="https://github.com/ionic-team/stencil">
+                  Stencil on GitHub
+                </a>
+              </li>
+              <li>
                 <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM" title="Stencil slack channel">Stencil on Slack</a>
               </li>
               <li>
                 <a href="https://twitter.com/stenciljs">Stencil on Twitter</a>
               </li>
               <li>
-                <a href="https://github.com/ionic-team/stencil">
-                  Stencil on GitHub
-                </a>
+                <stencil-route-link url='/docs/community/add-ons'>
+                  Add-ons
+                </stencil-route-link>
               </li>
             </ul>
           </li>
