@@ -46,7 +46,7 @@ export class SiteMenu {
                   Reusable Components
                 </stencil-route-link>
               </li>
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/building-an-app'>
                   Building an App
                 </stencil-route-link>
@@ -55,7 +55,7 @@ export class SiteMenu {
                 <stencil-route-link url='/docs/faq'>
                   FAQ
                 </stencil-route-link>
-              </li>
+              </li>*/}
             </ul>
           </li>
 
@@ -87,9 +87,19 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/templating'>
                   Templating and JSX
+                </stencil-route-link>
+              </li>*/}
+
+              {/*
+                The below route will be replaced with the above route
+                once ready
+              */}
+              <li>
+                <stencil-route-link url="/docs/templating">
+                  Using JSX
                 </stencil-route-link>
               </li>
 
@@ -129,11 +139,11 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/module-bundling'>
                   Module Bundling
                 </stencil-route-link>
-              </li>
+              </li>*/}
 
               <li>
                 <stencil-route-link url='/docs/pre-rendering'>
@@ -159,11 +169,11 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/performance'>
                   Performance
                 </stencil-route-link>
-              </li>
+              </li>*/}
 
               <li>
                 <stencil-route-link url='/docs/unit-testing'>
@@ -171,15 +181,25 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
 
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/dev-inspector'>
                   Dev Inspector
                 </stencil-route-link>
-              </li>
+              </li>*/}
 
               <li>
                 <stencil-route-link url='/docs/routing'>
                   Router
+                </stencil-route-link>
+              </li>
+
+              {/*
+                The below route will be replaced by the framework integration
+                section once its ready
+              */}
+              <li>
+                <stencil-route-link url="/docs/framework-integration">
+                  Framework Integration
                 </stencil-route-link>
               </li>
 
@@ -191,7 +211,7 @@ export class SiteMenu {
             </ul>
           </li>
 
-          <li>
+          {/*<li>
             <h4>Framework Integration</h4>
             <ul>
               <li>
@@ -215,7 +235,7 @@ export class SiteMenu {
                 </stencil-route-link>
               </li>
             </ul>
-          </li>
+          </li>*/}
 
           <li>
             <h4>Community</h4>
