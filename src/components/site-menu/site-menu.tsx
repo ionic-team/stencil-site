@@ -1,4 +1,4 @@
-import { Component, State } from '@stencil/core';
+import { Component } from '@stencil/core';
 
 @Component({
   tag: 'site-menu',
