@@ -6,21 +6,9 @@ import { Component, State } from '@stencil/core';
 })
 export class SiteMenu {
 
-  @State() version: string = 'Loading...';
-
-  componentDidLoad() {
-    fetch('https://unpkg.com/@stencil/core/package.json').then((res) => {
-      return res.json()
-    }).then((data) => {
-      this.version = data.version;
-    })
-  }
-
   render() {
     return (
       <div>
-        <div id='version'>v{this.version}</div>
-
         <lazy-iframe class='star-button' src='https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true' frameBorder='0' scrolling='0' width='170px' height='20px'></lazy-iframe>
         <ul id='menu-list'>
           <li>
