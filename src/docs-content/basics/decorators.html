@@ -8,7 +8,7 @@
 <li><a href="#method">method</a></li>
 <li><a href="#element">element</a></li>
 </ul>
-<p><a href="component"></a></p>
+<p><a name="component"></a></p>
 <h2 id="component-decorator">Component Decorator</h2>
 <p>Each Stencil Component must be decorated with an <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide a HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
 <p>Use a relative url to the <code>.scss</code> file for the styleUrl(s).</p>
@@ -37,7 +37,7 @@
 <p>When this component is used it will now have both the <code>todo</code> class and the <code>role</code> attribute automatically added.</p>
 <pre><code class="lang-html">&lt;todo-list <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'todo'</span> role=<span class="hljs-string">'list'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span></span>
 </code></pre>
-<p><a href="prop"></a></p>
+<p><a name="prop"></a></p>
 <h2 id="prop-decorator">Prop Decorator</h2>
 <p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props it expects to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with a <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } from <span class="hljs-string">'@stencil/core'</span>;
@@ -108,7 +108,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <span class="hljs-attr">  reflectToAttr:</span> <span class="hljs-literal">true</span>
 <span class="hljs-string">})</span>
 </code></pre>
-<p><a href="watch"></a></p>
+<p><a name="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
 <p>When a user updates a property, <code>Watch</code> will fire what ever method they&#39;re attached to.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } from <span class="hljs-string">'@stencil/core'</span>;
@@ -140,7 +140,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   }
 }
 </code></pre>
-<p><a href="method"></a></p>
+<p><a name="method"></a></p>
 <h2 id="method-decorator">Method Decorator</h2>
 <p>The <code>@Method()</code> decorator is used to expose methods on the public API. Functions decorated with the <code>@Method()</code> decorator can be called directly from the element.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Method } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
@@ -158,7 +158,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'todo-list'</span>);
 todoListElement.showPrompt();
 </code></pre>
-<p><a href="element"></a></p>
+<p><a name="element"></a></p>
 <h2 id="element-decorator">Element Decorator</h2>
 <p>The <code>@Element()</code> decorator is how to get access to the host element within the class instance. This returns an instance of an <code>HTMLElement</code>, so standard DOM methods/events can be used here.</p>
 <pre><code><span class="hljs-keyword">import</span> { Element } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
