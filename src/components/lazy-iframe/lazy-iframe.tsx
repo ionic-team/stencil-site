@@ -39,7 +39,7 @@ export class LazyIframe {
   }
 
   handleIframe() {
-    this.realSrc = this.src
+    this.realSrc = this.src;
   }
 
   cleanup() {
@@ -55,7 +55,15 @@ export class LazyIframe {
   render() {
     return (
       <div>
-        <iframe frameBorder="0" title={this.title} allowFullScreen={true} src={this.realSrc} frameborder={this.frameBorder} scrolling={this.scrolling} width={this.width} height={this.height}></iframe>
+        <iframe
+          frameBorder="0"
+          title={this.title}
+          allowFullScreen={true}
+          src={this.realSrc}
+          frameborder={this.frameBorder}
+          scrolling={this.scrolling}
+          width={this.width}
+          height={this.height}></iframe>
       </div>
     );
   }

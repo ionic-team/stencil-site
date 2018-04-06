@@ -27,7 +27,7 @@ export class AppMarked {
 
         const headerEl = el.querySelector('h1');
         document.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
-        
+
         // requestAnimationFrame is not available for preRendering
         // or SSR, so only run this in the browser
         if (!this.isServer) {
@@ -41,7 +41,7 @@ export class AppMarked {
 
   render() {
     return (
-      <div innerHTML={this.content}></div>
+      <div class="content" innerHTML={this.content}></div>
     )
   }
 }

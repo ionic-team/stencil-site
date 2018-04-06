@@ -15,7 +15,7 @@ site-header {
   .logo-link a {
     margin: 0;
   }
-  
+
   .site-header {
     padding: 20px 15px;
     max-width: 1080px;
@@ -37,14 +37,17 @@ site-header {
 
   stencil-route-link a, a {
     font-size: 14px;
-    margin: 8px 8px;
-    margin-right: 1.4em;
     color: #86869c;
     text-decoration: none;
     font-weight: 500;
     letter-spacing: -0.02em;
     text-decoration: none;
     transition: all .2s ease;
+  }
+
+  stencil-route-link + stencil-route-link,
+  stencil-route-link + a {
+    margin-left: 30px;
   }
 
   stencil-route-link a:hover, stencil-route-link a.link-active, a:hover {
@@ -74,13 +77,13 @@ site-header {
       display: none;
     }
   }
-  
+
   @media screen and (min-width: 450px) {
     .logo {
       height: 27px;
     }
   }
-  
+
   @media screen and (max-width: 722px) {
     stencil-route-link a, a {
       font-size: 12px;
@@ -95,7 +98,7 @@ site-header {
     .site-header {
       flex-direction: column;
     }
-  
+
     stencil-route-link {
       margin-right: unset;
     }
