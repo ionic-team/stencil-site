@@ -44,8 +44,7 @@ export class ResourcesPage {
   render() {
     return (
       <div>
-        <h1>Resources</h1>
-        <h4>Resources to help you get more out of Stencil</h4>
+        <h1 class="headline measure-md">Resources to help you get more out of Stencil</h1>
 
         <div>
           <h2>Community Articles/Blogs</h2>

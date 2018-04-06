@@ -21,11 +21,6 @@ stencil-site {
   padding: 110px 0 0;
 }
 
-.content {
-  max-width: 700px;
-  padding-right: 24px;
-}
-
 ::selection {
   background: #e7e7f2;
 }
@@ -76,6 +71,18 @@ p, ul {
   font-size: 15px;
   line-height: 2em;
   margin: 24px 0px;
+}
+
+.headline {
+  margin-bottom: 90px;
+}
+
+.measure-lg {
+  max-width: 700px;
+}
+
+.measure-md {
+  max-width: 480px;
 }
 
 stencil-route-link:hover {
