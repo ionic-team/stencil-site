@@ -9,7 +9,6 @@ export class SiteMenu {
   render() {
     return (
       <div>
-        <lazy-iframe class='star-button' src='https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true' frameBorder='0' scrolling='0' width='170px' height='20px'></lazy-iframe>
         <ul id='menu-list'>
           <li>
             <h4>Introduction</h4>
