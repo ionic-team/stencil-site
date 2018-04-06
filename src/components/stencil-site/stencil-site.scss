@@ -17,6 +17,7 @@ stencil-site {
 #main-div {
   flex-grow: 1;
   flex-shrink: 0;
+  padding-top: 120px;
 }
 
 ::selection {
@@ -87,7 +88,7 @@ stencil-route-link:hover {
   justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
-} 
+}
 
 pre {
   word-break: break-all;
