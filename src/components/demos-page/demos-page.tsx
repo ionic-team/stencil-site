@@ -46,8 +46,7 @@ export class DemosPage {
   render() {
     return (
       <div>
-        <h1>Demos</h1>
-        <h4>Awesome demos of apps built using Stencil and Ionic</h4>
+        <h1 class="headline measure-md">Awesome demos of apps built using Stencil and Ionic</h1>
         {this.demos.map(demo => {
           return [
             <h4>{demo.title}</h4>,

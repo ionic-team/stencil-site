@@ -41,7 +41,7 @@ export class AppMarked {
 
   render() {
     return (
-      <div class="content" innerHTML={this.content}></div>
+      <div class="measure-lg" innerHTML={this.content}></div>
     )
   }
 }

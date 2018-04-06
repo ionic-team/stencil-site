@@ -13,9 +13,7 @@ export class pwasPage {
   render() {
     return (
       <div>
-        <h1>Progressive Web Apps</h1>
-        <h4>Building PWAs with Stencil + Ionic using the Ionic PWA Toolkit</h4>
-
+        <h1 class="headline measure-lg">Everything you need to easily build fast, production ready Progressive Web Apps</h1>
         <p>
           The Ionic PWA Toolkit gives you everything you need to easily build fast, production ready PWAs:
         </p>
