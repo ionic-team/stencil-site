@@ -12,12 +12,18 @@ stencil-site {
   height: 100%;
   max-width: 1080px;
   margin: auto;
+  padding: 0 15px;
 }
 
 #main-div {
   flex-grow: 1;
   flex-shrink: 0;
-  padding-top: 120px;
+  padding: 110px 0 0;
+}
+
+.content {
+  max-width: 700px;
+  padding-right: 24px;
 }
 
 ::selection {
@@ -249,6 +255,9 @@ footer {
   .svg-button:hover {
     opacity:0.5;
   }
+}
+#footer-icons {
+  display: flex;
 }
 
 #open-source {
