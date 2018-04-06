@@ -1,4 +1,8 @@
 document-component {
+  & > div {
+    display: flex;
+  }
+
   ul {
     -webkit-padding-start: 0px;
     li, code {
@@ -7,7 +11,7 @@ document-component {
     }
   }
 
-  
+
   p a {
     color: #5850ff;
     text-decoration: none;

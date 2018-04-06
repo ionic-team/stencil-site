@@ -9,6 +9,7 @@ export class DocumentComponent {
   render() {
     return (
       <div>
+        <site-menu />
         {this.pages.map(page => <app-marked doc={page} />)}
       </div>
     );
