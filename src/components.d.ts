@@ -54,6 +54,41 @@ declare global {
 
 
 declare global {
+  interface HTMLDemoCardElement extends HTMLStencilElement {
+    'demoUrl': string;
+    'description': string;
+    'imgPath': string;
+    'sourceUrl': string;
+    'title': string;
+  }
+  var HTMLDemoCardElement: {
+    prototype: HTMLDemoCardElement;
+    new (): HTMLDemoCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    'demo-card': HTMLDemoCardElement;
+  }
+  interface ElementTagNameMap {
+    'demo-card': HTMLDemoCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'demo-card': JSXElements.DemoCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface DemoCardAttributes extends HTMLAttributes {
+      'demoUrl'?: string;
+      'description'?: string;
+      'imgPath'?: string;
+      'sourceUrl'?: string;
+      'title'?: string;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLDemosPageElement extends HTMLStencilElement {
 
   }

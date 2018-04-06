@@ -74,6 +74,7 @@ p, ul {
 }
 
 .headline {
+  margin-top: 0;
   margin-bottom: 90px;
 }
 
@@ -83,6 +84,17 @@ p, ul {
 
 .measure-md {
   max-width: 460px;
+}
+
+@media screen and (max-width: 722px) {
+  .headline {
+    text-align: center;
+  }
+  .measure-lg,
+  .measure-md {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 stencil-route-link:hover {

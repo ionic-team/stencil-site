@@ -1,0 +1,23 @@
+demo-card {
+  h4 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.5;
+  }
+}
+
+.demo-card__image {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.14), 0 4px 7px 0 rgba(0,0,0,0.09);
+  border-radius: 13px;
+
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
