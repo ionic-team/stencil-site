@@ -3,3 +3,18 @@ demos-page {
     text-decoration: none;
   }
 }
+
+.demo-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 46px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 36px;
+  }
+
+  @media screen and (max-width: 460px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
