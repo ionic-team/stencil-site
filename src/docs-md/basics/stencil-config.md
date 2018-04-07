@@ -69,7 +69,7 @@ enableCache: true
 <a name="globalStyle"></a>
 ## `globalStyle`
 
-Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often use seful to set [CSS Variables](/docs/css-variables).
+Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](/docs/css-variables).
 
 Additonally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
 
