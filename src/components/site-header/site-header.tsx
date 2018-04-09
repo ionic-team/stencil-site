@@ -11,7 +11,7 @@ export class SiteHeader {
         <stencil-route-link url="/" class="logo-link">
           <img class="logo" alt="Stencil" src="/assets/img/stencil-logo-new.svg" />
         </stencil-route-link>
-        <div class="pull-right">
+        <div class="site-header__menu">
           <stencil-route-link urlMatch="/docs" url="/docs/intro">
             Docs
           </stencil-route-link>
