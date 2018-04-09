@@ -1,3 +1,5 @@
+@import '../../global/variables';
+
 * {
   box-sizing: border-box;
 }
@@ -75,7 +77,7 @@ p, ul {
 
 .headline {
   margin-top: 0;
-  margin-bottom: 90px;
+  margin-bottom: 80px;
 }
 
 .measure-lg {
@@ -84,6 +86,33 @@ p, ul {
 
 .measure-md {
   max-width: 460px;
+}
+
+.text-link {
+  transition: border 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+}
+
+.text-link--primary {
+  color: $color-dodger-blue;
+
+  &:hover {
+    border-bottom-color: rgba($color-dodger-blue, 0.2);
+  }
+}
+
+.text-link--secondary {
+  color: $color-manatee;
+
+  &:hover {
+    border-bottom-color: rgba($color-manatee, 0.2);
+  }
 }
 
 @media screen and (max-width: 722px) {
