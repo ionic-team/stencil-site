@@ -4,11 +4,12 @@ pre {
   display: block;
   white-space: pre-wrap;
   margin: 24px 0px 28px;
-  padding: 16px 24px;
+
   border-radius: 4px;
   color: $color-cadet-blue;
   background-color: $color-woodsmoke;
   code {
+    padding: 16px 24px;
     font-weight: 500;
     display: block;
     overflow-x: auto;
