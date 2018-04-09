@@ -14,23 +14,22 @@ site-header {
     width: 96px;
   }
 
-  .site-header {
-    padding: 20px 15px;
-    max-width: 1080px;
-    margin: auto;
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
   }
 
   @media screen and (max-width: $breakpoint-md) {
-    .site-header {
+    .container {
       flex-direction: column;
       align-items: center;
     }
   }
 }
 
-.site-header__menu {
+.header-menu {
   a {
     transition: border .3s;
     font-size: 14px;

@@ -1,0 +1,52 @@
+.nextButton {
+  background: $color-dodger-blue;
+  color: white;
+  text-decoration: none;
+
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: $button-shadow;
+  outline: none;
+  letter-spacing: 0.04em;
+  transition: all .15s ease;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(1px);
+    box-shadow: $button-shadow-hover;
+  }
+}
+
+.backButton {
+  color: $color-dodger-blue;
+  background: $color-white;
+  text-decoration: none;
+  float: left;
+
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: $button-shadow;
+  outline: none;
+  letter-spacing: 0.04em;
+  transition: all .15s ease;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-left: 5px;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(1px);
+    box-shadow: $button-shadow-hover;
+  }
+}
