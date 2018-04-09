@@ -1,3 +1,5 @@
+@import '../../global/variables';
+
 site-header {
   position: fixed;
   top: 0;
@@ -12,37 +14,33 @@ site-header {
     width: 96px;
   }
 
-  .logo-link a {
-    margin: 0;
-  }
-
   .site-header {
     padding: 20px 15px;
     max-width: 1080px;
     margin: auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
+    justify-content: space-between;
   }
 
-  stencil-route-link a, a {
+  @media screen and (max-width: $breakpoint-md) {
+    .site-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.site-header__menu {
+  a {
+    transition: border .3s;
     font-size: 14px;
-    color: #86869c;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+    vertical-align: top;
+    color: $color-manatee;
     text-decoration: none;
     font-weight: 500;
     letter-spacing: -0.02em;
-    text-decoration: none;
-    transition: all .2s ease;
   }
 
   stencil-route-link + stencil-route-link,
@@ -50,68 +48,32 @@ site-header {
     margin-left: 30px;
   }
 
-  stencil-route-link a:hover, stencil-route-link a.link-active, a:hover {
-    color: #2b2b38 !important;
-    text-decoration: none;
+  a:hover,
+  a.link-active {
+    border-bottom-color: rgba($color-manatee, 0.2);
   }
 
-  .pull-right {
-    order: 0;
-    flex: 1 1 auto;
-    text-align: right;
+  a.link-active,{
+    color: $color-gunpowder;
   }
 
-  @media screen and (max-width: 450px) {
-    img {
-      padding-bottom: 20px;
+  @media screen and (max-width: $breakpoint-md) {
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    padding-top: 20px;
+
+    a {
+      font-size: 12px;
     }
-    .pull-right {
-      display: block;
-      text-align: center;
-    }
-
   }
 
-  @media screen and (max-width: 465px) {
-    .button {
+  @media screen and (max-width: $breakpoint-sm) {
+    a {
       display: none;
     }
-  }
-
-  @media screen and (min-width: 450px) {
-    .logo {
-      height: 27px;
+    stencil-route-link a {
+      display: initial;
     }
-  }
-
-  @media screen and (max-width: 722px) {
-    stencil-route-link a, a {
-      font-size: 12px;
-      margin: 8px 12px;
-    }
-
-    .pull-right {
-      justify-content: space-around;
-      display: flex;
-    }
-
-    .site-header {
-      flex-direction: column;
-    }
-
-    stencil-route-link {
-      margin-right: unset;
-    }
-  }
-}
-
-@media screen and (max-width: 450px) {
-
-  site-header a {
-    display: none;
-  }
-
-  site-header stencil-route-link a {
-    display: initial;
   }
 }
