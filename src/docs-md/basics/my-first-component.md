@@ -67,13 +67,13 @@ Any property decorated with `@Prop()` is also automatically watched for changes.
 If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
 
 <stencil-route-link url="/docs/getting-started" router="#router" custom="true">
-  <button class="backButton">
+  <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/templating" custom="true">
-  <button class="nextButton">
+  <button class="pull-right btn btn--primary">
     Next
   </button>
 </stencil-route-link>

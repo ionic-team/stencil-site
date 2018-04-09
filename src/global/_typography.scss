@@ -62,7 +62,9 @@ p, ul {
 @media screen and (max-width: $breakpoint-md) {
   .headline {
     text-align: center;
+    margin-bottom: 60px;
   }
+  
   .measure-lg,
   .measure-md {
     margin-left: auto;

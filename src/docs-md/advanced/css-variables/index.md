@@ -44,13 +44,13 @@ h1 {
 This will apply the color we defined in our CSS Variable, in this case `#488aff`, to our `h1` element.
 
 <stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
-  <button class='backButton'>
+  <button class='pull-left btn btn--secondary'>
     Back
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/context" custom="true">
-  <button class='nextButton'>
+  <button class='pull-right btn btn--primary'>
     Next
   </button>
 </stencil-route-link>
