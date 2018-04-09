@@ -9,7 +9,7 @@ export class SiteMenu {
   render() {
     return (
       <div>
-        <ul id='menu-list'>
+        <ul class='menu-list'>
           <li>
             <h4>Introduction</h4>
             <ul>
