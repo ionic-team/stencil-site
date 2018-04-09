@@ -4,29 +4,7 @@
   box-sizing: border-box;
 }
 
-stencil-site {
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-}
-
-.app {
-  height: 100%;
-  max-width: 1080px;
-  margin: auto;
-  padding: 0 15px;
-}
-
-#main-div {
-  flex-grow: 1;
-  flex-shrink: 0;
-  padding: 110px 0 0;
-}
-
-::selection {
-  background: $color-whisper;
-}
-
+::selection,
 ::-moz-selection {
   background: $color-whisper;
 }
@@ -35,72 +13,34 @@ stencil-route-link:hover {
   cursor: pointer;
 }
 
-.nextButton {
-  background: $color-dodger-blue;
-  color: white;
-  text-decoration: none;
-
-  border: none;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 16px 20px;
-  border-radius: 2px;
-  box-shadow: $button-shadow;
-  outline: none;
-  letter-spacing: 0.04em;
-  transition: all .15s ease;
-  cursor: pointer;
-  float: right;
-  margin-right: 5px;
-
-
-  &:hover {
-    text-decoration: none;
-    transform: translateY(1px);
-    box-shadow: $button-shadow-hover;
-  }
+stencil-site {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 110px 0 0;
 }
 
-.backButton {
-  color: $color-dodger-blue;
-  background: $color-white;
-  text-decoration: none;
-  float: left;
-
-  border: none;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 16px 20px;
-  border-radius: 2px;
-  box-shadow: $button-shadow;
-  outline: none;
-  letter-spacing: 0.04em;
-  transition: all .15s ease;
-  cursor: pointer;
-  margin-bottom: 15px;
-  margin-left: 5px;
-
-  &:hover {
-    text-decoration: none;
-    transform: translateY(1px);
-    box-shadow: $button-shadow-hover;
-  }
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+  flex: 1 0 auto;
 }
 
 footer {
-  bottom: 0;
-  left: 0;
   width: 100%;
   background: $color-white-lilac;
-  height: 8em;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   flex: 0 0 8em;
-  margin-top: 32px;
   margin-top: 100px;
+  display: flex;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .svg-button {
     margin-left: 16px;
@@ -112,11 +52,11 @@ footer {
   }
 }
 
-#footer-icons {
+.footer__icons {
   display: flex;
 }
 
-#open-source {
+.footer__open-source {
   img {
     width: 50%;
   }

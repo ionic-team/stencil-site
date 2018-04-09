@@ -7,11 +7,11 @@ import { Component } from '@stencil/core';
 export class SiteHeader {
   render() {
     return (
-      <div class="site-header">
+      <div class="container">
         <stencil-route-link url="/" class="logo-link">
           <img class="logo" alt="Stencil" src="/assets/img/stencil-logo-new.svg" />
         </stencil-route-link>
-        <div class="site-header__menu">
+        <div class="header-menu">
           <stencil-route-link urlMatch="/docs" url="/docs/intro">
             Docs
           </stencil-route-link>
