@@ -1,3 +1,5 @@
+@import '../../global/variables';
+
 landing-page {
   main {
     display: flex;
@@ -28,7 +30,7 @@ landing-page {
     text-transform: uppercase;
     padding: 16px 20px;
     border-radius: 2px;
-    box-shadow: var(--button-shadow);
+    box-shadow: $button-shadow;
     outline: none;
     letter-spacing: 0.04em;
     transition: all .15s ease;
@@ -36,18 +38,18 @@ landing-page {
   }
 
   button:hover {
-    box-shadow: var(--button-shadow-hover);
+    box-shadow: $button-shadow-hover;
     transform: translateY(1px);
   }
 
   #get-started {
-    background: var(--primary-color);
+    background: $color-dodger-blue;
     color: white;
   }
 
   #learn-more {
     background: white;
-    color: var(--primary-color);
+    color: $color-dodger-blue;
   }
 
   #youtube-video {
@@ -158,7 +160,7 @@ landing-page {
     span {
       font-size: 14px;
       margin-left: 8px;
-      color: var(--primary-color);
+      color: $color-dodger-blue;
       font-weight: 500;
       transition: all .15s ease;
     }
