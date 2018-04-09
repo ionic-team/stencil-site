@@ -18,6 +18,10 @@ stencil-site {
   display: flex;
   flex-direction: column;
   padding: 110px 0 0;
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding-top: 130px;
+  }
 }
 
 .container {
@@ -27,6 +31,14 @@ stencil-site {
   margin-right: auto;
   padding: 0 15px;
   flex: 1 0 auto;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right{
+  float: right;
 }
 
 footer {

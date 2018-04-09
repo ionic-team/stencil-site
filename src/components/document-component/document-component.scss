@@ -3,20 +3,27 @@
 document-component {
   & > div {
     display: flex;
+    justify-content: space-between;
   }
 
   ul {
-    -webkit-padding-start: 0px;
+    padding: 0;
+
     li, code {
       font-size: 16px;
       margin-left: 18px;
     }
   }
 
-
   p a {
-    color: #5850ff;
+    transition: border 0.3s;
+    color: $color-dodger-blue;
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: rgba($color-dodger-blue, 0.2);
+    }
   }
 
   p code {
@@ -24,28 +31,5 @@ document-component {
     font-family: "Source Code Pro", monospace;
     font-size: 14px;
     letter-spacing: -0.02em;
-  }
-
-  #introButton {
-    background: $color-dodger-blue;
-    color: white;
-    text-decoration: none;
-
-    border: none;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border-radius: 2px;
-    box-shadow: $button-shadow;
-    outline: none;
-    letter-spacing: 0.04em;
-    transition: all .15s ease;
-    cursor: pointer;
-  }
-
-  #introButton:hover {
-    box-shadow: $button-shadow-hover;
-    transform: translateY(1px);
   }
 }

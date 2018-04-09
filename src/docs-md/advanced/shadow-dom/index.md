@@ -63,13 +63,13 @@ With Shadow DOM the css selector for the element is the `:host` selector. So, wi
 In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute automatically at run time. 
 
 <stencil-route-link url="/docs/service-workers" router="#router" custom="true">
-  <button class="backButton">
+  <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/distribution" custom="true">
-  <button class="nextButton">
+  <button class="pull-right btn btn--primary">
     Next
   </button>
 </stencil-route-link>

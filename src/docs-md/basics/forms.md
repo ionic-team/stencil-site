@@ -98,13 +98,13 @@ As you can see, this form is a little more advanced in that it has a select inpu
 For the validity checking, we are #usingtheplatform and are using the [constraint validation api](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation) that is built right into the browser to check if the user is actually entering an email or not.
 
 <stencil-route-link url="/docs/component-lifecycle" router="#router" custom="true">
-  <button class="backButton">
+  <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
 <stencil-route-link url="/docs/handling-arrays" custom="true">
-  <button class="nextButton">
+  <button class="pull-right btn btn--primary">
     Next
   </button>
 </stencil-route-link>

@@ -1,3 +1,5 @@
+@import '../../global/variables';
+
 demo-card {
   padding-bottom: 20px;
 
@@ -14,8 +16,8 @@ demo-card {
 .demo-card__image {
   border-radius: 15px;
   overflow: hidden;
-  background: #FFFFFF;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.14), 0 4px 7px 0 rgba(0,0,0,0.09);
+  background: $color-white;
+  box-shadow: $card-shadow;
   border-radius: 13px;
 
   img {

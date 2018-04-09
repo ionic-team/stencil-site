@@ -29,7 +29,7 @@ exports.config = {
 ```
 
 <stencil-route-link url="/docs/routing" custom="true">
-  <button class="backButton">
+  <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
