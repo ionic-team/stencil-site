@@ -1,5 +1,13 @@
+@import '../../global/variables';
+
 pwas-page {
   h3 + .demo-card-list {
     margin-top: 32px;
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    .measure-xl {
+      text-align: center;
+    }
   }
 }
