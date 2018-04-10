@@ -77,10 +77,14 @@ export class SiteHeader {
             GitHub <app-icon name="targetblank"></app-icon>
           </a>
 
-          <div class="header-close" onClick={() => { this.hideNav() }}></div>
+          <div class="header-close" onClick={() => { this.hideNav() }}>
+            <app-icon name="close"></app-icon>
+          </div>
         </div>
 
-        <div class="header-overflow" onClick={() => { this.showNav() }}></div>
+        <div class="header-overflow" onClick={() => { this.showNav() }}>
+          <app-icon name="more"></app-icon>
+        </div>
       </div>
     );
   }

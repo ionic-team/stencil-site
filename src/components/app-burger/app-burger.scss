@@ -5,15 +5,48 @@ app-burger {
   position: fixed;
   top: 0px;
   left: 0px;
-  padding: 15px;
   z-index: 999;
 
   & > div {
-    width: 24px;
-    height: 24px;
-    background: red;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    &:hover app-icon{
+      opacity: 1;
+    }
+  }
+
+  .icon-menu {
+    display: block;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  app-icon {
+    transition: opacity 0.3s;
+    opacity: 0.7;
     cursor: pointer;
   }
+
+  &.active {
+    & > div {
+      height: 100vh;
+      padding-right: 50px;
+    }
+
+    .icon-menu {
+      display: none;
+    }
+
+    .icon-close {
+      display: block;
+    }
+  }
+
 }
 
 @media screen and (max-width: $breakpoint-md) {

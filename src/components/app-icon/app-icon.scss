@@ -8,6 +8,7 @@ app-icon {
   }
 
   .icon-targetblank {
+    fill: $color-cadet-blue;
     width: 9px;
     height: 9px;
   }
@@ -17,5 +18,23 @@ app-icon {
     fill: $color-woodsmoke;
     width: 16px;
     height: 16px;
+  }
+
+  .icon-menu {
+    fill: $color-dodger-blue;
+    width: 17px;
+    height: 15px;
+  }
+
+  .icon-close {
+    fill: $color-dodger-blue;
+    width: 14px;
+    height: 14px;
+  }
+
+  .icon-more {
+    fill: $color-dodger-blue;
+    width: 4px;
+    height: 18px;
   }
 }
