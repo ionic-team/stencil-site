@@ -66,3 +66,16 @@ ol {
     }
   }
 }
+
+blockquote {
+  background: $color-old-lace;
+  margin: 0;
+  padding: 1px 20px;
+  border-radius: 4px;
+
+  p {
+    color: $color-pirate-gold;
+    line-height: 1.4;
+    font-size: 14px;
+  }
+}

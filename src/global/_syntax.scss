@@ -15,6 +15,13 @@ ol {
   }
 }
 
+blockquote {
+  code {
+    font-size: 13px;
+    background-color: $color-wheatfield;
+  }
+}
+
 pre {
   word-break: break-all;
   word-wrap: break-word;
