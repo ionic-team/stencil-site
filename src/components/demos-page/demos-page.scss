@@ -1,16 +1,1 @@
 @import '../../global/variables';
-
-.demo-card-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 46px;
-
-  @media screen and (max-width: $breakpoint-md) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 36px;
-  }
-
-  @media screen and (max-width: $breakpoint-sm) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}

@@ -3,6 +3,8 @@
 site-menu {
   flex: 0 0 200px;
 
+
+
   h4 {
     margin-bottom: 0;
   }
@@ -15,18 +17,34 @@ site-menu {
   }
 
   .menu-list {
+    margin-top: 0;
+
+    h4:first-of-type {
+      margin-top: 0;
+    }
+
     ul {
       margin: 0px 0 28px;
     }
 
     li {
+      line-height: 2.2;
       font-size: 14px;
-      font-weight: 400;
     }
 
     a {
+      font-weight: 400;
       color: darken($color-manatee, 10%);
       text-decoration: none;
+      border: 0;
+    }
+
+    a:not(.link-active) {
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      border: 0;
     }
 
     .link-active {
@@ -38,8 +56,4 @@ site-menu {
       color: $color-woodsmoke;
     }
   }
-
-  // @media screen and (max-width: $breakpoint-md) {
-  //   display: none;
-  // }
 }

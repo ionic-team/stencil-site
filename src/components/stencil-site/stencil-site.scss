@@ -2,11 +2,11 @@
 
 * {
   box-sizing: border-box;
-}
 
-::selection,
-::-moz-selection {
-  background: $color-whisper;
+  &::selection,
+  &::-moz-selection {
+    background: $color-whisper;
+  }
 }
 
 stencil-route-link:hover {
@@ -31,14 +31,6 @@ stencil-site {
   margin-right: auto;
   padding: 0 15px;
   flex: 1 0 auto;
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-right{
-  float: right;
 }
 
 footer {

@@ -30,45 +30,39 @@ h2 {
   font-weight: bold;
 }
 
-h2, h3 {
+h2 {
   margin-top: 48px;
   margin-bottom: 8px;
 }
 
+h3 {
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
 h4 {
   font-size: 16px;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
-p, ul {
+p,
+ul,
+ol {
   color: $color-gunpowder;
   font-size: 15px;
-  line-height: 2em;
-  margin: 24px 0px;
-}
+  line-height: 1.8;
+  margin: 14px 0px;
 
-.headline {
-  margin-top: 0;
-  margin-bottom: 80px;
-}
+  a {
+    transition: border 0.3s;
+    color: $color-dodger-blue;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    font-weight: 500;
 
-.measure-lg {
-  max-width: 700px;
-}
-
-.measure-md {
-  max-width: 460px;
-}
-
-@media screen and (max-width: $breakpoint-md) {
-  .headline {
-    text-align: center;
-    margin-bottom: 60px;
+    &:hover {
+      border-bottom-color: rgba($color-dodger-blue, 0.2);
+    }
   }
-
-  .measure-lg,
-  .measure-md {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
 }

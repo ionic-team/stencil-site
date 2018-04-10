@@ -5,7 +5,6 @@ import { Component } from '@stencil/core';
   styleUrl: 'site-menu.scss'
 })
 export class SiteMenu {
-
   render() {
     return (
       <div>

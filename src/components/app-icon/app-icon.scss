@@ -1,0 +1,21 @@
+@import '../../global/variables';
+
+app-icon {
+  .icon-checkmark {
+    fill: $color-dodger-blue;
+    width: 15px;
+    height: 11px;
+  }
+
+  .icon-targetblank {
+    width: 9px;
+    height: 9px;
+  }
+
+  .icon-slack,
+  .icon-twitter {
+    fill: $color-woodsmoke;
+    width: 16px;
+    height: 16px;
+  }
+}

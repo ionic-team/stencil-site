@@ -27,6 +27,33 @@ import '@stencil/router';
 
 
 declare global {
+  interface HTMLAppIconElement extends HTMLStencilElement {
+    'name': string;
+  }
+  var HTMLAppIconElement: {
+    prototype: HTMLAppIconElement;
+    new (): HTMLAppIconElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-icon': HTMLAppIconElement;
+  }
+  interface ElementTagNameMap {
+    'app-icon': HTMLAppIconElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-icon': JSXElements.AppIconAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppIconAttributes extends HTMLAttributes {
+      'name'?: string;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLAppMarkedElement extends HTMLStencilElement {
     'doc': string;
   }
