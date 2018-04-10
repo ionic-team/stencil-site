@@ -20,7 +20,43 @@ stencil-site {
   padding: 110px 0 0;
 
   @media screen and (max-width: $breakpoint-md) {
-    padding-top: 130px;
+    padding-top: 90px;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.left-sidebar-in {
+  animation-name: slideIn;
+  animation-duration: 0.7s;
+  animation-timing-function: $easeOutExpo;
+  animation-fill-mode: forwards;
+}
+@keyframes slideIn {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: calc(100vw - 56px);
+  }
+}
+
+.left-sidebar-out {
+  animation-name: slideOut;
+  animation-duration: 0.7s;
+  animation-timing-function: $easeOutExpo;
+  animation-fill-mode: forwards;
+}
+@keyframes slideOut {
+  from {
+    left: calc(100vw - 56px);
+  }
+
+  to {
+    left: 0;
   }
 }
 
@@ -33,11 +69,16 @@ stencil-site {
   flex: 1 0 auto;
 }
 
+.root {
+  position: relative;
+}
+
 footer {
   width: 100%;
   background: $color-white-lilac;
   flex: 0 0 8em;
   margin-top: 100px;
+  padding: 40px 0;
   display: flex;
 
   .container {

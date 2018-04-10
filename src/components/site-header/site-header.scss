@@ -4,7 +4,7 @@ site-header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
@@ -23,6 +23,8 @@ site-header {
 
   @media screen and (max-width: $breakpoint-md) {
     .container {
+      padding-top: 15px;
+      padding-bottom: 15px;
       flex-direction: column;
       align-items: center;
     }
@@ -68,24 +70,99 @@ site-header {
       top: -1px;
     }
   }
+}
+
+.header-overflow {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background: blue;
+  display: none;
+  cursor: pointer;
 
   @media screen and (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.header-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background: red;
+  display: none;
+  cursor: pointer;
+
+  @media screen and (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .header-menu {
+    transition: opacity 0.3s;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
-    justify-content: space-around;
-    max-width: 400px;
-    padding-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $color-woodsmoke;
+    opacity: 0;
+    display: none;
+
+    stencil-route-link + stencil-route-link,
+    stencil-route-link + a {
+      margin-left: 0px;
+      margin-top: 38px;
+    }
 
     a {
-      font-size: 12px;
+      font-size: 24px;
+    }
+
+    a.link-active,
+    a.link-active:hover {
+      color: $color-dodger-blue;
+      border-bottom-color: rgba($color-dodger-blue, 0.4);
+    }
+
+    stencil-route-link,
+    .link--external {
+      transition: transform 0.4s;
+      transform: translateY(8px);
+    }
+
+    .link--external:hover {
+      color: $color-white;
     }
   }
 
-  @media screen and (max-width: $breakpoint-sm) {
-    a {
-      display: none;
-    }
-    stencil-route-link a {
-      display: initial;
-    }
+  .show-mobile-menu {
+    z-index: 999999;
   }
+
+  .show-mobile-menu .header-menu {
+    opacity: 1;
+  }
+
+  .show-mobile-menu .header-menu stencil-route-link,
+  .show-mobile-menu .header-menu .link--external {
+    transform: translateY(0);
+  }
+
+  .show-mobile-menu .header-menu--show + .header-overflow  {
+    display: none;
+  }
+
 }

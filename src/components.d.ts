@@ -27,6 +27,33 @@ import '@stencil/router';
 
 
 declare global {
+  interface HTMLAppBurgerElement extends HTMLStencilElement {
+
+  }
+  var HTMLAppBurgerElement: {
+    prototype: HTMLAppBurgerElement;
+    new (): HTMLAppBurgerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-burger': HTMLAppBurgerElement;
+  }
+  interface ElementTagNameMap {
+    'app-burger': HTMLAppBurgerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-burger': JSXElements.AppBurgerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppBurgerAttributes extends HTMLAttributes {
+      'onBurgerClick'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLAppIconElement extends HTMLStencilElement {
     'name': string;
   }
@@ -335,7 +362,7 @@ declare global {
   }
   namespace JSXElements {
     export interface SiteMenuAttributes extends HTMLAttributes {
-
+      'onLeftSidebarClick'?: (event: CustomEvent) => void;
     }
   }
 }
