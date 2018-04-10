@@ -1,10 +1,12 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'document-component',
   styleUrl: 'document-component.scss'
 })
 export class DocumentComponent {
+
+  @Element() el: HTMLElement;
 
   @Prop() pages: string[] = [];
 

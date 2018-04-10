@@ -1,0 +1,23 @@
+@import '../../global/variables';
+
+app-burger {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 15px;
+  z-index: 999;
+
+  & > div {
+    width: 24px;
+    height: 24px;
+    background: red;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  app-burger {
+    display: block;
+  }
+}
