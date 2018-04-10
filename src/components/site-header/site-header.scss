@@ -9,8 +9,13 @@ site-header {
   z-index: 99;
 
   @supports (backdrop-filter: saturate(180%) blur(20px)) {
-    background-color: rgba($color-white, 0.9);
-    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba($color-white, 0.7);
+    backdrop-filter: saturate(180%) blur(15px);
+  }
+
+  @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) {
+    background-color: rgba($color-white, 0.7);
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
   }
 
   .logo {
