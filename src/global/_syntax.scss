@@ -1,10 +1,26 @@
+code {
+  font-weight: 400;
+  font-family: 'Roboto Mono', 'Source Code Pro', monospace;
+  font-size: 14px;
+}
+
+p,
+ul,
+ol {
+  code {
+    padding: 0 4px 3px;
+    background-color: $color-whisper;
+    color: $color-woodsmoke;
+    border-radius: 3px;
+  }
+}
+
 pre {
   word-break: break-all;
   word-wrap: break-word;
   display: block;
   white-space: pre-wrap;
   margin: 24px 0px 28px;
-
   border-radius: 4px;
   color: $color-cadet-blue;
   background-color: $color-woodsmoke;
@@ -19,12 +35,6 @@ pre {
     font-size: 14px;
     line-height: 20px;
   }
-}
-
-code {
-  font-weight: 400;
-  font-family: "Source Code Pro", monospace;
-  font-size: 14px;
 }
 
 .hljs-comment, .hljs-quote {

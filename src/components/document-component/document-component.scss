@@ -6,6 +6,10 @@ document-component {
     justify-content: space-between;
   }
 
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
   ul {
     padding: 0;
 
@@ -15,26 +19,8 @@ document-component {
     }
   }
 
-  p a {
-    transition: border 0.3s;
-    color: $color-dodger-blue;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-
-    &:hover {
-      border-bottom-color: rgba($color-dodger-blue, 0.2);
-    }
-  }
-
-  p code {
-    font-weight: 600;
-    font-family: "Source Code Pro", monospace;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-  }
-
   .btn.pull-left,
   .btn.pull-right {
-    margin: 0 6px 15px;
+    margin: 40px 6px 15px;
   }
 }

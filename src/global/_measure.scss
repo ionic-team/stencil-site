@@ -1,0 +1,19 @@
+.measure-xl {
+  max-width: 720px;
+}
+
+.measure-lg {
+  max-width: 670px;
+}
+
+.measure-md {
+  max-width: 460px;
+}
+
+@media screen and (max-width: $breakpoint-md) {
+  .measure-lg,
+  .measure-md {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
