@@ -1,4 +1,4 @@
-import { Component, Element, State, Event, EventEmitter } from '@stencil/core';
+import { Component, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'app-burger',
@@ -6,26 +6,10 @@ import { Component, Element, State, Event, EventEmitter } from '@stencil/core';
 })
 export class AppBurger {
 
-  @Element() el: HTMLElement;
-
   @Event() burgerClick: EventEmitter;
-
-  @State() isActive: boolean;
-
-  componentDidLoad() {
-    this.isActive = false;
-  }
 
   handleBurgerClicked() {
     this.burgerClick.emit();
-
-    if (this.isActive) {
-      this.isActive = false;
-      this.el.classList.remove('active');
-    } else {
-      this.isActive = true;
-      this.el.classList.add('active');
-    }
   }
 
   render() {

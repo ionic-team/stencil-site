@@ -32,7 +32,7 @@ app-burger {
     cursor: pointer;
   }
 
-  &.active {
+  &.left-sidebar-in {
     & > div {
       height: 100vh;
       padding-right: 50px;
