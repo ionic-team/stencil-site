@@ -7,7 +7,7 @@ import { Component, Element, Prop, State } from '@stencil/core';
 export class LazyIframe {
 
   @Prop() src: string;
-  @Prop() title: string;
+  @Prop() name: string;
   @Prop() frameBorder: string;
   @Prop() scrolling: string;
   @Prop() width: string;
@@ -57,7 +57,7 @@ export class LazyIframe {
       <div>
         <iframe
           frameBorder="0"
-          title={this.title}
+          title={this.name}
           allowFullScreen={true}
           src={this.realSrc}
           frameborder={this.frameBorder}

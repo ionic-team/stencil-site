@@ -112,8 +112,8 @@ declare global {
     'demoUrl': string;
     'description': string;
     'imgPath': string;
+    'name': string;
     'sourceUrl': string;
-    'title': string;
   }
   var HTMLDemoCardElement: {
     prototype: HTMLDemoCardElement;
@@ -135,8 +135,8 @@ declare global {
       'demoUrl'?: string;
       'description'?: string;
       'imgPath'?: string;
+      'name'?: string;
       'sourceUrl'?: string;
-      'title'?: string;
     }
   }
 }
@@ -227,9 +227,9 @@ declare global {
   interface HTMLLazyIframeElement extends HTMLStencilElement {
     'frameBorder': string;
     'height': string;
+    'name': string;
     'scrolling': string;
     'src': string;
-    'title': string;
     'width': string;
   }
   var HTMLLazyIframeElement: {
@@ -251,9 +251,9 @@ declare global {
     export interface LazyIframeAttributes extends HTMLAttributes {
       'frameBorder'?: string;
       'height'?: string;
+      'name'?: string;
       'scrolling'?: string;
       'src'?: string;
-      'title'?: string;
       'width'?: string;
     }
   }

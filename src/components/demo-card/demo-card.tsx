@@ -6,7 +6,7 @@ import { Component, Prop} from '@stencil/core';
 })
 export class DemoCard {
 
-  @Prop() title: string;
+  @Prop() name: string;
   @Prop() description: string;
   @Prop() imgPath: string;
   @Prop() demoUrl: string;
@@ -20,7 +20,7 @@ export class DemoCard {
             <img src={`${this.imgPath}.jpg`} srcSet={`${this.imgPath}.jpg 1x, ${this.imgPath}@2x.jpg 2x`} />
           </a>
         </div>
-        <h4>{this.title}</h4>
+        <h4>{this.name}</h4>
         <p>{this.description}</p>
         <p>
           <a target="_blank" rel="noopener" href={this.demoUrl} class="text-link text-link--primary">Demo</a>
