@@ -10,11 +10,12 @@ export class NotFoundPage {
   render() {
     return (
       <div>
-        <h2>Uh Oh, we could not find the page your looking for</h2>
-
-        <stencil-route-link url='/' class='block'>
-          Home Page
-        </stencil-route-link>
+        <h1>Uh oh! We can't find the page your looking for.</h1>
+        <p>
+          <stencil-route-link url='/' class='block'>
+            Head back to the home page
+          </stencil-route-link>
+        </p>
       </div>
     );
   }
