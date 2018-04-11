@@ -19,11 +19,7 @@
             "type": 301
         }, {
             "source": "/docs/shadow-dom",
-            "destination": "/docs/stencil-config",
-            "type": 301
-        }, {
-            "source": "/docs/styling",
-            "destination": "/docs/stencil-config",
+            "destination": "/docs/styling",
             "type": 301
         }, {
             "source": "/docs/css-variables",
@@ -33,21 +29,18 @@
             "source": "/docs/sass",
             "destination": "/docs/add-ons",
             "type": 301
-        },
-        {
-          "source": "/docs/intro",
-          "destination": "/docs/introduction",
-          "type": 301
-        },
-        {
-          "source": "/docs/templating",
-          "destination": "/docs/templating-jsx",
-          "type": 301
-        },
-        {
-          "source": "/docs/stencil-router",
-          "destination": "/docs/router",
-          "type": 301
+        }, {
+            "source": "/docs/intro",
+            "destination": "/docs/introduction",
+            "type": 301
+        }, {
+            "source": "/docs/templating",
+            "destination": "/docs/templating-jsx",
+            "type": 301
+        }, {
+            "source": "/docs/stencil-router",
+            "destination": "/docs/router",
+            "type": 301
         }],
         "headers": [{
             "source": "sw.js",
@@ -4416,6 +4409,186 @@
             "headers": [{
                 "key": "Link",
                 "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/ylqvugro.js>;rel=preload;as=script,</build/app/jr1fcyzo.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script"
+            }]
+        }, {
+            "source": "/build/app/**",
+            "headers": [{
+                "key": "Link",
+                "value": "public, max-age=31536000"
+            }]
+        }, {
+            "source": "/sw.js",
+            "headers": [{
+                "key": "Link",
+                "value": "no-cache, no-store, must-revalidate"
+            }]
+        }, {
+            "source": "/",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/dd9mnvog.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script"
+            }]
+        }, {
+            "source": "/demos",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/bzdwowlz.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/n6i0wqiz.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script"
+            }]
+        }, {
+            "source": "/docs/add-ons",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/component-lifecycle",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/config",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/context",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/decorators",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/distribution",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/events",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/forms",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/framework-integration",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/getting-started",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/intro",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/introduction",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/my-first-component",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/prerendering",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/reactive-data",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/router",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/routing",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/server-side-rendering",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/service-workers",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/style-guide",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/styling",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/templating",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/templating-jsx",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/docs/unit-testing",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</assets/img/ionic-os-logo.png>;rel=preload;as=image"
+            }]
+        }, {
+            "source": "/pwa",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script,</build/app/bzdwowlz.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/c5yp5svf.js>;rel=preload;as=script"
+            }]
+        }, {
+            "source": "/resources",
+            "headers": [{
+                "key": "Link",
+                "value": "</build/app/app.atpbd2if.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/ylqvugro.js>;rel=preload;as=script,</build/app/bk0zqk2w.js>;rel=preload;as=script,</build/app/q3beoss6.js>;rel=preload;as=script"
             }]
         }, {
             "source": "/build/app/**",
