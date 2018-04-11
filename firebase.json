@@ -33,6 +33,21 @@
             "source": "/docs/sass",
             "destination": "/docs/add-ons",
             "type": 301
+        },
+        {
+          "source": "/docs/intro",
+          "destination": "/docs/introduction",
+          "type": 301
+        },
+        {
+          "source": "/docs/templating",
+          "destination": "/docs/templating-jsx",
+          "type": 301
+        },
+        {
+          "source": "/docs/stencil-router",
+          "destination": "/docs/router",
+          "type": 301
         }],
         "headers": [{
             "source": "sw.js",
