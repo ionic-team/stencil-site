@@ -8,15 +8,15 @@ site-header {
   background-color: $color-white;
   z-index: 99;
 
-  @supports (backdrop-filter: saturate(180%) blur(20px)) {
-    background-color: rgba($color-white, 0.7);
-    backdrop-filter: saturate(180%) blur(15px);
-  }
-
-  @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) {
-    background-color: rgba($color-white, 0.7);
-    -webkit-backdrop-filter: saturate(180%) blur(15px);
-  }
+  // @supports (backdrop-filter: saturate(180%) blur(20px)) {
+  //   background-color: rgba($color-white, 0.7);
+  //   backdrop-filter: saturate(180%) blur(15px);
+  // }
+  //
+  // @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) {
+  //   background-color: rgba($color-white, 0.7);
+  //   -webkit-backdrop-filter: saturate(180%) blur(15px);
+  // }
 
   .logo {
     width: 96px;
