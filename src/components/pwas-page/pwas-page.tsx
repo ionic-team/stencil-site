@@ -119,7 +119,7 @@ export class pwasPage {
           {this.demos.map(demo => {
             return (
               <demo-card
-                title={demo.title}
+                name={demo.title}
                 description={demo.description}
                 imgPath={demo.imgPath}
                 demoUrl={demo.demoUrl}
