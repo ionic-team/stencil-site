@@ -97,6 +97,7 @@ export class App {
                   'router': 'guides/router.html',
                   'framework-integration': 'guides/framework-integration.html',
                   'style-guide': 'guides/style-guide.html',
+                  'handling-arrays': 'guides/handling-arrays.html',
 
                   'angular': 'framework-integration/angular.html',
                   'react': 'framework-integration/react.html',
