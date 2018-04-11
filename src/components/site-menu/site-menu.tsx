@@ -19,7 +19,7 @@ export class SiteMenu {
             <h4>Introduction</h4>
             <ul>
               <li>
-                <stencil-route-link url='/docs/intro' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/introduction' onClick={() => this.toggleMenu()}>
                   Why Stencil
                 </stencil-route-link>
               </li>
@@ -33,12 +33,12 @@ export class SiteMenu {
                   My First Component
                 </stencil-route-link>
               </li>
-              <li>
+              {/*<li>
                 <stencil-route-link url='/docs/reusable-components' onClick={() => this.toggleMenu()}>
                   Reusable Components
                 </stencil-route-link>
               </li>
-              {/*<li>
+              <li>
                 <stencil-route-link url='/docs/building-an-app'>
                   Building an App
                 </stencil-route-link>
@@ -74,13 +74,13 @@ export class SiteMenu {
               </li>
 
               <li>
-                <stencil-route-link url='/docs/handling-arrays' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/reactive-data' onClick={() => this.toggleMenu()}>
                   Reactive Data
                 </stencil-route-link>
               </li>
 
               {/*<li>
-                <stencil-route-link url='/docs/templating'>
+                <stencil-route-link url='/docs/templating-jsx'>
                   Templating and JSX
                 </stencil-route-link>
               </li>*/}
@@ -90,13 +90,13 @@ export class SiteMenu {
                 once ready
               */}
               <li>
-                <stencil-route-link url="/docs/templating" onClick={() => this.toggleMenu()}>
+                <stencil-route-link url="/docs/templating-jsx" onClick={() => this.toggleMenu()}>
                   Using JSX
                 </stencil-route-link>
               </li>
 
               <li>
-                <stencil-route-link url='/docs/shadow-dom' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/styling' onClick={() => this.toggleMenu()}>
                   Styling
                 </stencil-route-link>
               </li>
@@ -108,14 +108,8 @@ export class SiteMenu {
               </li>
 
               <li>
-                <stencil-route-link url='/docs/stencil-config' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/config' onClick={() => this.toggleMenu()}>
                   Config
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url='/docs/testing' onClick={() => this.toggleMenu()}>
-                  Unit Testing
                 </stencil-route-link>
               </li>
 
@@ -138,7 +132,7 @@ export class SiteMenu {
               </li>*/}
 
               <li>
-                <stencil-route-link url='/docs/pre-rendering' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/prerendering' onClick={() => this.toggleMenu()}>
                   Prerendering
                 </stencil-route-link>
               </li>
@@ -180,7 +174,7 @@ export class SiteMenu {
               </li>*/}
 
               <li>
-                <stencil-route-link url='/docs/routing' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/router' onClick={() => this.toggleMenu()}>
                   Router
                 </stencil-route-link>
               </li>
@@ -232,15 +226,13 @@ export class SiteMenu {
           <li>
             <h4>Community</h4>
             <ul>
-              <li>
+              {/* <li>
                 <stencil-route-link url='/docs/community/how-to-contribute' onClick={() => this.toggleMenu()}>
                   How to Contribute
                 </stencil-route-link>
-              </li>
+              </li> */}
               <li>
-                <a href='https://github.com/ionic-team/stencil'>
-                  Stencil on GitHub
-                </a>
+                <a href='https://github.com/ionic-team/stencil'>Stencil on GitHub</a>
               </li>
               <li>
                 <a href='https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM' title='Stencil slack channel'>Stencil on Slack</a>
@@ -249,7 +241,7 @@ export class SiteMenu {
                 <a href='https://twitter.com/stenciljs'>Stencil on Twitter</a>
               </li>
               <li>
-                <stencil-route-link url='/docs/community/add-ons' onClick={() => this.toggleMenu()}>
+                <stencil-route-link url='/docs/add-ons' onClick={() => this.toggleMenu()}>
                   Add-ons
                 </stencil-route-link>
               </li>

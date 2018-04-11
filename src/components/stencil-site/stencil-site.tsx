@@ -69,30 +69,40 @@ export class App {
               url="/docs/:pageName"
               routeRender={(props: { [key: string]: any }) => {
                 const map = {
-                  'intro': 'intro/index.html',
-                  'browser-support': 'intro/browsers.html',
-                  'getting-started': 'start/index.html',
-                  'my-first-component': 'basics/my-first-component.html',
-                  'templating': 'basics/templating.html',
-                  'decorators': 'basics/decorators.html',
-                  'events': 'basics/events.html',
-                  'component-lifecycle': 'basics/component-lifecycle.html',
-                  'stencil-config': 'basics/stencil-config.html',
-                  'forms': 'basics/forms.html',
-                  'handling-arrays': 'basics/handling-arrays.html',
-                  'testing': 'basics/testing.html',
-                  'config': 'advanced/compiler/index.html',
-                  'server-side-rendering': 'advanced/ssr/index.html',
-                  'routing': 'addons/stencil-router.html',
-                  'sass': 'addons/stencil-sass.html',
-                  'service-workers': 'advanced/service-worker/index.html',
-                  'distribution': 'advanced/distribution/index.html',
-                  'framework-integration': 'advanced/framework-integration/index.html',
-                  'prerendering': 'advanced/pre-rendering/index.html',
-                  'shadow-dom': 'advanced/shadow-dom/index.html',
-                  'css-variables': 'advanced/css-variables/index.html',
-                  'context': 'advanced/context/index.html',
-                  'style-guide': 'advanced/style-guide/index.html'
+                  'introduction': 'introduction/why-stencil.html',
+                  'getting-started': 'introduction/getting-started.html',
+                  'my-first-component': 'introduction/my-first-component.html',
+                  'reusable-components': 'introduction/reusable-components.html',
+                  'building-an-app': 'introduction/building-an-app.html',
+                  'faq': 'introduction/faq.html',
+
+                  'component-lifecycle': 'reference/component-lifecycle.html',
+                  'decorators': 'reference/decorators.html',
+                  'events': 'reference/events.html',
+                  'reactive-data': 'reference/reactive-data.html',
+                  'templating-jsx': 'reference/templating-and-jsx.html',
+                  'styling': 'reference/styling.html',
+                  'forms': 'reference/forms.html',
+                  'config': 'reference/compiler.html',
+
+                  'distribution': 'guides/distribution.html',
+                  'module-bundling': 'guides/module-bundling.html',
+                  'prerendering': 'guides/prerendering.html',
+                  'server-side-rendering': 'guides/server-side-rendering.html',
+                  'service-workers': 'guides/service-workers.html',
+                  'context': 'guides/context.html',
+                  'performance': 'guides/performance.html',
+                  'unit-testing': 'guides/unit-testing.html',
+                  'dev-inspector': 'guides/service-worker.html',
+                  'router': 'guides/router.html',
+                  'framework-integration': 'guides/framework-integration.html',
+                  'style-guide': 'guides/style-guide.html',
+
+                  'angular': 'framework-integration/angular.html',
+                  'react': 'framework-integration/react.html',
+
+                  'contributing': 'community/how-to-contribute.html',
+                  'add-ons': 'community/add-ons.html'
                 };
                 return (
                   <document-component
