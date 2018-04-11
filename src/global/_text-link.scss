@@ -1,0 +1,27 @@
+.text-link {
+  transition: border 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+}
+
+.text-link--primary {
+  color: $color-dodger-blue;
+
+  &:hover {
+    border-bottom-color: rgba($color-dodger-blue, 0.2);
+  }
+}
+
+.text-link--secondary {
+  color: $color-manatee;
+
+  &:hover {
+    border-bottom-color: rgba($color-manatee, 0.2);
+  }
+}

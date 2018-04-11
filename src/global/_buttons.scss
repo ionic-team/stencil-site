@@ -1,0 +1,29 @@
+.btn {
+  transition: all .15s ease;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  box-shadow: $button-shadow;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: $button-shadow-hover;
+  }
+}
+
+.btn--primary {
+  background: $color-dodger-blue;
+  color: $color-white;
+}
+
+.btn-secondary {
+  color: $color-dodger-blue;
+  background: $color-white;
+}

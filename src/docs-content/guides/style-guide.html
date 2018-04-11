@@ -1,0 +1,259 @@
+<h1 id="stencil-style-guide">Stencil Style Guide</h1>
+<p>This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing <a href="https://ionicframework.com/">Ionic Core</a> components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team&#39;s own preference.</p>
+<h2 id="file-structure">File structure</h2>
+<ul>
+<li>One component per file.</li>
+<li>One component per directory. Though it may make sense to group similar components into the same directory, we&#39;ve found it&#39;s easier to document components when each one has its own directory.</li>
+<li>Implementation (.tsx) and styles of a component should live in the same directory.</li>
+</ul>
+<p>Example from ionic-core:</p>
+<pre><code>├── <span class="hljs-selector-tag">card</span>
+│   ├── <span class="hljs-selector-tag">card</span><span class="hljs-selector-class">.ios</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card</span><span class="hljs-selector-class">.md</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card</span><span class="hljs-selector-class">.tsx</span>
+│   └── <span class="hljs-selector-tag">test</span>
+│       └── <span class="hljs-selector-tag">basic</span>
+│           ├── <span class="hljs-selector-tag">e2e</span><span class="hljs-selector-class">.js</span>
+│           └── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span>
+├── <span class="hljs-selector-tag">card-content</span>
+│   ├── <span class="hljs-selector-tag">card-content</span><span class="hljs-selector-class">.ios</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card-content</span><span class="hljs-selector-class">.md</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card-content</span><span class="hljs-selector-class">.scss</span>
+│   └── <span class="hljs-selector-tag">card-content</span><span class="hljs-selector-class">.tsx</span>
+├── <span class="hljs-selector-tag">card-title</span>
+│   ├── <span class="hljs-selector-tag">card-title</span><span class="hljs-selector-class">.ios</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card-title</span><span class="hljs-selector-class">.md</span><span class="hljs-selector-class">.scss</span>
+│   ├── <span class="hljs-selector-tag">card-title</span><span class="hljs-selector-class">.scss</span>
+</code></pre><h2 id="naming">Naming</h2>
+<h3 id="html-tag">HTML tag</h3>
+<h4 id="prefix">Prefix</h4>
+<p>The prefix has a major role when you are creating a collection of components intended to be used across diferent projects, like <a href="https://www.npmjs.com/package/@ionic/core">@ionic/core</a>. Web Components are not scoped because they are globally declared within the webpage, which means an &quot;unique&quot; prefix is needed to prevent collisions. The prefix is also able help to quickly indentify the collection of an component. Additionally, web components are required to contain a &quot;-&quot; dash within the tag name, so using the first section to namespace your components is a natural fit.</p>
+<p>We do not recommend using &quot;stencil&quot; as prefix, since Stencil DOES NOT emit stencil components, but rather the output is simply standards compliant web components.</p>
+<p>DO NOT do this:</p>
+<pre><code>stencil-<span class="hljs-keyword">component</span>
+stnl-<span class="hljs-keyword">component</span>
+</code></pre><p>Instead, use your own naming or brand. For example, <a href="https://ionicframework.com/">Ionic</a> components are all prefixed with <code>ion-</code>.</p>
+<pre><code>ion-<span class="hljs-selector-tag">button</span>
+ion-header
+</code></pre><h4 id="name">Name</h4>
+<p>Components are not actions, they are conceptually &quot;things&quot;. It is better to use nouns, instead of verbs, such us: &quot;animation&quot; instead of &quot;animating&quot;. &quot;input&quot;, &quot;tab&quot;, &quot;nav&quot;, &quot;menu&quot; are some examples.</p>
+<h4 id="modifiers">Modifiers</h4>
+<p>When several components are related and/or coupled, it is a good idea to share the name, and then add different modifiers, for example:</p>
+<pre><code>ion-<span class="hljs-keyword">menu</span>
+ion-<span class="hljs-keyword">menu</span>-controller
+</code></pre><pre><code>ion-<span class="hljs-keyword">card</span>
+ion-<span class="hljs-keyword">card</span>-header
+ion-<span class="hljs-keyword">card</span>-content
+</code></pre><h3 id="component-ts-class-">Component (TS class)</h3>
+<p>The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.</p>
+<pre><code class="lang-ts"><span class="hljs-variable">@Component</span>({
+  <span class="hljs-attribute">tag</span>: <span class="hljs-string">'ion-button'</span>
+})
+export class Button { ... }
+
+<span class="hljs-variable">@Component</span>({
+  <span class="hljs-attribute">tag</span>: <span class="hljs-string">'ion-menu'</span>
+})
+export class Menu { ... }
+</code></pre>
+<h2 id="typescript">TypeScript</h2>
+<ol>
+<li><p><strong>Follow</strong> <a href="https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js">tslint-ionic-rules</a></p>
+</li>
+<li><p><strong>Variable decorators should be inlined.</strong></p>
+<pre><code class="lang-ts"><span class="hljs-variable">@Prop</span>() <span class="hljs-attribute">name</span>: string;
+<span class="hljs-variable">@Element</span>() <span class="hljs-attribute">el</span>: HTMLElement;
+</code></pre>
+</li>
+<li><p><strong>Method decorator should be multi-line</strong></p>
+<pre><code class="lang-ts">@Listen(<span class="hljs-string">'click'</span>)
+<span class="hljs-function"><span class="hljs-title">onClick</span><span class="hljs-params">()</span></span> {
+...
+}
+</code></pre>
+</li>
+<li><p><strong>Use private variables and methods as much possible:</strong> They are useful to detect deadcode and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using <code>private</code>, <code>public</code> or <code>protected</code> does not make a difference in the actual JavaScript output.</p>
+</li>
+<li><p><strong>Code with Method/Prop/Event/Component decorators should have jsdocs:</strong> This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense</p>
+</li>
+</ol>
+<h2 id="code-organization">Code organization</h2>
+<h3 id="newspaper-metaphor-from-the-robert-c-martin-s-_clean-code_">Newspaper Metaphor from The Robert C. Martin&#39;s <em>Clean Code</em></h3>
+<blockquote>
+<p>The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.</p>
+</blockquote>
+<h3 id="high-level-example-commented-">High level example (commented)</h3>
+<pre><code class="lang-ts"><span class="hljs-meta">@Component({
+  tag: <span class="hljs-meta-string">'ion-something'</span>,
+  styleUrl: <span class="hljs-meta-string">'something.scss'</span>,
+  styleUrls: {
+    ios: <span class="hljs-meta-string">'something.ios.scss'</span>,
+    md: <span class="hljs-meta-string">'something.md.scss'</span>,
+    wp: <span class="hljs-meta-string">'something.wp.scss'</span>
+  },
+  host: {
+    theme: <span class="hljs-meta-string">'something'</span>
+  }
+})</span>
+export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Something</span> </span>{
+
+  <span class="hljs-comment">/**
+   * 1. Own Properties
+   * Always set the type if a default value has not
+   * been set. If a default value is being set, then type
+   * is already inferred. List the own properties in
+   * alphabetical order. Note that because these properties
+   * do not have the <span class="hljs-doctag">@Prop</span>() decorator, they will not be exposed
+   * publicly on the host element, but only used internally.
+   */</span>
+  num: number;
+  someText = <span class="hljs-string">'default'</span>;
+
+  <span class="hljs-comment">/**
+   * 2. Reference to host HTML element.
+   * Inlined decorator
+   */</span>
+  <span class="hljs-meta">@Element()</span> el: HTMLElement;
+
+  <span class="hljs-comment">/**
+   * 3. State() variables
+   * Inlined decorator, alphabetical order.
+   */</span>
+  <span class="hljs-meta">@State()</span> isValidated: boolean;
+  <span class="hljs-meta">@State()</span> status = <span class="hljs-number">0</span>;
+
+  <span class="hljs-comment">/**
+   * 4. Internal props (context and connect)
+   * Inlined decorator, alphabetical order.
+   */</span>
+  <span class="hljs-meta">@Prop({ context: <span class="hljs-meta-string">'config'</span> })</span> config: Config;
+  <span class="hljs-meta">@Prop({ connect: <span class="hljs-meta-string">'ion-menu-controller'</span> })</span> lazyMenuCtrl: Lazy&lt;MenuController&gt;;
+
+  <span class="hljs-comment">/**
+   * 5. Public Property API
+   * Inlined decorator, alphabetical order. These are
+   * different than "own properties" in that public props
+   * are exposed as properties and attributes on the host element.
+   * Requires JSDocs for public API documentation.
+   */</span>
+  <span class="hljs-meta">@Prop()</span> content: string;
+  <span class="hljs-meta">@Prop()</span> enabled: boolean;
+  <span class="hljs-meta">@Prop()</span> menuId: string;
+  <span class="hljs-meta">@Prop()</span> type = <span class="hljs-string">'overlay'</span>;
+
+  <span class="hljs-comment">/**
+   * <span class="hljs-doctag">NOTE:</span> Prop lifecycle events SHOULD go just behind the Prop they listen to.
+   * This makes sense since both statements are strongly connected.
+   * - If renaming the instance variable name you must also update the name in <span class="hljs-doctag">@Watch</span>()
+   * - Code is easier to follow and maintain.
+   */</span>
+  <span class="hljs-meta">@Prop()</span> swipeEnabled = <span class="hljs-literal">true</span>;
+
+  <span class="hljs-meta">@Watch(<span class="hljs-meta-string">'swipeEnabled'</span>)</span>
+  swipeEnabledChanged() {
+    <span class="hljs-keyword">this</span>.updateState();
+  }
+
+  <span class="hljs-comment">/**
+   * 6. Events section
+   * Inlined decorator, alphabetical order.
+   * Requires JSDocs for public API documentation.
+   */</span>
+  <span class="hljs-meta">@Event()</span> ionClose: EventEmitter;
+  <span class="hljs-meta">@Event()</span> ionDrag: EventEmitter;
+  <span class="hljs-meta">@Event()</span> ionOpen: EventEmitter;
+
+  <span class="hljs-comment">/**
+   * 7. Component lifecycle events
+   * Ordered by their natural call order, for example
+   * WillLoad should go before DidLoad.
+   */</span>
+  componentWillLoad() {}
+  componentDidLoad() {}
+  componentWillEnter() {}
+  componentDidEnter() {}
+  componentWillLeave() {}
+  componentDidLeave() {}
+  componentDidUnload() {}
+
+  <span class="hljs-comment">/**
+   * 8. Listeners
+   * It is ok to place them in a different location
+   * if makes more sense in the context. Recommend
+   * starting a listener method with "on".
+   * Always use two lines.
+   */</span>
+  <span class="hljs-meta">@Listen(<span class="hljs-meta-string">'click'</span>, { enabled: false })</span>
+  onClick(ev: UIEvent) {
+    console.log(<span class="hljs-string">'hi!'</span>)
+  }
+
+  <span class="hljs-comment">/**
+   * 9. Public methods API
+   * These methods are exposed on the host element.
+   * Always use two lines.
+   * Requires JSDocs for public API documentation.
+   */</span>
+  <span class="hljs-meta">@Method()</span>
+  <span class="hljs-keyword">open</span>() {
+    ...
+  }
+
+  <span class="hljs-meta">@Method()</span>
+  close() {
+    ...
+  }
+
+  <span class="hljs-comment">/**
+   * 10. Local methods
+   * Internal business logic. These methods cannot be
+   * called from the host element.
+   */</span>
+  prepareAnimation(): Promise&lt;void&gt; {
+    ...
+  }
+
+  updateState() {
+    ...
+  }
+
+  <span class="hljs-comment">/**
+   * 11. hostData() function
+   * Used to dynamically set host element attributes.
+   * Should be placed directly above render()
+   */</span>
+  hostData() {
+    <span class="hljs-keyword">return</span> {
+      attribute: <span class="hljs-string">'navigation'</span>,
+      side: <span class="hljs-keyword">this</span>.isRightSide ? <span class="hljs-string">'right'</span> : <span class="hljs-string">'left'</span>,
+      type: <span class="hljs-keyword">this</span>.type,
+      <span class="hljs-class"><span class="hljs-keyword">class</span>: <span class="hljs-type">{</span></span>
+        <span class="hljs-string">'something-is-animating'</span>: <span class="hljs-keyword">this</span>.isAnimating
+      }
+    };
+  }
+
+  <span class="hljs-comment">/**
+   * 12. render() function
+   * Always the last one in the class.
+   */</span>
+  render() {
+    <span class="hljs-keyword">return</span> (
+      &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span>='<span class="hljs-title">menu</span>-<span class="hljs-title">inner</span> <span class="hljs-title">page</span>-<span class="hljs-title">inner</span>'&gt;</span>
+        &lt;slot&gt;&lt;/slot&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+<p><stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
+  <button class='pull-left btn btn--secondary'>
+    Back
+  </button>
+</stencil-route-link></p>
+<p><stencil-route-link url="/docs/add-ons" custom="true">
+  <button class='pull-right btn btn--primary'>
+    Next
+  </button>
+</stencil-route-link></p>

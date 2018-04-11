@@ -27,6 +27,60 @@ import '@stencil/router';
 
 
 declare global {
+  interface HTMLAppBurgerElement extends HTMLStencilElement {
+
+  }
+  var HTMLAppBurgerElement: {
+    prototype: HTMLAppBurgerElement;
+    new (): HTMLAppBurgerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-burger': HTMLAppBurgerElement;
+  }
+  interface ElementTagNameMap {
+    'app-burger': HTMLAppBurgerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-burger': JSXElements.AppBurgerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppBurgerAttributes extends HTMLAttributes {
+      'onBurgerClick'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+  interface HTMLAppIconElement extends HTMLStencilElement {
+    'name': string;
+  }
+  var HTMLAppIconElement: {
+    prototype: HTMLAppIconElement;
+    new (): HTMLAppIconElement;
+  };
+  interface HTMLElementTagNameMap {
+    'app-icon': HTMLAppIconElement;
+  }
+  interface ElementTagNameMap {
+    'app-icon': HTMLAppIconElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'app-icon': JSXElements.AppIconAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface AppIconAttributes extends HTMLAttributes {
+      'name'?: string;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLAppMarkedElement extends HTMLStencilElement {
     'doc': string;
   }
@@ -48,6 +102,41 @@ declare global {
   namespace JSXElements {
     export interface AppMarkedAttributes extends HTMLAttributes {
       'doc'?: string;
+    }
+  }
+}
+
+
+declare global {
+  interface HTMLDemoCardElement extends HTMLStencilElement {
+    'demoUrl': string;
+    'description': string;
+    'imgPath': string;
+    'name': string;
+    'sourceUrl': string;
+  }
+  var HTMLDemoCardElement: {
+    prototype: HTMLDemoCardElement;
+    new (): HTMLDemoCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    'demo-card': HTMLDemoCardElement;
+  }
+  interface ElementTagNameMap {
+    'demo-card': HTMLDemoCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'demo-card': JSXElements.DemoCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface DemoCardAttributes extends HTMLAttributes {
+      'demoUrl'?: string;
+      'description'?: string;
+      'imgPath'?: string;
+      'name'?: string;
+      'sourceUrl'?: string;
     }
   }
 }
@@ -138,9 +227,9 @@ declare global {
   interface HTMLLazyIframeElement extends HTMLStencilElement {
     'frameBorder': string;
     'height': string;
+    'name': string;
     'scrolling': string;
     'src': string;
-    'title': string;
     'width': string;
   }
   var HTMLLazyIframeElement: {
@@ -162,9 +251,9 @@ declare global {
     export interface LazyIframeAttributes extends HTMLAttributes {
       'frameBorder'?: string;
       'height'?: string;
+      'name'?: string;
       'scrolling'?: string;
       'src'?: string;
-      'title'?: string;
       'width'?: string;
     }
   }
@@ -273,7 +362,7 @@ declare global {
   }
   namespace JSXElements {
     export interface SiteMenuAttributes extends HTMLAttributes {
-
+      'onLeftSidebarClick'?: (event: CustomEvent) => void;
     }
   }
 }

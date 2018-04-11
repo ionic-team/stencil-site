@@ -10,32 +10,37 @@ export class DemosPage {
     {
       title: 'Stenciljs.com',
       description: 'Yep, this site is also built with Stencil!',
-      url: 'https://stenciljs.com/',
-      source: 'https://github.com/ionic-team/stencil-site',
+      imgPath: '/assets/img/demos/demo-stenciljs',
+      demoUrl: 'https://stenciljs.com/',
+      sourceUrl: 'https://github.com/ionic-team/stencil-site',
     },
     {
       title: 'IonicHN',
       description: 'Hacker News PWA built with @stencil/core and @ionic/core',
-      url: 'https://corehacker-10883.firebaseapp.com/',
-      source: 'https://github.com/ionic-team/ionic-stencil-hn-app'
+      imgPath: '/assets/img/demos/demo-ionichn',
+      demoUrl: 'https://corehacker-10883.firebaseapp.com/',
+      sourceUrl: 'https://github.com/ionic-team/ionic-stencil-hn-app'
     },
     {
       title: 'Stencil Fiber demo',
       description: 'This showcases the runtime performance of stencil using our async rendering',
-      url: 'https://stencil-fiber-demo.firebaseapp.com/',
-      source: 'https://github.com/ionic-team/stencil-fiber-demo'
+      imgPath: '/assets/img/demos/demo-fiber',
+      demoUrl: 'https://stencil-fiber-demo.firebaseapp.com/',
+      sourceUrl: 'https://github.com/ionic-team/stencil-fiber-demo'
     },
     {
       title: 'IonicBeer',
       description: 'Beer PWA built with @stencil/core and @ionic/core',
-      url: 'https://stencilbeer.firebaseapp.com/',
-      source: 'https://github.com/jgw96/stencil-beer'
+      imgPath: '/assets/img/demos/demo-ionicbeer',
+      demoUrl: 'https://stencilbeer.firebaseapp.com/',
+      sourceUrl: 'https://github.com/jgw96/stencil-beer'
     },
     {
       title: 'InstaMusic',
       description: 'A full featured music player built with @stencil/core and @ionic/core',
-      url: 'https://instamusic-c15fe.firebaseapp.com/',
-      source: 'https://github.com/jgw96/instamusic'
+      imgPath: '/assets/img/demos/demo-instamusic',
+      demoUrl: 'https://instamusic-c15fe.firebaseapp.com/',
+      sourceUrl: 'https://github.com/jgw96/instamusic'
     }
   ];
 
@@ -46,20 +51,19 @@ export class DemosPage {
   render() {
     return (
       <div>
-        <h1>Demos</h1>
-        <h4>Awesome demos of apps built using Stencil and Ionic</h4>
-        {this.demos.map(demo => {
-          return [
-            <h4>{demo.title}</h4>,
-            <p>{demo.description}</p>,
-            <p>
-              <a target="_blank" rel="noopener" href={demo.url}>Demo</a>
-              &nbsp;&nbsp;
-            <a target="_blank" rel="noopener" href={demo.source}>Source</a>
-            </p>
-          ];
-        })}
-
+        <h1 class="headline measure-md">Awesome demos of apps built using Stencil and Ionic</h1>
+        <div class="demo-card-list">
+          {this.demos.map(demo => {
+            return (
+              <demo-card
+                name={demo.title}
+                description={demo.description}
+                imgPath={demo.imgPath}
+                demoUrl={demo.demoUrl}
+                sourceUrl={demo.sourceUrl}></demo-card>
+            );
+          })}
+        </div>
       </div>
     );
   }

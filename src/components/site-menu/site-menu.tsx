@@ -1,4 +1,4 @@
-import { Component, State } from '@stencil/core';
+import { Component, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'site-menu',
@@ -6,98 +6,110 @@ import { Component, State } from '@stencil/core';
 })
 export class SiteMenu {
 
-  @State() version: string = 'Loading...';
-
-  componentDidLoad() {
-    fetch('https://unpkg.com/@stencil/core/package.json').then((res) => {
-      return res.json()
-    }).then((data) => {
-      this.version = data.version;
-    })
+  @Event() leftSidebarClick: EventEmitter;
+  toggleMenu() {
+    this.leftSidebarClick.emit();
   }
 
   render() {
     return (
       <div>
-        <div id='version'>v{this.version}</div>
-
-        <lazy-iframe class="star-button" src="https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true" frameBorder="0" scrolling="0" width="170px" height="20px"></lazy-iframe>
-        <ul id="menu-list">
+        <ul class='menu-list'>
           <li>
-            <h4>Essentials</h4>
+            <h4>Introduction</h4>
             <ul>
               <li>
-                <stencil-route-link url="/docs/intro">
-                  Introduction
+                <stencil-route-link url='/docs/introduction' onClick={() => this.toggleMenu()}>
+                  Why Stencil
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/getting-started">
+                <stencil-route-link url='/docs/getting-started' onClick={() => this.toggleMenu()}>
                   Getting Started
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/browser-support">
-                  Browser Support
+                <stencil-route-link url='/docs/my-first-component' onClick={() => this.toggleMenu()}>
+                  My First Component
+                </stencil-route-link>
+              </li>
+              {/*<li>
+                <stencil-route-link url='/docs/reusable-components' onClick={() => this.toggleMenu()}>
+                  Reusable Components
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url='/pwa'>
-                  PWAs
+                <stencil-route-link url='/docs/building-an-app'>
+                  Building an App
                 </stencil-route-link>
               </li>
+              <li>
+                <stencil-route-link url='/docs/faq'>
+                  FAQ
+                </stencil-route-link>
+              </li>*/}
             </ul>
           </li>
 
           <li>
-            <h4>Basics</h4>
+            <h4>Reference</h4>
             <ul>
 
               <li>
-                <stencil-route-link url="/docs/my-first-component">
-                  My First Component
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url="/docs/templating">
-                  Using JSX
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url="/docs/decorators">
-                  Decorators
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url="/docs/events">
-                  Events
-                </stencil-route-link>
-              </li>
-
-              <li>
-                <stencil-route-link url="/docs/component-lifecycle">
+                <stencil-route-link url='/docs/component-lifecycle' onClick={() => this.toggleMenu()}>
                   Component Life Cycle
                 </stencil-route-link>
               </li>
 
               <li>
-                <stencil-route-link url="/docs/forms">
-                  Forms
-                </stencil-route-link>
-              </li>
-              
-              <li>
-                <stencil-route-link url="/docs/handling-arrays">
-                  Updating Arrays and Objects
+                <stencil-route-link url='/docs/decorators' onClick={() => this.toggleMenu()}>
+                  Decorators
                 </stencil-route-link>
               </li>
 
               <li>
-                <stencil-route-link url="/docs/testing">
-                  Unit Testing
+                <stencil-route-link url='/docs/events' onClick={() => this.toggleMenu()}>
+                  Events
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/reactive-data' onClick={() => this.toggleMenu()}>
+                  Reactive Data
+                </stencil-route-link>
+              </li>
+
+              {/*<li>
+                <stencil-route-link url='/docs/templating-jsx'>
+                  Templating and JSX
+                </stencil-route-link>
+              </li>*/}
+
+              {/*
+                The below route will be replaced with the above route
+                once ready
+              */}
+              <li>
+                <stencil-route-link url="/docs/templating-jsx" onClick={() => this.toggleMenu()}>
+                  Using JSX
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/styling' onClick={() => this.toggleMenu()}>
+                  Styling
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/forms' onClick={() => this.toggleMenu()}>
+                  Forms
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/config' onClick={() => this.toggleMenu()}>
+                  Config
                 </stencil-route-link>
               </li>
 
@@ -105,90 +117,133 @@ export class SiteMenu {
           </li>
 
           <li>
-            <h4>Advanced</h4>
+            <h4>Guides</h4>
             <ul>
               <li>
-                <stencil-route-link url="/docs/stencil-config">
-                  Stencil Configuration
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/prerendering">
-                  Prerendering
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/server-side-rendering">
-                  Server Side Rendering
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/service-workers">
-                  Service Workers
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/shadow-dom">
-                  Shadow DOM
-                </stencil-route-link>
-              </li>
-              <li>
-                <stencil-route-link url="/docs/distribution">
+                <stencil-route-link url='/docs/distribution' onClick={() => this.toggleMenu()}>
                   Distribution
                 </stencil-route-link>
               </li>
+
+              {/*<li>
+                <stencil-route-link url='/docs/module-bundling'>
+                  Module Bundling
+                </stencil-route-link>
+              </li>*/}
+
               <li>
-                <stencil-route-link url="/docs/framework-integration">
-                  Framework Integration
+                <stencil-route-link url='/docs/prerendering' onClick={() => this.toggleMenu()}>
+                  Prerendering
                 </stencil-route-link>
               </li>
+
               <li>
-                <stencil-route-link url="/docs/css-variables">
-                  CSS Variables
+                <stencil-route-link url='/docs/server-side-rendering' onClick={() => this.toggleMenu()}>
+                  Server Side Rendering
                 </stencil-route-link>
               </li>
+
               <li>
-                <stencil-route-link url="/docs/context">
+                <stencil-route-link url='/docs/service-workers' onClick={() => this.toggleMenu()}>
+                  Service Workers
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/context' onClick={() => this.toggleMenu()}>
                   Context
                 </stencil-route-link>
               </li>
+
+              {/*<li>
+                <stencil-route-link url='/docs/performance'>
+                  Performance
+                </stencil-route-link>
+              </li>*/}
+
               <li>
-                <stencil-route-link url='/docs/style-guide'>
+                <stencil-route-link url='/docs/unit-testing' onClick={() => this.toggleMenu()}>
+                  Unit Testing
+                </stencil-route-link>
+              </li>
+
+              {/*<li>
+                <stencil-route-link url='/docs/dev-inspector'>
+                  Dev Inspector
+                </stencil-route-link>
+              </li>*/}
+
+              <li>
+                <stencil-route-link url='/docs/router' onClick={() => this.toggleMenu()}>
+                  Router
+                </stencil-route-link>
+              </li>
+
+              {/*
+                The below route will be replaced by the framework integration
+                section once its ready
+              */}
+              <li>
+                <stencil-route-link url="/docs/framework-integration" onClick={() => this.toggleMenu()}>
+                  Framework Integration
+                </stencil-route-link>
+              </li>
+
+              <li>
+                <stencil-route-link url='/docs/style-guide' onClick={() => this.toggleMenu()}>
                   Style Guide
                 </stencil-route-link>
               </li>
             </ul>
           </li>
 
-          <li>
-            <h4>Add-ons</h4>
+          {/*<li>
+            <h4>Framework Integration</h4>
             <ul>
               <li>
-                <stencil-route-link url="/docs/routing">
-                  Router
+                <stencil-route-link url='/docs/framework-integration/vanilla'>
+                  Vanilla
                 </stencil-route-link>
               </li>
               <li>
-                <stencil-route-link url="/docs/sass">
-                  Sass
+                <stencil-route-link url='/docs/framework-integration/angular'>
+                  Angular
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/framework-integration/react'>
+                  React
+                </stencil-route-link>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/framework-integration/vue'>
+                  Vue
                 </stencil-route-link>
               </li>
             </ul>
-          </li>
+          </li>*/}
 
           <li>
             <h4>Community</h4>
             <ul>
+              {/* <li>
+                <stencil-route-link url='/docs/community/how-to-contribute' onClick={() => this.toggleMenu()}>
+                  How to Contribute
+                </stencil-route-link>
+              </li> */}
               <li>
-                <a href="https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM" title="Stencil slack channel">Stencil on Slack</a>
+                <a href='https://github.com/ionic-team/stencil'>Stencil on GitHub</a>
               </li>
               <li>
-                <a href="https://twitter.com/stenciljs">Stencil on Twitter</a>
+                <a href='https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM' title='Stencil slack channel'>Stencil on Slack</a>
               </li>
               <li>
-                <a href="https://github.com/ionic-team/stencil">
-                  Stencil on GitHub
-                </a>
+                <a href='https://twitter.com/stenciljs'>Stencil on Twitter</a>
+              </li>
+              <li>
+                <stencil-route-link url='/docs/add-ons' onClick={() => this.toggleMenu()}>
+                  Add-ons
+                </stencil-route-link>
               </li>
             </ul>
           </li>

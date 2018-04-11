@@ -1,6 +1,5 @@
 import { Component, Element, Prop } from '@stencil/core';
 
-
 @Component({
   tag: 'landing-page',
   styleUrl: 'landing-page.scss'
@@ -48,8 +47,7 @@ export class LandingPage {
     return (
       <div>
 
-        <div onClick={() => { this.closeBackground() }} id="background">
-        </div>
+        <div onClick={() => { this.closeBackground() }} id="background"></div>
 
         {!this.isServer && window.matchMedia('(min-width: 740px)').matches ? <div id="youtube-video" onClick={() => { this.closeBackground() }}>
           <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" width="700" height="450" title="Ionic team at Polymer Summit video" />
@@ -61,17 +59,12 @@ export class LandingPage {
           <h1 id="action-call">The magical, reusable web component compiler</h1>
 
           <section id="buttons">
-
             <stencil-route-link url="/docs/getting-started">
-              <button id="get-started">
-                Get Started
-            </button>
+              <button id="get-started"> Get Started </button>
             </stencil-route-link>
 
             <stencil-route-link url="/docs/intro">
-              <button id="learn-more">
-                Learn More
-          </button>
+              <button id="learn-more"> Learn More </button>
             </stencil-route-link>
 
             <div onClick={() => { this.openYoutube() }} id="launch-video">
@@ -87,30 +80,17 @@ export class LandingPage {
         <section id="three-points">
           <div class="point-card simple">
             <h2>Simple</h2>
-
-            <p>
-              With intentionally small tooling,
-                a tiny API, zero configuration, and
-                TypeScript support, you're set.
-              </p>
+            <p>With intentionally small tooling,a tiny API, zero configuration, and TypeScript support, you're set.</p>
           </div>
 
           <div class="point-card performant">
             <h2>Performant</h2>
-
-            <p>
-              6kb min+gzip runtime, server side rendering,
-                and the raw power of native Web Components.
-              </p>
+            <p>6kb min+gzip runtime, server side rendering, and the raw power of native Web Components.</p>
           </div>
 
           <div class="point-card future-proof">
             <h2>Future proof</h2>
-
-            <p>
-              Build versatile apps and components based 100%
-                on web standards. Break free of Framework Churn.
-              </p>
+            <p>Build versatile apps and components based 100% on web standards. Break free of Framework Churn.</p>
           </div>
         </section>
 
