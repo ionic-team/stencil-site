@@ -1,0 +1,91 @@
+<h1 id="using-stencil-built-web-components-with-frameworks">Using Stencil Built Web Components with Frameworks</h1>
+<p>In this section, we will outline the easiest way to integrate Stencil built web components into applications written using various popular frameworks.</p>
+<h2 id="angular">Angular</h2>
+<p>Using a Stencil built web component collection within an Angular CLI project is a four-step process. We need to:</p>
+<ol>
+<li>Get the component collection(s), for example from NPM</li>
+<li>Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components</li>
+<li>Import the packages in <code>app.module.ts</code> (or some other appropriate place)</li>
+<li>Copy the component collection(s) during the build</li>
+</ol>
+<h3 id="including-the-custom-elements-schema">Including the Custom Elements Schema</h3>
+<p>Including the CUSTOM_ELEMENTS_SCHEMA in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to <code>AppModule</code>:</p>
+<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { BrowserModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;
+<span class="hljs-keyword">import</span> { CUSTOM_ELEMENTS_SCHEMA, NgModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> { FormsModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'test-components/testcomponents'</span>;
+
+<span class="hljs-keyword">import</span> { AppComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app.component'</span>;
+<span class="hljs-keyword">import</span> { SharedModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'./shared/shared.module'</span>;
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule, SharedModule],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> {}</span>
+</code></pre>
+<h3 id="importing-the-component-package-s-">Importing the Component Package(s)</h3>
+<p>A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be imported in your application as such (see full file listing above):</p>
+<pre><code class="lang-ts">...
+<span class="hljs-keyword">import</span> <span class="hljs-string">'test-components/testcomponents'</span>;
+...
+</code></pre>
+<h3 id="copying-the-components">Copying the Components</h3>
+<p>During the build, the components need to be copied to the build output directory. The easiest way to do this is to modify include the collection in the <code>assets</code> array of the <code>.angular-cli.json</code> file.</p>
+<pre><code>      <span class="hljs-string">"assets"</span>: [
+        <span class="hljs-string">"assets"</span>,
+        <span class="hljs-string">"favicon.ico"</span>,
+        { <span class="hljs-string">"glob"</span>: <span class="hljs-string">"**/*"</span>, <span class="hljs-string">"input"</span>: <span class="hljs-string">"../node_modules/test-components/testcomponents"</span>, <span class="hljs-string">"output"</span>: <span class="hljs-string">"./testcomponents"</span> }
+      ],
+</code></pre><h2 id="react">React</h2>
+<p>With an application built using the <code>create-react-app</code> script, there are two options available that could be used to integrate Stencil built component collections.</p>
+<ol>
+<li>Eject the project ~OR~</li>
+<li><a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-the-public-folder">Use the <code>public</code> folder</a></li>
+</ol>
+<p>In this guide, we opt for the latter of the two options. This is a three-step process:</p>
+<ol>
+<li>Get the component collection(s), for example from NPM</li>
+<li>Copy the collection(s) to <code>public/static/js</code></li>
+<li>Import the collection(s) in <code>index.js</code></li>
+</ol>
+<h3 id="copying-the-collection-s-to-public-">Copying the Collection(s) to <code>public</code></h3>
+<p>The React build process will automatically copy anything that is under the <code>public</code> folder to the <code>build</code> folder. The easiest way to copy the component collection(s) is to set up the npm <code>postinstall</code> script to do the copy after the packages are installed for the project.</p>
+<p><strong>Note:</strong> the default React webpack configuration results in webpack bundles being built in <code>build/static/js</code>, so the component collections need to be copied into <code>public/static/js</code>. You may want to pre-create this directory and create a <code>.gitkeep</code> file in it to make sure the path exists.</p>
+<p>The following is a simple example of a <code>postinstall</code> script in the <code>package.json</code> file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your <code>postinstall</code> script.</p>
+<pre><code class="lang-json">  <span class="hljs-string">"scripts"</span>: {
+    <span class="hljs-string">"start"</span>: <span class="hljs-string">"react-scripts start"</span>,
+    <span class="hljs-string">"build"</span>: <span class="hljs-string">"react-scripts build"</span>,
+    <span class="hljs-string">"test"</span>: <span class="hljs-string">"react-scripts test --env=jsdom"</span>,
+    <span class="hljs-string">"eject"</span>: <span class="hljs-string">"react-scripts eject"</span>,
+    <span class="hljs-string">"postinstall"</span>: <span class="hljs-string">"cp -R node_modules/my-components/mycomponents public/static/js"</span>
+  }
+</code></pre>
+<p><strong>Note:</strong> for the above example, you may also want to add a <code>/public/static/js/mycomponents</code> line to your <code>.gitignore</code> file.</p>
+<h3 id="importing-the-component-package-s-">Importing the Component Package(s)</h3>
+<p>A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application by importing it in your <code>index.js</code> file (or some other appropriate file) as such:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">'./index.css'</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>;
+<span class="hljs-keyword">import</span> registerServiceWorker <span class="hljs-keyword">from</span> <span class="hljs-string">'./registerServiceWorker'</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'test-components/testcomponents'</span>;
+
+ReactDOM.render(&lt;App /&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'root'</span>));
+registerServiceWorker();
+</code></pre>
+<p><stencil-route-link url="/docs/router" router="#router" custom="true">
+  <button class="pull-left btn btn--secondary">
+    Back
+  </button>
+</stencil-route-link></p>
+<p><stencil-route-link url="/docs/style-guide" custom="true">
+  <button class='pull-right btn btn--primary'>
+    Next
+  </button>
+</stencil-route-link></p>
