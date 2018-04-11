@@ -5,6 +5,7 @@ import { Component } from '@stencil/core';
   styleUrl: 'resources-page.scss'
 })
 export class ResourcesPage {
+
   LINKS = {
     TEMPLATES: [
       { title: 'Official Stencil App Starter Project', url: 'https://github.com/ionic-team/stencil-app-starter' },
@@ -37,23 +38,23 @@ export class ResourcesPage {
       { title: 'Stencil’de Bileşenler Arası Haberleşme (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9' }
     ]
   }
+  
   constructor() {
     document.title = `Stencil Resources`;
   }
 
   render() {
-    return (
-      <div>
-        <h1>Resources</h1>
-        <h4>Resources to help you get more out of Stencil</h4>
+    return [
+      <h1 class="headline measure-md">Resources to help you get more out of Stencil</h1>,
 
+      <div class="measure-lg">
         <div>
           <h2>Community Articles/Blogs</h2>
           <p>
             Disclaimer: these articles are community-created, and might contain
           inaccurate, or outdated information and code snippets.
         </p>
-          <ul>
+          <ul class="list--unstyled">
             {
               this.LINKS.BLOGS.map(link => {
                 return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
@@ -64,7 +65,7 @@ export class ResourcesPage {
 
         <div>
           <h2>Third-party Components, Templates and Tools</h2>
-          <ul>
+          <ul class="list--unstyled">
             {this.LINKS.COMPONENTS.map(link => {
               return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
             })}
@@ -79,8 +80,8 @@ export class ResourcesPage {
 
         <div>
           <h2>Present Stencil</h2>
-          <div class="slide-wrapper">
-            <lazy-iframe style={{ border: '1px solid #eee' }} src="https://ionic-team.github.io/stencil-present/" title="Present Stencil"></lazy-iframe>
+          <div class="slide-wrapper screenshot">
+            <lazy-iframe src="https://ionic-team.github.io/stencil-present/" title="Present Stencil"></lazy-iframe>
           </div>
           <p>
             A forkable presentation for your next meetup or conference
@@ -92,6 +93,6 @@ export class ResourcesPage {
           <a target="_blank" href="https://github.com/ionic-team/stencil-present/">Source</a>
         </div>
       </div>
-    );
+    ];
   }
 }

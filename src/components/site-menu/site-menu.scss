@@ -1,61 +1,84 @@
+@import '../../global/variables';
+
 site-menu {
-  
-    .star-button {
-      margin-bottom: -2px;
-      width: 120px;
-      margin-top: 26px;
+  flex: 0 0 200px;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  .menu-list li,
+  .menu-list ul  li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-list {
+    margin-top: 0;
+
+    h4:first-of-type {
+      margin-top: 0;
     }
-  
-    h4 {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 0;
+
+    ul {
+      margin: 0px 0 28px;
     }
 
-    #menu-list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      -webkit-padding-start: 0;
-
-      ul {
-        padding: 0;
-        color: #2d2d4c;
-        font-size: 15px;
-        line-height: 2em;
-        margin: 0px 0 28px;
-      }
-
-      li {
-        list-style: none;
-        margin: 0;
-        text-indent: 0;
-        font-size: 14px;
-        font-weight: 400;
-      }
-  
+    li {
+      line-height: 2.2;
+      font-size: 14px;
     }
 
     a {
-      color: #484854;
+      font-weight: 400;
+      color: darken($color-manatee, 10%);
       text-decoration: none;
+      border: 0;
     }
 
-    stencil-route-link a{
-      color: #484854;
-      text-decoration: none;
+    a:not(.link-active) {
+      transition: color 0.2s;
     }
 
-    stencil-route-link .link-active {
+    a:hover {
+      border: 0;
+    }
+
+    .link-active {
       font-weight: bold;
-      color: #5850ff;
-      letter-spacing: -0.013em;
+      color: $color-dodger-blue;
     }
-  
-    stencil-route-link:hover a:not(.link-active) {
-      color: #2f2f35 !important;
-      font-weight: 500;
-      letter-spacing: -0.013em;
+
+    a:hover:not(.link-active) {
+      color: $color-woodsmoke;
     }
-  
   }
+
+  @media screen and (max-width: $breakpoint-md) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $color-woodsmoke;
+    z-index: 999;
+    padding: 20px;
+    width: calc(100vw - 56px);
+    transform: translateX(calc(-100vw + 56px));
+    height: 100%;
+    overflow-y: scroll;
+
+    .menu-list {
+      h4 {
+        color: $color-white;
+      }
+      a {
+        color: rgba($color-white, 0.6);
+      }
+      a:hover:not(.link-active) {
+        color: rgba($color-white, 1);
+      }
+    }
+
+
+  }
+}

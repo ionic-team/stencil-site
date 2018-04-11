@@ -1,45 +1,29 @@
+@import '../../global/variables';
+
 document-component {
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    margin-top: 100px;
+  }
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
   ul {
-    -webkit-padding-start: 0px;
+    padding: 0;
+
     li, code {
       font-size: 16px;
       margin-left: 18px;
     }
   }
 
-  
-  p a {
-    color: #5850ff;
-    text-decoration: none;
-  }
-
-  p code {
-    font-weight: 600;
-    font-family: "Source Code Pro", monospace;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-  }
-
-  #introButton {
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-
-    border: none;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border-radius: 2px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-    outline: none;
-    letter-spacing: 0.04em;
-    transition: all .15s ease;
-    cursor: pointer;
-  }
-
-  #introButton:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.1);
-    transform: translateY(1px);
+  .btn.pull-left,
+  .btn.pull-right {
+    margin: 40px 6px 15px;
   }
 }

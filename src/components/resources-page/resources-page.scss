@@ -1,4 +1,16 @@
 resources-page {
+  .list--unstyled {
+    line-height: 1.4;
+
+    li + li {
+      margin-top: 20px;
+    }
+  }
+
+  h2 + .list--unstyled {
+    margin-top: 22px;
+  }
+
   .slide-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
@@ -13,7 +25,7 @@ resources-page {
       height: 100%;
     }
   }
-  
+
   a {
     text-decoration: none;
   }
