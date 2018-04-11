@@ -64,8 +64,10 @@ export class App {
       <div class="root">
         <div class="container">
           <stencil-router>
-            <stencil-route url="/" component="landing-page" exact={true} />
+            <stencil-route group='landingPage' groupIndex={0} url="/" component="landing-page" exact={true} />
             <stencil-route
+              group='docsPages'
+              groupIndex={1}
               url="/docs/:pageName"
               routeRender={(props: { [key: string]: any }) => {
                 const map = {
@@ -111,9 +113,11 @@ export class App {
                 );
               }}
             />
-            <stencil-route url="/demos" component="demos-page" />
-            <stencil-route url="/pwa" component="pwas-page" />
-            <stencil-route url="/resources" component="resources-page" />
+            <stencil-route group='demosPage' groupIndex={2} url="/demos" component="demos-page" />
+            <stencil-route group='pwasPage' groupIndex={3} url="/pwa" component="pwas-page" />
+            <stencil-route group='resourcesPage' groupIndex={4} url="/resources" component="resources-page" />
+
+            <stencil-route group='notfoundPage' groupIndex={5} component='notfound-page'></stencil-route>
           </stencil-router>
         </div>
         <footer>
@@ -125,7 +129,7 @@ export class App {
                 rel="noopener">
                 <img
                   src="/assets/img/ionic-os-logo.png"
-                  alt="Ionic Open Source Logo"/>
+                  alt="Ionic Open Source Logo" />
               </a>
               <p>
                 Released under <span id="mit">MIT License</span> | Copyright @ 2018

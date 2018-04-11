@@ -261,6 +261,33 @@ declare global {
 
 
 declare global {
+  interface HTMLNotfoundPageElement extends HTMLStencilElement {
+
+  }
+  var HTMLNotfoundPageElement: {
+    prototype: HTMLNotfoundPageElement;
+    new (): HTMLNotfoundPageElement;
+  };
+  interface HTMLElementTagNameMap {
+    'notfound-page': HTMLNotfoundPageElement;
+  }
+  interface ElementTagNameMap {
+    'notfound-page': HTMLNotfoundPageElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'notfound-page': JSXElements.NotfoundPageAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NotfoundPageAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
   interface HTMLPwasPageElement extends HTMLStencilElement {
 
   }
