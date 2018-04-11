@@ -45,7 +45,7 @@ This will give you a project with everything needed to build a fast, modern web 
 
 ### Updating Stencil
 
-To get the latest version of @stenil/core you can run `npm install @stencil/core@latest --save-exact`.
+To get the latest version of @stencil/core you can run `npm install @stencil/core@latest --save-exact`.
 
 <stencil-route-link url="/docs/introduction" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
