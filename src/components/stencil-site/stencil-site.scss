@@ -14,14 +14,8 @@ stencil-route-link:hover {
 }
 
 stencil-site {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 110px 0 0;
-
-  @media screen and (max-width: $breakpoint-md) {
-    padding-top: 90px;
-  }
+  min-height: 100%;
+  display: block;
 }
 
 .no-scroll {
@@ -71,9 +65,15 @@ stencil-site {
 
 .root {
   position: relative;
-  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  min-height: 100.1vh;
+
+  padding: 110px 0 0;
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding-top: 90px;
+  }
 }
 
 footer {
