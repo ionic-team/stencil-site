@@ -27,9 +27,15 @@ import '@stencil/router';
 
 
 declare global {
-  interface HTMLAppBurgerElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface AppBurger {
+
+    }
   }
+
+  interface HTMLAppBurgerElement extends StencilComponents.AppBurger, HTMLStencilElement {}
+
   var HTMLAppBurgerElement: {
     prototype: HTMLAppBurgerElement;
     new (): HTMLAppBurgerElement;
@@ -54,9 +60,15 @@ declare global {
 
 
 declare global {
-  interface HTMLAppIconElement extends HTMLStencilElement {
-    'name': string;
+
+  namespace StencilComponents {
+    interface AppIcon {
+      'name': string;
+    }
   }
+
+  interface HTMLAppIconElement extends StencilComponents.AppIcon, HTMLStencilElement {}
+
   var HTMLAppIconElement: {
     prototype: HTMLAppIconElement;
     new (): HTMLAppIconElement;
@@ -81,9 +93,15 @@ declare global {
 
 
 declare global {
-  interface HTMLAppMarkedElement extends HTMLStencilElement {
-    'doc': string;
+
+  namespace StencilComponents {
+    interface AppMarked {
+      'doc': string;
+    }
   }
+
+  interface HTMLAppMarkedElement extends StencilComponents.AppMarked, HTMLStencilElement {}
+
   var HTMLAppMarkedElement: {
     prototype: HTMLAppMarkedElement;
     new (): HTMLAppMarkedElement;
@@ -108,13 +126,19 @@ declare global {
 
 
 declare global {
-  interface HTMLDemoCardElement extends HTMLStencilElement {
-    'demoUrl': string;
-    'description': string;
-    'imgPath': string;
-    'name': string;
-    'sourceUrl': string;
+
+  namespace StencilComponents {
+    interface DemoCard {
+      'demoUrl': string;
+      'description': string;
+      'imgPath': string;
+      'name': string;
+      'sourceUrl': string;
+    }
   }
+
+  interface HTMLDemoCardElement extends StencilComponents.DemoCard, HTMLStencilElement {}
+
   var HTMLDemoCardElement: {
     prototype: HTMLDemoCardElement;
     new (): HTMLDemoCardElement;
@@ -143,9 +167,15 @@ declare global {
 
 
 declare global {
-  interface HTMLDemosPageElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface DemosPage {
+
+    }
   }
+
+  interface HTMLDemosPageElement extends StencilComponents.DemosPage, HTMLStencilElement {}
+
   var HTMLDemosPageElement: {
     prototype: HTMLDemosPageElement;
     new (): HTMLDemosPageElement;
@@ -170,9 +200,15 @@ declare global {
 
 
 declare global {
-  interface HTMLDocumentComponentElement extends HTMLStencilElement {
-    'pages': string[];
+
+  namespace StencilComponents {
+    interface DocumentComponent {
+      'pages': string[];
+    }
   }
+
+  interface HTMLDocumentComponentElement extends StencilComponents.DocumentComponent, HTMLStencilElement {}
+
   var HTMLDocumentComponentElement: {
     prototype: HTMLDocumentComponentElement;
     new (): HTMLDocumentComponentElement;
@@ -197,9 +233,15 @@ declare global {
 
 
 declare global {
-  interface HTMLLandingPageElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface LandingPage {
+
+    }
   }
+
+  interface HTMLLandingPageElement extends StencilComponents.LandingPage, HTMLStencilElement {}
+
   var HTMLLandingPageElement: {
     prototype: HTMLLandingPageElement;
     new (): HTMLLandingPageElement;
@@ -224,14 +266,20 @@ declare global {
 
 
 declare global {
-  interface HTMLLazyIframeElement extends HTMLStencilElement {
-    'frameBorder': string;
-    'height': string;
-    'name': string;
-    'scrolling': string;
-    'src': string;
-    'width': string;
+
+  namespace StencilComponents {
+    interface LazyIframe {
+      'frameBorder': string;
+      'height': string;
+      'name': string;
+      'scrolling': string;
+      'src': string;
+      'width': string;
+    }
   }
+
+  interface HTMLLazyIframeElement extends StencilComponents.LazyIframe, HTMLStencilElement {}
+
   var HTMLLazyIframeElement: {
     prototype: HTMLLazyIframeElement;
     new (): HTMLLazyIframeElement;
@@ -261,9 +309,15 @@ declare global {
 
 
 declare global {
-  interface HTMLNotfoundPageElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface NotfoundPage {
+
+    }
   }
+
+  interface HTMLNotfoundPageElement extends StencilComponents.NotfoundPage, HTMLStencilElement {}
+
   var HTMLNotfoundPageElement: {
     prototype: HTMLNotfoundPageElement;
     new (): HTMLNotfoundPageElement;
@@ -288,9 +342,15 @@ declare global {
 
 
 declare global {
-  interface HTMLPwasPageElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface PwasPage {
+
+    }
   }
+
+  interface HTMLPwasPageElement extends StencilComponents.PwasPage, HTMLStencilElement {}
+
   var HTMLPwasPageElement: {
     prototype: HTMLPwasPageElement;
     new (): HTMLPwasPageElement;
@@ -315,9 +375,15 @@ declare global {
 
 
 declare global {
-  interface HTMLResourcesPageElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface ResourcesPage {
+
+    }
   }
+
+  interface HTMLResourcesPageElement extends StencilComponents.ResourcesPage, HTMLStencilElement {}
+
   var HTMLResourcesPageElement: {
     prototype: HTMLResourcesPageElement;
     new (): HTMLResourcesPageElement;
@@ -342,9 +408,15 @@ declare global {
 
 
 declare global {
-  interface HTMLSiteHeaderElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface SiteHeader {
+
+    }
   }
+
+  interface HTMLSiteHeaderElement extends StencilComponents.SiteHeader, HTMLStencilElement {}
+
   var HTMLSiteHeaderElement: {
     prototype: HTMLSiteHeaderElement;
     new (): HTMLSiteHeaderElement;
@@ -369,9 +441,15 @@ declare global {
 
 
 declare global {
-  interface HTMLSiteMenuElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface SiteMenu {
+
+    }
   }
+
+  interface HTMLSiteMenuElement extends StencilComponents.SiteMenu, HTMLStencilElement {}
+
   var HTMLSiteMenuElement: {
     prototype: HTMLSiteMenuElement;
     new (): HTMLSiteMenuElement;
@@ -396,9 +474,15 @@ declare global {
 
 
 declare global {
-  interface HTMLStencilSiteElement extends HTMLStencilElement {
 
+  namespace StencilComponents {
+    interface StencilSite {
+
+    }
   }
+
+  interface HTMLStencilSiteElement extends StencilComponents.StencilSite, HTMLStencilElement {}
+
   var HTMLStencilSiteElement: {
     prototype: HTMLStencilSiteElement;
     new (): HTMLStencilSiteElement;

@@ -1,6 +1,8 @@
 import '@stencil/router';
 import { Component, Element, Listen, State } from '@stencil/core';
 
+
+
 @Component({
   tag: 'stencil-site',
   styleUrl: 'stencil-site.scss'
@@ -64,9 +66,9 @@ export class App {
       <div class="root">
         <div class="container">
           <stencil-router>
-            <stencil-route group='landingPage' groupIndex={0} url="/" component="landing-page" exact={true} />
+            <stencil-route group='routes' groupIndex={0} url="/" component="landing-page" exact={true} />
             <stencil-route
-              group='docsPages'
+              group='routes'
               groupIndex={1}
               url="/docs/:pageName"
               routeRender={(props: { [key: string]: any }) => {
@@ -114,9 +116,11 @@ export class App {
                 );
               }}
             />
-            <stencil-route group='demosPage' groupIndex={2} url="/demos" component="demos-page" />
-            <stencil-route group='pwasPage' groupIndex={3} url="/pwa" component="pwas-page" />
-            <stencil-route group='resourcesPage' groupIndex={4} url="/resources" component="resources-page" />
+            <stencil-route group='routes' groupIndex={2} url="/demos" component="demos-page" />
+            <stencil-route group='routes' groupIndex={3} url="/pwa" component="pwas-page" />
+            <stencil-route group='routes' groupIndex={4} url="/resources" component="resources-page" />
+
+            <stencil-route group='routes' groupIndex={5} component='notfound-page'></stencil-route>
           </stencil-router>
         </div>
         <footer>
