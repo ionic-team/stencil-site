@@ -85,7 +85,7 @@ export class App {
                   'templating-jsx': 'reference/templating-and-jsx.html',
                   'styling': 'reference/styling.html',
                   'forms': 'reference/forms.html',
-                  'config': 'reference/compiler.html',
+                  'config': 'reference/config.html',
 
                   'distribution': 'guides/distribution.html',
                   'module-bundling': 'guides/module-bundling.html',
@@ -117,8 +117,6 @@ export class App {
             <stencil-route group='demosPage' groupIndex={2} url="/demos" component="demos-page" />
             <stencil-route group='pwasPage' groupIndex={3} url="/pwa" component="pwas-page" />
             <stencil-route group='resourcesPage' groupIndex={4} url="/resources" component="resources-page" />
-
-            <stencil-route group='notfoundPage' groupIndex={5} component='notfound-page'></stencil-route>
           </stencil-router>
         </div>
         <footer>
