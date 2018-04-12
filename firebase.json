@@ -306,6 +306,33 @@
             "value": "no-cache, no-store, must-revalidate"
           }
         ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</build/app/app.ust2dwrs.js>;rel=preload;as=script,</build/app/28v5vzuv.js>;rel=preload;as=script,</build/app/ub1jzwjo.js>;rel=preload;as=script,</build/app/07fml2rr.js>;rel=preload;as=script,</build/app/qhdiwall.js>;rel=preload;as=script,</build/app/vpwl4kzc.js>;rel=preload;as=script"
+          }
+        ]
+      },
+      {
+        "source": "/build/app/**",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "public, max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "/sw.js",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       }
     ]
   }
