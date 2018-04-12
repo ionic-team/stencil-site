@@ -4,19 +4,25 @@
 <p>The easiest way to build and distribute web components with Stencil is by using our <a href="https://github.com/ionic-team/stencil-component-starter">stencil-component-starter</a>. This starter includes all of the config and package.json changes that are discussed below by default with instructions in the <a href="https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md">readme</a>.</p>
 <h3 id="distribution-config">Distribution Config</h3>
 <p>Configuring Stencil for distribution is easy. Simply set the following config options in the <code>stencil.config.js</code> file:</p>
-<pre><code><span class="hljs-string">exports.config</span> <span class="hljs-string">=</span> <span class="hljs-string">{</span>
-<span class="hljs-attr">  namespace:</span> <span class="hljs-string">'myname'</span><span class="hljs-string">,</span>
-<span class="hljs-attr">  generateDistribution:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
-<span class="hljs-attr">  generateWWW:</span> <span class="hljs-literal">false</span><span class="hljs-string">,</span>
-  <span class="hljs-string">...</span>
-<span class="hljs-string">};</span>
+<pre><code>exports.config = {
+  namespace: <span class="hljs-symbol">'mynam</span>e',
+  outputTargets: [
+    {
+      <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">'dis</span>t'
+    },
+    {
+      <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">'ww</span>w'
+    }
+  ]
+  ...
+};
 </code></pre><p><stencil-route-link url="/docs/stencil-config" router="#router" custom="true">
   Learn more about these config options here.
 </stencil-route-link></p>
 <p>You also need to add the following to your <code>package.json</code>:</p>
 <pre><code>{
   <span class="hljs-attr">"main"</span>: <span class="hljs-string">"dist/myname.js"</span>,
-  <span class="hljs-attr">"types"</span>: <span class="hljs-string">"dist/types/components.d.ts"</span>,
+  <span class="hljs-attr">"types"</span>: <span class="hljs-string">"dist/types/index.d.ts"</span>,
   <span class="hljs-attr">"collection"</span>: <span class="hljs-string">"dist/collection/collection-manifest.json"</span>,
   <span class="hljs-attr">"files"</span>: [
     <span class="hljs-string">"dist/"</span>
@@ -41,7 +47,6 @@
 <h3 id="in-a-stencil-app-starter-app">In a stencil-app-starter app</h3>
 <ul>
 <li>Run <code>npm install my-name --save</code></li>
-<li>Add <code>{ name: &#39;my-name&#39; }</code> to your <a href="https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5">collections</a></li>
 <li>Then you can use the element anywhere in your template, JSX, html etc</li>
 </ul>
 <p><stencil-route-link url="/docs/config" router="#router" custom="true">

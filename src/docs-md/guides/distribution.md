@@ -15,8 +15,14 @@ Configuring Stencil for distribution is easy. Simply set the following config op
 ```
 exports.config = {
   namespace: 'myname',
-  generateDistribution: true,
-  generateWWW: false,
+  outputTargets: [
+    {
+      type: 'dist'
+    },
+    {
+      type: 'www'
+    }
+  ]
   ...
 };
 ```
@@ -31,7 +37,7 @@ You also need to add the following to your `package.json`:
 ```
 {
   "main": "dist/myname.js",
-  "types": "dist/types/components.d.ts",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
@@ -59,7 +65,6 @@ The first step for all three of these strategies is to
 
 ### In a stencil-app-starter app
 - Run `npm install my-name --save`
-- Add `{ name: 'my-name' }` to your [collections](https://github.com/ionic-team/stencil-app-starter/blob/master/stencil.config.js#L5)
 - Then you can use the element anywhere in your template, JSX, html etc
 
 
