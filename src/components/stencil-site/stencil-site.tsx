@@ -120,7 +120,7 @@ export class App {
             <stencil-route group='routes' groupIndex={3} url="/pwa" component="pwas-page" />
             <stencil-route group='routes' groupIndex={4} url="/resources" component="resources-page" />
 
-            <stencil-route group='routes' groupIndex={5} component='notfound-page'></stencil-route>
+            {/*<stencil-route group='routes' groupIndex={5} component='notfound-page'></stencil-route>*/}
           </stencil-router>
         </div>
         <footer>
