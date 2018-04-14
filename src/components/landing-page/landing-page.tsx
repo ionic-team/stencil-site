@@ -63,7 +63,7 @@ export class LandingPage {
               <button id="get-started"> Get Started </button>
             </stencil-route-link>
 
-            <stencil-route-link url="/docs/intro">
+            <stencil-route-link url="/docs/introduction">
               <button id="learn-more"> Learn More </button>
             </stencil-route-link>
 
