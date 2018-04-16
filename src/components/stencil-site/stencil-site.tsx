@@ -1,7 +1,6 @@
 import '@stencil/router';
 import { Component, Element, Listen, State } from '@stencil/core';
-
-
+import { RouterSwitch } from '@stencil/router';
 
 @Component({
   tag: 'stencil-site',
@@ -66,61 +65,61 @@ export class App {
       <div class="root">
         <div class="container">
           <stencil-router>
-            <stencil-route group='routes' groupIndex={0} url="/" component="landing-page" exact={true} />
-            <stencil-route
-              group='routes'
-              groupIndex={1}
-              url="/docs/:pageName"
-              routeRender={(props: { [key: string]: any }) => {
-                const map = {
-                  'introduction': 'introduction/why-stencil.html',
-                  'getting-started': 'introduction/getting-started.html',
-                  'my-first-component': 'introduction/my-first-component.html',
-                  'reusable-components': 'introduction/reusable-components.html',
-                  'building-an-app': 'introduction/building-an-app.html',
-                  'faq': 'introduction/faq.html',
+            <RouterSwitch>
+              <stencil-route group='routes' component="landing-page" exact={true} />
+              <stencil-route
+                url="/docs/:pageName"
+                routeRender={(props: { [key: string]: any }) => {
+                  const map = {
+                    'introduction': 'introduction/why-stencil.html',
+                    'getting-started': 'introduction/getting-started.html',
+                    'my-first-component': 'introduction/my-first-component.html',
+                    'reusable-components': 'introduction/reusable-components.html',
+                    'building-an-app': 'introduction/building-an-app.html',
+                    'faq': 'introduction/faq.html',
 
-                  'component-lifecycle': 'reference/component-lifecycle.html',
-                  'decorators': 'reference/decorators.html',
-                  'events': 'reference/events.html',
-                  'reactive-data': 'reference/reactive-data.html',
-                  'templating-jsx': 'reference/templating-and-jsx.html',
-                  'styling': 'reference/styling.html',
-                  'forms': 'reference/forms.html',
-                  'config': 'reference/config.html',
+                    'component-lifecycle': 'reference/component-lifecycle.html',
+                    'decorators': 'reference/decorators.html',
+                    'events': 'reference/events.html',
+                    'reactive-data': 'reference/reactive-data.html',
+                    'templating-jsx': 'reference/templating-and-jsx.html',
+                    'styling': 'reference/styling.html',
+                    'forms': 'reference/forms.html',
+                    'config': 'reference/config.html',
 
-                  'distribution': 'guides/distribution.html',
-                  'module-bundling': 'guides/module-bundling.html',
-                  'prerendering': 'guides/prerendering.html',
-                  'server-side-rendering': 'guides/server-side-rendering.html',
-                  'service-workers': 'guides/service-workers.html',
-                  'context': 'guides/context.html',
-                  'performance': 'guides/performance.html',
-                  'unit-testing': 'guides/unit-testing.html',
-                  'dev-inspector': 'guides/service-worker.html',
-                  'router': 'guides/router.html',
-                  'framework-integration': 'guides/framework-integration.html',
-                  'style-guide': 'guides/style-guide.html',
-                  'handling-arrays': 'guides/handling-arrays.html',
+                    'distribution': 'guides/distribution.html',
+                    'module-bundling': 'guides/module-bundling.html',
+                    'prerendering': 'guides/prerendering.html',
+                    'server-side-rendering': 'guides/server-side-rendering.html',
+                    'service-workers': 'guides/service-workers.html',
+                    'context': 'guides/context.html',
+                    'performance': 'guides/performance.html',
+                    'unit-testing': 'guides/unit-testing.html',
+                    'dev-inspector': 'guides/service-worker.html',
+                    'router': 'guides/router.html',
+                    'framework-integration': 'guides/framework-integration.html',
+                    'style-guide': 'guides/style-guide.html',
+                    'handling-arrays': 'guides/handling-arrays.html',
 
-                  'angular': 'framework-integration/angular.html',
-                  'react': 'framework-integration/react.html',
+                    'angular': 'framework-integration/angular.html',
+                    'react': 'framework-integration/react.html',
 
-                  'contributing': 'community/how-to-contribute.html',
-                  'add-ons': 'community/add-ons.html'
-                };
-                return (
-                  <document-component
-                    pages={[map[props.match.params.pageName]]}
-                  />
-                );
-              }}
-            />
-            <stencil-route group='routes' groupIndex={2} url="/demos" component="demos-page" />
-            <stencil-route group='routes' groupIndex={3} url="/pwa" component="pwas-page" />
-            <stencil-route group='routes' groupIndex={4} url="/resources" component="resources-page" />
+                    'contributing': 'community/how-to-contribute.html',
+                    'add-ons': 'community/add-ons.html'
+                  };
+                  return (
+                    <document-component
+                      pages={[map[props.match.params.pageName]]}
+                    />
+                  );
+                }}
+              />
+              <stencil-route url="/demos" component="demos-page" />
+              <stencil-route url="/pwa" component="pwas-page" />
+              <stencil-route url="/resources" component="resources-page" />
 
-            {/*<stencil-route group='routes' groupIndex={5} component='notfound-page'></stencil-route>*/}
+              <stencil-route component='notfound-page'></stencil-route>
+            </RouterSwitch>
           </stencil-router>
         </div>
         <footer>
