@@ -45,7 +45,7 @@ const stencil = require('@stencil/core/server');
 const config = stencil.loadConfig(__dirname);
 
 // create the renderer
-const renderer = stencil.createRenderer(config);
+const renderer = new stencil.Renderer(config);
 
 let srcIndexHtml: string;
 try {
@@ -59,7 +59,7 @@ try {
 return function(req: any, res: any) {
 
   // hydrate level 4, please!
-  renderer.hydrateToString({
+  renderer.hydrate({
     html: srcIndexHtml,
     req: req
   }).then(results => {
