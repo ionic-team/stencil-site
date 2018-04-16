@@ -44,6 +44,9 @@ const stencil = require('@stencil/core/server');
 // load the config
 const config = stencil.loadConfig(__dirname);
 
+// ensure prerender flag is set to config
+config.flags = Object.assign({}, config.flags, { prerender: true });
+
 // create the renderer
 const renderer = new stencil.Renderer(config);
 
