@@ -21,7 +21,7 @@ And thats it! You should now have an `sw.js` file in your `www` folder and the c
 
 ### Config
 
-Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Here is the default config Stencil uses:
+Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://Workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Here is the default config Stencil uses:
 
 ```
 {
@@ -76,7 +76,7 @@ exports.config = {
 - Now we need to include some boilerplate code in our custom service worker:
 
 ```
-importScripts('workbox-v3.1.0/workbox-sw.js');
+importScripts('workbox-v3.1.0/Workbox-sw.js');
 
 self.workbox.skipWaiting();
 self.workbox.clientsClaim();
@@ -85,7 +85,7 @@ self.workbox.clientsClaim();
 
 self.workbox.precaching.precacheAndRoute([]);
 ```
-This code imports the workbox library, creates a new instance of the service worker and tells workbox where to insert the pre-cache array.
+This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.
 
 
 
