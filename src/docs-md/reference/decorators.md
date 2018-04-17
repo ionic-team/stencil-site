@@ -14,7 +14,7 @@ Stencil makes it easy to build rich, interactive components. Let's start with th
 
 Each Stencil Component must be decorated with an `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide a HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
 
-Use a relative url to the `.scss` file for the styleUrl(s).
+Use a relative url to the `.css` file for the styleUrl(s).
 
 ```typescript
 import { Component } from '@stencil/core';
@@ -27,6 +27,8 @@ export class TodoList {
   ...
 }
 ```
+
+> Note, you can also link directly to `.scss` files
 
 The component decorator also has a `host` option. This allows you to set CSS classes and attributes on the component you are building.
 
@@ -125,7 +127,7 @@ export class NameElement {
 }
 ```
 
-To do validation of a prop, you can use the `Watch` decorator:
+To do validation of a prop, you can use the [watch](#watch) decorator:
 
 ```typescript
 import { Prop, Watch } from '@stencil/core';
@@ -156,7 +158,7 @@ In some cases it may be useful to keep a property in sync with an attribute. In 
 <a name="watch"></a>
 ## Watch Decorator
 
-When a user updates a property, `Watch` will fire what ever method they're attached to.
+When a user updates a property, `Watch` will fire what ever method it's attached to and pass that methd the new value of the prop along with the old value.
 
 
 ```typescript
@@ -174,7 +176,7 @@ export class LoadingIndicator {
 
 # Managing Component State
 
-The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify the property from outside the component, but the component can modify it how ever it sees fit. Any changes to a `@State()` property will cause the components render function to be called again.
+The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it how ever it sees fit. Any changes to a `@State()` property will cause the components render function to be called again.
 
 
 ```typescript
@@ -238,49 +240,6 @@ export class TodoList {
   }
 }
 ```
-
-
-## Change Detection
-
-Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the `@State` decorator to update the local state and trigger a re-render.
-
-The example below WILL NOT trigger a re-render:
-
-```typescript
-import { State } from '@stencil/core';
-
-...
-export class TodoList {
-  @State() completedTodos: Todo[];
-
-  completeTodo(todo: Todo) {
-    this.completedTodos.push(todo);
-  }
-}
-```
-
-In the above example, we are changing the contents of the `completedTodos` array.
-A re-render is not performed because Stencil does not deeply watch items for change.
-
-In order to trigger a re-render, the value needs to be set to a new array:
-
-```typescript
-import { State } from '@stencil/core';
-
-...
-export class TodoList {
-  @State() completedTodos: Todo[];
-
-  completeTodo(todo: Todo) {
-    this.completedTodos = [...this.completedTodos, todo];
-  }
-}
-```
-
-In the above example, we set `this.completedTodos` to a new array made up of the existing `completedTodos` and our new `todo`.
-
-This calls the `completedTodos` setter, which triggers the re-render.
-
 
 ## Embedding or Nesting Components
 
