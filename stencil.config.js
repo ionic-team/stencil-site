@@ -7,12 +7,7 @@ exports.config = {
   outputTarget: [
     {
       type: 'www',
-      serviceWorker: {
-        swSrc: 'src/sw.js',
-        globPatterns: [
-          '**/*.{html,js,css,json,ico,png}'
-        ]
-      }
+      serviceWorker: false
     }
   ],
   globalStyle: 'src/global/style.scss',
