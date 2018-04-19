@@ -1,53 +1,55 @@
 <h1 id="server-side-rendering">Server Side Rendering</h1>
-<p>One of the benefits of Stencil is that it enables efficient Server Side Rendering (SSR) easily, without the need to run an expensive headless browser. Additionally, before deciding to render each page on-demand on a server, it may best to look into using <a href="/docs/prerendering">prerendering</a> instead.</p>
-<p>Stencil supports Node.js servers out of the box, and the SSR rendering engine is baked right into the <code>@stencil/core</code> package. To see a full example, please take a look at the <a href="https://github.com/ionic-team/stencil-ssr-starter">Stencil SSR Starter</a>.</p>
-<h2 id="stencil-ssr-express-middleware">Stencil SSR Express Middleware</h2>
-<p>Easiest way to run SSR is to use the Express Middleware:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> express = require(<span class="hljs-string">'express'</span>);
-<span class="hljs-keyword">const</span> stencil = require(<span class="hljs-string">'@stencil/core/server'</span>);
+<p>One of the benefits of Stencil is that it also enables efficient Server Side Rendering (SSR) easily. However, before deciding to render each page on-demand on a server, it may be best to look into using <a href="/docs/prerendering">prerendering</a> instead. In most cases prerendering is preferred since it doesn&#39;t add to the server&#39;s workload, but rather just responds with &quot;pre-rendered&quot; static content.</p>
+<p>Server-side rendering is useful for dynamic data, such as live product data or user information. With <a href="/docs/prerendering">prerendering</a>, apps are serving a pre-built version of the page, which may not work for pages that need the latest data. However, every webapp and webpage&#39;s use-case is different, which is why both prerendering and SSR are available using the same codebase.</p>
+<p>Stencil supports <a href="https://nodejs.org/">Node.js</a> servers out of the box, and the SSR rendering engine is baked right into the <code>@stencil/core</code> package. To see a full example, please take a look at the <a href="https://github.com/ionic-team/stencil-ssr-starter">Stencil SSR Starter</a>.</p>
+<h2 id="stencil-ssr-express-middleware-server">Stencil SSR Express Middleware Server</h2>
+<p>The easiest way to run server-side rendering on a Node.js server is to use the <a href="https://expressjs.com/en/guide/using-middleware.html">Express middleware</a> already included within <code>@stencil/core/server</code>. By using the middleware, it&#39;s easy to hook into an <a href="https://expressjs.com/">Express.js</a> app without getting into the low-level details of setting up a server and responding with data.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">const</span> stencil = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/core/server'</span>);
 
 <span class="hljs-comment">// create the express app</span>
 <span class="hljs-keyword">const</span> app = express();
 
-<span class="hljs-comment">// set which port express it will be using</span>
+<span class="hljs-comment">// load the stencil config and</span>
+<span class="hljs-comment">// express serve-side rendering middleware</span>
+<span class="hljs-keyword">const</span> { wwwDir, logger } = stencil.initApp({
+  app: app,
+  configPath: __dirname
+});
+
+<span class="hljs-comment">// serve static files</span>
+app.use(express.static(wwwDir));
+
+<span class="hljs-comment">// set which port express it will be listening on</span>
 <span class="hljs-keyword">const</span> port = <span class="hljs-number">3030</span>;
 
-<span class="hljs-comment">// load the stencil config</span>
-<span class="hljs-keyword">const</span> <span class="hljs-built_in">config</span> = stencil.loadConfig(__dirname);
-
-<span class="hljs-comment">// serve-side render html pages</span>
-app.use(stencil.ssrPathRegex, stencil.ssrMiddleware({ <span class="hljs-built_in">config</span> }));
-
-<span class="hljs-comment">// serve all static files from www directory</span>
-app.use(express.<span class="hljs-keyword">static</span>(<span class="hljs-built_in">config</span>.wwwDir));
-
-<span class="hljs-comment">// start the server</span>
-app.<span class="hljs-built_in">listen</span>(port, () =&gt; <span class="hljs-built_in">config</span>.logger.info(`server started at http:<span class="hljs-comment">//localhost:${ port }`));</span>
+<span class="hljs-comment">// start listening and handling requests</span>
+app.listen(port, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> logger.info(<span class="hljs-string">`server-side rendering listening on port: <span class="hljs-subst">${ port }</span>`</span>));
 </code></pre>
-<h2 id="node-js-example">Node.js Example</h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-<span class="hljs-keyword">const</span> stencil = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/core/server'</span>);
+<h2 id="node-js-http-ssr-server">Node.js HTTP SSR Server</h2>
+<p>The Express middleware option shown above is the easiest way to get up and running, but the same API which the middleware uses can also be used directly. Below is an example of running an overly simplified <a href="https://nodejs.org/api/http.html">Node HTTP server</a> using the low-level server-side rendering API.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
+<span class="hljs-keyword">const</span> stencil = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../server/index.js'</span>);
 
 <span class="hljs-comment">// load the config</span>
 <span class="hljs-keyword">const</span> config = stencil.loadConfig(__dirname);
 
+<span class="hljs-comment">// ensure ssr flag is set on the config</span>
+config.flags = { ssr: <span class="hljs-literal">true</span> };
+
 <span class="hljs-comment">// create the renderer</span>
-<span class="hljs-keyword">const</span> renderer = stencil.createRenderer(config);
+<span class="hljs-keyword">const</span> renderer = <span class="hljs-keyword">new</span> stencil.Renderer(config);
 
-<span class="hljs-keyword">let</span> srcIndexHtml: <span class="hljs-built_in">string</span>;
-<span class="hljs-keyword">try</span> {
-  <span class="hljs-comment">// load the source index.html</span>
-  srcIndexHtml = fs.readFileSync(config.srcIndexHtml, <span class="hljs-string">'utf-8'</span>);
+<span class="hljs-comment">// load the source index.html</span>
+<span class="hljs-keyword">const</span> srcIndexHtml = fs.readFileSync(config.srcIndexHtml, <span class="hljs-string">'utf-8'</span>);
 
-} <span class="hljs-keyword">catch</span> (e) {
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">`error loading srcIndexHtml: <span class="hljs-subst">${e}</span>`</span>);
-}
-
-<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req: <span class="hljs-built_in">any</span>, res: <span class="hljs-built_in">any</span></span>) </span>{
-
-  <span class="hljs-comment">// hydrate level 4, please!</span>
-  renderer.hydrateToString({
+<span class="hljs-comment">// create a request handler</span>
+<span class="hljs-comment">// this is an overly simplified example</span>
+<span class="hljs-comment">// in a real-world server there would be route handlers</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">requestHandler</span>(<span class="hljs-params">req, res</span>) </span>{
+  <span class="hljs-comment">// hydrate!!</span>
+  renderer.hydrate({
     html: srcIndexHtml,
     req: req
   }).then(<span class="hljs-function"><span class="hljs-params">results</span> =&gt;</span> {
@@ -58,9 +60,18 @@ app.<span class="hljs-built_in">listen</span>(port, () =&gt; <span class="hljs-b
     });
 
     <span class="hljs-comment">// respond with the hydrated html</span>
-    res.send(results.html);
+    res.end(results.html);
   });
-};
+}
+
+<span class="hljs-comment">// create the server</span>
+<span class="hljs-keyword">const</span> server = http.createServer(requestHandler);
+
+<span class="hljs-comment">// set which port the server will be listening on</span>
+<span class="hljs-keyword">const</span> port = <span class="hljs-number">3030</span>;
+
+<span class="hljs-comment">// start listening and handling requests</span>
+server.listen(port, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`server-side rendering listening on port: <span class="hljs-subst">${ port }</span>`</span>));
 </code></pre>
 <p><stencil-route-link url="/docs/prerendering" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

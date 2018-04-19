@@ -11,7 +11,7 @@
 <p><a name="component"></a></p>
 <h2 id="component-decorator">Component Decorator</h2>
 <p>Each Stencil Component must be decorated with an <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide a HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
-<p>Use a relative url to the <code>.scss</code> file for the styleUrl(s).</p>
+<p>Use a relative url to the <code>.css</code> file for the styleUrl(s).</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
 @Component({
@@ -22,6 +22,9 @@
   ...
 }
 </code></pre>
+<blockquote>
+<p>Note, you can also link directly to <code>.scss</code> files</p>
+</blockquote>
 <p>The component decorator also has a <code>host</code> option. This allows you to set CSS classes and attributes on the component you are building.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">'@stencil/core'</span>;
 
@@ -87,7 +90,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   @Prop() <span class="hljs-name">name</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
 }
 </code></pre>
-<p>To do validation of a prop, you can use the <code>Watch</code> decorator:</p>
+<p>To do validation of a prop, you can use the <a href="#watch">watch</a> decorator:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 ...
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
@@ -110,7 +113,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 </code></pre>
 <p><a name="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
-<p>When a user updates a property, <code>Watch</code> will fire what ever method they&#39;re attached to.</p>
+<p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that methd the new value of the prop along with the old value.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } from <span class="hljs-string">'@stencil/core'</span>;
 
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoadingIndicator</span> {</span>
@@ -123,7 +126,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <h1 id="managing-component-state">Managing Component State</h1>
-<p>The <code>@State()</code> decorator can be used to manage internal data for a component. This means that a user cannot modify the property from outside the component, but the component can modify it how ever it sees fit. Any changes to a <code>@State()</code> property will cause the components render function to be called again.</p>
+<p>The <code>@State()</code> decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it how ever it sees fit. Any changes to a <code>@State()</code> property will cause the components render function to be called again.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } from <span class="hljs-string">'@stencil/core'</span>;
 
 ...
@@ -172,37 +175,7 @@ todoListElement.showPrompt();
     <span class="hljs-keyword">this</span>.todoListEl.classList.add(<span class="hljs-string">'active'</span>);
   }
 }
-</code></pre><h2 id="change-detection">Change Detection</h2>
-<p>Stencil does not actively perform change detection. In order to trigger an efficient re-render, use the <code>@State</code> decorator to update the local state and trigger a re-render.</p>
-<p>The example below WILL NOT trigger a re-render:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-
-...
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
-  @State() completedTodos: Todo[];
-
-  completeTodo(todo: Todo) {
-    <span class="hljs-keyword">this</span>.completedTodos.push(todo);
-  }
-}
-</code></pre>
-<p>In the above example, we are changing the contents of the <code>completedTodos</code> array.
-A re-render is not performed because Stencil does not deeply watch items for change.</p>
-<p>In order to trigger a re-render, the value needs to be set to a new array:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } from <span class="hljs-string">'@stencil/core'</span>;
-
-...
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
-  <span class="hljs-meta">@State()</span> completedTodos: Todo[];
-
-  completeTodo(todo: Todo) {
-    <span class="hljs-keyword">this</span>.completedTodos = [...<span class="hljs-keyword">this</span>.completedTodos, todo];
-  }
-}
-</code></pre>
-<p>In the above example, we set <code>this.completedTodos</code> to a new array made up of the existing <code>completedTodos</code> and our new <code>todo</code>.</p>
-<p>This calls the <code>completedTodos</code> setter, which triggers the re-render.</p>
-<h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
+</code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
 <p>Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
 <p>Here&#39;s an example of using a component within another component:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;

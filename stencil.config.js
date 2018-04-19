@@ -4,10 +4,15 @@ exports.config = {
   plugins: [
     sass()
   ],
-  outputTarget: [
+  outputTargets: [
     {
       type: 'www',
-      serviceWorker: false
+      serviceWorker: {
+        swSrc: 'src/sw.js',
+        globPatterns: [
+          '**/*.{html,js,css,json,ico,png}'
+        ]
+      }
     }
   ],
   globalStyle: 'src/global/style.scss',
