@@ -13,12 +13,12 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@stencil/core": "^0.7.24",
-    "@stencil/router": "0.0.29-10",
+    "@stencil/core": "^0.7.26",
     "@stencil/sass": "0.0.3"
   },
   "devDependencies": {
     "@stencil/dev-server": "0.0.19-0",
+    "@stencil/router": "0.0.29-12",
     "@stencil/utils": "latest",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
