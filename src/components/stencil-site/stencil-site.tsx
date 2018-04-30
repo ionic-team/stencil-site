@@ -65,7 +65,7 @@ export class App {
       <div class="root">
         <div class="container">
           <stencil-router>
-            <RouterSwitch>
+            <RouterSwitch scrollTopOffset={0}>
               <stencil-route component="landing-page" exact={true} />
               <stencil-route
                 url="/docs/:pageName"
