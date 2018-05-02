@@ -79,6 +79,17 @@
 ReactDOM.render(&lt;App /&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'root'</span>));
 registerServiceWorker();
 </code></pre>
+<h2 id="ember">Ember</h2>
+<p>Working with Stencil components in Ember is really easy thanks to the <code>ember-cli-stencil</code> addon. It handles:</p>
+<ul>
+<li>Importing the required files into your <code>vendor.js</code></li>
+<li>Copying the component definitions into your <code>assets</code> directory</li>
+<li>Optionally generating a wrapper component for improved compatibility with older Ember versions</li>
+</ul>
+<p>Start off by installing the Ember addon</p>
+<pre><code class="lang-bash">ember install ember-<span class="hljs-keyword">cli</span>-stencil
+</code></pre>
+<p>Now, when you build your application, Stencil collections in your dependencies will automatically be discovered and pulled into your application. You can just start using the custom elements in your <code>hbs</code> files with no further work needed. For more information, check out the <a href="https://github.com/alexlafroscia/ember-cli-stencil"><code>ember-cli-stencil</code> documentation</a>.</p>
 <p><stencil-route-link url="/docs/router" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
