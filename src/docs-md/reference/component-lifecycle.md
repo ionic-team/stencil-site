@@ -125,16 +125,16 @@ componentWillLoad() {
 
 ## Example
 
-This simple example starts a timer as soon as the component loads, and updates the curent time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
+This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
 
 ```jsx
 import { Component, State } from '@stencil/core';
 
 
 @Component({
-  tag: 'custom-timer'
+  tag: 'custom-clock'
 })
-export class CustomTimer {
+export class CustomClock {
 
   timer: number;
 
@@ -147,7 +147,7 @@ export class CustomTimer {
   }
 
   componentDidUnload() {
-    clearInterval(this.timer);
+    window.clearInterval(this.timer);
   }
 
   render() {
