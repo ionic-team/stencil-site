@@ -10,7 +10,7 @@
 <li>Copy the collection(s) to <code>public/static/js</code></li>
 <li>Import the collection(s) in <code>index.js</code></li>
 </ol>
-<h2 id="copying-the-collection-s-to-public-">Copying the Collection(s) to <code>public</code></h2>
+<h2 id="copying-the-collection-s-to-public">Copying the Collection(s) to <code>public</code></h2>
 <p>The React build process will automatically copy anything that is under the <code>public</code> folder to the <code>build</code> folder. The easiest way to copy the component collection(s) is to set up the npm <code>postinstall</code> script to do the copy after the packages are installed for the project.</p>
 <p><strong>Note:</strong> the default React webpack configuration results in webpack bundles being built in <code>build/static/js</code>, so the component collections need to be copied into <code>public/static/js</code>. You may want to pre-create this directory and create a <code>.gitkeep</code> file in it to make sure the path exists.</p>
 <p>The following is a simple example of a <code>postinstall</code> script in the <code>package.json</code> file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your <code>postinstall</code> script.</p>

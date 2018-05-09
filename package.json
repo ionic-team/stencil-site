@@ -5,7 +5,7 @@
   "description": "Stencil Site",
   "scripts": {
     "docs": "gulp",
-    "build": "gulp && stencil build --prerender && npm run host-to-firebase",
+    "build": "gulp && stencil build && npm run host-to-firebase",
     "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "deploy": "npm run build && firebase deploy",
     "host-to-firebase": "node scripts/host-to-firebase.js",
@@ -13,12 +13,12 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@stencil/core": "^0.8.0",
+    "@stencil/core": "^0.8.1",
     "@stencil/sass": "0.0.3"
   },
   "devDependencies": {
     "@stencil/dev-server": "0.0.19-0",
-    "@stencil/router": "^0.1.5",
+    "@stencil/router": "^0.1.6",
     "@stencil/utils": "latest",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
