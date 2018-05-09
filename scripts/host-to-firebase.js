@@ -11,6 +11,7 @@ fs.readFile('www/host.config.json', 'utf-8', (err, data) => {
         console.log(`Something went wrong: ${err}`);
       } else {
         const firebaseData = JSON.parse(data);
+        firebaseData.hosting.headers = [];
         headerData.map((entry) => {
 
           const newHeaderObject = {
