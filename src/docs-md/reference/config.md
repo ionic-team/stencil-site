@@ -126,8 +126,6 @@ hashedFileNameLength: 8
 
 The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
 
-In the copy config below, it will copy the entire directory from `src/docs-content` over to `www/docs-content`.
-
 ```js
   namespace: "Ionic"
 ```
