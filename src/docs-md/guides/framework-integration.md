@@ -74,7 +74,7 @@ In this guide, we opt for the latter of the two options. This is a three-step pr
 
 The React build process will automatically copy anything that is under the `public` folder to the `build` folder. The easiest way to copy the component collection(s) is to set up the npm `postinstall` script to do the copy after the packages are installed for the project.
 
-**Note:** the default React webpack configuration results in webpack bundles being built in `build/static/js`, so the component collections need to be copied into `public/static/js`. You may want to pre-create this directory and create a `.gitkeep` file in it to make sure the path exists.
+> The default React webpack configuration results in webpack bundles being built in `build/static/js`, so the component collections need to be copied into `public/static/js`. You may want to pre-create this directory and create a `.gitkeep` file in it to make sure the path exists.
 
 The following is a simple example of a `postinstall` script in the `package.json` file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your `postinstall` script.
 
@@ -88,7 +88,7 @@ The following is a simple example of a `postinstall` script in the `package.json
   }
 ```
 
-**Note:** for the above example, you may also want to add a `/public/static/js/mycomponents` line to your `.gitignore` file.
+> For the above example, you may also want to add a `/public/static/js/mycomponents` line to your `.gitignore` file.
 
 ### Importing the Component Package(s)
 

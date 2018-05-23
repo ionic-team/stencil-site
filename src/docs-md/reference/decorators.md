@@ -28,7 +28,7 @@ export class TodoList {
 }
 ```
 
-> Note, you can also link directly to `.scss` files
+> You can also link directly to `.scss` files
 
 The component decorator also has a `host` option. This allows you to set CSS classes and attributes on the component you are building.
 
@@ -77,7 +77,7 @@ logColor() {
 
 Externally, Props are set on the element.
 
-**Note:** in HTML, you must set attributes using dash-case:
+> In HTML, you must set attributes using dash-case:
 
 ```html
 <todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
