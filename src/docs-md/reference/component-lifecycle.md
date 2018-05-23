@@ -2,7 +2,7 @@
 
 Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and unload. These methods can be added to a component to hook into operations at the right time.
 
-Simply implement one of the following methods within a component class and Stencil will automatically call them in the right order:
+Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
 ```jsx
 import { Component } from '@stencil/core';

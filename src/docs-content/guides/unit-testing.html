@@ -97,7 +97,7 @@ and print a list of each part of the name. We could write a rendering test for t
 </code></pre>
 <p>Anything that you can use on an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> you can use in the tests.</p>
 <h2 id="component-method-tests">Component Method Tests</h2>
-<p>To test the component&#39;s methods, simply instantiate an instance of the component and call the methods.</p>
+<p>To test the component&#39;s methods, instantiate an instance of the component and call the methods.</p>
 <pre><code class="lang-ts">it('should return an empty string if there is no first or last name', () =&gt; {
   const myName = new MyName()<span class="hljs-comment">;</span>
   expect(<span class="hljs-name">myName</span>.formatted()).toEqual('')<span class="hljs-comment">;</span>

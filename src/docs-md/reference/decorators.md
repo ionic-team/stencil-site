@@ -243,7 +243,7 @@ export class TodoList {
 
 ## Embedding or Nesting Components
 
-Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
+Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
 
 Here's an example of using a component within another component:
 
