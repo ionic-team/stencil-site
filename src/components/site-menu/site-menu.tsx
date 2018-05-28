@@ -74,6 +74,12 @@ export class SiteMenu {
               </li>
 
               <li>
+                <stencil-route-link url='/docs/host-element' onClick={() => this.toggleMenu()}>
+                  Host Element
+                </stencil-route-link>
+              </li>
+
+              <li>
                 <stencil-route-link url='/docs/reactive-data' onClick={() => this.toggleMenu()}>
                   Reactive Data
                 </stencil-route-link>

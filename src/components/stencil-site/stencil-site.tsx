@@ -81,6 +81,7 @@ export class App {
                     'component-lifecycle': 'reference/component-lifecycle.html',
                     'decorators': 'reference/decorators.html',
                     'events': 'reference/events.html',
+                    'host-element': 'reference/host-element.html',
                     'reactive-data': 'reference/reactive-data.html',
                     'templating-jsx': 'reference/templating-and-jsx.html',
                     'styling': 'reference/styling.html',
