@@ -13,9 +13,12 @@ declare global {
   }
   namespace JSXElements {}
 
+  interface HTMLElement {
+    componentOnReady?: () => Promise<this | null>;
+  }
+
   interface HTMLStencilElement extends HTMLElement {
     componentOnReady(): Promise<this>;
-    componentOnReady(done: (ele?: this) => void): void;
 
     forceUpdate(): void;
   }
@@ -23,6 +26,7 @@ declare global {
   interface HTMLAttributes {}
 }
 
+import '@stencil/state-tunnel';
 import '@stencil/router';
 
 
@@ -30,7 +34,7 @@ declare global {
 
   namespace StencilComponents {
     interface AppBurger {
-
+      'toggleLeftSidebar': () => void;
     }
   }
 
@@ -53,7 +57,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppBurgerAttributes extends HTMLAttributes {
-      'onBurgerClick'?: (event: CustomEvent) => void;
+      'toggleLeftSidebar'?: () => void;
     }
   }
 }
@@ -467,7 +471,7 @@ declare global {
   }
   namespace JSXElements {
     export interface SiteMenuAttributes extends HTMLAttributes {
-      'onLeftSidebarClick'?: (event: CustomEvent) => void;
+
     }
   }
 }

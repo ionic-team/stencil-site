@@ -1,23 +1,22 @@
-import { Component, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, Element } from '@stencil/core';
+import SiteProviderConsumer from '../../global/site-provider-consumer';
 
 @Component({
   tag: 'app-burger',
   styleUrl: 'app-burger.scss'
 })
 export class AppBurger {
-
-  @Event() burgerClick: EventEmitter;
-
-  handleBurgerClicked() {
-    this.burgerClick.emit();
-  }
+  @Element() el: HTMLStencilElement;
+  @Prop() toggleLeftSidebar: () => void = () => {}
 
   render() {
     return (
-      <div class="burger" onClick={() => this.handleBurgerClicked() }>
+      <div class="burger" onClick={() => this.toggleLeftSidebar() }>
         <app-icon name="menu"></app-icon>
         <app-icon name="close"></app-icon>
       </div>
-    )
+    );
   }
 }
+
+SiteProviderConsumer.injectProps(AppBurger, ['toggleLeftSidebar']);
