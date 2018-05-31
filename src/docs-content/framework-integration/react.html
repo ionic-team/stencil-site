@@ -12,7 +12,9 @@
 </ol>
 <h2 id="copying-the-collection-s-to-public">Copying the Collection(s) to <code>public</code></h2>
 <p>The React build process will automatically copy anything that is under the <code>public</code> folder to the <code>build</code> folder. The easiest way to copy the component collection(s) is to set up the npm <code>postinstall</code> script to do the copy after the packages are installed for the project.</p>
-<p><strong>Note:</strong> the default React webpack configuration results in webpack bundles being built in <code>build/static/js</code>, so the component collections need to be copied into <code>public/static/js</code>. You may want to pre-create this directory and create a <code>.gitkeep</code> file in it to make sure the path exists.</p>
+<blockquote>
+<p>The default React webpack configuration results in webpack bundles being built in <code>build/static/js</code>, so the component collections need to be copied into <code>public/static/js</code>. You may want to pre-create this directory and create a <code>.gitkeep</code> file in it to make sure the path exists.</p>
+</blockquote>
 <p>The following is a simple example of a <code>postinstall</code> script in the <code>package.json</code> file. It copies the components from a single collection that was obtained via NPM. This example only works on Unix-like operating systems such as Linux or MacOS. If you need to support multiple operating systems or do anything more complicated, then you can create a NodeJS script that performs the operations and call that as your <code>postinstall</code> script.</p>
 <pre><code class="lang-json">  <span class="hljs-string">"scripts"</span>: {
     <span class="hljs-string">"start"</span>: <span class="hljs-string">"react-scripts start"</span>,
@@ -22,7 +24,9 @@
     <span class="hljs-string">"postinstall"</span>: <span class="hljs-string">"cp -R node_modules/my-components/mycomponents public/static/js"</span>
   }
 </code></pre>
-<p><strong>Note:</strong> for the above example, you may also want to add a <code>/public/static/js/mycomponents</code> line to your <code>.gitignore</code> file.</p>
+<blockquote>
+<p>For the above example, you may also want to add a <code>/public/static/js/mycomponents</code> line to your <code>.gitignore</code> file.</p>
+</blockquote>
 <h2 id="importing-the-component-package-s-">Importing the Component Package(s)</h2>
 <p>A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be loaded in your application by importing it in your <code>index.js</code> file (or some other appropriate file) as such:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;

@@ -23,7 +23,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Note, you can also link directly to <code>.scss</code> files</p>
+<p>You can also link directly to <code>.scss</code> files</p>
 </blockquote>
 <p>The component decorator also has a <code>host</code> option. This allows you to set CSS classes and attributes on the component you are building.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">'@stencil/core'</span>;
@@ -58,7 +58,9 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>Externally, Props are set on the element.</p>
-<p><strong>Note:</strong> in HTML, you must set attributes using dash-case:</p>
+<blockquote>
+<p>In HTML, you must set attributes using dash-case:</p>
+</blockquote>
 <pre><code class="lang-html">&lt;todo-<span class="hljs-built_in">list</span> color=<span class="hljs-string">"blue"</span> favorite-<span class="hljs-built_in">number</span>=<span class="hljs-string">"24"</span> <span class="hljs-keyword">is</span>-selected=<span class="hljs-string">"true"</span>&gt;&lt;/todo-<span class="hljs-built_in">list</span>&gt;
 </code></pre>
 <p>in JSX you set an attribute using camelCase:</p>
