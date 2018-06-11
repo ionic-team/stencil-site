@@ -1,10 +1,12 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'pwas-page',
   styleUrl: 'pwas-page.scss'
 })
 export class pwasPage {
+
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   demos = [
     {
@@ -32,6 +34,14 @@ export class pwasPage {
 
   constructor() {
     document.title = `PWAs`;
+  }
+
+  componentDidLoad() {
+    if (!this.isServer) {
+      window.requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
+    }
   }
 
   render() {
