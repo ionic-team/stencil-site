@@ -14,6 +14,7 @@ In most cases, the `stencil.config.js` file does not require any customization s
   - [www](#www)
 - [plugins](#plugins)
 - [srcDir](#srcDir)
+- [excludeSrc](#excludeSrc)
 
 
 Example `stencil.config.js`:
@@ -240,3 +241,11 @@ srcDir: 'src'
     Next
   </button>
 </stencil-route-link>
+
+
+<a name="excludeSrc"></a>
+## `excludeSrc`
+
+*default: `['**/test/**', '**/*.spec.*']`*
+
+The `excludeSrc` config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.
