@@ -50,16 +50,13 @@
 <h2 id="globalstyle"><code>globalStyle</code></h2>
 <p>Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it&#39;s still common to have styles which should be &quot;global&quot; across all components and the website. A global CSS file is often useful to set <a href="/docs/css-variables">CSS Variables</a>.</p>
 <p>Additonally, the <code>globalStyle</code> config is can be used to precompile styles with Sass, PostCss, etc.</p>
-<p>Below is an example folder structure containing a webapp&#39;s global sass file, named <code>app.scss</code>.</p>
+<p>Below is an example folder structure containing a webapp&#39;s global sass file, named <code>app.css</code>.</p>
 <pre><code>  src/
     components/
     <span class="hljs-built_in">globals</span>/
       app.css
-</code></pre><p>The global style config takes an array of file paths. The output from this build will go to the <code>buildDir</code>. In this example it would be saved to <code>www/build/app.css</code>.</p>
-<pre><code class="lang-js"><span class="hljs-string">globalStyle:</span> [<span class="hljs-string">'src/globals/app.scss'</span>]
-</code></pre>
-<p>Next, the <code>app.css</code> can be referenced from the <code>index.html</code> file, such as:</p>
-<pre><code class="lang-html">&lt;link <span class="hljs-attribute">href</span>=<span class="hljs-string">"/build/app.css"</span> <span class="hljs-attribute">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;
+</code></pre><p>The global style config takes a file path as a string. The output from this build will go to the <code>buildDir</code>. In this example it would be saved to <code>www/build/app.css</code>.</p>
+<pre><code class="lang-js"><span class="hljs-string">globalStyle:</span> <span class="hljs-string">'src/globals/app.scss'</span>
 </code></pre>
 <p><a name="hashFileNames"></a></p>
 <h2 id="hashfilenames"><code>hashFileNames</code></h2>
