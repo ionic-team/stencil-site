@@ -74,7 +74,7 @@ Stencil is traditionally used to compile many components into an app, and each c
 
 Additonally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
 
-Below is an example folder structure containing a webapp's global sass file, named `app.scss`.
+Below is an example folder structure containing a webapp's global sass file, named `app.css`.
 
 ```
   src/
@@ -83,18 +83,11 @@ Below is an example folder structure containing a webapp's global sass file, nam
       app.css
 ```
 
-The global style config takes an array of file paths. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
+The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
 ```js
-globalStyle: ['src/globals/app.scss']
+globalStyle: 'src/globals/app.scss'
 ```
-
-Next, the `app.css` can be referenced from the `index.html` file, such as:
-
-```html
-<link href="/build/app.css" rel="stylesheet">
-```
-
 
 <a name="hashFileNames"></a>
 ## `hashFileNames`

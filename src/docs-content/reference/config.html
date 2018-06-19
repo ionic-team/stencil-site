@@ -15,6 +15,7 @@
 </li>
 <li><a href="#plugins">plugins</a></li>
 <li><a href="#srcDir">srcDir</a></li>
+<li><a href="#excludeSrc">excludeSrc</a></li>
 </ul>
 <p>Example <code>stencil.config.js</code>:</p>
 <pre><code class="lang-js">exports.<span class="hljs-built_in">config</span> = {
@@ -211,3 +212,7 @@ exports.<span class="hljs-built_in">config</span> = {
     Next
   </button>
 </stencil-route-link></p>
+<p><a name="excludeSrc"></a></p>
+<h2 id="excludesrc"><code>excludeSrc</code></h2>
+<p><em>default: `[&#39;<strong>/test/</strong>&#39;, &#39;**/</em>.spec.<em>&#39;]`</em></p>
+<p>The <code>excludeSrc</code> config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.</p>
