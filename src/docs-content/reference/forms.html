@@ -42,6 +42,8 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
 
   @State() <span class="hljs-keyword">value</span>: <span class="hljs-keyword">string</span>;
   @State() selectValue: <span class="hljs-keyword">string</span>;
+  @State() secondSelectValue: <span class="hljs-keyword">string</span>;
+  @State() avOptions: any[];
 
   handleSubmit() {
     console.log(<span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span>);
@@ -60,6 +62,11 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
     <span class="hljs-keyword">this</span>.selectValue = <span class="hljs-keyword">event</span>.target.<span class="hljs-keyword">value</span>;
   }
 
+  handleSecondSelect(<span class="hljs-keyword">event</span>) {
+    console.log(<span class="hljs-keyword">event</span>.target.<span class="hljs-keyword">value</span>);
+    <span class="hljs-keyword">this</span>.secondSelectValue = <span class="hljs-keyword">event</span>.target.<span class="hljs-keyword">value</span>;
+  }
+
   render() {
     <span class="hljs-keyword">return</span> (
       &lt;form onSubmit={(e) =&gt; <span class="hljs-keyword">this</span>.handleSubmit(e)}&gt;
@@ -68,11 +75,17 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
           &lt;input type=<span class="hljs-string">"email"</span> <span class="hljs-keyword">value</span>={<span class="hljs-keyword">this</span>.<span class="hljs-keyword">value</span>} onInput={(e) =&gt; <span class="hljs-keyword">this</span>.handleChange(e)} /&gt;
         &lt;/label&gt;
 
-        &lt;<span class="hljs-keyword">select</span> <span class="hljs-keyword">value</span>={<span class="hljs-keyword">this</span>.selectValue} onInput={(<span class="hljs-keyword">event</span>) =&gt; <span class="hljs-keyword">this</span>.handleSelect(<span class="hljs-keyword">event</span>)}&gt;
-          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"volvo"</span>&gt;Volvo&lt;/option&gt;
-          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"saab"</span>&gt;Saab&lt;/option&gt;
-          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"mercedes"</span>&gt;Mercedes&lt;/option&gt;
-          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"audi"</span>&gt;Audi&lt;/option&gt;
+        &lt;<span class="hljs-keyword">select</span> onInput={(<span class="hljs-keyword">event</span>) =&gt; <span class="hljs-keyword">this</span>.handleSelect(<span class="hljs-keyword">event</span>)}&gt;
+          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"volvo"</span> selected={<span class="hljs-keyword">this</span>.selectValue === <span class="hljs-string">'volvo'</span>}&gt;Volvo&lt;/option&gt;
+          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"saab"</span> selected={<span class="hljs-keyword">this</span>.selectValue === <span class="hljs-string">'saab'</span>}&gt;Saab&lt;/option&gt;
+          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"mercedes"</span> selected={<span class="hljs-keyword">this</span>.selectValue === <span class="hljs-string">'mercedes'</span>}&gt;Mercedes&lt;/option&gt;
+          &lt;option <span class="hljs-keyword">value</span>=<span class="hljs-string">"audi"</span> selected={<span class="hljs-keyword">this</span>.selectValue === <span class="hljs-string">'audi'</span>}&gt;Audi&lt;/option&gt;
+        &lt;/<span class="hljs-keyword">select</span>&gt;
+
+        &lt;<span class="hljs-keyword">select</span> onInput={(<span class="hljs-keyword">event</span>) =&gt; <span class="hljs-keyword">this</span>.handleSecondSelect(<span class="hljs-keyword">event</span>)}&gt;
+          {<span class="hljs-keyword">this</span>.avOptions.map(recipient =&gt; (
+            &lt;option <span class="hljs-keyword">value</span>={recipient.id} selected={<span class="hljs-keyword">this</span>.selectedReceiverIds.indexOf(recipient.id) !== <span class="hljs-number">-1</span>}&gt;{recipient.name}&lt;/option&gt;
+          ))}
         &lt;/<span class="hljs-keyword">select</span>&gt;
 
         &lt;input type=<span class="hljs-string">"submit"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"Submit"</span> /&gt;
@@ -80,7 +93,7 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
     );
   }
 }
-</code></pre><p>As you can see, this form is a little more advanced in that it has a select input along with an email input. We also do validity checking of our email input in the <code>handleChange</code> method. As you can see, we handle the <code>select</code> element exactly how we handle text inputs.</p>
+</code></pre><p>This form is a little more advanced in that it has two select inputs along with an email input. We also do validity checking of our email input in the <code>handleChange</code> method. We handle the <code>select</code> element in a very similar manner to how we handle text inputs.</p>
 <p>For the validity checking, we are #usingtheplatform and are using the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">constraint validation api</a> that is built right into the browser to check if the user is actually entering an email or not.</p>
 <p><stencil-route-link url="/docs/styling" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
