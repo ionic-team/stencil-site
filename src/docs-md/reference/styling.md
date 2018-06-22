@@ -71,7 +71,7 @@ In browsers that do not currently support Shadow DOM, web components built with 
 
 ### Use Case
 
-One use case for CSS Variables is colors. If your app has a primary brandy color that is used across your app then instead of writing that same color out each place you need it in your app you can create a variable for it and then use that variable anywhere you need that color in your app. Also, if you ever need to change this color you will only have to change the variable and then it will be updated across your app.
+One use case for CSS Variables is colors. If your app has a primary brand color that is used across your app then instead of writing that same color out each place you need it in your app you can create a variable for it and then use that variable anywhere you need that color in your app. Also, if you ever need to change this color you will only have to change the variable and then it will be updated across your app.
 
 ### Using CSS Variables in Stencil
 
