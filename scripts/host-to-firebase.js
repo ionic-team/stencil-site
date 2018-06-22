@@ -2,7 +2,7 @@ const fs = require('fs');
 
 fs.readFile('www/host.config.json', 'utf-8', (err, data) => {
   if (err) {
-    console.log(`Something went wrong: ${err}`)
+    console.log(`Something went wrong: ${err}`);
   } else {
     const headerData = JSON.parse(data).hosting.rules;
 
@@ -12,27 +12,21 @@ fs.readFile('www/host.config.json', 'utf-8', (err, data) => {
       } else {
         const firebaseData = JSON.parse(data);
         firebaseData.hosting.headers = [];
-        headerData.map((entry) => {
-
-          const newHeaderObject = {
+        headerData.map(entry => {
+          const requestPath = {
             source: entry.include,
-            headers: [{
-              "key": "Link",
-              "value": ""
-            }]
-          }
-
-          const headerValues = [];
-          entry.headers.forEach((header) => {
-            headerValues.push(header.value);
+            headers: []
+          };
+          
+          entry.headers.map((header) => {
+            const headerObject = {
+              "key": header.name,
+              "value": header.value 
+            }
+            requestPath.headers.push(headerObject);
           });
 
-          const commaValues = headerValues.join(',');
-          newHeaderObject.headers[0].value = commaValues;
-
-          console.log(headerValues);
-
-          firebaseData.hosting.headers.push(newHeaderObject);
+          firebaseData.hosting.headers.push(requestPath);
         });
 
         fs.writeFile('firebase.json', JSON.stringify(firebaseData), 'utf8', (err) => {
@@ -45,4 +39,4 @@ fs.readFile('www/host.config.json', 'utf-8', (err, data) => {
       }
     });
   }
-})
+});
