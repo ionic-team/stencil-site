@@ -8,6 +8,7 @@ export class AppMarked {
 
   @Prop() doc: string;
   @Prop({ context: 'isServer' }) private isServer: boolean;
+  // @Prop({ context: 'document' }) document: any;
 
   @State() content: string;
 
@@ -18,16 +19,17 @@ export class AppMarked {
   @Watch('doc')
   fetchNewContent() {
     if (this.doc !== undefined) {
+      const doc = document;
       return fetch(`/docs-content/${this.doc}`)
         .then(response => response.text())
         .then(data => {
           this.content = data;
 
-          const el = document.createElement('div');
+          const el = doc.createElement('div');
           el.innerHTML = data;
 
           const headerEl = el.querySelector('h1');
-          document.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
+          doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
 
           // requestAnimationFrame is not available for preRendering
           // or SSR, so only run this in the browser
@@ -36,7 +38,6 @@ export class AppMarked {
               window.scrollTo(0, 0);
             })
           }
-
         });
     }
   }

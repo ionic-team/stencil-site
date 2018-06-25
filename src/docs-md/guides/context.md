@@ -2,7 +2,7 @@
 
 ### What is Context?
 
-Context is a global object which can be used to store global variables, singleton objects etc. and bind them in your components as props. You can see it as a dependency inspector for Stencil.
+Context is a global object which can be used to store global variables, singleton objects etc. and bind them in your components as props. You can see it as a dependency injector for Stencil.
 
 ### How to Bind a Context Item
 

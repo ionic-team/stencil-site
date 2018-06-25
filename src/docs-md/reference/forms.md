@@ -53,6 +53,8 @@ export class MyName {
 
   @State() value: string;
   @State() selectValue: string;
+  @State() secondSelectValue: string;
+  @State() avOptions: any[];
 
   handleSubmit() {
     console.log(this.value);
@@ -71,6 +73,11 @@ export class MyName {
     this.selectValue = event.target.value;
   }
 
+  handleSecondSelect(event) {
+    console.log(event.target.value);
+    this.secondSelectValue = event.target.value;
+  }
+
   render() {
     return (
       <form onSubmit={(e) => this.handleSubmit(e)}>
@@ -79,11 +86,17 @@ export class MyName {
           <input type="email" value={this.value} onInput={(e) => this.handleChange(e)} />
         </label>
 
-        <select value={this.selectValue} onInput={(event) => this.handleSelect(event)}>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select onInput={(event) => this.handleSelect(event)}>
+          <option value="volvo" selected={this.selectValue === 'volvo'}>Volvo</option>
+          <option value="saab" selected={this.selectValue === 'saab'}>Saab</option>
+          <option value="mercedes" selected={this.selectValue === 'mercedes'}>Mercedes</option>
+          <option value="audi" selected={this.selectValue === 'audi'}>Audi</option>
+        </select>
+
+        <select onInput={(event) => this.handleSecondSelect(event)}>
+          {this.avOptions.map(recipient => (
+            <option value={recipient.id} selected={this.selectedReceiverIds.indexOf(recipient.id) !== -1}>{recipient.name}</option>
+          ))}
         </select>
 
         <input type="submit" value="Submit" />
@@ -93,7 +106,7 @@ export class MyName {
 }
 ```
 
-As you can see, this form is a little more advanced in that it has a select input along with an email input. We also do validity checking of our email input in the `handleChange` method. As you can see, we handle the `select` element exactly how we handle text inputs.
+This form is a little more advanced in that it has two select inputs along with an email input. We also do validity checking of our email input in the `handleChange` method. We handle the `select` element in a very similar manner to how we handle text inputs.
 
 For the validity checking, we are #usingtheplatform and are using the [constraint validation api](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation) that is built right into the browser to check if the user is actually entering an email or not.
 

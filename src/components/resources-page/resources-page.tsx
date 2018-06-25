@@ -1,10 +1,12 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'resources-page',
   styleUrl: 'resources-page.scss'
 })
 export class ResourcesPage {
+
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   LINKS = {
     TEMPLATES: [
@@ -41,6 +43,14 @@ export class ResourcesPage {
   
   constructor() {
     document.title = `Stencil Resources`;
+  }
+
+  componentDidLoad() {
+    if (!this.isServer) {
+      window.requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
+    }
   }
 
   render() {

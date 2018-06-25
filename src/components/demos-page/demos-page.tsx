@@ -1,10 +1,12 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'demos-page',
   styleUrl: 'demos-page.scss'
 })
 export class DemosPage {
+
+  @Prop({ context: 'isServer' }) private isServer: boolean;
 
   demos = [
     {
@@ -46,6 +48,14 @@ export class DemosPage {
 
   constructor() {
     document.title = `Stencil Demos`;
+  }
+
+  componentDidLoad() {
+    if (!this.isServer) {
+      window.requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
+    }
   }
 
   render() {
