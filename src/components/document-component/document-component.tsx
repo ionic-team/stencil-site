@@ -14,6 +14,7 @@ export class DocumentComponent {
     return (
       <div>
         <site-menu />
+        <app-burger />
         {this.pages.map(page => <app-marked doc={page} />)}
       </div>
     )

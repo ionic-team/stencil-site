@@ -44,7 +44,6 @@ export class AppMarked {
 
   render() {
     return [
-      <app-burger></app-burger>,
       <div class="measure-lg" innerHTML={this.content}></div>
     ]
   }
