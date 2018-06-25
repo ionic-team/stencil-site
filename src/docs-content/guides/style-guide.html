@@ -29,7 +29,7 @@
 <h3 id="html-tag">HTML tag</h3>
 <h4 id="prefix">Prefix</h4>
 <p>The prefix has a major role when you are creating a collection of components intended to be used across diferent projects, like <a href="https://www.npmjs.com/package/@ionic/core">@ionic/core</a>. Web Components are not scoped because they are globally declared within the webpage, which means an &quot;unique&quot; prefix is needed to prevent collisions. The prefix is also able help to quickly indentify the collection of an component. Additionally, web components are required to contain a &quot;-&quot; dash within the tag name, so using the first section to namespace your components is a natural fit.</p>
-<p>We do not recommend using &quot;stencil&quot; as prefix, since Stencil DOES NOT emit stencil components, but rather the output is simply standards compliant web components.</p>
+<p>We do not recommend using &quot;stencil&quot; as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.</p>
 <p>DO NOT do this:</p>
 <pre><code>stencil-<span class="hljs-keyword">component</span>
 stnl-<span class="hljs-keyword">component</span>
@@ -79,7 +79,7 @@ export class Menu { ... }
 </li>
 </ol>
 <h2 id="code-organization">Code organization</h2>
-<h3 id="newspaper-metaphor-from-the-robert-c-martin-s-_clean-code_">Newspaper Metaphor from The Robert C. Martin&#39;s <em>Clean Code</em></h3>
+<h3 id="newspaper-metaphor-from-the-robert-c-martin-s-clean-code">Newspaper Metaphor from The Robert C. Martin&#39;s <em>Clean Code</em></h3>
 <blockquote>
 <p>The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.</p>
 </blockquote>
@@ -143,7 +143,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
   <span class="hljs-meta">@Prop()</span> type = <span class="hljs-string">'overlay'</span>;
 
   <span class="hljs-comment">/**
-   * <span class="hljs-doctag">NOTE:</span> Prop lifecycle events SHOULD go just behind the Prop they listen to.
+   * Prop lifecycle events SHOULD go just behind the Prop they listen to.
    * This makes sense since both statements are strongly connected.
    * - If renaming the instance variable name you must also update the name in <span class="hljs-doctag">@Watch</span>()
    * - Code is easier to follow and maintain.

@@ -39,7 +39,7 @@ Example from ionic-core:
 #### Prefix
 The prefix has a major role when you are creating a collection of components intended to be used across diferent projects, like [@ionic/core](https://www.npmjs.com/package/@ionic/core). Web Components are not scoped because they are globally declared within the webpage, which means an "unique" prefix is needed to prevent collisions. The prefix is also able help to quickly indentify the collection of an component. Additionally, web components are required to contain a "-" dash within the tag name, so using the first section to namespace your components is a natural fit.
 
-We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is simply standards compliant web components.
+We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.
 
 DO NOT do this:
 ```
@@ -183,7 +183,7 @@ export class Something {
   @Prop() type = 'overlay';
 
   /**
-   * NOTE: Prop lifecycle events SHOULD go just behind the Prop they listen to.
+   * Prop lifecycle events SHOULD go just behind the Prop they listen to.
    * This makes sense since both statements are strongly connected.
    * - If renaming the instance variable name you must also update the name in @Watch()
    * - Code is easier to follow and maintain.

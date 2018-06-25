@@ -10,7 +10,7 @@ The easiest way to build and distribute web components with Stencil is by using 
 
 ### Distribution Config
 
-Configuring Stencil for distribution is easy. Simply set the following config options in the `stencil.config.js` file:
+Configuring Stencil for distribution is easy. Set the following config options in the `stencil.config.js` file:
 
 ```
 exports.config = {
@@ -65,6 +65,7 @@ The first step for all three of these strategies is to
 
 ### In a stencil-app-starter app
 - Run `npm install my-name --save`
+- Add an import to the npm packages: `import my-component`;
 - Then you can use the element anywhere in your template, JSX, html etc
 
 

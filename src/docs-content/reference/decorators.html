@@ -10,7 +10,7 @@
 </ul>
 <p><a name="component"></a></p>
 <h2 id="component-decorator">Component Decorator</h2>
-<p>Each Stencil Component must be decorated with an <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide a HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
+<p>Each Stencil Component must be decorated with an <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide an HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
 <p>Use a relative url to the <code>.css</code> file for the styleUrl(s).</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
@@ -23,7 +23,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Note, you can also link directly to <code>.scss</code> files</p>
+<p>You can also link directly to <code>.scss</code> files</p>
 </blockquote>
 <p>The component decorator also has a <code>host</code> option. This allows you to set CSS classes and attributes on the component you are building.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">'@stencil/core'</span>;
@@ -58,7 +58,9 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre>
 <p>Externally, Props are set on the element.</p>
-<p><strong>Note:</strong> in HTML, you must set attributes using dash-case:</p>
+<blockquote>
+<p>In HTML, you must set attributes using dash-case:</p>
+</blockquote>
 <pre><code class="lang-html">&lt;todo-<span class="hljs-built_in">list</span> color=<span class="hljs-string">"blue"</span> favorite-<span class="hljs-built_in">number</span>=<span class="hljs-string">"24"</span> <span class="hljs-keyword">is</span>-selected=<span class="hljs-string">"true"</span>&gt;&lt;/todo-<span class="hljs-built_in">list</span>&gt;
 </code></pre>
 <p>in JSX you set an attribute using camelCase:</p>
@@ -113,7 +115,7 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 </code></pre>
 <p><a name="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
-<p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that methd the new value of the prop along with the old value.</p>
+<p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that method the new value of the prop along with the old value.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } from <span class="hljs-string">'@stencil/core'</span>;
 
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoadingIndicator</span> {</span>
@@ -176,7 +178,7 @@ todoListElement.showPrompt();
   }
 }
 </code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
-<p>Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
+<p>Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
 <p>Here&#39;s an example of using a component within another component:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;
 

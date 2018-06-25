@@ -12,7 +12,7 @@ Stencil makes it easy to build rich, interactive components. Let's start with th
 <a name="component"></a>
 ## Component Decorator
 
-Each Stencil Component must be decorated with an `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide a HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
+Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
 
 Use a relative url to the `.css` file for the styleUrl(s).
 
@@ -28,9 +28,9 @@ export class TodoList {
 }
 ```
 
-> Note, you can also link directly to `.scss` files
+> You can also link directly to `.scss` files
 
-The component decorator also has a `host` option. This allows you to set CSS classes and attributes on the component you are building.
+The `@Component()` decorator also has a `host` option. This allows you to set CSS classes and attributes on the component you are building.
 
 ```typescript
 import { Component } from '@stencil/core';
@@ -77,7 +77,7 @@ logColor() {
 
 Externally, Props are set on the element.
 
-**Note:** in HTML, you must set attributes using dash-case:
+> In HTML, you must set attributes using dash-case:
 
 ```html
 <todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
@@ -99,9 +99,9 @@ console.log(todoListElement.color); // blue
 
 ### Prop value mutability
 
-It's important to know, that `@Prop` is _by default_ immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
+It's important to know, that a Prop is _by default_ immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
-However, it's possible to explicitly allow a `@Prop` to be mutated from inside the component, by declaring it as **mutable**, as in the example below:
+However, it's possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as **mutable**, as in the example below:
 
 ```typescript
 import { Prop } from '@stencil/core';
@@ -117,7 +117,7 @@ export class NameElement {
 
 ### Prop default values and validation
 
-Setting a default value on a `Prop`:
+Setting a default value on a Prop:
 
 ```typescript
 import { Prop } from '@stencil/core';
@@ -127,7 +127,7 @@ export class NameElement {
 }
 ```
 
-To do validation of a prop, you can use the [watch](#watch) decorator:
+To do validation of a Prop, you can use the [@Watch()](#watch) decorator:
 
 ```typescript
 import { Prop, Watch } from '@stencil/core';
@@ -147,7 +147,7 @@ export class TodoList {
 
 ### Reflect Properties to Attributes
 
-In some cases it may be useful to keep a property in sync with an attribute. In this case you can use the `reflectToAttr` option in the prop decorator:
+In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the `reflectToAttr` option in the `@Prop()` decorator:
 
 ```typescript
 @Prop({
@@ -176,7 +176,7 @@ export class LoadingIndicator {
 
 # Managing Component State
 
-The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it how ever it sees fit. Any changes to a `@State()` property will cause the components render function to be called again.
+The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
 
 
 ```typescript
@@ -243,7 +243,7 @@ export class TodoList {
 
 ## Embedding or Nesting Components
 
-Components can be composed easily by simply adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
+Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
 
 Here's an example of using a component within another component:
 

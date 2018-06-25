@@ -18,8 +18,7 @@ exports.config = {
   globalStyle: 'src/global/style.scss',
   copy: [
     { src: 'docs-content/' }
-  ],
-  enableCache: false
+  ]
 };
 
 exports.devServer = {

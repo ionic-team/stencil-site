@@ -3,7 +3,7 @@
 <h3 id="getting-started">Getting Started</h3>
 <p>The easiest way to build and distribute web components with Stencil is by using our <a href="https://github.com/ionic-team/stencil-component-starter">stencil-component-starter</a>. This starter includes all of the config and package.json changes that are discussed below by default with instructions in the <a href="https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md">readme</a>.</p>
 <h3 id="distribution-config">Distribution Config</h3>
-<p>Configuring Stencil for distribution is easy. Simply set the following config options in the <code>stencil.config.js</code> file:</p>
+<p>Configuring Stencil for distribution is easy. Set the following config options in the <code>stencil.config.js</code> file:</p>
 <pre><code>exports.config = {
   namespace: <span class="hljs-symbol">'mynam</span>e',
   outputTargets: [
@@ -47,6 +47,7 @@
 <h3 id="in-a-stencil-app-starter-app">In a stencil-app-starter app</h3>
 <ul>
 <li>Run <code>npm install my-name --save</code></li>
+<li>Add an import to the npm packages: <code>import my-component</code>;</li>
 <li>Then you can use the element anywhere in your template, JSX, html etc</li>
 </ul>
 <p><stencil-route-link url="/docs/config" router="#router" custom="true">

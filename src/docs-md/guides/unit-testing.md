@@ -130,7 +130,7 @@ Anything that you can use on an [HTMLElement](https://developer.mozilla.org/en-U
 
 ## Component Method Tests
 
-To test the component's methods, simply instantiate an instance of the component and call the methods.
+To test the component's methods, instantiate an instance of the component and call the methods.
 
 ```ts
 it('should return an empty string if there is no first or last name', () => {
