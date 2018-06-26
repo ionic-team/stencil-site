@@ -6,7 +6,7 @@
   "scripts": {
     "docs": "gulp",
     "build": "gulp && stencil build --prerender && npm run host-to-firebase",
-    "dev": "gulp && sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "dev": "gulp && sd concurrent \"stencil build --dev --watch --serve\"",
     "deploy": "npm run build && firebase deploy",
     "host-to-firebase": "node scripts/host-to-firebase.js",
     "serve": "stencil-dev-server",
@@ -16,7 +16,7 @@
     "@stencil/sass": "0.0.3"
   },
   "devDependencies": {
-    "@stencil/core": "^0.9.9",
+    "@stencil/core": "^0.10.0-2",
     "@stencil/dev-server": "0.0.19-0",
     "@stencil/router": "^0.2.2-2",
     "@stencil/state-tunnel": "0.0.6",
