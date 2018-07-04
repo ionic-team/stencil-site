@@ -20,7 +20,7 @@ exports.config = {
 
 ### Options
 
-Saass options can be passed to the plugin within `stencil.config.js`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
+Sass options can be passed to the plugin within `stencil.config.js`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
 
 ```
 exports.config = {

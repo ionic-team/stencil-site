@@ -32,5 +32,5 @@ As you can see from this example, we just need to import `Build` from `@stencil/
 Some use cases we have come up with are:
 
 - Diagnostics code that runs in dev to make sure logic is working like you would expect
-- `console.log()`'s that may be useful for debugging in dev mode but that you dont want to ship
+- `console.log()`'s that may be useful for debugging in dev mode but that you don't want to ship
 - Disabling auth checks when in dev mode

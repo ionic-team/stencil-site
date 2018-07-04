@@ -1,6 +1,6 @@
 # Stencil Config
 
-In most cases, the `stencil.config.js` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.js` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properites.
+In most cases, the `stencil.config.js` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.js` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properties.
 
 - [bundles](#bundles)
 - [copy](#copy)
@@ -72,7 +72,7 @@ enableCache: true
 
 Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](/docs/css-variables).
 
-Additonally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
+Additionally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
 
 Below is an example folder structure containing a webapp's global sass file, named `app.css`.
 
@@ -143,7 +143,7 @@ outputTargets: [
 <a name="dist"></a>
 ## `outputTarget: dist`
 
-The `dist` type is to generate the component(s) as a reusable library, such as [Ionic](https://www.npmjs.com/package/@ionic/core) or [Stencil Router](https://www.npmjs.com/package/@stencil/router). When creating a distribution, the project's `package.json` will also have to be updated. Don't worry, helper messages when compiling will state which package.json properties will need to be udpated.
+The `dist` type is to generate the component(s) as a reusable library, such as [Ionic](https://www.npmjs.com/package/@ionic/core) or [Stencil Router](https://www.npmjs.com/package/@stencil/router). When creating a distribution, the project's `package.json` will also have to be updated. Don't worry, helper messages when compiling will state which package.json properties will need to be updated.
 
 | Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|

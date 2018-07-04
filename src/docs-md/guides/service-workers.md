@@ -15,7 +15,7 @@ Lets run through the steps needed to enable service workers for your project:
 - `cd` into your project
 - Run `npm run build`
 
-And thats it! You should now have an `sw.js` file in your `www` folder and the code to register the service worker in your `www/index.html` file.
+And that's it! You should now have an `sw.js` file in your `www` folder and the code to register the service worker in your `www/index.html` file.
 
 > The component starter by default does not have service workers enabled as a service worker is not needed for component collections
 
