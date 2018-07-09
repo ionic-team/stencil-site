@@ -97,9 +97,6 @@ You can then use the following methods on the history object to navigate:
 // pushing a route (going forwards to a certain route)
 this.history.push(`/demos`, {});
 
-// popping a route (going back to a certain route)
-this.history.pop('/home', {});
-
 // navigate back as if the user hit the back button in the browser
 this.history.goBack();
 

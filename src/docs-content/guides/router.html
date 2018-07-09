@@ -2,7 +2,7 @@
 <p><code>@stencil/router</code> is a package on NPM that contains a router that can be used in Stencil apps.</p>
 <p>The developer experience of the router is designed to be similar to <a href="https://reacttraining.com/react-router/">React Router</a>, and it should make it easy to build apps of all size, from the very simple to the very complex.</p>
 <h2 id="installing">Installing</h2>
-<p>In your project directory, run <code>npm install @stencil/router --save</code>. Then add <code>import &#39;@stencil/router&#39;</code> to your root component (normally the <code>my-app</code> component if your are using one of the starters).</p>
+<p>In your project directory, run <code>npm install @stencil/router --save</code>. Then add <code>import &#39;@stencil/router&#39;</code> to your root component (normally the <code>my-app</code> component if you are using one of the starters).</p>
 <h2 id="included-components">Included components</h2>
 <ul>
 <li><p><strong>stencil-router</strong></p>
@@ -68,9 +68,6 @@
 <pre><code class="lang-typescript"><span class="hljs-comment">// pushing a route (going forwards to a certain route)</span>
 <span class="hljs-keyword">this</span>.history.push(`/demos`, {});
 
-<span class="hljs-comment">// popping a route (going back to a certain route)</span>
-<span class="hljs-keyword">this</span>.history.pop(<span class="hljs-string">'/home'</span>, {});
-
 <span class="hljs-comment">// navigate back as if the user hit the back button in the browser</span>
 <span class="hljs-keyword">this</span>.history.goBack();
 
@@ -88,7 +85,7 @@
 <pre><code> &lt;stencil-route <span class="hljs-attribute">url</span>=<span class="hljs-string">'/show/:pageNum'</span> <span class="hljs-attribute">component</span>=<span class="hljs-string">'show-page'</span> /&gt;
 </code></pre><p>The key part in this route is the <code>:pageNum</code> syntax. This means that we can now pass data to that route and it will be accessible through the <code>pageNum</code> variable. Below is an example of how we would pass data to this route:</p>
 <pre><code>&lt;stencil-route-link <span class="hljs-built_in">url</span>={<span class="hljs-string">`/show/<span class="hljs-subst">${someData}</span>`</span>} /&gt;
-</code></pre><p>Now let&#39;s go over how to access this data from the <code>show-page</code> component we are routing too.</p>
+</code></pre><p>Now let&#39;s go over how to access this data from the <code>show-page</code> component we are routing to.</p>
 <p>First, we need to pass the <code>match</code> prop to our <code>show-page</code> component:</p>
 <pre><code><span class="hljs-keyword">import</span> { MatchResults } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/router'</span>;
 ...
