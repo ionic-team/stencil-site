@@ -7,8 +7,6 @@ import { Component, Prop, State, Watch } from '@stencil/core';
 export class AppMarked {
 
   @Prop() doc: string;
-  @Prop({ context: 'isServer' }) private isServer: boolean;
-  // @Prop({ context: 'document' }) document: any;
 
   @State() content: string;
 
@@ -30,14 +28,6 @@ export class AppMarked {
 
           const headerEl = el.querySelector('h1');
           doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
-
-          // requestAnimationFrame is not available for preRendering
-          // or SSR, so only run this in the browser
-          if (!this.isServer) {
-            window.requestAnimationFrame(() => {
-              window.scrollTo(0, 0);
-            })
-          }
         });
     }
   }
