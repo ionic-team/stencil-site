@@ -1,22 +1,18 @@
 # Angular
 
-Using a Stencil built web component collection within an Angular CLI project is a four-step process. We need to:
+Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:
 
-1. Get the component collection(s), for example from NPM
-1. Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components
-1. Import the packages in `app.module.ts` (or some other appropriate place)
-1. Copy the component collection(s) during the build
+1. Include the `CUSTOM_ELEMENTS_SCHEMA` in the modules that use the components
+1. Call `defineCustomElements(window)` from `main.ts` (or some other appropriate place)
 
 ## Including the Custom Elements Schema
 
-Including the CUSTOM_ELEMENTS_SCHEMA in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
+Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
 
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import 'test-components/testcomponents';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -24,33 +20,34 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, FormsModule, SharedModule],
-  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
 ```
 
-## Importing the Component Package(s)
+The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom elements.
 
-A component collection built with Stencil includes a main script that is used to load the components in the collection. That script needs to be imported in your application as such (see full file listing above):
+## Calling `defineCustomElements(window)`
+
+A component collection built with Stencil includes a main function that is used to load the components in the collection. That function is called `defineCustomElements()` and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in `main.ts` as such:
 
 ```ts
-...
-import 'test-components/testcomponents';
-...
-```
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-## Copying the Components
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-During the build, the components need to be copied to the build output directory. The easiest way to do this is to modify include the collection in the `assets` array of the `.angular-cli.json` file.
+import { defineCustomElements } from 'test-components';
 
-```
-      "assets": [
-        "assets",
-        "favicon.ico",
-        { "glob": "**/*", "input": "../node_modules/test-components/testcomponents", "output": "./testcomponents" }
-      ],
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+defineCustomElements(window);
 ```
 
 <stencil-route-link url="/docs/distribution" router="#router" custom="true">
