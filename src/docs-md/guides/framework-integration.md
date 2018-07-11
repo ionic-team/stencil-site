@@ -2,6 +2,11 @@
 
 In this section, we will outline the easiest way to integrate Stencil built web components into applications written using various popular frameworks.
 
+- [Angular](#angular)
+- [React](#react)
+- [Vue](#vue)
+- [Ember](#ember)
+
 ## Angular
 
 Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:
