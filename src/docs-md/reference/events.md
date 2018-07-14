@@ -56,7 +56,7 @@ export class TodoList {
 }
 ```
 
-For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the keycode, or some constants Stencil provides.
+For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the key code, or some constants Stencil provides.
 
 ```typescript
 @Listen('keydown')

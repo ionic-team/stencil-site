@@ -79,7 +79,7 @@ To navigate around an app, use the `stencil-route-link` component.
 <stencil-route-link url="/docs/getting-started">
 ```
 
-### Navigating Programtically
+### Navigating Programmatically
 
 If you are in a routed component ( a component that has been included in a `stencil-route`) and would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:
 

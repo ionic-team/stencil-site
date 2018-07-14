@@ -56,7 +56,7 @@ The first step for all three of these strategies is to
 ### Script tag
 
 - Put a script tag similar to this `<script src='https://unpkg.com/my-name@0.0.1/dist/myname.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+- Then you can use the element anywhere in your template, JSX, html etc.
 
 ### Node Modules
 - Run `npm install my-name --save`
@@ -66,7 +66,7 @@ The first step for all three of these strategies is to
 ### In a stencil-app-starter app
 - Run `npm install my-name --save`
 - Add an import to the npm packages: `import my-component`;
-- Then you can use the element anywhere in your template, JSX, html etc
+- Then you can use the element anywhere in your template, JSX, html etc.
 
 
 <stencil-route-link url="/docs/config" router="#router" custom="true">
