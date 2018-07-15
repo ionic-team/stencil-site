@@ -1,5 +1,5 @@
 <h1 id="stencil-config">Stencil Config</h1>
-<p>In most cases, the <code>stencil.config.js</code> file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it&#39;s preferred to keep the config as minimal as possible. In fact, you could even delete the <code>stencil.config.js</code> file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many <em>optional</em> config properites.</p>
+<p>In most cases, the <code>stencil.config.js</code> file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it&#39;s preferred to keep the config as minimal as possible. In fact, you could even delete the <code>stencil.config.js</code> file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many <em>optional</em> config properties.</p>
 <ul>
 <li><a href="#bundles">bundles</a></li>
 <li><a href="#copy">copy</a></li>
@@ -49,7 +49,7 @@
 <p><a name="globalStyle"></a></p>
 <h2 id="globalstyle"><code>globalStyle</code></h2>
 <p>Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it&#39;s still common to have styles which should be &quot;global&quot; across all components and the website. A global CSS file is often useful to set <a href="/docs/css-variables">CSS Variables</a>.</p>
-<p>Additonally, the <code>globalStyle</code> config is can be used to precompile styles with Sass, PostCss, etc.</p>
+<p>Additionally, the <code>globalStyle</code> config is can be used to precompile styles with Sass, PostCss, etc.</p>
 <p>Below is an example folder structure containing a webapp&#39;s global sass file, named <code>app.css</code>.</p>
 <pre><code>  src/
     components/
@@ -87,7 +87,7 @@
 </code></pre>
 <p><a name="dist"></a></p>
 <h2 id="outputtarget-dist"><code>outputTarget: dist</code></h2>
-<p>The <code>dist</code> type is to generate the component(s) as a reusable library, such as <a href="https://www.npmjs.com/package/@ionic/core">Ionic</a> or <a href="https://www.npmjs.com/package/@stencil/router">Stencil Router</a>. When creating a distribution, the project&#39;s <code>package.json</code> will also have to be updated. Don&#39;t worry, helper messages when compiling will state which package.json properties will need to be udpated.</p>
+<p>The <code>dist</code> type is to generate the component(s) as a reusable library, such as <a href="https://www.npmjs.com/package/@ionic/core">Ionic</a> or <a href="https://www.npmjs.com/package/@stencil/router">Stencil Router</a>. When creating a distribution, the project&#39;s <code>package.json</code> will also have to be updated. Don&#39;t worry, helper messages when compiling will state which package.json properties will need to be updated.</p>
 <table>
 <thead>
 <tr>
