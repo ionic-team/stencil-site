@@ -100,7 +100,7 @@ export class pwasPage {
 
           <h4>Service Worker</h4>
           <p>
-            When your run <code>npm run build</code> we automatically generate a Service Worker for you using <a href="https://workboxjs.org/">Workbox</a> that handles pre-caching your assets.
+            When you run <code>npm run build</code> we automatically generate a Service Worker for you using <a href="https://workboxjs.org/">Workbox</a> that handles pre-caching your assets.
 
             <stencil-route-link url="/docs/service-workers" class="block">
               Read more about Service Workers
