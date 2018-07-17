@@ -55,7 +55,7 @@ export class MyComponent {
    * Called multiple times throughout the life of
    * the component as it updates.
    *
-   * componentWillUpdate is not called on the
+   * componentDidUpdate is not called on the
    * first render.
    */
   componentDidUpdate() {
