@@ -27,7 +27,7 @@ exports.config = {
 };
 ```
 
-<stencil-route-link url="/docs/stencil-config" router="#router" custom="true">
+<stencil-route-link url="/docs/config" router="#router" custom="true">
   Learn more about these config options here.
 </stencil-route-link>
 
