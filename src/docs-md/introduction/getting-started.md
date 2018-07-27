@@ -11,13 +11,10 @@ Stencil can be used to create standalone components, or entire apps.
 To build standalone components, such as a reusable UI element or library, you can use the component starter:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter my-component
-cd my-component
-git remote rm origin
-npm install
+npm init stencil components my-components
 ```
 
-Then, to start a live-reload server for development, run:
+Then, to start a live-reload server complete with HMR for development, run:
 
 ```bash
 npm start
@@ -25,16 +22,13 @@ npm start
 
 ### Building an app
 
-Stencil is also a great option for building entire apps! To build an app with Stencil, we recommend cloning our App Starter:
+Stencil is also a great option for building entire apps! To build an app with Stencil, we recommend using our App Starter:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-app-starter my-app
-cd my-app
-git remote rm origin
-npm install
+npm init stencil app my-app
 ```
 
-Then, to start a live-reload server for development, run:
+Then, to start a live-reload server complete with HMR for development, run:
 
 ```bash
 npm start
