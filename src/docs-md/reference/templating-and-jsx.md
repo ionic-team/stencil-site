@@ -245,6 +245,39 @@ It is also possible to use `innerHTML` to inline content straight into an elemen
 <div innerHTML={svgContent}></div>
 ```
 
+### Getting a reference to a dom element
+
+In cases where you need to get a direct reference to an element, like you would normally do with `document.querySelector`, you might want to use a `ref` in JSX. Lets look at an example of using a `ref` in a form:
+
+```tsx
+@Component({
+  tag: 'app-home',
+})
+export class AppHome{
+
+  textInput: HTMLInputElement;
+
+  handleSubmit = (ev: Event) => {
+    ev.preventDefault();
+    console.log(this.textInput.value);
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" ref={(el: HTMLInputElement) => this.textInput = el} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+In this example we are using `ref` to get a reference to our input `ref={(el: HTMLInputElement) => this.textInput = el}`. We can then use that ref to do things such as grab the value from the text input directly `this.textInput.value`.
+
 <stencil-route-link url="/docs/reactive-data" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
