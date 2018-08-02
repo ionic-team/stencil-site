@@ -11,7 +11,7 @@ Stencil can be used to create standalone components, or entire apps.
 To build standalone components, such as a reusable UI element or library, you can use the component starter:
 
 ```bash
-npm init stencil components my-components
+npm init stencil component my-components
 ```
 
 Then, to start a live-reload server complete with HMR for development, run:
