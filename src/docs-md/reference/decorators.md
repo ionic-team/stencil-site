@@ -158,7 +158,7 @@ In some cases it may be useful to keep a Prop in sync with an attribute. In this
 <a name="watch"></a>
 ## Watch Decorator
 
-When a user updates a property, `Watch` will fire what ever method it's attached to and pass that methd the new value of the prop along with the old value. `Watch` is useful for validating props or handling side effects.
+When a user updates a property, `Watch` will fire what ever method it's attached to and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props or handling side effects.
 
 
 ```typescript
