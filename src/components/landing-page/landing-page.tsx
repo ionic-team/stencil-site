@@ -64,10 +64,6 @@ export class LandingPage {
               <button id="get-started"> Get Started </button>
             </stencil-route-link>
 
-            <stencil-route-link url="/docs/introduction">
-              <button id="learn-more"> Learn More </button>
-            </stencil-route-link>
-
             <div onClick={() => { this.openYoutube() }} id="launch-video">
               <img src="/assets/img/video-icon.png" alt="Icon for Video"></img><span>Watch launch video</span>
             </div>
