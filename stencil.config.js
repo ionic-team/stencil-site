@@ -17,7 +17,8 @@ exports.config = {
   ],
   globalStyle: 'src/global/style.scss',
   copy: [
-    { src: 'docs-content/' }
+    { src: 'docs-content/' },
+    { src: 'robots.txt' }
   ]
 };
 
