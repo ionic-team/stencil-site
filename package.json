@@ -14,9 +14,9 @@
     "@stencil/sass": "0.0.5"
   },
   "devDependencies": {
-    "@stencil/core": "^0.10.6",
-    "@stencil/router": "^0.2.5",
-    "@stencil/state-tunnel": "0.0.6",
+    "@stencil/core": "^0.12.4",
+    "@stencil/router": "^0.2.6",
+    "@stencil/state-tunnel": "0.0.8",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-markdown": "^1.2.0",
