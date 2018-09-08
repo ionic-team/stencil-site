@@ -1,6 +1,7 @@
-const sass = require('@stencil/sass');
+import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
-exports.config = {
+export const config: Config = {
   plugins: [
     sass()
   ],
