@@ -9,19 +9,21 @@ file. All of this configuration is included with the Stencil App Starter and the
 use one of those templates to start your project, you should not have to add anything. This information is presented
 here primarily for informational purposes.</p>
 <p>Jest is installed as a development dependency:</p>
-<pre><code>  <span class="hljs-string">"devDependencies"</span>: {
+<pre><code class="lang-json">  <span class="hljs-string">"devDependencies"</span>: {
       ...
       <span class="hljs-string">"@types/jest"</span>: <span class="hljs-string">"^21.1.1"</span>,
       <span class="hljs-string">"jest"</span>: <span class="hljs-string">"^21.2.1"</span>
   },
-</code></pre><p>NPM scripts are set up in order to run the tests:</p>
-<pre><code>  <span class="hljs-string">"scripts"</span>: {
+</code></pre>
+<p>NPM scripts are set up in order to run the tests:</p>
+<pre><code class="lang-json">  <span class="hljs-string">"scripts"</span>: {
       ...
       <span class="hljs-string">"test"</span>: <span class="hljs-string">"jest --no-cache"</span>,
       <span class="hljs-string">"test.watch"</span>: <span class="hljs-string">"jest --watch --no-cache"</span>
   },
-</code></pre><p>Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:</p>
-<pre><code>  <span class="hljs-string">"jest"</span>: {
+</code></pre>
+<p>Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:</p>
+<pre><code class="lang-json">  <span class="hljs-string">"jest"</span>: {
       <span class="hljs-string">"transform"</span>: {
         <span class="hljs-string">"^.+\\.(ts|tsx)$"</span>: <span class="hljs-string">"&lt;rootDir&gt;/node_modules/@stencil/core/testing/jest.preprocessor.js"</span>
       },
@@ -34,7 +36,8 @@ here primarily for informational purposes.</p>
         <span class="hljs-string">"jsx"</span>
       ]
   }
-</code></pre><h2 id="component-rendering-tests">Component Rendering Tests</h2>
+</code></pre>
+<h2 id="component-rendering-tests">Component Rendering Tests</h2>
 <p>The Stencil testing framework API contains two functions that are used to render components for testing:</p>
 <ul>
 <li><p><code>render({ components: [], html: string })</code> - The <code>render()</code> function takes a list of components and an HTML snippet
