@@ -5,7 +5,7 @@ The `.tsx` extension is required since Stencil components are built using [JSX](
 
 Here is an example of what a Stencil component looks like:
 
-```jsx
+```ts
 import { Component, Prop } from '@stencil/core';
 
 @Component({

@@ -12,7 +12,7 @@ The easiest way to build and distribute web components with Stencil is by using 
 
 Configuring Stencil for distribution is easy. Set the following config options in the `stencil.config.js` file:
 
-```
+```javascript
 exports.config = {
   namespace: 'myname',
   outputTargets: [
@@ -34,7 +34,7 @@ exports.config = {
 
 You also need to add the following to your `package.json`:
 
-```
+```json
 {
   "main": "dist/myname.js",
   "types": "dist/types/index.d.ts",

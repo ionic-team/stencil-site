@@ -8,7 +8,7 @@ The [Element decorator](/docs/decorators#element) provides direct access to the 
 
 If you need to update the host element in response to prop or state changes, you should do so using the `hostData` method.
 
-```tsx
+```typescript
 import { Element } from '@stencil/core';
 
 ...
@@ -26,7 +26,7 @@ export class TodoList {
 
 The `hostData` method can be implemented by any Stencil component and provides a way to declaratively set properties on the host element during rendering. The `hostData` method is called whenever `render` is, so it is useful for reacting to state and prop changes.
 
-```tsx
+```typescript
 ...
 export class TodoList {
 

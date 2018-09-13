@@ -12,17 +12,18 @@
 <li>Data that you are fetching from an api should not be prerendered as this data is dynamic and is going to change.</li>
 </ul>
 <p>Stencil provides an <code>isServer</code> utility variable to tell prerendering to skip code. Here is an example of how to use this utility:</p>
-<pre><code>@Prop({ context: <span class="hljs-string">'isServer'</span> }) private isServer: boolean;
+<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>({ context: <span class="hljs-string">'isServer'</span> }) <span class="hljs-keyword">private</span> isServer: <span class="hljs-built_in">boolean</span>;
 
 componentWillLoad() {
-  <span class="hljs-regexp">//</span> isServer <span class="hljs-keyword">is</span> <span class="hljs-literal">false</span> <span class="hljs-keyword">when</span> running <span class="hljs-keyword">in</span> the browser
-  <span class="hljs-regexp">//</span> <span class="hljs-keyword">and</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">when</span> being prerendered
+  <span class="hljs-comment">// isServer is false when running in the browser</span>
+  <span class="hljs-comment">// and true when being prerendered</span>
 
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isServer === <span class="hljs-literal">false</span>) {
-    fetch(<span class="hljs-string">'someUrl'</span>).<span class="hljs-keyword">then</span>(...)
+    fetch(<span class="hljs-string">'someUrl'</span>).then(...)
   }
 }
-</code></pre><p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
+</code></pre>
+<p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>

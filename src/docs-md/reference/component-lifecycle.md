@@ -4,7 +4,7 @@ Components have numerous lifecycle methods which can be used to know when the co
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
-```jsx
+```typescript
 import { Component } from '@stencil/core';
 
 @Component({
@@ -127,9 +127,8 @@ componentWillLoad() {
 
 This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
 
-```jsx
+```typescript
 import { Component, State } from '@stencil/core';
-
 
 @Component({
   tag: 'custom-clock'

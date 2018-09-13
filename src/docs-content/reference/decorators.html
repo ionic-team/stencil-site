@@ -14,11 +14,11 @@
 <p>Use a relative url to the <code>.css</code> file for the styleUrl(s).</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-@Component({
+<span class="hljs-meta">@Component</span>({
   tag: <span class="hljs-string">'todo-list'</span>,
   styleUrl: <span class="hljs-string">'todo-list.scss'</span>
 })
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
   ...
 }
 </code></pre>
@@ -26,9 +26,9 @@
 <p>You can also link directly to <code>.scss</code> files</p>
 </blockquote>
 <p>The <code>@Component()</code> decorator also has a <code>host</code> option. This allows you to set CSS classes and attributes on the component you are building.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } from <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-@Component({
+<span class="hljs-meta">@Component</span>({
   tag: <span class="hljs-string">'todo-list'</span>,
   styleUrl: <span class="hljs-string">'todo-list.scss'</span>,
   host: {
@@ -38,33 +38,33 @@
 })
 </code></pre>
 <p>When this component is used it will now have both the <code>todo</code> class and the <code>role</code> attribute automatically added.</p>
-<pre><code class="lang-html">&lt;todo-list <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'todo'</span> role=<span class="hljs-string">'list'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span></span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'todo'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">'list'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
 </code></pre>
 <p><a name="prop"></a></p>
 <h2 id="prop-decorator">Prop Decorator</h2>
 <p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with a <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } from <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 ...
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
-  <span class="hljs-meta">@Prop</span>() <span class="hljs-string">color:</span> string;
-  <span class="hljs-meta">@Prop</span>() <span class="hljs-string">favoriteNumber:</span> number;
-  <span class="hljs-meta">@Prop</span>() <span class="hljs-string">isSelected:</span> <span class="hljs-keyword">boolean</span>;
-  <span class="hljs-meta">@Prop</span>() <span class="hljs-string">myHttpService:</span> MyHttpService;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
+  <span class="hljs-meta">@Prop</span>() color: <span class="hljs-built_in">string</span>;
+  <span class="hljs-meta">@Prop</span>() favoriteNumber: <span class="hljs-built_in">number</span>;
+  <span class="hljs-meta">@Prop</span>() isSelected: <span class="hljs-built_in">boolean</span>;
+  <span class="hljs-meta">@Prop</span>() myHttpService: MyHttpService;
 }
 </code></pre>
 <p>Within the <code>TodoList</code> class, the Props are accessed via the <code>this</code> operator.</p>
-<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-title">logColor</span><span class="hljs-params">()</span></span> {
-  console.log(this.<span class="hljs-attribute">color</span>)
+<pre><code class="lang-typescript">logColor() {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.color)
 }
 </code></pre>
 <p>Externally, Props are set on the element.</p>
 <blockquote>
 <p>In HTML, you must set attributes using dash-case:</p>
 </blockquote>
-<pre><code class="lang-html">&lt;todo-<span class="hljs-built_in">list</span> color=<span class="hljs-string">"blue"</span> favorite-<span class="hljs-built_in">number</span>=<span class="hljs-string">"24"</span> <span class="hljs-keyword">is</span>-selected=<span class="hljs-string">"true"</span>&gt;&lt;/todo-<span class="hljs-built_in">list</span>&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">favorite-number</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">is-selected</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
 </code></pre>
 <p>in JSX you set an attribute using camelCase:</p>
-<pre><code class="lang-typescript">&lt;todo-list <span class="hljs-attribute">color</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attribute">favoriteNumber</span>=<span class="hljs-string">"24"</span> <span class="hljs-attribute">isSelected</span>=<span class="hljs-string">"true"</span>&gt;&lt;/todo-list&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">favoriteNumber</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">isSelected</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
 </code></pre>
 <p>They can also be accessed via JS from the element.</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'todo-list'</span>);
@@ -76,8 +76,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <p>However, it&#39;s possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as <strong>mutable</strong>, as in the example below:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 ...
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NameElement</span> {</span>
-  @Prop({ mutable: <span class="hljs-literal">true</span> }) name: string = <span class="hljs-string">'Stencil'</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NameElement {
+  <span class="hljs-meta">@Prop</span>({ mutable: <span class="hljs-literal">true</span> }) name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
 
   componentDidLoad() {
     <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Stencil 0.7.0'</span>;
@@ -88,8 +88,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 <p>Setting a default value on a Prop:</p>
 <pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 ...
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NameElement</span> {</span>
-  @Prop() <span class="hljs-name">name</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NameElement {
+  <span class="hljs-meta">@Prop</span>() name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
 }
 </code></pre>
 <p>To do validation of a Prop, you can use the <a href="#watch">@Watch()</a> decorator:</p>
@@ -109,35 +109,35 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 </code></pre>
 <h3 id="reflect-properties-to-attributes">Reflect Properties to Attributes</h3>
 <p>In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the <code>reflectToAttr</code> option in the <code>@Prop()</code> decorator:</p>
-<pre><code class="lang-typescript"><span class="hljs-string">@Prop({</span>
-<span class="hljs-attr">  reflectToAttr:</span> <span class="hljs-literal">true</span>
-<span class="hljs-string">})</span>
+<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>({
+  reflectToAttr: <span class="hljs-literal">true</span>
+})
 </code></pre>
 <p><a name="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
 <p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that method the new value of the prop along with the old value. <code>Watch</code> is useful for validating props or handling side effects.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } from <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoadingIndicator</span> {</span>
-  <span class="hljs-meta">@Prop</span>() <span class="hljs-string">activated:</span> <span class="hljs-keyword">boolean</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> LoadingIndicator {
+  <span class="hljs-meta">@Prop</span>() activated: <span class="hljs-built_in">boolean</span>;
 
   <span class="hljs-meta">@Watch</span>(<span class="hljs-string">'activated'</span>)
-  watchHandler(<span class="hljs-string">newValue:</span> <span class="hljs-keyword">boolean</span>, <span class="hljs-string">oldValue:</span> <span class="hljs-keyword">boolean</span>) {
-    console.log(<span class="hljs-string">'The new value of activated is: '</span>, newValue);
+  watchHandler(newValue: <span class="hljs-built_in">boolean</span>, oldValue: <span class="hljs-built_in">boolean</span>) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'The new value of activated is: '</span>, newValue);
   }
 }
 </code></pre>
 <h1 id="managing-component-state">Managing Component State</h1>
 <p>The <code>@State()</code> decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a <code>@State()</code> property will cause the components <code>render</code> function to be called again.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } from <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
 ...
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
-  <span class="hljs-meta">@State()</span> completedTodos: Todo[];
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
+  <span class="hljs-meta">@State</span>() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
     <span class="hljs-comment">// This will cause our render function to be called again</span>
-    <span class="hljs-keyword">this</span>.completedTodos = [...<span class="hljs-keyword">this</span>.completedTodos, todo];
+    <span class="hljs-keyword">this</span>.completedTodos = [...this.completedTodos, todo];
   }
 
   render() {
@@ -153,14 +153,14 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 ...
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
 
-  @Method()
+  <span class="hljs-meta">@Method</span>()
   showPrompt() {
     <span class="hljs-comment">// show a prompt</span>
   }
 }
 </code></pre>
 <p>Call the method like this:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'todo-list'</span>);
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'todo-list'</span>);
 todoListElement.showPrompt();
 </code></pre>
 <p><a name="element"></a></p>

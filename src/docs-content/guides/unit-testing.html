@@ -9,14 +9,14 @@ file. All of this configuration is included with the Stencil App Starter and the
 use one of those templates to start your project, you should not have to add anything. This information is presented
 here primarily for informational purposes.</p>
 <p>Jest is installed as a development dependency:</p>
-<pre><code class="lang-json">  <span class="hljs-string">"devDependencies"</span>: {
+<pre><code class="lang-js">  <span class="hljs-string">"devDependencies"</span>: {
       ...
       <span class="hljs-string">"@types/jest"</span>: <span class="hljs-string">"^21.1.1"</span>,
       <span class="hljs-string">"jest"</span>: <span class="hljs-string">"^21.2.1"</span>
   },
 </code></pre>
 <p>NPM scripts are set up in order to run the tests:</p>
-<pre><code class="lang-json">  <span class="hljs-string">"scripts"</span>: {
+<pre><code class="lang-js">  <span class="hljs-string">"scripts"</span>: {
       ...
       <span class="hljs-string">"test"</span>: <span class="hljs-string">"jest --no-cache"</span>,
       <span class="hljs-string">"test.watch"</span>: <span class="hljs-string">"jest --watch --no-cache"</span>
@@ -62,22 +62,22 @@ but this is not a requirement otherwise.</p>
 </li>
 </ul>
 <p>This function returns a promise that is resolved with the rendered HTML element.</p>
-<pre><code class="lang-ts">beforeEach(<span class="hljs-name">async</span> () =&gt; {
-  element = await render({
+<pre><code class="lang-typescript">beforeEach(<span class="hljs-keyword">async</span> () =&gt; {
+  element = <span class="hljs-keyword">await</span> render({
     components: [MyName],
-    html: '&lt;my-name&gt;&lt;/my-name&gt;'
-  })<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+    html: <span class="hljs-string">'&lt;my-name&gt;&lt;/my-name&gt;'</span>
+  });
+});
 </code></pre>
 <h3 id="refreshing-a-component">Refreshing a Component</h3>
 <p>Use the <code>flush()</code> function to re-render the node as needed. This is typically done after changing property values
 on the component.</p>
-<pre><code class="lang-ts">it('should work with both the first and the last name', async () =&gt; {
-  element.first = 'Peter'
-  element.last = 'Parker'<span class="hljs-comment">;</span>
-  await flush(<span class="hljs-name">element</span>)<span class="hljs-comment">;</span>
-  expect(<span class="hljs-name">element</span>.textContent).toEqual('Hello, my name is Peter Parker')<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+<pre><code class="lang-typescript">it(<span class="hljs-string">'should work with both the first and the last name'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  element.first = <span class="hljs-string">'Peter'</span>
+  element.last = <span class="hljs-string">'Parker'</span>;
+  <span class="hljs-keyword">await</span> flush(element);
+  expect(element.textContent).toEqual(<span class="hljs-string">'Hello, my name is Peter Parker'</span>);
+});
 </code></pre>
 <h3 id="examining-the-element">Examining the Element</h3>
 <p>Since the rendered element is an HTMLElement, you can use methods and properties from the
@@ -85,33 +85,33 @@ on the component.</p>
 contents of the element.</p>
 <p>Let&#39;s say that instead of printing the first and last names, our component had to split the names apart on spaces
 and print a list of each part of the name. We could write a rendering test for that as such:</p>
-<pre><code class="lang-ts">    it('should least each part of the name breaking on spaces', async () =&gt; {
-      element.first = 'Pasta Primavera'<span class="hljs-comment">;</span>
-      element.last = 'O Shea Buttersworth'<span class="hljs-comment">;</span>
-      await flush(<span class="hljs-name">element</span>)<span class="hljs-comment">;</span>
-      const list = element.querySelector('ul')<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children.length).toEqual(<span class="hljs-number">5</span>)<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children[<span class="hljs-number">0</span>].textContent).toEqual('Pasta')<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children[<span class="hljs-number">1</span>].textContent).toEqual('Primavera')<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children[<span class="hljs-number">2</span>].textContent).toEqual('O')<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children[<span class="hljs-number">3</span>].textContent).toEqual('Shea')<span class="hljs-comment">;</span>
-      expect(<span class="hljs-name">list</span>.children[<span class="hljs-number">4</span>].textContent).toEqual('Buttersworth')<span class="hljs-comment">;</span>
-    })<span class="hljs-comment">;</span>
+<pre><code class="lang-typescript">    it(<span class="hljs-string">'should least each part of the name breaking on spaces'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+      element.first = <span class="hljs-string">'Pasta Primavera'</span>;
+      element.last = <span class="hljs-string">'O Shea Buttersworth'</span>;
+      <span class="hljs-keyword">await</span> flush(element);
+      <span class="hljs-keyword">const</span> list = element.querySelector(<span class="hljs-string">'ul'</span>);
+      expect(list.children.length).toEqual(<span class="hljs-number">5</span>);
+      expect(list.children[<span class="hljs-number">0</span>].textContent).toEqual(<span class="hljs-string">'Pasta'</span>);
+      expect(list.children[<span class="hljs-number">1</span>].textContent).toEqual(<span class="hljs-string">'Primavera'</span>);
+      expect(list.children[<span class="hljs-number">2</span>].textContent).toEqual(<span class="hljs-string">'O'</span>);
+      expect(list.children[<span class="hljs-number">3</span>].textContent).toEqual(<span class="hljs-string">'Shea'</span>);
+      expect(list.children[<span class="hljs-number">4</span>].textContent).toEqual(<span class="hljs-string">'Buttersworth'</span>);
+    });
 </code></pre>
 <p>Anything that you can use on an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> you can use in the tests.</p>
 <h2 id="component-method-tests">Component Method Tests</h2>
 <p>To test the component&#39;s methods, instantiate an instance of the component and call the methods.</p>
-<pre><code class="lang-ts">it('should return an empty string if there is no first or last name', () =&gt; {
-  const myName = new MyName()<span class="hljs-comment">;</span>
-  expect(<span class="hljs-name">myName</span>.formatted()).toEqual('')<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+<pre><code class="lang-typescript">it(<span class="hljs-string">'should return an empty string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
+  expect(myName.formatted()).toEqual(<span class="hljs-string">''</span>);
+});
 </code></pre>
-<pre><code class="lang-ts">it('should return a formatted string if there is no first or last name', () =&gt; {
-  const myName = new MyName()<span class="hljs-comment">;</span>
-  myName.first = 'Lucas'<span class="hljs-comment">;</span>
-  myName.last = 'Kalrickson'<span class="hljs-comment">;</span>
-  expect(<span class="hljs-name">myName</span>.formatted()).toEqual('Kalrickson, Lucas')<span class="hljs-comment">;</span>
-})<span class="hljs-comment">;</span>
+<pre><code class="lang-typescript">it(<span class="hljs-string">'should return a formatted string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
+  myName.first = <span class="hljs-string">'Lucas'</span>;
+  myName.last = <span class="hljs-string">'Kalrickson'</span>;
+  expect(myName.formatted()).toEqual(<span class="hljs-string">'Kalrickson, Lucas'</span>);
+});
 </code></pre>
 <p><stencil-route-link url="/docs/context" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

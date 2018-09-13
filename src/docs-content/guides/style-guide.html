@@ -47,32 +47,35 @@ ion-<span class="hljs-keyword">card</span>-header
 ion-<span class="hljs-keyword">card</span>-content
 </code></pre><h3 id="component-ts-class-">Component (TS class)</h3>
 <p>The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.</p>
-<pre><code class="lang-ts"><span class="hljs-variable">@Component</span>({
-  <span class="hljs-attribute">tag</span>: <span class="hljs-string">'ion-button'</span>
+<pre><code class="lang-typescript"><span class="hljs-meta">@Component</span>({
+  tag: <span class="hljs-string">'ion-button'</span>
 })
-export class Button { ... }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Button { ... }
 
-<span class="hljs-variable">@Component</span>({
-  <span class="hljs-attribute">tag</span>: <span class="hljs-string">'ion-menu'</span>
+<span class="hljs-meta">@Component</span>({
+  tag: <span class="hljs-string">'ion-menu'</span>
 })
-export class Menu { ... }
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Menu { ... }
 </code></pre>
 <h2 id="typescript">TypeScript</h2>
 <ol>
 <li><p><strong>Follow</strong> <a href="https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js">tslint-ionic-rules</a></p>
 </li>
 <li><p><strong>Variable decorators should be inlined.</strong></p>
-<pre><code class="lang-ts"><span class="hljs-variable">@Prop</span>() <span class="hljs-attribute">name</span>: string;
-<span class="hljs-variable">@Element</span>() <span class="hljs-attribute">el</span>: HTMLElement;
-</code></pre>
 </li>
-<li><p><strong>Method decorator should be multi-line</strong></p>
-<pre><code class="lang-ts">@Listen(<span class="hljs-string">'click'</span>)
-<span class="hljs-function"><span class="hljs-title">onClick</span><span class="hljs-params">()</span></span> {
-...
+</ol>
+<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>() name: <span class="hljs-built_in">string</span>;
+<span class="hljs-meta">@Element</span>() el: HTMLElement;
+</code></pre>
+<ol start="3">
+<li><strong>Method decorator should be multi-line</strong></li>
+</ol>
+<pre><code class="lang-typescript"><span class="hljs-meta">@Listen</span>(<span class="hljs-string">'click'</span>)
+onClick() {
+  ...
 }
 </code></pre>
-</li>
+<ol start="4">
 <li><p><strong>Use private variables and methods as much possible:</strong> They are useful to detect deadcode and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using <code>private</code>, <code>public</code> or <code>protected</code> does not make a difference in the actual JavaScript output.</p>
 </li>
 <li><p><strong>Code with Method/Prop/Event/Component decorators should have jsdocs:</strong> This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense</p>
@@ -84,7 +87,7 @@ export class Menu { ... }
 <p>The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.</p>
 </blockquote>
 <h3 id="high-level-example-commented-">High level example (commented)</h3>
-<pre><code class="lang-ts"><span class="hljs-meta">@Component({
+<pre><code class="lang-typescript"><span class="hljs-meta">@Component({
   tag: <span class="hljs-meta-string">'ion-something'</span>,
   styleUrl: <span class="hljs-meta-string">'something.scss'</span>,
   styleUrls: {

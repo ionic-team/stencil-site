@@ -2,13 +2,13 @@
 <p>Build Constants in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.</p>
 <h3 id="using-build-constants">Using Build Constants</h3>
 <p>Lets dive in and look at an example of how to use our build constants:</p>
-<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { Component, Build } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, Build } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-@Component({
+<span class="hljs-meta">@Component</span>({
   tag: <span class="hljs-string">'stencil-app'</span>,
   styleUrl: <span class="hljs-string">'stencil-app.scss'</span>
 })
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StencilApp</span> {</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> StencilApp {
 
   componentDidLoad() {
     <span class="hljs-keyword">if</span> (Build.isDev) {

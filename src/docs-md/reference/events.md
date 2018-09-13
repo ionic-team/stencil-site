@@ -106,7 +106,7 @@ export class TodoList {
 
 We can now listen to this event directly on the component in our JSX using the following syntax:
 
-```jsx
+```html
 <todo-list onTodoCompleted={ev => this.someMethod(ev)}></todo-list>
 ```
 

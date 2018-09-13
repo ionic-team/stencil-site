@@ -33,7 +33,7 @@ Hello {<span class="hljs-keyword">this</span>.name}
 </code></pre><h3 id="conditionals">Conditionals</h3>
 <p>If we want to conditionally render different content, we can use JavaScript if/else statements:
 Here, if <code>name</code> is not defined, we can just render a different element.</p>
-<pre><code class="lang-jsx">render() {
+<pre><code class="lang-typescript">render() {
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name) {
     <span class="hljs-keyword">return</span> ( <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Hello {this.name}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span> )
   } <span class="hljs-keyword">else</span> {
@@ -42,7 +42,7 @@ Here, if <code>name</code> is not defined, we can just render a different elemen
 }
 </code></pre>
 <p>Additionally, inline conditionals can be created using the JavaScript ternary operator:</p>
-<pre><code class="lang-jsx">render() {
+<pre><code class="lang-typescript">render() {
   <span class="hljs-keyword">return</span> (
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     {this.name
@@ -56,7 +56,7 @@ Here, if <code>name</code> is not defined, we can just render a different elemen
 <h3 id="slots">Slots</h3>
 <p>Components often need to render dynamic children in specific locations in their component tree, allowing a developer to supply child content when using our component, with our component placing that child component in the proper location.</p>
 <p>To do this, you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot">Slot</a> tag inside of your <code>my-component</code>.</p>
-<pre><code class="lang-jsx"><span class="hljs-comment">// my-component.tsx</span>
+<pre><code class="lang-typescript"><span class="hljs-comment">// my-component.tsx</span>
 
 render() {
   <span class="hljs-keyword">return</span> (
@@ -70,7 +70,7 @@ render() {
 </code></pre>
 <p>Then, if a user passes child components when creating our component <code>my-component</code>, then <code>my-component</code> will place that
 component inside of the second <code>&lt;div&gt;</code> above:</p>
-<pre><code class="lang-jsx">render(){
+<pre><code class="lang-typescript">render(){
   <span class="hljs-keyword">return</span>(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Child Element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -79,7 +79,7 @@ component inside of the second <code>&lt;div&gt;</code> above:</p>
 }</span>
 </code></pre>
 <p>Slots can also have <code>name</code>s to allow for specifying slot output location:</p>
-<pre><code class="lang-jsx"><span class="hljs-comment">// my-component.tsx</span>
+<pre><code class="lang-typescript"><span class="hljs-comment">// my-component.tsx</span>
 
 <span class="hljs-function"><span class="hljs-title">render</span><span class="hljs-params">()</span></span>{
   return [
@@ -89,7 +89,7 @@ component inside of the second <code>&lt;div&gt;</code> above:</p>
   ]
 }
 </code></pre>
-<pre><code class="lang-jsx">render(){
+<pre><code class="lang-typescript">render(){
   <span class="hljs-keyword">return</span>(
     <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"item-start"</span>&gt;</span>I'll be placed before the h1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -101,7 +101,7 @@ component inside of the second <code>&lt;div&gt;</code> above:</p>
 <h3 id="loops">Loops</h3>
 <p>Loops can be created in JSX using either traditional loops when creating JSX trees, or using array operators such as <code>map</code> when inlined in existing JSX.</p>
 <p>In the example below, we&#39;re going to assume the component has a local property called <code>todos</code> which is a list of todo objects. We&#39;ll use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map</a> function on the array to loop over each item in the map, and to convert it to something else - in this case JSX.</p>
-<pre><code class="lang-jsx">render() {
+<pre><code class="lang-typescript">render() {
   <span class="hljs-keyword">return</span> (
     &lt;<span class="hljs-keyword">div</span>&gt;
       {<span class="hljs-keyword">this</span>.todos.map((todo) =&gt;
@@ -118,7 +118,7 @@ component inside of the second <code>&lt;div&gt;</code> above:</p>
 <h3 id="handling-user-input">Handling User Input</h3>
 <p>Stencil uses native <a href="https://developer.mozilla.org/en-US/docs/Web/Events">DOM events</a>.</p>
 <p>Here&#39;s an example of handling a button click. Note the use of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow function</a>.</p>
-<pre><code class="lang-jsx">...
+<pre><code class="lang-typescript">...
 export <span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> {
   handleClick(<span class="hljs-keyword">event</span>: UIEvent) {
     alert(<span class="hljs-string">'Received the button click!'</span>);
@@ -132,7 +132,7 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyCompon
 }
 </code></pre>
 <p>An alternate syntax for this is to use the following:</p>
-<pre><code class="lang-jsx">  handleClick(event: UIEvent) {
+<pre><code class="lang-typescript">  handleClick(event: UIEvent) {
     alert(<span class="hljs-string">'Received the button click!'</span>);
   }
 
@@ -144,15 +144,15 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyCompon
 </code></pre>
 <p>Both options are valid.</p>
 <p>Here&#39;s another example of listening to input <code>change</code>. Note the use of the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow function</a>.</p>
-<pre><code class="lang-jsx">...
-export <span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> {
-  inputChanged(<span class="hljs-keyword">event</span>) {
-    console.log(<span class="hljs-string">'input changed: '</span>, <span class="hljs-keyword">event</span>.target.<span class="hljs-keyword">value</span>);
+<pre><code class="lang-typescript">...
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {
+  inputChanged(event) {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'input changed: '</span>, event.target.value);
   }
 
   render() {
     <span class="hljs-keyword">return</span> (
-      &lt;input onChange={(<span class="hljs-keyword">event</span>: UIEvent) =&gt; <span class="hljs-keyword">this</span>.inputChanged(<span class="hljs-keyword">event</span>)}&gt;
+      &lt;input onChange={<span class="hljs-function">(<span class="hljs-params">event: UIEvent</span>) =&gt;</span> <span class="hljs-keyword">this</span>.inputChanged(event)}&gt;
     );
   }
 }
@@ -161,7 +161,7 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyCompon
 <p>So far we&#39;ve seen examples of how to return only a single root element. We can also nest elements inside our root element</p>
 <p>In the case where a component has multiple &quot;top level&quot; elements, the <code>render</code> function can return an array.
 Note the comma in between the <code>&lt;div&gt;</code> elements.</p>
-<pre><code class="lang-jsx">render() {
+<pre><code class="lang-typescript">render() {
   return ([
   <span class="hljs-comment">// first top level element</span>
   <span class="hljs-params">&lt;div class="container"&gt;</span>
@@ -180,11 +180,11 @@ Note the comma in between the <code>&lt;div&gt;</code> elements.</p>
 }
 </code></pre>
 <p>It is also possible to use <code>innerHTML</code> to inline content straight into an element. This can be helpful when, for example, loading an svg dynamically and then wanting to render that inside of a <code>div</code>. This works just like it does in normal HTML:</p>
-<pre><code class="lang-jsx"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">innerHTML</span>=<span class="hljs-string">{svgContent}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">innerHTML</span>=<span class="hljs-string">{svgContent}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
 <h3 id="getting-a-reference-to-a-dom-element">Getting a reference to a dom element</h3>
 <p>In cases where you need to get a direct reference to an element, like you would normally do with <code>document.querySelector</code>, you might want to use a <code>ref</code> in JSX. Lets look at an example of using a <code>ref</code> in a form:</p>
-<pre><code class="lang-tsx">@Component({
+<pre><code class="lang-typescript">@Component({
   tag: <span class="hljs-string">'app-home'</span>,
 })
 <span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppHome</span>{</span>

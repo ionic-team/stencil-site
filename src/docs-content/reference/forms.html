@@ -1,7 +1,7 @@
 <h1 id="forms">Forms</h1>
 <h3 id="basic-forms">Basic forms</h3>
 <p>Here is an example of a component with a basic form:</p>
-<pre><code>@Component({
+<pre><code class="lang-typescript">@Component({
   tag: <span class="hljs-string">'my-name'</span>,
   styleUrl: <span class="hljs-string">'my-name.scss'</span>
 })
@@ -31,10 +31,11 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
     );
   }
 }
-</code></pre><p>Let&#39;s go over what is happening here. First we bind the value of the input to a state variable, in this case <code>this.value</code>. We then set our state variable to the new value of the input with the <code>handleChange</code> method we have bound to <code>onInput</code>. <code>onInput</code> will fire every keystroke that the user types into the input.</p>
+</code></pre>
+<p>Let&#39;s go over what is happening here. First we bind the value of the input to a state variable, in this case <code>this.value</code>. We then set our state variable to the new value of the input with the <code>handleChange</code> method we have bound to <code>onInput</code>. <code>onInput</code> will fire every keystroke that the user types into the input.</p>
 <h3 id="advanced-forms">Advanced forms</h3>
 <p>Here is an example of a component with a more advanced form:</p>
-<pre><code>@Component({
+<pre><code class="lang-typescript">@Component({
   tag: <span class="hljs-string">'my-name'</span>,
   styleUrl: <span class="hljs-string">'my-name.scss'</span>
 })
@@ -93,7 +94,8 @@ export <span class="hljs-keyword">class</span> <span class="hljs-title">MyName</
     );
   }
 }
-</code></pre><p>This form is a little more advanced in that it has two select inputs along with an email input. We also do validity checking of our email input in the <code>handleChange</code> method. We handle the <code>select</code> element in a very similar manner to how we handle text inputs.</p>
+</code></pre>
+<p>This form is a little more advanced in that it has two select inputs along with an email input. We also do validity checking of our email input in the <code>handleChange</code> method. We handle the <code>select</code> element in a very similar manner to how we handle text inputs.</p>
 <p>For the validity checking, we are #usingtheplatform and are using the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">constraint validation api</a> that is built right into the browser to check if the user is actually entering an email or not.</p>
 <p><stencil-route-link url="/docs/styling" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

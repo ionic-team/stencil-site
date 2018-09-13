@@ -6,25 +6,25 @@
 </ol>
 <h2 id="including-the-custom-elements-schema">Including the Custom Elements Schema</h2>
 <p>Including the <code>CUSTOM_ELEMENTS_SCHEMA</code> in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to <code>AppModule</code>:</p>
-<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { BrowserModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { BrowserModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;
 <span class="hljs-keyword">import</span> { CUSTOM_ELEMENTS_SCHEMA, NgModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> { FormsModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
 
 <span class="hljs-keyword">import</span> { AppComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app.component'</span>;
 <span class="hljs-keyword">import</span> { SharedModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'./shared/shared.module'</span>;
 
-@NgModule({
+<span class="hljs-meta">@NgModule</span>({
   declarations: [AppComponent],
   imports: [BrowserModule, FormsModule, SharedModule],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> {}</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule {}
 </code></pre>
 <p>The <code>CUSTOM_ELEMENTS_SCHEMA</code> needs to be included in any module that uses custom elements.</p>
 <h2 id="calling-definecustomelements-window-">Calling <code>defineCustomElements(window)</code></h2>
 <p>A component collection built with Stencil includes a main function that is used to load the components in the collection. That function is called <code>defineCustomElements()</code> and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in <code>main.ts</code> as such:</p>
-<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { enableProdMode } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { enableProdMode } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> { platformBrowserDynamic } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser-dynamic'</span>;
 
 <span class="hljs-keyword">import</span> { AppModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app/app.module'</span>;

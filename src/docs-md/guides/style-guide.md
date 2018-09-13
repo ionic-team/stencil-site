@@ -78,7 +78,7 @@ ion-card-content
 
 The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.
 
-```ts
+```typescript
 @Component({
   tag: 'ion-button'
 })
@@ -97,14 +97,14 @@ export class Menu { ... }
 
 2. **Variable decorators should be inlined.**
 
- ```ts
+```typescript
 @Prop() name: string;
 @Element() el: HTMLElement;
 ```
 
 3. **Method decorator should be multi-line**
 
- ```ts
+```typescript
 @Listen('click')
 onClick() {
   ...
@@ -123,7 +123,7 @@ onClick() {
 
 ### High level example (commented)
 
-```ts
+```typescript
 @Component({
   tag: 'ion-something',
   styleUrl: 'something.scss',

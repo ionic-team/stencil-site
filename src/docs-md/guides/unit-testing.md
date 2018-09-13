@@ -14,7 +14,7 @@ here primarily for informational purposes.
 
 Jest is installed as a development dependency:
 
-```json
+```js
   "devDependencies": {
 	  ...
 	  "@types/jest": "^21.1.1",
@@ -24,7 +24,7 @@ Jest is installed as a development dependency:
 
 NPM scripts are set up in order to run the tests:
 
-```json
+```js
   "scripts": {
   	...
 	  "test": "jest --no-cache",
@@ -79,7 +79,7 @@ but this is not a requirement otherwise.
 
 This function returns a promise that is resolved with the rendered HTML element.
 
-```ts
+```typescript
 beforeEach(async () => {
   element = await render({
     components: [MyName],
@@ -93,7 +93,7 @@ beforeEach(async () => {
 Use the `flush()` function to re-render the node as needed. This is typically done after changing property values
 on the component.
 
-```ts
+```typescript
 it('should work with both the first and the last name', async () => {
   element.first = 'Peter'
   element.last = 'Parker';
@@ -111,7 +111,7 @@ contents of the element.
 Let's say that instead of printing the first and last names, our component had to split the names apart on spaces
 and print a list of each part of the name. We could write a rendering test for that as such:
 
-```ts
+```typescript
     it('should least each part of the name breaking on spaces', async () => {
       element.first = 'Pasta Primavera';
       element.last = 'O Shea Buttersworth';
@@ -132,14 +132,14 @@ Anything that you can use on an [HTMLElement](https://developer.mozilla.org/en-U
 
 To test the component's methods, instantiate an instance of the component and call the methods.
 
-```ts
+```typescript
 it('should return an empty string if there is no first or last name', () => {
   const myName = new MyName();
   expect(myName.formatted()).toEqual('');
 });
 ```
 
-```ts
+```typescript
 it('should return a formatted string if there is no first or last name', () => {
   const myName = new MyName();
   myName.first = 'Lucas';

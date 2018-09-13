@@ -4,7 +4,7 @@
 
 Here is an example of a component with a basic form:
 
-```
+```typescript
 @Component({
   tag: 'my-name',
   styleUrl: 'my-name.scss'
@@ -44,7 +44,7 @@ Let's go over what is happening here. First we bind the value of the input to a 
 
 Here is an example of a component with a more advanced form:
 
-```
+```typescript
 @Component({
   tag: 'my-name',
   styleUrl: 'my-name.scss'

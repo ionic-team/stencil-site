@@ -15,55 +15,59 @@
 </blockquote>
 <h3 id="config">Config</h3>
 <p>Stencil uses Workbox underneath and therefore supports all of the <a href="https://Workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration">Workbox config options</a>. Here is the default config Stencil uses:</p>
-<pre><code><span class="hljs-string">{</span>
-<span class="hljs-attr">  skipWaiting:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
-<span class="hljs-attr">  clientsClaim:</span> <span class="hljs-literal">true</span><span class="hljs-string">,</span>
-<span class="hljs-attr">  globPatterns:</span> <span class="hljs-string">[</span>
+<pre><code class="lang-typescript">{
+  skipWaiting: <span class="hljs-literal">true</span>,
+  clientsClaim: <span class="hljs-literal">true</span>,
+  globPatterns: [
     <span class="hljs-string">'**/*.{js,css,json,html,ico,png,svg}'</span>
-  <span class="hljs-string">]</span>
-<span class="hljs-string">};</span>
-</code></pre><p>This configuration does pre-caching of all of your apps assets.</p>
+  ]
+};
+</code></pre>
+<p>This configuration does pre-caching of all of your apps assets.</p>
 <p>To modify this config you can use the <code>serviceWorker</code> param of your Stencil config. Here is an example:</p>
-<pre><code>exports.config = {
-  outputTargets: [
+<pre><code class="lang-javascript">exports.config = {
+  <span class="hljs-attr">outputTargets</span>: [
     {
-      type: <span class="hljs-string">'www'</span>,
-      serviceWorker: {
-        globPatterns: [
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>,
+      <span class="hljs-attr">serviceWorker</span>: {
+        <span class="hljs-attr">globPatterns</span>: [
           <span class="hljs-string">'**/*.{js,css,json,html,ico,png}'</span>
         ]
       }
     }
   ]
 };
-</code></pre><h3 id="using-a-custom-service-worker">Using a custom service worker</h3>
+</code></pre>
+<h3 id="using-a-custom-service-worker">Using a custom service worker</h3>
 <p>Already have a service worker or want to include some custom code? We support that too.</p>
 <p>Let&#39;s go through the steps needed for this functionality:</p>
 <ul>
 <li>First we need to pass the path to our custom service worker to the <code>swSrc</code> command in the serviceWorker config. Here is an example:</li>
 </ul>
-<pre><code>exports.config = {
-  outputTargets: [
+<pre><code class="lang-javascript">exports.config = {
+  <span class="hljs-attr">outputTargets</span>: [
     {
-      type: <span class="hljs-string">'www'</span>,
-      serviceWorker: {
-        swSrc: <span class="hljs-string">'src/sw.js'</span>
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>,
+      <span class="hljs-attr">serviceWorker</span>: {
+        <span class="hljs-attr">swSrc</span>: <span class="hljs-string">'src/sw.js'</span>
       }
     }
   ]
 };
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>Now we need to include some boilerplate code in our custom service worker:</li>
 </ul>
-<pre><code><span class="hljs-selector-tag">importScripts</span>(<span class="hljs-string">'workbox-v3.1.0/Workbox-sw.js'</span>);
+<pre><code class="lang-typescript">importScripts(<span class="hljs-string">'workbox-v3.1.0/Workbox-sw.js'</span>);
 
-<span class="hljs-selector-tag">self</span><span class="hljs-selector-class">.workbox</span><span class="hljs-selector-class">.skipWaiting</span>();
-<span class="hljs-selector-tag">self</span><span class="hljs-selector-class">.workbox</span><span class="hljs-selector-class">.clientsClaim</span>();
+self.workbox.skipWaiting();
+self.workbox.clientsClaim();
 
 <span class="hljs-comment">// your custom service worker code</span>
 
-<span class="hljs-selector-tag">self</span><span class="hljs-selector-class">.workbox</span><span class="hljs-selector-class">.precaching</span><span class="hljs-selector-class">.precacheAndRoute</span>([]);
-</code></pre><p>This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.</p>
+self.workbox.precaching.precacheAndRoute([]);
+</code></pre>
+<p>This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.</p>
 <p><stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

@@ -1,69 +1,69 @@
 <h1 id="component-lifecycle-methods">Component Lifecycle Methods</h1>
 <p>Components have numerous lifecycle methods which can be used to know when the component &quot;will&quot; and &quot;did&quot; load, update, and unload. These methods can be added to a component to hook into operations at the right time.</p>
 <p>Implement one of the following methods within a component class and Stencil will automatically call them in the right order:</p>
-<pre><code class="lang-jsx">import { Component } <span class="hljs-keyword">from</span> '@stencil/core';
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-@Component({
-  tag: '<span class="hljs-keyword">my</span>-component'
+<span class="hljs-meta">@Component</span>({
+  tag: <span class="hljs-string">'my-component'</span>
 })
-export <span class="hljs-built_in">class</span> MyComponent {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {
 
-  /**
-   * The component <span class="hljs-keyword">is</span> <span class="hljs-keyword">about</span> <span class="hljs-keyword">to</span> load <span class="hljs-keyword">and</span> <span class="hljs-keyword">it</span> has <span class="hljs-keyword">not</span>
+  <span class="hljs-comment">/**
+   * The component is about to load and it has not
    * rendered yet.
    *
-   * This <span class="hljs-keyword">is</span> <span class="hljs-keyword">the</span> best place <span class="hljs-keyword">to</span> make any data updates
-   * <span class="hljs-keyword">before</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> render.
+   * This is the best place to make any data updates
+   * before the first render.
    *
    * componentWillLoad will only be called once.
-   */
+   */</span>
   componentWillLoad() {
-    console.<span class="hljs-built_in">log</span>('Component <span class="hljs-keyword">is</span> <span class="hljs-keyword">about</span> <span class="hljs-keyword">to</span> be rendered');
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component is about to be rendered'</span>);
   }
 
-  /**
-   * The component has loaded <span class="hljs-keyword">and</span> has already rendered.
+  <span class="hljs-comment">/**
+   * The component has loaded and has already rendered.
    *
-   * Updating data <span class="hljs-keyword">in</span> this method will cause <span class="hljs-keyword">the</span>
-   * component <span class="hljs-keyword">to</span> re-render.
+   * Updating data in this method will cause the
+   * component to re-render.
    *
    * componentDidLoad will only be called once.
-   */
+   */</span>
   componentDidLoad() {
-    console.<span class="hljs-built_in">log</span>('Component has been rendered');
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component has been rendered'</span>);
   }
 
-  /**
-   * The component <span class="hljs-keyword">is</span> <span class="hljs-keyword">about</span> <span class="hljs-keyword">to</span> update <span class="hljs-keyword">and</span> re-render.
+  <span class="hljs-comment">/**
+   * The component is about to update and re-render.
    *
-   * Called multiple <span class="hljs-keyword">times</span> throughout <span class="hljs-keyword">the</span> life <span class="hljs-keyword">of</span>
-   * <span class="hljs-keyword">the</span> component <span class="hljs-keyword">as</span> <span class="hljs-keyword">it</span> updates.
+   * Called multiple times throughout the life of
+   * the component as it updates.
    *
-   * componentWillUpdate <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> called <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">first</span> render.
-   */
+   * componentWillUpdate is not called on the first render.
+   */</span>
   componentWillUpdate() {
-    console.<span class="hljs-built_in">log</span>('Component will update <span class="hljs-keyword">and</span> re-render');
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component will update and re-render'</span>);
   }
 
-  /**
+  <span class="hljs-comment">/**
    * The component has just re-rendered.
    *
-   * Called multiple <span class="hljs-keyword">times</span> throughout <span class="hljs-keyword">the</span> life <span class="hljs-keyword">of</span>
-   * <span class="hljs-keyword">the</span> component <span class="hljs-keyword">as</span> <span class="hljs-keyword">it</span> updates.
+   * Called multiple times throughout the life of
+   * the component as it updates.
    *
-   * componentDidUpdate <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> called <span class="hljs-keyword">on</span> <span class="hljs-keyword">the</span>
-   * <span class="hljs-keyword">first</span> render.
-   */
+   * componentDidUpdate is not called on the
+   * first render.
+   */</span>
   componentDidUpdate() {
-    console.<span class="hljs-built_in">log</span>('Component did update');
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component did update'</span>);
   }
 
-  /**
-   * The component did unload <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> element
+  <span class="hljs-comment">/**
+   * The component did unload and the element
    * will be destroyed.
-   */
+   */</span>
   componentDidUnload() {
-    console.<span class="hljs-built_in">log</span>('Component removed <span class="hljs-keyword">from</span> <span class="hljs-keyword">the</span> DOM');
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component removed from the DOM'</span>);
   }
 }
 </code></pre>
@@ -74,11 +74,11 @@ export <span class="hljs-built_in">class</span> MyComponent {
 <p>A useful feature of lifecycle methods is that they take their child component&#39;s lifecycle into consideration too. For example, if the parent component, <code>cmp-a</code>, has a child component, <code>cmp-b</code>, then <code>cmp-a</code> isn&#39;t considered &quot;loaded&quot; until <code>cmp-b</code> has finished loading. Another way to put it is that the deepest components finish loading first, then the <code>componentDidLoad()</code> calls bubble up.</p>
 <p>It&#39;s also important to note that even though Stencil can lazy-load components, and has asynchronous rendering, the lifecycle methods are still called in the correct order. So while the top-level component could have already been loaded, all of its lifecycle methods are still called in the correct order, which means it&#39;ll wait for a child components to finish loading. The same goes for the exact opposite, where the child components may already be ready while the parent isn&#39;t.</p>
 <p>In the example below we have a simple hierarchy of components. The numbered list shows the order of which the lifecycle methods will fire.</p>
-<pre><code class="lang-html">  <span class="hljs-section">&lt;cmp-a&gt;</span>
-    <span class="hljs-section">&lt;cmp-b&gt;</span>
-      <span class="hljs-section">&lt;cmp-c&gt;</span><span class="hljs-section">&lt;/cmp-c&gt;</span>
-    <span class="hljs-section">&lt;/cmp-b&gt;</span>
-  <span class="hljs-section">&lt;/cmp-a&gt;</span>
+<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">cmp-a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">cmp-b</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">cmp-c</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">cmp-c</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">cmp-b</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">cmp-a</span>&gt;</span>
 </code></pre>
 <ol>
 <li><code>cmp-a</code> - <code>componentWillLoad()</code></li>
@@ -92,18 +92,17 @@ export <span class="hljs-built_in">class</span> MyComponent {
 <h2 id="async-lifecycle-methods">Async Lifecycle Methods</h2>
 <p>Lifecycle methods can also return promises which allows the method to asynchronously retrieve data or perform any async tasks. A great example of this is fetching data to be rendered in a component. For example, this very site you&#39;re reading first fetches content data before rendering. But because <code>fetch()</code> is async, it&#39;s important that <code>componentWillLoad()</code> returns a <code>Promise</code> to ensure its parent component isn&#39;t considered &quot;loaded&quot; until all of its content has rendered.</p>
 <p>Below is a quick example showing how <code>componentWillLoad()</code> is able to have its parent component wait on it to finish loading its data.</p>
-<pre><code class="lang-typescript"><span class="hljs-title">componentWillLoad</span>() {
-  return fetch('/some-<span class="hljs-class"><span class="hljs-keyword">data</span>.json')</span>
-    .<span class="hljs-keyword">then</span>(response =&gt; response.json())
-    .<span class="hljs-keyword">then</span>(<span class="hljs-class"><span class="hljs-keyword">data</span> =&gt; {
-      <span class="hljs-title">this</span>.<span class="hljs-title">content</span> = <span class="hljs-title">data</span>;
-    });</span>
+<pre><code class="lang-typescript">componentWillLoad() {
+  <span class="hljs-keyword">return</span> fetch(<span class="hljs-string">'/some-data.json'</span>)
+    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json())
+    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      <span class="hljs-keyword">this</span>.content = data;
+    });
 }
 </code></pre>
 <h2 id="example">Example</h2>
 <p>This simple example shows a clock and updates the current time every second. Since <code>componentDidLoad</code> is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.</p>
-<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> { Component, State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
 @Component({
   <span class="hljs-attr">tag</span>: <span class="hljs-string">'custom-clock'</span>

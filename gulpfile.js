@@ -6,7 +6,13 @@ gulp.task('default', function() {
     .src('./src/docs-md/**/*.md')
     .pipe(
       markdown({
-        highlight: function(code) {
+        highlight: function(code, lang) {
+          if (lang != null && hljs.getLanguage(lang)) {
+            const hl = hljs.highlight(lang, code);
+            if (hl.relevance > 0 || lang === 'bash') {
+              return hl.value;
+            }
+          }
           return hljs.highlightAuto(code).value;
         }
       })

@@ -4,23 +4,24 @@
 <p>The easiest way to build and distribute web components with Stencil is by using our <a href="https://github.com/ionic-team/stencil-component-starter">stencil-component-starter</a>. This starter includes all of the config and package.json changes that are discussed below by default with instructions in the <a href="https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md">readme</a>.</p>
 <h3 id="distribution-config">Distribution Config</h3>
 <p>Configuring Stencil for distribution is easy. Set the following config options in the <code>stencil.config.js</code> file:</p>
-<pre><code>exports.config = {
-  namespace: <span class="hljs-symbol">'mynam</span>e',
-  outputTargets: [
+<pre><code class="lang-javascript">exports.config = {
+  <span class="hljs-attr">namespace</span>: <span class="hljs-string">'myname'</span>,
+  <span class="hljs-attr">outputTargets</span>: [
     {
-      <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">'dis</span>t'
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'dist'</span>
     },
     {
-      <span class="hljs-class"><span class="hljs-keyword">type</span></span>: <span class="hljs-symbol">'ww</span>w'
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>
     }
   ]
   ...
 };
-</code></pre><p><stencil-route-link url="/docs/config" router="#router" custom="true">
+</code></pre>
+<p><stencil-route-link url="/docs/config" router="#router" custom="true">
   Learn more about these config options here.
 </stencil-route-link></p>
 <p>You also need to add the following to your <code>package.json</code>:</p>
-<pre><code>{
+<pre><code class="lang-json">{
   <span class="hljs-attr">"main"</span>: <span class="hljs-string">"dist/myname.js"</span>,
   <span class="hljs-attr">"types"</span>: <span class="hljs-string">"dist/types/index.d.ts"</span>,
   <span class="hljs-attr">"collection"</span>: <span class="hljs-string">"dist/collection/collection-manifest.json"</span>,
@@ -29,7 +30,8 @@
   ]
   ...
 }
-</code></pre><h2 id="using-your-component-in-a-framework">Using your component in a framework</h2>
+</code></pre>
+<h2 id="using-your-component-in-a-framework">Using your component in a framework</h2>
 <p>There are three strategies we recommend for using web components built with Stencil.</p>
 <p>The first step for all three of these strategies is to
 <a href="https://docs.npmjs.com/getting-started/publishing-npm-packages">Publish to NPM</a>.</p>

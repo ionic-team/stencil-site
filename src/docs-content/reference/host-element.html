@@ -3,22 +3,22 @@
 <h2 id="element-decorator">Element Decorator</h2>
 <p>The <a href="/docs/decorators#element">Element decorator</a> provides direct access to the host element, an instance of <code>HTMLElement</code>. This is useful if you need access to underlying DOM methods or properties.</p>
 <p>If you need to update the host element in response to prop or state changes, you should do so using the <code>hostData</code> method.</p>
-<pre><code class="lang-tsx"><span class="hljs-keyword">import</span> { Element } from <span class="hljs-string">'@stencil/core'</span>;
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Element } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
 ...
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
 
-  <span class="hljs-meta">@Element()</span> el: HTMLElement;
+  <span class="hljs-meta">@Element</span>() el: HTMLElement;
 
-  getListHeight(): number {
+  getListHeight(): <span class="hljs-built_in">number</span> {
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.el.getBoundingClientRect().height;
   }
 }
 </code></pre>
 <h2 id="hostdata">hostData</h2>
 <p>The <code>hostData</code> method can be implemented by any Stencil component and provides a way to declaratively set properties on the host element during rendering. The <code>hostData</code> method is called whenever <code>render</code> is, so it is useful for reacting to state and prop changes.</p>
-<pre><code class="lang-tsx">...
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+<pre><code class="lang-typescript">...
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
 
   hostData() {
     <span class="hljs-keyword">return</span> {

@@ -7,19 +7,21 @@
 <li>Add <code>const sass = require(&#39;@stencil/sass&#39;);</code> to the top of your <code>stencil.config.js</code> file.</li>
 <li>Add the plugin to your <code>plugins</code> array in your <code>stencil.config.js</code> file:</li>
 </ol>
-<pre><code>exports<span class="hljs-selector-class">.config</span> = {
+<pre><code class="lang-javascript">exports<span class="hljs-selector-class">.config</span> = {
   plugins: [
     sass()
   ]
 }
-</code></pre><h3 id="options">Options</h3>
+</code></pre>
+<h3 id="options">Options</h3>
 <p>Sass options can be passed to the plugin within <code>stencil.config.js</code>, which are used directly by node-sass. Please reference the <a href="https://www.npmjs.com/package/node-sass">node-sass documentation</a> for all available options.</p>
-<pre><code>exports.config = {
-  plugins: [
-    sass({ includePaths: [<span class="hljs-string">'/my-include-path'</span>] })
+<pre><code class="lang-javascript">exports.config = {
+  <span class="hljs-attr">plugins</span>: [
+    sass({ <span class="hljs-attr">includePaths</span>: [<span class="hljs-string">'/my-include-path'</span>] })
   ]
 };
-</code></pre><p><stencil-route-link url="/docs/style-guide" custom="true">
+</code></pre>
+<p><stencil-route-link url="/docs/style-guide" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>

@@ -19,7 +19,7 @@ In most cases, the `stencil.config.js` file does not require any customization s
 
 Example `stencil.config.js`:
 
-```js
+```javascript
 exports.config = {
   namespace: 'MyApp',
   srcDir: 'src'
@@ -194,7 +194,7 @@ outputTargets: [
 
 The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the plugin array.
 
-```js
+```javascript
 const sass = require('@stencil/sass');
 
 exports.config = {
