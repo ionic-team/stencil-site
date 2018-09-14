@@ -31,21 +31,22 @@
 <p>The prefix has a major role when you are creating a collection of components intended to be used across different projects, like <a href="https://www.npmjs.com/package/@ionic/core">@ionic/core</a>. Web Components are not scoped because they are globally declared within the webpage, which means an &quot;unique&quot; prefix is needed to prevent collisions. The prefix is also able help to quickly identify the collection of an component. Additionally, web components are required to contain a &quot;-&quot; dash within the tag name, so using the first section to namespace your components is a natural fit.</p>
 <p>We do not recommend using &quot;stencil&quot; as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.</p>
 <p>DO NOT do this:</p>
-<pre><code>stencil-<span class="hljs-keyword">component</span>
-stnl-<span class="hljs-keyword">component</span>
-</code></pre><p>Instead, use your own naming or brand. For example, <a href="https://ionicframework.com/">Ionic</a> components are all prefixed with <code>ion-</code>.</p>
-<pre><code>ion-<span class="hljs-selector-tag">button</span>
-ion-header
-</code></pre><h4 id="name">Name</h4>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-component</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">stnl-component</span>&gt;</span>
+</code></pre>
+<p>Instead, use your own naming or brand. For example, <a href="https://ionicframework.com/">Ionic</a> components are all prefixed with <code>ion-</code>.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ion-header</span>&gt;</span>
+</code></pre>
+<h4 id="name">Name</h4>
 <p>Components are not actions, they are conceptually &quot;things&quot;. It is better to use nouns, instead of verbs, such us: &quot;animation&quot; instead of &quot;animating&quot;. &quot;input&quot;, &quot;tab&quot;, &quot;nav&quot;, &quot;menu&quot; are some examples.</p>
 <h4 id="modifiers">Modifiers</h4>
 <p>When several components are related and/or coupled, it is a good idea to share the name, and then add different modifiers, for example:</p>
-<pre><code>ion-<span class="hljs-keyword">menu</span>
-ion-<span class="hljs-keyword">menu</span>-controller
-</code></pre><pre><code>ion-<span class="hljs-keyword">card</span>
-ion-<span class="hljs-keyword">card</span>-header
-ion-<span class="hljs-keyword">card</span>-content
-</code></pre><h3 id="component-ts-class-">Component (TS class)</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-card</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ion-card-header</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ion-card-content</span>&gt;</span>
+</code></pre>
+<h3 id="component-ts-class-">Component (TS class)</h3>
 <p>The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.</p>
 <pre><code class="lang-typescript"><span class="hljs-meta">@Component</span>({
   tag: <span class="hljs-string">'ion-button'</span>

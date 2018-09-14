@@ -42,15 +42,15 @@ The prefix has a major role when you are creating a collection of components int
 We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.
 
 DO NOT do this:
-```
-stencil-component
-stnl-component
+```html
+<stencil-component>
+<stnl-component>
 ```
 
 Instead, use your own naming or brand. For example, [Ionic](https://ionicframework.com/) components are all prefixed with `ion-`.
-```
-ion-button
-ion-header
+```html
+<ion-button>
+<ion-header>
 ```
 
 #### Name
@@ -62,15 +62,10 @@ Components are not actions, they are conceptually "things". It is better to use 
 
 When several components are related and/or coupled, it is a good idea to share the name, and then add different modifiers, for example:
 
-```
-ion-menu
-ion-menu-controller
-```
-
-```
-ion-card
-ion-card-header
-ion-card-content
+```html
+<ion-card>
+<ion-card-header>
+<ion-card-content>
 ```
 
 
