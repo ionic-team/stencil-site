@@ -14,9 +14,9 @@ export class App {
     '.root'
   ];
 
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
-  @State() isLeftSidebarIn: boolean;
+  @State() isLeftSidebarIn: boolean = false;
 
   @Listen('window:resize')
   handleResize() {

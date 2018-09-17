@@ -6,9 +6,9 @@ import { Component, Prop, State, Watch } from '@stencil/core';
 })
 export class AppMarked {
 
-  @Prop() doc: string;
+  @Prop() doc?: string;
 
-  @State() content: string;
+  @State() content?: string;
 
   componentWillLoad() {
     return this.fetchNewContent();

@@ -6,11 +6,12 @@ import { Component, Prop} from '@stencil/core';
 })
 export class DemoCard {
 
-  @Prop() name: string;
-  @Prop() description: string;
-  @Prop() imgPath: string;
-  @Prop() demoUrl: string;
-  @Prop() sourceUrl: string;
+  @Prop() name?: string;
+  @Prop() description?: string;
+  @Prop() imgPath?: string;
+  @Prop() demoUrl?: string;
+  @Prop() sourceUrl?: string;
+  @Prop() SourceBufferList?: string;
 
   render() {
     return (

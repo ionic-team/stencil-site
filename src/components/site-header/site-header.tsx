@@ -6,9 +6,9 @@ import { Component, Element, Listen, State } from '@stencil/core';
 })
 export class SiteHeader {
 
-  @Element() el: Element;
+  @Element() el!: Element;
 
-  @State() isMobileMenuShown: boolean;
+  @State() isMobileMenuShown: boolean = false;
 
   @Listen('window:resize')
   handleResize() {

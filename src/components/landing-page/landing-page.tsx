@@ -6,7 +6,7 @@ import { Component, Element, Prop } from '@stencil/core';
 })
 export class LandingPage {
 
-  @Element() el: Element;
+  @Element() el!: Element;
 
   @Prop({ context: 'isServer' }) private isServer: boolean;
 

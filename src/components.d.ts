@@ -20,27 +20,29 @@ export namespace Components {
   }
 
   interface AppIcon {
-    'name': string;
+    'name'?: string;
   }
   interface AppIconAttributes extends StencilHTMLAttributes {
     'name'?: string;
   }
 
   interface AppMarked {
-    'doc': string;
+    'doc'?: string;
   }
   interface AppMarkedAttributes extends StencilHTMLAttributes {
     'doc'?: string;
   }
 
   interface DemoCard {
-    'demoUrl': string;
-    'description': string;
-    'imgPath': string;
-    'name': string;
-    'sourceUrl': string;
+    'SourceBufferList'?: string;
+    'demoUrl'?: string;
+    'description'?: string;
+    'imgPath'?: string;
+    'name'?: string;
+    'sourceUrl'?: string;
   }
   interface DemoCardAttributes extends StencilHTMLAttributes {
+    'SourceBufferList'?: string;
     'demoUrl'?: string;
     'description'?: string;
     'imgPath'?: string;
@@ -62,12 +64,12 @@ export namespace Components {
   interface LandingPageAttributes extends StencilHTMLAttributes {}
 
   interface LazyIframe {
-    'frameBorder': string;
-    'height': string;
-    'name': string;
-    'scrolling': string;
-    'src': string;
-    'width': string;
+    'frameBorder'?: string;
+    'height'?: string;
+    'name'?: string;
+    'scrolling'?: string;
+    'src'?: string;
+    'width'?: string;
   }
   interface LazyIframeAttributes extends StencilHTMLAttributes {
     'frameBorder'?: string;

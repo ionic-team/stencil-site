@@ -1,5 +1,5 @@
 import { Component } from '@stencil/core';
-import SiteProviderConsumer from '../../global/site-provider-consumer';
+import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 
 @Component({
   tag: 'site-menu',
@@ -9,7 +9,7 @@ export class SiteMenu {
   render() {
     return (
       <SiteProviderConsumer.Consumer>
-      {({ toggleLeftSidebar }) => (
+      {({ toggleLeftSidebar }: SiteState) => (
         <div>
           <ul class='menu-list'>
             <li>

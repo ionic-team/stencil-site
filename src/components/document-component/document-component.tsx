@@ -6,7 +6,7 @@ import { Component, Element, Prop } from '@stencil/core';
 })
 export class DocumentComponent {
 
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   @Prop() pages: string[] = [];
 

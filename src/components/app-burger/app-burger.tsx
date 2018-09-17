@@ -6,7 +6,7 @@ import SiteProviderConsumer from '../../global/site-provider-consumer';
   styleUrl: 'app-burger.scss'
 })
 export class AppBurger {
-  @Element() el: HTMLStencilElement;
+  @Element() el!: HTMLStencilElement;
   @Prop() toggleLeftSidebar: () => void = () => {}
 
   render() {
