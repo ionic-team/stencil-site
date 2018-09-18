@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@stencil/core": "^0.13.0-12",
-    "@stencil/router": "^0.2.7-3",
+    "@stencil/router": "^0.2.7-5",
     "@stencil/state-tunnel": "0.0.9-1",
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
