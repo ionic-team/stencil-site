@@ -1,125 +1,142 @@
 <h1 id="testing">Testing</h1>
 <p>Stencil makes it easy to unit test your component using Jest and the Stencil unit testing framework.
-The testing framework requires very little configuration and has a minimal API consisting of two functions:
-<code>render()</code> and <code>flush()</code>. The Stencil unit testing framework can be used to test the rendering of the component
+The testing framework requires very little configuration and has a minimal API.
+The Stencil unit testing framework can be used to test the rendering of the component
 as well as the methods defined on the component class.</p>
-<h2 id="testing-config">Testing Config</h2>
-<p>Allowing a Stencil component project to run unit tests requires a small amount of configuration in the <code>package.json</code>
-file. All of this configuration is included with the Stencil App Starter and the Stencil Component Starter so if you
+<p>Testing is executed with the <code>stencil test</code> command.</p>
+<h2 id="setup">Setup</h2>
+<p>All of this configuration is included with the Stencil App Starter and the Stencil Component Starter so if you
 use one of those templates to start your project, you should not have to add anything. This information is presented
 here primarily for informational purposes.</p>
-<p>Jest is installed as a development dependency:</p>
-<pre><code class="lang-js">  <span class="hljs-string">"devDependencies"</span>: {
-      ...
-      <span class="hljs-string">"@types/jest"</span>: <span class="hljs-string">"^21.1.1"</span>,
-      <span class="hljs-string">"jest"</span>: <span class="hljs-string">"^21.2.1"</span>
-  },
-</code></pre>
-<p>NPM scripts are set up in order to run the tests:</p>
-<pre><code class="lang-js">  <span class="hljs-string">"scripts"</span>: {
-      ...
-      <span class="hljs-string">"test"</span>: <span class="hljs-string">"jest --no-cache"</span>,
-      <span class="hljs-string">"test.watch"</span>: <span class="hljs-string">"jest --watch --no-cache"</span>
-  },
-</code></pre>
-<p>Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:</p>
-<pre><code class="lang-json">  <span class="hljs-string">"jest"</span>: {
-      <span class="hljs-string">"transform"</span>: {
-        <span class="hljs-string">"^.+\\.(ts|tsx)$"</span>: <span class="hljs-string">"&lt;rootDir&gt;/node_modules/@stencil/core/testing/jest.preprocessor.js"</span>
-      },
-      <span class="hljs-string">"testRegex"</span>: <span class="hljs-string">"(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$"</span>,
-      <span class="hljs-string">"moduleFileExtensions"</span>: [
-        <span class="hljs-string">"ts"</span>,
-        <span class="hljs-string">"tsx"</span>,
-        <span class="hljs-string">"js"</span>,
-        <span class="hljs-string">"json"</span>,
-        <span class="hljs-string">"jsx"</span>
-      ]
+<p><em>TODO: More docs on setup</em></p>
+<h3 id="additional-configuration">Additional Configuration</h3>
+<p>Stencil will apply defaults from data it has already gathered. For example, Stencil already knows what directories to look through, and what files are spec and e2e files. Jest can still be configured using the same config names, but now using the stencil config <code>testing</code> property.
+It&#39;s also recommended to use the typed version of stencil.config .ts so you&#39;ll be able to see the typed configs and descriptions.</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Config } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> config: Config = {
+  testing: {
+    testPathIgnorePatterns: [...]
   }
+};
 </code></pre>
-<h2 id="component-rendering-tests">Component Rendering Tests</h2>
-<p>The Stencil testing framework API contains two functions that are used to render components for testing:</p>
-<ul>
-<li><p><code>render({ components: [], html: string })</code> - The <code>render()</code> function takes a list of components and an HTML snippet
-and returns the promise of the rendered HTML element.</p>
-</li>
-<li><p><code>flush(element)</code> - The <code>flush()</code> function is used to refresh the rendering of an element after property changes are made.
-This function returns a promise that is resolved when the flush is complete.</p>
-</li>
-</ul>
-<p>Both of these function operate asynchronously.</p>
-<p>A common testing pattern when rendering is to <code>render()</code> the component in the <code>beforeEach()</code> for a suite of tests. Each
-test case then modifies the element and uses <code>flush(element)</code> to refresh the node.</p>
-<h3 id="rendering-a-component">Rendering a Component</h3>
-<p>Use the <code>render()</code> function to initially render a component.</p>
-<p>This function takes a configuration object with two parameters:</p>
-<ul>
-<li><p><code>components</code>: a list of components the renderer needs to know about. Generally, this only needs to contain the
-component being tested. Child components can also be included if you need to have them rendered for your test
-but this is not a requirement otherwise.</p>
-</li>
-<li><p><code>html</code>: an HTML snippet used to render the component. Usually this just looks like <code>&lt;my-component&gt;&lt;/my-component&gt;</code>.</p>
-</li>
-</ul>
-<p>This function returns a promise that is resolved with the rendered HTML element.</p>
-<pre><code class="lang-typescript">beforeEach(<span class="hljs-keyword">async</span> () =&gt; {
-  element = <span class="hljs-keyword">await</span> render({
-    components: [MyName],
-    html: <span class="hljs-string">'&lt;my-name&gt;&lt;/my-name&gt;'</span>
+<h2 id="unit-tests">Unit Tests</h2>
+<p>Unit testing is for testing small chunks of code at the lowest level. For example, when a method is given X, it should return Y. Unit tests should not be doing full rendering of the component, but rather focused on logic only.</p>
+<p>To run unit tests, run <code>stencil test --unit</code>. Files ending in <code>.spec.ts</code> will be executed.</p>
+<p>Typically, unit tests will instantiate a component by importing the class, and instantiating and instrumenting it manually.
+Since Stencil components are plain JavaScript objects, you can <code>new</code> one up and execute its behavior as such.</p>
+<p>An example unit test:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Foo } <span class="hljs-keyword">from</span> <span class="hljs-string">'./foo'</span>;
+
+describe(<span class="hljs-string">'example'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  it(<span class="hljs-string">'can invoke the add() method'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> foo = <span class="hljs-keyword">new</span> Foo();
+    <span class="hljs-keyword">const</span> sum = foo.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+    expect(sum).toBe(<span class="hljs-number">5</span>);
   });
 });
 </code></pre>
-<h3 id="refreshing-a-component">Refreshing a Component</h3>
-<p>Use the <code>flush()</code> function to re-render the node as needed. This is typically done after changing property values
-on the component.</p>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should work with both the first and the last name'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-  element.first = <span class="hljs-string">'Peter'</span>
-  element.last = <span class="hljs-string">'Parker'</span>;
-  <span class="hljs-keyword">await</span> flush(element);
-  expect(element.textContent).toEqual(<span class="hljs-string">'Hello, my name is Peter Parker'</span>);
+<h2 id="end-to-end-aka-rendering-tests">End-To-End (aka Rendering) Tests</h2>
+<p>E2E tests verify your components in a real browser. For example, when <code>my-component</code> has the X attribute, the child component then renders the text Y, and expects to receive the event Z. By using Puppeteer for rendering tests (rather than a Node environment simulating how a browser works), your end-to-end tests are able to run within an actual browser in order to give better results.</p>
+<p>To run E2E tests, run <code>stencil test --e2e</code>. By default, files ending in <code>.e2e.ts</code> will be executed.</p>
+<p>Stencil&#39;s E2E test are provided with the following API, available via <code>@stencil/core/testing</code>.
+Most methods are async and return Promises. Use <code>async</code> and <code>await</code> to declutter your tests.</p>
+<ul>
+<li><code>newE2EPage</code>: Should be invoked at the start of each test to instantiate a new <code>E2EPage</code> object</li>
+</ul>
+<p><code>E2EPage</code> is a wrapper utility to Puppeteer to simplify writing tests. Some helpful methods on <code>E2EPage</code> include:</p>
+<ul>
+<li><code>setContent(html: string)</code>: Sets the content of a page. This is where you would include the markup of the component under test.</li>
+<li><code>find(selector: string)</code>: Find an element that matches the selector. Similar to <code>document.querySelector</code>.</li>
+<li><code>waitForChanges()</code>: Both Stencil and Puppeteer have an asynchronous architecture, which is a good thing for performance. Since all calls are async, it&#39;s required that <code>await page.waitForChanges()</code> is called when changes are made to components.</li>
+</ul>
+<p>An example E2E test might have the following boilerplate:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { newE2EPage } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core/testing'</span>;
+
+describe(<span class="hljs-string">'example'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  it(<span class="hljs-string">'should render a foo-component'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> page = <span class="hljs-keyword">await</span> newE2EPage();
+    <span class="hljs-keyword">await</span> page.setContent(<span class="hljs-string">`&lt;foo-component&gt;&lt;/foo-component&gt;`</span>);
+    <span class="hljs-keyword">const</span> el = <span class="hljs-keyword">await</span> page.find(<span class="hljs-string">'foo-component'</span>);
+    expect(el).toBeDefined();
+  });
 });
 </code></pre>
-<h3 id="examining-the-element">Examining the Element</h3>
-<p>Since the rendered element is an HTMLElement, you can use methods and properties from the
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement interface</a> in order to examine the
-contents of the element.</p>
-<p>Let&#39;s say that instead of printing the first and last names, our component had to split the names apart on spaces
-and print a list of each part of the name. We could write a rendering test for that as such:</p>
-<pre><code class="lang-typescript">    it(<span class="hljs-string">'should least each part of the name breaking on spaces'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-      element.first = <span class="hljs-string">'Pasta Primavera'</span>;
-      element.last = <span class="hljs-string">'O Shea Buttersworth'</span>;
-      <span class="hljs-keyword">await</span> flush(element);
-      <span class="hljs-keyword">const</span> list = element.querySelector(<span class="hljs-string">'ul'</span>);
-      expect(list.children.length).toEqual(<span class="hljs-number">5</span>);
-      expect(list.children[<span class="hljs-number">0</span>].textContent).toEqual(<span class="hljs-string">'Pasta'</span>);
-      expect(list.children[<span class="hljs-number">1</span>].textContent).toEqual(<span class="hljs-string">'Primavera'</span>);
-      expect(list.children[<span class="hljs-number">2</span>].textContent).toEqual(<span class="hljs-string">'O'</span>);
-      expect(list.children[<span class="hljs-number">3</span>].textContent).toEqual(<span class="hljs-string">'Shea'</span>);
-      expect(list.children[<span class="hljs-number">4</span>].textContent).toEqual(<span class="hljs-string">'Buttersworth'</span>);
+<h2 id="e2e-testing-recipes">E2E Testing Recipes</h2>
+<h4 id="find-an-element-in-the-shadow-dom">Find an element in the Shadow DOM</h4>
+<p>Use the &quot;piercing&quot; selector <code>&gt;&gt;&gt;</code> to query for an object inside a component&#39;s shadow root:</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> el = <span class="hljs-keyword">await</span> page.find(<span class="hljs-string">'foo-component &gt;&gt;&gt; .close-button'</span>);
+</code></pre>
+<h4 id="set-a-prop-on-a-component">Set a @Prop() on a component</h4>
+<p>Use <code>page.$eval</code> (part of the Puppeteer API) to set props or otherwise manipulate a component:</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// create a new puppeteer page</span>
+<span class="hljs-comment">// load the page with html content</span>
+<span class="hljs-keyword">await</span> page.setContent(<span class="hljs-string">`
+      &lt;prop-cmp&gt;&lt;/prop-cmp&gt;
+    `</span>);
+
+<span class="hljs-comment">// select the "prop-cmp" element</span>
+<span class="hljs-comment">// and run the callback in the browser's context</span>
+<span class="hljs-keyword">await</span> page.$<span class="hljs-built_in">eval</span>(<span class="hljs-string">'prop-cmp'</span>, <span class="hljs-function">(<span class="hljs-params">elm: <span class="hljs-built_in">any</span></span>) =&gt;</span> {
+  <span class="hljs-comment">// within the browser's context</span>
+  <span class="hljs-comment">// let's set new property values on the component</span>
+  elm.first = <span class="hljs-string">'Marty'</span>;
+  elm.lastName = <span class="hljs-string">'McFly'</span>;
+});
+
+<span class="hljs-comment">// we just made a change and now the async queue need to process it</span>
+<span class="hljs-comment">// make sure the queue does its work before we continue</span>
+<span class="hljs-keyword">await</span> page.waitForChanges();
+</code></pre>
+<h4 id="call-a-method-on-a-component">Call a @Method() on a component</h4>
+<pre><code class="lang-ts"><span class="hljs-keyword">const</span> elm = <span class="hljs-keyword">await</span> page.find(<span class="hljs-string">'method-cmp'</span>);
+elm.setProperty(<span class="hljs-string">'someProp'</span>, <span class="hljs-number">88</span>);
+<span class="hljs-keyword">const</span> methodRtnValue = <span class="hljs-keyword">await</span> elm.callMethod(<span class="hljs-string">'someMethod'</span>);
+</code></pre>
+<h4 id="type-inside-an-input-field">Type inside an input field</h4>
+<pre><code class="lang-ts"><span class="hljs-keyword">const</span> page = <span class="hljs-keyword">await</span> newE2EPage({
+  html: <span class="hljs-string">`
+      &lt;dom-interaction&gt;&lt;/dom-interaction&gt;
+    `</span>
+});
+
+<span class="hljs-keyword">const</span> input = <span class="hljs-keyword">await</span> page.find(<span class="hljs-string">'dom-interaction &gt;&gt;&gt; .input'</span>);
+
+<span class="hljs-keyword">let</span> value = <span class="hljs-keyword">await</span> input.getProperty(<span class="hljs-string">'value'</span>);
+expect(value).toBe(<span class="hljs-string">''</span>);
+
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">'8'</span>);
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">'8'</span>);
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">' '</span>);
+
+<span class="hljs-keyword">await</span> page.keyboard.down(<span class="hljs-string">'Shift'</span>);
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">'KeyM'</span>);
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">'KeyP'</span>);
+<span class="hljs-keyword">await</span> input.press(<span class="hljs-string">'KeyH'</span>);
+<span class="hljs-keyword">await</span> page.keyboard.up(<span class="hljs-string">'Shift'</span>);
+</code></pre>
+<h4 id="checking-the-text-of-a-rendered-component">Checking the text of a rendered component</h4>
+<pre><code class="lang-ts"><span class="hljs-keyword">await</span> page.setContent(<span class="hljs-string">`
+      &lt;prop-cmp first="Marty" last-name="McFly"&gt;&lt;/prop-cmp&gt;
+    `</span>);
+
+<span class="hljs-keyword">const</span> elm = <span class="hljs-keyword">await</span> page.find(<span class="hljs-string">'prop-cmp &gt;&gt;&gt; div'</span>);
+expect(elm).toEqualText(<span class="hljs-string">'Hello, my name is Marty McFly'</span>);
+</code></pre>
+<h4 id="checking-a-component-s-html">Checking a component&#39;s HTML</h4>
+<p>For shadowRoot content:</p>
+<pre><code class="lang-ts">        expect(el.shadowRoot).toEqualHtml(<span class="hljs-string">`&lt;div&gt;
+        &lt;div class=\"nav-desktop\"&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;`</span>);
     });
 </code></pre>
-<p>Anything that you can use on an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> you can use in the tests.</p>
-<h2 id="component-method-tests">Component Method Tests</h2>
-<p>To test the component&#39;s methods, instantiate an instance of the component and call the methods.</p>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should return an empty string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
-  expect(myName.formatted()).toEqual(<span class="hljs-string">''</span>);
-});
+<p>For non-shadow content:</p>
+<pre><code class="lang-ts">        expect(el).toEqualHtml(<span class="hljs-string">`&lt;div&gt;
+        &lt;div class=\"nav-desktop\"&gt;
+          &lt;slot&gt;&lt;/slot&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;`</span>);
+    });
 </code></pre>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should return a formatted string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
-  myName.first = <span class="hljs-string">'Lucas'</span>;
-  myName.last = <span class="hljs-string">'Kalrickson'</span>;
-  expect(myName.formatted()).toEqual(<span class="hljs-string">'Kalrickson, Lucas'</span>);
-});
-</code></pre>
-<p><stencil-route-link url="/docs/context" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link></p>
-<p><stencil-route-link url="/docs/router" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link></p>
