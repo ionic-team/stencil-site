@@ -178,7 +178,7 @@
 <p><a name="plugins"></a></p>
 <h2 id="plugins"><code>plugins</code></h2>
 <p>The <code>plugins</code> config can be used to add your own <a href="https://rollupjs.org">rollup</a> plugins. By default, Stencil does not come with <code>Sass</code> or <code>PostCss</code> support. However, either can be added using the plugin array.</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> sass = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/sass'</span>);
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { sass } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/sass'</span>);
 
 exports.config = {
   <span class="hljs-attr">plugins</span>: [

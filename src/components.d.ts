@@ -6,8 +6,8 @@
 
 import '@stencil/core';
 
-import '@stencil/router';
 import '@stencil/state-tunnel';
+import '@stencil/router';
 
 
 export namespace Components {

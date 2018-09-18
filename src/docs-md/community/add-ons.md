@@ -7,10 +7,12 @@
 ### Installing
 
 1. In your project directory run `npm install @stencil/sass --save`.
-2. Add `const sass = require('@stencil/sass');` to the top of your `stencil.config.js` file.
-3. Add the plugin to your `plugins` array in your `stencil.config.js` file:
+2. Require the plugin in your `stencil.config.js` file.
+2. Add the plugin to your `plugins` array:
 
 ```javascript
+const { sass } = require('@stencil/sass');
+
 exports.config = {
   plugins: [
     sass()

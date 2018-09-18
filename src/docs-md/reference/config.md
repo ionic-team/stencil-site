@@ -194,8 +194,8 @@ outputTargets: [
 
 The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the plugin array.
 
-```javascript
-const sass = require('@stencil/sass');
+```js
+const { sass } = require('@stencil/sass');
 
 exports.config = {
   plugins: [

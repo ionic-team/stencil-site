@@ -4,11 +4,13 @@
 <h3 id="installing">Installing</h3>
 <ol>
 <li>In your project directory run <code>npm install @stencil/sass --save</code>.</li>
-<li>Add <code>const sass = require(&#39;@stencil/sass&#39;);</code> to the top of your <code>stencil.config.js</code> file.</li>
-<li>Add the plugin to your <code>plugins</code> array in your <code>stencil.config.js</code> file:</li>
+<li>Require the plugin in your <code>stencil.config.js</code> file.</li>
+<li>Add the plugin to your <code>plugins</code> array:</li>
 </ol>
-<pre><code class="lang-javascript">exports<span class="hljs-selector-class">.config</span> = {
-  plugins: [
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> { sass } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/sass'</span>);
+
+exports.config = {
+  <span class="hljs-attr">plugins</span>: [
     sass()
   ]
 }
