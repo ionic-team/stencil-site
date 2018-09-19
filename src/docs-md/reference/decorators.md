@@ -21,35 +21,22 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'todo-list',
-  styleUrl: 'todo-list.scss'
+  styleUrl: 'todo-list.css'
 })
 export class TodoList {
   ...
 }
 ```
-
-> You can also link directly to `.scss` files
-
-The `@Component()` decorator also has a `host` option. This allows you to set CSS classes and attributes on the component you are building.
-
-```typescript
-import { Component } from '@stencil/core';
-
-@Component({
-  tag: 'todo-list',
-  styleUrl: 'todo-list.scss',
-  host: {
-    theme: 'todo',
-    role: 'list'
-  }
-})
-```
-
-When this component is used it will now have both the `todo` class and the `role` attribute automatically added.
-
-```html
-<todo-list class='todo' role='list'></todo-list>
-```
+| name | type | description
+    tag: string;
+    styleUrl?: string;
+    styleUrls?: string[] | d.ModeStyles;
+    styles?: string;
+    scoped?: boolean;
+    shadow?: boolean;
+    host?: d.HostMeta;
+    assetsDir?: string;
+    assetsDirs?: string[];
 
 <a name="prop"></a>
 ## Prop Decorator

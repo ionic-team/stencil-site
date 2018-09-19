@@ -12,8 +12,9 @@ gulp.task('default', function() {
             if (hl.relevance > 0 || lang === 'bash') {
               return hl.value;
             }
+            return hljs.highlightAuto(code).value;
           }
-          return hljs.highlightAuto(code).value;
+          return code;
         }
       })
     )

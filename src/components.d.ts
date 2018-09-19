@@ -6,8 +6,8 @@
 
 import '@stencil/core';
 
-import '@stencil/state-tunnel';
 import '@stencil/router';
+import '@stencil/state-tunnel';
 
 
 export namespace Components {
@@ -32,6 +32,9 @@ export namespace Components {
   interface AppMarkedAttributes extends StencilHTMLAttributes {
     'doc'?: string;
   }
+
+  interface CustomClock {}
+  interface CustomClockAttributes extends StencilHTMLAttributes {}
 
   interface DemoCard {
     'SourceBufferList'?: string;
@@ -104,6 +107,7 @@ declare global {
     'AppBurger': Components.AppBurger;
     'AppIcon': Components.AppIcon;
     'AppMarked': Components.AppMarked;
+    'CustomClock': Components.CustomClock;
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
     'DocumentComponent': Components.DocumentComponent;
@@ -121,6 +125,7 @@ declare global {
     'app-burger': Components.AppBurgerAttributes;
     'app-icon': Components.AppIconAttributes;
     'app-marked': Components.AppMarkedAttributes;
+    'custom-clock': Components.CustomClockAttributes;
     'demo-card': Components.DemoCardAttributes;
     'demos-page': Components.DemosPageAttributes;
     'document-component': Components.DocumentComponentAttributes;
@@ -151,6 +156,12 @@ declare global {
   var HTMLAppMarkedElement: {
     prototype: HTMLAppMarkedElement;
     new (): HTMLAppMarkedElement;
+  };
+
+  interface HTMLCustomClockElement extends Components.CustomClock, HTMLStencilElement {}
+  var HTMLCustomClockElement: {
+    prototype: HTMLCustomClockElement;
+    new (): HTMLCustomClockElement;
   };
 
   interface HTMLDemoCardElement extends Components.DemoCard, HTMLStencilElement {}
@@ -223,6 +234,7 @@ declare global {
     'app-burger': HTMLAppBurgerElement
     'app-icon': HTMLAppIconElement
     'app-marked': HTMLAppMarkedElement
+    'custom-clock': HTMLCustomClockElement
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
     'document-component': HTMLDocumentComponentElement
@@ -240,6 +252,7 @@ declare global {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-marked': HTMLAppMarkedElement;
+    'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
     'document-component': HTMLDocumentComponentElement;

@@ -186,7 +186,7 @@ export class Something {
   @Prop() swipeEnabled = true;
 
   @Watch('swipeEnabled')
-  swipeEnabledChanged() {
+  swipeEnabledChanged(newSwipeEnabled: boolean, oldSwipeEnabled: boolean) {
     this.updateState();
   }
 

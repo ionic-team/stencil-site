@@ -25,11 +25,11 @@
 <blockquote>
 <p>If you&#39;re familiar with ES6 template variables, JSX variables are very similar, just without the <code>$</code>:</p>
 </blockquote>
-<pre><code><span class="hljs-comment">//ES6</span>
-<span class="hljs-string">`Hello <span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>
+<pre><code>//ES6
+`Hello ${this.name}`
 
-<span class="hljs-comment">//JSX</span>
-Hello {<span class="hljs-keyword">this</span>.name}
+//JSX
+Hello {this.name}
 </code></pre><h3 id="conditionals">Conditionals</h3>
 <p>If we want to conditionally render different content, we can use JavaScript if/else statements:
 Here, if <code>name</code> is not defined, we can just render a different element.</p>

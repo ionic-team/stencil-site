@@ -16,11 +16,11 @@
 <h3 id="shadow-dom-in-stencil">Shadow DOM in Stencil</h3>
 <p>Shadow DOM is not currently turned on by default for web components built with Stencil. To turn on Shadow DOM in a web component built with Stencil, you can use the <code>shadow</code> param in the component decorator. Below is an example of this:</p>
 <pre><code>@Component({
-  tag: <span class="hljs-string">'shadow-component'</span>,
-  styleUrl: <span class="hljs-string">'shadow-component.scss'</span>,
-  shadow: <span class="hljs-literal">true</span>
+  tag: &#39;shadow-component&#39;,
+  styleUrl: &#39;shadow-component.scss&#39;,
+  shadow: true
 })
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShadowComponent</span> {</span>
+export class ShadowComponent {
 
 }
 </code></pre><h3 id="things-to-remember-with-shadow-dom">Things to remember with Shadow DOM</h3>
@@ -32,13 +32,13 @@
 <li><p>Normally you would wrap your styles in the tag name of the component like so:</p>
 </li>
 </ul>
-<pre><code>my-<span class="hljs-class">element </span>{
-  <span class="hljs-class">div </span>{
-<span class="hljs-symbol">    background:</span> blue;
+<pre><code>my-element {
+  div {
+    background: blue;
   }
 }
 </code></pre><p>With Shadow DOM the css selector for the element is the <code>:host</code> selector. So, with Shadow DOM turned on in your component the above css would be:</p>
-<pre><code><span class="hljs-symbol">:host</span> {
+<pre><code>:host {
   div {
     background: blue;
   }
@@ -59,16 +59,16 @@
 <p>That&#39;s it! Now you can start defining your variables.</p>
 <h3 id="defining-css-variables">Defining CSS Variables</h3>
 <p>Here is an example of defining a CSS Variable:</p>
-<pre><code><span class="hljs-comment">// inside our src/global/variables.css file</span>
+<pre><code>// inside our src/global/variables.css file
 
 :root {
-  --app-primary-<span class="hljs-attribute">color</span>: <span class="hljs-number">#488aff</span>;
+  --app-primary-color: #488aff;
 }
 </code></pre><p>In this example we have defined a CSS Variable called <code>--app-primary-color</code> that is set to the color <code>#488aff</code>. The <code>:root</code> selector in this example is a CSS pseudo selector that defines the variable on the root element of your project (usually <code>&lt;html&gt;</code>) so that the variable can be used across your app.</p>
 <h3 id="using-a-css-variable">Using a CSS Variable</h3>
 <p>Here is an example of using our CSS Variable we defined above:</p>
-<pre><code><span class="hljs-selector-tag">h1</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--app-primary-color)
+<pre><code>h1 {
+  color: var(--app-primary-color)
 }
 </code></pre><p>This will apply the color we defined in our CSS Variable, in this case <code>#488aff</code>, to our <code>h1</code> element.</p>
 <p><stencil-route-link url="/docs/templating-jsx" router="#router" custom="true">

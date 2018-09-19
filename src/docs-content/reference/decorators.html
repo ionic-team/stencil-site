@@ -16,30 +16,22 @@
 
 <span class="hljs-meta">@Component</span>({
   tag: <span class="hljs-string">'todo-list'</span>,
-  styleUrl: <span class="hljs-string">'todo-list.scss'</span>
+  styleUrl: <span class="hljs-string">'todo-list.css'</span>
 })
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
   ...
 }
 </code></pre>
-<blockquote>
-<p>You can also link directly to <code>.scss</code> files</p>
-</blockquote>
-<p>The <code>@Component()</code> decorator also has a <code>host</code> option. This allows you to set CSS classes and attributes on the component you are building.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-
-<span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'todo-list'</span>,
-  styleUrl: <span class="hljs-string">'todo-list.scss'</span>,
-  host: {
-    theme: <span class="hljs-string">'todo'</span>,
-    role: <span class="hljs-string">'list'</span>
-  }
-})
-</code></pre>
-<p>When this component is used it will now have both the <code>todo</code> class and the <code>role</code> attribute automatically added.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'todo'</span> <span class="hljs-attr">role</span>=<span class="hljs-string">'list'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
-</code></pre>
+<p>| name | type | description
+    tag: string;
+    styleUrl?: string;
+    styleUrls?: string[] | d.ModeStyles;
+    styles?: string;
+    scoped?: boolean;
+    shadow?: boolean;
+    host?: d.HostMeta;
+    assetsDir?: string;
+    assetsDirs?: string[];</p>
 <p><a name="prop"></a></p>
 <h2 id="prop-decorator">Prop Decorator</h2>
 <p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with a <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
@@ -166,15 +158,15 @@ todoListElement.showPrompt();
 <p><a name="element"></a></p>
 <h2 id="element-decorator">Element Decorator</h2>
 <p>The <code>@Element()</code> decorator is how to get access to the host element within the class instance. This returns an instance of an <code>HTMLElement</code>, so standard DOM methods/events can be used here.</p>
-<pre><code><span class="hljs-keyword">import</span> { Element } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+<pre><code>import { Element } from &#39;@stencil/core&#39;;
 
 ...
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> {</span>
+export class TodoList {
 
   @Element() todoListEl: HTMLElement;
 
   addClass(){
-    <span class="hljs-keyword">this</span>.todoListEl.classList.add(<span class="hljs-string">'active'</span>);
+    this.todoListEl.classList.add(&#39;active&#39;);
   }
 }
 </code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
