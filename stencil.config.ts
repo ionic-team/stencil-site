@@ -22,8 +22,3 @@ export const config: Config = {
     { src: 'robots.txt' }
   ]
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-};
