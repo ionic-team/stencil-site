@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, Prop, Watch } from '@stencil/core';
 
-function range(start, end) {
+function range(start: number, end: number) {
   const array = Array(end - start + 1);
   return array.fill('').map((_, idx) => start + idx)
 }
@@ -26,7 +26,7 @@ export class CustomClock implements ComponentInterface {
     const linesToHighlight = newValue.split(',')
       .reduce((all, val) => {
         if (val.indexOf('-') !== -1) {
-          const [start, end] = val.split('-');
+          const [start, end] = val.split('-').map(v => parseInt(v, 10))
           return all.concat(range(start, end));
         }
         return all.concat(parseInt(val, 10));

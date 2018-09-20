@@ -13,7 +13,7 @@
 <p>Each Stencil Component must be decorated with a <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide an HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
 <p>Use a relative url to the <code>.css</code> file for the styleUrl(s).</p>
 
-<highlight-code-line >
+<highlight-code-line lines="3-6">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -38,8 +38,9 @@ assetsDirs?: string[];</p>
 <h2 id="prop-decorator">Prop Decorator</h2>
 <p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with a <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
 
-<highlight-code-line >
+<highlight-code-line lines="5-8">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
 <span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
   @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> color<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
@@ -81,6 +82,7 @@ assetsDirs?: string[];</p>
 
 <highlight-code-line >
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
 <span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">NameElement</span> <span class="token punctuation">{</span>
   @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutable<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
@@ -93,8 +95,9 @@ assetsDirs?: string[];</p>
 <h3 id="prop-default-values-and-validation">Prop default values and validation</h3>
 <p>Setting a default value on a Prop:</p>
 
-<highlight-code-line >
+<highlight-code-line lines="4">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
 <span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">NameElement</span> <span class="token punctuation">{</span>
   @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
@@ -102,8 +105,9 @@ assetsDirs?: string[];</p>
 </highlight-code-line>
 <p>To do validation of a Prop, you can use the <a href="#watch">@Watch()</a> decorator:</p>
 
-<highlight-code-line >
+<highlight-code-line lines="7">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop<span class="token punctuation">,</span> Watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
 <span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
   @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
@@ -129,9 +133,10 @@ assetsDirs?: string[];</p>
 <h2 id="watch-decorator">Watch Decorator</h2>
 <p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that method the new value of the prop along with the old value. <code>Watch</code> is useful for validating props or handling side effects.</p>
 
-<highlight-code-line >
+<highlight-code-line lines="7">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop<span class="token punctuation">,</span> Watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
+<span class="token operator">...</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">LoadingIndicator</span> <span class="token punctuation">{</span>
   @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> activated<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
 
@@ -144,7 +149,7 @@ assetsDirs?: string[];</p>
 <h1 id="managing-component-state">Managing Component State</h1>
 <p>The <code>@State()</code> decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a <code>@State()</code> property will cause the components <code>render</code> function to be called again.</p>
 
-<highlight-code-line >
+<highlight-code-line lines="5">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> State <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
 <span class="token operator">...</span>
@@ -165,7 +170,7 @@ assetsDirs?: string[];</p>
 <h2 id="method-decorator">Method Decorator</h2>
 <p>The <code>@Method()</code> decorator is used to expose methods on the public API. Functions decorated with the <code>@Method()</code> decorator can be called directly from the element.</p>
 
-<highlight-code-line >
+<highlight-code-line lines="6">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Method <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
 <span class="token operator">...</span>
@@ -186,7 +191,20 @@ todoListElement<span class="token punctuation">.</span><span class="token functi
 <p><a name="element"></a></p>
 <h2 id="element-decorator">Element Decorator</h2>
 <p>The <code>@Element()</code> decorator is how to get access to the host element within the class instance. This returns an instance of an <code>HTMLElement</code>, so standard DOM methods/events can be used here.</p>
-<pre><code>import%20%7B%20Element%20%7D%20from%20%27@stencil/core%27%3B%0A%0A...%0Aexport%20class%20TodoList%20%7B%0A%0A%20%20@Element%28%29%20todoListEl%3A%20HTMLElement%3B%0A%0A%20%20addClass%28%29%7B%0A%20%20%20%20this.todoListEl.classList.add%28%27active%27%29%3B%0A%20%20%7D%0A%7D</code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
+
+<highlight-code-line lines="5">
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Element <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  @<span class="token function">Element</span><span class="token punctuation">(</span><span class="token punctuation">)</span> todoListEl<span class="token punctuation">:</span> HTMLElement<span class="token punctuation">;</span>
+
+  <span class="token function">addClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>todoListEl<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'active'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
+<h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
 <p>Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
 <p>Here&#39;s an example of using a component within another component:</p>
 
@@ -201,13 +219,13 @@ todoListElement<span class="token punctuation">.</span><span class="token functi
 
   <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>My favorite color is <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>My favorite color is <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
 </highlight-code-line>
 
-<highlight-code-line >
+<highlight-code-line lines="11">
   <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>

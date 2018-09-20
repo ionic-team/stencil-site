@@ -37,18 +37,17 @@ pre[class*="language-"] {
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: normal;
-    font-family: Menlo, Monaco, "Courier New", monospace;
     font-size: 14px;
     line-height: 20px;
-    color: #bebec5;
+    color: #e4e4e4;
     text-shadow: none;
 }
 pre[class*="language-"],
 :not(pre)>code[class*="language-"] {
-    background: #16161d;
+    background: #212431;
 }
 pre[class*="language-"] {
-    padding: 15px;
+    padding: 16px 24px;
     border-radius: 4px;
     border: 1px solid #e1e1e8;
     overflow: auto;
@@ -69,6 +68,17 @@ pre[class*="language-"] code {
     box-shadow: 1px 1px 0.3em -0.1em #000 inset;
 }
 
+/* Line highlight plugin */
+pre[class*="language-"] {
+  position: relative;
+}
+pre .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0 0 0 22px;
+  background: rgba(86, 90, 101, 0.4);
+}
 
 .token.comment {
   color: #5c6370;
@@ -144,11 +154,11 @@ code.language-markup {
 }
 code.language-markup .token.tag,
 .token.tag {
-    color: #ef3b7d;
+    color: #da5686;
 }
 code.language-markup .token.attr-name,
 .token.attr-name {
-    color: #a6e22d;
+    color: #98c379;
 }
 code.language-markup .token.attr-value,
 .token.attr-value {
@@ -162,15 +172,3 @@ code.language-markup .token.script .token.keyword {
     color: #76d9e6;
 }
 
-
-/* Line highlight plugin */
-pre[class*="language-"] {
-  position: relative;
-}
-pre .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: 0 0 0 15px;
-  background: rgba(255, 255, 255, 0.08);
-}
