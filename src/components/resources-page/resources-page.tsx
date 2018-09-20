@@ -2,7 +2,7 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'resources-page',
-  styleUrl: 'resources-page.scss'
+  styleUrl: 'resources-page.css'
 })
 export class ResourcesPage {
 
@@ -38,7 +38,7 @@ export class ResourcesPage {
       { title: 'Stencil’de Bileşenler Arası Haberleşme (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9' }
     ]
   }
-  
+
   constructor() {
     document.title = `Stencil Resources`;
   }
