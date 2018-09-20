@@ -3,7 +3,7 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'notfound-page',
-  styleUrl: 'notfound-page.scss'
+  styleUrl: 'notfound-page.css'
 })
 export class NotFoundPage {
 
