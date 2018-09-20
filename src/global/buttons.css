@@ -1,3 +1,4 @@
+
 .btn {
   transition: all .15s ease;
   text-decoration: none;
@@ -9,21 +10,21 @@
   padding: 16px 20px;
   border-radius: 2px;
   letter-spacing: 0.04em;
-  box-shadow: $button-shadow;
+  box-shadow: var(--button-shadow);
   cursor: pointer;
+}
 
-  &:hover {
-    transform: translateY(1px);
-    box-shadow: $button-shadow-hover;
-  }
+.btn:hover {
+  transform: translateY(1px);
+  box-shadow: var(--button-shadow-hover);
 }
 
 .btn--primary {
-  background: $color-dodger-blue;
-  color: $color-white;
+  background: var(--color-dodger-blue);
+  color: var(--color-white);
 }
 
 .btn-secondary {
-  color: $color-dodger-blue;
-  background: $color-white;
+  background: var(--color-white);
+  color: var(--color-dodger-blue);
 }
