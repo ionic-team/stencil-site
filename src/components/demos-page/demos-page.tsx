@@ -1,8 +1,7 @@
 import { Component } from '@stencil/core';
 
 @Component({
-  tag: 'demos-page',
-  styleUrl: 'demos-page.scss'
+  tag: 'demos-page'
 })
 export class DemosPage {
 
