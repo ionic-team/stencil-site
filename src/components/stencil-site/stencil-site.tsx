@@ -4,7 +4,7 @@ import SiteProviderConsumer, { SiteState } from '../../global/site-provider-cons
 
 @Component({
   tag: 'stencil-site',
-  styleUrl: 'stencil-site.scss'
+  styleUrl: 'stencil-site.css'
 })
 export class App {
   elements = [

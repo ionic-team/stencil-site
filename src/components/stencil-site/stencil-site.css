@@ -1,38 +1,20 @@
-@import '../../global/variables';
-
-* {
-  box-sizing: border-box;
-
-  &::selection,
-  &::-moz-selection {
-    background: $color-whisper;
-  }
-}
-
-stencil-route-link:hover {
-  cursor: pointer;
-}
 
 stencil-site {
   min-height: 100%;
   display: block;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 .left-sidebar-in {
   animation-name: slideIn;
   animation-duration: 0.7s;
-  animation-timing-function: $easeOutExpo;
+  animation-timing-function: var(--ease-out-expo);
   animation-fill-mode: forwards;
 }
+
 @keyframes slideIn {
   from {
     left: 0;
   }
-
   to {
     left: calc(100vw - 56px);
   }
@@ -41,14 +23,14 @@ stencil-site {
 .left-sidebar-out {
   animation-name: slideOut;
   animation-duration: 0.7s;
-  animation-timing-function: $easeOutExpo;
+  animation-timing-function: var(--ease-out-expo);
   animation-fill-mode: forwards;
 }
+
 @keyframes slideOut {
   from {
     left: calc(100vw - 56px);
   }
-
   to {
     left: 0;
   }
@@ -68,51 +50,50 @@ stencil-site {
   display: flex;
   flex-direction: column;
   min-height: 100.1vh;
-
   padding: 110px 0 0;
+}
 
-  @media screen and (max-width: $breakpoint-md) {
+@media screen and (max-width: 768px) {
+  .root {
     padding-top: 90px;
   }
 }
 
 footer {
   width: 100%;
-  background: $color-white-lilac;
+  background: var(--color-white-lilac);
   flex: 0 0 8em;
   margin-top: 100px;
   padding: 40px 0;
   display: flex;
+}
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .svg-button {
-    margin-left: 16px;
-    transition: all .15s ease;
-  }
+footer .svg-button {
+  margin-left: 16px;
+  transition: all .15s ease;
+}
 
-  .svg-button:hover {
-    opacity:0.5;
-  }
+footer .svg-button:hover {
+  opacity: 0.5;
 }
 
 .footer__icons {
   display: flex;
 }
 
-.footer__open-source {
-  img {
-    width: 50%;
-  }
+.footer__open-source img {
+  width: 50%;
+}
 
-  p {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #6C7078;
-    font-size: 10px;
-  }
+.footer__open-source p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #6C7078;
+  font-size: 10px;
 }
