@@ -3,7 +3,7 @@ import SiteProviderConsumer from '../../global/site-provider-consumer';
 
 @Component({
   tag: 'app-burger',
-  styleUrl: 'app-burger.scss'
+  styleUrl: 'app-burger.css'
 })
 export class AppBurger {
   @Element() el!: HTMLStencilElement;
