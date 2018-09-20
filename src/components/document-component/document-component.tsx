@@ -2,7 +2,7 @@ import { Component, Element, Prop } from '@stencil/core';
 
 @Component({
   tag: 'document-component',
-  styleUrl: 'document-component.scss'
+  styleUrl: 'document-component.css'
 })
 export class DocumentComponent {
 
