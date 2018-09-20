@@ -15,58 +15,66 @@
 </blockquote>
 <h3 id="config">Config</h3>
 <p>Stencil uses Workbox underneath and therefore supports all of the <a href="https://Workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration">Workbox config options</a>. Here is the default config Stencil uses:</p>
-<pre><code class="lang-typescript">{
-  skipWaiting: <span class="hljs-literal">true</span>,
-  clientsClaim: <span class="hljs-literal">true</span>,
-  globPatterns: [
-    <span class="hljs-string">'**/*.{js,css,json,html,ico,png,svg}'</span>
-  ]
-};
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token punctuation">{</span>
+  skipWaiting<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  clientsClaim<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  globPatterns<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'**/*.{js,css,json,html,ico,png,svg}'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p>This configuration does pre-caching of all of your apps assets.</p>
 <p>To modify this config you can use the <code>serviceWorker</code> param of your Stencil config. Here is an example:</p>
-<pre><code class="lang-javascript">exports.config = {
-  <span class="hljs-attr">outputTargets</span>: [
-    {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>,
-      <span class="hljs-attr">serviceWorker</span>: {
-        <span class="hljs-attr">globPatterns</span>: [
-          <span class="hljs-string">'**/*.{js,css,json,html,ico,png}'</span>
-        ]
-      }
-    }
-  ]
-};
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  outputTargets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword">type</span><span class="token punctuation">:</span> <span class="token string">'www'</span><span class="token punctuation">,</span>
+      serviceWorker<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        globPatterns<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">'**/*.{js,css,json,html,ico,png}'</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <h3 id="using-a-custom-service-worker">Using a custom service worker</h3>
 <p>Already have a service worker or want to include some custom code? We support that too.</p>
 <p>Let&#39;s go through the steps needed for this functionality:</p>
 <ul>
 <li>First we need to pass the path to our custom service worker to the <code>swSrc</code> command in the serviceWorker config. Here is an example:</li>
 </ul>
-<pre><code class="lang-javascript">exports.config = {
-  <span class="hljs-attr">outputTargets</span>: [
-    {
-      <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>,
-      <span class="hljs-attr">serviceWorker</span>: {
-        <span class="hljs-attr">swSrc</span>: <span class="hljs-string">'src/sw.js'</span>
-      }
-    }
-  ]
-};
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  outputTargets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword">type</span><span class="token punctuation">:</span> <span class="token string">'www'</span><span class="token punctuation">,</span>
+      serviceWorker<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        swSrc<span class="token punctuation">:</span> <span class="token string">'src/sw.js'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <ul>
 <li>Now we need to include some boilerplate code in our custom service worker:</li>
 </ul>
-<pre><code class="lang-typescript">importScripts(<span class="hljs-string">'workbox-v3.1.0/Workbox-sw.js'</span>);
 
-self.workbox.skipWaiting();
-self.workbox.clientsClaim();
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">importScripts</span><span class="token punctuation">(</span><span class="token string">'workbox-v3.1.0/Workbox-sw.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// your custom service worker code</span>
+self<span class="token punctuation">.</span>workbox<span class="token punctuation">.</span><span class="token function">skipWaiting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+self<span class="token punctuation">.</span>workbox<span class="token punctuation">.</span><span class="token function">clientsClaim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-self.workbox.precaching.precacheAndRoute([]);
-</code></pre>
+<span class="token comment">// your custom service worker code</span>
+
+self<span class="token punctuation">.</span>workbox<span class="token punctuation">.</span>precaching<span class="token punctuation">.</span><span class="token function">precacheAndRoute</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p>This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.</p>
 <p><stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

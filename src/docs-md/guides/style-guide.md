@@ -11,7 +11,7 @@ This is a component style guide created and enforced internally by the core team
 
 Example from ionic-core:
 
-```
+```bash
 ├── card
 │   ├── card.ios.scss
 │   ├── card.md.scss
@@ -42,13 +42,13 @@ The prefix has a major role when you are creating a collection of components int
 We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.
 
 DO NOT do this:
-```html
+```markup
 <stencil-component>
 <stnl-component>
 ```
 
 Instead, use your own naming or brand. For example, [Ionic](https://ionicframework.com/) components are all prefixed with `ion-`.
-```html
+```markup
 <ion-button>
 <ion-header>
 ```
@@ -62,7 +62,7 @@ Components are not actions, they are conceptually "things". It is better to use 
 
 When several components are related and/or coupled, it is a good idea to share the name, and then add different modifiers, for example:
 
-```html
+```markup
 <ion-card>
 <ion-card-header>
 <ion-card-content>
@@ -73,7 +73,7 @@ When several components are related and/or coupled, it is a good idea to share t
 
 The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.
 
-```typescript
+```tsx
 @Component({
   tag: 'ion-button'
 })
@@ -92,14 +92,14 @@ export class Menu { ... }
 
 2. **Variable decorators should be inlined.**
 
-```typescript
+```tsx
 @Prop() name: string;
 @Element() el: HTMLElement;
 ```
 
 3. **Method decorator should be multi-line**
 
-```typescript
+```tsx
 @Listen('click')
 onClick() {
   ...
@@ -118,7 +118,7 @@ onClick() {
 
 ### High level example (commented)
 
-```typescript
+```tsx
 @Component({
   tag: 'ion-something',
   styleUrl: 'something.scss',

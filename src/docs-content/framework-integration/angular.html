@@ -6,40 +6,44 @@
 </ol>
 <h2 id="including-the-custom-elements-schema">Including the Custom Elements Schema</h2>
 <p>Including the <code>CUSTOM_ELEMENTS_SCHEMA</code> in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to <code>AppModule</code>:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { BrowserModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;
-<span class="hljs-keyword">import</span> { CUSTOM_ELEMENTS_SCHEMA, NgModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> { FormsModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
 
-<span class="hljs-keyword">import</span> { AppComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app.component'</span>;
-<span class="hljs-keyword">import</span> { SharedModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'./shared/shared.module'</span>;
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/platform-browser'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">CUSTOM_ELEMENTS_SCHEMA</span><span class="token punctuation">,</span> NgModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FormsModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/forms'</span><span class="token punctuation">;</span>
 
-<span class="hljs-meta">@NgModule</span>({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, SharedModule],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule {}
-</code></pre>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./app.component'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> SharedModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./shared/shared.module'</span><span class="token punctuation">;</span>
+
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  declarations<span class="token punctuation">:</span> <span class="token punctuation">[</span>AppComponent<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>BrowserModule<span class="token punctuation">,</span> FormsModule<span class="token punctuation">,</span> SharedModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  bootstrap<span class="token punctuation">:</span> <span class="token punctuation">[</span>AppComponent<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  schemas<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token constant">CUSTOM_ELEMENTS_SCHEMA</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>The <code>CUSTOM_ELEMENTS_SCHEMA</code> needs to be included in any module that uses custom elements.</p>
 <h2 id="calling-definecustomelements-window-">Calling <code>defineCustomElements(window)</code></h2>
 <p>A component collection built with Stencil includes a main function that is used to load the components in the collection. That function is called <code>defineCustomElements()</code> and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in <code>main.ts</code> as such:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { enableProdMode } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> { platformBrowserDynamic } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser-dynamic'</span>;
 
-<span class="hljs-keyword">import</span> { AppModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app/app.module'</span>;
-<span class="hljs-keyword">import</span> { environment } <span class="hljs-keyword">from</span> <span class="hljs-string">'./environments/environment'</span>;
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> enableProdMode <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> platformBrowserDynamic <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/platform-browser-dynamic'</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">import</span> { defineCustomElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'test-components'</span>;
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./app/app.module'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> environment <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./environments/environment'</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">if</span> (environment.production) {
-  enableProdMode();
-}
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'test-components'</span><span class="token punctuation">;</span>
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(err));
-defineCustomElements(<span class="hljs-built_in">window</span>);
-</code></pre>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>environment<span class="token punctuation">.</span>production<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">enableProdMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">platformBrowserDynamic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bootstrapModule</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=></span> <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back

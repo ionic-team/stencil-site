@@ -12,17 +12,19 @@
 <li>Data that you are fetching from an api should not be prerendered as this data is dynamic and is going to change.</li>
 </ul>
 <p>Stencil provides an <code>isServer</code> utility variable to tell prerendering to skip code. Here is an example of how to use this utility:</p>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>({ context: <span class="hljs-string">'isServer'</span> }) <span class="hljs-keyword">private</span> isServer: <span class="hljs-built_in">boolean</span>;
 
-componentWillLoad() {
-  <span class="hljs-comment">// isServer is false when running in the browser</span>
-  <span class="hljs-comment">// and true when being prerendered</span>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> context<span class="token punctuation">:</span> <span class="token string">'isServer'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">private</span> isServer<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
 
-  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isServer === <span class="hljs-literal">false</span>) {
-    fetch(<span class="hljs-string">'someUrl'</span>).then(...)
-  }
-}
-</code></pre>
+<span class="token function">componentWillLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// isServer is false when running in the browser</span>
+  <span class="token comment">// and true when being prerendered</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isServer <span class="token operator">===</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'someUrl'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

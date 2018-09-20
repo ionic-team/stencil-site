@@ -1,16 +1,7 @@
 <h1 id="vue">Vue</h1>
 <p>In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the <code>main.js</code> file. For example:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span>;
-<span class="hljs-keyword">import</span> { defineCustomElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'test-components'</span>;
 
-Vue.config.productionTip = <span class="hljs-literal">false</span>;
-Vue.config.ignoredElements = [<span class="hljs-regexp">/test-\w*/</span>];
-
-defineCustomElements(<span class="hljs-built_in">window</span>);
-
-<span class="hljs-keyword">new</span> Vue({
-  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App)
-}).$mount(<span class="hljs-string">'#app'</span>);
-</code></pre>
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">import%20Vue%20from%20%27vue%27%3B%0Aimport%20App%20from%20%27./App.vue%27%3B%0Aimport%20%7B%20defineCustomElements%20%7D%20from%20%27test-components%27%3B%0A%0AVue.config.productionTip%20%3D%20false%3B%0AVue.config.ignoredElements%20%3D%20%5B/test-%5Cw*/%5D%3B%0A%0AdefineCustomElements%28window%29%3B%0A%0Anew%20Vue%28%7B%0A%20%20render%3A%20h%20%3D%3E%20h%28App%29%0A%7D%29.%24mount%28%27%23app%27%29%3B</code></pre>
+</highlight-code-line>
 <p>Vue provides several different ways to install and use the framework in an application. The above technique for integrating a Stencil custom element library has been tested on a Vue application that was created using the <code>vue-cli</code> with ES2015 and WebPack as primary options. A similar technique should work if the application was generated using other options.</p>

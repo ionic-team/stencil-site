@@ -4,7 +4,7 @@ Components have numerous lifecycle methods which can be used to know when the co
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
-```typescript
+```tsx
 import { Component } from '@stencil/core';
 
 @Component({
@@ -88,7 +88,7 @@ It's also important to note that even though Stencil can lazy-load components, a
 
 In the example below we have a simple hierarchy of components. The numbered list shows the order of which the lifecycle methods will fire.
 
-```html
+```markup
   <cmp-a>
     <cmp-b>
       <cmp-c></cmp-c>
@@ -112,7 +112,7 @@ Lifecycle methods can also return promises which allows the method to asynchrono
 
 Below is a quick example showing how `componentWillLoad()` is able to have its parent component wait on it to finish loading its data.
 
-```typescript
+```tsx
 componentWillLoad() {
   return fetch('/some-data.json')
     .then(response => response.json())
@@ -127,7 +127,7 @@ componentWillLoad() {
 
 This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
 
-```typescript
+```tsx
 import { Component, State } from '@stencil/core';
 
 @Component({

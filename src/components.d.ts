@@ -63,6 +63,13 @@ export namespace Components {
     'pages'?: string[];
   }
 
+  interface HighlightCodeLine {
+    'lines'?: string;
+  }
+  interface HighlightCodeLineAttributes extends StencilHTMLAttributes {
+    'lines'?: string;
+  }
+
   interface LandingPage {}
   interface LandingPageAttributes extends StencilHTMLAttributes {}
 
@@ -111,6 +118,7 @@ declare global {
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
     'DocumentComponent': Components.DocumentComponent;
+    'HighlightCodeLine': Components.HighlightCodeLine;
     'LandingPage': Components.LandingPage;
     'LazyIframe': Components.LazyIframe;
     'NotfoundPage': Components.NotfoundPage;
@@ -129,6 +137,7 @@ declare global {
     'demo-card': Components.DemoCardAttributes;
     'demos-page': Components.DemosPageAttributes;
     'document-component': Components.DocumentComponentAttributes;
+    'highlight-code-line': Components.HighlightCodeLineAttributes;
     'landing-page': Components.LandingPageAttributes;
     'lazy-iframe': Components.LazyIframeAttributes;
     'notfound-page': Components.NotfoundPageAttributes;
@@ -180,6 +189,12 @@ declare global {
   var HTMLDocumentComponentElement: {
     prototype: HTMLDocumentComponentElement;
     new (): HTMLDocumentComponentElement;
+  };
+
+  interface HTMLHighlightCodeLineElement extends Components.HighlightCodeLine, HTMLStencilElement {}
+  var HTMLHighlightCodeLineElement: {
+    prototype: HTMLHighlightCodeLineElement;
+    new (): HTMLHighlightCodeLineElement;
   };
 
   interface HTMLLandingPageElement extends Components.LandingPage, HTMLStencilElement {}
@@ -238,6 +253,7 @@ declare global {
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
     'document-component': HTMLDocumentComponentElement
+    'highlight-code-line': HTMLHighlightCodeLineElement
     'landing-page': HTMLLandingPageElement
     'lazy-iframe': HTMLLazyIframeElement
     'notfound-page': HTMLNotfoundPageElement
@@ -256,6 +272,7 @@ declare global {
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
     'document-component': HTMLDocumentComponentElement;
+    'highlight-code-line': HTMLHighlightCodeLineElement;
     'landing-page': HTMLLandingPageElement;
     'lazy-iframe': HTMLLazyIframeElement;
     'notfound-page': HTMLNotfoundPageElement;

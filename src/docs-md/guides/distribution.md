@@ -12,7 +12,7 @@ The easiest way to build and distribute web components with Stencil is by using 
 
 Configuring Stencil for distribution is easy. Set the following config options in the `stencil.config.js` file:
 
-```javascript
+```typescript
 exports.config = {
   namespace: 'myname',
   outputTargets: [

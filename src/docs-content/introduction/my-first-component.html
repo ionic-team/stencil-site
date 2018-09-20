@@ -2,32 +2,36 @@
 <p>Stencil components are created by adding a new file with a <code>.tsx</code> extension, such as <code>my-first-component.tsx</code>, and placing them in the <code>src/components</code> directory.
 The <code>.tsx</code> extension is required since Stencil components are built using <a href="https://facebook.github.io/react/docs/introducing-jsx.html">JSX</a> and TypeScript.</p>
 <p>Here is an example of what a Stencil component looks like:</p>
-<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-meta">@Component({
-  tag: <span class="hljs-meta-string">'my-first-component'</span>,
-  styleUrl: <span class="hljs-meta-string">'my-first-component.scss'</span>
-})</span>
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyComponent</span> </span>{
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">// Indicate that name should be a public property on the component</span>
-  <span class="hljs-meta">@Prop()</span> name: string;
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'my-first-component'</span><span class="token punctuation">,</span>
+  styleUrl<span class="token punctuation">:</span> <span class="token string">'my-first-component.scss'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
 
-  render() {
-    <span class="hljs-keyword">return</span> (
-      &lt;p&gt;
-        My name <span class="hljs-keyword">is</span> {<span class="hljs-keyword">this</span>.name}
-      &lt;/p&gt;
-    );
-  }
-}
-</code></pre>
+  <span class="token comment">// Indicate that name should be a public property on the component</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+        My name is <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <blockquote>
 <p>Don&#39;t fully understand what&#39;s going on? Don&#39;t worry, we&#39;ll explain each pieces in detail later on.</p>
 </blockquote>
 <p>Once compiled, this component can be used in HTML just like any other tag.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-first-component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Max"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-first-component</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-first-component</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Max<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-first-component</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <blockquote>
 <p>Web Components must have a - in the tag. <code>firstComponent</code> would not be a valid tag name.</p>
 </blockquote>
@@ -46,8 +50,10 @@ If you&#39;re not sure what JSX is, don&#39;t worry, we&#39;ll go over it in det
 <p>The <code>name</code> property on the class also has a decorator applied to it, <code>@Prop()</code>.
 This decorator tells the compiler that the property is public to the component, and the user should be setting it.
 We set this property like so:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-first-component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Max"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-first-component</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-first-component</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Max<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-first-component</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>Any property decorated with <code>@Prop()</code> is also automatically watched for changes.
 If a user of our component were to change the element&#39;s <code>name</code> property, our component would fire its <code>render</code> function again, updating the displayed content.</p>
 <p><stencil-route-link url="/docs/getting-started" router="#router" custom="true">

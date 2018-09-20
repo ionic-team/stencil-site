@@ -10,7 +10,7 @@ For arrays, this means that the standard mutable array operations such as `push(
 
 For example, to push a new item to an array, create a new array with the existing values and the new value at the end:
 
-```typescript
+```tsx
 // our original array
 this.items = ['ionic', 'stencil', 'webcomponents'];
 
@@ -27,7 +27,7 @@ The `...this.items` syntax is a relatively new feature of JavaScript that "expan
 
 The spread operator should also be used to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:
 
-```typescript
+```tsx
 // our original object
 let myCoolObject = {first: '1', second: '2'}
 

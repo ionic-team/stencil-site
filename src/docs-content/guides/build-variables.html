@@ -2,23 +2,25 @@
 <p>Build Constants in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.</p>
 <h3 id="using-build-constants">Using Build Constants</h3>
 <p>Lets dive in and look at an example of how to use our build constants:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, Build } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'stencil-app'</span>,
-  styleUrl: <span class="hljs-string">'stencil-app.scss'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> StencilApp {
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Build <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  componentDidLoad() {
-    <span class="hljs-keyword">if</span> (Build.isDev) {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'im in dev mode'</span>);
-    } <span class="hljs-keyword">else</span> {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'im running in production'</span>);
-    }
-  }
-}
-</code></pre>
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'stencil-app'</span><span class="token punctuation">,</span>
+  styleUrl<span class="token punctuation">:</span> <span class="token string">'stencil-app.scss'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">StencilApp</span> <span class="token punctuation">{</span>
+
+  <span class="token function">componentDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Build<span class="token punctuation">.</span>isDev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'im in dev mode'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'im running in production'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>As you can see from this example, we just need to import <code>Build</code> from <code>@stencil/core</code> and then we can use the <code>isDev</code> constant to detect when we are running in dev mode or production mode. </p>
 <h3 id="use-cases">Use Cases</h3>
 <p>Some use cases we have come up with are:</p>

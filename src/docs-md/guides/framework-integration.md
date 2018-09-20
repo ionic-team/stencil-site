@@ -18,7 +18,7 @@ Using a Stencil built web component collection within an Angular CLI project is 
 
 Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web components in the HTML markup without the compiler producing errors. Here is an example of adding it to `AppModule`:
 
-```typescript
+```tsx
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +41,7 @@ The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom
 
 A component collection built with Stencil includes a main function that is used to load the components in the collection. That function is called `defineCustomElements()` and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in `main.ts` as such:
 
-```typescript
+```tsx
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

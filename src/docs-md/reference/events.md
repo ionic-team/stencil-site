@@ -4,7 +4,7 @@ Components can emit data and events using the Event Emitter decorator.
 
 To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) for other components to handle, use the `@Event()` decorator.
 
-```typescript
+```tsx
 import { Event, EventEmitter } from '@stencil/core';
 
 ...
@@ -26,7 +26,7 @@ The `Listen()` decorator is for handling events dispatched from `@Events`.
 
 In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
 
-```typescript
+```tsx
 import { Listen } from '@stencil/core';
 
 ...
@@ -43,7 +43,7 @@ Handlers can also be registered for an event on a specific element.
 This is useful for listening to application-wide events.
 In the example below, we're going to listen for the scroll event.
 
-```typescript
+```tsx
 import { Listen } from '@stencil/core';
 
 ...
@@ -58,7 +58,7 @@ export class TodoList {
 
 For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the key code, or some constants Stencil provides.
 
-```typescript
+```tsx
 @Listen('keydown')
 handleKeyDown(ev){
   if(ev.keyCode === 40){
@@ -90,7 +90,7 @@ You can also bind listeners to events directly in JSX. This works very similar t
 
 Lets use our TodoList component from above:
 
-```typescript
+```tsx
 import { Event, EventEmitter } from '@stencil/core';
 
 ...
@@ -106,7 +106,7 @@ export class TodoList {
 
 We can now listen to this event directly on the component in our JSX using the following syntax:
 
-```html
+```markup
 <todo-list onTodoCompleted={ev => this.someMethod(ev)}></todo-list>
 ```
 

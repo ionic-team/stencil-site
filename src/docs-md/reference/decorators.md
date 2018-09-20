@@ -16,7 +16,7 @@ Each Stencil Component must be decorated with a `@Component()` decorator from th
 
 Use a relative url to the `.css` file for the styleUrl(s).
 
-```typescript
+```tsx
 import { Component } from '@stencil/core';
 
 @Component({
@@ -27,23 +27,24 @@ export class TodoList {
   ...
 }
 ```
+
 | name | type | description
-    tag: string;
-    styleUrl?: string;
-    styleUrls?: string[] | d.ModeStyles;
-    styles?: string;
-    scoped?: boolean;
-    shadow?: boolean;
-    host?: d.HostMeta;
-    assetsDir?: string;
-    assetsDirs?: string[];
+tag: string;
+styleUrl?: string;
+styleUrls?: string[] | d.ModeStyles;
+styles?: string;
+scoped?: boolean;
+shadow?: boolean;
+host?: d.HostMeta;
+assetsDir?: string;
+assetsDirs?: string[];
 
 <a name="prop"></a>
 ## Prop Decorator
 
 Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
 
-```typescript
+```tsx
 import { Prop } from '@stencil/core';
 ...
 export class TodoList {
@@ -56,7 +57,7 @@ export class TodoList {
 
 Within the `TodoList` class, the Props are accessed via the `this` operator.
 
-```typescript
+```tsx
 logColor() {
   console.log(this.color)
 }
@@ -66,19 +67,19 @@ Externally, Props are set on the element.
 
 > In HTML, you must set attributes using dash-case:
 
-```html
+```markup
 <todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
 ```
 
 in JSX you set an attribute using camelCase:
 
-```html
+```markup
 <todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
 ```
 
 They can also be accessed via JS from the element.
 
-```typescript
+```tsx
 const todoListElement = document.querySelector('todo-list');
 console.log(todoListElement.myHttpService); // MyHttpService
 console.log(todoListElement.color); // blue
@@ -90,7 +91,7 @@ It's important to know, that a Prop is _by default_ immutable from inside the co
 
 However, it's possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as **mutable**, as in the example below:
 
-```typescript
+```tsx
 import { Prop } from '@stencil/core';
 ...
 export class NameElement {
@@ -106,7 +107,7 @@ export class NameElement {
 
 Setting a default value on a Prop:
 
-```typescript
+```tsx
 import { Prop } from '@stencil/core';
 ...
 export class NameElement {
@@ -116,7 +117,7 @@ export class NameElement {
 
 To do validation of a Prop, you can use the [@Watch()](#watch) decorator:
 
-```typescript
+```tsx
 import { Prop, Watch } from '@stencil/core';
 ...
 export class TodoList {
@@ -136,7 +137,7 @@ export class TodoList {
 
 In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the `reflectToAttr` option in the `@Prop()` decorator:
 
-```typescript
+```tsx
 @Prop({
   reflectToAttr: true
 })
@@ -148,7 +149,7 @@ In some cases it may be useful to keep a Prop in sync with an attribute. In this
 When a user updates a property, `Watch` will fire what ever method it's attached to and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props or handling side effects.
 
 
-```typescript
+```tsx
 import { Prop, Watch } from '@stencil/core';
 
 export class LoadingIndicator {
@@ -166,7 +167,7 @@ export class LoadingIndicator {
 The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
 
 
-```typescript
+```tsx
 import { State } from '@stencil/core';
 
 ...
@@ -189,7 +190,7 @@ export class TodoList {
 
 The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
 
-```typescript
+```tsx
 import { Method } from '@stencil/core';
 
 ...
@@ -204,7 +205,7 @@ export class TodoList {
 
 Call the method like this:
 
-```typescript
+```tsx
 const todoListElement = document.querySelector('todo-list');
 todoListElement.showPrompt();
 ```
@@ -234,7 +235,7 @@ Components can be composed easily by adding the HTML tag to the JSX code. Since 
 
 Here's an example of using a component within another component:
 
-```typescript
+```tsx
 import { Component, Prop } from '@stencil/core';
 
 @Component({
@@ -251,7 +252,7 @@ export class MyEmbeddedComponent {
 }
 ```
 
-```typescript
+```tsx
 import { Component } from '@stencil/core';
 
 @Component({

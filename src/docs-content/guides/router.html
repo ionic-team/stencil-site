@@ -38,71 +38,89 @@
 </ul>
 <h2 id="configuring-the-router">Configuring the Router</h2>
 <p>Applications built with Stencil should have one <code>stencil-router</code> element for the entire application. Make sure to specify an <code>id</code> attribute on it.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-router</span>&gt;</span>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-router</span><span class="token punctuation">></span></span>
 ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">stencil-router</span>&gt;</span>
-</code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>stencil-router</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>Within the <code>stencil-router</code> element, we want to declare our set of <code>stencil-route</code>s. Each <code>stencil-route</code> needs to take a reference to the router, a url, and then an HTML element tag name.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-router</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"landing-page"</span> <span class="hljs-attr">exact</span>=<span class="hljs-string">{true}/</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/demos"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"demos-page"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/demos/rendering"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"fiber-demo"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/docs"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"docs"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/docs/getting-started"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"getting-started"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/components"</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"basics-components"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">stencil-router</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-router</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>landing-page<span class="token punctuation">"</span></span> <span class="token attr-name">exact</span><span class="token attr-value"><span class="token punctuation">=</span>{true}/</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/demos<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demos-page<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/demos/rendering<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fiber-demo<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/docs<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>docs<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/docs/getting-started<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getting-started<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/components<span class="token punctuation">"</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>basics-components<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>stencil-router</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>When navigating to <code>/demos/rendering</code> based on the above configuration, the <code>demos-page</code> component will be loaded with a child component <code>fiber-demo</code>. They will both be loaded as children of their corresponding stencil-routes but they are not related other than both match the route. Nested routes/components just work.</p>
 <h2 id="navigating">Navigating</h2>
 <h3 id="navigating-statically">Navigating Statically</h3>
 <p>To navigate around an app, use the <code>stencil-route-link</code> component.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-route-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">stencil-route-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/demos"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">stencil-route-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/docs/getting-started"</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route-link</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route-link</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/demos<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route-link</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/docs/getting-started<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <h3 id="navigating-programmatically">Navigating Programmatically</h3>
 <p>If you are in a routed component ( a component that has been included in a <code>stencil-route</code>) and would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { RouterHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/router'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> askPage {
-  <span class="hljs-meta">@Prop</span>() history: RouterHistory;
-}
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> RouterHistory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/router'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">askPage</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> history<span class="token punctuation">:</span> RouterHistory<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>You can then use the following methods on the history object to navigate:</p>
-<pre><code class="lang-typescript"><span class="hljs-comment">// pushing a route (going forwards to a certain route)</span>
-<span class="hljs-keyword">this</span>.history.push(<span class="hljs-string">`/demos`</span>, {});
 
-<span class="hljs-comment">// navigate back as if the user hit the back button in the browser</span>
-<span class="hljs-keyword">this</span>.history.goBack();
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// pushing a route (going forwards to a certain route)</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`/demos`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// navigate forwards as if the user hit the forwards button in the browser</span>
-<span class="hljs-keyword">this</span>.history.goForward();
+<span class="token comment">// navigate back as if the user hit the back button in the browser</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">goBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// replace the current nav history and reset to a certain route</span>
-<span class="hljs-keyword">this</span>.history.replace(<span class="hljs-string">'/'</span>, {});
+<span class="token comment">// navigate forwards as if the user hit the forwards button in the browser</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">goForward</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// navigate through the history stack by `n` entries</span>
-<span class="hljs-keyword">this</span>.history.go(n: <span class="hljs-built_in">number</span>);
-</code></pre>
+<span class="token comment">// replace the current nav history and reset to a certain route</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// navigate through the history stack by `n` entries</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span>n<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <h2 id="url-params">URL Params</h2>
 <p>You may be familiar with the concept of URL params from <a href="https://reacttraining.com/react-router/web/example/url-params">React Router</a>. URL params allow you to pass data to a component through the route. To set this up in the Stencil router we first need to set up our route to take a param. Here is an example:</p>
-<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-name">stencil-route</span> <span class="hljs-attr">url</span>=<span class="hljs-string">'/show/:pageNum'</span> <span class="hljs-attr">component</span>=<span class="hljs-string">'show-page'</span> /&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>/show/:pageNum<span class="token punctuation">'</span></span> <span class="token attr-name">component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>show-page<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span></code></pre>
+</highlight-code-line>
 <p>The key part in this route is the <code>:pageNum</code> syntax. This means that we can now pass data to that route and it will be accessible through the <code>pageNum</code> variable. Below is an example of how we would pass data to this route:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-route-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">show</span>/${<span class="hljs-attr">someData</span>}`} /&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-route-link</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span>{`/show/${someData}`}</span> <span class="token punctuation">/></span></span></code></pre>
+</highlight-code-line>
 <p>Now let&#39;s go over how to access this data from the <code>show-page</code> component we are routing to.</p>
 <p>First, we need to pass the <code>match</code> prop to our <code>show-page</code> component:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { MatchResults } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/router'</span>;
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ShowPage {
-  <span class="hljs-meta">@Prop</span>() match: MatchResults;
-}
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> MatchResults <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/router'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ShowPage</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> match<span class="token punctuation">:</span> MatchResults<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>Then we can use that <code>match</code> prop to access our data:</p>
-<pre><code class="lang-typescript"><span class="hljs-comment">// myData is now the data we passed in our stencil-route-link above</span>
-<span class="hljs-keyword">const</span> myData = <span class="hljs-keyword">this</span>.match.params.pageNum;
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// myData is now the data we passed in our stencil-route-link above</span>
+<span class="token keyword">const</span> myData <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>match<span class="token punctuation">.</span>params<span class="token punctuation">.</span>pageNum<span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/unit-testing" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

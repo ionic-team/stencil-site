@@ -7,12 +7,14 @@
 <li>Implementation (.tsx) and styles of a component should live in the same directory.</li>
 </ul>
 <p>Example from ionic-core:</p>
-<pre><code>├── card
+
+<highlight-code-line >
+  <pre class="language-bash"><code class="language-bash">├── card
 │   ├── card.ios.scss
 │   ├── card.md.scss
 │   ├── card.scss
 │   ├── card.tsx
-│   └── test
+│   └── <span class="token function">test</span>
 │       └── basic
 │           ├── e2e.js
 │           └── index.html
@@ -24,40 +26,49 @@
 ├── card-title
 │   ├── card-title.ios.scss
 │   ├── card-title.md.scss
-│   ├── card-title.scss
-</code></pre><h2 id="naming">Naming</h2>
+│   ├── card-title.scss</code></pre>
+</highlight-code-line>
+<h2 id="naming">Naming</h2>
 <h3 id="html-tag">HTML tag</h3>
 <h4 id="prefix">Prefix</h4>
 <p>The prefix has a major role when you are creating a collection of components intended to be used across different projects, like <a href="https://www.npmjs.com/package/@ionic/core">@ionic/core</a>. Web Components are not scoped because they are globally declared within the webpage, which means an &quot;unique&quot; prefix is needed to prevent collisions. The prefix is also able help to quickly identify the collection of an component. Additionally, web components are required to contain a &quot;-&quot; dash within the tag name, so using the first section to namespace your components is a natural fit.</p>
 <p>We do not recommend using &quot;stencil&quot; as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.</p>
 <p>DO NOT do this:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">stencil-component</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">stnl-component</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stencil-component</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>stnl-component</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>Instead, use your own naming or brand. For example, <a href="https://ionicframework.com/">Ionic</a> components are all prefixed with <code>ion-</code>.</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ion-header</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ion-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ion-header</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <h4 id="name">Name</h4>
 <p>Components are not actions, they are conceptually &quot;things&quot;. It is better to use nouns, instead of verbs, such us: &quot;animation&quot; instead of &quot;animating&quot;. &quot;input&quot;, &quot;tab&quot;, &quot;nav&quot;, &quot;menu&quot; are some examples.</p>
 <h4 id="modifiers">Modifiers</h4>
 <p>When several components are related and/or coupled, it is a good idea to share the name, and then add different modifiers, for example:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-card</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ion-card-header</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ion-card-content</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ion-card</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ion-card-header</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ion-card-content</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <h3 id="component-ts-class-">Component (TS class)</h3>
 <p>The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.</p>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'ion-button'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Button { ... }
 
-<span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'ion-menu'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Menu { ... }
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'ion-button'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Button</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'ion-menu'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Menu</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h2 id="typescript">TypeScript</h2>
 <ol>
 <li><p><strong>Follow</strong> <a href="https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js">tslint-ionic-rules</a></p>
@@ -65,17 +76,21 @@
 <li><p><strong>Variable decorators should be inlined.</strong></p>
 </li>
 </ol>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>() name: <span class="hljs-built_in">string</span>;
-<span class="hljs-meta">@Element</span>() el: HTMLElement;
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+@<span class="token function">Element</span><span class="token punctuation">(</span><span class="token punctuation">)</span> el<span class="token punctuation">:</span> HTMLElement<span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <ol start="3">
 <li><strong>Method decorator should be multi-line</strong></li>
 </ol>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Listen</span>(<span class="hljs-string">'click'</span>)
-onClick() {
-  ...
-}
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Listen</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span>
+<span class="token function">onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <ol start="4">
 <li><p><strong>Use private variables and methods as much possible:</strong> They are useful to detect deadcode and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using <code>private</code>, <code>public</code> or <code>protected</code> does not make a difference in the actual JavaScript output.</p>
 </li>
@@ -88,169 +103,171 @@ onClick() {
 <p>The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.</p>
 </blockquote>
 <h3 id="high-level-example-commented-">High level example (commented)</h3>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Component({
-  tag: <span class="hljs-meta-string">'ion-something'</span>,
-  styleUrl: <span class="hljs-meta-string">'something.scss'</span>,
-  styleUrls: {
-    ios: <span class="hljs-meta-string">'something.ios.scss'</span>,
-    md: <span class="hljs-meta-string">'something.md.scss'</span>,
-    wp: <span class="hljs-meta-string">'something.wp.scss'</span>
-  },
-  host: {
-    theme: <span class="hljs-meta-string">'something'</span>
-  }
-})</span>
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Something</span> </span>{
 
-  <span class="hljs-comment">/**
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'ion-something'</span><span class="token punctuation">,</span>
+  styleUrl<span class="token punctuation">:</span> <span class="token string">'something.scss'</span><span class="token punctuation">,</span>
+  styleUrls<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    ios<span class="token punctuation">:</span> <span class="token string">'something.ios.scss'</span><span class="token punctuation">,</span>
+    md<span class="token punctuation">:</span> <span class="token string">'something.md.scss'</span><span class="token punctuation">,</span>
+    wp<span class="token punctuation">:</span> <span class="token string">'something.wp.scss'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  host<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    theme<span class="token punctuation">:</span> <span class="token string">'something'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Something</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">/**
    * 1. Own Properties
    * Always set the type if a default value has not
    * been set. If a default value is being set, then type
    * is already inferred. List the own properties in
    * alphabetical order. Note that because these properties
-   * do not have the <span class="hljs-doctag">@Prop</span>() decorator, they will not be exposed
+   * do not have the @Prop() decorator, they will not be exposed
    * publicly on the host element, but only used internally.
    */</span>
-  num: number;
-  someText = <span class="hljs-string">'default'</span>;
+  num<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  someText <span class="token operator">=</span> <span class="token string">'default'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 2. Reference to host HTML element.
    * Inlined decorator
    */</span>
-  <span class="hljs-meta">@Element()</span> el: HTMLElement;
+  @<span class="token function">Element</span><span class="token punctuation">(</span><span class="token punctuation">)</span> el<span class="token punctuation">:</span> HTMLElement<span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 3. State() variables
    * Inlined decorator, alphabetical order.
    */</span>
-  <span class="hljs-meta">@State()</span> isValidated: boolean;
-  <span class="hljs-meta">@State()</span> status = <span class="hljs-number">0</span>;
+  @<span class="token function">State</span><span class="token punctuation">(</span><span class="token punctuation">)</span> isValidated<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  @<span class="token function">State</span><span class="token punctuation">(</span><span class="token punctuation">)</span> status <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 4. Internal props (context and connect)
    * Inlined decorator, alphabetical order.
    */</span>
-  <span class="hljs-meta">@Prop({ context: <span class="hljs-meta-string">'config'</span> })</span> config: Config;
-  <span class="hljs-meta">@Prop({ connect: <span class="hljs-meta-string">'ion-menu-controller'</span> })</span> lazyMenuCtrl: Lazy&lt;MenuController&gt;;
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> context<span class="token punctuation">:</span> <span class="token string">'config'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> config<span class="token punctuation">:</span> Config<span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> connect<span class="token punctuation">:</span> <span class="token string">'ion-menu-controller'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> lazyMenuCtrl<span class="token punctuation">:</span> Lazy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MenuController</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 5. Public Property API
    * Inlined decorator, alphabetical order. These are
    * different than "own properties" in that public props
    * are exposed as properties and attributes on the host element.
    * Requires JSDocs for public API documentation.
    */</span>
-  <span class="hljs-meta">@Prop()</span> content: string;
-  <span class="hljs-meta">@Prop()</span> enabled: boolean;
-  <span class="hljs-meta">@Prop()</span> menuId: string;
-  <span class="hljs-meta">@Prop()</span> type = <span class="hljs-string">'overlay'</span>;
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> content<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> enabled<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> menuId<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">type</span> <span class="token operator">=</span> <span class="token string">'overlay'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * Prop lifecycle events SHOULD go just behind the Prop they listen to.
    * This makes sense since both statements are strongly connected.
-   * - If renaming the instance variable name you must also update the name in <span class="hljs-doctag">@Watch</span>()
+   * - If renaming the instance variable name you must also update the name in @Watch()
    * - Code is easier to follow and maintain.
    */</span>
-  <span class="hljs-meta">@Prop()</span> swipeEnabled = <span class="hljs-literal">true</span>;
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> swipeEnabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
-  <span class="hljs-meta">@Watch(<span class="hljs-meta-string">'swipeEnabled'</span>)</span>
-  swipeEnabledChanged(newSwipeEnabled: boolean, oldSwipeEnabled: boolean) {
-    <span class="hljs-keyword">this</span>.updateState();
-  }
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'swipeEnabled'</span><span class="token punctuation">)</span>
+  <span class="token function">swipeEnabledChanged</span><span class="token punctuation">(</span>newSwipeEnabled<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span> oldSwipeEnabled<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 6. Events section
    * Inlined decorator, alphabetical order.
    * Requires JSDocs for public API documentation.
    */</span>
-  <span class="hljs-meta">@Event()</span> ionClose: EventEmitter;
-  <span class="hljs-meta">@Event()</span> ionDrag: EventEmitter;
-  <span class="hljs-meta">@Event()</span> ionOpen: EventEmitter;
+  @<span class="token function">Event</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ionClose<span class="token punctuation">:</span> EventEmitter<span class="token punctuation">;</span>
+  @<span class="token function">Event</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ionDrag<span class="token punctuation">:</span> EventEmitter<span class="token punctuation">;</span>
+  @<span class="token function">Event</span><span class="token punctuation">(</span><span class="token punctuation">)</span> ionOpen<span class="token punctuation">:</span> EventEmitter<span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 7. Component lifecycle events
    * Ordered by their natural call order, for example
    * WillLoad should go before DidLoad.
    */</span>
-  componentWillLoad() {}
-  componentDidLoad() {}
-  componentWillEnter() {}
-  componentDidEnter() {}
-  componentWillLeave() {}
-  componentDidLeave() {}
-  componentDidUnload() {}
+  <span class="token function">componentWillLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentWillEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentDidEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentWillLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentDidLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">componentDidUnload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 8. Listeners
    * It is ok to place them in a different location
    * if makes more sense in the context. Recommend
    * starting a listener method with "on".
    * Always use two lines.
    */</span>
-  <span class="hljs-meta">@Listen(<span class="hljs-meta-string">'click'</span>, { enabled: false })</span>
-  onClick(ev: UIEvent) {
-    console.log(<span class="hljs-string">'hi!'</span>)
-  }
+  @<span class="token function">Listen</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> enabled<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token function">onClick</span><span class="token punctuation">(</span>ev<span class="token punctuation">:</span> UIEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi!'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 9. Public methods API
    * These methods are exposed on the host element.
    * Always use two lines.
    * Requires JSDocs for public API documentation.
    */</span>
-  <span class="hljs-meta">@Method()</span>
-  <span class="hljs-keyword">open</span>() {
-    ...
-  }
+  @<span class="token function">Method</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-meta">@Method()</span>
-  close() {
-    ...
-  }
+  @<span class="token function">Method</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 10. Local methods
    * Internal business logic. These methods cannot be
    * called from the host element.
    */</span>
-  prepareAnimation(): Promise&lt;void&gt; {
-    ...
-  }
+  <span class="token function">prepareAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>void</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
 
-  updateState() {
-    ...
-  }
+  <span class="token function">updateState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 11. hostData() function
    * Used to dynamically set host element attributes.
    * Should be placed directly above render()
    */</span>
-  hostData() {
-    <span class="hljs-keyword">return</span> {
-      attribute: <span class="hljs-string">'navigation'</span>,
-      side: <span class="hljs-keyword">this</span>.isRightSide ? <span class="hljs-string">'right'</span> : <span class="hljs-string">'left'</span>,
-      type: <span class="hljs-keyword">this</span>.type,
-      <span class="hljs-class"><span class="hljs-keyword">class</span>: <span class="hljs-type">{</span></span>
-        <span class="hljs-string">'something-is-animating'</span>: <span class="hljs-keyword">this</span>.isAnimating
-      }
-    };
-  }
+  <span class="token function">hostData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      attribute<span class="token punctuation">:</span> <span class="token string">'navigation'</span><span class="token punctuation">,</span>
+      side<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isRightSide <span class="token operator">?</span> <span class="token string">'right'</span> <span class="token punctuation">:</span> <span class="token string">'left'</span><span class="token punctuation">,</span>
+      <span class="token keyword">type</span><span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword">type</span><span class="token punctuation">,</span>
+      <span class="token keyword">class</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'something-is-animating'</span><span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isAnimating
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * 12. render() function
    * Always the last one in the class.
    */</span>
-  render() {
-    <span class="hljs-keyword">return</span> (
-      &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span>='<span class="hljs-title">menu</span>-<span class="hljs-title">inner</span> <span class="hljs-title">page</span>-<span class="hljs-title">inner</span>'&gt;</span>
-        &lt;slot&gt;&lt;/slot&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-</code></pre>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>menu-inner page-inner<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back

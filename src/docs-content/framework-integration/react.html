@@ -1,17 +1,9 @@
 <h1 id="react">React</h1>
 <p>With an application built using the <code>create-react-app</code> script the easiest way to include the component library is to call <code>defineCustomElements(window)</code> from the <code>index.js</code> file.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
-<span class="hljs-keyword">import</span> <span class="hljs-string">'./index.css'</span>;
-<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">'./App'</span>;
-<span class="hljs-keyword">import</span> registerServiceWorker <span class="hljs-keyword">from</span> <span class="hljs-string">'./registerServiceWorker'</span>;
 
-<span class="hljs-keyword">import</span> { defineCustomElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'test-components'</span>;
-
-ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span>, document.getElementById('root'));
-registerServiceWorker();
-defineCustomElements(window);</span>
-</code></pre>
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">import%20React%20from%20%27react%27%3B%0Aimport%20ReactDOM%20from%20%27react-dom%27%3B%0Aimport%20%27./index.css%27%3B%0Aimport%20App%20from%20%27./App%27%3B%0Aimport%20registerServiceWorker%20from%20%27./registerServiceWorker%27%3B%0A%0Aimport%20%7B%20defineCustomElements%20%7D%20from%20%27test-components%27%3B%0A%0AReactDOM.render%28%3CApp%20/%3E%2C%20document.getElementById%28%27root%27%29%29%3B%0AregisterServiceWorker%28%29%3B%0AdefineCustomElements%28window%29%3B</code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back

@@ -18,73 +18,79 @@
 <li><a href="#excludeSrc">excludeSrc</a></li>
 </ul>
 <p>Example <code>stencil.config.js</code>:</p>
-<pre><code class="lang-javascript">exports.config = {
-  <span class="hljs-attr">namespace</span>: <span class="hljs-string">'MyApp'</span>,
-  <span class="hljs-attr">srcDir</span>: <span class="hljs-string">'src'</span>
-};
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-typescript"><code class="language-typescript">exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">namespace</span><span class="token punctuation">:</span> <span class="token string">'MyApp'</span><span class="token punctuation">,</span>
+  srcDir<span class="token punctuation">:</span> <span class="token string">'src'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><a name="bundles"></a></p>
 <h2 id="bundles"><code>bundles</code></h2>
 <p>By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it&#39;s able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the <code>bundles</code> config.</p>
 <p>The <code>bundles</code> config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.</p>
-<pre><code class="lang-js">bundles: [
-  { <span class="hljs-attr">components</span>: [<span class="hljs-string">'ion-button'</span>] },
-  { <span class="hljs-attr">components</span>: [<span class="hljs-string">'ion-card'</span>, <span class="hljs-string">'ion-card-header'</span>] }
-]
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">bundles%3A%20%5B%0A%20%20%7B%20components%3A%20%5B%27ion-button%27%5D%20%7D%2C%0A%20%20%7B%20components%3A%20%5B%27ion-card%27%2C%20%27ion-card-header%27%5D%20%7D%0A%5D</code></pre>
+</highlight-code-line>
 <p><a name="copy"></a></p>
 <h2 id="copy"><code>copy</code></h2>
 <p>The <code>copy</code> config is an array of objects that defines any files or folders that should be copied over to the build directory. Each object in the array must include a <code>src</code> property which can be either an absolute path, a relative path or a glob pattern. The config can also provide an optional <code>dest</code> property which can be either an absolute path or a path relative to the build directory. Also note that any files within <code>src/assets</code> are automatically copied to <code>www/assets</code> for convenience.</p>
 <p>In the copy config below, it will copy the entire directory from <code>src/docs-content</code> over to <code>www/docs-content</code>.</p>
-<pre><code class="lang-js">  copy: [
-    { <span class="hljs-attr">src</span>: <span class="hljs-string">'docs-content'</span> }
-  ]
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">%20%20copy%3A%20%5B%0A%20%20%20%20%7B%20src%3A%20%27docs-content%27%20%7D%0A%20%20%5D</code></pre>
+</highlight-code-line>
 <p><a name="enableCache"></a></p>
 <h2 id="enablecache"><code>enableCache</code></h2>
 <p><em>default: <code>true</code></em></p>
 <p>Stencil will cache build results in order to speed up rebuilds. To disable this feature, set <code>enableCache</code> to <code>false</code>.</p>
-<pre><code class="lang-js">enableCache: <span class="hljs-literal">true</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">enableCache%3A%20true</code></pre>
+</highlight-code-line>
 <p><a name="globalStyle"></a></p>
 <h2 id="globalstyle"><code>globalStyle</code></h2>
 <p>Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it&#39;s still common to have styles which should be &quot;global&quot; across all components and the website. A global CSS file is often useful to set <a href="/docs/css-variables">CSS Variables</a>.</p>
 <p>Additionally, the <code>globalStyle</code> config is can be used to precompile styles with Sass, PostCss, etc.</p>
 <p>Below is an example folder structure containing a webapp&#39;s global sass file, named <code>app.css</code>.</p>
-<pre><code>  src/
-    components/
-    globals/
-      app.css
-</code></pre><p>The global style config takes a file path as a string. The output from this build will go to the <code>buildDir</code>. In this example it would be saved to <code>www/build/app.css</code>.</p>
-<pre><code class="lang-js">globalStyle: <span class="hljs-string">'src/globals/app.scss'</span>
-</code></pre>
+<pre><code>%20%20src/%0A%20%20%20%20components/%0A%20%20%20%20globals/%0A%20%20%20%20%20%20app.css</code></pre><p>The global style config takes a file path as a string. The output from this build will go to the <code>buildDir</code>. In this example it would be saved to <code>www/build/app.css</code>.</p>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">globalStyle%3A%20%27src/globals/app.scss%27</code></pre>
+</highlight-code-line>
 <p><a name="hashFileNames"></a></p>
 <h2 id="hashfilenames"><code>hashFileNames</code></h2>
 <p><em>default: <code>true</code></em></p>
 <p>During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn&#39;t updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can &quot;forever-cache&quot; the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.</p>
-<pre><code class="lang-js">hashFileNames: <span class="hljs-literal">true</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">hashFileNames%3A%20true</code></pre>
+</highlight-code-line>
 <p><a name="hashedFileNameLength"></a></p>
 <h2 id="hashedfilenamelength"><code>hashedFileNameLength</code></h2>
 <p><em>default: <code>8</code></em></p>
 <p>When the <code>hashFileNames</code> config is set to <code>true</code>, and it is a production build, the <code>hashedFileNameLength</code> config is used to determine how many characters the file name&#39;s hash should be.</p>
-<pre><code class="lang-js"><span class="hljs-symbol">hashedFileNameLength:</span> <span class="hljs-number">8</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">hashedFileNameLength%3A%208</code></pre>
+</highlight-code-line>
 <p><a name="namespace"></a></p>
 <h2 id="namespace"><code>namespace</code></h2>
 <p><em>default: <code>App</code></em></p>
 <p>The <code>namespace</code> config is a <code>string</code> representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of <code>App</code> is just fine. However, if the app is meant to be consumed as a third-party library, such as <code>Ionic</code>, a unique namespace is required.</p>
-<pre><code class="lang-js">  namespace: <span class="hljs-string">"Ionic"</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">%20%20namespace%3A%20%22Ionic%22</code></pre>
+</highlight-code-line>
 <p><a name="outputTargets"></a></p>
 <h2 id="outputtargets"><code>outputTargets</code></h2>
 <p>Stencil is able to take an app&#39;s source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributed on <a href="https://www.npmjs.com/">npm</a>. By default, Stencil apps have an output target type of <code>www</code>.</p>
 <p>The <code>outputTargets</code> config is an array of objects, with types of <code>www</code> and <code>dist</code>.</p>
-<pre><code class="lang-js">outputTargets: [
-  { <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span> },
-  { <span class="hljs-attr">type</span>: <span class="hljs-string">'dist'</span> }
-]
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">outputTargets%3A%20%5B%0A%20%20%7B%20type%3A%20%27www%27%20%7D%2C%0A%20%20%7B%20type%3A%20%27dist%27%20%7D%0A%5D</code></pre>
+</highlight-code-line>
 <p><a name="dist"></a></p>
 <h2 id="outputtarget-dist"><code>outputTarget: dist</code></h2>
 <p>The <code>dist</code> type is to generate the component(s) as a reusable library, such as <a href="https://www.npmjs.com/package/@ionic/core">Ionic</a> or <a href="https://www.npmjs.com/package/@stencil/router">Stencil Router</a>. When creating a distribution, the project&#39;s <code>package.json</code> will also have to be updated. Don&#39;t worry, helper messages when compiling will state which package.json properties will need to be updated.</p>
@@ -109,12 +115,10 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-js">outputTargets: [
-  {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'dist'</span>
-  }
-]
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">outputTargets%3A%20%5B%0A%20%20%7B%0A%20%20%20%20type%3A%20%27dist%27%0A%20%20%7D%0A%5D</code></pre>
+</highlight-code-line>
 <p><a name="www"></a></p>
 <h2 id="outputtarget-www"><code>outputTarget: www</code></h2>
 <p>The <code>www</code> output target type is oriented for webapps and websites, hosted from an http server, which can benefit from prerendering and service workers, such as <a href="https://github.com/ionic-team/stencil-site">this very site</a> you&#39;re reading.</p>
@@ -163,29 +167,17 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="lang-js">outputTargets: [
-  {
-    <span class="hljs-attr">type</span>: <span class="hljs-string">'www'</span>,
-    <span class="hljs-attr">serviceWorker</span>: {
-      <span class="hljs-attr">swSrc</span>: <span class="hljs-string">'src/sw.js'</span>,
-      <span class="hljs-attr">globPatterns</span>: [
-        <span class="hljs-string">'**/*.{html,js,css,json,ico,png}'</span>
-      ]
-    }
-  }
-]
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">outputTargets%3A%20%5B%0A%20%20%7B%0A%20%20%20%20type%3A%20%27www%27%2C%0A%20%20%20%20serviceWorker%3A%20%7B%0A%20%20%20%20%20%20swSrc%3A%20%27src/sw.js%27%2C%0A%20%20%20%20%20%20globPatterns%3A%20%5B%0A%20%20%20%20%20%20%20%20%27**/*.%7Bhtml%2Cjs%2Ccss%2Cjson%2Cico%2Cpng%7D%27%0A%20%20%20%20%20%20%5D%0A%20%20%20%20%7D%0A%20%20%7D%0A%5D</code></pre>
+</highlight-code-line>
 <p><a name="plugins"></a></p>
 <h2 id="plugins"><code>plugins</code></h2>
 <p>The <code>plugins</code> config can be used to add your own <a href="https://rollupjs.org">rollup</a> plugins. By default, Stencil does not come with <code>Sass</code> or <code>PostCss</code> support. However, either can be added using the plugin array.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> { sass } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/sass'</span>);
 
-exports.config = {
-  <span class="hljs-attr">plugins</span>: [
-    sass()
-  ]
-};
-</code></pre>
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">const%20%7B%20sass%20%7D%20%3D%20require%28%27@stencil/sass%27%29%3B%0A%0Aexports.config%20%3D%20%7B%0A%20%20plugins%3A%20%5B%0A%20%20%20%20sass%28%29%0A%20%20%5D%0A%7D%3B</code></pre>
+</highlight-code-line>
 <h4 id="related-plugins">Related Plugins</h4>
 <ul>
 <li><a href="https://www.npmjs.com/package/@stencil/less">@stencil/less</a></li>
@@ -197,8 +189,10 @@ exports.config = {
 <h2 id="srcdir"><code>srcDir</code></h2>
 <p><em>default: <code>src</code></em></p>
 <p>The <code>srcDir</code> config specifies the directory which should contain the source typescript files for each component. The standard for Stencil apps is to use <code>src</code>, which is the default.</p>
-<pre><code class="lang-js">srcDir: <span class="hljs-string">'src'</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">srcDir%3A%20%27src%27</code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/forms" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

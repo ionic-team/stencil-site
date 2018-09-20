@@ -6,7 +6,7 @@ Context is a global object which can be used to store global variables, singleto
 
 ### How to Bind a Context Item
 
-```typescript
+```tsx
 @Component({
   tag: 'my-component'
 });
@@ -21,7 +21,7 @@ Context items are defined by directly binding to the global `Context` object. As
 
 First you need to define the item:
 
-```typescript
+```tsx
 // src/global/myObj.ts
 
 export default (function() {
@@ -37,7 +37,7 @@ export default (function() {
 
 Then create a global script that will be used to reference all the context items:
 
-```typescript
+```tsx
 // src/global/index.ts
 
 import myObj from './myObj';
@@ -50,7 +50,7 @@ Context.myObj = myObj;
 
 Finally just add the global script in config:
 
-```typescript
+```tsx
 export.config = {
   // ...
   globalScript: 'src/global/index.ts'

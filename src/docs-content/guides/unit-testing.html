@@ -9,34 +9,20 @@ file. All of this configuration is included with the Stencil App Starter and the
 use one of those templates to start your project, you should not have to add anything. This information is presented
 here primarily for informational purposes.</p>
 <p>Jest is installed as a development dependency:</p>
-<pre><code class="lang-js">  <span class="hljs-string">"devDependencies"</span>: {
-      ...
-      <span class="hljs-string">"@types/jest"</span>: <span class="hljs-string">"^21.1.1"</span>,
-      <span class="hljs-string">"jest"</span>: <span class="hljs-string">"^21.2.1"</span>
-  },
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">%20%20%22devDependencies%22%3A%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%20%20%22@types/jest%22%3A%20%22%5E21.1.1%22%2C%0A%20%20%20%20%20%20%22jest%22%3A%20%22%5E21.2.1%22%0A%20%20%7D%2C</code></pre>
+</highlight-code-line>
 <p>NPM scripts are set up in order to run the tests:</p>
-<pre><code class="lang-js">  <span class="hljs-string">"scripts"</span>: {
-      ...
-      <span class="hljs-string">"test"</span>: <span class="hljs-string">"jest --no-cache"</span>,
-      <span class="hljs-string">"test.watch"</span>: <span class="hljs-string">"jest --watch --no-cache"</span>
-  },
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-js"><code class="language-js">%20%20%22scripts%22%3A%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%20%20%22test%22%3A%20%22jest%20--no-cache%22%2C%0A%20%20%20%20%20%20%22test.watch%22%3A%20%22jest%20--watch%20--no-cache%22%0A%20%20%7D%2C</code></pre>
+</highlight-code-line>
 <p>Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:</p>
-<pre><code class="lang-json">  <span class="hljs-string">"jest"</span>: {
-      <span class="hljs-string">"transform"</span>: {
-        <span class="hljs-string">"^.+\\.(ts|tsx)$"</span>: <span class="hljs-string">"&lt;rootDir&gt;/node_modules/@stencil/core/testing/jest.preprocessor.js"</span>
-      },
-      <span class="hljs-string">"testRegex"</span>: <span class="hljs-string">"(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$"</span>,
-      <span class="hljs-string">"moduleFileExtensions"</span>: [
-        <span class="hljs-string">"ts"</span>,
-        <span class="hljs-string">"tsx"</span>,
-        <span class="hljs-string">"js"</span>,
-        <span class="hljs-string">"json"</span>,
-        <span class="hljs-string">"jsx"</span>
-      ]
-  }
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-json"><code class="language-json">%20%20%22jest%22%3A%20%7B%0A%20%20%20%20%20%20%22transform%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22%5E.+%5C%5C.%28ts%7Ctsx%29%24%22%3A%20%22%3CrootDir%3E/node_modules/@stencil/core/testing/jest.preprocessor.js%22%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%22testRegex%22%3A%20%22%28/__tests__/.*%7C%5C%5C.%28test%7Cspec%29%29%5C%5C.%28tsx%3F%7Cjsx%3F%29%24%22%2C%0A%20%20%20%20%20%20%22moduleFileExtensions%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%22ts%22%2C%0A%20%20%20%20%20%20%20%20%22tsx%22%2C%0A%20%20%20%20%20%20%20%20%22js%22%2C%0A%20%20%20%20%20%20%20%20%22json%22%2C%0A%20%20%20%20%20%20%20%20%22jsx%22%0A%20%20%20%20%20%20%5D%0A%20%20%7D</code></pre>
+</highlight-code-line>
 <h2 id="component-rendering-tests">Component Rendering Tests</h2>
 <p>The Stencil testing framework API contains two functions that are used to render components for testing:</p>
 <ul>
@@ -62,57 +48,67 @@ but this is not a requirement otherwise.</p>
 </li>
 </ul>
 <p>This function returns a promise that is resolved with the rendered HTML element.</p>
-<pre><code class="lang-typescript">beforeEach(<span class="hljs-keyword">async</span> () =&gt; {
-  element = <span class="hljs-keyword">await</span> render({
-    components: [MyName],
-    html: <span class="hljs-string">'&lt;my-name&gt;&lt;/my-name&gt;'</span>
-  });
-});
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  element <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span> <span class="token punctuation">[</span>MyName<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    html<span class="token punctuation">:</span> <span class="token string">'&lt;my-name>&lt;/my-name>'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <h3 id="refreshing-a-component">Refreshing a Component</h3>
 <p>Use the <code>flush()</code> function to re-render the node as needed. This is typically done after changing property values
 on the component.</p>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should work with both the first and the last name'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-  element.first = <span class="hljs-string">'Peter'</span>
-  element.last = <span class="hljs-string">'Parker'</span>;
-  <span class="hljs-keyword">await</span> flush(element);
-  expect(element.textContent).toEqual(<span class="hljs-string">'Hello, my name is Peter Parker'</span>);
-});
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should work with both the first and the last name'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  element<span class="token punctuation">.</span>first <span class="token operator">=</span> <span class="token string">'Peter'</span>
+  element<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token string">'Parker'</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> <span class="token function">flush</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Hello, my name is Peter Parker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <h3 id="examining-the-element">Examining the Element</h3>
 <p>Since the rendered element is an HTMLElement, you can use methods and properties from the
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement interface</a> in order to examine the
 contents of the element.</p>
 <p>Let&#39;s say that instead of printing the first and last names, our component had to split the names apart on spaces
 and print a list of each part of the name. We could write a rendering test for that as such:</p>
-<pre><code class="lang-typescript">    it(<span class="hljs-string">'should least each part of the name breaking on spaces'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-      element.first = <span class="hljs-string">'Pasta Primavera'</span>;
-      element.last = <span class="hljs-string">'O Shea Buttersworth'</span>;
-      <span class="hljs-keyword">await</span> flush(element);
-      <span class="hljs-keyword">const</span> list = element.querySelector(<span class="hljs-string">'ul'</span>);
-      expect(list.children.length).toEqual(<span class="hljs-number">5</span>);
-      expect(list.children[<span class="hljs-number">0</span>].textContent).toEqual(<span class="hljs-string">'Pasta'</span>);
-      expect(list.children[<span class="hljs-number">1</span>].textContent).toEqual(<span class="hljs-string">'Primavera'</span>);
-      expect(list.children[<span class="hljs-number">2</span>].textContent).toEqual(<span class="hljs-string">'O'</span>);
-      expect(list.children[<span class="hljs-number">3</span>].textContent).toEqual(<span class="hljs-string">'Shea'</span>);
-      expect(list.children[<span class="hljs-number">4</span>].textContent).toEqual(<span class="hljs-string">'Buttersworth'</span>);
-    });
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should least each part of the name breaking on spaces'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      element<span class="token punctuation">.</span>first <span class="token operator">=</span> <span class="token string">'Pasta Primavera'</span><span class="token punctuation">;</span>
+      element<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token string">'O Shea Buttersworth'</span><span class="token punctuation">;</span>
+      <span class="token keyword">await</span> <span class="token function">flush</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> list <span class="token operator">=</span> element<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Pasta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Primavera'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'O'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Shea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">expect</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>children<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Buttersworth'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p>Anything that you can use on an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> you can use in the tests.</p>
 <h2 id="component-method-tests">Component Method Tests</h2>
 <p>To test the component&#39;s methods, instantiate an instance of the component and call the methods.</p>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should return an empty string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
-  expect(myName.formatted()).toEqual(<span class="hljs-string">''</span>);
-});
-</code></pre>
-<pre><code class="lang-typescript">it(<span class="hljs-string">'should return a formatted string if there is no first or last name'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> myName = <span class="hljs-keyword">new</span> MyName();
-  myName.first = <span class="hljs-string">'Lucas'</span>;
-  myName.last = <span class="hljs-string">'Kalrickson'</span>;
-  expect(myName.formatted()).toEqual(<span class="hljs-string">'Kalrickson, Lucas'</span>);
-});
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should return an empty string if there is no first or last name'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>myName<span class="token punctuation">.</span><span class="token function">formatted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">it</span><span class="token punctuation">(</span><span class="token string">'should return a formatted string if there is no first or last name'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> myName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  myName<span class="token punctuation">.</span>first <span class="token operator">=</span> <span class="token string">'Lucas'</span><span class="token punctuation">;</span>
+  myName<span class="token punctuation">.</span>last <span class="token operator">=</span> <span class="token string">'Kalrickson'</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>myName<span class="token punctuation">.</span><span class="token function">formatted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token string">'Kalrickson, Lucas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/context" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

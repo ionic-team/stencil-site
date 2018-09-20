@@ -46,7 +46,7 @@ In your project directory, run `npm install @stencil/router --save`. Then add `i
 
 Applications built with Stencil should have one `stencil-router` element for the entire application. Make sure to specify an `id` attribute on it.
 
-```html
+```markup
 <stencil-router>
 ...
 </stencil-router>
@@ -54,7 +54,7 @@ Applications built with Stencil should have one `stencil-router` element for the
 
 Within the `stencil-router` element, we want to declare our set of `stencil-route`s. Each `stencil-route` needs to take a reference to the router, a url, and then an HTML element tag name.
 
-```html
+```markup
 <stencil-router>
   <stencil-route url="/" component="landing-page" exact={true}/>
   <stencil-route url="/demos" component="demos-page"/>
@@ -73,7 +73,7 @@ When navigating to `/demos/rendering` based on the above configuration, the `dem
 
 To navigate around an app, use the `stencil-route-link` component.
 
-```html
+```markup
 <stencil-route-link url="/">
 <stencil-route-link url="/demos">
 <stencil-route-link url="/docs/getting-started">
@@ -83,7 +83,7 @@ To navigate around an app, use the `stencil-route-link` component.
 
 If you are in a routed component ( a component that has been included in a `stencil-route`) and would like to navigate programmatically you first need to pass the router history in as a Prop to your component. Below is an example of this:
 
-```typescript
+```tsx
 import { RouterHistory } from '@stencil/router';
 
 export class askPage {
@@ -93,7 +93,7 @@ export class askPage {
 
 You can then use the following methods on the history object to navigate:
 
-```typescript
+```tsx
 // pushing a route (going forwards to a certain route)
 this.history.push(`/demos`, {});
 
@@ -114,13 +114,13 @@ this.history.go(n: number);
 
 You may be familiar with the concept of URL params from [React Router](https://reacttraining.com/react-router/web/example/url-params). URL params allow you to pass data to a component through the route. To set this up in the Stencil router we first need to set up our route to take a param. Here is an example:
 
-```html
+```markup
  <stencil-route url='/show/:pageNum' component='show-page' />
 ```
 
 The key part in this route is the `:pageNum` syntax. This means that we can now pass data to that route and it will be accessible through the `pageNum` variable. Below is an example of how we would pass data to this route:
 
-```html
+```markup
 <stencil-route-link url={`/show/${someData}`} />
 ```
 
@@ -129,7 +129,7 @@ Now let's go over how to access this data from the `show-page` component we are 
 
 First, we need to pass the `match` prop to our `show-page` component:
 
-```typescript
+```tsx
 import { MatchResults } from '@stencil/router';
 ...
 export class ShowPage {
@@ -139,7 +139,7 @@ export class ShowPage {
 
 Then we can use that `match` prop to access our data:
 
-```typescript
+```tsx
 // myData is now the data we passed in our stencil-route-link above
 const myData = this.match.params.pageNum;
 ```

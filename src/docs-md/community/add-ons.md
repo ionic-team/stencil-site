@@ -10,7 +10,7 @@
 2. Require the plugin in your `stencil.config.js` file.
 2. Add the plugin to your `plugins` array:
 
-```javascript
+```typescript:3
 const { sass } = require('@stencil/sass');
 
 exports.config = {
@@ -24,7 +24,7 @@ exports.config = {
 
 Sass options can be passed to the plugin within `stencil.config.js`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
 
-```javascript
+```typescript
 exports.config = {
   plugins: [
     sass({ includePaths: ['/my-include-path'] })

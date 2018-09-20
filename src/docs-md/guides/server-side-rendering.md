@@ -11,7 +11,7 @@ Stencil supports [Node.js](https://nodejs.org/) servers out of the box, and the 
 
 The easiest way to run server-side rendering on a Node.js server is to use the [Express middleware](https://expressjs.com/en/guide/using-middleware.html) already included within `@stencil/core/server`. By using the middleware, it's easy to hook into an [Express.js](https://expressjs.com/) app without getting into the low-level details of setting up a server and responding with data.
 
-```typescript
+```tsx
 const express = require('express');
 const stencil = require('@stencil/core/server');
 
@@ -40,7 +40,7 @@ app.listen(port, () => logger.info(`server-side rendering listening on port: ${ 
 
 The Express middleware option shown above is the easiest way to get up and running, but the same API which the middleware uses can also be used directly. Below is an example of running an overly simplified [Node HTTP server](https://nodejs.org/api/http.html) using the low-level server-side rendering API.
 
-```javascript
+```tsx
 const fs = require('fs');
 const http = require('http');
 const stencil = require('../../server/index.js');

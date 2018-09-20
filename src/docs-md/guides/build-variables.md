@@ -6,7 +6,7 @@ Build Constants in Stencil allow you to run specific code only when Stencil is r
 
 Lets dive in and look at an example of how to use our build constants:
 
-```typescript
+```tsx
 import { Component, Build } from '@stencil/core';
 
 @Component({

@@ -19,7 +19,7 @@ In most cases, the `stencil.config.js` file does not require any customization s
 
 Example `stencil.config.js`:
 
-```javascript
+```typescript
 exports.config = {
   namespace: 'MyApp',
   srcDir: 'src'

@@ -79,7 +79,7 @@ but this is not a requirement otherwise.
 
 This function returns a promise that is resolved with the rendered HTML element.
 
-```typescript
+```tsx
 beforeEach(async () => {
   element = await render({
     components: [MyName],
@@ -93,7 +93,7 @@ beforeEach(async () => {
 Use the `flush()` function to re-render the node as needed. This is typically done after changing property values
 on the component.
 
-```typescript
+```tsx
 it('should work with both the first and the last name', async () => {
   element.first = 'Peter'
   element.last = 'Parker';
@@ -111,7 +111,7 @@ contents of the element.
 Let's say that instead of printing the first and last names, our component had to split the names apart on spaces
 and print a list of each part of the name. We could write a rendering test for that as such:
 
-```typescript
+```tsx
     it('should least each part of the name breaking on spaces', async () => {
       element.first = 'Pasta Primavera';
       element.last = 'O Shea Buttersworth';
@@ -132,14 +132,14 @@ Anything that you can use on an [HTMLElement](https://developer.mozilla.org/en-U
 
 To test the component's methods, instantiate an instance of the component and call the methods.
 
-```typescript
+```tsx
 it('should return an empty string if there is no first or last name', () => {
   const myName = new MyName();
   expect(myName.formatted()).toEqual('');
 });
 ```
 
-```typescript
+```tsx
 it('should return a formatted string if there is no first or last name', () => {
   const myName = new MyName();
   myName.first = 'Lucas';

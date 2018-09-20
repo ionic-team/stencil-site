@@ -17,7 +17,7 @@ Prerendering is built into the Stencil compiler itself and by default our [app s
 
 Stencil provides an `isServer` utility variable to tell prerendering to skip code. Here is an example of how to use this utility:
 
-```typescript
+```tsx
 @Prop({ context: 'isServer' }) private isServer: boolean;
 
 componentWillLoad() {

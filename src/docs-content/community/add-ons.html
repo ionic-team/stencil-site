@@ -7,22 +7,26 @@
 <li>Require the plugin in your <code>stencil.config.js</code> file.</li>
 <li>Add the plugin to your <code>plugins</code> array:</li>
 </ol>
-<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> { sass } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@stencil/sass'</span>);
 
-exports.config = {
-  <span class="hljs-attr">plugins</span>: [
-    sass()
-  ]
-}
-</code></pre>
+<highlight-code-line lines="3">
+  <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token punctuation">{</span> sass <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">'@stencil/sass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h3 id="options">Options</h3>
 <p>Sass options can be passed to the plugin within <code>stencil.config.js</code>, which are used directly by node-sass. Please reference the <a href="https://www.npmjs.com/package/node-sass">node-sass documentation</a> for all available options.</p>
-<pre><code class="lang-javascript">exports.config = {
-  <span class="hljs-attr">plugins</span>: [
-    sass({ <span class="hljs-attr">includePaths</span>: [<span class="hljs-string">'/my-include-path'</span>] })
-  ]
-};
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-typescript"><code class="language-typescript">exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">{</span> includePaths<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'/my-include-path'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><stencil-route-link url="/docs/style-guide" custom="true">
   <button class="pull-left btn btn--secondary">
     Back

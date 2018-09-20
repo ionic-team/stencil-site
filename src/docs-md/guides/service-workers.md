@@ -23,7 +23,7 @@ And that's it! You should now have an `sw.js` file in your `www` folder and the 
 
 Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://Workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Here is the default config Stencil uses:
 
-```typescript
+```tsx
 {
   skipWaiting: true,
   clientsClaim: true,
@@ -37,7 +37,7 @@ This configuration does pre-caching of all of your apps assets.
 
 To modify this config you can use the `serviceWorker` param of your Stencil config. Here is an example:
 
-```javascript
+```tsx
 exports.config = {
   outputTargets: [
     {
@@ -60,7 +60,7 @@ Let's go through the steps needed for this functionality:
 
 - First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
 
-```javascript
+```tsx
 exports.config = {
   outputTargets: [
     {
@@ -75,7 +75,7 @@ exports.config = {
 
 - Now we need to include some boilerplate code in our custom service worker:
 
-```typescript
+```tsx
 importScripts('workbox-v3.1.0/Workbox-sw.js');
 
 self.workbox.skipWaiting();

@@ -5,7 +5,7 @@ The `.tsx` extension is required since Stencil components are built using [JSX](
 
 Here is an example of what a Stencil component looks like:
 
-```ts
+```tsx
 import { Component, Prop } from '@stencil/core';
 
 @Component({
@@ -31,7 +31,7 @@ export class MyComponent {
 
 Once compiled, this component can be used in HTML just like any other tag.
 
-```html
+```markup
 <my-first-component name="Max"></my-first-component>
 ```
 
@@ -60,7 +60,7 @@ The `name` property on the class also has a decorator applied to it, `@Prop()`.
 This decorator tells the compiler that the property is public to the component, and the user should be setting it.
 We set this property like so:
 
-```html
+```markup
 <my-first-component name="Max"></my-first-component>
 ```
 Any property decorated with `@Prop()` is also automatically watched for changes.

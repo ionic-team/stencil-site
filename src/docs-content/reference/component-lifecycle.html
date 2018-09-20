@@ -1,14 +1,16 @@
 <h1 id="component-lifecycle-methods">Component Lifecycle Methods</h1>
 <p>Components have numerous lifecycle methods which can be used to know when the component &quot;will&quot; and &quot;did&quot; load, update, and unload. These methods can be added to a component to hook into operations at the right time.</p>
 <p>Implement one of the following methods within a component class and Stencil will automatically call them in the right order:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'my-component'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-comment">/**
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'my-component'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyComponent</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">/**
    * The component is about to load and it has not
    * rendered yet.
    *
@@ -17,11 +19,11 @@
    *
    * componentWillLoad will only be called once.
    */</span>
-  componentWillLoad() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component is about to be rendered'</span>);
-  }
+  <span class="token function">componentWillLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Component is about to be rendered'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * The component has loaded and has already rendered.
    *
    * Updating data in this method will cause the
@@ -29,11 +31,11 @@
    *
    * componentDidLoad will only be called once.
    */</span>
-  componentDidLoad() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component has been rendered'</span>);
-  }
+  <span class="token function">componentDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Component has been rendered'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * The component is about to update and re-render.
    *
    * Called multiple times throughout the life of
@@ -41,11 +43,11 @@
    *
    * componentWillUpdate is not called on the first render.
    */</span>
-  componentWillUpdate() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component will update and re-render'</span>);
-  }
+  <span class="token function">componentWillUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Component will update and re-render'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * The component has just re-rendered.
    *
    * Called multiple times throughout the life of
@@ -54,19 +56,19 @@
    * componentDidUpdate is not called on the
    * first render.
    */</span>
-  componentDidUpdate() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component did update'</span>);
-  }
+  <span class="token function">componentDidUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Component did update'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  <span class="hljs-comment">/**
+  <span class="token comment">/**
    * The component did unload and the element
    * will be destroyed.
    */</span>
-  componentDidUnload() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Component removed from the DOM'</span>);
-  }
-}
-</code></pre>
+  <span class="token function">componentDidUnload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Component removed from the DOM'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h2 id="rendering-state">Rendering State</h2>
 <p>It&#39;s always recommended to make any rendered state updates within <code>componentWillLoad()</code> or <code>componentWillUpdate()</code>, since these are the methods which get called <em>before</em> the <code>render()</code> method. Alternatively, updating rendered state with the <code>componentDidLoad()</code> or <code>componentDidUpdate()</code> methods will cause another re-render, which isn&#39;t ideal for performance.</p>
 <p>If state <em>must</em> be updated in <code>componentDidUpdate()</code>, it has the potential of getting components stuck in an infinite loop. If updating state within <code>componentDidUpdate()</code> is unavoidable, then the method should also come with a way to detect if the props or state is &quot;dirty&quot; or not (is the data actually different or is it the same as before). By doing a dirty check, <code>componentDidUpdate()</code> is able to avoid rendering the same data, and which in turn calls <code>componentDidUpdate()</code> again.</p>
@@ -74,12 +76,14 @@
 <p>A useful feature of lifecycle methods is that they take their child component&#39;s lifecycle into consideration too. For example, if the parent component, <code>cmp-a</code>, has a child component, <code>cmp-b</code>, then <code>cmp-a</code> isn&#39;t considered &quot;loaded&quot; until <code>cmp-b</code> has finished loading. Another way to put it is that the deepest components finish loading first, then the <code>componentDidLoad()</code> calls bubble up.</p>
 <p>It&#39;s also important to note that even though Stencil can lazy-load components, and has asynchronous rendering, the lifecycle methods are still called in the correct order. So while the top-level component could have already been loaded, all of its lifecycle methods are still called in the correct order, which means it&#39;ll wait for a child components to finish loading. The same goes for the exact opposite, where the child components may already be ready while the parent isn&#39;t.</p>
 <p>In the example below we have a simple hierarchy of components. The numbered list shows the order of which the lifecycle methods will fire.</p>
-<pre><code class="lang-html">  <span class="hljs-tag">&lt;<span class="hljs-name">cmp-a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">cmp-b</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">cmp-c</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">cmp-c</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">cmp-b</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">cmp-a</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cmp-a</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cmp-b</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cmp-c</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cmp-c</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cmp-b</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cmp-a</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <ol>
 <li><code>cmp-a</code> - <code>componentWillLoad()</code></li>
 <li><code>cmp-b</code> - <code>componentWillLoad()</code></li>
@@ -92,46 +96,50 @@
 <h2 id="async-lifecycle-methods">Async Lifecycle Methods</h2>
 <p>Lifecycle methods can also return promises which allows the method to asynchronously retrieve data or perform any async tasks. A great example of this is fetching data to be rendered in a component. For example, this very site you&#39;re reading first fetches content data before rendering. But because <code>fetch()</code> is async, it&#39;s important that <code>componentWillLoad()</code> returns a <code>Promise</code> to ensure its parent component isn&#39;t considered &quot;loaded&quot; until all of its content has rendered.</p>
 <p>Below is a quick example showing how <code>componentWillLoad()</code> is able to have its parent component wait on it to finish loading its data.</p>
-<pre><code class="lang-typescript">componentWillLoad() {
-  <span class="hljs-keyword">return</span> fetch(<span class="hljs-string">'/some-data.json'</span>)
-    .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.json())
-    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-      <span class="hljs-keyword">this</span>.content = data;
-    });
-}
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">componentWillLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/some-data.json'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>response <span class="token operator">=></span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h2 id="example">Example</h2>
 <p>This simple example shows a clock and updates the current time every second. Since <code>componentDidLoad</code> is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-@Component({
-  <span class="hljs-attr">tag</span>: <span class="hljs-string">'custom-clock'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomClock</span> </span>{
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> State <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  timer: number;
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'custom-clock'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CustomClock</span> <span class="token punctuation">{</span>
 
-  @State() time: number = <span class="hljs-built_in">Date</span>.now();
+  timer<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
 
-  componentDidLoad() {
-    <span class="hljs-keyword">this</span>.timer = <span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-      <span class="hljs-keyword">this</span>.time = <span class="hljs-built_in">Date</span>.now();
-    }, <span class="hljs-number">1000</span>);
-  }
+  @<span class="token function">State</span><span class="token punctuation">(</span><span class="token punctuation">)</span> time<span class="token punctuation">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  componentDidUnload() {
-    <span class="hljs-built_in">window</span>.clearInterval(<span class="hljs-keyword">this</span>.timer);
-  }
+  <span class="token function">componentDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>time <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  render() {
-    <span class="hljs-keyword">const</span> time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-keyword">this</span>.time).toLocaleTimeString();
+  <span class="token function">componentDidUnload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>{ time }<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span>
-    );
-  }
-}
-</code></pre>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> time <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleTimeString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token punctuation">{</span> time <span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <blockquote>
 <p>Here is the example running.  If you want to see it in action then just inspect it with dev tools.</p>
 <p><custom-clock/></p>

@@ -12,197 +12,218 @@
 <h2 id="component-decorator">Component Decorator</h2>
 <p>Each Stencil Component must be decorated with a <code>@Component()</code> decorator from the <code>@stencil/core</code> package. In the simplest case, developer&#39;s must provide an HTML <code>tag</code> name for the component. Often times, a <code>styleUrl</code> is used as well, or even <code>styleUrls</code>, where multiple different style sheets can be provided for different application modes/themes.</p>
 <p>Use a relative url to the <code>.css</code> file for the styleUrl(s).</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-meta">@Component</span>({
-  tag: <span class="hljs-string">'todo-list'</span>,
-  styleUrl: <span class="hljs-string">'todo-list.css'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
-  ...
-}
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'todo-list'</span><span class="token punctuation">,</span>
+  styleUrl<span class="token punctuation">:</span> <span class="token string">'todo-list.css'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>| name | type | description
-    tag: string;
-    styleUrl?: string;
-    styleUrls?: string[] | d.ModeStyles;
-    styles?: string;
-    scoped?: boolean;
-    shadow?: boolean;
-    host?: d.HostMeta;
-    assetsDir?: string;
-    assetsDirs?: string[];</p>
+tag: string;
+styleUrl?: string;
+styleUrls?: string[] | d.ModeStyles;
+styles?: string;
+scoped?: boolean;
+shadow?: boolean;
+host?: d.HostMeta;
+assetsDir?: string;
+assetsDirs?: string[];</p>
 <p><a name="prop"></a></p>
 <h2 id="prop-decorator">Prop Decorator</h2>
 <p>Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the <code>@Prop()</code> decorator. Props can be a <code>number</code>, <code>string</code>, <code>boolean</code>, or even an <code>Object</code> or <code>Array</code>. By default, when a member decorated with a <code>@Prop()</code> decorator is set, the component will efficiently re-render.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
-  <span class="hljs-meta">@Prop</span>() color: <span class="hljs-built_in">string</span>;
-  <span class="hljs-meta">@Prop</span>() favoriteNumber: <span class="hljs-built_in">number</span>;
-  <span class="hljs-meta">@Prop</span>() isSelected: <span class="hljs-built_in">boolean</span>;
-  <span class="hljs-meta">@Prop</span>() myHttpService: MyHttpService;
-}
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> color<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> favoriteNumber<span class="token punctuation">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> isSelected<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> myHttpService<span class="token punctuation">:</span> MyHttpService<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>Within the <code>TodoList</code> class, the Props are accessed via the <code>this</code> operator.</p>
-<pre><code class="lang-typescript">logColor() {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.color)
-}
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token function">logColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>Externally, Props are set on the element.</p>
 <blockquote>
 <p>In HTML, you must set attributes using dash-case:</p>
 </blockquote>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">favorite-number</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">is-selected</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>todo-list</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token attr-name">favorite-number</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>24<span class="token punctuation">"</span></span> <span class="token attr-name">is-selected</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>todo-list</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>in JSX you set an attribute using camelCase:</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"blue"</span> <span class="hljs-attr">favoriteNumber</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">isSelected</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>todo-list</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token attr-name">favoriteNumber</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>24<span class="token punctuation">"</span></span> <span class="token attr-name">isSelected</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>todo-list</span><span class="token punctuation">></span></span></code></pre>
+</highlight-code-line>
 <p>They can also be accessed via JS from the element.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'todo-list'</span>);
-<span class="hljs-built_in">console</span>.log(todoListElement.myHttpService); <span class="hljs-comment">// MyHttpService</span>
-<span class="hljs-built_in">console</span>.log(todoListElement.color); <span class="hljs-comment">// blue</span>
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">const</span> todoListElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'todo-list'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>todoListElement<span class="token punctuation">.</span>myHttpService<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// MyHttpService</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>todoListElement<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// blue</span></code></pre>
+</highlight-code-line>
 <h3 id="prop-value-mutability">Prop value mutability</h3>
 <p>It&#39;s important to know, that a Prop is <em>by default</em> immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.</p>
 <p>However, it&#39;s possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as <strong>mutable</strong>, as in the example below:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NameElement {
-  <span class="hljs-meta">@Prop</span>({ mutable: <span class="hljs-literal">true</span> }) name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
 
-  componentDidLoad() {
-    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Stencil 0.7.0'</span>;
-  }
-}
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">NameElement</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span> mutable<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
+
+  <span class="token function">componentDidLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Stencil 0.7.0'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h3 id="prop-default-values-and-validation">Prop default values and validation</h3>
 <p>Setting a default value on a Prop:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NameElement {
-  <span class="hljs-meta">@Prop</span>() name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
-}
-</code></pre>
-<p>To do validation of a Prop, you can use the <a href="#watch">@Watch()</a> decorator:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
-  <span class="hljs-meta">@Prop</span>() name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Stencil'</span>;
 
-  <span class="hljs-meta">@Watch</span>(<span class="hljs-string">'name'</span>)
-  validateName(newValue: <span class="hljs-built_in">string</span>, oldValue: <span class="hljs-built_in">string</span>) {
-    <span class="hljs-keyword">const</span> isBlank = <span class="hljs-keyword">typeof</span> newValue == <span class="hljs-literal">null</span>;
-    <span class="hljs-keyword">const</span> atLeast2chars = <span class="hljs-keyword">typeof</span> newValue === <span class="hljs-string">'string'</span> &amp;&amp; newValue.length &gt;= <span class="hljs-number">2</span>;
-    <span class="hljs-keyword">if</span> (isBlank) { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'name: required'</span>) };
-    <span class="hljs-keyword">if</span> ( !atLeast2chars ) { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'name: atLeast2chars'</span>) };
-  }
-}
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">NameElement</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
+<p>To do validation of a Prop, you can use the <a href="#watch">@Watch()</a> decorator:</p>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop<span class="token punctuation">,</span> Watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> name<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'Stencil'</span><span class="token punctuation">;</span>
+
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+  <span class="token function">validateName</span><span class="token punctuation">(</span>newValue<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> isBlank <span class="token operator">=</span> <span class="token keyword">typeof</span> newValue <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> atLeast2chars <span class="token operator">=</span> <span class="token keyword">typeof</span> newValue <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">&amp;&amp;</span> newValue<span class="token punctuation">.</span>length <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isBlank<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'name: required'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token operator">!</span>atLeast2chars <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'name: atLeast2chars'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h3 id="reflect-properties-to-attributes">Reflect Properties to Attributes</h3>
 <p>In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the <code>reflectToAttr</code> option in the <code>@Prop()</code> decorator:</p>
-<pre><code class="lang-typescript"><span class="hljs-meta">@Prop</span>({
-  reflectToAttr: <span class="hljs-literal">true</span>
-})
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx">@<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  reflectToAttr<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+</highlight-code-line>
 <p><a name="watch"></a></p>
 <h2 id="watch-decorator">Watch Decorator</h2>
 <p>When a user updates a property, <code>Watch</code> will fire what ever method it&#39;s attached to and pass that method the new value of the prop along with the old value. <code>Watch</code> is useful for validating props or handling side effects.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Prop, Watch } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> LoadingIndicator {
-  <span class="hljs-meta">@Prop</span>() activated: <span class="hljs-built_in">boolean</span>;
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Prop<span class="token punctuation">,</span> Watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-meta">@Watch</span>(<span class="hljs-string">'activated'</span>)
-  watchHandler(newValue: <span class="hljs-built_in">boolean</span>, oldValue: <span class="hljs-built_in">boolean</span>) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'The new value of activated is: '</span>, newValue);
-  }
-}
-</code></pre>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">LoadingIndicator</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> activated<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'activated'</span><span class="token punctuation">)</span>
+  <span class="token function">watchHandler</span><span class="token punctuation">(</span>newValue<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">,</span> oldValue<span class="token punctuation">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The new value of activated is: '</span><span class="token punctuation">,</span> newValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <h1 id="managing-component-state">Managing Component State</h1>
 <p>The <code>@State()</code> decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a <code>@State()</code> property will cause the components <code>render</code> function to be called again.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { State } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
-  <span class="hljs-meta">@State</span>() completedTodos: Todo[];
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> State <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  completeTodo(todo: Todo) {
-    <span class="hljs-comment">// This will cause our render function to be called again</span>
-    <span class="hljs-keyword">this</span>.completedTodos = [...this.completedTodos, todo];
-  }
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+  @<span class="token function">State</span><span class="token punctuation">(</span><span class="token punctuation">)</span> completedTodos<span class="token punctuation">:</span> Todo<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-  render() {
-    <span class="hljs-comment">//</span>
-  }
-}
-</code></pre>
+  <span class="token function">completeTodo</span><span class="token punctuation">(</span>todo<span class="token punctuation">:</span> Todo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// This will cause our render function to be called again</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>completedTodos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>completedTodos<span class="token punctuation">,</span> todo<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p><a name="method"></a></p>
 <h2 id="method-decorator">Method Decorator</h2>
 <p>The <code>@Method()</code> decorator is used to expose methods on the public API. Functions decorated with the <code>@Method()</code> decorator can be called directly from the element.</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Method } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
 
-...
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> TodoList {
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Method <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  <span class="hljs-meta">@Method</span>()
-  showPrompt() {
-    <span class="hljs-comment">// show a prompt</span>
-  }
-}
-</code></pre>
+<span class="token operator">...</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TodoList</span> <span class="token punctuation">{</span>
+
+  @<span class="token function">Method</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">showPrompt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// show a prompt</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>Call the method like this:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> todoListElement = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'todo-list'</span>);
-todoListElement.showPrompt();
-</code></pre>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">const</span> todoListElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'todo-list'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+todoListElement<span class="token punctuation">.</span><span class="token function">showPrompt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</highlight-code-line>
 <p><a name="element"></a></p>
 <h2 id="element-decorator">Element Decorator</h2>
 <p>The <code>@Element()</code> decorator is how to get access to the host element within the class instance. This returns an instance of an <code>HTMLElement</code>, so standard DOM methods/events can be used here.</p>
-<pre><code>import { Element } from &#39;@stencil/core&#39;;
-
-...
-export class TodoList {
-
-  @Element() todoListEl: HTMLElement;
-
-  addClass(){
-    this.todoListEl.classList.add(&#39;active&#39;);
-  }
-}
-</code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
+<pre><code>import%20%7B%20Element%20%7D%20from%20%27@stencil/core%27%3B%0A%0A...%0Aexport%20class%20TodoList%20%7B%0A%0A%20%20@Element%28%29%20todoListEl%3A%20HTMLElement%3B%0A%0A%20%20addClass%28%29%7B%0A%20%20%20%20this.todoListEl.classList.add%28%27active%27%29%3B%0A%20%20%7D%0A%7D</code></pre><h2 id="embedding-or-nesting-components">Embedding or Nesting Components</h2>
 <p>Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.</p>
 <p>Here&#39;s an example of using a component within another component:</p>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component, Prop } from <span class="hljs-string">'@stencil/core'</span>;
 
-<span class="hljs-meta">@Component({
-  tag: <span class="hljs-meta-string">'my-embedded-component'</span>
-})</span>
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmbeddedComponent</span> </span>{
-  <span class="hljs-meta">@Prop()</span> color: string = <span class="hljs-string">'blue'</span>;
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Prop <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
 
-  render() {
-    <span class="hljs-keyword">return</span> (
-    &lt;div&gt;My favorite color <span class="hljs-keyword">is</span> {<span class="hljs-keyword">this</span>.color}&lt;/div&gt;
-    );
-  }
-}
-</code></pre>
-<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@stencil/core'</span>;
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'my-embedded-component'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyEmbeddedComponent</span> <span class="token punctuation">{</span>
+  @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> color<span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
 
-@Component({
-  <span class="hljs-attr">tag</span>: <span class="hljs-string">'my-parent-component'</span>
-})
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyParentComponent</span> </span>{
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>My favorite color is <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 
-  render() {
-    <span class="hljs-keyword">return</span> (
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">my-embedded-component</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-embedded-component</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    );
-  }
-}</span>
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@stencil/core'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tag<span class="token punctuation">:</span> <span class="token string">'my-parent-component'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyParentComponent</span> <span class="token punctuation">{</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-embedded-component</span> <span class="token attr-name">color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-embedded-component</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
 <p>The <code>my-parent-component</code> includes a reference to the <code>my-embedded-component</code> in the <code>render()</code> function.</p>
 <p><stencil-route-link url="/docs/component-lifecycle" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

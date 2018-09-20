@@ -4,22 +4,26 @@
 <h3 id="updating-arrays">Updating arrays</h3>
 <p>For arrays, this means that the standard mutable array operations such as <code>push()</code> and <code>unshift()</code> won&#39;t work. Instead, non-mutable array operators such as <code>map()</code> and <code>filter()</code>, and the ES6 spread operator syntax, should be used as they return a copy of a new array.</p>
 <p>For example, to push a new item to an array, create a new array with the existing values and the new value at the end:</p>
-<pre><code class="lang-typescript"><span class="hljs-comment">// our original array</span>
-<span class="hljs-keyword">this</span>.items = [<span class="hljs-string">'ionic'</span>, <span class="hljs-string">'stencil'</span>, <span class="hljs-string">'webcomponents'</span>];
 
-<span class="hljs-comment">// update the array</span>
-<span class="hljs-keyword">this</span>.items = [
-  ...this.items,
-  <span class="hljs-string">'awesomeness'</span>
-]
-</code></pre>
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// our original array</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ionic'</span><span class="token punctuation">,</span> <span class="token string">'stencil'</span><span class="token punctuation">,</span> <span class="token string">'webcomponents'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// update the array</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">,</span>
+  <span class="token string">'awesomeness'</span>
+<span class="token punctuation">]</span></code></pre>
+</highlight-code-line>
 <p>The <code>...this.items</code> syntax is a relatively new feature of JavaScript that &quot;expands&quot; the given object in place. Read more about the Spread operator <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">here</a>.</p>
 <h3 id="updating-an-object">Updating an object</h3>
 <p>The spread operator should also be used to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:</p>
-<pre><code class="lang-typescript"><span class="hljs-comment">// our original object</span>
-<span class="hljs-keyword">let</span> myCoolObject = {first: <span class="hljs-string">'1'</span>, second: <span class="hljs-string">'2'</span>}
 
-<span class="hljs-comment">// update our object</span>
-myCoolObject = { ...myCoolObject, third: <span class="hljs-string">'3'</span> }
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token comment">// our original object</span>
+<span class="token keyword">let</span> myCoolObject <span class="token operator">=</span> <span class="token punctuation">{</span>first<span class="token punctuation">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> second<span class="token punctuation">:</span> <span class="token string">'2'</span><span class="token punctuation">}</span>
 
+<span class="token comment">// update our object</span>
+myCoolObject <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>myCoolObject<span class="token punctuation">,</span> third<span class="token punctuation">:</span> <span class="token string">'3'</span> <span class="token punctuation">}</span>
 </code></pre>
+</highlight-code-line>
