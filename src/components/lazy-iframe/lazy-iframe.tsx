@@ -2,7 +2,7 @@ import { Component, Element, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'lazy-iframe',
-  styleUrl: 'lazy-iframe.scss'
+  styleUrl: 'lazy-iframe.css'
 })
 export class LazyIframe {
 
