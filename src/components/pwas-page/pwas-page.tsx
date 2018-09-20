@@ -2,7 +2,7 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'pwas-page',
-  styleUrl: 'pwas-page.scss'
+  styleUrl: 'pwas-page.css'
 })
 export class pwasPage {
 
