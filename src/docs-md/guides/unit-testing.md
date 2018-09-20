@@ -14,7 +14,7 @@ here primarily for informational purposes.
 
 Jest is installed as a development dependency:
 
-```js
+```tsx
   "devDependencies": {
 	  ...
 	  "@types/jest": "^21.1.1",
@@ -24,7 +24,7 @@ Jest is installed as a development dependency:
 
 NPM scripts are set up in order to run the tests:
 
-```js
+```tsx
   "scripts": {
   	...
 	  "test": "jest --no-cache",

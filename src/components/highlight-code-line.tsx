@@ -19,6 +19,10 @@ export class CustomClock implements ComponentInterface {
 
   @Watch('lines')
   updateCodeLines(newValue: string) {
+    if (newValue == null) {
+      return;
+    }
+
     const linesToHighlight = newValue.split(',')
       .reduce((all, val) => {
         if (val.indexOf('-') !== -1) {

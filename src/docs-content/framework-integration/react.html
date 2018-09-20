@@ -2,7 +2,17 @@
 <p>With an application built using the <code>create-react-app</code> script the easiest way to include the component library is to call <code>defineCustomElements(window)</code> from the <code>index.js</code> file.</p>
 
 <highlight-code-line >
-  <pre class="language-js"><code class="language-js">import%20React%20from%20%27react%27%3B%0Aimport%20ReactDOM%20from%20%27react-dom%27%3B%0Aimport%20%27./index.css%27%3B%0Aimport%20App%20from%20%27./App%27%3B%0Aimport%20registerServiceWorker%20from%20%27./registerServiceWorker%27%3B%0A%0Aimport%20%7B%20defineCustomElements%20%7D%20from%20%27test-components%27%3B%0A%0AReactDOM.render%28%3CApp%20/%3E%2C%20document.getElementById%28%27root%27%29%29%3B%0AregisterServiceWorker%28%29%3B%0AdefineCustomElements%28window%29%3B</code></pre>
+  <pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./index.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> registerServiceWorker <span class="token keyword">from</span> <span class="token string">'./registerServiceWorker'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineCustomElements <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'test-components'</span><span class="token punctuation">;</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>App</span> <span class="token punctuation">/></span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">registerServiceWorker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">defineCustomElements</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </highlight-code-line>
 <p><stencil-route-link url="/docs/distribution" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>

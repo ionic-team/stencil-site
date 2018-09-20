@@ -95,7 +95,7 @@ In the example below, we&#39;re going to listen for the scroll event.</p>
 <p>We can now listen to this event directly on the component in our JSX using the following syntax:</p>
 
 <highlight-code-line >
-  <pre class="language-markup"><code class="language-markup">&lt;todo-list onTodoCompleted={ev => this.someMethod(ev)}><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>todo-list</span><span class="token punctuation">></span></span></code></pre>
+  <pre class="language-tsx"><code class="language-tsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>todo-list</span> <span class="token attr-name">onTodoCompleted</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>ev <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">someMethod</span><span class="token punctuation">(</span>ev<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>todo-list</span><span class="token punctuation">></span></span></code></pre>
 </highlight-code-line>
 <p><stencil-route-link url="/docs/decorators" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

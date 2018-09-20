@@ -63,7 +63,7 @@ defineCustomElements(window);
 
 With an application built using the `create-react-app` script the, easiest way to include the component library is to call `defineCustomElements(window)` from the `index.js` file.
 
-```js
+```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -81,7 +81,7 @@ defineCustomElements(window);
 
 In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. For example:
 
-```js
+```tsx
 import Vue from 'vue';
 import App from './App.vue';
 import { defineCustomElements } from 'test-components';

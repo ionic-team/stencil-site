@@ -3,10 +3,10 @@
 <h3 id="getting-started">Getting Started</h3>
 <p>The easiest way to build and distribute web components with Stencil is by using our <a href="https://github.com/ionic-team/stencil-component-starter">stencil-component-starter</a>. This starter includes all of the config and package.json changes that are discussed below by default with instructions in the <a href="https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md">readme</a>.</p>
 <h3 id="distribution-config">Distribution Config</h3>
-<p>Configuring Stencil for distribution is easy. Set the following config options in the <code>stencil.config.js</code> file:</p>
+<p>Configuring Stencil for distribution is easy. Set the following config options in the <code>stencil.config.ts</code> file:</p>
 
 <highlight-code-line >
-  <pre class="language-typescript"><code class="language-typescript">exports<span class="token punctuation">.</span>config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> config<span class="token punctuation">:</span> Config <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token keyword">namespace</span><span class="token punctuation">:</span> <span class="token string">'myname'</span><span class="token punctuation">,</span>
   outputTargets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
@@ -25,7 +25,15 @@
 <p>You also need to add the following to your <code>package.json</code>:</p>
 
 <highlight-code-line >
-  <pre class="language-json"><code class="language-json">%7B%0A%20%20%22main%22%3A%20%22dist/myname.js%22%2C%0A%20%20%22types%22%3A%20%22dist/types/index.d.ts%22%2C%0A%20%20%22collection%22%3A%20%22dist/collection/collection-manifest.json%22%2C%0A%20%20%22files%22%3A%20%5B%0A%20%20%20%20%22dist/%22%0A%20%20%5D%0A%20%20...%0A%7D</code></pre>
+  <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/myname.js"</span><span class="token punctuation">,</span>
+  <span class="token property">"types"</span><span class="token operator">:</span> <span class="token string">"dist/types/index.d.ts"</span><span class="token punctuation">,</span>
+  <span class="token property">"collection"</span><span class="token operator">:</span> <span class="token string">"dist/collection/collection-manifest.json"</span><span class="token punctuation">,</span>
+  <span class="token property">"files"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"dist/"</span>
+  <span class="token punctuation">]</span>
+  ...
+<span class="token punctuation">}</span></code></pre>
 </highlight-code-line>
 <h2 id="using-your-component-in-a-framework">Using your component in a framework</h2>
 <p>There are three strategies we recommend for using web components built with Stencil.</p>

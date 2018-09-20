@@ -11,17 +11,37 @@ here primarily for informational purposes.</p>
 <p>Jest is installed as a development dependency:</p>
 
 <highlight-code-line >
-  <pre class="language-js"><code class="language-js">%20%20%22devDependencies%22%3A%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%20%20%22@types/jest%22%3A%20%22%5E21.1.1%22%2C%0A%20%20%20%20%20%20%22jest%22%3A%20%22%5E21.2.1%22%0A%20%20%7D%2C</code></pre>
+  <pre class="language-tsx"><code class="language-tsx">  <span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span>
+      <span class="token string">"@types/jest"</span><span class="token punctuation">:</span> <span class="token string">"^21.1.1"</span><span class="token punctuation">,</span>
+      <span class="token string">"jest"</span><span class="token punctuation">:</span> <span class="token string">"^21.2.1"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 </highlight-code-line>
 <p>NPM scripts are set up in order to run the tests:</p>
 
 <highlight-code-line >
-  <pre class="language-js"><code class="language-js">%20%20%22scripts%22%3A%20%7B%0A%20%20%20%20%20%20...%0A%20%20%20%20%20%20%22test%22%3A%20%22jest%20--no-cache%22%2C%0A%20%20%20%20%20%20%22test.watch%22%3A%20%22jest%20--watch%20--no-cache%22%0A%20%20%7D%2C</code></pre>
+  <pre class="language-tsx"><code class="language-tsx">  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span>
+      <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"jest --no-cache"</span><span class="token punctuation">,</span>
+      <span class="token string">"test.watch"</span><span class="token punctuation">:</span> <span class="token string">"jest --watch --no-cache"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 </highlight-code-line>
 <p>Jest is configured to find test files and to use the Stencil preprocessor script to compile the sources:</p>
 
 <highlight-code-line >
-  <pre class="language-json"><code class="language-json">%20%20%22jest%22%3A%20%7B%0A%20%20%20%20%20%20%22transform%22%3A%20%7B%0A%20%20%20%20%20%20%20%20%22%5E.+%5C%5C.%28ts%7Ctsx%29%24%22%3A%20%22%3CrootDir%3E/node_modules/@stencil/core/testing/jest.preprocessor.js%22%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%22testRegex%22%3A%20%22%28/__tests__/.*%7C%5C%5C.%28test%7Cspec%29%29%5C%5C.%28tsx%3F%7Cjsx%3F%29%24%22%2C%0A%20%20%20%20%20%20%22moduleFileExtensions%22%3A%20%5B%0A%20%20%20%20%20%20%20%20%22ts%22%2C%0A%20%20%20%20%20%20%20%20%22tsx%22%2C%0A%20%20%20%20%20%20%20%20%22js%22%2C%0A%20%20%20%20%20%20%20%20%22json%22%2C%0A%20%20%20%20%20%20%20%20%22jsx%22%0A%20%20%20%20%20%20%5D%0A%20%20%7D</code></pre>
+  <pre class="language-json"><code class="language-json">  <span class="token property">"jest"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"transform"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"^.+\\.(ts|tsx)$"</span><span class="token operator">:</span> <span class="token string">"&lt;rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"testRegex"</span><span class="token operator">:</span> <span class="token string">"(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$"</span><span class="token punctuation">,</span>
+      <span class="token property">"moduleFileExtensions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"ts"</span><span class="token punctuation">,</span>
+        <span class="token string">"tsx"</span><span class="token punctuation">,</span>
+        <span class="token string">"js"</span><span class="token punctuation">,</span>
+        <span class="token string">"json"</span><span class="token punctuation">,</span>
+        <span class="token string">"jsx"</span>
+      <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span></code></pre>
 </highlight-code-line>
 <h2 id="component-rendering-tests">Component Rendering Tests</h2>
 <p>The Stencil testing framework API contains two functions that are used to render components for testing:</p>

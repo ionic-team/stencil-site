@@ -1,6 +1,6 @@
 # Stencil Config
 
-In most cases, the `stencil.config.js` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.js` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properties.
+In most cases, the `stencil.config.ts` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.ts` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properties.
 
 - [bundles](#bundles)
 - [copy](#copy)
@@ -17,10 +17,10 @@ In most cases, the `stencil.config.js` file does not require any customization s
 - [excludeSrc](#excludeSrc)
 
 
-Example `stencil.config.js`:
+Example `stencil.config.ts`:
 
 ```typescript
-exports.config = {
+export const config: Config = {
   namespace: 'MyApp',
   srcDir: 'src'
 };
@@ -33,7 +33,7 @@ By default, Stencil will statically analyze the application and generate a compo
 
 The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.
 
-```js
+```tsx
 bundles: [
   { components: ['ion-button'] },
   { components: ['ion-card', 'ion-card-header'] }
@@ -48,7 +48,7 @@ The `copy` config is an array of objects that defines any files or folders that 
 
 In the copy config below, it will copy the entire directory from `src/docs-content` over to `www/docs-content`.
 
-```js
+```tsx
   copy: [
     { src: 'docs-content' }
   ]
@@ -62,7 +62,7 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
 
 Stencil will cache build results in order to speed up rebuilds. To disable this feature, set `enableCache` to `false`.
 
-```js
+```tsx
 enableCache: true
 ```
 
@@ -85,7 +85,7 @@ Below is an example folder structure containing a webapp's global sass file, nam
 
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
-```js
+```tsx
 globalStyle: 'src/globals/app.scss'
 ```
 
@@ -96,7 +96,7 @@ globalStyle: 'src/globals/app.scss'
 
 During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn't updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can "forever-cache" the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.
 
-```js
+```tsx
 hashFileNames: true
 ```
 
@@ -108,7 +108,7 @@ hashFileNames: true
 
 When the `hashFileNames` config is set to `true`, and it is a production build, the `hashedFileNameLength` config is used to determine how many characters the file name's hash should be.
 
-```js
+```tsx
 hashedFileNameLength: 8
 ```
 
@@ -120,7 +120,7 @@ hashedFileNameLength: 8
 
 The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
 
-```js
+```tsx
   namespace: "Ionic"
 ```
 
@@ -132,7 +132,7 @@ Stencil is able to take an app's source and compile it to numerous targets, such
 
 The `outputTargets` config is an array of objects, with types of `www` and `dist`.
 
-```js
+```tsx
 outputTargets: [
   { type: 'www' },
   { type: 'dist' }
@@ -150,7 +150,7 @@ The `dist` type is to generate the component(s) as a reusable library, such as [
 | `dir`    | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended this directory is not committed to a repository. | `dist`  |
 | `empty`  | By default, before each build the `dir` directory will be emptied of all files. However, to prevent this directory from being emptied change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
 
-```js
+```tsx
 outputTargets: [
   {
     type: 'dist'
@@ -174,7 +174,7 @@ The `www` output target type is oriented for webapps and websites, hosted from a
 | `resourcesUrl`  | Stencil is able to lazy-load components on-demand, and because of this the core file needs to know where to find these files to lazy-load. The `resourcesUrl` property is the url path to where this app's resources can be found, such as `/build/app/`. By default this url will point to where the `buildDir` property is set to. Setting this config allows for webapps to find resources which are located in various directory or domains, rather than just `/build/app/`. Note that if the `resourcesUrl` config property is provided, Stencil will use its exact value given and will not attempt to adjust relative to other config values. | `/build/app/` |
 | `serviceWorker` | The `serviceWorker` config lets you customize the service worker that gets automatically generated by the Stencil compiler. To override Stencil's defaults, set any of the values listed in the [Workbox documentation](https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration).                                                                                                                                                                                                                                                                                                                                   |               |
 
-```js
+```tsx
 outputTargets: [
   {
     type: 'www',
@@ -194,10 +194,11 @@ outputTargets: [
 
 The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the plugin array.
 
-```js
-const { sass } = require('@stencil/sass');
+```tsx
+import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
-exports.config = {
+export const config: Config = {
   plugins: [
     sass()
   ]
@@ -219,9 +220,18 @@ exports.config = {
 
 The `srcDir` config specifies the directory which should contain the source typescript files for each component. The standard for Stencil apps is to use `src`, which is the default.
 
-```js
+```tsx
 srcDir: 'src'
 ```
+
+
+<a name="excludeSrc"></a>
+## `excludeSrc`
+
+*default: `['**/test/**', '**/*.spec.*']`*
+
+The `excludeSrc` config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.
+
 
 <stencil-route-link url="/docs/forms" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
@@ -234,11 +244,3 @@ srcDir: 'src'
     Next
   </button>
 </stencil-route-link>
-
-
-<a name="excludeSrc"></a>
-## `excludeSrc`
-
-*default: `['**/test/**', '**/*.spec.*']`*
-
-The `excludeSrc` config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.

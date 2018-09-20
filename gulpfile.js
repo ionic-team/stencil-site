@@ -3,7 +3,7 @@ var markdown = require('gulp-markdown');
 var Prism = require('prismjs');
 var loadLanguages = require('prismjs/components/');
 
-var languages = ['tsx', 'bash', 'typescript', 'markup'];
+var languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
 
 var renderer = new markdown.marked.Renderer();

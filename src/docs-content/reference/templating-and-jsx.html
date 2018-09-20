@@ -29,7 +29,15 @@
 <blockquote>
 <p>If you&#39;re familiar with ES6 template variables, JSX variables are very similar, just without the <code>$</code>:</p>
 </blockquote>
-<pre><code>//ES6%0A%60Hello%20%24%7Bthis.name%7D%60%0A%0A//JSX%0AHello%20%7Bthis.name%7D</code></pre><h3 id="conditionals">Conditionals</h3>
+
+<highlight-code-line >
+  <pre class="language-tsx"><code class="language-tsx"><span class="token comment">//ES6</span>
+<span class="token template-string"><span class="token string">`Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+
+<span class="token comment">//JSX</span>
+Hello <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">}</span></code></pre>
+</highlight-code-line>
+<h3 id="conditionals">Conditionals</h3>
 <p>If we want to conditionally render different content, we can use JavaScript if/else statements:
 Here, if <code>name</code> is not defined, we can just render a different element.</p>
 

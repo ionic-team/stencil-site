@@ -21,7 +21,7 @@ In browsers which do not support Shadow DOM we fall back to scoped css. This giv
 
 Shadow DOM is not currently turned on by default for web components built with Stencil. To turn on Shadow DOM in a web component built with Stencil, you can use the `shadow` param in the component decorator. Below is an example of this:
 
-```
+```tsx
 @Component({
   tag: 'shadow-component',
   styleUrl: 'shadow-component.scss',
@@ -40,7 +40,7 @@ export class ShadowComponent {
 
 - Normally you would wrap your styles in the tag name of the component like so:
 
-```
+```css
 my-element {
   div {
     background: blue;
@@ -50,7 +50,7 @@ my-element {
 
 With Shadow DOM the css selector for the element is the `:host` selector. So, with Shadow DOM turned on in your component the above css would be:
 
-```
+```css
 :host {
   div {
     background: blue;
@@ -78,7 +78,7 @@ One use case for CSS Variables is colors. If your app has a primary brand color 
 Here are the recommended steps to use CSS Variables in Stencil:
 
 - Create a css file to hold your variable definitions. We normally recommend creating a `variables.css` file in `src/global/`
-- You can then put this config `globalStyle: 'src/global/variables.css'` into your `stencil.config.js` file.
+- You can then put this config `globalStyle: 'src/global/variables.css'` into your `stencil.config.ts` file.
 
 That's it! Now you can start defining your variables.
 
@@ -86,8 +86,8 @@ That's it! Now you can start defining your variables.
 
 Here is an example of defining a CSS Variable:
 
-```
-// inside our src/global/variables.css file
+```css
+/* inside our src/global/variables.css file */
 
 :root {
   --app-primary-color: #488aff;
@@ -100,7 +100,7 @@ In this example we have defined a CSS Variable called `--app-primary-color` that
 
 Here is an example of using our CSS Variable we defined above:
 
-```
+```css
 h1 {
   color: var(--app-primary-color)
 }

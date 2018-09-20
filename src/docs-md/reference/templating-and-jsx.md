@@ -35,7 +35,7 @@ render() {
 
 > If you're familiar with ES6 template variables, JSX variables are very similar, just without the `$`:
 
-```
+```tsx
 //ES6
 `Hello ${this.name}`
 

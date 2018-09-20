@@ -2,7 +2,7 @@
 
 With an application built using the `create-react-app` script the easiest way to include the component library is to call `defineCustomElements(window)` from the `index.js` file.
 
-```js
+```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

@@ -126,9 +126,9 @@ export class TodoList {
   @Watch('name')
   validateName(newValue: string, oldValue: string) {
     const isBlank = typeof newValue == null;
-    const atLeast2chars = typeof newValue === 'string' && newValue.length >= 2;
+    const has2chars = typeof newValue === 'string' && newValue.length >= 2;
     if (isBlank) { throw new Error('name: required') };
-    if ( !atLeast2chars ) { throw new Error('name: atLeast2chars') };
+    if (!has2chars ) { throw new Error('name: has2chars') };
   }
 }
 ```
@@ -215,7 +215,7 @@ todoListElement.showPrompt();
 
 The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
 
-```
+```tsx
 import { Element } from '@stencil/core';
 
 ...

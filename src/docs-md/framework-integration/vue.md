@@ -2,7 +2,7 @@
 
 In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. For example:
 
-```js
+```tsx
 import Vue from 'vue';
 import App from './App.vue';
 import { defineCustomElements } from 'test-components';

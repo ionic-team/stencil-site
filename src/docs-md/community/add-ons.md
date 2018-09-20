@@ -7,13 +7,14 @@
 ### Installing
 
 1. In your project directory run `npm install @stencil/sass --save`.
-2. Require the plugin in your `stencil.config.js` file.
+2. Require the plugin in your `stencil.config.ts` file.
 2. Add the plugin to your `plugins` array:
 
-```typescript:3
-const { sass } = require('@stencil/sass');
+```typescript
+import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
-exports.config = {
+export const config: Config = {
   plugins: [
     sass()
   ]
@@ -22,10 +23,10 @@ exports.config = {
 
 ### Options
 
-Sass options can be passed to the plugin within `stencil.config.js`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
+Sass options can be passed to the plugin within `stencil.config.ts`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
 
 ```typescript
-exports.config = {
+export const config: Config = {
   plugins: [
     sass({ includePaths: ['/my-include-path'] })
   ]

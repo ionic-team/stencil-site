@@ -11,30 +11,31 @@ export class AppMarked {
   @State() content?: string;
 
   componentWillLoad() {
-    return this.fetchNewContent();
+    return this.fetchNewContent(this.doc);
   }
 
   @Watch('doc')
-  fetchNewContent() {
-    if (this.doc !== undefined) {
-      const doc = document;
-      return fetch(`/docs-content/${this.doc}`)
-        .then(response => response.text())
-        .then(data => {
-          this.content = data;
-
-          const el = doc.createElement('div');
-          el.innerHTML = data;
-
-          const headerEl = el.querySelector('h1');
-          doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
-        });
+  fetchNewContent(newDoc: string) {
+    if (newDoc == null) {
+      return;
     }
+    return fetch(`/docs-content/${newDoc}`)
+      .then(response => response.text())
+      .then(data => {
+        const doc = document;
+        this.content = data;
+
+        const el = doc.createElement('div');
+        el.innerHTML = data;
+
+        const headerEl = el.querySelector('h1');
+        doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
+      });
   }
 
   render() {
-    return [
+    return (
       <div class="measure-lg" innerHTML={this.content}></div>
-    ]
+    );
   }
 }
