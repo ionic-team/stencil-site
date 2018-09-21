@@ -109,7 +109,7 @@ export class NameElement {
 
 Setting a default value on a Prop:
 
-```tsx:4
+```tsx:5
 import { Prop } from '@stencil/core';
 
 ...
