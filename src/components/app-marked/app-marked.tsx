@@ -1,4 +1,5 @@
 import { Component, Prop, State, Watch } from '@stencil/core';
+import { MarkdownContent } from '../../global/definitions';
 
 @Component({
   tag: 'app-marked',
@@ -19,14 +20,13 @@ export class AppMarked {
     if (newDoc == null) {
       return;
     }
-    return fetch(`/docs-content/${newDoc}`)
-      .then(response => response.text())
-      .then(data => {
+    return fetch(`/docs-content/${newDoc}.json`)
+      .then(response => response.json())
+      .then((data: MarkdownContent) => {
+        this.content = data.content;
         const doc = document;
-        this.content = data;
-
         const el = doc.createElement('div');
-        el.innerHTML = data;
+        el.innerHTML = data.content;
 
         const headerEl = el.querySelector('h1');
         doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
