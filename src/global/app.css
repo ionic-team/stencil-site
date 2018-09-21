@@ -1,6 +1,7 @@
 @import './variables.css';
 @import './buttons.css';
 @import './headline.css';
+@import './lists.css';
 @import './utils.css';
 
 * {
