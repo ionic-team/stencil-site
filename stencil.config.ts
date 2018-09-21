@@ -1,10 +1,6 @@
 import { Config } from '@stencil/core';
-import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  plugins: [
-    sass()
-  ],
   outputTargets: [
     {
       type: 'www',
@@ -16,7 +12,7 @@ export const config: Config = {
       }
     }
   ],
-  globalStyle: 'src/global/style.scss',
+  globalStyle: 'src/global/style/app.css',
   copy: [
     { src: 'docs-content/' },
     { src: 'robots.txt' }

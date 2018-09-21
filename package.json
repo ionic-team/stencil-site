@@ -11,7 +11,6 @@
     "start": "gulp && stencil build --dev --watch --serve"
   },
   "dependencies": {
-    "@stencil/sass": "^0.1.0",
     "@types/prismjs": "^1.9.0",
     "prismjs": "^1.15.0"
   },
