@@ -18,3 +18,7 @@
 .pull-right{
   float: right;
 }
+
+.no-scroll {
+  overflow: hidden;
+}

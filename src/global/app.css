@@ -6,6 +6,7 @@
 @import './screenshot.css';
 @import './syntax.css';
 @import './text-link.css';
+@import './typography.css';
 @import './utils.css';
 
 * {
@@ -19,8 +20,4 @@
 
 stencil-route-link:hover {
   cursor: pointer;
-}
-
-.no-scroll {
-  overflow: hidden;
 }

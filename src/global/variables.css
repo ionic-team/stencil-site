@@ -8,7 +8,8 @@
   --color-white-lilac: #f8f8fc;
   --color-white: #fff;
 
-  --color-dodger-blue: #5851ff;
+  --color-dodger-blue: rgb(88, 81, 255);
+  --color-dodger-blue-hover: rgba(88, 81, 255, 0.2);
 
   --color-old-lace: #fdf5e4;
   --color-wheatfield: #F1E3C5;

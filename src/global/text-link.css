@@ -16,7 +16,7 @@
 }
 
 .text-link--primary:hover {
-  border-bottom-color: rgba(88, 81, 255, 0.2);
+  border-bottom-color: var(--color-dodger-blue-hover);
 }
 
 .text-link--secondary {
