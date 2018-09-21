@@ -26,3 +26,7 @@
 .text-link--secondary:hover {
   border-bottom-color: rgba(136, 136, 162, 0.2);
 }
+
+stencil-route-link:hover {
+  cursor: pointer;
+}
