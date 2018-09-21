@@ -1,3 +1,4 @@
+
 .measure-xl {
   max-width: 720px;
 }
@@ -10,7 +11,7 @@
   max-width: 460px;
 }
 
-@media screen and (max-width: $breakpoint-md) {
+@media screen and (max-width: 768px) {
   .measure-lg,
   .measure-md {
     margin-left: auto;
