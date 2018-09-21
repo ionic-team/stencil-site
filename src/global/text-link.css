@@ -1,3 +1,4 @@
+
 .text-link {
   transition: border 0.3s;
   font-size: 13px;
@@ -11,17 +12,17 @@
 }
 
 .text-link--primary {
-  color: $color-dodger-blue;
+  color: var(--color-dodger-blue);
+}
 
-  &:hover {
-    border-bottom-color: rgba($color-dodger-blue, 0.2);
-  }
+.text-link--primary:hover {
+  border-bottom-color: rgba(88, 81, 255, 0.2);
 }
 
 .text-link--secondary {
-  color: $color-manatee;
+  color: var(--color-manatee);
+}
 
-  &:hover {
-    border-bottom-color: rgba($color-manatee, 0.2);
-  }
+.text-link--secondary:hover {
+  border-bottom-color: rgba(136, 136, 162, 0.2);
 }

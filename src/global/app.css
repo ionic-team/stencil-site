@@ -5,6 +5,7 @@
 @import './measure.css';
 @import './screenshot.css';
 @import './syntax.css';
+@import './text-link.css';
 @import './utils.css';
 
 * {
