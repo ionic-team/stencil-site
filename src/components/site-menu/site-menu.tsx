@@ -3,7 +3,7 @@ import SiteProviderConsumer, { SiteState } from '../../global/site-provider-cons
 
 @Component({
   tag: 'site-menu',
-  styleUrl: 'site-menu.scss'
+  styleUrl: 'site-menu.css'
 })
 export class SiteMenu {
   render() {
