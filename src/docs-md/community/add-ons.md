@@ -1,4 +1,10 @@
-# Add-ons
+---
+title: Add Ons
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
+# Add Ons
 
 ## Stencil Sass
 
