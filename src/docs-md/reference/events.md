@@ -1,3 +1,9 @@
+---
+title: Events
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Events
 
 Components can emit data and events using the Event Emitter decorator.

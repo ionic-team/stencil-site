@@ -1,3 +1,9 @@
+---
+title: Add Ons
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Ember
 
 Working with Stencil components in Ember is really easy thanks to the `ember-cli-stencil` addon. It handles:

@@ -1,3 +1,9 @@
+---
+title: Testing
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Testing
 
 Stencil makes it easy to unit test your component using Jest and the Stencil unit testing framework.

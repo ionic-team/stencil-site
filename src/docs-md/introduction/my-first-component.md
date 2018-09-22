@@ -1,3 +1,9 @@
+---
+title: My First Component
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # My First Component
 
 Stencil components are created by adding a new file with a `.tsx` extension, such as `my-first-component.tsx`, and placing them in the `src/components` directory.

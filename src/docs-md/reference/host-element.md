@@ -1,3 +1,9 @@
+---
+title: Working with host elements
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Working with host elements
 
 Stencil components render their children declaratively in their `render` method [using JSX](/docs/templating-jsx). However, sometimes you will need to set properties on the host element itself. Stencil provides a couple of ways to access and update the host element.

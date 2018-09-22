@@ -30,17 +30,21 @@ const SOURCE_DIR = './src/docs-md';
         const files = yield globAsync(`${SOURCE_DIR}/**/*.md`, {});
         yield utils_1.rimraf(DESTINATION_DIR);
         const filePromises = files.map((file) => __awaiter(this, void 0, void 0, function* () {
+            let htmlContents = '';
+            let parsedMarkdown;
             const jsonFileName = path_1.default.relative(SOURCE_DIR, file);
             const destinationFileName = path_1.default.join(DESTINATION_DIR, path_1.default.dirname(jsonFileName), path_1.default.basename(jsonFileName, '.md') + '.json');
             const markdownContents = yield readFile(file, { encoding: 'utf8' });
-            const metadata = front_matter_1.default(markdownContents);
-            console.log(metadata.attributes);
-            const htmlContents = marked_1.default(markdownContents, { renderer: markdown_renderer_1.default });
+            try {
+                parsedMarkdown = front_matter_1.default(markdownContents);
+                htmlContents = marked_1.default(parsedMarkdown.body, { renderer: markdown_renderer_1.default });
+            }
+            catch (e) {
+                console.error(file);
+                throw e;
+            }
             yield utils_1.mkdirp(path_1.default.join(DESTINATION_DIR, path_1.default.dirname(jsonFileName)));
-            yield writeFile(destinationFileName, JSON.stringify({
-                srcPath: file,
-                content: htmlContents
-            }), {
+            yield writeFile(destinationFileName, JSON.stringify(Object.assign({}, parsedMarkdown.attributes, { srcPath: file, content: htmlContents })), {
                 encoding: 'utf8'
             });
             console.log(`converted: ${file} => ${destinationFileName}`);

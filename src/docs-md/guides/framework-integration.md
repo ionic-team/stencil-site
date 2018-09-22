@@ -1,3 +1,9 @@
+---
+title: Using Stencil Built Web Components with Frameworks
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Using Stencil Built Web Components with Frameworks
 
 In this section, we will outline the easiest way to integrate Stencil built web components into applications written using various popular frameworks.

@@ -1,3 +1,9 @@
+---
+title: Add Ons
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Angular
 
 Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:

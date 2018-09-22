@@ -1,4 +1,6 @@
 export interface MarkdownContent {
-  srcPath: string;
-  content: string;
+  title?: string;
+  description?: string;
+  srcPath?: string;
+  content?: string;
 }

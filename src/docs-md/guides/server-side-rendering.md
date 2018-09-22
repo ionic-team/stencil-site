@@ -1,3 +1,9 @@
+---
+title: Server Side Rendering
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Server Side Rendering
 
 One of the benefits of Stencil is that it also enables efficient Server Side Rendering (SSR) easily. However, before deciding to render each page on-demand on a server, it may be best to look into using [prerendering](/docs/prerendering) instead. In most cases prerendering is preferred since it doesn't add to the server's workload, but rather just responds with "pre-rendered" static content.

@@ -1,3 +1,9 @@
+---
+title: Build Constants
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Build Constants
 
 Build Constants in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.

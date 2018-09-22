@@ -1,3 +1,9 @@
+---
+title: Stencil Style Guide
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Stencil Style Guide
 
 This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing [Ionic Core](https://ionicframework.com/) components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team's own preference.

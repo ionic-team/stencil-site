@@ -21,6 +21,8 @@ const SOURCE_DIR = './src/docs-md';
   await rimraf(DESTINATION_DIR);
 
   const filePromises = files.map(async (file) => {
+    let htmlContents = '';
+    let parsedMarkdown: any;
     const jsonFileName = path.relative(SOURCE_DIR, file);
     const destinationFileName = path.join(
       DESTINATION_DIR,
@@ -29,15 +31,21 @@ const SOURCE_DIR = './src/docs-md';
     ); 
 
     const markdownContents = await readFile(file, { encoding: 'utf8' });
-    const { attributes } = frontMatter(markdownContents);
-    const htmlContents = marked(markdownContents, { renderer });
+
+    try {
+      parsedMarkdown = frontMatter(markdownContents);
+      htmlContents = marked(parsedMarkdown.body, { renderer });
+    } catch (e) {
+      console.error(file);
+      throw e;
+    }
 
     await mkdirp(path.join(
       DESTINATION_DIR,
       path.dirname(jsonFileName)
     ));
     await writeFile(destinationFileName, JSON.stringify({
-      ...attributes,
+      ...parsedMarkdown.attributes,
       srcPath: file,
       content: htmlContents
     }), {

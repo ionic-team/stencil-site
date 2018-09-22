@@ -1,3 +1,9 @@
+---
+title: Context
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Context
 
 ### What is Context?

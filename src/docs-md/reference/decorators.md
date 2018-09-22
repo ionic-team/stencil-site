@@ -1,3 +1,9 @@
+---
+title: Decorators
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Decorators
 
 Stencil makes it easy to build rich, interactive components. Let's start with the basics.

@@ -1,3 +1,9 @@
+---
+title: Component Lifecycle Methods
+description: Stencil has a number of add-ons that you can use with the build process.
+contributors:
+  - jthoms1
+---
 # Component Lifecycle Methods
 
 Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and unload. These methods can be added to a component to hook into operations at the right time.

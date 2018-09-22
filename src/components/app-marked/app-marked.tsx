@@ -9,7 +9,7 @@ export class AppMarked {
 
   @Prop() doc?: string;
 
-  @State() content?: string;
+  @State() docsContent: MarkdownContent = {};
 
   componentWillLoad() {
     return this.fetchNewContent(this.doc);
@@ -23,19 +23,18 @@ export class AppMarked {
     return fetch(`/docs-content/${newDoc}.json`)
       .then(response => response.json())
       .then((data: MarkdownContent) => {
-        this.content = data.content;
-        const doc = document;
-        const el = doc.createElement('div');
-        el.innerHTML = data.content;
-
-        const headerEl = el.querySelector('h1');
-        doc.title = (headerEl && headerEl.textContent + ' - Stencil') || 'Stencil';
+        if (data != null) {
+          this.docsContent = data;
+        }
       });
   }
 
   render() {
-    return (
-      <div class="measure-lg" innerHTML={this.content}></div>
-    );
+    return [
+      <stencil-route-title
+        pageTitle={this.docsContent.title ? `${this.docsContent.title} - Stencil` : 'Stencil'}
+      ></stencil-route-title>,
+      <div class="measure-lg" innerHTML={this.docsContent.content}></div>
+    ];
   }
 }
