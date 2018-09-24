@@ -67,7 +67,7 @@ const FIREBASE_DEST = './firebase.json';
       headers: fireBaseHeaders
     }
   };
-  await writeFile(FIREBASE_DEST, JSON.stringify(finalData), { encoding: 'utf8' });
+  await writeFile(FIREBASE_DEST, JSON.stringify(finalData, null, 2), { encoding: 'utf8' });
 })();
 
 

@@ -38,6 +38,6 @@ const FIREBASE_DEST = './firebase.json';
         const finalData = {
             hosting: Object.assign({}, firebaseData.hosting, { headers: fireBaseHeaders })
         };
-        yield writeFile(FIREBASE_DEST, JSON.stringify(finalData), { encoding: 'utf8' });
+        yield writeFile(FIREBASE_DEST, JSON.stringify(finalData, null, 2), { encoding: 'utf8' });
     });
 })();
