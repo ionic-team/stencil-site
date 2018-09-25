@@ -15,36 +15,37 @@ export class SiteMenu {
             <li>
               <h4>Introduction</h4>
               <ul>
+
                 <li>
                   <stencil-route-link url='/docs/introduction' onClick={() => toggleLeftSidebar()}>
                     Why Stencil
                   </stencil-route-link>
                 </li>
+
+                <li>
+                  <stencil-route-link url='/docs/goals-and-objectives' onClick={() => toggleLeftSidebar()}>
+                    Goals and Objectives
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/browser-support' onClick={() => toggleLeftSidebar()}>
+                    Browser Support
+                  </stencil-route-link>
+                </li>
+
                 <li>
                   <stencil-route-link url='/docs/getting-started' onClick={() => toggleLeftSidebar()}>
                     Getting Started
                   </stencil-route-link>
                 </li>
+
                 <li>
                   <stencil-route-link url='/docs/my-first-component' onClick={() => toggleLeftSidebar()}>
                     My First Component
                   </stencil-route-link>
                 </li>
-                {/*<li>
-                  <stencil-route-link url='/docs/reusable-components' onClick={() => toggleLeftSidebar()}>
-                    Reusable Components
-                  </stencil-route-link>
-                </li>
-                <li>
-                  <stencil-route-link url='/docs/building-an-app'>
-                    Building an App
-                  </stencil-route-link>
-                </li>
-                <li>
-                  <stencil-route-link url='/docs/faq'>
-                    FAQ
-                  </stencil-route-link>
-                </li>*/}
+
               </ul>
             </li>
 
@@ -76,16 +77,6 @@ export class SiteMenu {
                   </stencil-route-link>
                 </li>
 
-                {/*<li>
-                  <stencil-route-link url='/docs/templating-jsx'>
-                    Templating and JSX
-                  </stencil-route-link>
-                </li>*/}
-
-                {/*
-                  The below route will be replaced with the above route
-                  once ready
-                */}
                 <li>
                   <stencil-route-link url="/docs/templating-jsx" onClick={() => toggleLeftSidebar()}>
                     Using JSX

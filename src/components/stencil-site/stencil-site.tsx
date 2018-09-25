@@ -75,11 +75,10 @@ export class App {
                   routeRender={(props: { [key: string]: any }) => {
                     const map = {
                       'introduction': 'introduction/why-stencil',
+                      'goals-and-objectives': 'introduction/goals-and-objectives',
+                      'browser-support': 'introduction/browser-support',
                       'getting-started': 'introduction/getting-started',
                       'my-first-component': 'introduction/my-first-component',
-                      'reusable-components': 'introduction/reusable-components',
-                      'building-an-app': 'introduction/building-an-app',
-                      'faq': 'introduction/faq',
 
                       'component-lifecycle': 'reference/component-lifecycle',
                       'decorators': 'reference/decorators',
