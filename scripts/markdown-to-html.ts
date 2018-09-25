@@ -12,7 +12,7 @@ const writeFile = promisify(fs.writeFile);
 const globAsync = promisify(glob);
 
 const DESTINATION_DIR = './src/docs-content';
-const SOURCE_DIR = './src/docs-md';
+const SOURCE_DIR = './src/docs';
 
 (async function() {
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
