@@ -1,6 +1,7 @@
 .stencil/
 dist/
 www/
+page-analysis/
 scripts/*.js
 src/docs-content/
 
