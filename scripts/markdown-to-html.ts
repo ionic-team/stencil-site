@@ -4,7 +4,7 @@ import { promisify } from 'util';
 import path from 'path';
 import fs from 'fs';
 import { rimraf, mkdirp } from '@stencil/utils';
-import renderer from './markdown-renderer';
+import createRenderer from './markdown-renderer';
 import frontMatter from 'front-matter';
 
 const readFile = promisify(fs.readFile);
@@ -23,6 +23,7 @@ const SOURCE_DIR = './src/docs';
   const filePromises = files.map(async (file) => {
     let htmlContents = '';
     let parsedMarkdown: any;
+    let markdownMetadata: any;
     const jsonFileName = path.relative(SOURCE_DIR, file);
     const destinationFileName = path.join(
       DESTINATION_DIR,
@@ -34,7 +35,12 @@ const SOURCE_DIR = './src/docs';
 
     try {
       parsedMarkdown = frontMatter(markdownContents);
-      htmlContents = marked(parsedMarkdown.body, { renderer });
+      const { renderer, metadata } = createRenderer();
+      markdownMetadata = metadata;
+      htmlContents = marked(parsedMarkdown.body, {
+        renderer,
+        headerIds: true
+      });
     } catch (e) {
       console.error(file);
       throw e;
@@ -46,6 +52,7 @@ const SOURCE_DIR = './src/docs';
     ));
     await writeFile(destinationFileName, JSON.stringify({
       ...parsedMarkdown.attributes,
+      ...markdownMetadata,
       srcPath: file,
       content: htmlContents
     }), {

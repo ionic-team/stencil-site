@@ -5,30 +5,19 @@ contributors:
   - jthoms1
 ---
 # Decorators
-
-Stencil makes it easy to build rich, interactive components. Let's start with the basics.
-
-- [component](#component)
-- [prop](#prop)
-- [watch](#watch)
-- [state](#state)
-- [method](#method)
-- [element](#element)
-
-<a name="component"></a>
 ## Component Decorator
 
 Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
 
 Use a relative url to the `.css` file for the styleUrl(s).
 
-```tsx:3-6
+```tsx
 import { Component } from '@stencil/core';
 
-@Component({
-  tag: 'todo-list',
-  styleUrl: 'todo-list.css'
-})
+|@Component({
+|  tag: 'todo-list',
+|  styleUrl: 'todo-list.css'
+|})
 export class TodoList {
   ...
 }
@@ -45,20 +34,19 @@ host?: d.HostMeta;
 assetsDir?: string;
 assetsDirs?: string[];
 
-<a name="prop"></a>
 ## Prop Decorator
 
 Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
 
-```tsx:5-8
+```tsx
 import { Prop } from '@stencil/core';
 
 ...
 export class TodoList {
-  @Prop() color: string;
-  @Prop() favoriteNumber: number;
-  @Prop() isSelected: boolean;
-  @Prop() myHttpService: MyHttpService;
+|  @Prop() color: string;
+|  @Prop() favoriteNumber: number;
+|  @Prop() isSelected: boolean;
+|  @Prop() myHttpService: MyHttpService;
 }
 ```
 
@@ -115,25 +103,25 @@ export class NameElement {
 
 Setting a default value on a Prop:
 
-```tsx:5
+```tsx
 import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
-  @Prop() name: string = 'Stencil';
+|  @Prop() name: string = 'Stencil';
 }
 ```
 
 To do validation of a Prop, you can use the [@Watch()](#watch) decorator:
 
-```tsx:7
+```tsx
 import { Prop, Watch } from '@stencil/core';
 
 ...
 export class TodoList {
   @Prop() name: string = 'Stencil';
 
-  @Watch('name')
+|  @Watch('name')
   validateName(newValue: string, oldValue: string) {
     const isBlank = typeof newValue == null;
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
@@ -153,20 +141,19 @@ In some cases it may be useful to keep a Prop in sync with an attribute. In this
 })
 ```
 
-<a name="watch"></a>
 ## Watch Decorator
 
 When a user updates a property, `Watch` will fire what ever method it's attached to and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props or handling side effects.
 
 
-```tsx:7
+```tsx
 import { Prop, Watch } from '@stencil/core';
 
 ...
 export class LoadingIndicator {
   @Prop() activated: boolean;
 
-  @Watch('activated')
+|  @Watch('activated')
   watchHandler(newValue: boolean, oldValue: boolean) {
     console.log('The new value of activated is: ', newValue);
   }
@@ -178,12 +165,12 @@ export class LoadingIndicator {
 The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
 
 
-```tsx:5
+```tsx
 import { State } from '@stencil/core';
 
 ...
 export class TodoList {
-  @State() completedTodos: Todo[];
+|  @State() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
     // This will cause our render function to be called again
@@ -196,18 +183,17 @@ export class TodoList {
 }
 ```
 
-<a name="method"></a>
 ## Method Decorator
 
 The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
 
-```tsx:6
+```tsx
 import { Method } from '@stencil/core';
 
 ...
 export class TodoList {
 
-  @Method()
+|  @Method()
   showPrompt() {
     // show a prompt
   }
@@ -221,17 +207,16 @@ const todoListElement = document.querySelector('todo-list');
 todoListElement.showPrompt();
 ```
 
-<a name="element"></a>
 ## Element Decorator
 
 The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
 
-```tsx:5
+```tsx
 import { Element } from '@stencil/core';
 
 ...
 export class TodoList {
-  @Element() todoListEl: HTMLElement;
+|  @Element() todoListEl: HTMLElement;
 
   addClass(){
     this.todoListEl.classList.add('active');
@@ -262,7 +247,7 @@ export class MyEmbeddedComponent {
 }
 ```
 
-```tsx:11
+```tsx
 import { Component } from '@stencil/core';
 
 @Component({
@@ -273,7 +258,7 @@ export class MyParentComponent {
   render() {
     return (
       <div>
-        <my-embedded-component color="red"></my-embedded-component>
+|        <my-embedded-component color="red"></my-embedded-component>
       </div>
     );
   }
