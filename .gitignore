@@ -1,6 +1,8 @@
 .stencil/
 dist/
 www/
+scripts/*.js
+src/docs-content/
 
 *~
 *.sw[mnpcod]
