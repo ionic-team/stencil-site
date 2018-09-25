@@ -1,6 +1,7 @@
 ---
 title: Working with host elements
 description: Working with host elements
+url: /docs/host-element
 contributors:
   - jthoms1
 ---

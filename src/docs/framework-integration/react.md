@@ -1,11 +1,11 @@
 ---
 title: React Intergration with Stencil
 description: React Intergration with Stencil
+url: /docs/react
 contributors:
   - jthoms1
   - adamdbradley
 ---
-
 # React
 
 With an application built using the `create-react-app` script the easiest way to include the component library is to call `defineCustomElements(window)` from the `index.js` file.

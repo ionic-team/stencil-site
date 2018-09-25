@@ -1,6 +1,7 @@
 ---
 title: Reactive Data, Handling arrays and objects
 description: Reactive Data, Handling arrays and objects
+url: /docs/reactive-data
 contributors:
   - jthoms1
 ---

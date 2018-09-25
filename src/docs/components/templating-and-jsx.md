@@ -1,6 +1,7 @@
 ---
 title: Using JSX
 description: Using JSX
+url: /docs/templating-jsx
 contributors:
   - jthoms1
 ---

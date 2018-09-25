@@ -1,6 +1,7 @@
 ---
 title: Stencil Style Guide
 description: Stencil Style Guide
+url: /docs/style-guide
 contributors:
   - jthoms1
 ---

@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 description: Getting Started
+url: /docs/getting-started
 contributors:
   - jthoms1
 ---

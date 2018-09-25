@@ -1,6 +1,7 @@
 ---
 title: Decorators
 description: Decorators
+url: /docs/decorators
 contributors:
   - jthoms1
 ---

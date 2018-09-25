@@ -1,6 +1,7 @@
 ---
 title: Ember Intergration with Stencil
 description: Ember Intergration with Stencil
+url: /docs/ember
 contributors:
   - jthoms1
   - adamdbradley

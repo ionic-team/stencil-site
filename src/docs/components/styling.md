@@ -1,6 +1,7 @@
 ---
 title: Styling Components
 description: Styling Components
+url: /docs/styling
 contributors:
   - jthoms1
 ---

@@ -1,6 +1,7 @@
 ---
 title: Component Lifecycle Methods
 description: Component Lifecycle Methods
+docs: /docs/component-lifecycle
 contributors:
   - jthoms1
 ---

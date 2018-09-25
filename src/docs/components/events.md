@@ -1,6 +1,7 @@
 ---
 title: Events
 description: Events
+url: /docs/events
 contributors:
   - jthoms1
 ---

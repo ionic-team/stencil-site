@@ -1,6 +1,7 @@
 ---
 title: Context
 description: Stencil has a number of add-ons that you can use with the build process.
+url: /docs/context
 contributors:
   - jthoms1
 ---

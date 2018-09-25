@@ -1,6 +1,7 @@
 ---
 title: Plugins
 description: Plugins
+url: /docs/addons
 contributors:
   - jthoms1
 ---

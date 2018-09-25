@@ -1,6 +1,7 @@
 ---
 title: Stencil Config
 description: Stencil Config
+url: /docs/config
 contributors:
   - adamdbradley
   - jthoms1

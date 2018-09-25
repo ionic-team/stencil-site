@@ -1,6 +1,7 @@
 ---
 title: Service Workers
 description: Service Workers
+url: /docs/service-workers
 contributors:
   - jthoms1
 ---

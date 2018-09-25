@@ -1,6 +1,7 @@
 ---
 title: Distributing Web Components Built with Stencil
 description: Distributing Web Components Built with Stencil
+url: /docs/distribution
 contributors:
   - jthoms1
 ---

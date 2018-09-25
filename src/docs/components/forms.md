@@ -1,6 +1,7 @@
 ---
 title: Forms
 description: Forms
+url: /docs/forms
 contributors:
   - jthoms1
 ---

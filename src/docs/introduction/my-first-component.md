@@ -1,6 +1,7 @@
 ---
 title: My First Component
 description: My First Component
+url: /docs/my-first-component
 contributors:
   - jthoms1
 ---

@@ -1,6 +1,7 @@
 ---
 title: Prerendering
 description: Prerendering
+url: /docs/prerendering
 contributors:
   - adamdbradley
 ---
