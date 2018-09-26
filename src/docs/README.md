@@ -15,7 +15,7 @@
   * [Styling](components/styling.md)
   * [Forms](components/forms.md)
 * Framework Integrations
-  * [Overview](framework-integration/framework-integration.md)
+  * [Overview](framework-integration/overview.md)
   * [Angular](framework-integration/angular.md)
   * [React](framework-integration/react.md)
   * [Vue](framework-integration/vue.md)
@@ -24,10 +24,10 @@
 * Tooling
   * [Config](tooling/config.md)
   * [Dev Server](tooling/dev-server.md)
-  * [Prerendering](tooling/prerender.md)
+  * [Prerendering](tooling/prerendering.md)
   * [Service Workers](tooling/service-workers.md)
   * [Typed Components](tooling/typed-components.md)
-  * [Docs Generation](tooling/docs-generation.md)
+  * [Docs Generation](tooling/docs-auto-generation.md)
   * [Plugins](tooling/plugins.md)
 * Guides
   * [PWA](guides/pwa.md)
