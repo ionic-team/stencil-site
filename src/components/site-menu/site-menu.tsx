@@ -158,12 +158,6 @@ export class SiteMenu {
                 </li>
 
                 <li>
-                  <stencil-route-link url='/docs/hot-module-replacement' onClick={() => toggleLeftSidebar()}>
-                    Hot Module Replacement
-                  </stencil-route-link>
-                </li>
-
-                <li>
                   <stencil-route-link url='/docs/prerendering' onClick={() => toggleLeftSidebar()}>
                     Prerendering
                   </stencil-route-link>

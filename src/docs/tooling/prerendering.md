@@ -37,7 +37,7 @@ componentWillLoad() {
 }
 ```
 
-<stencil-route-link url="/docs/hot-module-replacement" router="#router" custom="true">
+<stencil-route-link url="/docs/dev-server" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>

@@ -27,7 +27,7 @@ Stencil comes with an integrated dev server in order to simplify development. By
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/hot-module-replacement" custom="true">
+<stencil-route-link url="/docs/prerendering" custom="true">
   <button class='pull-right btn btn--primary'>
     Next
   </button>

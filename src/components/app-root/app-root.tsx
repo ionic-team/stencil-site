@@ -97,7 +97,6 @@ export class AppRoot {
 
                       'config': 'tooling/config',
                       'dev-server': 'tooling/dev-server',
-                      'hot-module-replacement': 'tooling/hot-module-replacement',
                       'prerendering': 'tooling/prerendering',
                       'typed-components': 'tooling/typed-components',
                       'docs-auto-generation': 'tooling/docs-auto-generation',
