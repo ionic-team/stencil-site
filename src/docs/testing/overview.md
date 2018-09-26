@@ -3,6 +3,7 @@ title: Testing
 description: Testing overview.
 contributors:
   - adamdbradley
+  - brandyscarney
 ---
 
 # Testing
@@ -10,13 +11,13 @@ contributors:
 Testing within Stencil is broken up into two distinct types: Unit tests and End-to-end (e2e) tests. Both types use [Jest](https://jestjs.io/) as the JavaScript testing solution. The browser environment for e2e testing is done using [Puppeteer](https://pptr.dev/), which provides many advantages Stencil can start to incorporate into its builds.
 
 
-## Unit Testing vs. E2E Testing
+## Unit Testing vs. e2e Testing
 
 There are countless philosophies on how testing should be done, and what should be considered a unit test, e2e test or even integration tests. To simplify it all, Stencil tries to break it down to so developers have a defined description of when to use each type of testing.
 
 Unit testing is for testing small chunks of JavaScript code in isolation at the lowest level. For example, when a method is given the argument `X`, it should return `Y`. Unit tests should not be doing full rendering of the component, or even shallow rendering, but rather focused on logic only. Stencil likes to think of unit testing as specifically testing JavaScript code, and when given an input, the test should expect an exact output. With unit testing there is no simulating or mocking the component as an element in the DOM, but rather unit tests should import the component's class, create an instance, and test its methods and properties directly. Unit tests would also be the solution for testing utility functions and services used by components.
 
-E2E tests are one step farther and would be testing rendering the components as elements in the DOM, and components working together. For example, when `my-component` has the `X` attribute, the child component then renders the text `Y`, and expects to receive the event `Z`. E2E tests focused specifically on the DOM, and what happens when components are working together within the DOM. By using [Puppeteer](https://pptr.dev/) for rendering tests, rather than a Node environment try to simulate how a browser works, e2e tests are able to run within an actual browser in order to provide better results.
+End-to-end tests are one step further and would be testing rendering the components as elements in the DOM, and components working together. For example, when `my-component` has the `X` attribute, the child component then renders the text `Y`, and expects to receive the event `Z`. End-to-end tests are focused specifically on the DOM and how components interact with each other in the DOM. By using [Puppeteer](https://pptr.dev/) instead of a Node environment for rendering tests, e2e tests are able to run within an actual browser in order to provide more realistic results.
 
 Again, there are many theories and opinions on the definitions of "unit testing" and "e2e testing", but by locking in these definitions and not blurring the lines between JavaScript testing and DOM testing it should help to quickly build out tests across large teams.
 
