@@ -4,7 +4,7 @@ import { promisify } from 'util';
 import path from 'path';
 import fs from 'fs';
 import { rimraf, mkdirp } from '@stencil/utils';
-import createRenderer from './markdown-renderer';
+import { collectHeadingMetadata, changeCodeCreation } from './markdown-renderer';
 import frontMatter from 'front-matter';
 
 const readFile = promisify(fs.readFile);
@@ -13,6 +13,8 @@ const globAsync = promisify(glob);
 
 const DESTINATION_DIR = './src/docs-content';
 const SOURCE_DIR = './src/docs';
+
+const renderer = new marked.Renderer();
 
 (async function() {
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
@@ -23,20 +25,21 @@ const SOURCE_DIR = './src/docs';
   const filePromises = files.map(async (file) => {
     let htmlContents = '';
     let parsedMarkdown: any;
-    let markdownMetadata: any;
+    let markdownMetadata: any = {};
     const jsonFileName = path.relative(SOURCE_DIR, file);
     const destinationFileName = path.join(
       DESTINATION_DIR,
       path.dirname(jsonFileName),
       path.basename(jsonFileName, '.md') + '.json'
     ); 
+    markdownMetadata.heading = [];
 
     const markdownContents = await readFile(file, { encoding: 'utf8' });
 
     try {
       parsedMarkdown = frontMatter(markdownContents);
-      const { renderer, metadata } = createRenderer();
-      markdownMetadata = metadata;
+      collectHeadingMetadata(renderer, markdownMetadata);
+      changeCodeCreation(renderer);
       htmlContents = marked(parsedMarkdown.body, {
         renderer,
         headerIds: true

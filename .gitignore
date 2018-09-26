@@ -4,6 +4,7 @@ www/
 page-analysis/
 scripts/*.js
 src/docs-content/
+firebase.json
 
 *~
 *.sw[mnpcod]

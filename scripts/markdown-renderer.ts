@@ -5,38 +5,46 @@ import loadLanguages from 'prismjs/components/';
 const languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
 
-export default function createRenderer() {
+export function listFactory(renderer: marked.Renderer, metadata: any) {
+  let lastListItem = metadata.listes = [];
+  const prevList = renderer.list;
+  const prevListitem = renderer.listitem;
+  const prevLink = renderer.link;
 
-  const renderer = new marked.Renderer();
-  const metadata = {
-    heading: []
+  renderer.list = function(body, ordered) {
+    lastListItem;
+    return prevList.call(this, body, ordered);
   };
+  renderer.listitem = function(text) {
+    return prevListitem.call(this, text);
+  };
+  renderer.link = function(href: string, title: string, text: string) {
+    return prevLink.call(this, href, title, text);
+  };
+}
 
+export function collectHeadingMetadata(renderer: marked.Renderer, metadata: any) {
+  const prevHeading = renderer.heading;
+
+  renderer.heading = function(text, level, raw) {
+    const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
+    metadata.heading.push({
+      id,
+      level,
+      text
+    });
+
+    return prevHeading.call(this, text, level, raw);
+  };
+}
+
+export function changeCodeCreation(renderer: marked.Renderer) {
   function highlight(code: string, lang?: string) {
     if (lang != null && languages.indexOf(lang) !== -1) {
       return Prism.highlight(code, Prism.languages[lang]);
     }
     return code;
   }
-
-  renderer.heading = function(text, level, raw) {
-    const id = this.options.headerPrefix + raw.toLowerCase().replace(/[^\w]+/g, '-');
-    metadata.heading.push({
-      id,
-      level,
-      text
-    })
-    
-    return '<h'
-      + level
-      + ' id="'
-      + id
-      + '">'
-      + text
-      + '</h'
-      + level
-      + '>\n';
-  };
 
   renderer.code = function (code, lang, escaped) {
     const hcl = [];
@@ -67,10 +75,5 @@ export default function createRenderer() {
     <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${(escaped ? code : escape(code))}</code></pre>
   </highlight-code-line>
   `;
-  };
-
-  return {
-    metadata,
-    renderer
   };
 }
