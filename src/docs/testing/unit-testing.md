@@ -7,8 +7,24 @@ contributors:
 
 # Unit Testing
 
-Stencil makes it easy to unit test your component's class and app's utility functions using Jest.
+Stencil's goal is to make it easy to unit test a component's class and app utility functions using Jest.
 
+
+## Example Unit Test
+
+```typescript
+import { MyToggle } from '../my-toggle.tsx';
+
+it('should toggle the checked property', async () => {
+  const toggle = new MyToggle();
+
+  expect(toggle.checked).toBe(false);
+
+  toggle.someMethod();
+
+  expect(toggle.checked).toBe(true);
+});
+```
 
 
 <stencil-route-link url="/docs/testing" router="#router" custom="true">
