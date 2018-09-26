@@ -1,0 +1,240 @@
+{
+  "list": [
+    {
+      "type": "listitem",
+      "text": "Introduction",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Why Stencil",
+          "filePath": "/docs/introduction"
+        },
+        {
+          "type": "listitem",
+          "text": "Goals and Objectives",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Browser Support",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Getting Started",
+          "filePath": "/docs/getting-started"
+        },
+        {
+          "type": "listitem",
+          "text": "My First Component",
+          "filePath": "/docs/my-first-component"
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Components",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Component Life Cycle"
+        },
+        {
+          "type": "listitem",
+          "text": "Decorators",
+          "filePath": "/docs/decorators"
+        },
+        {
+          "type": "listitem",
+          "text": "Events",
+          "filePath": "/docs/events"
+        },
+        {
+          "type": "listitem",
+          "text": "Reactive Data",
+          "filePath": "/docs/reactive-data"
+        },
+        {
+          "type": "listitem",
+          "text": "Using JSX",
+          "filePath": "/docs/templating-jsx"
+        },
+        {
+          "type": "listitem",
+          "text": "Styling",
+          "filePath": "/docs/styling"
+        },
+        {
+          "type": "listitem",
+          "text": "Forms",
+          "filePath": "/docs/forms"
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Framework Integrations",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Overview",
+          "filePath": "/docs/framework-integration"
+        },
+        {
+          "type": "listitem",
+          "text": "Angular",
+          "filePath": "/docs/addons"
+        },
+        {
+          "type": "listitem",
+          "text": "React",
+          "filePath": "/docs/react"
+        },
+        {
+          "type": "listitem",
+          "text": "Vue",
+          "filePath": "/docs/vue"
+        },
+        {
+          "type": "listitem",
+          "text": "Ember",
+          "filePath": "/docs/ember"
+        },
+        {
+          "type": "listitem",
+          "text": "Vanilla",
+          "filePath": null
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Tooling",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Config",
+          "filePath": "/docs/config"
+        },
+        {
+          "type": "listitem",
+          "text": "Dev Server",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Prerendering",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Service Workers",
+          "filePath": "/docs/service-workers"
+        },
+        {
+          "type": "listitem",
+          "text": "Typed Components",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Docs Generation",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Plugins",
+          "filePath": "/docs/addons"
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Guides",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "PWA",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Distribution",
+          "filePath": "/docs/distribution"
+        },
+        {
+          "type": "listitem",
+          "text": "Bundling",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Router",
+          "filePath": "/docs/router"
+        },
+        {
+          "type": "listitem",
+          "text": "State Tunnel",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Style Guide",
+          "filePath": "/docs/style-guide"
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Testing",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Overview",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Unit Testing",
+          "filePath": "/docs/unit-testing"
+        },
+        {
+          "type": "listitem",
+          "text": "End-to-end Testing",
+          "filePath": null
+        },
+        {
+          "type": "listitem",
+          "text": "Visual Screenshot Diff",
+          "filePath": null
+        }
+      ]
+    },
+    {
+      "type": "listitem",
+      "text": "Community",
+      "children": [
+        {
+          "type": "listitem",
+          "text": "Stencil on GitHub",
+          "filePath": "https://github.com/ionic-team/stencil"
+        },
+        {
+          "type": "listitem",
+          "text": "Stencil on Slack",
+          "filePath": "https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM"
+        },
+        {
+          "type": "listitem",
+          "text": "Stencil on Twitter",
+          "filePath": "https://twitter.com/stenciljs"
+        },
+        {
+          "type": "listitem",
+          "text": "Resources",
+          "filePath": null
+        }
+      ]
+    }
+  ]
+}

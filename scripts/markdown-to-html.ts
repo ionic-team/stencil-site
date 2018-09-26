@@ -11,7 +11,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 const globAsync = promisify(glob);
 
-const DESTINATION_DIR = './src/docs-content';
+const DESTINATION_DIR = './src/assets/docs';
 const SOURCE_DIR = './src/docs';
 
 const renderer = new marked.Renderer();

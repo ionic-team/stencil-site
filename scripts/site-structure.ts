@@ -8,7 +8,7 @@ import { listFactory } from './markdown-renderer';
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const DESTINATION_FILE = './src/docs-content/structure.json';
+const DESTINATION_FILE = './src/assets/docs-structure.json';
 const SOURCE_FILE = './src/docs/README.md';
 
 const renderer = new marked.Renderer();
