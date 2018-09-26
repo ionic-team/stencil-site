@@ -13,7 +13,12 @@ document-component h1:first-of-type {
 }
 
 document-component ul {
-  padding: 0;
+  padding: 0 0 0 20px;
+  margin-bottom: 16px;
+}
+
+document-component ul ul {
+  margin: 2px 0;
 }
 
 document-component ul li,
