@@ -1,7 +1,6 @@
 ---
 title: Stencil Router
 description: Stencil Router
-description: Stencil has a number of add-ons that you can use with the build process.
 url: /docs/router
 contributors:
   - jthoms1

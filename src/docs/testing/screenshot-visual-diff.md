@@ -1,6 +1,7 @@
 ---
 title: Screenshot Visual Diff
 description: Screenshot Visual Diff
+url: /docs/screenshot-visual-diff
 contributors:
   - adamdbradley
 ---

@@ -1,6 +1,7 @@
 ---
 title: Integrated Dev Server
 description: Stencil Integrated Dev Server
+url: /docs/dev-server
 contributors:
   - adamdbradley
 ---

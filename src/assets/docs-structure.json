@@ -12,12 +12,12 @@
         {
           "type": "listitem",
           "text": "Goals and Objectives",
-          "filePath": null
+          "filePath": "/docs/goals-and-objectives"
         },
         {
           "type": "listitem",
           "text": "Browser Support",
-          "filePath": null
+          "filePath": "/docs/browser-support"
         },
         {
           "type": "listitem",
@@ -78,7 +78,7 @@
         {
           "type": "listitem",
           "text": "Overview",
-          "filePath": "/docs/framework-integration"
+          "filePath": "/docs/overview"
         },
         {
           "type": "listitem",
@@ -103,7 +103,7 @@
         {
           "type": "listitem",
           "text": "Vanilla",
-          "filePath": null
+          "filePath": "/docs/vanilla"
         }
       ]
     },
@@ -119,12 +119,12 @@
         {
           "type": "listitem",
           "text": "Dev Server",
-          "filePath": null
+          "filePath": "/docs/dev-server"
         },
         {
           "type": "listitem",
           "text": "Prerendering",
-          "filePath": null
+          "filePath": "/docs/prerendering"
         },
         {
           "type": "listitem",
@@ -134,12 +134,12 @@
         {
           "type": "listitem",
           "text": "Typed Components",
-          "filePath": null
+          "filePath": "/docs/typed-components"
         },
         {
           "type": "listitem",
           "text": "Docs Generation",
-          "filePath": null
+          "filePath": "/docs/docs-auto-generation"
         },
         {
           "type": "listitem",
@@ -155,7 +155,7 @@
         {
           "type": "listitem",
           "text": "PWA",
-          "filePath": null
+          "filePath": "/docs/pwa"
         },
         {
           "type": "listitem",
@@ -165,7 +165,7 @@
         {
           "type": "listitem",
           "text": "Bundling",
-          "filePath": null
+          "filePath": "/docs/module-bundling"
         },
         {
           "type": "listitem",
@@ -175,7 +175,7 @@
         {
           "type": "listitem",
           "text": "State Tunnel",
-          "filePath": null
+          "filePath": "/docs/stencil-state-tunnel"
         },
         {
           "type": "listitem",
@@ -191,7 +191,7 @@
         {
           "type": "listitem",
           "text": "Overview",
-          "filePath": null
+          "filePath": "/docs/testing-overview"
         },
         {
           "type": "listitem",
@@ -201,12 +201,12 @@
         {
           "type": "listitem",
           "text": "End-to-end Testing",
-          "filePath": null
+          "filePath": "/docs/end-to-end-testing"
         },
         {
           "type": "listitem",
           "text": "Visual Screenshot Diff",
-          "filePath": null
+          "filePath": "/docs/screenshot-visual-diff"
         }
       ]
     },
@@ -232,7 +232,7 @@
         {
           "type": "listitem",
           "text": "Resources",
-          "filePath": null
+          "filePath": "/docs/resources"
         }
       ]
     }

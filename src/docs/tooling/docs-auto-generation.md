@@ -1,6 +1,7 @@
 ---
 title: Docs Auto-Generation
 description: Docs Auto-Generation
+url: /docs/docs-auto-generation
 contributors:
   - adamdbradley
 ---
