@@ -50,7 +50,7 @@ export class SiteMenu {
             </li>
 
             <li>
-              <h4>Reference</h4>
+              <h4>Components</h4>
               <ul>
 
                 <li>
@@ -95,9 +95,101 @@ export class SiteMenu {
                   </stencil-route-link>
                 </li>
 
+              </ul>
+            </li>
+
+            <li>
+              <h4>Framework Integrations</h4>
+              <ul>
+
+                <li>
+                  <stencil-route-link url="/docs/framework-integration" onClick={() => toggleLeftSidebar()}>
+                    Overview
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/angular' onClick={() => toggleLeftSidebar()}>
+                    Angular
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/react' onClick={() => toggleLeftSidebar()}>
+                    React
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/vue' onClick={() => toggleLeftSidebar()}>
+                    Vue
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/ember' onClick={() => toggleLeftSidebar()}>
+                    Ember
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/javascript' onClick={() => toggleLeftSidebar()}>
+                    JavaScript
+                  </stencil-route-link>
+                </li>
+
+              </ul>
+            </li>
+
+            <li>
+              <h4>Tooling</h4>
+              <ul>
+
                 <li>
                   <stencil-route-link url='/docs/config' onClick={() => toggleLeftSidebar()}>
                     Config
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/dev-server' onClick={() => toggleLeftSidebar()}>
+                    Dev Server
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/hot-module-replacement' onClick={() => toggleLeftSidebar()}>
+                    Hot Module Replacement
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/prerendering' onClick={() => toggleLeftSidebar()}>
+                    Prerendering
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/typed-components' onClick={() => toggleLeftSidebar()}>
+                    Typed Components
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/docs-auto-generation' onClick={() => toggleLeftSidebar()}>
+                    Docs Auto-Generation
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/build-conditionals' onClick={() => toggleLeftSidebar()}>
+                    Build Conditionals
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/plugins' onClick={() => toggleLeftSidebar()}>
+                    Plugins
                   </stencil-route-link>
                 </li>
 
@@ -107,29 +199,6 @@ export class SiteMenu {
             <li>
               <h4>Guides</h4>
               <ul>
-                <li>
-                  <stencil-route-link url='/docs/distribution' onClick={() => toggleLeftSidebar()}>
-                    Distribution
-                  </stencil-route-link>
-                </li>
-
-                {/*<li>
-                  <stencil-route-link url='/docs/module-bundling'>
-                    Module Bundling
-                  </stencil-route-link>
-                </li>*/}
-
-                <li>
-                  <stencil-route-link url='/docs/prerendering' onClick={() => toggleLeftSidebar()}>
-                    Prerendering
-                  </stencil-route-link>
-                </li>
-
-                <li>
-                  <stencil-route-link url='/docs/server-side-rendering' onClick={() => toggleLeftSidebar()}>
-                    Server Side Rendering
-                  </stencil-route-link>
-                </li>
 
                 <li>
                   <stencil-route-link url='/docs/service-workers' onClick={() => toggleLeftSidebar()}>
@@ -138,28 +207,16 @@ export class SiteMenu {
                 </li>
 
                 <li>
-                  <stencil-route-link url='/docs/context' onClick={() => toggleLeftSidebar()}>
-                    Context
+                  <stencil-route-link url='/docs/distribution' onClick={() => toggleLeftSidebar()}>
+                    Sharing and Distribution
                   </stencil-route-link>
                 </li>
-
-                {/*<li>
-                  <stencil-route-link url='/docs/performance'>
-                    Performance
-                  </stencil-route-link>
-                </li>*/}
 
                 <li>
-                  <stencil-route-link url='/docs/unit-testing' onClick={() => toggleLeftSidebar()}>
-                    Unit Testing
+                  <stencil-route-link url='/docs/module-bundling' onClick={() => toggleLeftSidebar()}>
+                    Module Bundling
                   </stencil-route-link>
                 </li>
-
-                {/*<li>
-                  <stencil-route-link url='/docs/dev-inspector'>
-                    Dev Inspector
-                  </stencil-route-link>
-                </li>*/}
 
                 <li>
                   <stencil-route-link url='/docs/router' onClick={() => toggleLeftSidebar()}>
@@ -167,13 +224,15 @@ export class SiteMenu {
                   </stencil-route-link>
                 </li>
 
-                {/*
-                  The below route will be replaced by the framework integration
-                  section once its ready
-                */}
                 <li>
-                  <stencil-route-link url="/docs/framework-integration" onClick={() => toggleLeftSidebar()}>
-                    Framework Integration
+                  <stencil-route-link url='/docs/state-tunnel' onClick={() => toggleLeftSidebar()}>
+                    State Tunnel
+                  </stencil-route-link>
+                </li>
+
+                <li>
+                  <stencil-route-link url='/docs/redux' onClick={() => toggleLeftSidebar()}>
+                    Redux
                   </stencil-route-link>
                 </li>
 
@@ -182,43 +241,44 @@ export class SiteMenu {
                     Style Guide
                   </stencil-route-link>
                 </li>
+
               </ul>
             </li>
 
-            {/*<li>
-              <h4>Framework Integration</h4>
+            <li>
+              <h4>Testing</h4>
               <ul>
+
                 <li>
-                  <stencil-route-link url='/docs/framework-integration/vanilla'>
-                    Vanilla
+                  <stencil-route-link url='/docs/testing' onClick={() => toggleLeftSidebar()}>
+                    Overview
                   </stencil-route-link>
                 </li>
+
                 <li>
-                  <stencil-route-link url='/docs/framework-integration/angular'>
-                    Angular
+                  <stencil-route-link url='/docs/unit-testing' onClick={() => toggleLeftSidebar()}>
+                    Unit Testing
                   </stencil-route-link>
                 </li>
+
                 <li>
-                  <stencil-route-link url='/docs/framework-integration/react'>
-                    React
+                  <stencil-route-link url='/docs/e2e-testing' onClick={() => toggleLeftSidebar()}>
+                    End-to-end Testing
                   </stencil-route-link>
                 </li>
+
                 <li>
-                  <stencil-route-link url='/docs/framework-integration/vue'>
-                    Vue
+                  <stencil-route-link url='/docs/screenshot-visual-diff' onClick={() => toggleLeftSidebar()}>
+                    Screenshot Visual Diff
                   </stencil-route-link>
                 </li>
+
               </ul>
-            </li>*/}
+            </li>
 
             <li>
               <h4>Community</h4>
               <ul>
-                {/* <li>
-                  <stencil-route-link url='/docs/community/how-to-contribute' onClick={() => toggleLeftSidebar()}>
-                    How to Contribute
-                  </stencil-route-link>
-                </li> */}
                 <li>
                   <a href='https://github.com/ionic-team/stencil'>Stencil on GitHub</a>
                 </li>
@@ -229,8 +289,8 @@ export class SiteMenu {
                   <a href='https://twitter.com/stenciljs'>Stencil on Twitter</a>
                 </li>
                 <li>
-                  <stencil-route-link url='/docs/add-ons' onClick={() => toggleLeftSidebar()}>
-                    Add-ons
+                  <stencil-route-link url='/docs/resources' onClick={() => toggleLeftSidebar()}>
+                    Resources
                   </stencil-route-link>
                 </li>
               </ul>

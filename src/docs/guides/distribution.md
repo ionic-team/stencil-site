@@ -75,13 +75,13 @@ The first step for all three of these strategies is to
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 
-<stencil-route-link url="/docs/config" router="#router" custom="true">
+<stencil-route-link url="/docs/service-workers" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/prerendering" custom="true">
+<stencil-route-link url="/docs/module-bundling" custom="true">
   <button class="pull-right btn btn--primary">
     Next
   </button>

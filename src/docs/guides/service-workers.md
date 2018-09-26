@@ -95,13 +95,13 @@ This code imports the Workbox library, creates a new instance of the service wor
 
 
 
-<stencil-route-link url="/docs/server-side-rendering" router="#router" custom="true">
+<stencil-route-link url="/docs/plugins" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/context" custom="true">
+<stencil-route-link url="/docs/distribution" custom="true">
   <button class="pull-right btn btn--primary">
     Next
   </button>

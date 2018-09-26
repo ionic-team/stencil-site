@@ -1,22 +1,22 @@
 ---
-title: Module Bundling
-description: Module Bundling
+title: Redux
+description: Redux
 contributors:
   - jthoms1
   - adamdbradley
 ---
-# Module Bundling
+# Redux
 
 TODO
 
 
-<stencil-route-link url="/docs/distribution" router="#router" custom="true">
+<stencil-route-link url="/docs/state-tunnel" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/router" custom="true">
+<stencil-route-link url="/docs/style-guide" custom="true">
   <button class='pull-right btn btn--primary'>
     Next
   </button>

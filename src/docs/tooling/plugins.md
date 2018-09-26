@@ -1,10 +1,10 @@
 ---
-title: Add Ons
-description: Stencil has a number of add-ons that you can use with the build process.
+title: Plugins
+description: Stencil has a number of plugins that you can use with the build process.
 contributors:
   - jthoms1
 ---
-# Add Ons
+# Plugins
 
 ## Stencil Sass
 
@@ -39,8 +39,14 @@ export const config: Config = {
 };
 ```
 
-<stencil-route-link url="/docs/style-guide" custom="true">
+<stencil-route-link url="/docs/build-conditionals" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
+  </button>
+</stencil-route-link>
+
+<stencil-route-link url="/docs/service-workers" custom="true">
+  <button class="pull-right btn btn--primary">
+    Next
   </button>
 </stencil-route-link>

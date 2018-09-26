@@ -6,6 +6,7 @@ contributors:
 ---
 # Stencil Goals And Objectives
 
+TODO
 
 <stencil-route-link url="/docs/introduction" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">

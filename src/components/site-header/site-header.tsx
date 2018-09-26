@@ -67,9 +67,6 @@ export class SiteHeader {
           <stencil-route-link url="/demos"  exact={true} onClick={() => { this.hideNav() }}>
             Demos
           </stencil-route-link>
-          <stencil-route-link url="/pwa" exact={true} onClick={() => { this.hideNav() }}>
-            PWAs
-          </stencil-route-link>
           <stencil-route-link url="/resources"  exact={true} onClick={() => { this.hideNav() }}>
             Resources
           </stencil-route-link>

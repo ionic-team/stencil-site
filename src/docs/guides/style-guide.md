@@ -289,13 +289,13 @@ export class Something {
 }
 ```
 
-<stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
+<stencil-route-link url="/docs/redux" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/add-ons" custom="true">
+<stencil-route-link url="/docs/testing" custom="true">
   <button class='pull-right btn btn--primary'>
     Next
   </button>

@@ -1,8 +1,9 @@
 ---
-title: Add Ons
-description: Stencil has a number of add-ons that you can use with the build process.
+title: Angular Intergration with Stencil
+description: Angular Intergration with Stencil
 contributors:
   - jthoms1
+  - adamdbradley
 ---
 # Angular
 
@@ -56,13 +57,13 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 defineCustomElements(window);
 ```
 
-<stencil-route-link url="/docs/distribution" router="#router" custom="true">
+<stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
   <button class='pull-left btn btn--secondary'>
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/css-variables" custom="true">
+<stencil-route-link url="/docs/react" custom="true">
   <button class='pull-right btn btn--primary'>
     Next
   </button>

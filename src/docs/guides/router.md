@@ -150,13 +150,13 @@ Then we can use that `match` prop to access our data:
 const myData = this.match.params.pageNum;
 ```
 
-<stencil-route-link url="/docs/unit-testing" router="#router" custom="true">
+<stencil-route-link url="/docs/module-bundling" router="#router" custom="true">
   <button class="pull-left btn btn--secondary">
     Back
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/framework-integration" custom="true">
+<stencil-route-link url="/docs/state-tunnel" custom="true">
   <button class='pull-right btn btn--primary'>
     Next
   </button>

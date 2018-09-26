@@ -1,5 +1,5 @@
 ---
-title: Shadow DOM
+title: Styling Components
 description: Stencil has a number of add-ons that you can use with the build process.
 contributors:
   - jthoms1

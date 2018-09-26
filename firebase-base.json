@@ -62,6 +62,21 @@
         "source": "/docs/routing",
         "destination": "/docs/router",
         "type": 301
+      },
+      {
+        "source": "/docs/server-side-rendering",
+        "destination": "/docs/prerendering",
+        "type": 301
+      },
+      {
+        "source": "/docs/add-ons",
+        "destination": "/docs/plugins",
+        "type": 301
+      },
+      {
+        "source": "/docs/build-variables",
+        "destination": "/docs/build-conditionals",
+        "type": 301
       }
     ]
   }

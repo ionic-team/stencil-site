@@ -122,7 +122,7 @@ For the validity checking, we are #usingtheplatform and are using the [constrain
   </button>
 </stencil-route-link>
 
-<stencil-route-link url="/docs/config" custom="true">
+<stencil-route-link url="/docs/framework-integration" custom="true">
   <button class="pull-right btn btn--primary">
     Next
   </button>
