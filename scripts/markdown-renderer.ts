@@ -6,19 +6,52 @@ const languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
 
 export function listFactory(renderer: marked.Renderer, metadata: any) {
-  let lastListItem = metadata.listes = [];
+  metadata.list = [];
+  let lastItem: any = null;
+  let activeList = [];
   const prevList = renderer.list;
   const prevListitem = renderer.listitem;
   const prevLink = renderer.link;
 
   renderer.list = function(body, ordered) {
-    lastListItem;
+    lastItem = {
+      type: 'list'
+    };
     return prevList.call(this, body, ordered);
   };
   renderer.listitem = function(text) {
+    if (lastItem.type === 'list') {
+      const [ itemText ] = text.split('<ul');
+      lastItem = {
+        type: 'listitem',
+        text: itemText,
+        children: activeList
+      }
+      metadata.list.push(lastItem);
+      activeList = [];
+
+    } else if (lastItem.type === 'link') {
+      lastItem = {
+        type: 'listitem',
+        text: lastItem.text,
+        filePath: lastItem.filePath
+      }
+      activeList.push(lastItem);
+    } else {
+      lastItem = {
+        type: 'listitem',
+        text: text
+      }
+      activeList.push(lastItem);
+    }
     return prevListitem.call(this, text);
   };
   renderer.link = function(href: string, title: string, text: string) {
+    lastItem = {
+      type: 'link',
+      text,
+      filePath: href
+    };
     return prevLink.call(this, href, title, text);
   };
 }

@@ -8,7 +8,8 @@
     "build": "npm run docs && stencil build --prerender && npm run host-to-firebase",
     "deploy": "npm run build && firebase deploy",
     "host-to-firebase": "node scripts/host-to-firebase.js",
-    "start": "npm run docs && stencil build --dev --watch --serve"
+    "start": "npm run docs && stencil build --dev --watch --serve",
+    "site-structure": "tsc --p ./scripts && node ./scripts/site-structure"
   },
   "dependencies": {},
   "devDependencies": {

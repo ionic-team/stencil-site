@@ -2,7 +2,7 @@
 
 * Introduction
   * [Why Stencil](introduction/why-stencil.md)
-  * [Goals and Objectives (todo)](introduction/goals-and-objectives.md)
+  * [Goals and Objectives](introduction/goals-and-objectives.md)
   * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
