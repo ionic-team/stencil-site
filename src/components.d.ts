@@ -6,8 +6,8 @@
 
 import '@stencil/core';
 
-import '@stencil/state-tunnel';
 import '@stencil/router';
+import '@stencil/state-tunnel';
 
 
 export namespace Components {
@@ -32,6 +32,9 @@ export namespace Components {
   interface AppMarkedAttributes extends StencilHTMLAttributes {
     'doc'?: string;
   }
+
+  interface AppRoot {}
+  interface AppRootAttributes extends StencilHTMLAttributes {}
 
   interface CustomClock {}
   interface CustomClockAttributes extends StencilHTMLAttributes {}
@@ -104,9 +107,6 @@ export namespace Components {
 
   interface SiteMenu {}
   interface SiteMenuAttributes extends StencilHTMLAttributes {}
-
-  interface StencilSite {}
-  interface StencilSiteAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -114,6 +114,7 @@ declare global {
     'AppBurger': Components.AppBurger;
     'AppIcon': Components.AppIcon;
     'AppMarked': Components.AppMarked;
+    'AppRoot': Components.AppRoot;
     'CustomClock': Components.CustomClock;
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
@@ -126,13 +127,13 @@ declare global {
     'ResourcesPage': Components.ResourcesPage;
     'SiteHeader': Components.SiteHeader;
     'SiteMenu': Components.SiteMenu;
-    'StencilSite': Components.StencilSite;
   }
 
   interface StencilIntrinsicElements {
     'app-burger': Components.AppBurgerAttributes;
     'app-icon': Components.AppIconAttributes;
     'app-marked': Components.AppMarkedAttributes;
+    'app-root': Components.AppRootAttributes;
     'custom-clock': Components.CustomClockAttributes;
     'demo-card': Components.DemoCardAttributes;
     'demos-page': Components.DemosPageAttributes;
@@ -145,7 +146,6 @@ declare global {
     'resources-page': Components.ResourcesPageAttributes;
     'site-header': Components.SiteHeaderAttributes;
     'site-menu': Components.SiteMenuAttributes;
-    'stencil-site': Components.StencilSiteAttributes;
   }
 
 
@@ -165,6 +165,12 @@ declare global {
   var HTMLAppMarkedElement: {
     prototype: HTMLAppMarkedElement;
     new (): HTMLAppMarkedElement;
+  };
+
+  interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
+  var HTMLAppRootElement: {
+    prototype: HTMLAppRootElement;
+    new (): HTMLAppRootElement;
   };
 
   interface HTMLCustomClockElement extends Components.CustomClock, HTMLStencilElement {}
@@ -239,16 +245,11 @@ declare global {
     new (): HTMLSiteMenuElement;
   };
 
-  interface HTMLStencilSiteElement extends Components.StencilSite, HTMLStencilElement {}
-  var HTMLStencilSiteElement: {
-    prototype: HTMLStencilSiteElement;
-    new (): HTMLStencilSiteElement;
-  };
-
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement
     'app-icon': HTMLAppIconElement
     'app-marked': HTMLAppMarkedElement
+    'app-root': HTMLAppRootElement
     'custom-clock': HTMLCustomClockElement
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
@@ -261,13 +262,13 @@ declare global {
     'resources-page': HTMLResourcesPageElement
     'site-header': HTMLSiteHeaderElement
     'site-menu': HTMLSiteMenuElement
-    'stencil-site': HTMLStencilSiteElement
   }
 
   interface ElementTagNameMap {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-marked': HTMLAppMarkedElement;
+    'app-root': HTMLAppRootElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
@@ -280,7 +281,6 @@ declare global {
     'resources-page': HTMLResourcesPageElement;
     'site-header': HTMLSiteHeaderElement;
     'site-menu': HTMLSiteMenuElement;
-    'stencil-site': HTMLStencilSiteElement;
   }
 
 

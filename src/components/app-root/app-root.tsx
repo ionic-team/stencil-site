@@ -3,10 +3,10 @@ import { Component, Element, Listen, State } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 
 @Component({
-  tag: 'stencil-site',
-  styleUrl: 'stencil-site.css'
+  tag: 'app-root',
+  styleUrl: 'app-root.css'
 })
-export class App {
+export class AppRoot {
   elements = [
     'site-header',
     'site-menu',
