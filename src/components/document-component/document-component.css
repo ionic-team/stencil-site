@@ -1,4 +1,8 @@
 
+document-component {
+  display: block;
+}
+
 document-component > div {
   display: flex;
   justify-content: space-between;

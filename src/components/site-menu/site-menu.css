@@ -1,4 +1,5 @@
 site-menu {
+  display: block;
   flex: 0 0 220px;
 }
 
@@ -15,6 +16,7 @@ site-menu .menu-list ul li {
 
 site-menu .menu-list {
   margin-top: 0;
+  padding: 0;
 }
 
 site-menu .menu-list h4:first-of-type {
@@ -23,6 +25,7 @@ site-menu .menu-list h4:first-of-type {
 
 site-menu .menu-list ul {
   margin: 0px 0 28px;
+  padding: 0;
 }
 
 site-menu .menu-list li {
