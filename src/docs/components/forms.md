@@ -1,9 +1,10 @@
 ---
 title: Forms
-description: Stencil has a number of add-ons that you can use with the build process.
+description: Forms
 contributors:
   - jthoms1
 ---
+
 # Forms
 
 ### Basic forms

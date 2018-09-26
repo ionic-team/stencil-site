@@ -1,9 +1,10 @@
 ---
 title: Stencil Router
-description: Stencil has a number of add-ons that you can use with the build process.
+description: Stencil Router
 contributors:
   - jthoms1
 ---
+
 # Stencil Router
 
 `@stencil/router` is a package on NPM that contains a router that can be used in Stencil apps.

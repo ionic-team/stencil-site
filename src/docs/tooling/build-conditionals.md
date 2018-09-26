@@ -4,6 +4,7 @@ description: Build Conditionals
 contributors:
   - jthoms1
 ---
+
 # Build Conditionals
 
 Build Conditionals in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.

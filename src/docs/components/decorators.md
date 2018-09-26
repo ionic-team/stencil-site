@@ -1,10 +1,12 @@
 ---
 title: Decorators
-description: Stencil has a number of add-ons that you can use with the build process.
+description: Decorators
 contributors:
   - jthoms1
 ---
+
 # Decorators
+
 ## Component Decorator
 
 Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.

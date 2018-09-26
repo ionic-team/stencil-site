@@ -1,9 +1,10 @@
 ---
 title: Prerendering
-description: Stencil has a number of add-ons that you can use with the build process.
+description: Prerendering
 contributors:
   - adamdbradley
 ---
+
 # Prerendering
 
 One of the benefits of Stencil is that it allows for prerendering of your web components. Prerendering generates static html+css files at build time that can then be served to the browser and hydrated with your actual web components on the fly. For an example of what this looks like, right click on this page and hit the view source button.

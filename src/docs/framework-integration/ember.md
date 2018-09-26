@@ -5,6 +5,7 @@ contributors:
   - jthoms1
   - adamdbradley
 ---
+
 # Ember
 
 Working with Stencil components in Ember is really easy thanks to the `ember-cli-stencil` addon. It handles:

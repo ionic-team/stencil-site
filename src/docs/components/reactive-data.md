@@ -1,10 +1,11 @@
 ---
-title: Handling arrays and objects
-description: Stencil has a number of add-ons that you can use with the build process.
+title: Reactive Data, Handling arrays and objects
+description: Reactive Data, Handling arrays and objects
 contributors:
   - jthoms1
 ---
-# Handling arrays and objects
+
+# Reactive Data: Handling arrays and objects
 
 Stencil components update when props or state on a component change. For performance and simplicity, Stencil only compares references for changes, and will not re-render when data inside of an array or object changes.
 

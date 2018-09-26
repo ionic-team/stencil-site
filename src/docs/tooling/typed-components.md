@@ -4,6 +4,7 @@ description: Typed Components
 contributors:
   - adamdbradley
 ---
+
 # Typed Components
 
 TODO

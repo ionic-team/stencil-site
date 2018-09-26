@@ -4,6 +4,7 @@ description: Unit Testing
 contributors:
   - adamdbradley
 ---
+
 # Unit Testing
 
 Stencil makes it easy to unit test your component using Jest and the Stencil unit testing framework.

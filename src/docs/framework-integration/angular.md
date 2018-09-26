@@ -5,6 +5,7 @@ contributors:
   - jthoms1
   - adamdbradley
 ---
+
 # Angular
 
 Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:

@@ -1,9 +1,10 @@
 ---
 title: Plugins
-description: Stencil has a number of plugins that you can use with the build process.
+description: Plugins
 contributors:
   - jthoms1
 ---
+
 # Plugins
 
 ## Stencil Sass

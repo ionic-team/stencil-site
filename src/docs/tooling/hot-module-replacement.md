@@ -4,6 +4,7 @@ description: Hot Module Replacement (HMR)
 contributors:
   - adamdbradley
 ---
+
 # Hot Module Replacement (HMR)
 
 TODO

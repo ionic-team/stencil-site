@@ -4,6 +4,7 @@ description: Screenshot Visual Diff
 contributors:
   - adamdbradley
 ---
+
 # Screenshot Visual Diff
 
 TODO

@@ -4,6 +4,7 @@ description: Stencil has a number of add-ons that you can use with the build pro
 contributors:
   - jthoms1
 ---
+
 # Context
 
 ### What is Context?

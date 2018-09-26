@@ -1,10 +1,11 @@
 ---
-title: Distributing web components built with Stencil
-description: Stencil has a number of add-ons that you can use with the build process.
+title: Distributing Web Components Built with Stencil
+description: Distributing Web Components Built with Stencil
 contributors:
   - jthoms1
 ---
-# Distributing web components built with Stencil
+
+# Distributing Web Components Built with Stencil
 
 Stencil makes it easy to build and share web components across any framework.
 

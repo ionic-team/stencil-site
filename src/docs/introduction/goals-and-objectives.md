@@ -1,9 +1,10 @@
 ---
-title: Goals and Objectives for Building Web Components with Stencil
-description: Stencil's goal is to create.
+title: Stencil Goals and Objectives
+description: Stencil Goals and Objectives
 contributors:
-  - jthoms1
+  - adamdbradley
 ---
+
 # Stencil Goals And Objectives
 
 TODO

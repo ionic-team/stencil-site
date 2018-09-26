@@ -1,9 +1,10 @@
 ---
 title: Getting Started
-description: Stencil has a number of add-ons that you can use with the build process.
+description: Getting Started
 contributors:
   - jthoms1
 ---
+
 # Getting Started
 
 ## Starting a new project
