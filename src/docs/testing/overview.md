@@ -11,7 +11,7 @@ contributors:
 Testing within Stencil is broken up into two distinct types: Unit tests and End-to-end (e2e) tests. Both types use [Jest](https://jestjs.io/) as the JavaScript testing solution. The browser environment for e2e testing is done using [Puppeteer](https://pptr.dev/), which provides many advantages Stencil can start to incorporate into its builds.
 
 
-## Unit Testing vs. e2e Testing
+## Unit Testing vs. End-to-end Testing
 
 There are countless philosophies on how testing should be done, and what should be considered a unit test, e2e test or even integration tests. To simplify it all, Stencil tries to break it down to so developers have a defined description of when to use each type of testing.
 
