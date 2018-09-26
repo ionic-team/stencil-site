@@ -18,7 +18,6 @@ Shadow DOM is currently natively supported in the following browsers:
 - Chrome
 - Safari
 - Opera
-- Most Chromium based browsers
 
 In browsers which do not support Shadow DOM we fall back to scoped css. This gives you the style encapsulation that comes along with Shadow DOM but without loading in a huge Shadow DOM polyfill.
 
@@ -48,20 +47,16 @@ export class ShadowComponent {
 - Normally you would wrap your styles in the tag name of the component like so:
 
 ```css
-my-element {
-  div {
-    background: blue;
-  }
+my-element div {
+  background: blue;
 }
 ```
 
-With Shadow DOM the css selector for the element is the `:host` selector. So, with Shadow DOM turned on in your component the above css would be:
+With Shadow DOM enabled, elements within the shadow root are scoped, and styles outside of the component do not apply. Essentially with Shadow DOM css selector can be simplified, and the above example could be:
 
 ```css
-:host {
-  div {
-    background: blue;
-  }
+div {
+  background: blue;
 }
 ```
 
