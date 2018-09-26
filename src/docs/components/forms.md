@@ -14,7 +14,7 @@ Here is an example of a component with a basic form:
 ```tsx
 @Component({
   tag: 'my-name',
-  styleUrl: 'my-name.scss'
+  styleUrl: 'my-name.css'
 })
 export class MyName {
 
@@ -54,7 +54,7 @@ Here is an example of a component with a more advanced form:
 ```tsx
 @Component({
   tag: 'my-name',
-  styleUrl: 'my-name.scss'
+  styleUrl: 'my-name.css'
 })
 export class MyName {
 

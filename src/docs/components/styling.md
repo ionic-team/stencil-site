@@ -31,7 +31,7 @@ Shadow DOM is not currently turned on by default for web components built with S
 ```tsx
 @Component({
   tag: 'shadow-component',
-  styleUrl: 'shadow-component.scss',
+  styleUrl: 'shadow-component.css',
   shadow: true
 })
 export class ShadowComponent {

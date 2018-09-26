@@ -94,7 +94,7 @@ Below is an example folder structure containing a webapp's global sass file, nam
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
 ```tsx
-globalStyle: 'src/globals/app.scss'
+globalStyle: 'src/globals/app.css'
 ```
 
 <a name="hashFileNames"></a>

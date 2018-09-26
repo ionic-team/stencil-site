@@ -18,7 +18,7 @@ import { Component, Build } from '@stencil/core';
 
 @Component({
   tag: 'stencil-app',
-  styleUrl: 'stencil-app.scss'
+  styleUrl: 'stencil-app.css'
 })
 export class StencilApp {
 

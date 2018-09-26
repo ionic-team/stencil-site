@@ -20,23 +20,23 @@ Example from ionic-core:
 
 ```bash
 ├── card
-│   ├── card.ios.scss
-│   ├── card.md.scss
-│   ├── card.scss
+│   ├── card.ios.css
+│   ├── card.md.css
+│   ├── card.css
 │   ├── card.tsx
 │   └── test
 │       └── basic
 │           ├── e2e.js
 │           └── index.html
 ├── card-content
-│   ├── card-content.ios.scss
-│   ├── card-content.md.scss
-│   ├── card-content.scss
+│   ├── card-content.ios.css
+│   ├── card-content.md.css
+│   ├── card-content.css
 │   └── card-content.tsx
 ├── card-title
-│   ├── card-title.ios.scss
-│   ├── card-title.md.scss
-│   ├── card-title.scss
+│   ├── card-title.ios.css
+│   ├── card-title.md.css
+│   ├── card-title.css
 ```
 
 
@@ -128,11 +128,11 @@ onClick() {
 ```tsx
 @Component({
   tag: 'ion-something',
-  styleUrl: 'something.scss',
+  styleUrl: 'something.css',
   styleUrls: {
-    ios: 'something.ios.scss',
-    md: 'something.md.scss',
-    wp: 'something.wp.scss'
+    ios: 'something.ios.css',
+    md: 'something.md.css',
+    wp: 'something.wp.css'
   },
   host: {
     theme: 'something'
