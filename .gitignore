@@ -3,7 +3,7 @@ dist/
 www/
 page-analysis/
 scripts/*.js
-src/docs-content/
+src/assets/docs/
 firebase.json
 
 *~
