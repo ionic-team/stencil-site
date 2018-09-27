@@ -148,11 +148,6 @@
     "text": "Guides",
     "children": [
       {
-        "text": "PWA",
-        "filePath": "/assets/docs/guides/pwa.json",
-        "url": "/docs/pwa"
-      },
-      {
         "text": "Distribution",
         "filePath": "/assets/docs/guides/distribution.json",
         "url": "/docs/distribution"

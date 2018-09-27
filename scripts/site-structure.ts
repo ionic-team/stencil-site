@@ -37,7 +37,7 @@ const renderer = new marked.Renderer();
 async function walkUpdateChildren(itemList, sourcePath) {
   for (const item of itemList) {
     if (item.filePath && item.filePath.indexOf('//') === -1) {
-      const fullPath = path.join(path.dirname(sourcePath), item.filePath);
+      const fullPath = path.join(path.dirname(sourcePath), item.filePath + '.md');
       const url = await getMarkdownFileSitePath(fullPath);
       const jsonPath = path.join(
         ASSETS_DIR,

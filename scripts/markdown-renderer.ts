@@ -1,10 +1,24 @@
 import marked from 'marked';
 import Prism from 'prismjs';
+import path from 'path';
 import loadLanguages from 'prismjs/components/';
 import { SiteStructureItem } from '../src/global/definitions';
 
 const languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
+
+export function findItem(siteStructureList: SiteStructureItem[], filePath: string): SiteStructureItem {
+  for (const item of siteStructureList) {
+    if (item.filePath === filePath) {
+      return item;
+    } else if (item.children && item.children.length > 0) {
+      const foundItem = findItem(item.children, filePath);
+      if (foundItem != null) {
+        return foundItem;
+      }
+    }
+  }
+}
 
 export function listFactory(renderer: marked.Renderer, metadataList: SiteStructureItem[]) {
   let lastItem: any = null;
@@ -64,12 +78,18 @@ export function listFactory(renderer: marked.Renderer, metadataList: SiteStructu
   };
 }
 
-export function localizeMarkdownLink(renderer: marked.Renderer, metadataList: SiteStructureItem[]) {
+export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string, metadataList: SiteStructureItem[]) {
   const prevLink = renderer.link;
-  metadataList;
   
   renderer.link = function(href: string, title: string, text: string) {
-    return prevLink(href, title, text);
+    if (!(href.startsWith('/') || href.startsWith('#') || href.startsWith('http'))) {
+      const newPath = path.resolve(path.dirname(filePath), href) + '.json';
+      const item = findItem(metadataList, newPath);
+      if (item && item.url != null) {
+        return `<stencil-route-link ${title ? `anchorTitle=${title}` : ''} url=${item.url}>${text}</stencil-route-link>`;
+      }
+    }
+    return prevLink.call(this, href, title, text);
   }
 }
 
