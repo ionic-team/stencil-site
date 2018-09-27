@@ -2,6 +2,10 @@ resources-page .measure-lg {
   margin-bottom: 100px;
 }
 
+resources-page .measure-lg > div + div {
+  margin-top: 56px;
+}
+
 resources-page .list--unstyled {
   line-height: 1.4;
 }

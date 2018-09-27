@@ -24,12 +24,6 @@ h2 {
   font-weight: bold;
 }
 
-h2 {
-  padding-top: 70px;
-  margin-top: -22px;
-  margin-bottom: 8px;
-}
-
 h3 {
   /* padding-top: 70px;
   margin-top: -22px;
@@ -71,7 +65,7 @@ ol a:hover {
 blockquote {
   background: var(--color-old-lace);
   margin: 0;
-  padding: 1px 20px;
+  padding: 1px 18px 4px;
   border-radius: 4px;
 }
 

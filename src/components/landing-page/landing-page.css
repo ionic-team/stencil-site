@@ -161,8 +161,8 @@ landing-page .section--centered .section__body p {
   margin-right: auto;
 }
 
-landing-page .section__body h4 {
-  margin-bottom: 12px;
+landing-page .section__body h4 + p {
+  margin-top: 14px;
 }
 
 landing-page .section--centered .section__body h6 {

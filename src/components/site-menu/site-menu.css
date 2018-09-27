@@ -4,6 +4,7 @@ site-menu {
 }
 
 site-menu h4 {
+  color: var(--color-woodsmoke);
   margin-bottom: 0;
 }
 
