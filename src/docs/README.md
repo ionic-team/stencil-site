@@ -20,7 +20,7 @@
   * [React](framework-integration/react.md)
   * [Vue](framework-integration/vue.md)
   * [Ember](framework-integration/ember.md)
-  * [Vanilla](framework-integration/vanilla.md)
+  * [JavaScript](framework-integration/javascript.md)
 * Tooling
   * [Config](tooling/config.md)
   * [Dev Server](tooling/dev-server.md)

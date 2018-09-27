@@ -1,7 +1,9 @@
 ---
 title: Components without a Framework
 description: Components without a Framework
+url: /docs/javascript
 contributors:
+  - mhartington
   - jthoms1
   - adamdbradley
 ---
@@ -10,7 +12,7 @@ contributors:
 
 Integrating a component built with Stencil to a project without a JavaScript framework is straight forward. If you're using a simple HTML page, you can add your component via a script tag. For example, if we published a component to npm, we could load the component through unpkg like this:
 
-```html
+```markup
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +26,12 @@ Integrating a component built with Stencil to a project without a JavaScript fra
 
 Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement.
 
-```html
+```markup
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    import {defineCustomElements} from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
+  <script type="module">
+    import { defineCustomElements } from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
     defineCustomElements(window);
   </script>
 </head>

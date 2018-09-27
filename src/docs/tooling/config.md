@@ -85,11 +85,11 @@ Additionally, the `globalStyle` config is can be used to precompile styles with 
 
 Below is an example folder structure containing a webapp's global sass file, named `app.css`.
 
-```
-  src/
-    components/
-    globals/
-      app.css
+```bash
+src/
+  components/
+  globals/
+    app.css
 ```
 
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
