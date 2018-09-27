@@ -64,6 +64,15 @@ export function listFactory(renderer: marked.Renderer, metadataList: SiteStructu
   };
 }
 
+export function localizeMarkdownLink(renderer: marked.Renderer, metadataList: SiteStructureItem[]) {
+  const prevLink = renderer.link;
+  metadataList;
+  
+  renderer.link = function(href: string, title: string, text: string) {
+    return prevLink(href, title, text);
+  }
+}
+
 export function collectHeadingMetadata(renderer: marked.Renderer, metadata: any) {
   const prevHeading = renderer.heading;
 

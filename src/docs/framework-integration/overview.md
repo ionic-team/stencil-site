@@ -15,7 +15,7 @@ Stencil's integration with different frameworks is currently a work in progress.
 
 The following list contains the framework integrations that have been started. All of them are not yet completed.
 
-- <stencil-route-link url="/docs/angular" router="#router">Angular</stencil-route-link>
-- <stencil-route-link url="/docs/react" router="#router">React</stencil-route-link>
-- <stencil-route-link url="/docs/vue" router="#router">Vue</stencil-route-link>
-- <stencil-route-link url="/docs/ember" router="#router">Ember</stencil-route-link>
+[Angular](angular)
+[React](react)
+[Vue](vue)
+[Ember](ember)
