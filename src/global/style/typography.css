@@ -10,9 +10,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+/* h1, h2, h3, h4 {
   color: var(--color-woodsmoke);
-}
+} */
 
 h1 {
   font-size: 28px;
@@ -31,9 +31,9 @@ h2 {
 }
 
 h3 {
-  padding-top: 70px;
+  /* padding-top: 70px;
   margin-top: -22px;
-  margin-bottom: 14px;
+  margin-bottom: 14px; */
 }
 
 h4 {

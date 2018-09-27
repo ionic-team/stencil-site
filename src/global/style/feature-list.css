@@ -1,0 +1,25 @@
+.feature-list {
+  display: flex;
+}
+
+.feature-list__item {
+  padding-right: 32px;
+  flex: 1;
+}
+
+.feature-list__item svg {
+  fill: #000 !important;
+  width: 32px;
+  height: 32px;
+  margin: 22px 0 8px;
+}
+
+.feature-list__item h3 {
+  margin-bottom: 8px;
+  color: var(--color-woodsmoke);
+}
+
+.feature-list__item p {
+  max-width: 270px;
+  font-size: 15px;
+}

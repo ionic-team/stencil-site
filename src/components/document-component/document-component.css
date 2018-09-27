@@ -1,6 +1,7 @@
 
 document-component {
   display: block;
+  margin-bottom: 100px;
 }
 
 document-component > div {

@@ -35,3 +35,9 @@ app-icon .icon-more {
   width: 4px;
   height: 18px;
 }
+
+app-icon .icon-docs {
+  fill: var(--color-dodger-blue);
+  width: 13px;
+  height: 11px;
+}
