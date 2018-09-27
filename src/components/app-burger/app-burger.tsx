@@ -11,7 +11,7 @@ export class AppBurger {
 
   render() {
     return (
-      <div class="burger" onClick={() => this.toggleLeftSidebar() }>
+      <div class="burger" onClick={this.toggleLeftSidebar}>
         <app-icon name="menu"></app-icon>
         <app-icon name="close"></app-icon>
       </div>
