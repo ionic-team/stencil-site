@@ -1,12 +1,12 @@
 import marked from 'marked';
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/';
+import { SiteStructureItem } from '../src/global/definitions';
 
 const languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
 
-export function listFactory(renderer: marked.Renderer, metadata: any) {
-  metadata.list = [];
+export function listFactory(renderer: marked.Renderer, metadataList: SiteStructureItem[]) {
   let lastItem: any = null;
   let activeList = [];
   const prevList = renderer.list;
@@ -27,7 +27,10 @@ export function listFactory(renderer: marked.Renderer, metadata: any) {
         text: itemText,
         children: activeList
       }
-      metadata.list.push(lastItem);
+      metadataList.push({
+        text: itemText,
+        children: activeList
+      });
       activeList = [];
 
     } else if (lastItem.type === 'link') {
@@ -36,13 +39,18 @@ export function listFactory(renderer: marked.Renderer, metadata: any) {
         text: lastItem.text,
         filePath: lastItem.filePath
       }
-      activeList.push(lastItem);
+      activeList.push({
+        text: lastItem.text,
+        filePath: lastItem.filePath
+      });
     } else {
       lastItem = {
         type: 'listitem',
         text: text
       }
-      activeList.push(lastItem);
+      activeList.push({
+        text
+      });
     }
     return prevListitem.call(this, text);
   };

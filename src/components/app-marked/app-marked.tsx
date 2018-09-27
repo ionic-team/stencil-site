@@ -2,25 +2,25 @@ import { Component, Prop, State, Watch } from '@stencil/core';
 import { MarkdownContent } from '../../global/definitions';
 
 @Component({
-  tag: 'app-marked',
-  styleUrl: 'app-marked.css'
+  tag: 'app-marked'
 })
 export class AppMarked {
 
-  @Prop() doc?: string;
+  @Prop() fetchPath?: string;
+  @Prop() renderer?: (doc: MarkdownContent) => JSX.Element; 
 
   @State() docsContent: MarkdownContent = {};
 
   componentWillLoad() {
-    return this.fetchNewContent(this.doc);
+    return this.fetchNewContent(this.fetchPath);
   }
 
-  @Watch('doc')
-  fetchNewContent(newDoc: string) {
-    if (newDoc == null) {
+  @Watch('fetchPath')
+  fetchNewContent(docPath: string, oldDocPath?: string) {
+    if (docPath == null || docPath === oldDocPath) {
       return;
     }
-    return fetch(`/docs-content/${newDoc}.json`)
+    return fetch(this.fetchPath)
       .then(response => response.json())
       .then((data: MarkdownContent) => {
         if (data != null) {
@@ -30,11 +30,6 @@ export class AppMarked {
   }
 
   render() {
-    return [
-      <stencil-route-title
-        pageTitle={this.docsContent.title ? `${this.docsContent.title} - Stencil` : 'Stencil'}
-      ></stencil-route-title>,
-      <div class="measure-lg" innerHTML={this.docsContent.content}></div>
-    ];
+    return this.renderer(this.docsContent);
   }
 }

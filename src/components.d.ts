@@ -8,6 +8,10 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
+import {
+  MarkdownContent,
+  SiteStructureItem,
+} from './global/definitions';
 
 
 export namespace Components {
@@ -27,10 +31,12 @@ export namespace Components {
   }
 
   interface AppMarked {
-    'doc'?: string;
+    'fetchPath'?: string;
+    'renderer'?: (doc: MarkdownContent) => JSX.Element;
   }
   interface AppMarkedAttributes extends StencilHTMLAttributes {
-    'doc'?: string;
+    'fetchPath'?: string;
+    'renderer'?: (doc: MarkdownContent) => JSX.Element;
   }
 
   interface AppRoot {}
@@ -60,10 +66,10 @@ export namespace Components {
   interface DemosPageAttributes extends StencilHTMLAttributes {}
 
   interface DocumentComponent {
-    'pages': string[];
+    'page': string;
   }
   interface DocumentComponentAttributes extends StencilHTMLAttributes {
-    'pages'?: string[];
+    'page'?: string;
   }
 
   interface HighlightCodeLine {
@@ -93,6 +99,15 @@ export namespace Components {
     'width'?: string;
   }
 
+  interface LowerContentNav {
+    'next'?: SiteStructureItem;
+    'prev'?: SiteStructureItem;
+  }
+  interface LowerContentNavAttributes extends StencilHTMLAttributes {
+    'next'?: SiteStructureItem;
+    'prev'?: SiteStructureItem;
+  }
+
   interface NotfoundPage {}
   interface NotfoundPageAttributes extends StencilHTMLAttributes {}
 
@@ -105,8 +120,12 @@ export namespace Components {
   interface SiteHeader {}
   interface SiteHeaderAttributes extends StencilHTMLAttributes {}
 
-  interface SiteMenu {}
-  interface SiteMenuAttributes extends StencilHTMLAttributes {}
+  interface SiteMenu {
+    'siteStructureList': SiteStructureItem[];
+  }
+  interface SiteMenuAttributes extends StencilHTMLAttributes {
+    'siteStructureList'?: SiteStructureItem[];
+  }
 }
 
 declare global {
@@ -122,6 +141,7 @@ declare global {
     'HighlightCodeLine': Components.HighlightCodeLine;
     'LandingPage': Components.LandingPage;
     'LazyIframe': Components.LazyIframe;
+    'LowerContentNav': Components.LowerContentNav;
     'NotfoundPage': Components.NotfoundPage;
     'PwasPage': Components.PwasPage;
     'ResourcesPage': Components.ResourcesPage;
@@ -141,6 +161,7 @@ declare global {
     'highlight-code-line': Components.HighlightCodeLineAttributes;
     'landing-page': Components.LandingPageAttributes;
     'lazy-iframe': Components.LazyIframeAttributes;
+    'lower-content-nav': Components.LowerContentNavAttributes;
     'notfound-page': Components.NotfoundPageAttributes;
     'pwas-page': Components.PwasPageAttributes;
     'resources-page': Components.ResourcesPageAttributes;
@@ -215,6 +236,12 @@ declare global {
     new (): HTMLLazyIframeElement;
   };
 
+  interface HTMLLowerContentNavElement extends Components.LowerContentNav, HTMLStencilElement {}
+  var HTMLLowerContentNavElement: {
+    prototype: HTMLLowerContentNavElement;
+    new (): HTMLLowerContentNavElement;
+  };
+
   interface HTMLNotfoundPageElement extends Components.NotfoundPage, HTMLStencilElement {}
   var HTMLNotfoundPageElement: {
     prototype: HTMLNotfoundPageElement;
@@ -257,6 +284,7 @@ declare global {
     'highlight-code-line': HTMLHighlightCodeLineElement
     'landing-page': HTMLLandingPageElement
     'lazy-iframe': HTMLLazyIframeElement
+    'lower-content-nav': HTMLLowerContentNavElement
     'notfound-page': HTMLNotfoundPageElement
     'pwas-page': HTMLPwasPageElement
     'resources-page': HTMLResourcesPageElement
@@ -276,6 +304,7 @@ declare global {
     'highlight-code-line': HTMLHighlightCodeLineElement;
     'landing-page': HTMLLandingPageElement;
     'lazy-iframe': HTMLLazyIframeElement;
+    'lower-content-nav': HTMLLowerContentNavElement;
     'notfound-page': HTMLNotfoundPageElement;
     'pwas-page': HTMLPwasPageElement;
     'resources-page': HTMLResourcesPageElement;

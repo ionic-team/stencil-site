@@ -1,7 +1,7 @@
 ---
 title: Angular Intergration with Stencil
 description: Angular Intergration with Stencil
-url: /docs/addons
+url: /docs/angular
 contributors:
   - jthoms1
   - adamdbradley

@@ -1,240 +1,229 @@
-{
-  "list": [
-    {
-      "type": "listitem",
-      "text": "Introduction",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Why Stencil",
-          "filePath": "/docs/introduction"
-        },
-        {
-          "type": "listitem",
-          "text": "Goals and Objectives",
-          "filePath": "/docs/goals-and-objectives"
-        },
-        {
-          "type": "listitem",
-          "text": "Browser Support",
-          "filePath": "/docs/browser-support"
-        },
-        {
-          "type": "listitem",
-          "text": "Getting Started",
-          "filePath": "/docs/getting-started"
-        },
-        {
-          "type": "listitem",
-          "text": "My First Component",
-          "filePath": "/docs/my-first-component"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Components",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Component Life Cycle"
-        },
-        {
-          "type": "listitem",
-          "text": "Decorators",
-          "filePath": "/docs/decorators"
-        },
-        {
-          "type": "listitem",
-          "text": "Events",
-          "filePath": "/docs/events"
-        },
-        {
-          "type": "listitem",
-          "text": "Reactive Data",
-          "filePath": "/docs/reactive-data"
-        },
-        {
-          "type": "listitem",
-          "text": "Using JSX",
-          "filePath": "/docs/templating-jsx"
-        },
-        {
-          "type": "listitem",
-          "text": "Styling",
-          "filePath": "/docs/styling"
-        },
-        {
-          "type": "listitem",
-          "text": "Forms",
-          "filePath": "/docs/forms"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Framework Integrations",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Overview",
-          "filePath": "/docs/overview"
-        },
-        {
-          "type": "listitem",
-          "text": "Angular",
-          "filePath": "/docs/addons"
-        },
-        {
-          "type": "listitem",
-          "text": "React",
-          "filePath": "/docs/react"
-        },
-        {
-          "type": "listitem",
-          "text": "Vue",
-          "filePath": "/docs/vue"
-        },
-        {
-          "type": "listitem",
-          "text": "Ember",
-          "filePath": "/docs/ember"
-        },
-        {
-          "type": "listitem",
-          "text": "Vanilla",
-          "filePath": "/docs/vanilla"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Tooling",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Config",
-          "filePath": "/docs/config"
-        },
-        {
-          "type": "listitem",
-          "text": "Dev Server",
-          "filePath": "/docs/dev-server"
-        },
-        {
-          "type": "listitem",
-          "text": "Prerendering",
-          "filePath": "/docs/prerendering"
-        },
-        {
-          "type": "listitem",
-          "text": "Service Workers",
-          "filePath": "/docs/service-workers"
-        },
-        {
-          "type": "listitem",
-          "text": "Typed Components",
-          "filePath": "/docs/typed-components"
-        },
-        {
-          "type": "listitem",
-          "text": "Docs Generation",
-          "filePath": "/docs/docs-auto-generation"
-        },
-        {
-          "type": "listitem",
-          "text": "Plugins",
-          "filePath": "/docs/addons"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Guides",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "PWA",
-          "filePath": "/docs/pwa"
-        },
-        {
-          "type": "listitem",
-          "text": "Distribution",
-          "filePath": "/docs/distribution"
-        },
-        {
-          "type": "listitem",
-          "text": "Bundling",
-          "filePath": "/docs/module-bundling"
-        },
-        {
-          "type": "listitem",
-          "text": "Router",
-          "filePath": "/docs/router"
-        },
-        {
-          "type": "listitem",
-          "text": "State Tunnel",
-          "filePath": "/docs/stencil-state-tunnel"
-        },
-        {
-          "type": "listitem",
-          "text": "Style Guide",
-          "filePath": "/docs/style-guide"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Testing",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Overview",
-          "filePath": "/docs/testing-overview"
-        },
-        {
-          "type": "listitem",
-          "text": "Unit Testing",
-          "filePath": "/docs/unit-testing"
-        },
-        {
-          "type": "listitem",
-          "text": "End-to-end Testing",
-          "filePath": "/docs/end-to-end-testing"
-        },
-        {
-          "type": "listitem",
-          "text": "Visual Screenshot Diff",
-          "filePath": "/docs/screenshot-visual-diff"
-        }
-      ]
-    },
-    {
-      "type": "listitem",
-      "text": "Community",
-      "children": [
-        {
-          "type": "listitem",
-          "text": "Stencil on GitHub",
-          "filePath": "https://github.com/ionic-team/stencil"
-        },
-        {
-          "type": "listitem",
-          "text": "Stencil on Slack",
-          "filePath": "https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM"
-        },
-        {
-          "type": "listitem",
-          "text": "Stencil on Twitter",
-          "filePath": "https://twitter.com/stenciljs"
-        },
-        {
-          "type": "listitem",
-          "text": "Resources",
-          "filePath": "/docs/resources"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "text": "Introduction",
+    "children": [
+      {
+        "text": "Why Stencil",
+        "filePath": "/assets/docs/introduction/why-stencil.json",
+        "url": "/docs/introduction"
+      },
+      {
+        "text": "Goals and Objectives",
+        "filePath": "/assets/docs/introduction/goals-and-objectives.json",
+        "url": "/docs/goals-and-objectives"
+      },
+      {
+        "text": "Browser Support",
+        "filePath": "/assets/docs/introduction/browser-support.json",
+        "url": "/docs/browser-support"
+      },
+      {
+        "text": "Getting Started",
+        "filePath": "/assets/docs/introduction/getting-started.json",
+        "url": "/docs/getting-started"
+      },
+      {
+        "text": "My First Component",
+        "filePath": "/assets/docs/introduction/my-first-component.json",
+        "url": "/docs/my-first-component"
+      }
+    ]
+  },
+  {
+    "text": "Components",
+    "children": [
+      {
+        "text": "Component Life Cycle",
+        "filePath": "/assets/docs/components/component-lifecycle.json",
+        "url": "/docs/component-lifecycle"
+      },
+      {
+        "text": "Decorators",
+        "filePath": "/assets/docs/components/decorators.json",
+        "url": "/docs/decorators"
+      },
+      {
+        "text": "Events",
+        "filePath": "/assets/docs/components/events.json",
+        "url": "/docs/events"
+      },
+      {
+        "text": "Reactive Data",
+        "filePath": "/assets/docs/components/reactive-data.json",
+        "url": "/docs/reactive-data"
+      },
+      {
+        "text": "Using JSX",
+        "filePath": "/assets/docs/components/templating-and-jsx.json",
+        "url": "/docs/templating-jsx"
+      },
+      {
+        "text": "Styling",
+        "filePath": "/assets/docs/components/styling.json",
+        "url": "/docs/styling"
+      },
+      {
+        "text": "Forms",
+        "filePath": "/assets/docs/components/forms.json",
+        "url": "/docs/forms"
+      }
+    ]
+  },
+  {
+    "text": "Framework Integrations",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/framework-integration/overview.json",
+        "url": "/docs/overview"
+      },
+      {
+        "text": "Angular",
+        "filePath": "/assets/docs/framework-integration/angular.json",
+        "url": "/docs/angular"
+      },
+      {
+        "text": "React",
+        "filePath": "/assets/docs/framework-integration/react.json",
+        "url": "/docs/react"
+      },
+      {
+        "text": "Vue",
+        "filePath": "/assets/docs/framework-integration/vue.json",
+        "url": "/docs/vue"
+      },
+      {
+        "text": "Ember",
+        "filePath": "/assets/docs/framework-integration/ember.json",
+        "url": "/docs/ember"
+      },
+      {
+        "text": "Vanilla",
+        "filePath": "/assets/docs/framework-integration/vanilla.json",
+        "url": "/docs/vanilla"
+      }
+    ]
+  },
+  {
+    "text": "Tooling",
+    "children": [
+      {
+        "text": "Config",
+        "filePath": "/assets/docs/tooling/config.json",
+        "url": "/docs/config"
+      },
+      {
+        "text": "Dev Server",
+        "filePath": "/assets/docs/tooling/dev-server.json",
+        "url": "/docs/dev-server"
+      },
+      {
+        "text": "Prerendering",
+        "filePath": "/assets/docs/tooling/prerendering.json",
+        "url": "/docs/prerendering"
+      },
+      {
+        "text": "Service Workers",
+        "filePath": "/assets/docs/tooling/service-workers.json",
+        "url": "/docs/service-workers"
+      },
+      {
+        "text": "Typed Components",
+        "filePath": "/assets/docs/tooling/typed-components.json",
+        "url": "/docs/typed-components"
+      },
+      {
+        "text": "Docs Generation",
+        "filePath": "/assets/docs/tooling/docs-auto-generation.json",
+        "url": "/docs/docs-auto-generation"
+      },
+      {
+        "text": "Plugins",
+        "filePath": "/assets/docs/tooling/plugins.json",
+        "url": "/docs/addons"
+      }
+    ]
+  },
+  {
+    "text": "Guides",
+    "children": [
+      {
+        "text": "PWA",
+        "filePath": "/assets/docs/guides/pwa.json",
+        "url": "/docs/pwa"
+      },
+      {
+        "text": "Distribution",
+        "filePath": "/assets/docs/guides/distribution.json",
+        "url": "/docs/distribution"
+      },
+      {
+        "text": "Bundling",
+        "filePath": "/assets/docs/guides/module-bundling.json",
+        "url": "/docs/module-bundling"
+      },
+      {
+        "text": "Router",
+        "filePath": "/assets/docs/guides/router.json",
+        "url": "/docs/router"
+      },
+      {
+        "text": "State Tunnel",
+        "filePath": "/assets/docs/guides/state-tunnel.json",
+        "url": "/docs/stencil-state-tunnel"
+      },
+      {
+        "text": "Style Guide",
+        "filePath": "/assets/docs/guides/style-guide.json",
+        "url": "/docs/style-guide"
+      }
+    ]
+  },
+  {
+    "text": "Testing",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/testing/overview.json",
+        "url": "/docs/testing-overview"
+      },
+      {
+        "text": "Unit Testing",
+        "filePath": "/assets/docs/testing/unit-testing.json",
+        "url": "/docs/unit-testing"
+      },
+      {
+        "text": "End-to-end Testing",
+        "filePath": "/assets/docs/testing/e2e-testing.json",
+        "url": "/docs/end-to-end-testing"
+      },
+      {
+        "text": "Visual Screenshot Diff",
+        "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
+        "url": "/docs/screenshot-visual-diff"
+      }
+    ]
+  },
+  {
+    "text": "Community",
+    "children": [
+      {
+        "text": "Stencil on GitHub",
+        "filePath": "https://github.com/ionic-team/stencil"
+      },
+      {
+        "text": "Stencil on Slack",
+        "filePath": "https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM"
+      },
+      {
+        "text": "Stencil on Twitter",
+        "filePath": "https://twitter.com/stenciljs"
+      },
+      {
+        "text": "Resources",
+        "filePath": "/assets/docs/community/resources.json",
+        "url": "/docs/resources"
+      }
+    ]
+  }
+]

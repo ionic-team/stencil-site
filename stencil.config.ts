@@ -14,7 +14,6 @@ export const config: Config = {
   ],
   globalStyle: 'src/global/style/app.css',
   copy: [
-    { src: 'docs-content/' },
     { src: 'robots.txt' }
   ]
 };

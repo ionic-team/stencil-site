@@ -70,63 +70,12 @@ export class AppRoot {
             <stencil-router scrollTopOffset={0}>
               <stencil-route-switch>
                 <stencil-route url="/" component="landing-page" exact={true} />
-                <stencil-route
-                  url="/docs/:pageName"
-                  routeRender={(props: { [key: string]: any }) => {
-                    const map = {
-                      'introduction': 'introduction/why-stencil',
-                      'goals-and-objectives': 'introduction/goals-and-objectives',
-                      'browser-support': 'introduction/browser-support',
-                      'getting-started': 'introduction/getting-started',
-                      'my-first-component': 'introduction/my-first-component',
-
-                      'component-lifecycle': 'components/component-lifecycle',
-                      'decorators': 'components/decorators',
-                      'events': 'components/events',
-                      'reactive-data': 'components/reactive-data',
-                      'templating-jsx': 'components/templating-and-jsx',
-                      'styling': 'components/styling',
-                      'forms': 'components/forms',
-
-                      'framework-integration': 'framework-integration/overview',
-                      'angular': 'framework-integration/angular',
-                      'react': 'framework-integration/react',
-                      'vue': 'framework-integration/vue',
-                      'ember': 'framework-integration/ember',
-                      'javascript': 'framework-integration/javascript',
-
-                      'config': 'tooling/config',
-                      'dev-server': 'tooling/dev-server',
-                      'prerendering': 'tooling/prerendering',
-                      'typed-components': 'tooling/typed-components',
-                      'docs-auto-generation': 'tooling/docs-auto-generation',
-                      'build-conditionals': 'tooling/build-conditionals',
-                      'plugins': 'tooling/plugins',
-
-                      'service-workers': 'guides/service-workers',
-                      'distribution': 'guides/distribution',
-                      'module-bundling': 'guides/module-bundling',
-                      'router': 'guides/router',
-                      'state-tunnel': 'guides/state-tunnel',
-                      'redux': 'guides/redux',
-                      'style-guide': 'guides/style-guide',
-
-                      'testing': 'testing/overview',
-                      'unit-testing': 'testing/unit-testing',
-                      'e2e-testing': 'testing/e2e-testing',
-                      'screenshot-visual-diff': 'testing/screenshot-visual-diff',
-                    };
-                    return (
-                      <document-component
-                        pages={[map[props.match.params.pageName]]}
-                      />
-                    );
-                  }}
-                />
+                <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
+                  <document-component page={match.url}></document-component>
+                )}/>
                 <stencil-route url="/demos" component="demos-page" />
                 <stencil-route url="/pwa" component="pwas-page" />
                 <stencil-route url="/resources" component="resources-page" />
-
                 <stencil-route component='notfound-page'></stencil-route>
               </stencil-route-switch>
             </stencil-router>
