@@ -21,9 +21,13 @@ export class SiteMenu {
                 <ul>
                 { item.children.map((childItem) => (
                   <li>
+                    { (childItem.url) ?
                     <stencil-route-link url={childItem.url} onClick={() => toggleLeftSidebar()}>
                       {childItem.text}
-                    </stencil-route-link>                    
+                    </stencil-route-link> :
+                    <a rel="noopener" class="link--external" target="_blank" href={childItem.filePath}>
+                      {childItem.text}
+                    </a> }
                   </li>
                 )) }
                 </ul>
