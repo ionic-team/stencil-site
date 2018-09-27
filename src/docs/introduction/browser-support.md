@@ -20,15 +20,3 @@ For browsers without native support, a small polyfill helps developers use Custo
 Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil's browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.
 
 Web Components are being used in production today with the above approach.
-
-<stencil-route-link url="/docs/goals-and-objectives" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/getting-started" router="#router" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

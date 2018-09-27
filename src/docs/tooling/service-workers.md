@@ -94,17 +94,3 @@ self.workbox.clientsClaim();
 self.workbox.precaching.precacheAndRoute([]);
 ```
 This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.
-
-
-
-<stencil-route-link url="/docs/plugins" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/distribution" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

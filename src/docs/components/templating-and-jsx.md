@@ -285,15 +285,3 @@ export class AppHome{
 ```
 
 In this example we are using `ref` to get a reference to our input `ref={(el: HTMLInputElement) => this.textInput = el}`. We can then use that ref to do things such as grab the value from the text input directly `this.textInput.value`.
-
-<stencil-route-link url="/docs/reactive-data" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/styling" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

@@ -20,16 +20,3 @@ Stencil comes with an integrated dev server in order to simplify development. By
 - __Development Errors__: When errors happen during development, such as printing an error for invalid syntax, Stencil will not only log the error and the source of the error in the console, but also overlay the app with the error so it's easier to read.
 
 - __Open In Editor__: Links to the source files from development errors are clickable which will open up the source file in your IDE.
-
-
-<stencil-route-link url="/docs/config" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/prerendering" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

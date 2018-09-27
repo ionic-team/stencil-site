@@ -93,16 +93,3 @@ const port = 3030;
 // start listening and handling requests
 server.listen(port, () => console.log(`server-side rendering listening on port: ${ port }`));
 ```
-
-
-<stencil-route-link url="/docs/prerendering" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/service-workers" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

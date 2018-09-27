@@ -117,15 +117,3 @@ We can now listen to this event directly on the component in our JSX using the f
 ```tsx
 <todo-list onTodoCompleted={ev => this.someMethod(ev)}></todo-list>
 ```
-
-<stencil-route-link url="/docs/decorators" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/reactive-data" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

@@ -38,15 +38,3 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
 </body>
 </html>
 ```
-
-<stencil-route-link url="/docs/ember" router="#router" custom="true">
-  <button class='pull-left btn btn--secondary'>
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/config" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

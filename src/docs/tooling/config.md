@@ -240,16 +240,3 @@ srcDir: 'src'
 *default: `['**/test/**', '**/*.spec.*']`*
 
 The `excludeSrc` config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.
-
-
-<stencil-route-link url="/docs/javascript" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/dev-server" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

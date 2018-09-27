@@ -110,15 +110,3 @@ h1 {
 ```
 
 This will apply the color we defined in our CSS Variable, in this case `#488aff`, to our `h1` element.
-
-<stencil-route-link url="/docs/templating-jsx" router="#router" custom="true">
-  <button class='pull-left btn btn--secondary'>
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/forms" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

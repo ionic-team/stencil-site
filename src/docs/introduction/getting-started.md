@@ -34,15 +34,3 @@ you will be provided with a prompt so that you can choose the type of project to
 
 To get the latest version of @stencil/core you can run:
 `npm install @stencil/core@latest --save-exact`
-
-<stencil-route-link url="/docs/browser-support" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/my-first-component" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

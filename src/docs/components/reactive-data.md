@@ -43,15 +43,3 @@ let myCoolObject = {first: '1', second: '2'}
 myCoolObject = { ...myCoolObject, third: '3' }
 
 ```
-
-<stencil-route-link url="/docs/events" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/templating-jsx" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

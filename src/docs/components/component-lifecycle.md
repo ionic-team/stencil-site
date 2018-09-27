@@ -169,15 +169,3 @@ export class CustomClock {
 
 > Here is the example running.  If you want to see it in action then just inspect it with dev tools.
 > <custom-clock/>
-
-<stencil-route-link url="/docs/my-first-component" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/decorators" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

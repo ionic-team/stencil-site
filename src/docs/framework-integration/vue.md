@@ -27,16 +27,3 @@ new Vue({
 ```
 
 Vue provides several different ways to install and use the framework in an application. The above technique for integrating a Stencil custom element library has been tested on a Vue application that was created using the `vue-cli` with ES2015 and WebPack as primary options. A similar technique should work if the application was generated using other options.
-
-
-<stencil-route-link url="/docs/react" router="#router" custom="true">
-  <button class='pull-left btn btn--secondary'>
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/ember" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

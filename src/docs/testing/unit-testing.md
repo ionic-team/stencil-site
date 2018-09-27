@@ -154,15 +154,3 @@ it('should return a formatted string if there is no first or last name', () => {
   expect(myName.formatted()).toEqual('Kalrickson, Lucas');
 });
 ```
-
-<stencil-route-link url="/docs/context" router="#router" custom="true">
-  <button class="pull-left btn btn--secondary">
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/router" custom="true">
-  <button class="pull-right btn btn--primary">
-    Next
-  </button>
-</stencil-route-link>

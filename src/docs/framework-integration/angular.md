@@ -58,15 +58,3 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 defineCustomElements(window);
 ```
-
-<stencil-route-link url="/docs/framework-integration" router="#router" custom="true">
-  <button class='pull-left btn btn--secondary'>
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/react" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>

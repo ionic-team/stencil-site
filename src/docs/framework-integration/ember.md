@@ -22,15 +22,3 @@ ember install ember-cli-stencil
 ```
 
 Now, when you build your application, Stencil collections in your dependencies will automatically be discovered and pulled into your application. You can just start using the custom elements in your `hbs` files with no further work needed. For more information, check out the [`ember-cli-stencil` documentation](https://github.com/alexlafroscia/ember-cli-stencil).
-
-<stencil-route-link url="/docs/vue" router="#router" custom="true">
-  <button class='pull-left btn btn--secondary'>
-    Back
-  </button>
-</stencil-route-link>
-
-<stencil-route-link url="/docs/javascript" custom="true">
-  <button class='pull-right btn btn--primary'>
-    Next
-  </button>
-</stencil-route-link>
