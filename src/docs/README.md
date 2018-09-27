@@ -30,7 +30,6 @@
   * [Docs Generation](tooling/docs-auto-generation.md)
   * [Plugins](tooling/plugins.md)
 * Guides
-  * [PWA](guides/pwa.md)
   * [Distribution](guides/distribution.md)
   * [Bundling](guides/module-bundling.md)
   * [Router](guides/router.md)
