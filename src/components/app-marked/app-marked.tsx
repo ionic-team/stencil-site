@@ -1,10 +1,10 @@
-import { Component, Prop, State, Watch } from '@stencil/core';
+import { Component, Prop, State, Watch, ComponentInterface } from '@stencil/core';
 import { MarkdownContent } from '../../global/definitions';
 
 @Component({
   tag: 'app-marked'
 })
-export class AppMarked {
+export class AppMarked implements ComponentInterface {
 
   @Prop() fetchPath?: string;
   @Prop() renderer?: (doc: MarkdownContent) => JSX.Element; 

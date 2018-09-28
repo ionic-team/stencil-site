@@ -24,13 +24,16 @@ site-menu .menu-list h4:first-of-type {
 }
 
 site-menu .menu-list ul {
-  margin: 0px 0 28px;
   padding: 0;
 }
 
 site-menu .menu-list li {
   line-height: 2.2;
   font-size: 14px;
+}
+
+site-menu .menu-list > li {
+  padding: 5px 0;
 }
 
 site-menu .menu-list a {
@@ -79,4 +82,8 @@ site-menu .menu-list a:hover:not(.link-active) {
   site-menu .menu-list a:hover:not(.link-active) {
     color: white;
   }
+}
+
+site-menu ul.collapsed {
+  display: none;
 }

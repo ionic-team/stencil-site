@@ -6,7 +6,7 @@ import fs from 'fs';
 import { rimraf, mkdirp } from '@stencil/utils';
 import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
 import frontMatter from 'front-matter';
-import { SiteStructureItem } from '../src/global/definitions';
+import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -32,14 +32,14 @@ const renderer = new marked.Renderer();
     }
     let htmlContents = '';
     let parsedMarkdown: any;
-    let markdownMetadata: any = {};
+    let markdownMetadata: MarkdownContent = {};
     const jsonFileName = path.relative(SOURCE_DIR, file);
     const destinationFileName = path.join(
       DESTINATION_DIR,
       path.dirname(jsonFileName),
       path.basename(jsonFileName, '.md') + '.json'
     );
-    markdownMetadata.heading = [];
+    markdownMetadata.headings = [];
 
     const markdownContents = await readFile(file, { encoding: 'utf8' });
 

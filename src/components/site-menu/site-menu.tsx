@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, ComponentInterface } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 import { SiteStructureItem } from '../../global/definitions';
 
@@ -6,8 +6,16 @@ import { SiteStructureItem } from '../../global/definitions';
   tag: 'site-menu',
   styleUrl: 'site-menu.css'
 })
-export class SiteMenu {
-  @Prop() siteStructureList: SiteStructureItem[];
+export class SiteMenu implements ComponentInterface{
+  @Prop() siteStructureList: SiteStructureItem[] = [];
+  @Prop({ mutable: true }) selectedParent: SiteStructureItem = null;
+
+  toggleParent = (parentItem: SiteStructureItem) => {
+    return (e: MouseEvent) => {
+      e.preventDefault();
+      this.selectedParent = parentItem;
+    }
+  }
 
   render() {
     return (
@@ -17,8 +25,12 @@ export class SiteMenu {
           <ul class='menu-list'>
             { this.siteStructureList.map((item) => (
               <li>
-                <h4>{item.text}</h4>
-                <ul>
+                <a href="#" onClick={this.toggleParent(item)}>
+                  <h4>
+                    {item.text}
+                  </h4>
+                </a>
+                <ul class={{ 'collapsed': item !== this.selectedParent }}>
                 { item.children.map((childItem) => (
                   <li>
                     { (childItem.url) ?

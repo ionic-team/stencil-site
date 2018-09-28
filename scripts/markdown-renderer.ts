@@ -2,7 +2,7 @@ import marked from 'marked';
 import Prism from 'prismjs';
 import path from 'path';
 import loadLanguages from 'prismjs/components/';
-import { SiteStructureItem } from '../src/global/definitions';
+import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
 const languages = ['tsx', 'bash', 'typescript', 'markup', 'css', 'json'];
 loadLanguages(languages);
@@ -93,12 +93,12 @@ export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string
   }
 }
 
-export function collectHeadingMetadata(renderer: marked.Renderer, metadata: any) {
+export function collectHeadingMetadata(renderer: marked.Renderer, metadata: MarkdownContent) {
   const prevHeading = renderer.heading;
 
   renderer.heading = function(text, level, raw) {
     const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
-    metadata.heading.push({
+    metadata.headings.push({
       id,
       level,
       text

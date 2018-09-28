@@ -16,6 +16,7 @@ export class DocumentComponent implements ComponentInterface {
   @State() item: SiteStructureItem;
   @State() nextItem: SiteStructureItem;
   @State() prevItem: SiteStructureItem;
+  @State() parent: SiteStructureItem;
 
   componentWillLoad() {
     return this.fetchNewContent(this.page);
@@ -30,6 +31,7 @@ export class DocumentComponent implements ComponentInterface {
     this.item = foundData.item;
     this.nextItem = foundData.nextItem;
     this.prevItem = foundData.prevItem;
+    this.parent = foundData.parent;
   }
 
   render() {
@@ -38,8 +40,8 @@ export class DocumentComponent implements ComponentInterface {
     }
     return (
       <div>
-        <site-menu siteStructureList={siteStructure as SiteStructureItem[]}/>
-        <app-burger/>
+        <site-menu selectedParent={this.parent} siteStructureList={siteStructure as SiteStructureItem[]} />
+        <app-burger />
 
         <app-marked fetchPath={this.item.filePath} renderer={(docsContent) => [
           <stencil-route-title

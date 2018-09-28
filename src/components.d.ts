@@ -10,6 +10,7 @@ import '@stencil/router';
 import '@stencil/state-tunnel';
 import {
   MarkdownContent,
+  MarkdownHeading,
   SiteStructureItem,
 } from './global/definitions';
 
@@ -79,6 +80,13 @@ export namespace Components {
     'lines'?: string;
   }
 
+  interface InPageNavigation {
+    'pageLinks': MarkdownHeading[];
+  }
+  interface InPageNavigationAttributes extends StencilHTMLAttributes {
+    'pageLinks'?: MarkdownHeading[];
+  }
+
   interface LandingPage {}
   interface LandingPageAttributes extends StencilHTMLAttributes {}
 
@@ -121,9 +129,11 @@ export namespace Components {
   interface SiteHeaderAttributes extends StencilHTMLAttributes {}
 
   interface SiteMenu {
+    'selectedParent': SiteStructureItem;
     'siteStructureList': SiteStructureItem[];
   }
   interface SiteMenuAttributes extends StencilHTMLAttributes {
+    'selectedParent'?: SiteStructureItem;
     'siteStructureList'?: SiteStructureItem[];
   }
 }
@@ -139,6 +149,7 @@ declare global {
     'DemosPage': Components.DemosPage;
     'DocumentComponent': Components.DocumentComponent;
     'HighlightCodeLine': Components.HighlightCodeLine;
+    'InPageNavigation': Components.InPageNavigation;
     'LandingPage': Components.LandingPage;
     'LazyIframe': Components.LazyIframe;
     'LowerContentNav': Components.LowerContentNav;
@@ -159,6 +170,7 @@ declare global {
     'demos-page': Components.DemosPageAttributes;
     'document-component': Components.DocumentComponentAttributes;
     'highlight-code-line': Components.HighlightCodeLineAttributes;
+    'in-page-navigation': Components.InPageNavigationAttributes;
     'landing-page': Components.LandingPageAttributes;
     'lazy-iframe': Components.LazyIframeAttributes;
     'lower-content-nav': Components.LowerContentNavAttributes;
@@ -224,6 +236,12 @@ declare global {
     new (): HTMLHighlightCodeLineElement;
   };
 
+  interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {}
+  var HTMLInPageNavigationElement: {
+    prototype: HTMLInPageNavigationElement;
+    new (): HTMLInPageNavigationElement;
+  };
+
   interface HTMLLandingPageElement extends Components.LandingPage, HTMLStencilElement {}
   var HTMLLandingPageElement: {
     prototype: HTMLLandingPageElement;
@@ -282,6 +300,7 @@ declare global {
     'demos-page': HTMLDemosPageElement
     'document-component': HTMLDocumentComponentElement
     'highlight-code-line': HTMLHighlightCodeLineElement
+    'in-page-navigation': HTMLInPageNavigationElement
     'landing-page': HTMLLandingPageElement
     'lazy-iframe': HTMLLazyIframeElement
     'lower-content-nav': HTMLLowerContentNavElement
@@ -302,6 +321,7 @@ declare global {
     'demos-page': HTMLDemosPageElement;
     'document-component': HTMLDocumentComponentElement;
     'highlight-code-line': HTMLHighlightCodeLineElement;
+    'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
     'lazy-iframe': HTMLLazyIframeElement;
     'lower-content-nav': HTMLLowerContentNavElement;
