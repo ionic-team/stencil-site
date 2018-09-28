@@ -1,12 +1,16 @@
 
 :root {
   --color-woodsmoke: #16161D;
+  --color-dolphin: #626177;
   --color-gunpowder: #505061;
   --color-manatee: #8888A2;
   --color-cadet-blue: #abb2bf;
   --color-whisper: #EBEBF7;
+  --color-selago: #F4F4FD;
   --color-white-lilac: #f8f8fc;
   --color-white: #fff;
+
+  --color-green-haze: #00AB47;
 
   --color-dodger-blue: rgb(88, 81, 255);
   --color-dodger-blue-hover: rgba(88, 81, 255, 0.2);

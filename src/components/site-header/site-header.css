@@ -8,10 +8,6 @@ site-header {
   z-index: 99;
 }
 
-site-header .logo {
-  width: 96px;
-}
-
 site-header .container {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -34,7 +30,7 @@ site-header .container {
   padding-bottom: 4px;
   border-bottom: 3px solid transparent;
   vertical-align: top;
-  color: var(--color-manatee);
+  color: var(--color-gunpowder);
   text-decoration: none;
   font-weight: 500;
   letter-spacing: -0.02em;

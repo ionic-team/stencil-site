@@ -1,4 +1,3 @@
-
 .demo-card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -38,6 +37,7 @@ demo-card p {
   background: var(--color-white);
   box-shadow: var(--card-shadow);
   border-radius: 13px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.09);
 }
 
 .demo-card__image img {

@@ -10,9 +10,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+/* h1, h2, h3, h4 {
   color: var(--color-woodsmoke);
-}
+} */
 
 h1 {
   font-size: 28px;
@@ -24,16 +24,10 @@ h2 {
   font-weight: bold;
 }
 
-h2 {
-  padding-top: 70px;
-  margin-top: -22px;
-  margin-bottom: 8px;
-}
-
 h3 {
-  padding-top: 70px;
+  /* padding-top: 70px;
   margin-top: -22px;
-  margin-bottom: 14px;
+  margin-bottom: 14px; */
 }
 
 h4 {
@@ -71,7 +65,7 @@ ol a:hover {
 blockquote {
   background: var(--color-old-lace);
   margin: 0;
-  padding: 1px 20px;
+  padding: 1px 18px 4px;
   border-radius: 4px;
 }
 
