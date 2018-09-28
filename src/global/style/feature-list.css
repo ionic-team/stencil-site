@@ -7,6 +7,11 @@
   flex: 1;
 }
 
+
+.feature-list__item app-icon {
+  padding: 1px;
+
+}
 .feature-list__item svg {
   fill: #000 !important;
   width: 32px;
