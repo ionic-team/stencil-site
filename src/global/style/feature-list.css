@@ -23,3 +23,30 @@
   max-width: 270px;
   font-size: 15px;
 }
+
+@media screen and (max-width: 540px) {
+  .feature-list {
+    flex-direction: column;
+  }
+
+  .feature-list__item {
+    position: relative;
+    padding-left: 38px;
+    margin-top: 24px;
+  }
+
+  .feature-list__item app-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .feature-list__item svg {
+    margin: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-list__item p {
+    max-width: 100%;
+  }
+}

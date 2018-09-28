@@ -85,6 +85,10 @@ landing-page .overview > p {
   padding-right: 40px;
 }
 
+
+
+
+
 landing-page .list--icon svg {
   fill: var(--color-green-haze) !important;
 }
@@ -151,6 +155,10 @@ landing-page .section--centered {
   flex-direction: column;
 }
 
+landing-page .section--centered .section__heading {
+  padding: 0;
+}
+
 landing-page .section--centered .section__heading h2 {
   max-width: 100%;
 }
@@ -181,7 +189,7 @@ landing-page .section__body {
 
 landing-page .section__heading {
   margin-bottom: 8px;
-  padding-right: 24px;
+  padding-right: 46px;
 }
 
 landing-page .section__heading h2 {
@@ -266,14 +274,102 @@ landing-page #mobile-video {
   display: none;
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 1024px) {
+  landing-page .overview {
+    flex-direction: column;
+  }
+
+  landing-page .overview > p,
+  landing-page .overview > ul {
+    flex: 0 0 100%;
+    max-width: 568px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  landing-page .overview > p {
+    text-align: center;
+    padding: 0;
+  }
+
+  landing-page .overview > ul {
+    padding-top: 24px;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  landing-page h1 {
+    font-size: 38px;
+    margin: 20px auto auto;
+    max-width: 480px;
+  }
+
+  landing-page .hero {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  landing-page .hero #logo {
+    display: none;
+  }
+
+  landing-page .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   #launch-video {
     display: none;
   }
-  #youtube-video {
+  #y
+  outube-video {
     display: none;
   }
+
   #mobile-video {
     display: flex;
+  }
+}
+
+
+@media screen and (max-width: 540px) {
+
+  landing-page h2 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  landing-page .overview > ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  landing-page .overview > ul li {
+    flex: 0 0 270px;
+    align-self: center;
+  }
+
+  landing-page .cta__primary {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  landing-page h1 {
+    font-size: 32px;
+  }
+
+  landing-page .section {
+    flex-direction: column;
+  }
+
+  landing-page .section__heading {
+      margin-bottom: 16px;
+  }
+
+  landing-page .section--centered p,
+  landing-page .section--centered ul {
+    font-size: 15px;
   }
 }

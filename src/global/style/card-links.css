@@ -1,9 +1,11 @@
 .card-links {
   display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.card-links li + li {
-  margin-left: 12px;
+.card-links li {
+  margin: 6px;
 }
 
 .card-links__item a {
