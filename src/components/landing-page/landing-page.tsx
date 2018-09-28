@@ -1,4 +1,4 @@
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Prop, State, Listen } from '@stencil/core';
 
 @Component({
   tag: 'landing-page',
@@ -9,47 +9,69 @@ export class LandingPage {
   @Element() el!: Element;
 
   @Prop({ context: 'isServer' }) private isServer: boolean;
+  @State() isEdge: boolean;
+  @State() isModalOpen: boolean;
 
   constructor() {
     document.title = `Stencil`;
   }
 
   componentDidLoad() {
-    console.log('didLoad called on landing page');
+    this.isModalOpen = false;
+
     // unfortunately necessary hack because Edge
     // dont show the animated youtube video in Edge because
     // pointer-events: none; is broken in Edge
     // just link to the youtube video directly like we do on mobile
-    if ((document as any).documentMode || /Edge/.test(navigator.userAgent)) {
-      (this.el.querySelector('#youtube-video') as HTMLElement).style.display = 'none';
-      (this.el.querySelector('#launch-video') as HTMLElement).style.display = 'none';
-      (this.el.querySelector('#background') as HTMLElement).style.display = 'none';
-      (this.el.querySelector('#mobile-video') as HTMLElement).style.display = 'flex';
+    this.isEdge = (document as any).documentMode || /Edge/.test(navigator.userAgent) ? true : false;
+  }
+
+  @Listen('window:keyup')
+  handleKeyUp(ev: any) {
+    if (ev.keyCode === 27 && this.isModalOpen) {
+      this.closeModal();
+      return;
     }
   }
 
-  openYoutube() {
-    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
-    const background = (this.el.querySelector('#background') as HTMLElement);
-
-    youtube.classList.add('youtube-show');
-    background.classList.add('background-show');
+  handleWatchVideo() {
+    if (window.matchMedia('(min-width: 768px)').matches || this.isEdge) {
+      this.openModal();
+    } else {
+      window.location.href = 'https://youtu.be/UfD-k7aHkQE';
+    }
   }
 
-  closeBackground() {
+  openModal() {
+    const bod = (document.querySelector('body') as HTMLElement);
     const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
     const background = (this.el.querySelector('#background') as HTMLElement);
 
+    bod.classList.add('no-scroll');
+    youtube.classList.add('youtube-show');
+    background.classList.add('background-show');
+
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    const bod = (document.querySelector('body') as HTMLElement);
+    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
+    const background = (this.el.querySelector('#background') as HTMLElement);
+
+    bod.classList.remove('no-scroll');
     youtube.classList.remove('youtube-show');
     background.classList.remove('background-show');
+
+    this.isModalOpen = false;
   }
 
   render() {
     return (
       <div>
-        <div onClick={() => { this.closeBackground() }} id="background"></div>
+        <div onClick={() => { this.closeModal() }} id="background"></div>
 
-        {!this.isServer && window.matchMedia('(min-width: 740px)').matches ? <div id="youtube-video" onClick={() => { this.closeBackground() }}>
+        {!this.isServer ? <div id="youtube-video" onClick={() => { this.closeModal() }}>
           <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" width="700" height="450" title="Ionic team at Polymer Summit video" />
         </div>: null}
 
@@ -82,7 +104,6 @@ export class LandingPage {
 
           <section class="section section--small">
             <div class="section__body">
-              <h4>Why Stencil?</h4>
               <ul class="feature-list list--unstyled">
                 <li class="feature-list__item">
                   <app-icon name="simple"/>
@@ -116,13 +137,13 @@ export class LandingPage {
             </div>
           </section>
 
-          <section class="section section--emphasize section--small section--centered">
+          <section class="section">
             <div class="section__heading">
               <h2>Build one component library for all of your apps</h2>
             </div>
             <div class="section__body">
-              <p class="measure-lg">Stencil components are just Web Components, so they work with any major framework or no framework at all.</p>
-              <h6>Learn how Stencil seamlessly integrates with:</h6>
+              <p>Stencil components are just Web Components, so they work with any major framework or no framework at all.</p>
+              <p>Learn how Stencil seamlessly integrates with:</p>
               <ul class="card-links list--unstyled">
                 <li>
                   <stencil-route-link class="card-links__item" url="/docs/getting-started">
@@ -185,13 +206,10 @@ export class LandingPage {
             <div class="section__body">
               <h4>The Stencil story</h4>
               <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
-              <div class="video-trigger btn btn--tertiary btn--small ">
-                <div onClick={() => { this.openYoutube() }} id="launch-video">
+              <div class="video-trigger ">
+                <div onClick={() => { this.handleWatchVideo() }} class="btn btn--tertiary btn--small">
                   <img src="/assets/img/video-icon.png" alt="Icon for Video"></img><span>Watch launch video</span>
                 </div>
-                <a href="https://youtu.be/UfD-k7aHkQE" rel="noopener" id="mobile-video">
-                  <img src="/assets/img/video-icon.png" alt="Icon for video link"></img><span>Watch launch video</span>
-                </a>
               </div>
             </div>
           </section>

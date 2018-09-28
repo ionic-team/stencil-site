@@ -8,10 +8,6 @@ site-header {
   z-index: 99;
 }
 
-site-header .logo {
-  width: 96px;
-}
-
 site-header .container {
   padding-top: 20px;
   padding-bottom: 20px;

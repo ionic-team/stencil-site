@@ -85,10 +85,6 @@ landing-page .overview > p {
   padding-right: 40px;
 }
 
-
-
-
-
 landing-page .list--icon svg {
   fill: var(--color-green-haze) !important;
 }
@@ -113,7 +109,7 @@ landing-page .cta__primary code {
   font-size: 16px;
   padding: 18px 26px 20px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.10);
+  background-color: rgba(0, 0, 0, 0.10);
   margin: 16px 0 4px;
 }
 
@@ -204,6 +200,14 @@ landing-page .section__body p + * {
   margin-top: 26px;
 }
 
+landing-page .section__body p + p {
+  margin-top: 16px;
+}
+
+landing-page .section__body p + ul {
+  margin-top: 8px;
+}
+
 landing-page .section__body .list--icon li {
   line-height: 24px;
 }
@@ -213,17 +217,23 @@ landing-page .link-list li + li {
   margin-top: 12px;
 }
 
+landing-page #background {
+  transition: background-color 0.2s;
+}
 
 landing-page #youtube-video {
   opacity: 0;
-  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.36, 0.66, 0.04, 1);
-  position: absolute;
+  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.36, 0.66, 0.04, 1);
+  position: fixed;
   z-index: 9999;
   pointer-events: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 landing-page #youtube-video iframe {
@@ -238,13 +248,19 @@ landing-page .youtube-show {
 }
 
 landing-page .background-show {
-  opacity: 0.4 !important;
   pointer-events: auto !important;
+  background-color: rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
 }
 
 landing-page #launch-video,
 landing-page #mobile-video {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1.2;
@@ -254,8 +270,7 @@ landing-page #mobile-video {
   outline: none;
 }
 
-.video-trigger.btn--small {
-  margin-top: 20px;
+.video-trigger .btn--small {
   padding: 15px 20px 17px;
 }
 
@@ -281,7 +296,7 @@ landing-page #mobile-video {
 
   landing-page .overview > p,
   landing-page .overview > ul {
-    flex: 0 0 100%;
+    flex: 1;
     max-width: 568px;
     margin-left: auto;
     margin-right: auto;
@@ -316,20 +331,18 @@ landing-page #mobile-video {
   }
 
   landing-page .section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   #launch-video {
-    display: none;
+    display: none !important;
   }
-  #y
-  outube-video {
-    display: none;
+  #youtube-video {
+    display: none !important;
   }
-
   #mobile-video {
-    display: flex;
+    display: inline-flex !important;
   }
 }
 
@@ -362,6 +375,8 @@ landing-page #mobile-video {
 
   landing-page .section {
     flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   landing-page .section__heading {

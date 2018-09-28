@@ -57,7 +57,7 @@ export class SiteHeader {
     return (
       <div class="container">
         <stencil-route-link url="/" class="logo-link">
-          <img class="logo" alt="Stencil" src="/assets/img/stencil-logo-new.svg" />
+          <app-icon name="logo"/>
         </stencil-route-link>
 
         <div class="header-menu">

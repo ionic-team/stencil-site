@@ -1,4 +1,9 @@
 
+app-icon .icon-logo  {
+  width: 96px;
+  height: 23px;
+}
+
 app-icon .icon-checkmark {
   fill: var(--color-dodger-blue);
   width: 15px;
