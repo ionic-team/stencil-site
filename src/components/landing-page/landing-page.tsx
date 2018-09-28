@@ -132,7 +132,7 @@ export class LandingPage {
               <ul class="list--icon list--unstyled">
                 <li><app-icon name="checkmark"/> Built-in dev-server for hot module reloading</li>
                 <li><app-icon name="checkmark"/> Screenshot visual UI diffs</li>
-                <li><app-icon name="checkmark"/> Auto-generate component documentation <br/><span class="small muted">(including css variables)</span></li>
+                <li><app-icon name="checkmark"/> Auto-generate component documentation <br/><span class="small">(including css variables)</span></li>
               </ul>
             </div>
           </section>

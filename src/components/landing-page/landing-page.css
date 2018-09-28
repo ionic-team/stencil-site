@@ -57,11 +57,11 @@ landing-page ul {
 }
 
 landing-page .small {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 landing-page .muted {
-  opacity: 0.7;
+  color: #77778e;
 }
 
 landing-page .overview {
@@ -114,19 +114,18 @@ landing-page .cta__primary code {
 }
 
 landing-page .cta__primary span {
-  font-size: 12px;
-  color: var(--color-white);
-  opacity: 0.5;
+  font-size: 11px;
+  color: #fff;
 }
 
 landing-page .cta__secondary {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  color: var(--color-white);
 }
 
 landing-page .cta__secondary a {
+  font-weight: 700;
   color: var(--color-white);
-  text-decoration: none;
 }
 
 landing-page .section {
@@ -201,10 +200,10 @@ landing-page .section__body p + * {
 }
 
 landing-page .section__body p + p {
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
-landing-page .section__body p + ul {
+landing-page .section__body p + .card-links {
   margin-top: 8px;
 }
 
