@@ -153,19 +153,9 @@
         "url": "/docs/distribution"
       },
       {
-        "text": "Bundling",
-        "filePath": "/assets/docs/guides/module-bundling.json",
-        "url": "/docs/module-bundling"
-      },
-      {
         "text": "Router",
         "filePath": "/assets/docs/guides/router.json",
         "url": "/docs/router"
-      },
-      {
-        "text": "State Tunnel",
-        "filePath": "/assets/docs/guides/state-tunnel.json",
-        "url": "/docs/stencil-state-tunnel"
       },
       {
         "text": "Style Guide",
@@ -213,11 +203,6 @@
       {
         "text": "Stencil on Twitter",
         "filePath": "https://twitter.com/stenciljs"
-      },
-      {
-        "text": "Resources",
-        "filePath": "/assets/docs/community/resources.json",
-        "url": "/docs/resources"
       }
     ]
   }
