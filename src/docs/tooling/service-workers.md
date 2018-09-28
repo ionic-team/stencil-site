@@ -93,4 +93,28 @@ self.workbox.clientsClaim();
 
 self.workbox.precaching.precacheAndRoute([]);
 ```
+
 This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.
+
+#### Cache external / CDN resources
+
+Sometimes it's needed to cache resources from external. Just keep in mind that this is not recommended by workbox!
+
+To cache ressources a custom service worker is mandatory.
+
+Here is a example with a precached version of aframe:
+
+```ts
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
+
+self.workbox.skipWaiting();
+self.workbox.clientsClaim();
+
+workbox.routing.registerRoute(
+  'https://aframe.io/releases/0.8.2/aframe.min.js',
+  workbox.strategies.cacheFirst(),
+);
+// your custom service worker code
+
+self.workbox.precaching.precacheAndRoute([]);
+```
