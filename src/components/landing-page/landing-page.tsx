@@ -99,7 +99,7 @@ export class LandingPage {
               <code>npm init stencil</code>
               <span>Requires NPM v6</span>
             </div>
-            <p class="cta__secondary">Dive deeper with our <a href="/docs/getting-started">Getting Started</a> guide</p>
+            <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
           </section>
 
           <section class="section section--small">
@@ -146,7 +146,7 @@ export class LandingPage {
               <p>Learn how Stencil seamlessly integrates with:</p>
               <ul class="card-links list--unstyled">
                 <li>
-                  <stencil-route-link class="card-links__item" url="/docs/getting-started">
+                  <stencil-route-link class="card-links__item" url="/docs/react">
                     <i class="fw-icon fw-icon--react"></i>
                     React
                   </stencil-route-link>
@@ -187,16 +187,16 @@ export class LandingPage {
                   </stencil-route-link>
                 </li>
                 <li>
-                  <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/stencil-state-tunnel">
+                  <a class="btn btn--tertiary btn--small" href="https://github.com/ionic-team/stencil-state-tunnel/">
                     <app-icon name="docs"/>
                     stencil-state-tunnel
-                  </stencil-route-link>
+                  </a>
                 </li>
                 <li>
-                  <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/stencil-redux">
+                  <a class="btn btn--tertiary btn--small" href="https://github.com/ionic-team/stencil-redux/">
                     <app-icon name="docs"/>
                     stencil-redux
-                  </stencil-route-link>
+                  </a>
                 </li>
               </ul>
             </div>
