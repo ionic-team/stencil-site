@@ -4,8 +4,27 @@
 
 The [Stencil site](https://stenciljs.com/) is the place for documentation on how to use Stencil.
 
-## Contributing
 
-Ensure you're using recent versions of `npm 5` and `node 8`.
+## Contributing Documentation Updates
 
-Then run `npm install`, and then `npm run dev` to launch the site in development mode.
+The documentation content is formatted in markdown and can be found in the [src/docs directory](https://github.com/ionic-team/stencil-site/tree/master/src/docs). Easiest way to make edits is to navigate to the markdown file to be updated, and click the Edit button in the top right button (the pencil icon). After making edit a Pull Request (PR) will be submitted and reviewed. Please feel free to ask any questions within the [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com) channel, we're happy to help.
+
+
+## Building the Site
+
+To build the site from the source, ensure you're using the most recent versions of Node and Npm, and pull the lastest from master. Next, run `npm install` and `npm start` to launch the site in development mode.
+
+
+## Related
+
+ - [Stencil Documentation](https://stenciljs.com/)
+ - [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com)
+ - [Ionic](https://ionicframework.com/)
+ - [Ionic Worldwide Slack](http://ionicworldwide.herokuapp.com/)
+ - [Ionicons](http://ionicons.com/)
+ - [Capacitor](https://capacitor.ionicframework.com/)
+
+
+## License
+
+ - [MIT](https://raw.githubusercontent.com/ionic-team/stencil/master/LICENSE)
