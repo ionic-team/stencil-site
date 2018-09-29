@@ -7,7 +7,7 @@ The [Stencil site](https://stenciljs.com/) is the place for documentation on how
 
 ## Contributing Documentation Updates
 
-The documentation content is formatted in markdown and can be found in the [src/docs directory](https://github.com/ionic-team/stencil-site/tree/master/src/docs). Easiest way to make edits is to navigate to the markdown file to be updated, and click the Edit button in the top right button (the pencil icon). After making edit a Pull Request (PR) will be submitted and reviewed. Please feel free to ask any questions within the [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com) channel, we're happy to help.
+The documentation content is formatted in markdown and can be found in the [src/docs directory](https://github.com/ionic-team/stencil-site/tree/master/src/docs). Easiest way to make edits is to navigate to the markdown file to be updated, and click the Edit button in the top right (the pencil icon). After making the edit, submitting the changes will create a Pull Request (PR) for reviewed. Please feel free to ask any questions within the [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com) channel, we're happy to help.
 
 
 ## Building the Site
@@ -27,4 +27,4 @@ To build the site from the source, ensure you're using the most recent versions 
 
 ## License
 
- - [MIT](https://raw.githubusercontent.com/ionic-team/stencil/master/LICENSE)
+ - [MIT](https://raw.githubusercontent.com/ionic-team/stencil-site/master/LICENSE)
