@@ -2,7 +2,8 @@ import { Component, Prop, State, Watch, ComponentInterface } from '@stencil/core
 import { MarkdownContent } from '../../global/definitions';
 
 @Component({
-  tag: 'app-marked'
+  tag: 'app-marked',
+  styleUrl: 'app-marked.css'
 })
 export class AppMarked implements ComponentInterface {
 
