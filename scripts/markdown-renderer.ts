@@ -97,6 +97,7 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
   const prevHeading = renderer.heading;
 
   renderer.heading = function(text, level, raw) {
+    debugger;
     const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
     metadata.headings.push({
       id,

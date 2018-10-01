@@ -2,7 +2,8 @@ import { Component, Prop } from '@stencil/core';
 import { SiteStructureItem } from '../../global/definitions';
 
 @Component({
-  tag: 'lower-content-nav'
+  tag: 'lower-content-nav',
+  styleUrl: 'lower-content-nav.css'
 })
 export class LowerContentNav {
 

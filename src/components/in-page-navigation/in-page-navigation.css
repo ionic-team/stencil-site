@@ -1,0 +1,35 @@
+in-page-navigation {
+    display: none;
+}
+in-page-navigation h5 {
+    text-transform: uppercase;
+}
+in-page-navigation ul.heading-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    --indent-size: 15px;
+    margin-left: calc(var(--indent-size) * -1);
+}
+in-page-navigation > ul a {
+    color: var(--color-gunpowder);
+}
+in-page-navigation li.heading-link {
+    padding-left: 0;
+    margin-left: 0;
+}
+in-page-navigation li.heading-link.selected {
+    border-left: 2px solid grey;
+}
+in-page-navigation li.size-h1 {
+    padding-left: calc(var(--indent-size) * 1);
+}
+in-page-navigation li.size-h2 {
+    padding-left: calc(var(--indent-size) * 2);
+}
+in-page-navigation li.size-h3 {
+    padding-left: calc(var(--indent-size) * 3);
+}
+in-page-navigation li.size-h4 {
+    padding-left: calc(var(--indent-size) * 4);
+}

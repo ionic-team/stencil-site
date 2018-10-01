@@ -16,7 +16,6 @@ const DESTINATION_DIR = './src/assets/docs';
 const SOURCE_DIR = './src/docs';
 const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
 
-const renderer = new marked.Renderer();
 
 (async function() {
   const siteStructure = await readFile(SITE_STRUCTURE_FILE, { encoding: 'utf8' });
@@ -45,6 +44,7 @@ const renderer = new marked.Renderer();
 
     try {
       parsedMarkdown = frontMatter(markdownContents);
+      const renderer = new marked.Renderer();
       collectHeadingMetadata(renderer, markdownMetadata);
       changeCodeCreation(renderer);
       localizeMarkdownLink(renderer, destinationFileName.replace('src',''), siteStructureJson);
