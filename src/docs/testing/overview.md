@@ -28,7 +28,7 @@ Again, there are many theories and opinions on the definitions of "unit testing"
 
 Below is an example `npm` script which can be added to the app's `package.json` file. Notice the command is `stencil test`, with optional flags of `--spec` for unit tests, and `--e2e` for end-to-end tests.
 
-```javascript
+```tsx
 "scripts": {
   "test": "stencil test --spec",
   "test.watch": "stencil test --spec --watch",
