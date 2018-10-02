@@ -31,10 +31,15 @@
   * [Plugins](tooling/plugins)
 * Guides
   * [Distribution](guides/distribution)
-<!-- * [Bundling](guides/module-bundling) -->
-  * [Router](guides/router)
-<!-- * [State Tunnel](guides/state-tunnel) -->
+  * [Bundling](guides/module-bundling)
   * [Style Guide](guides/style-guide)
+* Routing
+  * [Overview](routing/overview)
+  * [Tutorials](routing/tutorials)
+  * [API](routing/api)
+* State Management
+  * [State Tunnel](state-management/state-tunnel)
+  * [Redux](state-management/redux)
 * Testing
   * [Overview](testing/overview)
   * [Unit Testing](testing/unit-testing)
@@ -44,4 +49,3 @@
   * [Stencil on GitHub](https://github.com/ionic-team/stencil)
   * [Stencil on Slack](https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM)
   * [Stencil on Twitter](https://twitter.com/stenciljs)
-<!--  * [Resources](community/resources) -->

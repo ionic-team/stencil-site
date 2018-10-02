@@ -94,10 +94,7 @@ export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string
 }
 
 export function collectHeadingMetadata(renderer: marked.Renderer, metadata: MarkdownContent) {
-  const prevHeading = renderer.heading;
-
   renderer.heading = function(text, level, raw) {
-    debugger;
     const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
     metadata.headings.push({
       id,
@@ -105,7 +102,12 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
       text
     });
 
-    return prevHeading.call(this, text, level, raw);
+    return `
+<h${level}>
+  <a id="${id}" href="${id}"><ion-icon name="link"></ion-icon></a>
+  ${text}
+</h${level}>
+`;
   };
 }
 

@@ -153,14 +153,49 @@
         "url": "/docs/distribution"
       },
       {
-        "text": "Router",
-        "filePath": "/assets/docs/guides/router.json",
-        "url": "/docs/router"
+        "text": "Bundling",
+        "filePath": "/assets/docs/guides/module-bundling.json",
+        "url": "/docs/module-bundling"
       },
       {
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
+      }
+    ]
+  },
+  {
+    "text": "Routing",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/routing/overview.json",
+        "url": "/docs/router"
+      },
+      {
+        "text": "Tutorials",
+        "filePath": "/assets/docs/routing/tutorials.json",
+        "url": "/docs/router-tutorials"
+      },
+      {
+        "text": "API",
+        "filePath": "/assets/docs/routing/api.json",
+        "url": "/docs/router-api"
+      }
+    ]
+  },
+  {
+    "text": "State Management",
+    "children": [
+      {
+        "text": "State Tunnel",
+        "filePath": "/assets/docs/state-management/state-tunnel.json",
+        "url": "/docs/state-tunnel"
+      },
+      {
+        "text": "Redux",
+        "filePath": "/assets/docs/state-management/redux.json",
+        "url": "/docs/redux"
       }
     ]
   },
