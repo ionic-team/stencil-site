@@ -6,6 +6,7 @@ site-menu {
 site-menu h4 {
   color: var(--color-woodsmoke);
   margin-bottom: 0;
+  font-size: 14px;
 }
 
 site-menu .menu-list li,
@@ -29,12 +30,11 @@ site-menu .menu-list ul {
 }
 
 site-menu .menu-list li {
-  line-height: 2.2;
   font-size: 14px;
 }
 
-site-menu .menu-list > li {
-  padding: 5px 0;
+site-menu .menu-list > li + li {
+  margin-top: 10px;
 }
 
 site-menu .menu-list a {
@@ -61,6 +61,18 @@ site-menu .menu-list a:hover:not(.link-active) {
   color: var(--color-woodsmoke);
 }
 
+site-menu .menu-list ul li {
+  padding-left: 12px;
+  transition: 80ms height;
+  height: 26px;
+  display: block;
+  overflow: hidden;
+}
+
+site-menu .menu-list ul.collapsed li {
+  height: 0;
+}
+
 @media screen and (max-width: 768px) {
   site-menu {
     position: fixed;
@@ -83,8 +95,4 @@ site-menu .menu-list a:hover:not(.link-active) {
   site-menu .menu-list a:hover:not(.link-active) {
     color: white;
   }
-}
-
-site-menu ul.collapsed {
-  display: none;
 }

@@ -2,12 +2,13 @@ import { Component, Prop, State, Watch, ComponentInterface } from '@stencil/core
 import { MarkdownContent } from '../../global/definitions';
 
 @Component({
-  tag: 'app-marked'
+  tag: 'app-marked',
+  styleUrl: 'app-marked.css'
 })
 export class AppMarked implements ComponentInterface {
 
   @Prop() fetchPath?: string;
-  @Prop() renderer?: (doc: MarkdownContent) => JSX.Element; 
+  @Prop() renderer?: (doc: MarkdownContent) => JSX.Element;
 
   @State() docsContent: MarkdownContent = {};
 

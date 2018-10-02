@@ -35,23 +35,29 @@ export class InPageNavigtion implements ComponentInterface {
   }
 
   render() {
-    if (this.pageLinks.length === 0) {
-      return null;
+    const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
+    const submitEditLink = <a class="submit-edit-link" href="#"><ion-icon name="logo-github"></ion-icon>Submit an edit</a>;
+
+    if (pageLinks.length === 0) {
+      return submitEditLink;
     }
-    return [
-      <h5>Contents</h5>,
-      <ul class="heading-links">
-        { this.pageLinks.map(pl => (
-        <li class={{
-            'heading-link': true,
-            [`size-h${pl.level}`]: true,
-            'selected': this.selectedId === pl.id
-          }}>
-          <a href={`#${pl.id}`}>{pl.text}</a>
-        </li>
-        )) }
-      </ul>,
-      <p><ion-icon name="logo-github"></ion-icon>Submit an edit</p>
-    ];
+
+    return (
+      <div class="sticky">
+        <h5>Contents</h5>
+        <ul class="heading-links">
+          { pageLinks.map(pl => (
+          <li class={{
+              'heading-link': true,
+              [`size-h${pl.level}`]: true,
+              'selected': this.selectedId === pl.id
+            }}>
+            <a href={`#${pl.id}`}>{pl.text}</a>
+          </li>
+          )) }
+        </ul>
+        { submitEditLink }
+      </div>
+    );
   }
 }

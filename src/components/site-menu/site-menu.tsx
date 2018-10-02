@@ -19,36 +19,38 @@ export class SiteMenu implements ComponentInterface{
 
   render() {
     return (
-      <SiteProviderConsumer.Consumer>
-      {({ toggleLeftSidebar }: SiteState) => (
-        <div>
-          <ul class='menu-list'>
-            { this.siteStructureList.map((item) => (
-              <li>
-                <a href="#" onClick={this.toggleParent(item)}>
-                  <h4>
-                    {item.text}
-                  </h4>
-                </a>
-                <ul class={{ 'collapsed': item !== this.selectedParent }}>
-                { item.children.map((childItem) => (
-                  <li>
-                    { (childItem.url) ?
-                    <stencil-route-link url={childItem.url} onClick={toggleLeftSidebar}>
-                      {childItem.text}
-                    </stencil-route-link> :
-                    <a rel="noopener" class="link--external" target="_blank" href={childItem.filePath}>
-                      {childItem.text}
-                    </a> }
-                  </li>
-                )) }
-                </ul>
-              </li>
-            )) }
-          </ul>
-        </div>
-      )}
-      </SiteProviderConsumer.Consumer>
+      <div class="sticky">
+        <SiteProviderConsumer.Consumer>
+        {({ toggleLeftSidebar }: SiteState) => (
+          <div>
+            <ul class='menu-list'>
+              { this.siteStructureList.map((item) => (
+                <li>
+                  <a href="#" onClick={this.toggleParent(item)}>
+                    <h4>
+                      {item.text}
+                    </h4>
+                  </a>
+                  <ul class={{ 'collapsed': item !== this.selectedParent }}>
+                  { item.children.map((childItem) => (
+                    <li>
+                      { (childItem.url) ?
+                      <stencil-route-link url={childItem.url} onClick={toggleLeftSidebar}>
+                        {childItem.text}
+                      </stencil-route-link> :
+                      <a rel="noopener" class="link--external" target="_blank" href={childItem.filePath}>
+                        {childItem.text}
+                      </a> }
+                    </li>
+                  )) }
+                  </ul>
+                </li>
+              )) }
+            </ul>
+          </div>
+        )}
+        </SiteProviderConsumer.Consumer>
+      </div>
     );
   }
 }

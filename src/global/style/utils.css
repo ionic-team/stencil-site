@@ -1,4 +1,3 @@
-
 .push {
   margin-top: 70px;
 }
@@ -21,4 +20,9 @@
 
 .no-scroll {
   overflow: hidden;
+}
+
+.sticky {
+  position: sticky;
+  top: 24px;
 }
