@@ -104,10 +104,8 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
 
     return `
 <h${level}>
-  <a class="heading-link" id="${id}" href="#${id}">
-    <app-icon name="link"></app-icon>
-    ${text}
-  </a>
+  <a id="${id}" href="#${id}"><ion-icon name="link"></ion-icon></a>
+  ${text}
 </h${level}>
 `;
   };
