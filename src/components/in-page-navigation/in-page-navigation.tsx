@@ -36,7 +36,7 @@ export class InPageNavigtion implements ComponentInterface {
 
   render() {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
-    const submitEditLink = <a class="submit-edit-link" href="#"><ion-icon name="logo-github"></ion-icon>Submit an edit</a>;
+    const submitEditLink = <a class="submit-edit-link" href="#"><app-icon name="github"></app-icon><span>Submit an edit</span></a>;
 
     if (pageLinks.length === 0) {
       return submitEditLink;

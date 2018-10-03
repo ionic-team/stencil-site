@@ -95,6 +95,10 @@ site-header .container {
 }
 
 @media screen and (max-width: 768px) {
+  site-header {
+    position: fixed;
+  }
+  
   .header-menu {
     transition: opacity 0.3s;
     position: fixed;

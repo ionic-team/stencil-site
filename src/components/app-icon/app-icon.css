@@ -46,3 +46,9 @@ app-icon .icon-docs {
   width: 13px;
   height: 11px;
 }
+
+app-icon .icon-github {
+  fill: var(--color-dodger-blue);
+  width: 16px;
+  height: 16px;
+}

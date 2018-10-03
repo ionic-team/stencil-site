@@ -42,8 +42,7 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  white-space: pre;
-  white-space: pre-wrap;
+  white-space: normal;
   word-wrap: normal;
   font-size: 14px;
   line-height: 20px;
@@ -61,9 +60,6 @@ pre[class*="language-"] {
   border-radius: 4px;
   border: 1px solid #e1e1e8;
   overflow: auto;
-}
-
-pre[class*="language-"] {
   position: relative;
 }
 

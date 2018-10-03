@@ -1,3 +1,9 @@
+landing-page main {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 landing-page #logo {
   width: 56px;
   height: 56px;
@@ -113,9 +119,22 @@ landing-page .cta__primary code {
   margin: 16px 0 4px;
 }
 
-landing-page .cta__primary span {
+landing-page .cta__primary span,
+landing-page .cta__primary span a {
   font-size: 11px;
   color: #fff;
+}
+
+landing-page .cta__primary span a,
+landing-page .cta__secondary a {
+  transition: border 0.3s;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+landing-page .cta__primary span a:hover,
+landing-page .cta__secondary a:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 landing-page .cta__secondary {
@@ -124,7 +143,6 @@ landing-page .cta__secondary {
 }
 
 landing-page .cta__secondary a {
-  font-weight: 700;
   color: var(--color-white);
 }
 

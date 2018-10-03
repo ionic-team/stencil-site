@@ -1,6 +1,5 @@
 in-page-navigation {
-  flex: 0 0 200px;
-
+  flex: 0 0 180px;
   height: 100%;
 }
 
@@ -76,19 +75,32 @@ in-page-navigation li.size-h4 a {
 }
 
 in-page-navigation .submit-edit-link {
-  transition: border 0.2s;
   font-size: 12px;
   display: inline-block;
   color: var(--color-dodger-blue);
   font-weight: 600;
   text-decoration: none;
+  display: flex;
+}
+
+in-page-navigation .submit-edit-link span {
+  transition: border 0.2s;
+  height: 16px;
+  margin-left: 6px;
   border-bottom: 1px solid transparent;
 }
 
-in-page-navigation .submit-edit-link:hover {
-  border-bottom: 1px solid var(--color-dodger-blue);
+in-page-navigation .submit-edit-link span:hover {
+  border-bottom: 1px solid var(--color-cadet-blue);
 }
 
 in-page-navigation .heading-links + .submit-edit-link {
   margin-top: 20px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  in-page-navigation {
+    display: none;
+  }
 }

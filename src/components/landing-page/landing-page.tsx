@@ -97,7 +97,7 @@ export class LandingPage {
             <div class="cta__primary">
               <h3>Start coding with Stencil in seconds</h3>
               <code>npm init stencil</code>
-              <span>Requires NPM v6</span>
+              <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
             <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
           </section>

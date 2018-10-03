@@ -38,7 +38,7 @@ stencil-site {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
@@ -56,7 +56,7 @@ stencil-site {
 
 @media screen and (max-width: 768px) {
   .root {
-    padding-top: 90px;
+    padding-top: 92px;
   }
 }
 
