@@ -56,24 +56,24 @@ export class LandingPage {
 
   openModal() {
     const bod = (document.querySelector('body') as HTMLElement);
-    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
-    const background = (this.el.querySelector('#background') as HTMLElement);
+    const modal = (document.querySelector('.modal') as HTMLElement);
 
     bod.classList.add('no-scroll');
-    youtube.classList.add('youtube-show');
-    background.classList.add('background-show');
+    modal.style.display = "block";
+    modal.classList.remove('modal--hide');
+    modal.classList.add('modal--show');
 
     this.isModalOpen = true;
   }
 
   closeModal() {
     const bod = (document.querySelector('body') as HTMLElement);
-    const youtube = (this.el.querySelector('#youtube-video') as HTMLElement);
-    const background = (this.el.querySelector('#background') as HTMLElement);
+    const modal = (document.querySelector('.modal') as HTMLElement);
 
     bod.classList.remove('no-scroll');
-    youtube.classList.remove('youtube-show');
-    background.classList.remove('background-show');
+    modal.classList.remove('modal--show');
+    modal.classList.add('modal--hide');
+    setTimeout(() => { modal.style.display = "none"; }, 200)
 
     this.videoPlayer.pauseVideo();
 
@@ -83,20 +83,24 @@ export class LandingPage {
   render() {
     return (
       <div>
-        <div onClick={() => { this.closeModal() }} id="background"></div>
 
         {!this.isServer
-          ? <div id="youtube-video" onClick={() => { this.closeModal() }}>
-              <iframe
-                id="youtube-embed"
-                frameBorder="0"
-                title="Ionic team at Polymer Summit video"
-                allowFullScreen={true}
-                src="https://www.youtube.com/embed/UfD-k7aHkQE?enablejsapi=1"
-                width="700"
-                height="450">
-              </iframe>
-            </div>
+          ? <div class="modal">
+              <div onClick={() => { this.closeModal() }} class="modal__background"></div>
+                <div class="modal__content" onClick={() => { this.closeModal() }}>
+                  <div class="video-wrapper">
+                    <iframe
+                      id="youtube-embed"
+                      frameBorder="0"
+                      title="Ionic team at Polymer Summit video"
+                      allowFullScreen={true}
+                      src="https://www.youtube.com/embed/UfD-k7aHkQE?enablejsapi=1"
+                      width="700"
+                      height="450">
+                    </iframe>
+                  </div>
+                </div>
+              </div>
           : null
         }
 

@@ -172,6 +172,10 @@ landing-page .section--centered {
   flex-direction: column;
 }
 
+landing-page .section--centered .section__body {
+  flex: 1 0 auto;
+}
+
 landing-page .section--centered .section__heading {
   padding: 0;
 }
@@ -238,76 +242,29 @@ landing-page .link-list li + li {
   margin-top: 12px;
 }
 
-landing-page #background {
-  transition: background-color 0.2s;
-}
-
-landing-page #youtube-video {
-  opacity: 0;
-  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.36, 0.66, 0.04, 1);
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-landing-page #youtube-video iframe {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15), 0px 20px 40px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-}
-
-landing-page .youtube-show {
-  opacity: 1 !important;
-  transform: translatey(-30px) !important;
-  pointer-events: auto !important;
-}
-
-landing-page .background-show {
-  pointer-events: auto !important;
-  background-color: rgba(0,0,0,0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 999;
-}
-
-landing-page #launch-video,
-landing-page #mobile-video {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.2;
-  transition: all .2s ease;
-  cursor: pointer;
-  text-decoration: none;
-  outline: none;
-}
-
-.video-trigger .btn--small {
+landing-page .video-trigger .btn--small {
   padding: 15px 20px 17px;
 }
 
-.video-trigger img {
+landing-page .video-trigger img {
   height: 20px;
 }
 
-.video-trigger span {
+landing-page .video-trigger span {
   margin-left: 8px;
   color: var(--color-dodger-blue);
   font-weight: 500;
   transition: all .15s ease;
 }
 
-landing-page #mobile-video {
-  display: none;
+landing-page .video-wrapper {
+  overflow: hidden;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15), 0px 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+landing-page .video-wrapper iframe {
+  display: block;
 }
 
 @media screen and (max-width: 1024px) {
@@ -355,21 +312,9 @@ landing-page #mobile-video {
     padding-top: 70px;
     padding-bottom: 70px;
   }
-
-  #launch-video {
-    display: none !important;
-  }
-  #youtube-video {
-    display: none !important;
-  }
-  #mobile-video {
-    display: inline-flex !important;
-  }
 }
 
-
 @media screen and (max-width: 540px) {
-
   landing-page h2 {
     font-size: 20px;
     line-height: 26px;
