@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State } from '@stencil/core';
+import { Component, Element, Prop, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'lazy-iframe',
@@ -12,6 +12,10 @@ export class LazyIframe {
   @Prop() scrolling?: string;
   @Prop() width?: string;
   @Prop() height?: string;
+  @Prop() identifier?: string;
+  @Prop() isVideo?: boolean;
+
+  @Event() videoLoaded: EventEmitter;
 
   @State() realSrc?: string;
 
@@ -39,7 +43,13 @@ export class LazyIframe {
   }
 
   handleIframe() {
+    console.log('handl iframe')
     this.realSrc = this.src;
+    this.videoLoadedHandler();
+  }
+
+  videoLoadedHandler() {
+    this.videoLoaded.emit();
   }
 
   cleanup() {
@@ -56,6 +66,7 @@ export class LazyIframe {
     return (
       <div>
         <iframe
+          id={this.identifier}
           frameBorder="0"
           title={this.name}
           allowFullScreen={true}

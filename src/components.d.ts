@@ -93,6 +93,8 @@ export namespace Components {
   interface LazyIframe {
     'frameBorder'?: string;
     'height'?: string;
+    'identifier'?: string;
+    'isVideo'?: boolean;
     'name'?: string;
     'scrolling'?: string;
     'src'?: string;
@@ -101,7 +103,10 @@ export namespace Components {
   interface LazyIframeAttributes extends StencilHTMLAttributes {
     'frameBorder'?: string;
     'height'?: string;
+    'identifier'?: string;
+    'isVideo'?: boolean;
     'name'?: string;
+    'onVideoLoaded'?: (event: CustomEvent) => void;
     'scrolling'?: string;
     'src'?: string;
     'width'?: string;

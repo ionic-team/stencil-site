@@ -16,6 +16,8 @@ export class LandingPage {
     document.title = `Stencil`;
   }
 
+  videoPlayer: any;
+
   componentDidLoad() {
     this.isModalOpen = false;
 
@@ -24,6 +26,16 @@ export class LandingPage {
     // pointer-events: none; is broken in Edge
     // just link to the youtube video directly like we do on mobile
     this.isEdge = (document as any).documentMode || /Edge/.test(navigator.userAgent) ? true : false;
+
+    // attach youtube iframe api
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window['onYouTubeIframeAPIReady'] = () => {
+      this.videoPlayer = new window['YT'].Player('youtube-embed', {});
+    }
   }
 
   @Listen('window:keyup')
@@ -63,6 +75,8 @@ export class LandingPage {
     youtube.classList.remove('youtube-show');
     background.classList.remove('background-show');
 
+    this.videoPlayer.pauseVideo();
+
     this.isModalOpen = false;
   }
 
@@ -71,9 +85,20 @@ export class LandingPage {
       <div>
         <div onClick={() => { this.closeModal() }} id="background"></div>
 
-        {!this.isServer ? <div id="youtube-video" onClick={() => { this.closeModal() }}>
-          <lazy-iframe src="https://www.youtube.com/embed/UfD-k7aHkQE" width="700" height="450" title="Ionic team at Polymer Summit video" />
-        </div>: null}
+        {!this.isServer
+          ? <div id="youtube-video" onClick={() => { this.closeModal() }}>
+              <iframe
+                id="youtube-embed"
+                frameBorder="0"
+                title="Ionic team at Polymer Summit video"
+                allowFullScreen={true}
+                src="https://www.youtube.com/embed/UfD-k7aHkQE?enablejsapi=1"
+                width="700"
+                height="450">
+              </iframe>
+            </div>
+          : null
+        }
 
         <main>
           <section class="hero">
