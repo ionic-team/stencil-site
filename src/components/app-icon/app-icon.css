@@ -52,3 +52,9 @@ app-icon .icon-github {
   width: 16px;
   height: 16px;
 }
+
+app-icon .icon-link {
+  fill: var(--color-woodsmoke);
+  height: 12px;
+  width: 12px;
+}

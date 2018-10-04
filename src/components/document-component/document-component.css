@@ -58,6 +58,27 @@ document-component .doc-content {
   margin-right: auto;
 }
 
+document-component .heading-link {
+  position: relative;
+  color: var(--color-woodsmoke);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+document-component .heading-link app-icon {
+  transition: opacity 0.2s;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+}
+
+document-component .heading-link:hover app-icon {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 1024px) {
   document-component .doc-content {
     padding-right: 0;

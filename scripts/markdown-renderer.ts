@@ -80,7 +80,7 @@ export function listFactory(renderer: marked.Renderer, metadataList: SiteStructu
 
 export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string, metadataList: SiteStructureItem[]) {
   const prevLink = renderer.link;
-  
+
   renderer.link = function(href: string, title: string, text: string) {
     if (!(href.startsWith('/') || href.startsWith('#') || href.startsWith('http'))) {
       const newPath = path.resolve(path.dirname(filePath), href) + '.json';
@@ -104,8 +104,10 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
 
     return `
 <h${level}>
-  <a id="${id}" href="${id}"><ion-icon name="link"></ion-icon></a>
-  ${text}
+  <a class="heading-link" id="${id}" href="#${id}">
+    <app-icon name="link"></app-icon>
+    ${text}
+  </a>
 </h${level}>
 `;
   };

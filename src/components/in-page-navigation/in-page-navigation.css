@@ -34,11 +34,19 @@ in-page-navigation .heading-links li + li {
 
 in-page-navigation .heading-links a {
   font-weight: 400;
-  color: #6c6c8b;
   color: var(--color-gunpowder);
   font-size: 13px;
   line-height: 18px;
   font-weight: 500;
+  border: none;
+}
+
+in-page-navigation .heading-links a:hover {
+  color: var(--color-woodsmoke);
+}
+
+in-page-navigation .heading-links a:hover {
+  border: none;
 }
 
 in-page-navigation li.heading-link {
@@ -57,21 +65,26 @@ in-page-navigation li.heading-link.selected a {
 }
 
 in-page-navigation li.size-h2 {
-  margin-left: calc(var(--indent-size) * 1);
+  transform: translateX(calc(var(--indent-size) * 1));
   font-weight: 600;
 }
 in-page-navigation li.size-h3 {
-    margin-left: calc(var(--indent-size) * 2);
+  transform: translateX(calc(var(--indent-size) * 2));
 }
 
 in-page-navigation li.size-h4 {
-    margin-left: calc(var(--indent-size) * 3);
+  transform: translateX(calc(var(--indent-size) * 3));
 }
 
 in-page-navigation li.size-h3 a,
 in-page-navigation li.size-h4 a {
   font-weight: 400;
   color: #6c6c8b;
+}
+
+in-page-navigation li.size-h3 a:hover,
+in-page-navigation li.size-h4 a:hover {
+  color: var(--color-gunpowder);
 }
 
 in-page-navigation .submit-edit-link {
@@ -95,7 +108,7 @@ in-page-navigation .submit-edit-link span:hover {
 }
 
 in-page-navigation .heading-links + .submit-edit-link {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 

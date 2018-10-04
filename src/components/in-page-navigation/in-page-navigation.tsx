@@ -39,7 +39,11 @@ export class InPageNavigtion implements ComponentInterface {
     const submitEditLink = <a class="submit-edit-link" href="#"><app-icon name="github"></app-icon><span>Submit an edit</span></a>;
 
     if (pageLinks.length === 0) {
-      return submitEditLink;
+      return (
+        <div class="sticky">
+          { submitEditLink }
+        </div>
+      );
     }
 
     return (
