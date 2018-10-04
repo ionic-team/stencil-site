@@ -14,7 +14,7 @@ export class InPageNavigtion implements ComponentInterface {
 
   @Listen('window:scroll')
   function() {
-    const item = this.itemOffsets.find(item => item.topOffset > document.documentElement.scrollTop);
+    const item = this.itemOffsets.find(item => item.topOffset > window.scrollY);
     if (item) {
       this.selectedId = item.id;
     }
