@@ -27,9 +27,9 @@ export class SiteMenu implements ComponentInterface{
               { this.siteStructureList.map((item) => (
                 <li>
                   <a href="#" onClick={this.toggleParent(item)}>
-                    <h4>
+                    <span class="section-label">
                       {item.text}
-                    </h4>
+                    </span>
                   </a>
                   <ul class={{ 'collapsed': item !== this.selectedParent }}>
                   { item.children.map((childItem) => (

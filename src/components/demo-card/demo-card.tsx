@@ -21,7 +21,7 @@ export class DemoCard {
             <img src={`${this.imgPath}.jpg`} srcSet={`${this.imgPath}.jpg 1x, ${this.imgPath}@2x.jpg 2x`} />
           </a>
         </div>
-        <h4>{this.name}</h4>
+        <h3>{this.name}</h3>
         <p>{this.description}</p>
         <p>
           <a target="_blank" rel="noopener" href={this.demoUrl} class="text-link text-link--primary">Demo</a>

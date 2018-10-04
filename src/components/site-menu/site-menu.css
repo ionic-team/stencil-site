@@ -3,10 +3,11 @@ site-menu {
   flex: 0 0 auto;
 }
 
-site-menu h4 {
+site-menu .section-label {
   color: var(--color-woodsmoke);
   margin-bottom: 0;
   font-size: 14px;
+  font-weight: 600;
 }
 
 site-menu .menu-list li,
@@ -21,7 +22,7 @@ site-menu .menu-list {
   padding: 0;
 }
 
-site-menu .menu-list h4:first-of-type {
+site-menu .menu-list .section-label:first-of-type {
   margin-top: 0;
 }
 
@@ -86,7 +87,7 @@ site-menu .menu-list ul.collapsed li {
     height: 100%;
     overflow-y: scroll;
   }
-  site-menu .menu-list h4 {
+  site-menu .menu-list .section-label {
     color: white;
   }
   site-menu .menu-list a {

@@ -111,6 +111,10 @@ landing-page .cta__primary {
   padding: 80px 0;
 }
 
+landing-page .cta__primary h3 {
+  color: #fff;
+}
+
 landing-page .cta__primary code {
   font-size: 16px;
   padding: 18px 26px 20px;
