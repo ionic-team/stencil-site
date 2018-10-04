@@ -32,7 +32,7 @@
   color: var(--color-white);
 }
 
-.btn-secondary {
+.btn--secondary {
   background: var(--color-white);
   color: var(--color-dodger-blue);
 }

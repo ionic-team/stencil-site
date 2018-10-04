@@ -60,7 +60,6 @@ document-component .doc-content {
 
 document-component .heading-link {
   position: relative;
-  color: var(--color-woodsmoke);
   text-decoration: none;
   display: flex;
   align-items: center;
