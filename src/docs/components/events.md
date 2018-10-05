@@ -117,3 +117,13 @@ We can now listen to this event directly on the component in our JSX using the f
 ```tsx
 <todo-list onTodoCompleted={ev => this.someMethod(ev)}></todo-list>
 ```
+
+## Listening events from a non-JSX element
+
+```tsx
+<todo-list></todo-list>
+<script>
+  const todoListElement = document.querySelector('todo-list');
+  todoListElement.addEventListener('todoCompleted', event => { /* your listener */ })
+</script>
+```
