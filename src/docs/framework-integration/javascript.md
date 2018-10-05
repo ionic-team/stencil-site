@@ -40,3 +40,57 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
 </body>
 </html>
 ```
+
+## Passing object props from a non-JSX element
+
+### Setting the prop manually
+
+```tsx
+import { Prop } from '@stencil/core';
+
+export class TodoList {
+  @Prop() myObject: object;
+  @Prop() myArray: Array<string>;
+}
+```
+
+```tsx
+<todo-list></todo-list>
+<script>
+  const todoListElement = document.querySelector('todo-list');
+  todoListElement.myObject = {};
+  todoListElement.myArray = [];
+</script>
+```
+
+### Watching props changes
+
+```tsx
+import { Prop, State, Watch } from '@stencil/core';
+
+export class TodoList {
+  @Prop() myObject: string;
+  @Prop() myArray: string;
+  @State() myInnerObject: object;
+  @State() myInnerArray: Array<string>;
+
+  componentWillLoad() {
+    this.parseMyObjectProp(this.myObject);
+    this.parseMyArrayProp(this.myArray);
+  }
+
+  @Watch('myObject')
+  parseMyObjectProp(newValue: string) {
+    if (newValue) this.myInnerObject = JSON.parse(newValue);
+  }
+
+  @Watch('myArray')
+  parseMyArrayProp(newValue: string) {
+    if (newValue) this.myInnerArray = JSON.parse(newValue);
+  }
+}
+```
+
+```tsx
+<todo-list my-object="{}" my-array="[]"></todo-list>
+```
