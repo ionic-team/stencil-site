@@ -43,6 +43,10 @@ document-component .measure-lg {
   margin-right: auto;
 }
 
+document-component svg {
+  width: 100%;
+}
+
 document-component .btn.pull-left,
 document-component .btn.pull-right {
   margin: 52px 6px 15px;

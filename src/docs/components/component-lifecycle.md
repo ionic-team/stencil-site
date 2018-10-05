@@ -12,74 +12,56 @@ Components have numerous lifecycle methods which can be used to know when the co
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
-```tsx
-import { Component } from '@stencil/core';
-
-@Component({
-  tag: 'my-component'
-})
-export class MyComponent {
-
-  /**
-   * The component is about to load and it has not
-   * rendered yet.
-   *
-   * This is the best place to make any data updates
-   * before the first render.
-   *
-   * componentWillLoad will only be called once.
-   */
-  componentWillLoad() {
-    console.log('Component is about to be rendered');
-  }
-
-  /**
-   * The component has loaded and has already rendered.
-   *
-   * Updating data in this method will cause the
-   * component to re-render.
-   *
-   * componentDidLoad will only be called once.
-   */
-  componentDidLoad() {
-    console.log('Component has been rendered');
-  }
-
-  /**
-   * The component is about to update and re-render.
-   *
-   * Called multiple times throughout the life of
-   * the component as it updates.
-   *
-   * componentWillUpdate is not called on the first render.
-   */
-  componentWillUpdate() {
-    console.log('Component will update and re-render');
-  }
-
-  /**
-   * The component has just re-rendered.
-   *
-   * Called multiple times throughout the life of
-   * the component as it updates.
-   *
-   * componentDidUpdate is not called on the
-   * first render.
-   */
-  componentDidUpdate() {
-    console.log('Component did update');
-  }
-
-  /**
-   * The component did unload and the element
-   * will be destroyed.
-   */
-  componentDidUnload() {
-    console.log('Component removed from the DOM');
-  }
-}
-```
-
+<svg viewbox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M552 576a90 90 0 0 0 90-90V165c0-58.5-47.2-106-105.5-106A105.8 105.8 0 0 0 431 165l.4 136.5v136" stroke="#B3B6C5" stroke-linecap="square"/>
+    <path stroke="#B3B6C5" d="M437.6 432.3l-6.3 6.3-6.3-6.3"/>
+    <path d="M126.4 19.5v419" stroke="#B3B6C5" stroke-linecap="square"/>
+    <path stroke="#B3B6C5" d="M132.6 432.3l-6.3 6.3-6.3-6.3"/>
+    <path d="M290.3 628.5v82" stroke="#B3B6C5" stroke-linecap="square"/>
+    <path stroke="#B3B6C5" d="M296.6 704.3l-6.3 6.3-6.3-6.3"/>
+    <rect fill="#FDF5E4" x="1" y="550" width="555" height="50" rx="4"/>
+    <rect fill="#FDF5E4" x="1" y="611" width="555" height="50" rx="4"/>
+    <rect fill="#FDF5E4" width="252" height="50" rx="4"/>
+    <rect fill="#212431" y="452" width="252" height="49" rx="24.5"/>
+    <rect fill="#212431" x="303" y="452" width="252" height="49" rx="24.5"/>
+    <rect fill="#212431" x="303" y="229" width="252" height="49" rx="24.5"/>
+    <rect fill="#212431" x="164" y="725" width="252" height="49" rx="24.5"/>
+    <rect fill="#212431" x="303" y="169" width="252" height="49" rx="24.5"/>
+    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+      <tspan x="57" y="30">Component initialized</tspan>
+    </text>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="43" y="482">componentDidLoad()</tspan>
+    </text>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="336.3" y="482">componentDidUpdate()</tspan>
+    </text>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="332.1" y="259">componentWillUpdate()</tspan>
+    </text>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="198.3" y="754">componentDidUnload()</tspan>
+    </text>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="346" y="198">@Watch(‘propName’)</tspan>
+    </text>
+    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+      <tspan x="110.8" y="580">Change in a value of prop or state triggers re-render</tspan>
+    </text>
+    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+      <tspan x="211.7" y="640">Component removed</tspan>
+    </text>
+    <rect fill="#39B54A" y="342" width="555" height="49" rx="24.5"/>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="240.4" y="371">render()</tspan>
+    </text>
+    <rect fill="#212431" y="63" width="252" height="49" rx="24.5"/>
+    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+      <tspan x="38.4" y="92">componentWillLoad()</tspan>
+    </text>
+  </g>
+</svg>
 
 ## Rendering State
 

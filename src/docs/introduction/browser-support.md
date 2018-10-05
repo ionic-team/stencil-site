@@ -8,7 +8,7 @@ contributors:
 
 # Browser Support
 
-Stencil builds Web Components that run natively or near-natively in all widely used browsers.
+Stencil builds Web Components that run natively or near-natively in all widely used desktop and mobile browsers.
 
 Web Components are a set of standardized browser APIs centered around the Custom Elements v1 spec, a cross-browser way to define and create essentially new HTML tags, and is the successor to the now-defunct v0 spec.
 
