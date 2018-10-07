@@ -209,11 +209,13 @@
       },
       {
         "text": "Unit Testing",
-        "filePath": "/assets/docs/testing/unit-testing.json"
+        "filePath": "/assets/docs/testing/unit-testing.json",
+        "url": "/docs/unit-testing"
       },
       {
         "text": "End-to-end Testing",
-        "filePath": "/assets/docs/testing/e2e-testing.json"
+        "filePath": "/assets/docs/testing/e2e-testing.json",
+        "url": "/docs/e2e-testing"
       },
       {
         "text": "Visual Screenshot Diff",
