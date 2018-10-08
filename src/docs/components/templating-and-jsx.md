@@ -10,7 +10,7 @@ contributors:
 
 Stencil components are rendered using JSX, a popular, declarative template syntax. Each component has a `render` function that returns a tree of components that are rendered to the DOM at runtime.
 
-### Basics
+## Basics
 
 The `render` function is used to output a tree of components that will be drawn to the screen.
 
@@ -29,7 +29,7 @@ class MyComponent {
 
 In this example we're returning the JSX representation of a `div`, with two child elements: an `h1` and a `p`.
 
-### Data Binding
+## Data Binding
 
 Components often need to render dynamic data. To do this in JSX, use `{ }` around a variable:
 
@@ -52,7 +52,7 @@ Hello {this.name}
 ```
 
 
-### Conditionals
+## Conditionals
 
 If we want to conditionally render different content, we can use JavaScript if/else statements:
 Here, if `name` is not defined, we can just render a different element.
@@ -82,7 +82,7 @@ render() {
 }
 ```
 
-### Slots
+## Slots
 
 Components often need to render dynamic children in specific locations in their component tree, allowing a developer to supply child content when using our component, with our component placing that child component in the proper location.
 
@@ -140,7 +140,7 @@ render(){
 }
 ```
 
-### Loops
+## Loops
 
 Loops can be created in JSX using either traditional loops when creating JSX trees, or using array operators such as `map` when inlined in existing JSX.
 
@@ -163,7 +163,7 @@ render() {
 
 Each step through the `map` function creates a new JSX sub tree and adds it to the array returned from `map`, which is then drawn in the JSX tree above it.
 
-### Handling User Input
+## Handling User Input
 
 Stencil uses native [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events).
 
@@ -220,7 +220,7 @@ export class MyComponent {
 ```
 
 
-### Complex Template Content
+## Complex Template Content
 
 So far we've seen examples of how to return only a single root element. We can also nest elements inside our root element
 
@@ -253,7 +253,7 @@ It is also possible to use `innerHTML` to inline content straight into an elemen
 <div innerHTML={svgContent}></div>
 ```
 
-### Getting a reference to a dom element
+## Getting a reference to a dom element
 
 In cases where you need to get a direct reference to an element, like you would normally do with `document.querySelector`, you might want to use a `ref` in JSX. Lets look at an example of using a `ref` in a form:
 

@@ -8,7 +8,7 @@ contributors:
 
 # Forms
 
-### Basic forms
+## Basic forms
 
 Here is an example of a component with a basic form:
 
@@ -48,7 +48,7 @@ export class MyName {
 Let's go over what is happening here. First we bind the value of the input to a state variable, in this case `this.value`. We then set our state variable to the new value of the input with the `handleChange` method we have bound to `onInput`. `onInput` will fire every keystroke that the user types into the input.
 
 
-### Advanced forms
+## Advanced forms
 
 Here is an example of a component with a more advanced form:
 

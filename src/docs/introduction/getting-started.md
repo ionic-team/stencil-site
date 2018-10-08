@@ -30,7 +30,7 @@ you will be provided with a prompt so that you can choose the type of project to
 ```
 
 
-### Updating Stencil
+## Updating Stencil
 
 To get the latest version of @stencil/core you can run:
 `npm install @stencil/core@latest --save-exact`

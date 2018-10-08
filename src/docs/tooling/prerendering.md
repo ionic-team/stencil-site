@@ -12,14 +12,14 @@ One of the benefits of Stencil is that it allows for prerendering of your web co
 
 Prerendering is built into the Stencil compiler itself and by default our [app starter](https://github.com/ionic-team/stencil-app-starter) has it turned on for production builds.
 
-### Benefits
+## Benefits
 
 - Faster time to [first meaningful paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 - Better SEO
 - Still provides some functionality for users with JavaScript disabled
 
 
-### Things to watch for
+## Things to watch for
 
 - Data that you are fetching from an api should not be prerendered as this data is dynamic and is going to change.
 

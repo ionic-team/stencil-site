@@ -12,7 +12,7 @@ Stencil components update when props or state on a component change. For perform
 
 To update array or object data, use the following techniques which are fast-becoming a core part of the modern JavaScript  toolbox.
 
-### Updating arrays
+## Updating arrays
 
 For arrays, this means that the standard mutable array operations such as `push()` and `unshift()` won't work. Instead, non-mutable array operators such as `map()` and `filter()`, and the ES6 spread operator syntax, should be used as they return a copy of a new array.
 
@@ -31,7 +31,7 @@ this.items = [
 
 The `...this.items` syntax is a relatively new feature of JavaScript that "expands" the given object in place. Read more about the Spread operator [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
 
-### Updating an object
+## Updating an object
 
 The spread operator should also be used to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:
 

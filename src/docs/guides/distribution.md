@@ -11,12 +11,12 @@ contributors:
 Stencil makes it easy to build and share web components across any framework.
 
 
-### Getting Started
+## Getting Started
 
 The easiest way to build and distribute web components with Stencil is by using our [stencil-component-starter](https://github.com/ionic-team/stencil-component-starter). This starter includes all of the config and package.json changes that are discussed below by default with instructions in the [readme](https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md).
 
 
-### Distribution Config
+## Distribution Config
 
 Configuring Stencil for distribution is easy. Set the following config options in the `stencil.config.ts` file:
 

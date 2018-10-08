@@ -27,7 +27,7 @@ Compared to using Custom Elements directly, Stencil provides extra APIs that mak
 The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
 
 
-### Why Stencil?
+## Why Stencil?
 
 Stencil was created by the [Ionic Framework](http://ionicframework.com/) team to help build faster, more capable components that worked across all major frameworks.
 
