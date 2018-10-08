@@ -58,3 +58,9 @@ app-icon .icon-link {
   height: 12px;
   width: 12px;
 }
+
+app-icon .icon-circle {
+  fill: var(--color-woodsmoke);
+  height: 12px;
+  width: 12px;
+}

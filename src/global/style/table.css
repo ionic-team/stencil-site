@@ -1,12 +1,16 @@
 
 table {
-  display: block;
   width: 100%;
   overflow: auto;
   margin-top: 0;
   margin-bottom: 18px;
   border-spacing: 0;
   border-collapse: collapse;
+  overflow-x: auto;
+}
+
+p + table {
+  margin-top: 28px;
 }
 
 tr {
@@ -15,22 +19,37 @@ tr {
 }
 
 th {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
 }
 
 th,
 td {
-  padding: 6px 13px;
+  padding: 10px 10px;
   border: 1px solid #dfe2e5;
 }
 
 td {
-  padding: 6px 13px;
   border: 1px solid #dfe2e5;
   vertical-align: top;
+  font-size: 14px;
+}
+
+td {
+  line-height: 1.5;
+}
+
+table code {
+  font-size: 13px;
 }
 
 tr:nth-child(2n) {
   background-color: #f6f8fa;
+}
+
+
+@media screen and (max-width: 590px) {
+  table {
+    display: block;
+  }
 }

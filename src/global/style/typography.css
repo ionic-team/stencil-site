@@ -48,8 +48,7 @@ h4 a {
 
 p,
 ul,
-ol,
-td {
+ol {
   color: var(--color-gunpowder);
   font-size: 15px;
   line-height: 1.8;

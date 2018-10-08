@@ -25,14 +25,14 @@
 }
 
 .modal--hide .modal__background {
-  animation-name: fadeOut;
+  animation-name: fade-modal-out;
 }
 
 .modal--show .modal__background {
-  animation-name: fadein;
+  animation-name: fade-modal-in;
 }
 
-@keyframes fadein {
+@keyframes fade-modal-in {
   from {
     opacity: 0;
   }
@@ -42,7 +42,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-modal-out {
   from {
     opacity: 1;
   }
@@ -59,18 +59,18 @@
 }
 
 .modal--show .modal__content {
-  animation-name: slideIn;
+  animation-name: slide-modal-in;
   animation-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
   animation-duration: 0.6s;
 }
 
 .modal--hide .modal__content {
-  animation-name: slideOut;
+  animation-name: slide-modal-out;
   animation-timing-function: linear;
   animation-duration: 0.2s;
 }
 
-@keyframes slideIn {
+@keyframes slide-modal-in {
   from {
     opacity: 0;
     transform: translateY(0);
@@ -82,7 +82,7 @@
   }
 }
 
-@keyframes slideOut {
+@keyframes slide-modal-out {
   from {
     opacity: 1;
     transform: translateY(-30px);

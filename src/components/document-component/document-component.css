@@ -82,6 +82,20 @@ document-component .heading-link:hover app-icon {
   opacity: 0.8;
 }
 
+document-component table app-icon svg.icon-checkmark {
+  fill: var(--color-green-haze);
+}
+
+
+document-component .align-right {
+  text-align: right;
+}
+
+document-component .caption {
+  font-size: 12px;
+  color: var(--color-dolphin);
+}
+
 @media screen and (max-width: 1024px) {
   document-component .doc-content {
     padding-right: 0;
@@ -102,10 +116,10 @@ document-component .heading-link:hover app-icon {
   document-component h1 {
     font-size: 26px;
   }
+
   document-component p,
   document-component ul li,
   document-component ol li {
     font-size: 14px;
   }
-
 }
