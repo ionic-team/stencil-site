@@ -13,6 +13,7 @@ In most cases, the `stencil.config.ts` file does not require any customization s
 
 - [bundles](#bundles)
 - [copy](#copy)
+- [devServer](#devServer)
 - [enableCache](#enableCache)
 - [globalStyle](#globalStyle)
 - [hashFileNames](#hashFileNames)
@@ -63,6 +64,19 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
   ]
 ```
 
+
+<a name="devServer"></a>
+## `devServer`
+
+| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `openBrowser`   | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
+
+```tsx
+devServer: {
+  openBrowser: true
+}
+```
 
 <a name="enableCache"></a>
 ## `enableCache`
