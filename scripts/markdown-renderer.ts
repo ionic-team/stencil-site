@@ -136,7 +136,7 @@ export function changeCodeCreation(renderer: marked.Renderer) {
 
     const out = highlight(code, lang);
 
-    if (out != null && out !== code) {
+    if (out != null) {
       escaped = true;
       code = out;
     }

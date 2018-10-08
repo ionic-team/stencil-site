@@ -92,7 +92,7 @@ export class pwasPage {
           <h4>Routing</h4>
           <p>
             The Ionic PWA Toolkit uses the Stencil Router.
-            <stencil-route-link url="docs/routing" class="block">
+            <stencil-route-link url="/docs/routing" class="block">
               Read more about the Stencil Router
             </stencil-route-link>
           </p>
