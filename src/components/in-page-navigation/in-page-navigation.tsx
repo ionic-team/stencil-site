@@ -21,6 +21,7 @@ export class InPageNavigtion implements ComponentInterface {
   }
 
   @Prop() pageLinks: MarkdownHeading[] = [];
+  @Prop() srcUrl: string = '';
   @State() itemOffsets: ItemOffset[] = [];
   @State() selectedId: string = null;
 
@@ -36,7 +37,12 @@ export class InPageNavigtion implements ComponentInterface {
 
   render() {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
-    const submitEditLink = <a class="submit-edit-link" href="#"><app-icon name="github"></app-icon><span>Submit an edit</span></a>;
+    const submitEditLink = (
+       <a class="submit-edit-link" href={`https://github.com/ionic-team/stencil-site/blob/master/${this.srcUrl}`}>
+         <app-icon name="github"></app-icon>
+         <span>Submit an edit</span>
+       </a>
+    );
 
     if (pageLinks.length === 0) {
       return (

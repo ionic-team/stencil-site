@@ -82,9 +82,11 @@ export namespace Components {
 
   interface InPageNavigation {
     'pageLinks': MarkdownHeading[];
+    'srcUrl': string;
   }
   interface InPageNavigationAttributes extends StencilHTMLAttributes {
     'pageLinks'?: MarkdownHeading[];
+    'srcUrl'?: string;
   }
 
   interface LandingPage {}
