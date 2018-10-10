@@ -11,22 +11,6 @@ contributors:
 
 In most cases, the `stencil.config.ts` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.ts` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properties.
 
-- [bundles](#bundles)
-- [copy](#copy)
-- [devServer](#devServer)
-- [enableCache](#enableCache)
-- [globalStyle](#globalStyle)
-- [hashFileNames](#hashFileNames)
-- [hashedFileNameLength](#hashedFileNameLength)
-- [namespace](#namespace)
-- [outputTargets](#outputTargets)
-  - [dist](#dist)
-  - [www](#www)
-- [plugins](#plugins)
-- [srcDir](#srcDir)
-- [excludeSrc](#excludeSrc)
-
-
 Example `stencil.config.ts`:
 
 ```typescript
@@ -36,8 +20,7 @@ export const config: Config = {
 };
 ```
 
-<a name="bundles"></a>
-## `bundles`
+## bundles
 
 By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
 
@@ -51,8 +34,7 @@ bundles: [
 ```
 
 
-<a name="copy"></a>
-##  `copy`
+## copy
 
 The `copy` config is an array of objects that defines any files or folders that should be copied over to the build directory. Each object in the array must include a `src` property which can be either an absolute path, a relative path or a glob pattern. The config can also provide an optional `dest` property which can be either an absolute path or a path relative to the build directory. Also note that any files within `src/assets` are automatically copied to `www/assets` for convenience.
 
@@ -65,8 +47,7 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
 ```
 
 
-<a name="devServer"></a>
-## `devServer`
+## devServer
 
 | Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
@@ -78,8 +59,7 @@ devServer: {
 }
 ```
 
-<a name="enableCache"></a>
-## `enableCache`
+## enableCache
 
 *default: `true`*
 
@@ -90,8 +70,7 @@ enableCache: true
 ```
 
 
-<a name="globalStyle"></a>
-## `globalStyle`
+## globalStyle
 
 Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](/docs/css-variables).
 
@@ -112,8 +91,7 @@ The global style config takes a file path as a string. The output from this buil
 globalStyle: 'src/globals/app.css'
 ```
 
-<a name="hashFileNames"></a>
-## `hashFileNames`
+## hashFileNames
 
 *default: `true`*
 
@@ -124,8 +102,7 @@ hashFileNames: true
 ```
 
 
-<a name="hashedFileNameLength"></a>
-## `hashedFileNameLength`
+## hashedFileNameLength
 
 *default: `8`*
 
@@ -136,8 +113,7 @@ hashedFileNameLength: 8
 ```
 
 
-<a name="namespace"></a>
-##  `namespace`
+## namespace
 
 *default: `App`*
 
@@ -148,8 +124,7 @@ The `namespace` config is a `string` representing a namespace for the app. For a
 ```
 
 
-<a name="outputTargets"></a>
-##  `outputTargets`
+## outputTargets
 
 Stencil is able to take an app's source and compile it to numerous targets, such as an app to be deployed on an http server, or as a third-party library to be distributed on [npm](https://www.npmjs.com/). By default, Stencil apps have an output target type of `www`.
 
@@ -163,8 +138,7 @@ outputTargets: [
 ```
 
 
-<a name="dist"></a>
-## `outputTarget: dist`
+### dist
 
 The `dist` type is to generate the component(s) as a reusable library, such as [Ionic](https://www.npmjs.com/package/@ionic/core) or [Stencil Router](https://www.npmjs.com/package/@stencil/router). When creating a distribution, the project's `package.json` will also have to be updated. Don't worry, helper messages when compiling will state which package.json properties will need to be updated.
 
@@ -182,8 +156,7 @@ outputTargets: [
 ```
 
 
-<a name="www"></a>
-## `outputTarget: www`
+### www
 
 The `www` output target type is oriented for webapps and websites, hosted from an http server, which can benefit from prerendering and service workers, such as [this very site](https://github.com/ionic-team/stencil-site) you're reading.
 
@@ -212,8 +185,7 @@ outputTargets: [
 ```
 
 
-<a name="plugins"></a>
-## `plugins`
+## plugins
 
 The `plugins` config can be used to add your own [rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the plugin array.
 
@@ -228,7 +200,7 @@ export const config: Config = {
 };
 ```
 
-#### Related Plugins
+### Related Plugins
 
 - [@stencil/less](https://www.npmjs.com/package/@stencil/less)
 - [@stencil/postcss](https://www.npmjs.com/package/@stencil/postcss)
@@ -236,8 +208,7 @@ export const config: Config = {
 - [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 
-<a name="srcDir"></a>
-## `srcDir`
+## srcDir
 
 *default: `src`*
 
@@ -248,8 +219,7 @@ srcDir: 'src'
 ```
 
 
-<a name="excludeSrc"></a>
-## `excludeSrc`
+## excludeSrc
 
 *default: `['**/test/**', '**/*.spec.*']`*
 

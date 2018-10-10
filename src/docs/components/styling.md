@@ -8,7 +8,7 @@ contributors:
 
 # Shadow DOM
 
-### What is Shadow DOM
+## What is Shadow DOM
 
 [Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom) is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow DOM shields our component from the outside world, meaning that we do not need to think about things such as scoping our css correctly, or worrying about our internal DOM being interfered with by the world outside our component.
 
@@ -61,12 +61,12 @@ div {
 }
 ```
 
-### Scoped CSS
+## Scoped CSS
 
 In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute automatically at run time.
 
 
-# CSS Variables
+## CSS Variables
 
 ### What are CSS Variables?
 

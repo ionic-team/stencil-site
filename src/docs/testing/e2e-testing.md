@@ -1,6 +1,7 @@
 ---
 title: End-to-end Testing
 description: End-to-end Testing
+url: /docs/end-to-end-testing
 contributors:
   - adamdbradley
   - mattdsteele
