@@ -28,36 +28,36 @@ Implement one of the following methods within a component class and Stencil will
     <rect fill="#212431" x="303" y="229" width="252" height="49" rx="24.5"/>
     <rect fill="#212431" x="164" y="725" width="252" height="49" rx="24.5"/>
     <rect fill="#212431" x="303" y="169" width="252" height="49" rx="24.5"/>
-    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
       <tspan x="57" y="30">Component initialized</tspan>
     </text>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="43" y="482">componentDidLoad()</tspan>
     </text>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="336.3" y="482">componentDidUpdate()</tspan>
     </text>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="332.1" y="259">componentWillUpdate()</tspan>
     </text>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="198.3" y="754">componentDidUnload()</tspan>
     </text>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="346" y="198">@Watch(‘propName’)</tspan>
     </text>
-    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
       <tspan x="110.8" y="580">Change in a value of prop or state triggers re-render</tspan>
     </text>
-    <text font-family="SFProText-Regular, SF Pro Text" font-size="14" letter-spacing="-.2" fill="#9A6400">
+    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
       <tspan x="211.7" y="640">Component removed</tspan>
     </text>
     <rect fill="#39B54A" y="342" width="555" height="49" rx="24.5"/>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="240.4" y="371">render()</tspan>
     </text>
     <rect fill="#212431" y="63" width="252" height="49" rx="24.5"/>
-    <text font-family="SFMono-Regular, SF Mono" font-size="15" fill="#FFF">
+    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
       <tspan x="38.4" y="92">componentWillLoad()</tspan>
     </text>
   </g>
