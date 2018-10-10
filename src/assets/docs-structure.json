@@ -214,8 +214,7 @@
       },
       {
         "text": "End-to-end Testing",
-        "filePath": "/assets/docs/testing/e2e-testing.json",
-        "url": "/docs/e2e-testing"
+        "filePath": "/assets/docs/testing/e2e-testing.json"
       },
       {
         "text": "Visual Screenshot Diff",
