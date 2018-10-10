@@ -18,7 +18,7 @@ You should have one single `stencil-router` component in your project.  This com
 | **historyType** | 'browser' OR 'hash'      | The history type that you would like the router to use. default is **browser** (html5 pushState)
 | **titleSuffix** | *string*      | A suffix to append to the page title whenever it's updated through RouteTitle
 
-### Basic usage
+**Basic usage**
 
 ```tsx
 <stencil-router titleSuffix=" - My App">
@@ -43,7 +43,7 @@ This component renders based on whether the supplied url matches the current loc
 | **routeRender**     | *function*   | function that accepts props as an argument. If this exists it will be used in place of the component defined.
 | **exact**           | *boolean*   | If true then only render this route when the url matches exactly to the location, if false it will render if the current url 'matches' the url defined.
 
-### Basic usage
+**Basic usage**
 
 ```tsx
 <stencil-route url="/" component="landing-page" exact={true} />
@@ -93,7 +93,7 @@ Use the `stencil-route-switch` anytime you have multiple routes that you would l
 |:------------------- |:-------------:| ------------------------------- |
 | **scrollTopOffset** | *number*      | scroll to a specific location on route change then set this property.  By default it does not scroll, but in most cases you will likely want to set it to `0` so that it scrolls back to the top of the content on page transition.
 
-### Basic usage
+**Basic usage**
 ```tsx
 <stencil-router>
   <stencil-route-switch scrollTopOffset={0}>
@@ -119,7 +119,7 @@ This component redirects the current location.
 |:------------------- |:-------------:| ------------------------------- |
 | **url**             | *string*      | the url to redirect to.
 
-#### Basic usage
+**Basic usage**
 
 ```tsx
 <stencil-route-redirect url="/" />
@@ -136,11 +136,15 @@ This component is used to render links to defined routes.  It applys a specific 
 | **exact**           | *boolean*     | If true then only apply the active class when the url matches exactly to the location.
 | **activeClass**     | *string*      | The class to apply if the link matches the current location. This defaults to `link-active`.
 
-### Basic usage
+**Basic usage**
 
 ```tsx
-<stencil-route-link url="/" exact={true}>Home</stencil-route-link>
-<stencil-route-link url="/info" urlMatch="/info/*">Information</stencil-route-link>
+<stencil-route-link url="/" exact={true}>
+  Home
+</stencil-route-link>
+<stencil-route-link url="/info" urlMatch="/info/*">
+  Information
+</stencil-route-link>
 <stencil-route-link url="/info" activeClass="link-active">
   Information
 </stencil-route-link>
@@ -169,7 +173,7 @@ Update the page title declaratively
 |:------------------- |:-------------:| ------------------------------- |
 | **title**           | *string*      | Title that you would like to set on the page
 
-### Basic usage
+**Basic usage**
 
 ```tsx
 <stencil-route-title title="Home" />

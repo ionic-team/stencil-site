@@ -51,7 +51,7 @@ export class DocumentComponent implements ComponentInterface {
               <lower-content-nav next={this.nextItem} prev={this.prevItem}></lower-content-nav>
             </div>
           </div>,
-          <in-page-navigation pageLinks={docsContent.headings}></in-page-navigation>
+          <in-page-navigation pageLinks={docsContent.headings} srcUrl={docsContent.srcPath}></in-page-navigation>
         ]}/>
       </div>
     );

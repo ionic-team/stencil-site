@@ -120,7 +120,7 @@ onClick() {
 
 ## Code organization
 
-### Newspaper Metaphor from The Robert C. Martin's _Clean Code_
+**Newspaper Metaphor from The Robert C. Martin's _Clean Code_**
 
 > The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.
 

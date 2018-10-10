@@ -52,7 +52,7 @@ export default createProviderConsumer<State>({
 ```
 <br/>
 
-## 2. Pass state to the tunnel's Provider Component.
+## 2. Pass state to the tunnel Provider Component.
 Usually this will be at the top of your component tree. Think of this as a way to take state from the parent
 component and then make it available to components further down the tree. That is essentially what the [Provider Component](Provider-Component) does.
 
