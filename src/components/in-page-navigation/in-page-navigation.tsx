@@ -22,6 +22,7 @@ export class InPageNavigtion implements ComponentInterface {
 
   @Prop() pageLinks: MarkdownHeading[] = [];
   @Prop() srcUrl: string = '';
+  @Prop() currentPageUrl: string = '';
   @State() itemOffsets: ItemOffset[] = [];
   @State() selectedId: string = null;
 
@@ -62,7 +63,7 @@ export class InPageNavigtion implements ComponentInterface {
               [`size-h${pl.level}`]: true,
               'selected': this.selectedId === pl.id
             }}>
-            <a href={`#${pl.id}`}>{pl.text}</a>
+            <stencil-route-link url={`${this.currentPageUrl}#${pl.id}`}>{pl.text}</stencil-route-link>
           </li>
           )) }
         </ul>

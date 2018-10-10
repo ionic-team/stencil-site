@@ -81,10 +81,12 @@ export namespace Components {
   }
 
   interface InPageNavigation {
+    'currentPageUrl': string;
     'pageLinks': MarkdownHeading[];
     'srcUrl': string;
   }
   interface InPageNavigationAttributes extends StencilHTMLAttributes {
+    'currentPageUrl'?: string;
     'pageLinks'?: MarkdownHeading[];
     'srcUrl'?: string;
   }
