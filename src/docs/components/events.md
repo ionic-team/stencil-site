@@ -101,28 +101,13 @@ For keyboard events, you can use the standard `keydown` event in `@Listen()` and
 
 ```tsx
 @Listen('keydown')
-handleKeyDown(ev){
-  if(ev.keyCode === 40){
+handleKeyDown(ev: KeyboardEvent){
+  if (ev.key === 'ArrowDown'){
     console.log('down arrow pressed')
   }
 }
-
-@Listen('keydown.up')
-handleUpArrow(ev){
-  console.log('will fire when up arrow is pressed');
-}
 ```
-
-Stencil provides constants for the following keys, accessible via `keydown.<CONSTANT>`
-
-- enter
-- escape
-- space
-- tab
-- left
-- up
-- right
-- down
+More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values);
 
 ## Using events in JSX
 
