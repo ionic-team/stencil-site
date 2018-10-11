@@ -5,6 +5,7 @@ url: /docs/vue
 contributors:
   - jthoms1
   - adamdbradley
+  - kensodemann
 ---
 
 # Vue
@@ -14,7 +15,7 @@ In order to use the custom element library within the Vue app, the application m
 ```tsx
 import Vue from 'vue';
 import App from './App.vue';
-import { defineCustomElements } from 'test-components';
+import { defineCustomElements } from 'test-components//dist/loader';
 
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = [/test-\w*/];
