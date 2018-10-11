@@ -142,7 +142,7 @@ export class LandingPage {
                 <li class="feature-list__item">
                   <app-icon name="performant"/>
                   <h3>Performant</h3>
-                  <p>6kb min+gzip runtime, server side rendering, and the raw power of native Web Components.</p>
+                  <p>6kb min+gzip runtime, pre-rendering, and the raw power of native Web Components.</p>
                 </li>
                 <li class="feature-list__item">
                   <app-icon name="futureproof"/>
