@@ -5,6 +5,7 @@ url: /docs/angular
 contributors:
   - jthoms1
   - adamdbradley
+  - kensodemann
 ---
 
 # Angular
@@ -48,7 +49,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { defineCustomElements } from 'test-components';
+import { defineCustomElements } from 'test-components/dist/loader';
 
 if (environment.production) {
   enableProdMode();

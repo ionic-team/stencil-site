@@ -5,6 +5,7 @@ url: /docs/react
 contributors:
   - jthoms1
   - adamdbradley
+  - kensodemann
 ---
 # React
 
@@ -17,7 +18,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { defineCustomElements } from 'test-components';
+import { defineCustomElements } from 'test-components/dist/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
