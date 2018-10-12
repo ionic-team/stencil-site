@@ -31,7 +31,7 @@
   * [Plugins](tooling/plugins.md)
 * Guides
   * [Distribution](guides/distribution.md)
-  * [Bundling](guides/module-bundling.md)
+  <!-- * [Bundling](guides/module-bundling.md) -->
   * [Style Guide](guides/style-guide.md)
 * Routing
   * [Overview](routing/overview.md)
