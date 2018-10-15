@@ -4,6 +4,7 @@ description: Docs Auto-Generation
 url: /docs/docs-auto-generation
 contributors:
   - adamdbradley
+  - snaptopixel
 ---
 
 # Docs Auto-Generation
@@ -29,6 +30,22 @@ Another option would be to add a docs command as an npm script, such as:
   scripts: {
     "docs": "stencil build --docs"
   }
+```
+
+## Adding Custom Markdown to Auto-Generated Files
+
+Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
+
+## Documenting CSS Variables
+
+Stencil will also document CSS variables when you specify them via jsdoc-style comments inside your css/scss files:
+
+```css
+/**
+ * @prop --background: Background of the button
+ * @prop --background-activated: Background of the button when activated
+ * @prop --background-focused: Background of the button when focused
+ */
 ```
 
 ## Docs Json Data
