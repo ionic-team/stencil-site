@@ -14,7 +14,7 @@
   "dependencies": {},
   "devDependencies": {
     "@stencil/core": "^0.13.0-12",
-    "@stencil/router": "^0.2.8",
+    "@stencil/router": "^0.3.1",
     "@stencil/state-tunnel": "0.0.9-1",
     "@stencil/utils": "0.0.5",
     "@types/glob": "^7.1.0",
