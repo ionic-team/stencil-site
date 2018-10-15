@@ -47,7 +47,7 @@ Once compiled, this component can be used in HTML just like any other tag.
 
 When rendered, the browser will display `My name is Max`.
 
-## So what's really going on here?
+## So what is really going on here?
 
 Let's dive in.
 
