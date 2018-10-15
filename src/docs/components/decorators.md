@@ -163,7 +163,7 @@ export class LoadingIndicator {
 }
 ```
 
-# Managing Component State
+## State Decorator
 
 The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
 

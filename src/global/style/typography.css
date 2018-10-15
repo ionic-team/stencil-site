@@ -62,7 +62,8 @@ ol {
 
 p a,
 ul a,
-ol a {
+ol a,
+td a {
   transition: border 0.3s;
   color: var(--color-dodger-blue);
   text-decoration: none;
@@ -72,7 +73,8 @@ ol a {
 
 p a:hover,
 ul a:hover,
-ol a:hover {
+ol a:hover,
+td a:hover {
   border-bottom-color: var(--color-dodger-blue-hover);
 }
 
