@@ -153,11 +153,6 @@
         "url": "/docs/distribution"
       },
       {
-        "text": "Bundling",
-        "filePath": "/assets/docs/guides/module-bundling.json",
-        "url": "/docs/module-bundling"
-      },
-      {
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
