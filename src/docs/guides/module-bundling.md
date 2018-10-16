@@ -20,7 +20,7 @@ Depending on which libraries a project is dependent on, the [rollup-plugin-node-
            see the bundling docs for more information.
 ```
 
-In some cases, the [rollup-plugin-node-builtins](https://www.npmjs.com/package/rollup-plugin-node-builtins) plugin may also be required.
+In some cases, the [rollup-plugin-node-globals](https://www.npmjs.com/package/rollup-plugin-node-globals) plugin may also be required.
 
 Here is an example `stencil.config.ts` file that includes both plugins.
 
