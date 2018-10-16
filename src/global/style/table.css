@@ -2,15 +2,11 @@
 table {
   width: 100%;
   overflow: auto;
-  margin-top: 0;
+  margin-top: 28px;
   margin-bottom: 18px;
   border-spacing: 0;
   border-collapse: collapse;
   overflow-x: auto;
-}
-
-p + table {
-  margin-top: 28px;
 }
 
 tr {
