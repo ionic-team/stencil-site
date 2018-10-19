@@ -111,7 +111,7 @@ export class LandingPage {
           </section>
 
           <section class="overview">
-            <p>Stencil combines the best concepts of the most popular frontend frameworks and generates 100% standards-based Web Components that run in any modern browser.</p>
+            <p>Stencil combines the best concepts of the most popular frontend frameworks and generates 100% standards-based Web Components that run in any modern browser. Built by the <a href="https://ionicframework.com/">Ionic Framework</a> team.</p>
             <ul class="small list--unstyled list--icon">
               <li><app-icon name="checkmark"/> Typescript support</li>
               <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>

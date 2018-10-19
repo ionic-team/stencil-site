@@ -80,11 +80,20 @@ landing-page .overview > ul {
   flex-wrap: wrap;
 }
 
+landing-page .overview > ul {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
 landing-page .overview > p,
 landing-page .overview > ul,
 landing-page .overview > ul li {
   flex: 0 0 50%;
   box-sizing: border-box;
+}
+
+landing-page .overview > ul li {
+  padding-bottom: 4px;
 }
 
 landing-page .overview > p {
