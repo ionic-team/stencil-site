@@ -97,17 +97,35 @@ export class TodoList {
 }
 ```
 
-For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the key code, or some constants Stencil provides.
+For keyboard events, you can use the standard `keydown` event in `@Listen()` and then check for a specific key having been pressed.
 
 ```tsx
 @Listen('keydown')
-handleKeyDown(ev: KeyboardEvent){
+handleKeyDown(ev: KeyboardEvent) {
   if (ev.key === 'ArrowDown'){
     console.log('down arrow pressed')
   }
 }
 ```
+
 More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values);
+
+Additionally, Stencil provides some helpers for common keys:
+- enter
+- escape
+- space
+- tab
+- left
+- up
+- right
+- down
+
+```tsx
+@Listen('keydown.enter')
+handleEnterKeydown(ev: KeyboardEvent) {
+  console.log('Enter key pressed')
+}
+```
 
 ## Using events in JSX
 
