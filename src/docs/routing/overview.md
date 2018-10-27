@@ -41,3 +41,22 @@ Within the `stencil-router` element, we want to declare our set of `stencil-rout
 ```
 
 When navigating to `/demos/rendering` based on the above configuration, the `demos-page` component will be loaded with a child component `fiber-demo`. They will both be loaded as children of their corresponding stencil-routes but they are not related other than both match the route. Nested routes/components just work.
+
+### Server configuration
+
+Depending to the choice you made regarding the hosting of your Stencil app, you may want to configure your server accordingly to the followings.
+
+#### Apache 2
+```apache
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [L]
+```
+
+#### Nginx
+```.vhost
+location / {
+  try_files $uri $uri/ /index.html;
+}
+```
