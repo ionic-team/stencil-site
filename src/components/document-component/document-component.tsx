@@ -49,6 +49,7 @@ export class DocumentComponent implements ComponentInterface {
             <div class="measure-lg">
               <div innerHTML={docsContent.content}></div>
               <lower-content-nav next={this.nextItem} prev={this.prevItem}></lower-content-nav>
+              <contributor-list contributors={docsContent.contributors}></contributor-list>
             </div>
           </div>,
           <in-page-navigation

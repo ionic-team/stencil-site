@@ -17,6 +17,6 @@ export interface MarkdownHeading {
 export interface SiteStructureItem {
   text: string,
   url?: string;
-  filePath?: string,
-  children?: SiteStructureItem[]
+  filePath?: string;
+  children?: SiteStructureItem[];
 }
