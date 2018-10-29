@@ -29,14 +29,12 @@ And that's it! You should now have an `sw.js` file in your `www` folder and the 
 
 ## Config
 
-Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://Workboxjs.org/reference-docs/latest/module-workbox-build.html#.Configuration). Here is the default config Stencil uses:
+Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://developers.google.com/web/tools/workbox/modules/workbox-build#full_generatesw_config). Here is the default config Stencil uses:
 
 ```tsx
 {
-  skipWaiting: true,
-  clientsClaim: true,
   globPatterns: [
-    '**/*.{js,css,json,html,ico,png,svg}'
+    '**/*.{js,css,json,html}'
   ]
 };
 ```
@@ -85,9 +83,6 @@ export const config: Config = {
 
 ```tsx
 importScripts('workbox-v3.1.0/Workbox-sw.js');
-
-self.workbox.skipWaiting();
-self.workbox.clientsClaim();
 
 // your custom service worker code
 
