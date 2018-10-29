@@ -58,7 +58,7 @@ Match multiple known routes
 ### Match unknown routes
 It is possible that you might want to match based on any possible segment or have named captures
 In that case you can specify these in the url prop. In this case these are available within your component
-as props. More examples available in the [Route Params Tutorial](tutorials#route-params)
+as props. More examples available in the [Route Params Tutorial](/docs/router-tutorials#route-params)
 
 ```tsx
 <stencil-route url="/page/:pageNum(\\d+)" component="page-item" />
