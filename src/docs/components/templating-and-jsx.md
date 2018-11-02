@@ -4,6 +4,7 @@ description: Using JSX
 url: /docs/templating-jsx
 contributors:
   - jthoms1
+  - simonhaenisch
 ---
 
 # Using JSX
@@ -162,6 +163,26 @@ render() {
 ```
 
 Each step through the `map` function creates a new JSX sub tree and adds it to the array returned from `map`, which is then drawn in the JSX tree above it.
+
+If your list is dynamic, i. e., it's possible to change, add, remove or reorder items, you should assign a unique `key` to each element to give it a stable identity. This enables Stencil to reuse DOM elements for better performance. The best way to pick a key is to use a string that uniquely identifies that list item among its siblings (often your data will already have IDs).
+
+```tsx
+render() {
+  return (
+    <div>
+      {this.todos.map((todo) =>
+        <div key={todo.uid}>
+          <div>{todo.taskName}</div>
+          <div>{todo.isCompleted}</div>
+          <button onClick={this.remove(todo)}>X</button>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique.
 
 ## Handling User Input
 
