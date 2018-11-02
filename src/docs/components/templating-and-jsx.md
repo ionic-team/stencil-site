@@ -174,7 +174,7 @@ render() {
         <div key={todo.uid}>
           <div>{todo.taskName}</div>
           <div>{todo.isCompleted}</div>
-          <button onClick={this.remove(todo)}>X</button>
+          <button onClick={() => this.remove(todo)}>X</button>
         </div>
       )}
     </div>
