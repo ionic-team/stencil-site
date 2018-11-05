@@ -29,7 +29,7 @@ And that's it! You should now have an `sw.js` file in your `www` folder and the 
 
 ## Config
 
-Stencil uses Workbox underneath and therefore supports all of the [Workbox config options](https://developers.google.com/web/tools/workbox/modules/workbox-build#full_generatesw_config). Here is the default config Stencil uses:
+Stencil uses Workbox underneath, and by default generates a service worker from a config object using the `generateSW` mode. Therefore it supports all of the [Workbox generateSW config options](https://developers.google.com/web/tools/workbox/modules/workbox-build#full_generatesw_config). Here is the default config Stencil uses:
 
 ```tsx
 {
@@ -39,7 +39,7 @@ Stencil uses Workbox underneath and therefore supports all of the [Workbox confi
 };
 ```
 
-This configuration does pre-caching of all of your apps assets.
+This configuration does pre-caching of all of your app's assets.
 
 To modify this config you can use the `serviceWorker` param of your Stencil config. Here is an example:
 
@@ -60,7 +60,7 @@ export const config: Config = {
 
 ## Using a custom service worker
 
-Already have a service worker or want to include some custom code? We support that too.
+Already have a service worker or want to include some custom code? We support that, too. By specifying a source file for your service worker, Stencil switches to the `injectManifest` mode of Workbox. That gives you full control over your service worker, while still allowing you to automatically inject a precache manifest.
 
 Let's go through the steps needed for this functionality:
 
@@ -88,4 +88,54 @@ importScripts('workbox-v3.1.0/Workbox-sw.js');
 
 self.workbox.precaching.precacheAndRoute([]);
 ```
+
 This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.
+
+### Showing a reload toast when an update is available
+
+```tsx
+@Prop({ connect: 'ion-toast-controller' })
+toastCtrl: HTMLIonToastControllerElement;
+
+/**
+ * Handle service worker updates correctly.
+ * This code will show a toast letting the
+ * user of the PWA know that there is a
+ * new version available. When they click the
+ * reload button it then reloads the page
+ * so that the new service worker can take over
+ * and serve the fresh content
+ */
+@Listen('window:swUpdate')
+async onSWUpdate() {
+  const toast = await this.toastCtrl.create({
+    message: 'New version available',
+    showCloseButton: true,
+    closeButtonText: 'Reload'
+  });
+  await toast.present();
+  await toast.onWillDismiss();
+  window.location.reload();
+}
+```
+
+### Handle push events
+
+```tsx
+/*
+  This is our code to handle push events.
+*/
+self.addEventListener('push', (event) => {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'Push Notification';
+  const options = {
+    body: `${event.data.text()}`,
+    icon: 'images/icon.png',
+    badge: 'images/badge.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+```
