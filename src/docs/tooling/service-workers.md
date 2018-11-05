@@ -86,6 +86,7 @@ importScripts('workbox-v3.1.0/Workbox-sw.js');
 
 // your custom service worker code
 
+// the precache manifest will be injected into the following line
 self.workbox.precaching.precacheAndRoute([]);
 ```
 
