@@ -2,6 +2,9 @@
 	"type": "static",
 	"name": "stencil-site",
   "static": {
+    "headers": [
+			{ "source": "/sw.js", "headers": [{ "key": "cache-control", "value": "no-cache" }]}
+		],
     "rewrites": [
       { "source": "**", "destination": "/index.html" }
     ],
