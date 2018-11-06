@@ -94,31 +94,55 @@ This code imports the Workbox library, creates a new instance of the service wor
 
 ### Showing a reload toast when an update is available
 
+When a new service worker is available, by default, it will be downloaded and then go into a state of waiting to be activated. The new service worker won't take over until all tabs of the site are closed and the site is visited again. This is to avoid unexpected behavior from conflicts with files being served from cache, and works well in many cases.
+
+If you want to give your users the option to immediately access the new site, a common way is to show them a toast, letting them know about the update and offering a "reload" button. The reload let's the new service worker take over,serving the fresh content, and triggers a page reload, to avoid cache issues.
+
+The following example showcases this in combination with the Ionic framework, but the toast-related code should be easily adaptable to any UI. Add the following to your root component (commonly `app-root.tsx`).
+
 ```tsx
 @Prop({ connect: 'ion-toast-controller' })
 toastCtrl: HTMLIonToastControllerElement;
 
-/**
- * Handle service worker updates correctly.
- * This code will show a toast letting the
- * user of the PWA know that there is a
- * new version available. When they click the
- * reload button it then reloads the page
- * so that the new service worker can take over
- * and serve the fresh content
- */
-@Listen('window:swUpdate')
+@Listen("window:swUpdate")
 async onSWUpdate() {
-  const toast = await this.toastCtrl.create({
-    message: 'New version available',
-    showCloseButton: true,
-    closeButtonText: 'Reload'
-  });
-  await toast.present();
-  await toast.onWillDismiss();
-  window.location.reload();
+  const registration = await navigator.serviceWorker.getRegistration();
+
+  if (registration && registration.waiting) {
+    // registration.waiting is the service worker waiting to be activiated.
+
+    const toast = await this.toastCtrl.create({
+      message: "New version available",
+      showCloseButton: true,
+      closeButtonText: "Reload"
+    });
+
+    await toast.present();
+    await toast.onWillDismiss();
+
+    registration.waiting.postMessage("skipWaiting");
+    window.location.reload();
+  }
 }
 ```
+
+The `swUpdate` event is emitted by Stencil every time a service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by a custom service worker (e. g. `src/sw.js`) to call `skipWaiting()`.
+
+```tsx
+// adjust this to whatever version Stencil currently works with
+importScripts("workbox-v3.4.1/workbox-sw.js");
+
+self.addEventListener("message", e => {
+  if (e.data === "skipWaiting") {
+    self.skipWaiting();
+  }
+});
+
+// inject precache manifest
+self.workbox.precaching.precacheAndRoute([]);
+```
+
+> Don't forget to set `swSrc` in your Stencil config.
 
 ### Handle push events
 
