@@ -16,7 +16,7 @@ Throughout the build process, the compiler is able to extract documentation from
 
 ## Readme Markdown Files
 
-Stencil is able to auto-generate `readme.md` files in markdown. This is an opt-in feature and will save the readme files as a sibling to the component within the same directory. When this feature is used it an be useful for others to easily find and read formatted docs about one component. In particular, when a `readme.md` file is placed within a directory on Github, it will default the readme mardown file as the primary content of the page.
+Stencil is able to auto-generate `readme.md` files in markdown. This is an opt-in feature and will save the readme files as a sibling to the component within the same directory. When this feature is used it can be useful for others to easily find and read formatted docs about one component. In particular, when a `readme.md` file is placed within a directory on Github, it will default the readme markdown file as the primary content of the page.
 
 To auto-generate readme files, add the flag `--docs`, such as:
 
