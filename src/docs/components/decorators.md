@@ -26,16 +26,17 @@ export class TodoList {
 }
 ```
 
-| name | type | description
-tag: string;
-styleUrl?: string;
-styleUrls?: string[] | d.ModeStyles;
-styles?: string;
-scoped?: boolean;
-shadow?: boolean;
-host?: d.HostMeta;
-assetsDir?: string;
-assetsDirs?: string[];
+| Property   | Type                       | Description |
+| ---------- | -------------------------- | ----------- |
+| tag        | `string`                   |             |
+| styleUrl   | `string`                   | (Optional)  |
+| styleUrls  | `string[]` \| `ModeStyles` | (Optional)  |
+| styles     | `string`                   | (Optional)  |
+| scoped     | `boolean`                  | (Optional)  |
+| shadow     | `boolean`                  | (Optional)  |
+| host       | `HostMeta`                 | (Optional)  |
+| assetsDir  | `string`                   | (Optional)  |
+| assetsDirs | `string[]`                 | (Optional)  |
 
 ## Prop Decorator
 
