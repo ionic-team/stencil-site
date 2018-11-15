@@ -163,6 +163,16 @@ export class LoadingIndicator {
 }
 ```
 
+The @Watch decorator does not fire when a component initially loads.
+
+To get the method to run when the component loads, invoke it inside a `componentWillLoad` lifecycle hook:
+
+```tsx
+componentWillLoad() {
+ this.watchHandler(this.newValue);
+}
+```
+
 ## State Decorator
 
 The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
