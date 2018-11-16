@@ -21,22 +21,22 @@ export class MyName {
 
   @State() value: string;
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault()
     console.log(this.value);
     // send data to our backend
   }
 
-  handleChange(event) {
-    this.value = event.target.value;
+  handleChange = (e) => {
+    this.value = e.target.value;
   }
 
   render() {
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.value} onInput={(event) => this.handleChange(event)} />
+          <input type="text" value={this.value} onInput={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
@@ -68,7 +68,7 @@ export class MyName {
     console.log(this.value);
   }
 
-  handleChange(event) {
+  handleChange = (e) => {
     this.value = event.target.value;
 
     if (event.target.validity.typeMismatch) {
@@ -76,32 +76,32 @@ export class MyName {
     }
   }
 
-  handleSelect(event) {
+  handleSelect = (e) => {
     console.log(event.target.value);
     this.selectValue = event.target.value;
   }
 
-  handleSecondSelect(event) {
+  handleSecondSelect = (e) => {
     console.log(event.target.value);
     this.secondSelectValue = event.target.value;
   }
 
   render() {
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Email:
-          <input type="email" value={this.value} onInput={(e) => this.handleChange(e)} />
+          <input type="email" value={this.value} onInput={this.handleChange} />
         </label>
 
-        <select onInput={(event) => this.handleSelect(event)}>
+        <select onInput={this.handleSelect}>
           <option value="volvo" selected={this.selectValue === 'volvo'}>Volvo</option>
           <option value="saab" selected={this.selectValue === 'saab'}>Saab</option>
           <option value="mercedes" selected={this.selectValue === 'mercedes'}>Mercedes</option>
           <option value="audi" selected={this.selectValue === 'audi'}>Audi</option>
         </select>
 
-        <select onInput={(event) => this.handleSecondSelect(event)}>
+        <select onInput={this.handleSecondSelect}>
           {this.avOptions.map(recipient => (
             <option value={recipient.id} selected={this.selectedReceiverIds.indexOf(recipient.id) !== -1}>{recipient.name}</option>
           ))}
