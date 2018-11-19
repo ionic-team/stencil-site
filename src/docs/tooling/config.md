@@ -349,3 +349,12 @@ export interface EmulateViewport {
 
 }
 ```
+
+## Disable service worker
+
+If you do not want a service worker to be generated during the build, this can be turned off. To disable this feature, set a `serviceWorker` property with a simple value of `null` or `false`.
+
+```tsx
+
+serviceWorker: null
+```
