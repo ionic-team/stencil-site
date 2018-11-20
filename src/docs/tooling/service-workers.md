@@ -97,7 +97,7 @@ This code imports the Workbox library, creates a new instance of the service wor
 
 When a new service worker is available, by default, it will be downloaded and then go into a state of waiting to be activated. The new service worker won't take over until all tabs of the site are closed and the site is visited again. This is to avoid unexpected behavior from conflicts with files being served from cache, and works well in many cases.
 
-If you want to give your users the option to immediately access the new site, a common way is to show them a toast, letting them know about the update and offering a "reload" button. The reload let's the new service worker take over,serving the fresh content, and triggers a page reload, to avoid cache issues.
+If you want to give your users the option to immediately access the new site, a common way is to show them a toast, letting them know about the update and offering a "reload" button. The reload let's the new service worker take over, serving the fresh content, and triggers a page reload, to avoid cache issues.
 
 The following example showcases this in combination with the Ionic framework, but the toast-related code should be easily adaptable to any UI. Add the following to your root component (commonly `app-root.tsx`).
 
