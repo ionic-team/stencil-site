@@ -1,4 +1,5 @@
 import { Component, Element, Prop, State, Listen } from '@stencil/core';
+import copy from 'copy-text-to-clipboard';
 
 @Component({
   tag: 'landing-page',
@@ -80,6 +81,18 @@ export class LandingPage {
     this.isModalOpen = false;
   }
 
+  copyCommand = (ev) => {
+    const codeEl = ev.target as HTMLElement;
+    codeEl.classList.add('copied');
+    codeEl.textContent = 'copied!'
+    copy('npm init stencil');
+
+    setTimeout(() => {
+      codeEl.textContent = 'npm init stencil';
+      codeEl.classList.remove('copied');
+    }, 1500);
+  }
+
   render() {
     return (
       <div>
@@ -125,7 +138,7 @@ export class LandingPage {
           <section class="cta">
             <div class="cta__primary">
               <h3>Start coding with Stencil in seconds</h3>
-              <code>npm init stencil</code>
+              <code onClick={this.copyCommand}>npm init stencil</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
             <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
