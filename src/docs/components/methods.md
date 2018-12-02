@@ -32,8 +32,18 @@ todoListElement.showPrompt();
 
 ## Methods must be async
 
-Exposed methods annotated with the `Method()` decorator must return a `Promise` or
-`void`:
+Stencil's architecture is async at all levels which allows for many performance benefits and ease of use. By ensuring publicly exposed methods using the @Method decorator return a promise:
+
+- Developers can call methods before the implementation was downloaded without componentOnReady(), which queues the method calls and resolves after the component has finished loading.
+
+- Interaction with the component is the same whether it still needs to be lazy-loaded, or is already fully hydrated.
+
+- By keeping a component's public API async, apps could move the components transparently to [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and the API would still be the same.
+
+- Returning a promise is only required for publicly exposed methods which have the @Method decorator. All other component methods are private to the component and are not required to be async.
+
+Also note, developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
+
 
 ```tsx
 // VALID: using async
@@ -60,9 +70,3 @@ notOk() {
   return 42;
 }
 ```
-
-Given the async nature of stencil, imperative APIs like methods must be async too.
-
-- Components are lazy loaded by default, which means the implementation might not be ready when a method is called, stencil proxies method calls (like a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call)), so the returned value must be a promise.
-- In the future, components might run inside a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), making it impossible to have synchronous method invocations.
-
