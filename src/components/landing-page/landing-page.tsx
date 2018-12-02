@@ -1,6 +1,8 @@
 import { Component, Element, Prop, State, Listen } from '@stencil/core';
 import copy from 'copy-text-to-clipboard';
 
+const IS_EDGE = (document as any).documentMode || /Edge/.test(navigator.userAgent) ? true : false;
+
 @Component({
   tag: 'landing-page',
   styleUrl: 'landing-page.css'
@@ -10,8 +12,8 @@ export class LandingPage {
   @Element() el!: Element;
 
   @Prop({ context: 'isServer' }) private isServer: boolean;
-  @State() isEdge: boolean;
-  @State() isModalOpen: boolean;
+  @State() isModalOpen = false;
+  @State() isCopied = false;
 
   constructor() {
     document.title = `Stencil`;
@@ -26,7 +28,6 @@ export class LandingPage {
     // dont show the animated youtube video in Edge because
     // pointer-events: none; is broken in Edge
     // just link to the youtube video directly like we do on mobile
-    this.isEdge = (document as any).documentMode || /Edge/.test(navigator.userAgent) ? true : false;
 
     // attach youtube iframe api
     const tag = document.createElement('script');
@@ -48,7 +49,7 @@ export class LandingPage {
   }
 
   handleWatchVideo() {
-    if (window.matchMedia('(min-width: 768px)').matches || this.isEdge) {
+    if (window.matchMedia('(min-width: 768px)').matches || IS_EDGE) {
       this.openModal();
     } else {
       window.location.href = 'https://youtu.be/UfD-k7aHkQE';
@@ -81,16 +82,10 @@ export class LandingPage {
     this.isModalOpen = false;
   }
 
-  copyCommand = (ev) => {
-    const codeEl = ev.target as HTMLElement;
-    codeEl.classList.add('copied');
-    codeEl.textContent = 'copied!'
+  copyCommand = () => {
     copy('npm init stencil');
-
-    setTimeout(() => {
-      codeEl.textContent = 'npm init stencil';
-      codeEl.classList.remove('copied');
-    }, 1500);
+    this.isCopied = true;
+    setTimeout(() => this.isCopied = false, 1500);
   }
 
   render() {
@@ -138,7 +133,7 @@ export class LandingPage {
           <section class="cta">
             <div class="cta__primary">
               <h3>Start coding with Stencil in seconds</h3>
-              <code onClick={this.copyCommand}>npm init stencil</code>
+              <code class={{'copied': this.isCopied}} onClick={this.copyCommand}>{this.isCopied ? 'copied!' : 'npm init stencil'}</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
             <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
