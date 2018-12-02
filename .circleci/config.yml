@@ -4,7 +4,7 @@
 #
 version: 2
 defaults: &defaults
-  working_directory: ~/repo
+  working_directory: ~/stencil-site
   docker:
     - image: circleci/node:7.10
 
