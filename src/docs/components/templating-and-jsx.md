@@ -30,6 +30,11 @@ class MyComponent {
 
 In this example we're returning the JSX representation of a `div`, with two child elements: an `h1` and a `p`.
 
+### Host Element
+
+If you want to modify the host element itself, such as adding a class or an attribute to the component itself, use the `hostData()` function. Check for more details [here](host-element)
+
+
 ## Data Binding
 
 Components often need to render dynamic data. To do this in JSX, use `{ }` around a variable:
