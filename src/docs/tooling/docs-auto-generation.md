@@ -5,6 +5,7 @@ url: /docs/docs-auto-generation
 contributors:
   - adamdbradley
   - snaptopixel
+  - manucorporat
 ---
 
 # Docs Auto-Generation
@@ -18,23 +19,53 @@ Throughout the build process, the compiler is able to extract documentation from
 
 Stencil is able to auto-generate `readme.md` files in markdown. This is an opt-in feature and will save the readme files as a sibling to the component within the same directory. When this feature is used it can be useful for others to easily find and read formatted docs about one component. In particular, when a `readme.md` file is placed within a directory on Github, it will default the readme markdown file as the primary content of the page.
 
-To auto-generate readme files, add the flag `--docs`, such as:
+To auto-generate readme files, add the `docs` output target to your `stencil.config.ts`:
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
++    { type: 'docs' }
+  ]
+};
+```
+
+Another option would be to add the flag `--docs`, such as:
 
 ```bash
 stencil build --docs
 ```
 
-Another option would be to add a docs command as an npm script, such as:
+### Adding Custom Markdown to Auto-Generated Files
 
-```javascript
+Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
+
+
+## Docs Json Data
+
+While auto-generated readme files formatted with markdown is convenient, there may be scenarios it'd be getter to get all of the docs in the form of json data. To build the docs as json, use the `--docs-json` flag, followed by a path on where to write the json file.
+
+```tsx
   scripts: {
-    "docs": "stencil build --docs"
+    "docs.data": "stencil build --docs-json path/to/docs.json"
   }
 ```
 
-## Adding Custom Markdown to Auto-Generated Files
+Another option would be to add the `docs-json` output target to the `stencil.config.ts` in order to auto-generate this file with every build:
 
-Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
++    { type: 'docs-json' }
+  ]
+};
+```
+
+Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/docs.ts
+
 
 ## Documenting CSS Variables
 
@@ -46,14 +77,4 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
  * @prop --background-activated: Background of the button when activated
  * @prop --background-focused: Background of the button when focused
  */
-```
-
-## Docs Json Data
-
-While auto-generated readme files formatted with markdown is convenient, there may be scenarios it'd be getter to get all of the docs in the form of json data. To build the docs as json, use the `--docs-json` flag, followed by a path on where to write the json file.
-
-```javascript
-  scripts: {
-    "docs.data": "stencil build --docs-json path/to/docs.json"
-  }
 ```
