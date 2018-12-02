@@ -169,12 +169,12 @@ There are additional attributes that let you set specific attributes on the anch
 
 Update the page title declaratively
 
-| property            | type          | description                     |
-|:------------------- |:-------------:| ------------------------------- |
-| **title**           | *string*      | Title that you would like to set on the page
+| property                | type          | description                     |
+|:----------------------- |:-------------:| ------------------------------- |
+| **pageTitle**           | *string*      | Title that you would like to set on the page
 
 **Basic usage**
 
 ```tsx
-<stencil-route-title title="Home" />
+<stencil-route-title pageTitle="Home" />
 ```
