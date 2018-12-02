@@ -13,7 +13,9 @@ In most cases, the `stencil.config.ts` file does not require any customization s
 
 Example `stencil.config.ts`:
 
-```typescript
+```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   namespace: 'MyApp',
   srcDir: 'src'
@@ -72,7 +74,7 @@ enableCache: true
 
 ## globalStyle
 
-Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](/docs/css-variables).
+Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](../components/styling).
 
 Additionally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
 
@@ -227,7 +229,7 @@ The `excludeSrc` config setting specifies a set of regular expressions that shou
 
 ## testing
 
-The `testing` config setting specifies an object that corresponds to the jest configuration that should be used in your tests. Stencil provides a default configuration, which you likely won't need to edit, however it can be extended with the same configuration options as Jest. See the [Configuring Jest Guide](https://jestjs.io/docs/en/configuration.html) for configuration details.. 
+The `testing` config setting specifies an object that corresponds to the jest configuration that should be used in your tests. Stencil provides a default configuration, which you likely won't need to edit, however it can be extended with the same configuration options as Jest. See the [Configuring Jest Guide](https://jestjs.io/docs/en/configuration.html) for configuration details..
 
 Some additional Stencil specific options may be set here as well for configuring the e2e tests
 

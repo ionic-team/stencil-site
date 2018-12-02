@@ -83,10 +83,12 @@ export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string
 
   renderer.link = function(href: string, title: string, text: string) {
     if (!(href.startsWith('/') || href.startsWith('#') || href.startsWith('http'))) {
-      const newPath = path.resolve(path.dirname(filePath), href) + '.json';
+      let [pathname, fragment] = href.split('#');
+      fragment = fragment ? `#${fragment}` : '';
+      const newPath = path.resolve(path.dirname(filePath), pathname) + '.json';
       const item = findItem(metadataList, newPath);
       if (item && item.url != null) {
-        return `<stencil-route-link ${title ? `anchorTitle=${title}` : ''} url=${item.url}>${text}</stencil-route-link>`;
+        return `<stencil-route-link ${title ? `anchorTitle=${title}` : ''} url=${item.url}${fragment}>${text}</stencil-route-link>`;
       }
     }
     return prevLink.call(this, href, title, text);
