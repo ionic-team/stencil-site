@@ -21,16 +21,25 @@ export class AppMarked implements ComponentInterface {
     if (docPath == null || docPath === oldDocPath) {
       return;
     }
-    return fetch(this.fetchPath)
-      .then(response => response.json())
-      .then((data: MarkdownContent) => {
-        if (data != null) {
-          this.docsContent = data;
-        }
-      });
+    return fetchContent(this.fetchPath).then(data => {
+      if (data != null) {
+        this.docsContent = data;
+      }
+    });
   }
 
   render() {
     return this.renderer(this.docsContent);
   }
+}
+
+const localCache = new Map<string, Promise<MarkdownContent>>();
+
+function fetchContent(path: string) {
+  let promise = localCache.get(path);
+  if (!promise) {
+    promise = fetch(path, {cache: 'force-cache'}).then(response => response.json());
+    localCache.set(path, promise);
+  }
+  return promise;
 }

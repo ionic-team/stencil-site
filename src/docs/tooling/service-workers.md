@@ -44,6 +44,8 @@ This configuration does pre-caching of all of your apps assets.
 To modify this config you can use the `serviceWorker` param of your Stencil config. Here is an example:
 
 ```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   outputTargets: [
     {
@@ -67,6 +69,8 @@ Let's go through the steps needed for this functionality:
 - First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
 
 ```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   outputTargets: [
     {
