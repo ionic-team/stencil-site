@@ -1,11 +1,12 @@
 ---
-title: React Intergration with Stencil
-description: React Intergration with Stencil
+title: React Integration with Stencil
+description: React Integration with Stencil
 url: /docs/react
 contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
+  - erikschierboom
 ---
 # React
 
