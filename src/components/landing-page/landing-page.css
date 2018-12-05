@@ -126,10 +126,22 @@ landing-page .cta__primary h3 {
 
 landing-page .cta__primary code {
   font-size: 16px;
-  padding: 18px 26px 20px;
+  padding: 19px 26px 19px;
   border-radius: 8px;
+  width: 206px;
   background-color: rgba(0, 0, 0, 0.10);
   margin: 16px 0 4px;
+  cursor: copy;
+  transition: background-color 100ms ease-in-out;
+}
+
+landing-page .cta__primary code:hover {
+  background-color: rgba(0, 0, 0, 0.20);
+}
+
+landing-page .cta__primary code.copied {
+  cursor: default;
+  background-color: #5cba47;
 }
 
 landing-page .cta__primary span,

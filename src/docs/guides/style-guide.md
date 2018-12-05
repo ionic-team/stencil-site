@@ -203,10 +203,8 @@ export class Something {
    */
   componentWillLoad() {}
   componentDidLoad() {}
-  componentWillEnter() {}
-  componentDidEnter() {}
-  componentWillLeave() {}
-  componentDidLeave() {}
+  componentWillUpdate() {}
+  componentDidUpdate() 
   componentDidUnload() {}
 
   /**

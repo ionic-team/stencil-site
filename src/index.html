@@ -68,5 +68,15 @@
   </script>
   <script async defer src='https://www.google-analytics.com/analytics.js'></script>
 
+  <script>
+    // Unregister service workers
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        registrations.forEach(function(registration) {
+          registration.unregister();
+        });
+      });
+    }
+  </script>
 </body>
 </html>

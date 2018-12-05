@@ -6,6 +6,7 @@ contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
+  - peterpeterparker
 ---
 
 # Angular
@@ -59,3 +60,28 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 defineCustomElements(window);
 ```
+
+## Accessing components using ViewChild and ViewChildren
+
+Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
+
+```
+import {Component, ElementRef, ViewChild} from '@angular/core';
+
+import 'test-components';
+
+@Component({
+    selector: 'app-home',
+    template: `<test-components #test></test-components>`,
+    styleUrls: ['./home.component.scss'],
+})
+export class HomeComponent {
+
+    @ViewChild('test') myTestComponent: ElementRef<HTMLTestComponentElement>;
+    
+    async onAction() {
+        await this.myTestComponent.nativeElement.testComponentMethod();
+    }
+}
+
+``` 

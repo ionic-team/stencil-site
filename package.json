@@ -11,7 +11,9 @@
     "start": "npm run docs && stencil build --dev --watch --serve",
     "site-structure": "tsc --p ./scripts && node ./scripts/site-structure"
   },
-  "dependencies": {},
+  "dependencies": {
+    "copy-text-to-clipboard": "^1.0.4"
+  },
   "devDependencies": {
     "@stencil/core": "^0.16.0",
     "@stencil/router": "^0.3.1",
