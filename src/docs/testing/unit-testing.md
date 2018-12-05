@@ -5,6 +5,7 @@ url: /docs/unit-testing
 contributors:
   - adamdbradley
   - mattdsteele
+  - bassettsj
 ---
 
 # Unit Testing
