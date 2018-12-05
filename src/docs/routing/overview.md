@@ -36,7 +36,7 @@ Within the `stencil-router` element, we want to declare our set of `stencil-rout
     <stencil-route url="/docs" component="docs"/>
     <stencil-route url="/docs/getting-started" component="getting-started"/>
     <stencil-route url="/components" component="basics-components"/>
-  <stencil-route-switch>
+  </stencil-route-switch>
 </stencil-router>
 ```
 
