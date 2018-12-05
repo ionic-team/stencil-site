@@ -96,7 +96,7 @@ import { Listen } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Listen('body:scroll')
+  @Listen('window:scroll')
   handleScroll(ev) {
     console.log('the body was scrolled', ev);
   }
