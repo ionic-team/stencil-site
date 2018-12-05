@@ -4,6 +4,7 @@ description: Out-of-the-box browser support provided by Stencil web components.
 url: /docs/browser-support
 contributors:
   - adamdbradley
+  - arjunyel
 ---
 
 # Browser Support
