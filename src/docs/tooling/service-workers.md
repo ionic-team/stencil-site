@@ -4,6 +4,7 @@ description: Service Workers
 url: /docs/service-workers
 contributors:
   - jthoms1
+  - DavidFrahm
 ---
 
 # Service Workers
@@ -93,3 +94,20 @@ importScripts('workbox-v3.1.0/Workbox-sw.js');
 self.workbox.precaching.precacheAndRoute([]);
 ```
 This code imports the Workbox library, creates a new instance of the service worker and tells Workbox where to insert the pre-cache array.
+
+## Disable service worker
+
+If you do not want a service worker to be generated during the build, this can be turned off. To disable this feature, set a `serviceWorker` property with a simple value of `null`, in the `www` output target.
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'www',
+      serviceWorker: null
+    }
+  ]
+};
+```
