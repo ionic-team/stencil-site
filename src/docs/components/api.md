@@ -1,7 +1,7 @@
 ---
 title: Component
 description: Component API
-url: /docs/decorator
+url: /docs/decorators
 contributors:
   - manucorporat
 ---
