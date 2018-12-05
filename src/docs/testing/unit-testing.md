@@ -24,7 +24,7 @@ in order to test them.
 ```typescript
 import { MyToggle } from '../my-toggle.tsx';
 
-it('should toggle the checked property', async () => {
+it('should toggle the checked property', () => {
   const toggle = new MyToggle();
 
   expect(toggle.checked).toBe(false);
