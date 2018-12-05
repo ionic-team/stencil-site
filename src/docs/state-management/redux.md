@@ -90,7 +90,7 @@ export class MyComponent {
    
     this.store.mapDispatchToProps(this, {
       changeName
-    }
+    })
   }
  
   doNameChange(newName: string) {
