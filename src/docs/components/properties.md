@@ -41,7 +41,7 @@ Externally, Props are set on the element.
 in JSX you set an attribute using camelCase:
 
 ```markup
-<todo-list color="blue" favoriteNumber="24" isSelected="true"></todo-list>
+<todo-list color="blue" favoriteNumber={24} isSelected="true"></todo-list>
 ```
 
 They can also be accessed via JS from the element.
