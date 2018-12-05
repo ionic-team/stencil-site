@@ -78,7 +78,7 @@ Stencil is traditionally used to compile many components into an app, and each c
 
 Additionally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
 
-Below is an example folder structure containing a webapp's global sass file, named `app.css`.
+Below is an example folder structure containing a webapp's global css file, named `app.css`.
 
 ```bash
 src/
