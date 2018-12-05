@@ -235,6 +235,12 @@ export class LandingPage {
                     stencil-redux
                   </a>
                 </li>
+                <li>
+                  <a class="btn btn--tertiary btn--small" href="https://github.com/ionic-team/ionic/tree/master/core">
+                    <app-icon name="docs"/>
+                    ionic-core
+                  </a>
+                </li>
               </ul>
             </div>
           </section>
