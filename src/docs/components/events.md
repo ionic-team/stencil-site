@@ -8,6 +8,11 @@ contributors:
 
 # Events
 
+There is **NOT** such a thing as *stencil events*, instead, Stencil encourages the use of [DOM events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events).
+However, Stencil does provide an API to specify the events a component can emit, and the events a component listens to. It does so with the `Event()` and `Listen()` decorators.
+
+## Event Decorator
+
 Components can emit data and events using the Event Emitter decorator.
 
 To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) for other components to handle, use the `@Event()` decorator.
@@ -61,7 +66,8 @@ export class TodoList {
 }
 ```
 
-## Listening for Events
+
+## Listen Decorator
 
 The `Listen()` decorator is for handling events dispatched from `@Events`.
 
@@ -90,7 +96,7 @@ import { Listen } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Listen('body:scroll')
+  @Listen('window:scroll')
   handleScroll(ev) {
     console.log('the body was scrolled', ev);
   }
@@ -108,6 +114,7 @@ handleKeyDown(ev: KeyboardEvent){
 }
 ```
 More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values);
+
 
 ## Using events in JSX
 

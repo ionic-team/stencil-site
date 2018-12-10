@@ -33,19 +33,39 @@
     "text": "Components",
     "children": [
       {
-        "text": "Component Life Cycle",
-        "filePath": "/assets/docs/components/component-lifecycle.json",
-        "url": "/docs/component-lifecycle"
+        "text": "API",
+        "filePath": "/assets/docs/components/api.json",
+        "url": "/docs/decorators"
       },
       {
-        "text": "Decorators",
-        "filePath": "/assets/docs/components/decorators.json",
-        "url": "/docs/decorators"
+        "text": "Component",
+        "filePath": "/assets/docs/components/component.json",
+        "url": "/docs/component"
+      },
+      {
+        "text": "Component Lifecycle",
+        "filePath": "/assets/docs/components/component-lifecycle.json",
+        "url": "/docs/component-lifecycle"
       },
       {
         "text": "Events",
         "filePath": "/assets/docs/components/events.json",
         "url": "/docs/events"
+      },
+      {
+        "text": "Methods",
+        "filePath": "/assets/docs/components/methods.json",
+        "url": "/docs/methods"
+      },
+      {
+        "text": "Properties",
+        "filePath": "/assets/docs/components/properties.json",
+        "url": "/docs/properties"
+      },
+      {
+        "text": "Internal State",
+        "filePath": "/assets/docs/components/state.json",
+        "url": "/docs/state"
       },
       {
         "text": "Reactive Data",
@@ -58,14 +78,14 @@
         "url": "/docs/templating-jsx"
       },
       {
+        "text": "Host Element",
+        "filePath": "/assets/docs/components/host-element.json",
+        "url": "/docs/host-element"
+      },
+      {
         "text": "Styling",
         "filePath": "/assets/docs/components/styling.json",
         "url": "/docs/styling"
-      },
-      {
-        "text": "Forms",
-        "filePath": "/assets/docs/components/forms.json",
-        "url": "/docs/forms"
       }
     ]
   },
@@ -113,6 +133,11 @@
         "url": "/docs/config"
       },
       {
+        "text": "Bundling",
+        "filePath": "/assets/docs/tooling/module-bundling.json",
+        "url": "/docs/module-bundling"
+      },
+      {
         "text": "Dev Server",
         "filePath": "/assets/docs/tooling/dev-server.json",
         "url": "/docs/dev-server"
@@ -153,6 +178,11 @@
         "url": "/docs/distribution"
       },
       {
+        "text": "Forms",
+        "filePath": "/assets/docs/guides/forms.json",
+        "url": "/docs/forms"
+      },
+      {
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
@@ -180,7 +210,7 @@
     ]
   },
   {
-    "text": "State Management",
+    "text": "Advanced State Management",
     "children": [
       {
         "text": "State Tunnel",

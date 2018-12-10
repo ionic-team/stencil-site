@@ -5,6 +5,7 @@ url: /docs/end-to-end-testing
 contributors:
   - adamdbradley
   - mattdsteele
+  - simonhaenisch
 ---
 
 # End-to-end Testing
@@ -38,7 +39,7 @@ describe('example', () => {
     const page = await newE2EPage();
     await page.setContent(`<foo-component></foo-component>`);
     const el = await page.find('foo-component');
-    expect(el).toBeDefined();
+    expect(el).not.toBeNull();
   });
 });
 ```

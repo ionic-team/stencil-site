@@ -5,6 +5,7 @@ url: /docs/service-workers
 contributors:
   - jthoms1
   - simonhaenisch
+  - DavidFrahm
 ---
 
 # Service Workers
@@ -45,6 +46,8 @@ This configuration does pre-caching of all of your app's assets.
 To modify this config you can use the `serviceWorker` param of your Stencil config. Here is an example:
 
 ```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   outputTargets: [
     {
@@ -59,6 +62,23 @@ export const config: Config = {
 };
 ```
 
+### Disabling the service worker
+
+If you do not want a service worker to be generated during the build, this can be turned off. To disable this feature, set the `serviceWorker` property to `null` in the `www` output target.
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'www',
+      serviceWorker: null
+    }
+  ]
+};
+```
+
 ## Using a custom service worker
 
 Already have a service worker or want to include some custom code? We support that, too. By specifying a source file for your service worker, Stencil switches to the `injectManifest` mode of Workbox. That gives you full control over your service worker, while still allowing you to automatically inject a precache manifest.
@@ -68,6 +88,8 @@ Let's go through the steps needed for this functionality:
 - First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
 
 ```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   outputTargets: [
     {
