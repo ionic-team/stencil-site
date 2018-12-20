@@ -7,6 +7,7 @@ contributors:
   - adamdbradley
   - kensodemann
   - erikschierboom
+  - menosprezzi
 ---
 # React
 
@@ -31,7 +32,7 @@ defineCustomElements(window);
 ## Usage Considerations
 
 Note that React doesn't support custom properties and custom events by [nature](https://reactjs.org/docs/web-components.html).
-So, consider adding [this react component]() into your project to enable web components in it.
+So, consider adding [this react component](https://gist.github.com/menosprezzi/82daad2653f04d4d128ca3c4bd05d118) into your project to enable web components in it.
 After that, you can use any of your web components in your JSX markup passing custom properties to it.
 
 ```tsx
