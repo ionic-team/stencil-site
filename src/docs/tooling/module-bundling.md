@@ -6,6 +6,7 @@ contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
+  - manucorporat
 ---
 
 # Module Bundling
@@ -22,27 +23,25 @@ Depending on which libraries a project is dependent on, the [rollup-plugin-node-
 
 In some cases, the [rollup-plugin-node-globals](https://www.npmjs.com/package/rollup-plugin-node-globals) plugin may also be required.
 
-Here is an example `stencil.config.ts` file that includes both plugins.
+1. Install both npm packages:
 
-```TypeScript
+```bash
+npm install rollup-plugin-node-builtins --save-dev
+npm install rollup-plugin-node-globals --save-dev
+```
+
+And update the `stencil.config.ts` file including both plugins:
+
+```tsx
 import { Config } from '@stencil/core';
-|import builtins from 'rollup-plugin-node-builtins';
-|import globals from 'rollup-plugin-node-globals';
++ import builtins from 'rollup-plugin-node-builtins';
++ import globals from 'rollup-plugin-node-globals';
 
 export const config: Config = {
   namespace: 'mycomponents',
-  outputTargets:[
-    {
-      type: 'dist'
-    },
-    {
-      type: 'www',
-      serviceWorker: null
-    }
-  ],
-|  plugins: [
-|    builtins(),
-|    globals()
-|  ]
++  plugins: [
++    builtins(),
++    globals()
++  ]
 };
 ```

@@ -18,14 +18,14 @@ contributors:
 2. Require the plugin in your `stencil.config.ts` file.
 2. Add the plugin to your `plugins` array:
 
-```typescript
+```tsx
 import { Config } from '@stencil/core';
-import { sass } from '@stencil/sass';
++ import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  plugins: [
-    sass()
-  ]
++  plugins: [
++    sass()
++  ]
 }
 ```
 
@@ -33,7 +33,9 @@ export const config: Config = {
 
 Sass options can be passed to the plugin within `stencil.config.ts`, which are used directly by node-sass. Please reference the [node-sass documentation](https://www.npmjs.com/package/node-sass) for all available options.
 
-```typescript
+```tsx
+import { Config } from '@stencil/core';
+
 export const config: Config = {
   plugins: [
     sass({ includePaths: ['/my-include-path'] })

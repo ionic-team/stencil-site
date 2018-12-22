@@ -1,11 +1,12 @@
 ---
-title: React Intergration with Stencil
-description: React Intergration with Stencil
+title: React Integration with Stencil
+description: React Integration with Stencil
 url: /docs/react
 contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
+  - erikschierboom
 ---
 # React
 
@@ -18,6 +19,8 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+// test-component is the name of our made up Web Component that we have
+// published to npm:
 import { defineCustomElements } from 'test-components/dist/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
