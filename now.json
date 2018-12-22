@@ -1,29 +1,24 @@
 {
-  "version": 1,
-	"type": "static",
-	"name": "stencil-site",
-  "static": {
-    "headers": [
-			{ "source": "/sw.js", "headers": [{ "key": "cache-control", "value": "no-cache" }]}
-		],
-    "rewrites": [
-      { "source": "**", "destination": "/index.html" }
-    ],
-    "redirects": [
-      { "source": "/docs/", "destination": "/docs/introduction" },
-      { "source": "/docs/building-components", "destination": "/docs/my-first-component" },
-      { "source": "/docs/stencil-config", "destination": "/docs/config" },
-      { "source": "/docs/testing", "destination": "/docs/unit-testing" },
-      { "source": "/docs/shadow-dom", "destination": "/docs/styling" },
-      { "source": "/docs/css-variables", "destination": "/docs/styling" },
-      { "source": "/docs/sass", "destination": "/docs/add-ons" },
-      { "source": "/docs/intro", "destination": "/docs/introduction" },
-      { "source": "/docs/templating", "destination": "/docs/templating-jsx" },
-      { "source": "/docs/stencil-router", "destination": "/docs/router" },
-      { "source": "/docs/routing", "destination": "/docs/router" },
-      { "source": "/docs/server-side-rendering", "destination": "/docs/prerendering" },
-      { "source": "/docs/add-ons", "destination": "/docs/plugins" },
-      { "source": "/docs/build-variables", "destination": "/docs/build-conditionals" }
-    ]
-  }
+  "version": 2,
+  "name": "stencil-site",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "www" } }
+  ],
+  "routes": [
+    { "src": "/sw.js", "headers": { "Cache-Control": "no-cache" } },
+    { "src": "/docs/", "status": 301, "headers": { "Location": "/docs/introduction" } },
+    { "src": "/docs/building-components", "status": 301, "headers": { "Location": "/docs/my-first-component" } },
+    { "src": "/docs/stencil-config", "status": 301, "headers": { "Location": "/docs/config" } },
+    { "src": "/docs/testing", "status": 301, "headers": { "Location": "/docs/unit-testing" } },
+    { "src": "/docs/shadow-dom", "status": 301, "headers": { "Location": "/docs/styling" } },
+    { "src": "/docs/css-variables", "status": 301, "headers": { "Location": "/docs/styling" } },
+    { "src": "/docs/sass", "status": 301, "headers": { "Location": "/docs/add-ons" } },
+    { "src": "/docs/intro", "status": 301, "headers": { "Location": "/docs/introduction" } },
+    { "src": "/docs/templating", "status": 301, "headers": { "Location": "/docs/templating-jsx" } },
+    { "src": "/docs/stencil-router", "status": 301, "headers": { "Location": "/docs/router" } },
+    { "src": "/docs/routing", "status": 301, "headers": { "Location": "/docs/router" } },
+    { "src": "/docs/server-side-rendering", "status": 301, "headers": { "Location": "/docs/prerendering" } },
+    { "src": "/docs/add-ons", "status": 301, "headers": { "Location": "/docs/plugins" } },
+    { "src": "/docs/build-variables", "status": 301, "headers": { "Location": "/docs/build-conditionals" } }
+  ]
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html",
     "build": "npm run docs && stencil build --prerender && npm run host-to-firebase",
+    "now-build": "npm run build",
     "deploy": "npm run build && firebase deploy",
     "host-to-firebase": "node scripts/host-to-firebase.js",
     "start": "npm run docs && stencil build --dev --watch --serve",
