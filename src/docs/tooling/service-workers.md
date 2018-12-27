@@ -85,7 +85,7 @@ Already have a service worker or want to include some custom code? We support th
 
 Let's go through the steps needed for this functionality:
 
-- First we need to pass the path to our custom service worker to the `swSrc` command in the serviceWorker config. Here is an example:
+- First we need to pass the path to our custom service worker to the `swSrc` command in the `serviceWorker` config. Here is an example:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -105,7 +105,8 @@ export const config: Config = {
 - Now we need to include some boilerplate code in our custom service worker:
 
 ```tsx
-importScripts('workbox-v3.1.0/Workbox-sw.js');
+// change to the version you get from `npm ls workbox-build`
+importScripts('workbox-v3.4.1/workbox-sw.js');
 
 // your custom service worker code
 
@@ -131,37 +132,38 @@ toastCtrl: HTMLIonToastControllerElement;
 async onSWUpdate() {
   const registration = await navigator.serviceWorker.getRegistration();
 
-  if (registration && registration.waiting) {
-    // registration.waiting is the service worker waiting to be activiated.
-
-    const toast = await this.toastCtrl.create({
-      message: "New version available",
-      showCloseButton: true,
-      closeButtonText: "Reload"
-    });
-
-    await toast.present();
-    await toast.onWillDismiss();
-
-    registration.waiting.postMessage("skipWaiting");
-    window.location.reload();
+  if (!registration || !registration.waiting) {
+    // If there is no registration, this is the first service
+    // worker to be installed. registration.waiting is the one
+    // waiting to be activiated.
+    return;
   }
+
+  const toast = await this.toastCtrl.create({
+    message: "New version available",
+    showCloseButton: true,
+    closeButtonText: "Reload"
+  });
+
+  await toast.present();
+  await toast.onWillDismiss();
+
+  registration.waiting.postMessage("skipWaiting");
+  window.location.reload();
 }
 ```
 
-The `swUpdate` event is emitted by Stencil every time a service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by a custom service worker (e. g. `src/sw.js`) to call `skipWaiting()`.
+The `swUpdate` event is emitted by Stencil every time a new service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by the service worker; therefore we need to create a custome one (e. g. `src/sw.js`) and call `skipWaiting()`.
 
 ```tsx
-// adjust this to whatever version Stencil currently works with
 importScripts("workbox-v3.4.1/workbox-sw.js");
 
-self.addEventListener("message", e => {
-  if (e.data === "skipWaiting") {
+self.addEventListener("message", ({ data }) => {
+  if (data === "skipWaiting") {
     self.skipWaiting();
   }
 });
 
-// inject precache manifest
 self.workbox.precaching.precacheAndRoute([]);
 ```
 
@@ -169,21 +171,105 @@ self.workbox.precaching.precacheAndRoute([]);
 
 ### Handle push events
 
+A common use case for custom service workers is to handle browser push notifications. But before we will be able show push notifications, we first need to use the Notifications API to request permissions from the user to do so.
+
 ```tsx
-/*
-  This is our code to handle push events.
-*/
-self.addEventListener('push', (event) => {
-  console.log('[Service Worker] Push Received.');
-  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+if ('Notification' in window && 'serviceWorker' in navigator) {
+  Notification.requestPermission(status => {
+    // status will either be 'default', 'granted' or 'denied'
+    console.log(`Notification permissions have been ${status}`);
+  });
+}
+```
+
+The current permission status can always be checked using `Notification.permission`.
+
+To show a notification to the user after being granted permission, we can use the `showNotification` method of our service worker's registration (within our custom service worker).
+
+```tsx
+self.registration.showNotification('Hakuna matata.');
+```
+
+Usually we will have a backend that will send out push notifications to clients, and we want our service worker to handle them. To do that, we can register an event listener in our worker for the `push` event. The event will be of type [`PushEvent`](https://developer.mozilla.org/en-US/docs/Web/API/PushEvent) and have a `data` field of type [`PushMessageData`](https://developer.mozilla.org/en-US/docs/Web/API/PushMessageData).
+
+```tsx
+self.addEventListener('push', event => {
+  console.log(`Push received with data "${event.data.text()}"`);
 
   const title = 'Push Notification';
   const options = {
     body: `${event.data.text()}`,
-    icon: 'images/icon.png',
-    badge: 'images/badge.png'
+    data: { href: '/users/donald' },
+    actions: [
+      { action: 'details', title: 'Details' },
+      { action: 'dismiss', title: 'Dismiss' },
+    ],
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
 ```
+
+If the data is a JSON string, then `data.json()` can be used to immediately get the parsed data. The `event.waitUntil` method is used to ensure that the service worker doesn't terminate before the asynchronous `showNotification` operation has completed.
+
+Furthermore, we will likely want to handle notification clicks. The API provides the events `notificationclick` and `notificationclose` for that.
+
+```tsx
+self.addEventListener('notificationclick', event => {
+  const notification = event.notification;
+  const action = event.action;
+
+  if (action === 'dismiss') {
+    notification.close();
+  } else {
+    // This handles both notification click and 'details' action,
+    // because some platforms might not support actions.
+    clients.openWindow(notification.data.href);
+    notification.close();
+  }
+});
+```
+
+Now our service worker is able to receive and process push notifications, however we still need to register the client with our backend. Browsers provide a push service for that reason, which your app can subscribe to. The subscription object contains an endpoint URL with a unique identifier for each client. You can send your notifications to that URL, encrypted with a public key which is also provided by the subscription object.
+
+In order to implement this, we first need to get each client to subscribe to the browser's push service, and then send the subscription object to our backend. Then our backend can generate the push notifications, encrypt them with the public key, and send them to the subscription endpoint URL.
+
+First we will implement a function to subscribe the user to the push service, which as a best practice should be triggered from a user action signalling that they would like to receive push notifications. Assuming that notification permissions have already been granted, the following function can be used for that.
+
+```tsx
+async function subscribeUser() {
+  if ('serviceWorker' in navigator) {
+    const registration = await navigator.serviceWorker.ready;
+
+    const subscription = await registration.pushManager
+      .subscribe({ userVisibleOnly: true })
+      .catch(console.error);
+
+    if (!subscription) {
+      return;
+    }
+
+    // the subscription object is what we want to send to our backend
+    console.log(subscription.endpoint);
+  }
+}
+```
+
+We should also check our subscription every time our app is accessed, because the subscription object can change.
+
+```tsx
+self.registration.pushManager.getSubscription().then(subscription => {
+  if (!subscription) {
+    // ask the user to register for push
+    return;
+  }
+
+  // update the database
+  console.log(subscription);
+});
+```
+
+### Further Reading
+
+* For more information on push notifications and the related APIs please refer to the [Web Fundamentals Introduction to Push Notifications](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications) and the [MDN Push API docs](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).
+* [This Twitter thread by David Brunelle](https://twitter.com/davidbrunelle/status/1073394572980453376) explains how to implement versioning in your PWA in order to handle breaking API changes. The problem here is that your service worker enabled app will continue to serve an outdated (cached) app against your updated API. In order to solve this a version check can be implemented.
