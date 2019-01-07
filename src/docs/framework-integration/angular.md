@@ -50,7 +50,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { defineCustomElements } from 'test-components/dist/loader';
+import { defineCustomElements } from '@ionic/core/dist/esm';
 
 if (environment.production) {
   enableProdMode();
@@ -68,20 +68,20 @@ Once included, components could be referenced in your code using `ViewChild` and
 ```
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
-import 'test-components';
+import 'ionic-button';
 
 @Component({
     selector: 'app-home',
-    template: `<test-components #test></test-components>`,
+    template: `<ionic-button>Hello world</ionic-button>`,
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
 
-    @ViewChild('test') myTestComponent: ElementRef<HTMLTestComponentElement>;
-    
+    @ViewChild('test') myIonicButton: ElementRef<HTMLIonicButtonElement>;
+
     async onAction() {
-        await this.myTestComponent.nativeElement.testComponentMethod();
+        await this.myIonicButton.nativeElement.ionicButtonMethod();
     }
 }
 
-``` 
+```

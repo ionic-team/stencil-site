@@ -16,10 +16,10 @@ Integrating a component built with Stencil to a project without a JavaScript fra
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://unpkg.com/test-components/latest/dist/test-components.js"></script>
+  <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
 </head>
 <body>
-  <test-component></test-component>
+  <ion-button>Hello World</ion-button>
 </body>
 </html>
 ```
@@ -31,12 +31,12 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
 <html lang="en">
 <head>
   <script type="module">
-    import { defineCustomElements } from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
+    import { defineCustomElements } from 'https://unpkg.com/@ionic/core@latest/dist/esm';
     defineCustomElements(window);
   </script>
 </head>
 <body>
-  <test-component></test-component>
+  <ion-button>Hello World</ion-button>
 </body>
 </html>
 ```

@@ -15,7 +15,7 @@ In order to use the custom element library within the Vue app, the application m
 ```tsx
 import Vue from 'vue';
 import App from './App.vue';
-import { defineCustomElements } from 'test-components/dist/loader';
+import { defineCustomElements } from '@ionic/core/dist/esm';
 
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = [/test-\w*/];
