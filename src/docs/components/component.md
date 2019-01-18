@@ -17,10 +17,10 @@ Use a relative url to the `.css` file for the styleUrl(s).
 ```tsx
 import { Component } from '@stencil/core';
 
-+ @Component({
-+   tag: 'todo-list',
-+   styleUrl: 'todo-list.css'
-+ })
+| @Component({
+|   tag: 'todo-list',
+|   styleUrl: 'todo-list.css'
+| })
 export class TodoList {
 
 }
@@ -61,7 +61,7 @@ export class MyParentComponent {
   render() {
     return (
       <div>
-+       <my-embedded-component color="red"></my-embedded-component>
+|       <my-embedded-component color="red"></my-embedded-component>
       </div>
     );
   }
