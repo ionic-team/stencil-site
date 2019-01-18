@@ -28,6 +28,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run build
+      - run:
+          name: Checking clean build
+          command: git diff --exit-code
+          
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
