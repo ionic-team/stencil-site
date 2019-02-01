@@ -14,6 +14,11 @@ As apps scale with more and more components, and team size and members continue 
 
 Throughout the build process, the compiler is able to extract documentation from each component, to include JSDocs comments and types of each member on the component (thanks TypeScript!).
 
+To add a description to a `@Prop`, simply add a comment on the previous line:
+```tsx
+/** (optional) The icon to display */
+@Prop() iconType: string = "";
+```
 
 ## Readme Markdown Files
 
