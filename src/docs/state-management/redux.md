@@ -4,6 +4,7 @@ description: Stencil Redux is a simple connector for Stencil-built web component
 url: /docs/redux
 contributors:
   - jthoms1
+  - mgalic
 ---
 
 # Stencil Redux
@@ -40,7 +41,7 @@ import { combineReducers } from 'redux';
 const rootReducer = (combineReducers as any)({
   myReducer
 });
-  
+
 export default rootReducer;
 ```
 
@@ -73,11 +74,11 @@ import { Store, Action } from '@stencil/redux';
 })
 export class MyComponent {
   @Prop({ context: 'store' }) store: Store;
- 
+
   @State() name: string;
- 
+
   changeName: Action;
-  
+
   componentWillLoad() {
     this.store.mapStateToProps(this, (state) => {
       const {
@@ -87,12 +88,12 @@ export class MyComponent {
         name
       }
     });
-   
+
     this.store.mapDispatchToProps(this, {
       changeName
     })
   }
- 
+
   doNameChange(newName: string) {
     this.changeName(newName);
   }

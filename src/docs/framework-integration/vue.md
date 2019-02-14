@@ -6,6 +6,7 @@ contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
+  - brysalazar12
 ---
 
 # Vue

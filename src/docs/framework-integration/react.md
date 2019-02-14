@@ -6,8 +6,9 @@ contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
-  - erikschierboom
+  - ErikSchierboom
   - brentertz
+  - danawoodman
 ---
 # React
 

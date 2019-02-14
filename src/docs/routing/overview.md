@@ -4,6 +4,9 @@ description: Stencil Router
 url: /docs/router
 contributors:
   - jthoms1
+  - JurgenJocubeit
+  - rlasjunies
+  - apiaget
 ---
 
 # Stencil Router
