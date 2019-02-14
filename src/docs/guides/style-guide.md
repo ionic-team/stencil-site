@@ -4,12 +4,14 @@ description: Stencil Style Guide
 url: /docs/style-guide
 contributors:
   - jthoms1
+  - natemoo-re
 ---
 
 # Stencil Style Guide
 
 This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing [Ionic Core](https://ionicframework.com/) components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team's own preference.
 
+> In order to enforce this (or your team's) style guide, we recommend leveraging a static analysis tool like [TSLint](https://palantir.github.io/tslint/). Ionic follows [tslint-ionic-rules](https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js). Optionally, the _community maintained_ package [tslint-stencil](https://www.npmjs.com/package/tslint-stencil) provides rules specifically for writing Stencil components.
 
 ## File structure
 
