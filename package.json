@@ -5,11 +5,11 @@
   "description": "Stencil Site",
   "scripts": {
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html",
-    "build": "npm run docs && stencil build --prerender && npm run host-to-firebase",
+    "site-structure": "tsc --p ./scripts && node ./scripts/site-structure",
+    "build-firebase-config": "node scripts/host-to-firebase.js",
+    "build": "npm run site-structure && npm run docs && stencil build --prerender && npm run build-firebase-config",
     "deploy": "npm run build && firebase deploy",
-    "host-to-firebase": "node scripts/host-to-firebase.js",
-    "start": "npm run docs && stencil build --dev --watch --serve",
-    "site-structure": "tsc --p ./scripts && node ./scripts/site-structure"
+    "start": "npm run site-structure && npm run docs && stencil build --dev --watch --serve"
   },
   "dependencies": {
     "copy-text-to-clipboard": "^1.0.4"

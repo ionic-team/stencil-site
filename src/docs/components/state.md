@@ -16,7 +16,7 @@ import { State } from '@stencil/core';
 
 export class TodoList {
 
-+ @State() completedTodos: Todo[];
+| @State() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
     // This will cause our render function to be called again

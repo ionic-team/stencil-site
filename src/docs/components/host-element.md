@@ -40,7 +40,7 @@ import { Element } from '@stencil/core';
 ...
 export class TodoList {
 
-+ @Element() el: HTMLElement;
+| @Element() el: HTMLElement;
 
   getListHeight(): number {
     return this.el.getBoundingClientRect().height;
