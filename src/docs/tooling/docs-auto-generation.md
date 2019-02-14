@@ -10,10 +10,15 @@ contributors:
 
 # Docs Auto-Generation
 
-As apps scale with more and more components, and team size and members continue to adjust over time, it's vital all components are well documented, and that the documentation itself is maintained. Maintaining documentation is right up there for some of the least interesting things developers must do, but that doesn't mean it can't be made easier.
+As apps scale with more and more components, and team size and members continue to adjust over time, it's vital all components are well documented, and that the documentation itself is maintained. Maintaining documentation is right up there with some of the least interesting things developers must do, but that doesn't mean it can't be made easier.
 
 Throughout the build process, the compiler is able to extract documentation from each component, to include JSDocs comments and types of each member on the component (thanks TypeScript!).
 
+To add a description to a `@Prop`, simply add a comment on the previous line:
+```tsx
+/** (optional) The icon to display */
+@Prop() iconType: string = "";
+```
 
 ## Readme Markdown Files
 
@@ -44,7 +49,7 @@ Once you've generated a `readme.md` file you can customize it with your own mark
 
 ## Docs Json Data
 
-While auto-generated readme files formatted with markdown is convenient, there may be scenarios it'd be getter to get all of the docs in the form of json data. To build the docs as json, use the `--docs-json` flag, followed by a path on where to write the json file.
+While auto-generated readme files formatted with markdown is convenient, there may be scenarios where it'd be better to get all of the docs in the form of json data. To build the docs as json, use the `--docs-json` flag, followed by a path on where to write the json file.
 
 ```tsx
   scripts: {

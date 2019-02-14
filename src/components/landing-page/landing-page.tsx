@@ -163,6 +163,21 @@ export class LandingPage {
 
           <section class="section">
             <div class="section__heading">
+              <h2>The perfect tool for building a design system</h2>
+            </div>
+            <div class="section__body">
+              <ul class="list--icon list--unstyled">
+                <li><app-icon name="checkmark"/>Ensure consistent UX and brand experiences, at scale</li>
+                <li><app-icon name="checkmark"/>Web components run on any platform or device</li>
+                <li><app-icon name="checkmark"/>Build a custom UI library that works across teams and projects</li>
+              </ul>
+              <p>Interested in learning more about building design systems with Stencil?</p>
+              <a href="https://ionicframework.com/sales?product_of_interest=Design%20Systems" class="btn btn--tertiary btn--small">Get in touch</a>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section__heading">
               <h2>Awesome developer experience out of the box</h2>
             </div>
             <div class="section__body">

@@ -128,7 +128,7 @@ landing-page .cta__primary code {
   font-size: 16px;
   padding: 19px 26px 19px;
   border-radius: 8px;
-  width: 206px;
+  /* width: 220px; */
   background-color: rgba(0, 0, 0, 0.10);
   margin: 16px 0 4px;
   cursor: copy;
@@ -211,7 +211,12 @@ landing-page .section--centered .section__body p {
   margin-right: auto;
 }
 
-landing-page .section__body h4 + p {
+landing-page .section__body h4 + p,
+landing-page .section__body ul + p {
+  margin-top: 14px;
+}
+
+landing-page .section__body p + a {
   margin-top: 14px;
 }
 
