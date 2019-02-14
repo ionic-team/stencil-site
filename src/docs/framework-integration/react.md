@@ -7,6 +7,7 @@ contributors:
   - adamdbradley
   - kensodemann
   - erikschierboom
+  - brentertz
 ---
 # React
 
@@ -27,3 +28,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 defineCustomElements(window);
 ```
+
+Following the steps above will enable your web components to be used in React, however there are some additional complexities that must also be considered.  https://custom-elements-everywhere.com/ describes them well.
