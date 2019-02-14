@@ -6,6 +6,9 @@ contributors:
   - adamdbradley
   - snaptopixel
   - manucorporat
+  - amwmedia
+  - mrtnmgs
+  - marcjulian
 ---
 
 # Docs Auto-Generation

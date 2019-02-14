@@ -5,6 +5,11 @@ url: /docs/config
 contributors:
   - adamdbradley
   - jthoms1
+  - flawyte
+  - mgalic
+  - matteobortolazzo
+  - mattcosta7
+  - BDav24
 ---
 
 # Stencil Config

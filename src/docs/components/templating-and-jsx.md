@@ -5,6 +5,7 @@ url: /docs/templating-jsx
 contributors:
   - jthoms1
   - simonhaenisch
+  - arjunyel
 ---
 
 # Using JSX

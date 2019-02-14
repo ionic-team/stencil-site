@@ -4,6 +4,12 @@ description: Component API
 url: /docs/decorators
 contributors:
   - manucorporat
+  - Mawulijo
+  - hashcrof
+  - ZenPylon
+  - danjohnson95
+  - rezaabedian
+  - CookieCookson
 ---
 
 # Component API

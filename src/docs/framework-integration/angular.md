@@ -7,6 +7,7 @@ contributors:
   - adamdbradley
   - kensodemann
   - peterpeterparker
+  - jeanbenitez
 ---
 
 # Angular
@@ -78,10 +79,10 @@ import 'test-components';
 export class HomeComponent {
 
     @ViewChild('test') myTestComponent: ElementRef<HTMLTestComponentElement>;
-    
+
     async onAction() {
         await this.myTestComponent.nativeElement.testComponentMethod();
     }
 }
 
-``` 
+```

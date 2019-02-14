@@ -5,6 +5,7 @@ url: /docs/style-guide
 contributors:
   - jthoms1
   - natemoo-re
+  - larionov
 ---
 
 # Stencil Style Guide
@@ -206,7 +207,7 @@ export class Something {
   componentWillLoad() {}
   componentDidLoad() {}
   componentWillUpdate() {}
-  componentDidUpdate() 
+  componentDidUpdate() {}
   componentDidUnload() {}
 
   /**
