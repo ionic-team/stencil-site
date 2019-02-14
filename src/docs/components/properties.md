@@ -15,10 +15,10 @@ import { Prop } from '@stencil/core';
 
 ...
 export class TodoList {
-+   @Prop() color: string;
-+   @Prop() favoriteNumber: number;
-+   @Prop() isSelected: boolean;
-+   @Prop() myHttpService: MyHttpService;
+|   @Prop() color: string;
+|   @Prop() favoriteNumber: number;
+|   @Prop() isSelected: boolean;
+|   @Prop() myHttpService: MyHttpService;
 }
 ```
 
@@ -80,7 +80,7 @@ import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
-+  @Prop() name: string = 'Stencil';
+|  @Prop() name: string = 'Stencil';
 }
 ```
 
@@ -93,7 +93,7 @@ import { Prop, Watch } from '@stencil/core';
 export class TodoList {
   @Prop() name: string = 'Stencil';
 
-+ @Watch('name')
+| @Watch('name')
   validateName(newValue: string, oldValue: string) {
     const isBlank = typeof newValue == null;
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;

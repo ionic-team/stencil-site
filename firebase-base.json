@@ -9,7 +9,7 @@
     ],
     "redirects": [
       {
-        "source": "/docs/",
+        "source": "/docs?(/)",
         "destination": "/docs/introduction",
         "type": 301
       },
