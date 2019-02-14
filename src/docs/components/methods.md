@@ -16,7 +16,7 @@ import { Method } from '@stencil/core';
 
 export class TodoList {
 
-+ @Method()
+| @Method()
   showPrompt() {
     // show a prompt
   }
