@@ -94,3 +94,20 @@ export class TodoList {
 ```tsx
 <todo-list my-object="{}" my-array="[]"></todo-list>
 ```
+
+### Waiting for render
+
+To perform an action once Stencil is done rendering, you can use the
+`appload` window event to listen for when it’s ready:
+
+```js
+window.addEventListener('appload', event => {
+  console.log(event.detail);
+  // { namespace: 'my-namespace' }
+});
+```
+
+This is a
+[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
+Stencil emits when ready, along with namespace details (useful if you’re
+working with multiple Stencil bundles).
