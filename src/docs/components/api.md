@@ -22,7 +22,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [@Watch()](reactive-data#watch-decorator) declares a hook that runs when a property or state changes
 - [@Element()](host-element#element-decorator) declares a reference to the host element
 - [@Method()](methods#method-decorator) declares an exposed public method
-- [@Event()](events#event-decorator) declares an DOM event the component might emit
+- [@Event()](events#event-decorator) declares a DOM event the component might emit
 - [@Listen()](events#listen-decorator) listens for DOM events
 
 
