@@ -20,12 +20,12 @@ Then add `import '@stencil/router'` to your root component (normally the `my-app
 Applications built with Stencil should have one `stencil-router` element for the entire application. Make sure to specify an `id` attribute on it.
 
 ```tsx
-<stencil-router>
+<stencil-router id="router">
 ...
 </stencil-router>
 ```
 
-Within the `stencil-router` element, we want to declare our set of `stencil-route`s. Each `stencil-route` needs to take a url, and then an HTML element tag name.
+Within the `stencil-router` element, we want to declare our set of `stencil-route`s. Each `stencil-route` needs a `url` attribute containing a path, and a `component` attribute containing an HTML element tag name.
 
 ```tsx
 <stencil-router>
@@ -44,7 +44,7 @@ When navigating to `/demos/rendering` based on the above configuration, the `dem
 
 ### Server configuration
 
-Depending to the choice you made regarding the hosting of your Stencil app, you may want to configure your server accordingly to the followings.
+Depending on the choice you made regarding the hosting of your Stencil app, you may want to configure your server accordingly to the following.
 
 #### Apache 2
 ```apache
