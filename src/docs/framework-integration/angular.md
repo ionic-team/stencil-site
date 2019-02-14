@@ -65,7 +65,7 @@ defineCustomElements(window);
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```
+```tsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 import 'test-components';
