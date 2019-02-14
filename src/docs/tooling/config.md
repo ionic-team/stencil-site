@@ -76,7 +76,7 @@ enableCache: true
 
 Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](../components/styling).
 
-Additionally, the `globalStyle` config is can be used to precompile styles with Sass, PostCss, etc.
+Additionally, the `globalStyle` config can be used to precompile styles with Sass, PostCss, etc.
 
 Below is an example folder structure containing a webapp's global css file, named `app.css`.
 
