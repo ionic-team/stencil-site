@@ -27,7 +27,7 @@ import { Prop, Watch } from '@stencil/core';
 export class LoadingIndicator {
   @Prop() activated: boolean;
 
-+ @Watch('activated')
+| @Watch('activated')
   watchHandler(newValue: boolean, oldValue: boolean) {
     console.log('The new value of activated is: ', newValue);
   }
