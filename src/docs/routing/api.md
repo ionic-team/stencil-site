@@ -5,6 +5,7 @@ url: /docs/router-api
 contributors:
   - jthoms1
   - Kub4jz
+  - dvelasquez
 ---
 
 # Stencil Router API
