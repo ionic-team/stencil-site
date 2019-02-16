@@ -7,6 +7,7 @@ contributors:
   - adamdbradley
   - kensodemann
   - brysalazar12
+  - iskanderbroere
 ---
 
 # Vue
