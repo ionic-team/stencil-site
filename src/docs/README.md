@@ -18,6 +18,7 @@
   * [Using JSX](components/templating-and-jsx.md)
   * [Host Element](components/host-element.md)
   * [Styling](components/styling.md)
+  * [Functional Components](components/functional-components.md)
 * Framework Integrations
   * [Overview](framework-integration/overview.md)
   * [Angular](framework-integration/angular.md)
