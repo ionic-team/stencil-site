@@ -86,6 +86,11 @@
         "text": "Styling",
         "filePath": "/assets/docs/components/styling.json",
         "url": "/docs/styling"
+      },
+      {
+        "text": "Functional Components",
+        "filePath": "/assets/docs/components/functional-components.json",
+        "url": "/docs/functional-components"
       }
     ]
   },
