@@ -248,7 +248,7 @@ a login page or whatever you supply as `failureRedirect`.
 
 ```tsx
 const PrivateRoute = ({ component, ...props}) => {
-  const redirectUrl = props.failureRedirect | '/login';
+  const redirectUrl = props.failureRedirect || '/login';
 
   return (
     <stencil-route {...props} routeRender={(props) => {
