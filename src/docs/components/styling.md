@@ -17,6 +17,7 @@ contributors:
 Shadow DOM is currently natively supported in the following browsers:
 
 - Chrome
+- Firefox
 - Safari
 - Opera
 
