@@ -251,8 +251,8 @@ const PrivateRoute = ({ component, ...props }) => {
   const redirectUrl = props.failureRedirect || '/login';
 
   return (
-    <stencil-route {...props} routeRender={async (props) => {
-      if (await TesteryApi.isLoggedIn()) {
+    <stencil-route {...props} routeRender={(props) => {
+      if (auth.isAuthenticated) {
         return <component {...props} {...props.componentProps}></component>;
       }
       return <stencil-router-redirect url={redirectUrl}></stencil-router-redirect>
