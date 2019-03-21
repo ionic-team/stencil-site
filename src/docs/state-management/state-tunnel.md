@@ -12,13 +12,13 @@ contributors:
 This project was built to provide additional functionality to developers working with stencil
 components and sharing state across components and through slots. The API was inspired by React's Context.
 
-There are many cases within component based application development where you will want to drill state down through props to children and children's children and so on. This project was created in order to alleviate the need for passing props deep through an application's component structure.
+There are many cases within component library where you will want to drill state down through props to children and children's children and so on. This project was created in order to alleviate the need for passing props deep through an application's component structure.
 
-There are 2 primary use cases where this tool makes sense.
-
-**Building a stencil application** and need to store application state in a centralized location.
+There are is one primary use cases where this tool makes sense.
 
 **Building a collection of components** that need to share state but have no direct 'line of sight' between the component relationships (ie most likely from using `slot`).
+
+If you are building an application then you would be better served using [stencil-redux](./redux.md)
 
 
 1. [Create a Tunnel.](#1-create-a-tunnel)
