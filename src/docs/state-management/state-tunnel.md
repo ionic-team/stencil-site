@@ -14,7 +14,7 @@ components and sharing state across components and through slots. The API was in
 
 There are many cases within component library where you will want to drill state down through props to children and children's children and so on. This project was created in order to alleviate the need for passing props deep through an application's component structure.
 
-There are is one primary use cases where this tool makes sense.
+There is one primary use cases where this tool makes sense.
 
 **Building a collection of components** that need to share state but have no direct 'line of sight' between the component relationships (ie most likely from using `slot`).
 
@@ -127,4 +127,32 @@ export class WayDownChild {
     );
   }
 }
+```
+
+## 3. (Alternative to consumption points) Use Tunnel.injectProps.
+Another approach to getting tunnel information into your components is by injecting the props using Tunnel.injectProps.
+
+```tsx
+import { Component } from '@stencil/core';
+import Tunnel from './data/message'; // Import the tunnel
+
+@Component({
+  tag: 'way-down-child',
+})
+export class WayDownChild {
+  // Define the props coming into the component
+  @Prop() message: string = '';
+  @Prop() increment: () => void;
+
+  render() {
+    return (
+      <div class='app-profile'>
+        <button onClick={increment}>Increment Num</button>
+        <p>{message}</p>
+      </div>
+    );
+  }
+}
+// Use the injectProps method to pass from the tunnel as props to the component
+Tunnel.injectProps(WayDownChild, ['message', 'increment']);
 ```
