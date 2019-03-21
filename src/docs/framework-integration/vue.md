@@ -12,42 +12,40 @@ contributors:
 
 # Vue
 
-In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. For example:
+In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. 
 
-### Add the component(s) to the app dependencies
-Typically done with `npm install --save test-components`
-
-
-### Import the components into the 'main.js' file
-by 
+Assuming you’ve run `npm install --save test-components` beforehand, and that `test-component` is the name of our made up Web Components that we have published to npm, you import the components into the 'main.js' file by 
 
 - importing the node module
-- telling Vue to ignore the custom element tags
-- binding their code to the window object
-
-See `// HERE` comments:
+- telling Vue to ignore the custom element tags (see `https://vuejs.org/v2/api/#ignoredElements`)
+- binding the Stenciljs component code to the window object
 
 ```tsx
 import Vue from 'vue';
 import App from './App.vue';
-import { defineCustomElements } from 'test-components/dist/loader'; // HERE
+
+import { defineCustomElements } from 'test-components/dist/loader'; 
 
 Vue.config.productionTip = false;
-Vue.config.ignoredElements = [/test-\w*/]; // HERE
+// tell Vue to ignore all components defined in the test-components
+// package. The regex assumes all components names are prefixed 
+// 'test'
+Vue.config.ignoredElements = [/test-\w*/]; 
 
-defineCustomElements(window); // HERE
+// Bind the custom elements to the window object
+defineCustomElements(window); 
 
 new Vue({
   render: h => h(App)
 }).$mount('#app');
 ```
- ### Render
- 
+
+The components should then be available in any of the Vue components 
 ```
 render() {
   return (
     <div>
-      <my-stencil-component></my-stencil-component>
+      <test-stencil-component></test-stencil-component>
     </div>
   )
 }
