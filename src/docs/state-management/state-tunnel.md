@@ -18,7 +18,7 @@ There is one primary use cases where this tool makes sense.
 
 **Building a collection of components** that need to share state but have no direct 'line of sight' between the component relationships (ie most likely from using `slot`).
 
-If you are building an application then you would be better served using [stencil-redux](./redux.md)
+If you are building an application then you would be better served using [stencil-redux](./redux)
 
 
 1. [Create a Tunnel.](#1-create-a-tunnel)
@@ -129,7 +129,7 @@ export class WayDownChild {
 }
 ```
 
-## 3. (Alternative to consumption points) Use Tunnel.injectProps.
+## 4. (Alternative to consumption points) Use Tunnel.injectProps.
 Another approach to getting tunnel information into your components is by injecting the props using Tunnel.injectProps.
 
 ```tsx
@@ -153,6 +153,9 @@ export class WayDownChild {
     );
   }
 }
-// Use the injectProps method to pass from the tunnel as props to the component
+/*
+ * Use the injectProps method to pass from the tunnel
+ * as props to the component
+ */
 Tunnel.injectProps(WayDownChild, ['message', 'increment']);
 ```
