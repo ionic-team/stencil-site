@@ -10,6 +10,7 @@ contributors:
   - matteobortolazzo
   - mattcosta7
   - BDav24
+  - jeanbenitez
 ---
 
 # Stencil Config
