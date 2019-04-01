@@ -215,6 +215,17 @@ export const config: Config = {
 - [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 
+## preamble
+
+*default: `undefined`*
+
+The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
+
+```tsx
+  preamble: "Built with Stencil"
+```
+
+
 ## srcDir
 
 *default: `src`*
