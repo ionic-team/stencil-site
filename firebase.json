@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "www",
+    "trailingSlash": false,
     "rewrites": [
       {
         "source": "**",
