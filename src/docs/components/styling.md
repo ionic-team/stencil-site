@@ -4,6 +4,7 @@ description: Styling Components
 url: /docs/styling
 contributors:
   - jthoms1
+  - shreeshbhat
 ---
 
 # Shadow DOM
@@ -17,6 +18,7 @@ contributors:
 Shadow DOM is currently natively supported in the following browsers:
 
 - Chrome
+- Firefox
 - Safari
 - Opera
 
