@@ -89,6 +89,35 @@ render() {
 }
 ```
 
+**Please note:** Stencil reuses DOM elements for better performance. Consider the following code:
+
+```tsx
+{someCondition
+  ? <my-counter initialValue={2} />
+  : <my-counter initialValue={5} />
+}
+```
+
+The above code behaves exactly the same as the following code:
+
+```tsx
+<my-counter initialValue={someCondition ? 2 : 5} />
+```
+
+Thus, if `someCondition` changes, the internal state of `<my-counter>` won't be reset and its lifecycle methods such as `componentWillLoad()` won't fire. Instead, the conditional merely triggers an update to the very same component.
+
+If you want to destroy and recreate a component in a conditional, you can assign the `key` attribute. This tells Stencil that the components are actually different siblings:
+
+```tsx
+{someCondition
+  ? <my-counter key="a" initialValue={2} />
+  : <my-counter key="b" initialValue={5} />
+}
+```
+
+This way, if `someCondition` changes, you get a new `<my-counter>` component with fresh internal state that also runs the lifecycle methods `componentWillLoad()` and `componentDidLoad()`.
+
+
 ## Slots
 
 Components often need to render dynamic children in specific locations in their component tree, allowing a developer to supply child content when using our component, with our component placing that child component in the proper location.
