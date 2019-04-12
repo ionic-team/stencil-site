@@ -44,7 +44,7 @@ jobs:
 
       - run:
           name: Deploy Prod to Firebase
-          command: npm run deploy.prod
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN -P production
 
   deploy-next:
     <<: *defaults
@@ -54,7 +54,7 @@ jobs:
 
       - run:
           name: Deploy Next to Firebase
-          command: npm run deploy.next
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN -P next
 
 workflows:
   version: 2
