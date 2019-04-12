@@ -16,7 +16,18 @@ contributors:
 stencil test --e2e --screenshot
 ```
 
-## A Quick Example
+## Quick Example
+
+[pupeteer](https://github.com/GoogleChrome/puppeteer) is used to compare screenshots. In order to make one, you have to set up an e2e test, e.g.:
+```
+  it('render something', async () => {
+    const page: E2EPage = await newE2EPage();
+    await page.setContent(`<my-cmp></my-cmp`);
+    await page.compareScreenshot('My Componment (...is beautiful. Look at it!)', {fullPage: false});
+  });
+```
+
+## Advanced Example
 
 ```javascript
 
@@ -49,3 +60,4 @@ After you've run your tests, you can open the `/screenshot/compare.html` page in
 ## Current issues: 
 - [] Only screenshot the inner width of the items in the body itself. Currently the screenshot is taken at 600x600 pixels, so it makes "allowableMismatchedRatio" not a very valuable option. Something like a `await page.readjustSize()` that would clip the puppeteer page to the width of the rendered content would help make allowableMismatchedRatio more usable. 
 - [] Needs more testing! 
+
