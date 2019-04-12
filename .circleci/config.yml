@@ -45,8 +45,12 @@ jobs:
           at: /tmp/workspace
 
       - run:
+          name: Copy Prod robots.txt
+          command: ./sciprts/copy-robots.js --prod
+
+      - run:
           name: Deploy Prod to Firebase
-          command: npm run deploy.prod
+          command: ./node_modules/.bin/firebase deploy --project prod --token=$FIREBASE_DEPLOY_TOKEN
 
   deploy-next:
     <<: *defaults
@@ -55,8 +59,12 @@ jobs:
           at: /tmp/workspace
 
       - run:
+          name: Copy Next robots.txt
+          command: ./sciprts/copy-robots.js --next
+
+      - run:
           name: Deploy Next to Firebase
-          command: npm run deploy.next
+          command: ./node_modules/.bin/firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   version: 2
