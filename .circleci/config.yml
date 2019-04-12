@@ -33,6 +33,7 @@ jobs:
           paths:
             - www
             - node_modules
+            - scripts/copy-robots.js
             - firebase.json
             - .firebaserc
             - package.json
