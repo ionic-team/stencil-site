@@ -247,7 +247,7 @@ This route itself has a [routeRender](stencil-route#using-a-routerender-function
 a login page or whatever you supply as `failureRedirect`.
 
 ```tsx
-const PrivateRoute = ({ component, ...props}) => {
+  const PrivateRoute = ({ component, ...props }) => {
   const redirectUrl = props.failureRedirect || '/login';
 
   return (
@@ -256,9 +256,9 @@ const PrivateRoute = ({ component, ...props}) => {
         return <component {...props} {...props.componentProps}></component>;
       }
       return <stencil-router-redirect url={redirectUrl}></stencil-router-redirect>
-    }/>
+    }} />
   );
-}
+};
 ```
 
 Finally we will make use of this new Functional Component in place of a normal `stencil-route`.

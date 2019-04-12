@@ -112,6 +112,30 @@ await page.$eval('prop-cmp', (elm: any) => {
 await page.waitForChanges();
 ```
 
+#### Set a @Prop() on a component using an external reference
+
+Because `page.$eval` has an isolated scope, you’ll have to explicity pass in outside references otherwise you’ll an encounter an `undefined` error. This is useful in case you’d like to import data from another file, or re-use mock data across multiple tests in the same file.
+
+```typescript
+const props = {
+  first: 'Marty',
+  lastName: 'McFly',
+};
+
+await page.setContent(`<prop-cmp></prop-cmp>`);
+
+await page.$eval('prop-cmp',
+  (elm: any, { first, lastName }) => {
+    elm.first = first;
+    elm.lastName = lastName;
+  },
+  props 
+);
+
+await page.waitForChanges();
+```
+
+
 #### Call a @Method() on a component
 
 ```typescript
