@@ -1,6 +1,6 @@
 ---
-title: Angular Intergration with Stencil
-description: Angular Intergration with Stencil
+title: Angular Integration with Stencil
+description: Angular Integration with Stencil
 url: /docs/angular
 contributors:
   - jthoms1
