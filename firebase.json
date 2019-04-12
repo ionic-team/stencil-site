@@ -15,6 +15,11 @@
         "type": 301
       },
       {
+        "source": "/docs/intro",
+        "destination": "/docs/introduction",
+        "type": 301
+      },
+      {
         "source": "/docs/building-components",
         "destination": "/docs/my-first-component",
         "type": 301
@@ -41,12 +46,12 @@
       },
       {
         "source": "/docs/sass",
-        "destination": "/docs/add-ons",
+        "destination": "/docs/plugins",
         "type": 301
       },
       {
-        "source": "/docs/intro",
-        "destination": "/docs/introduction",
+        "source": "/docs/add-ons",
+        "destination": "/docs/plugins",
         "type": 301
       },
       {
@@ -67,11 +72,6 @@
       {
         "source": "/docs/server-side-rendering",
         "destination": "/docs/prerendering",
-        "type": 301
-      },
-      {
-        "source": "/docs/add-ons",
-        "destination": "/docs/plugins",
         "type": 301
       },
       {
