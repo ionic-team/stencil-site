@@ -3,9 +3,11 @@ import glob from 'glob';
 import { promisify } from 'util';
 import path from 'path';
 import fs from 'fs';
+import url from 'url';
 import { rimraf, mkdirp } from '@stencil/utils';
 import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
 import frontMatter from 'front-matter';
+import fetch from 'node-fetch';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
 const readFile = promisify(fs.readFile);
@@ -25,14 +27,13 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
 
   await rimraf(DESTINATION_DIR);
 
-  const filePromises = files.map(async (file) => {
-    if (file === './src/docs/README.md') {
+  const filePromises = files.map(async (filePath) => {
+    if (filePath === './src/docs/README.md') {
       return Promise.resolve();
     }
     let htmlContents = '';
-    let parsedMarkdown: any;
     let markdownMetadata: MarkdownContent = {};
-    const jsonFileName = path.relative(SOURCE_DIR, file);
+    const jsonFileName = path.relative(SOURCE_DIR, filePath);
     const destinationFileName = path.join(
       DESTINATION_DIR,
       path.dirname(jsonFileName),
@@ -40,11 +41,14 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
     );
     markdownMetadata.headings = [];
 
-    const markdownContents = await readFile(file, { encoding: 'utf8' });
+    const markdownContents = await readFile(filePath, { encoding: 'utf8' });
 
     try {
-      parsedMarkdown = frontMatter(markdownContents);
+      let parsedMarkdown = frontMatter(markdownContents);
+      parsedMarkdown = await getGithubData(filePath, parsedMarkdown);
+
       const renderer = new marked.Renderer();
+
       collectHeadingMetadata(renderer, markdownMetadata);
       changeCodeCreation(renderer);
       localizeMarkdownLink(renderer, destinationFileName.replace('src',''), siteStructureJson);
@@ -52,28 +56,68 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
         renderer,
         headerIds: true
       });
+
+      await mkdirp(path.join(
+        DESTINATION_DIR,
+        path.dirname(jsonFileName)
+      ));
+
+      await writeFile(destinationFileName, JSON.stringify({
+        ...parsedMarkdown.attributes,
+        ...markdownMetadata,
+        srcPath: filePath,
+        content: htmlContents
+      }), {
+        encoding: 'utf8'
+      });
+
     } catch (e) {
-      console.error(file);
+      console.error(filePath);
       throw e;
     }
-
-    await mkdirp(path.join(
-      DESTINATION_DIR,
-      path.dirname(jsonFileName)
-    ));
-    await writeFile(destinationFileName, JSON.stringify({
-      ...parsedMarkdown.attributes,
-      ...markdownMetadata,
-      srcPath: file,
-      content: htmlContents
-    }), {
-      encoding: 'utf8'
-    });
-
-    console.log(`converted: ${file} => ${destinationFileName}`);
   });
 
   await Promise.all(filePromises);
 
   console.log(`successfully converted ${filePromises.length} files`);
 })();
+
+
+async function getGithubData(filePath: string, parsedMarkdown: any) {
+  const since = new Date('2018-06-01').toISOString();
+
+  try {
+    const request = await fetch(url.format({
+      protocol: 'https',
+      hostname: 'api.github.com',
+      pathname: 'repos/ionic-team/stencil-site/commits',
+      query: {
+        access_token: process.env.GITHUB_TOKEN,
+        since: since,
+        path: filePath
+      }
+    }));
+
+    const commits = await request.json();
+    const contributors = Array.from(new Set(commits.map(commit => commit.author.login)));
+    const lastUpdated = commits.length ? commits[0].commit.author.date : since;
+
+    const attributes = parsedMarkdown.attributes = parsedMarkdown.attributes || {};
+    attributes.lastUpdated = lastUpdated;
+
+    attributes.contributors = attributes.contributors || [];
+
+    contributors.forEach(contributor => {
+      if (!attributes.contributors.includes(contributor)) {
+        attributes.contributors.push(contributor);
+      }
+    });
+
+    console.log('filePath:', filePath, 'contributors:', attributes.contributors.length, 'lastUpdated:', lastUpdated);
+
+  } catch (e) {
+    console.log(e);
+  }
+
+  return parsedMarkdown;
+}

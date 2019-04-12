@@ -18,7 +18,6 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'my-first-component',
-  styleUrl: 'my-first-component.css'
 })
 export class MyComponent {
 
