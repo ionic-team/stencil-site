@@ -66,7 +66,7 @@ Instead, use your own naming or brand. For example, [Ionic](https://ionicframewo
 
 #### Name
 
-Components are not actions, they are conceptually "things". It is better to use nouns, instead of verbs, such us: "animation" instead of "animating". "input", "tab", "nav", "menu" are some examples.
+Components are not actions, they are conceptually "things". It is better to use nouns instead of verbs, such as "animation" instead of "animating". "input", "tab", "nav", "menu" are some examples.
 
 
 #### Modifiers
@@ -82,7 +82,7 @@ When several components are related and/or coupled, it is a good idea to share t
 
 ### Component (TS class)
 
-The name of the ES6 class of the components SHOULD NOT have prefix since classes are scoped. There is no risk of collision.
+The name of the ES6 class of the component SHOULD NOT have a prefix since classes are scoped. There is no risk of collision.
 
 ```tsx
 @Component({
@@ -125,7 +125,7 @@ onClick() {
 
 **Newspaper Metaphor from The Robert C. Martin's _Clean Code_**
 
-> The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDE:s make the location of functions less important, since it is so easy to navigate in and out of them.
+> The source file should be organized like a newspaper article, with the highest level summary at the top, and more and more details further down. Functions called from the top function come directly below it, and so on down to the lowest level and most detailed functions at the bottom. This is a good way to organize the source code, even though IDEs make the location of functions less important, since it is so easy to navigate in and out of them.
 
 ### High level example (commented)
 
