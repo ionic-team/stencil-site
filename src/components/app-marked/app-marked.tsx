@@ -1,4 +1,4 @@
-import { Component, Prop, State, Watch, ComponentInterface } from '@stencil/core';
+import { Component, Prop, State, Watch, ComponentInterface, JSX } from '@stencil/core';
 import { MarkdownContent } from '../../global/definitions';
 
 @Component({
@@ -35,7 +35,7 @@ export class AppMarked implements ComponentInterface {
 
 const localCache = new Map<string, Promise<MarkdownContent>>();
 
-function fetchContent(path: string) {
+const fetchContent = (path: string) => {
   let promise = localCache.get(path);
   if (!promise) {
     promise = fetch(path, {cache: 'force-cache'}).then(response => response.json());

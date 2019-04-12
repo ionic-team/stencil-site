@@ -1,5 +1,5 @@
 import '@stencil/router';
-import { Component, Element, Listen, State } from '@stencil/core';
+import { Component, Element, Listen, State, h, getDocument, getWindow } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 
 @Component({
@@ -7,6 +7,9 @@ import SiteProviderConsumer, { SiteState } from '../../global/site-provider-cons
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
+  win = getWindow(this);
+  doc = getDocument(this);
+
   elements = [
     'site-header',
     'site-menu',
@@ -18,12 +21,12 @@ export class AppRoot {
 
   @State() isLeftSidebarIn: boolean = false;
 
-  @Listen('window:resize')
+  @Listen('resize', { target: 'window' })
   handleResize() {
     requestAnimationFrame(() => {
-      if (window.innerWidth > 768 && this.isLeftSidebarIn) {
+      if (this.win.innerWidth > 768 && this.isLeftSidebarIn) {
         this.isLeftSidebarIn = false;
-        document.body.classList.remove('no-scroll');
+        this.doc.body.classList.remove('no-scroll');
         this.elements.forEach((el) => {
           this.el.querySelector(el).classList.remove('left-sidebar-in');
         });
@@ -36,19 +39,19 @@ export class AppRoot {
   }
 
   toggleLeftSidebar = () => {
-    if (window.innerWidth >= 768) {
+    if (this.win.innerWidth >= 768) {
       return;
     }
     if (this.isLeftSidebarIn) {
       this.isLeftSidebarIn = false;
-      document.body.classList.remove('no-scroll');
+      this.doc.body.classList.remove('no-scroll');
       this.elements.forEach((el) => {
         this.el.querySelector(el).classList.remove('left-sidebar-in');
         this.el.querySelector(el).classList.add('left-sidebar-out');
       });
     } else {
       this.isLeftSidebarIn = true;
-      document.body.classList.add('no-scroll');
+      this.doc.body.classList.add('no-scroll');
       this.elements.forEach((el) => {
         this.el.querySelector(el).classList.add('left-sidebar-in');
         this.el.querySelector(el).classList.remove('left-sidebar-out');

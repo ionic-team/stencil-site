@@ -1,10 +1,11 @@
-import { Component } from '@stencil/core';
+import { Component, h, getDocument } from '@stencil/core';
 
 @Component({
   tag: 'resources-page',
   styleUrl: 'resources-page.css'
 })
 export class ResourcesPage {
+  doc = getDocument(this);
 
   LINKS = {
     TEMPLATES: [
@@ -41,7 +42,7 @@ export class ResourcesPage {
   }
 
   constructor() {
-    document.title = `Stencil Resources`;
+    this.doc.title = `Stencil Resources`;
   }
 
   render() {

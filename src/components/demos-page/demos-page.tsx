@@ -1,16 +1,17 @@
-import { Component } from '@stencil/core';
+import { Component, h, getDocument } from '@stencil/core';
 
 @Component({
   tag: 'demos-page'
 })
 export class DemosPage {
+  doc = getDocument(this);
 
   demos = [
     {
       title: 'Stenciljs.com',
       description: 'Yep, this site is also built with Stencil!',
       imgPath: '/assets/img/demos/demo-stenciljs',
-      demoUrl: 'https://stenciljs.com/',
+      demoUrl: '/',
       sourceUrl: 'https://github.com/ionic-team/stencil-site',
     },
     {
@@ -44,7 +45,7 @@ export class DemosPage {
   ];
 
   constructor() {
-    document.title = `Stencil Demos`;
+    this.doc.title = `Stencil Demos`;
   }
 
   render() {

@@ -36,24 +36,40 @@ jobs:
             - firebase.json
             - .firebaserc
 
-  deploy-job:
+  deploy-prod:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /tmp/workspace
 
       - run:
-          name: Deploy Master to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN -P default
+          name: Deploy Prod to Firebase
+          command: npm run deploy.prod
+
+  deploy-next:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+
+      - run:
+          name: Deploy Next to Firebase
+          command: npm run deploy.next
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build
-      - deploy-job:
+      - deploy-prod:
           requires:
               - build
           filters:
             branches:
               only: master
+      - deploy-next:
+          requires:
+              - build
+          filters:
+            branches:
+              only: next

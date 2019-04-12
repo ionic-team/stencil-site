@@ -8,7 +8,5 @@ export const config: Config = {
     }
   ],
   globalStyle: 'src/global/style/app.css',
-  copy: [
-    { src: 'robots.txt' }
-  ]
+  enableCache: false
 };

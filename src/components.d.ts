@@ -5,10 +5,8 @@
  */
 
 
-import '@stencil/core';
-
-import '@stencil/router';
-import '@stencil/state-tunnel';
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+import { JSX } from '@stencil/core';
 import {
   MarkdownContent,
   MarkdownHeading,
@@ -17,43 +15,21 @@ import {
 
 
 export namespace Components {
-
   interface AppBurger {
     'toggleLeftSidebar': () => void;
   }
-  interface AppBurgerAttributes extends StencilHTMLAttributes {
-    'toggleLeftSidebar'?: () => void;
-  }
-
   interface AppIcon {
     'name'?: string;
   }
-  interface AppIconAttributes extends StencilHTMLAttributes {
-    'name'?: string;
-  }
-
   interface AppMarked {
     'fetchPath'?: string;
     'renderer'?: (doc: MarkdownContent) => JSX.Element;
   }
-  interface AppMarkedAttributes extends StencilHTMLAttributes {
-    'fetchPath'?: string;
-    'renderer'?: (doc: MarkdownContent) => JSX.Element;
-  }
-
   interface AppRoot {}
-  interface AppRootAttributes extends StencilHTMLAttributes {}
-
   interface ContributorList {
     'contributors': string[];
   }
-  interface ContributorListAttributes extends StencilHTMLAttributes {
-    'contributors'?: string[];
-  }
-
   interface CustomClock {}
-  interface CustomClockAttributes extends StencilHTMLAttributes {}
-
   interface DemoCard {
     'SourceBufferList'?: string;
     'demoUrl'?: string;
@@ -62,46 +38,19 @@ export namespace Components {
     'name'?: string;
     'sourceUrl'?: string;
   }
-  interface DemoCardAttributes extends StencilHTMLAttributes {
-    'SourceBufferList'?: string;
-    'demoUrl'?: string;
-    'description'?: string;
-    'imgPath'?: string;
-    'name'?: string;
-    'sourceUrl'?: string;
-  }
-
   interface DemosPage {}
-  interface DemosPageAttributes extends StencilHTMLAttributes {}
-
   interface DocumentComponent {
     'page': string;
   }
-  interface DocumentComponentAttributes extends StencilHTMLAttributes {
-    'page'?: string;
-  }
-
   interface HighlightCodeLine {
     'lines'?: string;
   }
-  interface HighlightCodeLineAttributes extends StencilHTMLAttributes {
-    'lines'?: string;
-  }
-
   interface InPageNavigation {
     'currentPageUrl': string;
     'pageLinks': MarkdownHeading[];
     'srcUrl': string;
   }
-  interface InPageNavigationAttributes extends StencilHTMLAttributes {
-    'currentPageUrl'?: string;
-    'pageLinks'?: MarkdownHeading[];
-    'srcUrl'?: string;
-  }
-
   interface LandingPage {}
-  interface LandingPageAttributes extends StencilHTMLAttributes {}
-
   interface LazyIframe {
     'frameBorder'?: string;
     'height'?: string;
@@ -112,51 +61,82 @@ export namespace Components {
     'src'?: string;
     'width'?: string;
   }
-  interface LazyIframeAttributes extends StencilHTMLAttributes {
+  interface LowerContentNav {
+    'next'?: SiteStructureItem;
+    'prev'?: SiteStructureItem;
+  }
+  interface NotfoundPage {}
+  interface PwasPage {}
+  interface ResourcesPage {}
+  interface SiteHeader {}
+  interface SiteMenu {
+    'selectedParent': SiteStructureItem;
+    'siteStructureList': SiteStructureItem[];
+  }
+}
+
+declare namespace LocalJSX {
+  interface AppBurger extends JSXBase.HTMLAttributes {
+    'toggleLeftSidebar'?: () => void;
+  }
+  interface AppIcon extends JSXBase.HTMLAttributes {
+    'name'?: string;
+  }
+  interface AppMarked extends JSXBase.HTMLAttributes {
+    'fetchPath'?: string;
+    'renderer'?: (doc: MarkdownContent) => JSX.Element;
+  }
+  interface AppRoot extends JSXBase.HTMLAttributes {}
+  interface ContributorList extends JSXBase.HTMLAttributes {
+    'contributors'?: string[];
+  }
+  interface CustomClock extends JSXBase.HTMLAttributes {}
+  interface DemoCard extends JSXBase.HTMLAttributes {
+    'SourceBufferList'?: string;
+    'demoUrl'?: string;
+    'description'?: string;
+    'imgPath'?: string;
+    'name'?: string;
+    'sourceUrl'?: string;
+  }
+  interface DemosPage extends JSXBase.HTMLAttributes {}
+  interface DocumentComponent extends JSXBase.HTMLAttributes {
+    'page'?: string;
+  }
+  interface HighlightCodeLine extends JSXBase.HTMLAttributes {
+    'lines'?: string;
+  }
+  interface InPageNavigation extends JSXBase.HTMLAttributes {
+    'currentPageUrl'?: string;
+    'pageLinks'?: MarkdownHeading[];
+    'srcUrl'?: string;
+  }
+  interface LandingPage extends JSXBase.HTMLAttributes {}
+  interface LazyIframe extends JSXBase.HTMLAttributes {
     'frameBorder'?: string;
     'height'?: string;
     'identifier'?: string;
     'isVideo'?: boolean;
     'name'?: string;
-    'onVideoLoaded'?: (event: CustomEvent) => void;
+    'onVideoLoaded'?: (event: CustomEvent<any>) => void;
     'scrolling'?: string;
     'src'?: string;
     'width'?: string;
   }
-
-  interface LowerContentNav {
+  interface LowerContentNav extends JSXBase.HTMLAttributes {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
   }
-  interface LowerContentNavAttributes extends StencilHTMLAttributes {
-    'next'?: SiteStructureItem;
-    'prev'?: SiteStructureItem;
-  }
-
-  interface NotfoundPage {}
-  interface NotfoundPageAttributes extends StencilHTMLAttributes {}
-
-  interface PwasPage {}
-  interface PwasPageAttributes extends StencilHTMLAttributes {}
-
-  interface ResourcesPage {}
-  interface ResourcesPageAttributes extends StencilHTMLAttributes {}
-
-  interface SiteHeader {}
-  interface SiteHeaderAttributes extends StencilHTMLAttributes {}
-
-  interface SiteMenu {
-    'selectedParent': SiteStructureItem;
-    'siteStructureList': SiteStructureItem[];
-  }
-  interface SiteMenuAttributes extends StencilHTMLAttributes {
+  interface NotfoundPage extends JSXBase.HTMLAttributes {}
+  interface PwasPage extends JSXBase.HTMLAttributes {}
+  interface ResourcesPage extends JSXBase.HTMLAttributes {}
+  interface SiteHeader extends JSXBase.HTMLAttributes {}
+  interface SiteMenu extends JSXBase.HTMLAttributes {
     'selectedParent'?: SiteStructureItem;
     'siteStructureList'?: SiteStructureItem[];
   }
-}
 
-declare global {
-  interface StencilElementInterfaces {
+  interface ElementInterfaces {
     'AppBurger': Components.AppBurger;
     'AppIcon': Components.AppIcon;
     'AppMarked': Components.AppMarked;
@@ -178,27 +158,38 @@ declare global {
     'SiteMenu': Components.SiteMenu;
   }
 
-  interface StencilIntrinsicElements {
-    'app-burger': Components.AppBurgerAttributes;
-    'app-icon': Components.AppIconAttributes;
-    'app-marked': Components.AppMarkedAttributes;
-    'app-root': Components.AppRootAttributes;
-    'contributor-list': Components.ContributorListAttributes;
-    'custom-clock': Components.CustomClockAttributes;
-    'demo-card': Components.DemoCardAttributes;
-    'demos-page': Components.DemosPageAttributes;
-    'document-component': Components.DocumentComponentAttributes;
-    'highlight-code-line': Components.HighlightCodeLineAttributes;
-    'in-page-navigation': Components.InPageNavigationAttributes;
-    'landing-page': Components.LandingPageAttributes;
-    'lazy-iframe': Components.LazyIframeAttributes;
-    'lower-content-nav': Components.LowerContentNavAttributes;
-    'notfound-page': Components.NotfoundPageAttributes;
-    'pwas-page': Components.PwasPageAttributes;
-    'resources-page': Components.ResourcesPageAttributes;
-    'site-header': Components.SiteHeaderAttributes;
-    'site-menu': Components.SiteMenuAttributes;
+  interface IntrinsicElements {
+    'AppBurger': LocalJSX.AppBurger;
+    'AppIcon': LocalJSX.AppIcon;
+    'AppMarked': LocalJSX.AppMarked;
+    'AppRoot': LocalJSX.AppRoot;
+    'ContributorList': LocalJSX.ContributorList;
+    'CustomClock': LocalJSX.CustomClock;
+    'DemoCard': LocalJSX.DemoCard;
+    'DemosPage': LocalJSX.DemosPage;
+    'DocumentComponent': LocalJSX.DocumentComponent;
+    'HighlightCodeLine': LocalJSX.HighlightCodeLine;
+    'InPageNavigation': LocalJSX.InPageNavigation;
+    'LandingPage': LocalJSX.LandingPage;
+    'LazyIframe': LocalJSX.LazyIframe;
+    'LowerContentNav': LocalJSX.LowerContentNav;
+    'NotfoundPage': LocalJSX.NotfoundPage;
+    'PwasPage': LocalJSX.PwasPage;
+    'ResourcesPage': LocalJSX.ResourcesPage;
+    'SiteHeader': LocalJSX.SiteHeader;
+    'SiteMenu': LocalJSX.SiteMenu;
   }
+}
+export { LocalJSX as JSX };
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface ElementInterfaces extends LocalJSX.ElementInterfaces {}
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
+declare global {
 
 
   interface HTMLAppBurgerElement extends Components.AppBurger, HTMLStencilElement {}
@@ -314,7 +305,6 @@ declare global {
     prototype: HTMLSiteMenuElement;
     new (): HTMLSiteMenuElement;
   };
-
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement
     'app-icon': HTMLAppIconElement
@@ -358,14 +348,5 @@ declare global {
     'site-header': HTMLSiteHeaderElement;
     'site-menu': HTMLSiteMenuElement;
   }
-
-
-  export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
-  }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+

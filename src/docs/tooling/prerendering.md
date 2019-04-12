@@ -23,17 +23,17 @@ Prerendering is built into the Stencil compiler itself and by default our [app s
 
 - Data that you are fetching from an api should not be prerendered as this data is dynamic and is going to change.
 
-Stencil provides an `isServer` utility variable to tell prerendering to skip code. Here is an example of how to use this utility:
+Stencil provides a `Build.isServer` build conditional to tell prerendering to skip code. Here is an example of how to use this utility:
 
 ```tsx
-@Prop({ context: 'isServer' }) private isServer: boolean;
+import { Build } from '@stencil/core';
 
 componentWillLoad() {
-  // isServer is false when running in the browser
+  // Build.isServer is false when running in the browser
   // and true when being prerendered
 
-  if (this.isServer === false) {
-    fetch('someUrl').then(...)
+  if (Build.isServer) {
+    ...
   }
 }
 ```

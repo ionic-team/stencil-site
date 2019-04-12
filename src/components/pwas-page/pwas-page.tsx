@@ -1,17 +1,18 @@
-import { Component } from '@stencil/core';
+import { Component, h, getDocument } from '@stencil/core';
 
 @Component({
   tag: 'pwas-page',
   styleUrl: 'pwas-page.css'
 })
 export class pwasPage {
+  doc = getDocument(this);
 
   demos = [
     {
       title: 'Stenciljs.com',
       description: 'Yep, this site is built as a PWA!',
       imgPath: '/assets/img/demos/demo-stenciljs',
-      demoUrl: 'https://stenciljs.com/',
+      demoUrl: '/',
       sourceUrl: 'https://github.com/ionic-team/stencil-site',
     },
     {
@@ -31,7 +32,7 @@ export class pwasPage {
   ];
 
   constructor() {
-    document.title = `PWAs`;
+    this.doc.title = `PWAs`;
   }
 
   render() {

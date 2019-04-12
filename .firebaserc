@@ -1,6 +1,7 @@
 {
   "projects": {
-    "production": "stencil-site",
-    "default": "stencil-site"
+    "production": "stencil-site-next",
+    "next": "stencil-site-next",
+    "default": "stencil-site-next"
   }
 }

@@ -11,10 +11,12 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
   <link rel="canonical" href="https://stenciljs.com" />
-  <script src="/build/app.js"></script>
   <link rel='stylesheet' href="/build/app.css">
 </head>
 <body>
+
+  <app-root></app-root>
+
   <svg style="display:none;">
     <symbol id="icon-logo" width="96px" height="23px" viewBox="0 0 916 220">
       <g>
@@ -59,24 +61,11 @@
     <symbol id="icon-circle" width="12" height="12"><circle cx="1026" cy="942" r="5" transform="translate(-1020 -936)" stroke="#757575" stroke-width="2" fill="none" fill-rule="evenodd" opacity=".4"/></symbol>
   </svg>
 
-  <app-root></app-root>
-
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-44023830-34', 'auto');
     ga('send', 'pageview');
   </script>
   <script async defer src='https://www.google-analytics.com/analytics.js'></script>
-
-  <script>
-    // Unregister service workers
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        registrations.forEach(function(registration) {
-          registration.unregister();
-        });
-      });
-    }
-  </script>
 </body>
 </html>

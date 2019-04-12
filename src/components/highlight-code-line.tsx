@@ -10,7 +10,7 @@ function range(start: number, end: number) {
 })
 export class CustomClock implements ComponentInterface {
 
-  @Element() el!: HTMLStencilElement;
+  @Element() el!: HTMLElement;
   @Prop() lines?: string;
 
   componentDidLoad() {
