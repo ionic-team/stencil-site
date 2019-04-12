@@ -5,6 +5,7 @@ url: /docs/templating-jsx
 contributors:
   - jthoms1
   - simonhaenisch
+  - arjunyel
 ---
 
 # Using JSX
@@ -87,6 +88,35 @@ render() {
   );
 }
 ```
+
+**Please note:** Stencil reuses DOM elements for better performance. Consider the following code:
+
+```tsx
+{someCondition
+  ? <my-counter initialValue={2} />
+  : <my-counter initialValue={5} />
+}
+```
+
+The above code behaves exactly the same as the following code:
+
+```tsx
+<my-counter initialValue={someCondition ? 2 : 5} />
+```
+
+Thus, if `someCondition` changes, the internal state of `<my-counter>` won't be reset and its lifecycle methods such as `componentWillLoad()` won't fire. Instead, the conditional merely triggers an update to the very same component.
+
+If you want to destroy and recreate a component in a conditional, you can assign the `key` attribute. This tells Stencil that the components are actually different siblings:
+
+```tsx
+{someCondition
+  ? <my-counter key="a" initialValue={2} />
+  : <my-counter key="b" initialValue={5} />
+}
+```
+
+This way, if `someCondition` changes, you get a new `<my-counter>` component with fresh internal state that also runs the lifecycle methods `componentWillLoad()` and `componentDidLoad()`.
+
 
 ## Slots
 
@@ -310,4 +340,4 @@ export class AppHome{
 }
 ```
 
-In this example we are using `ref` to get a reference to our input `ref={(el: HTMLInputElement) => this.textInput = el}`. We can then use that ref to do things such as grab the value from the text input directly `this.textInput.value`.
+In this example we are using `ref` to get a reference to our input `ref={(el) => this.textInput = el as HTMLInputElement}`. We can then use that ref to do things such as grab the value from the text input directly `this.textInput.value`.

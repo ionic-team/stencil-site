@@ -4,6 +4,8 @@ description: Stencil Router
 url: /docs/router-api
 contributors:
   - jthoms1
+  - Kub4jz
+  - dvelasquez
 ---
 
 # Stencil Router API
@@ -111,7 +113,7 @@ In the above example:
 
 **NOTE**: The third route does not have a `url` prop so it will match everything that was not caught by the previous 2.
 
-## stencil-route-redirect
+## stencil-router-redirect
 
 This component redirects the current location.
 
@@ -122,7 +124,7 @@ This component redirects the current location.
 **Basic usage**
 
 ```tsx
-<stencil-route-redirect url="/" />
+<stencil-router-redirect url="/" />
 ```
 
 ## stencil-route-link

@@ -6,14 +6,22 @@
   * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
+* Design Systems
+  * [What is a Design System?](design-systems/what-is-design-system.md)
+  * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
 * Components
-  * [Component Life Cycle](components/component-lifecycle.md)
-  * [Decorators](components/decorators.md)
+  * [API](components/api.md)
+  * [Component](components/component.md)
+  * [Component Lifecycle](components/component-lifecycle.md)
   * [Events](components/events.md)
+  * [Methods](components/methods.md)
+  * [Properties](components/properties.md)
+  * [Internal State](components/state.md)
   * [Reactive Data](components/reactive-data.md)
   * [Using JSX](components/templating-and-jsx.md)
+  * [Host Element](components/host-element.md)
   * [Styling](components/styling.md)
-  * [Forms](components/forms.md)
+  * [Functional Components](components/functional-components.md)
 * Framework Integrations
   * [Overview](framework-integration/overview.md)
   * [Angular](framework-integration/angular.md)
@@ -23,6 +31,7 @@
   * [JavaScript](framework-integration/javascript.md)
 * Tooling
   * [Config](tooling/config.md)
+  * [Bundling](tooling/module-bundling.md)
   * [Dev Server](tooling/dev-server.md)
   * [Prerendering](tooling/prerendering.md)
   * [Service Workers](tooling/service-workers.md)
@@ -31,13 +40,13 @@
   * [Plugins](tooling/plugins.md)
 * Guides
   * [Distribution](guides/distribution.md)
-  <!-- * [Bundling](guides/module-bundling.md) -->
+  * [Forms](guides/forms.md)
   * [Style Guide](guides/style-guide.md)
 * Routing
   * [Overview](routing/overview.md)
   * [Tutorials](routing/tutorials.md)
   * [API](routing/api.md)
-* State Management
+* Advanced State Management
   * [State Tunnel](state-management/state-tunnel.md)
   * [Redux](state-management/redux.md)
 * Testing
