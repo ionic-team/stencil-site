@@ -4,6 +4,7 @@ description: Styling Components
 url: /docs/styling
 contributors:
   - jthoms1
+  - shreeshbhat
 ---
 
 # Shadow DOM
