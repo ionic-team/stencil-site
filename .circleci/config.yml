@@ -46,7 +46,7 @@ jobs:
 
       - run:
           name: Copy Prod robots.txt
-          command: ./scripts/copy-robots.js --prod
+          command: node ./scripts/copy-robots.js --prod
 
       - run:
           name: Deploy Prod to Firebase
@@ -60,7 +60,7 @@ jobs:
 
       - run:
           name: Copy Next robots.txt
-          command: ./scripts/copy-robots.js --next
+          command: node ./scripts/copy-robots.js --next
 
       - run:
           name: Deploy Next to Firebase
