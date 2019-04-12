@@ -4,6 +4,9 @@ description: Events
 url: /docs/events
 contributors:
   - jthoms1
+  - mgalic
+  - BDav24
+  - mattcosta7
 ---
 
 # Events

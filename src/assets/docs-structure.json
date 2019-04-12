@@ -30,6 +30,21 @@
     ]
   },
   {
+    "text": "Design Systems",
+    "children": [
+      {
+        "text": "What is a Design System?",
+        "filePath": "/assets/docs/design-systems/what-is-design-system.json",
+        "url": "/docs/what-is-design-system"
+      },
+      {
+        "text": "Stencil for Design Systems",
+        "filePath": "/assets/docs/design-systems/stencil-for-design-systems.json",
+        "url": "/docs/stencil-for-design-systems"
+      }
+    ]
+  },
+  {
     "text": "Components",
     "children": [
       {
@@ -86,6 +101,11 @@
         "text": "Styling",
         "filePath": "/assets/docs/components/styling.json",
         "url": "/docs/styling"
+      },
+      {
+        "text": "Functional Components",
+        "filePath": "/assets/docs/components/functional-components.json",
+        "url": "/docs/functional-components"
       }
     ]
   },

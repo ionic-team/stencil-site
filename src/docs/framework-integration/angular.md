@@ -1,12 +1,13 @@
 ---
-title: Angular Intergration with Stencil
-description: Angular Intergration with Stencil
+title: Angular Integration with Stencil
+description: Angular Integration with Stencil
 url: /docs/angular
 contributors:
   - jthoms1
   - adamdbradley
   - kensodemann
   - peterpeterparker
+  - jeanbenitez
 ---
 
 # Angular
@@ -26,11 +27,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, SharedModule],
+  imports: [BrowserModule, FormsModule],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -65,7 +65,7 @@ defineCustomElements(window);
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```
+```tsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 import 'test-components';
@@ -78,10 +78,10 @@ import 'test-components';
 export class HomeComponent {
 
     @ViewChild('test') myTestComponent: ElementRef<HTMLTestComponentElement>;
-    
+
     async onAction() {
         await this.myTestComponent.nativeElement.testComponentMethod();
     }
 }
 
-``` 
+```

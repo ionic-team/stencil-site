@@ -4,6 +4,7 @@ description: Stencil aims to combine the best concepts of the most popular front
 url: /docs/goals-and-objectives
 contributors:
   - adamdbradley
+  - sri-ni
 ---
 
 # Stencil Goals And Objectives

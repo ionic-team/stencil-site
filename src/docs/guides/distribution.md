@@ -46,8 +46,8 @@ You also need to add the following to your `package.json`:
 
 ```json
 {
-  "main": "dist/myname.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"

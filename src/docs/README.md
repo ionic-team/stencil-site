@@ -6,6 +6,9 @@
   * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
+* Design Systems
+  * [What is a Design System?](design-systems/what-is-design-system.md)
+  * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
 * Components
   * [API](components/api.md)
   * [Component](components/component.md)
@@ -18,6 +21,7 @@
   * [Using JSX](components/templating-and-jsx.md)
   * [Host Element](components/host-element.md)
   * [Styling](components/styling.md)
+  * [Functional Components](components/functional-components.md)
 * Framework Integrations
   * [Overview](framework-integration/overview.md)
   * [Angular](framework-integration/angular.md)
