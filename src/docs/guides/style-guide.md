@@ -6,6 +6,7 @@ contributors:
   - jthoms1
   - natemoo-re
   - larionov
+  - joestrouth1
 ---
 
 # Stencil Style Guide
