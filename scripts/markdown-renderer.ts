@@ -117,7 +117,7 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
 export function changeCodeCreation(renderer: marked.Renderer) {
   function highlight(code: string, lang?: string) {
     if (lang != null && languages.indexOf(lang) !== -1) {
-      return Prism.highlight(code, Prism.languages[lang]);
+      return Prism.highlight(code, Prism.languages[lang], lang);
     }
     return code;
   }
