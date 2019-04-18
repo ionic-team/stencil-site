@@ -11,6 +11,8 @@ contributors:
 
 The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
 
+> Developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
+
 ```tsx
 import { Method } from '@stencil/core';
 
@@ -41,8 +43,6 @@ Stencil's architecture is async at all levels which allows for many performance 
 - By keeping a component's public API async, apps could move the components transparently to [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and the API would still be the same.
 
 - Returning a promise is only required for publicly exposed methods which have the @Method decorator. All other component methods are private to the component and are not required to be async.
-
-Also note, developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
 
 
 ```tsx
