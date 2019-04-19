@@ -1,0 +1,51 @@
+.ds-title {
+  font-size: 36px;
+}
+
+.ds-container {
+  margin: auto;
+}
+
+.ds-blurb {
+}
+
+.ds-cta {
+  text-align: center;
+}
+
+.ds-plans {
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+  margin-bottom: 60px;
+}
+
+.ds-plan {
+  flex: 1;
+}
+
+.ds-plan h2 {
+  font-size: 24px;
+}
+
+.ds-plan ul a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
+}
+
+.ds-bottom-callout {
+  margin: 40px 0;
+  text-align: center;
+}
+.ds-bottom-callout .btn {
+  margin: auto;
+}
+
+.hbspt-form .actions {
+  text-align: center;
+}
+.hbspt-form .hs-button {
+  cursor: pointer;
+}
