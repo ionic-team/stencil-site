@@ -15,6 +15,10 @@ site-header .container {
   justify-content: space-between;
 }
 
+.header-menu .stencil-ds a {
+  font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
   site-header .container {
     padding-top: 15px;

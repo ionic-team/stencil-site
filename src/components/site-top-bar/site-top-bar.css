@@ -1,0 +1,26 @@
+site-top-bar {
+  display: block;
+  background-color: #111;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+site-top-bar a {
+  text-decoration: none;
+  color: white;
+}
+
+site-top-bar a.btn {
+  margin-left: 15px;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+}

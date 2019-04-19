@@ -81,6 +81,9 @@ export namespace Components {
     'page'?: string;
   }
 
+  interface DsPage {}
+  interface DsPageAttributes extends StencilHTMLAttributes {}
+
   interface HighlightCodeLine {
     'lines'?: string;
   }
@@ -153,6 +156,9 @@ export namespace Components {
     'selectedParent'?: SiteStructureItem;
     'siteStructureList'?: SiteStructureItem[];
   }
+
+  interface SiteTopBar {}
+  interface SiteTopBarAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -166,6 +172,7 @@ declare global {
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
     'DocumentComponent': Components.DocumentComponent;
+    'DsPage': Components.DsPage;
     'HighlightCodeLine': Components.HighlightCodeLine;
     'InPageNavigation': Components.InPageNavigation;
     'LandingPage': Components.LandingPage;
@@ -176,6 +183,7 @@ declare global {
     'ResourcesPage': Components.ResourcesPage;
     'SiteHeader': Components.SiteHeader;
     'SiteMenu': Components.SiteMenu;
+    'SiteTopBar': Components.SiteTopBar;
   }
 
   interface StencilIntrinsicElements {
@@ -188,6 +196,7 @@ declare global {
     'demo-card': Components.DemoCardAttributes;
     'demos-page': Components.DemosPageAttributes;
     'document-component': Components.DocumentComponentAttributes;
+    'ds-page': Components.DsPageAttributes;
     'highlight-code-line': Components.HighlightCodeLineAttributes;
     'in-page-navigation': Components.InPageNavigationAttributes;
     'landing-page': Components.LandingPageAttributes;
@@ -198,6 +207,7 @@ declare global {
     'resources-page': Components.ResourcesPageAttributes;
     'site-header': Components.SiteHeaderAttributes;
     'site-menu': Components.SiteMenuAttributes;
+    'site-top-bar': Components.SiteTopBarAttributes;
   }
 
 
@@ -253,6 +263,12 @@ declare global {
   var HTMLDocumentComponentElement: {
     prototype: HTMLDocumentComponentElement;
     new (): HTMLDocumentComponentElement;
+  };
+
+  interface HTMLDsPageElement extends Components.DsPage, HTMLStencilElement {}
+  var HTMLDsPageElement: {
+    prototype: HTMLDsPageElement;
+    new (): HTMLDsPageElement;
   };
 
   interface HTMLHighlightCodeLineElement extends Components.HighlightCodeLine, HTMLStencilElement {}
@@ -315,6 +331,12 @@ declare global {
     new (): HTMLSiteMenuElement;
   };
 
+  interface HTMLSiteTopBarElement extends Components.SiteTopBar, HTMLStencilElement {}
+  var HTMLSiteTopBarElement: {
+    prototype: HTMLSiteTopBarElement;
+    new (): HTMLSiteTopBarElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement
     'app-icon': HTMLAppIconElement
@@ -325,6 +347,7 @@ declare global {
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
     'document-component': HTMLDocumentComponentElement
+    'ds-page': HTMLDsPageElement
     'highlight-code-line': HTMLHighlightCodeLineElement
     'in-page-navigation': HTMLInPageNavigationElement
     'landing-page': HTMLLandingPageElement
@@ -335,6 +358,7 @@ declare global {
     'resources-page': HTMLResourcesPageElement
     'site-header': HTMLSiteHeaderElement
     'site-menu': HTMLSiteMenuElement
+    'site-top-bar': HTMLSiteTopBarElement
   }
 
   interface ElementTagNameMap {
@@ -347,6 +371,7 @@ declare global {
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
     'document-component': HTMLDocumentComponentElement;
+    'ds-page': HTMLDsPageElement;
     'highlight-code-line': HTMLHighlightCodeLineElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
@@ -357,6 +382,7 @@ declare global {
     'resources-page': HTMLResourcesPageElement;
     'site-header': HTMLSiteHeaderElement;
     'site-menu': HTMLSiteMenuElement;
+    'site-top-bar': HTMLSiteTopBarElement;
   }
 
 
