@@ -1,12 +1,10 @@
-import { Component, Element, Prop, State, Event, EventEmitter, h, getWindow } from '@stencil/core';
+import { Component, Element, Prop, State, Event, EventEmitter, h } from '@stencil/core';
 
 @Component({
   tag: 'lazy-iframe',
   styleUrl: 'lazy-iframe.css'
 })
 export class LazyIframe {
-  win = getWindow(this);
-
   @Prop() src?: string;
   @Prop() name?: string;
   @Prop() frameBorder?: string;
@@ -25,7 +23,7 @@ export class LazyIframe {
   io?: IntersectionObserver;
 
   componentDidLoad() {
-    if ('IntersectionObserver' in this.win) {
+    if ('IntersectionObserver' in window) {
       this.io = new IntersectionObserver((data: any[]) => {
         if (data[0].isIntersecting) {
           this.handleIframe();

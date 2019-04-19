@@ -1,13 +1,10 @@
-import { Component, Element, Listen, State, h, getDocument, getWindow } from '@stencil/core';
+import { Component, Element, Listen, State, h } from '@stencil/core';
 
 @Component({
   tag: 'site-header',
   styleUrl: 'site-header.css'
 })
 export class SiteHeader {
-  win = getWindow(this);
-  doc = getDocument(this);
-
   @Element() el!: Element;
 
   @State() isMobileMenuShown: boolean = false;
@@ -15,11 +12,11 @@ export class SiteHeader {
   @Listen('resize', { target: 'window' })
   handleResize() {
     requestAnimationFrame(() => {
-      if (this.win.innerWidth > 768) {
+      if (window.innerWidth > 768) {
         const menu = (this.el.querySelector('.header-menu') as HTMLElement);
         menu.style.display = '';
         this.el.classList.remove('show-mobile-menu');
-        this.doc.body.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
         this.isMobileMenuShown = false;
       }
     });
@@ -38,7 +35,7 @@ export class SiteHeader {
     menu.style.display = "flex";
     setTimeout(() => {
       this.el.classList.add('show-mobile-menu');
-      this.doc.body.classList.add('no-scroll');
+      document.body.classList.add('no-scroll');
     }, 1)
   }
 
@@ -51,7 +48,7 @@ export class SiteHeader {
     this.el.classList.remove('show-mobile-menu');
     setTimeout(() => {
       menu.style.display = "none";
-      this.doc.body.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
     }, 300)
   }
 

@@ -1,4 +1,4 @@
-import { Component, Element, State, Listen, h, getDocument, getWindow, Build } from '@stencil/core';
+import { Component, Element, State, Listen, h, Build } from '@stencil/core';
 import copy from 'copy-text-to-clipboard';
 
 @Component({
@@ -6,16 +6,13 @@ import copy from 'copy-text-to-clipboard';
   styleUrl: 'landing-page.css'
 })
 export class LandingPage {
-  win = getWindow(this);
-  doc = getDocument(this);
-
   @Element() el!: Element;
 
   @State() isModalOpen = false;
   @State() isCopied = false;
 
   constructor() {
-    this.doc.title = `Stencil`;
+    document.title = `Stencil`;
   }
 
   videoPlayer: any;
@@ -30,13 +27,13 @@ export class LandingPage {
       // just link to the youtube video directly like we do on mobile
 
       // attach youtube iframe api
-      const tag = this.doc.createElement('script');
+      const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = this.doc.getElementsByTagName('script')[0];
+      const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      this.win['onYouTubeIframeAPIReady'] = () => {
-        this.videoPlayer = new this.win['YT'].Player('youtube-embed', {});
+      window['onYouTubeIframeAPIReady'] = () => {
+        this.videoPlayer = new window['YT'].Player('youtube-embed', {});
       }
     }
   }
@@ -50,17 +47,17 @@ export class LandingPage {
   }
 
   handleWatchVideo() {
-    if (this.win.matchMedia('(min-width: 768px)').matches || (this.doc as any).documentMode || /Edge/.test(this.win.navigator.userAgent)) {
+    if (window.matchMedia('(min-width: 768px)').matches || (document as any).documentMode || /Edge/.test(window.navigator.userAgent)) {
       this.openModal();
     } else {
-      this.win.location.href = 'https://youtu.be/UfD-k7aHkQE';
+      window.location.href = 'https://youtu.be/UfD-k7aHkQE';
     }
   }
 
   openModal() {
-    this.doc.body.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
 
-    const modal = (this.doc.querySelector('.modal') as HTMLElement);
+    const modal = (document.querySelector('.modal') as HTMLElement);
     if (modal) {
       modal.style.display = "block";
       modal.classList.remove('modal--hide');
@@ -71,8 +68,8 @@ export class LandingPage {
   }
 
   closeModal() {
-    this.doc.body.classList.remove('no-scroll');
-    const modal = (this.doc.querySelector('.modal') as HTMLElement);
+    document.body.classList.remove('no-scroll');
+    const modal = (document.querySelector('.modal') as HTMLElement);
     if (modal) {
       modal.classList.remove('modal--show');
       modal.classList.add('modal--hide');

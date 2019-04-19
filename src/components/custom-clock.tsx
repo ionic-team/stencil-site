@@ -1,23 +1,21 @@
-import { Component, State, h, getWindow } from '@stencil/core';
+import { Component, State, h } from '@stencil/core';
 
 @Component({
   tag: 'custom-clock'
 })
 export class CustomClock {
-  win = getWindow(this);
-
-  timer: number;
+  timer: any;
 
   @State() time: number = Date.now();
 
   componentDidLoad() {
-    this.timer = this.win.setInterval(() => {
+    this.timer = setInterval(() => {
       this.time = Date.now();
     }, 1000);
   }
 
   componentDidUnload() {
-    this.win.clearInterval(this.timer);
+    clearInterval(this.timer);
   }
 
   render() {

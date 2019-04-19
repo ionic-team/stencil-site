@@ -1,10 +1,9 @@
-import { Component, h, getDocument } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'demos-page'
 })
 export class DemosPage {
-  doc = getDocument(this);
 
   demos = [
     {
@@ -45,7 +44,7 @@ export class DemosPage {
   ];
 
   constructor() {
-    this.doc.title = `Stencil Demos`;
+    document.title = `Stencil Demos`;
   }
 
   render() {

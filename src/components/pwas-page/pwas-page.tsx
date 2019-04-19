@@ -1,11 +1,10 @@
-import { Component, h, getDocument } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'pwas-page',
   styleUrl: 'pwas-page.css'
 })
 export class pwasPage {
-  doc = getDocument(this);
 
   demos = [
     {
@@ -32,7 +31,7 @@ export class pwasPage {
   ];
 
   constructor() {
-    this.doc.title = `PWAs`;
+    document.title = `PWAs`;
   }
 
   render() {
