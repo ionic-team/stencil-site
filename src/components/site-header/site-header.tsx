@@ -71,7 +71,7 @@ export class SiteHeader {
             Resources
           </stencil-route-link>
           <stencil-route-link url="/design-systems" exact={true} onClick={() => { this.hideNav() }} class="stencil-ds">
-            Stencil DS
+            💎 Stencil DS
           </stencil-route-link>
           <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil">
             GitHub <app-icon name="targetblank"></app-icon>
