@@ -1,0 +1,20 @@
+.ds-container {
+  margin: auto;
+}
+
+.ds-blurb {
+}
+
+.ds-cta {
+  text-align: center;
+}
+
+.ds-plans {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 60px;
+}
+
+.ds-plan {
+  flex: 1;
+}
