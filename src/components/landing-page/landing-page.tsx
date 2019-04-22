@@ -126,12 +126,16 @@ export class LandingPage {
               open source Design Systems in the world.
             </p>
             <ul class="small list--unstyled list--icon">
+              <li><app-icon name="checkmark"/> Based on Web Components</li>
+              <li><app-icon name="checkmark"/> Framework-free</li>
               <li><app-icon name="checkmark"/> TypeScript support</li>
               <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
               <li><app-icon name="checkmark"/> A tiny virtual DOM layer</li>
               <li><app-icon name="checkmark"/> One-way data binding</li>
               <li><app-icon name="checkmark"/> JSX support</li>
               <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
+              <li><app-icon name="checkmark"/> Component pre-rendering</li>
+              <li><app-icon name="checkmark"/> Routing and state management</li>
             </ul>
           </section>
 
