@@ -14,6 +14,14 @@ Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. 
 
 > Note that you will need to use npm 6 or higher.
 
+First install `@stencil/core` globally or local with:
+
+```bash
+ npm install @stencil/core
+ ```
+
+After this you can use the command below to setup a new stencil project.
+
 ```bash
  npm init stencil
 ```
