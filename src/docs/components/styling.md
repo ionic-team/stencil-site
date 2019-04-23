@@ -11,7 +11,7 @@ contributors:
 
 ## What is Shadow DOM
 
-[Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom) is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow DOM shields our component from the outside world, meaning that we do not need to think about things such as scoping our css correctly, or worrying about our internal DOM being interfered with by the world outside our component.
+[Shadow DOM](https://developers.google.com/web/fundamentals/web-components/shadowdom) is an API built into the browser that allows for DOM encapsulation and style encapsulation. Shadow DOM shields our component from its surrounding environment. This means that we do not need to be concerned about scoping our CSS correctly, nor worry about our internal DOM being interfered with by anything outside our component.
 
 ## Browser Support
 
@@ -22,9 +22,9 @@ Shadow DOM is currently natively supported in the following browsers:
 - Safari
 - Opera
 
-In browsers which do not support Shadow DOM we fall back to scoped css. This gives you the style encapsulation that comes along with Shadow DOM but without loading in a huge Shadow DOM polyfill.
+In browsers which do not support Shadow DOM we fall back to scoped CSS. This gives you the style encapsulation that comes along with Shadow DOM but without loading in a huge Shadow DOM polyfill.
 
-> Confused about what scoped css is? Don't worry, we will explain this later in detail.
+> Confused about what scoped CSS is? Don't worry, we will [explain this later](#scoped-css) in detail.
 
 ## Shadow DOM in Stencil
 
@@ -55,7 +55,7 @@ my-element div {
 }
 ```
 
-With Shadow DOM enabled, elements within the shadow root are scoped, and styles outside of the component do not apply. Essentially with Shadow DOM css selector can be simplified, and the above example could be:
+With Shadow DOM enabled, elements within the shadow root are scoped, and styles outside of the component do not apply. As a result, CSS selectors inside the component can be simplified, and the above example could be:
 
 ```css
 div {
@@ -65,8 +65,7 @@ div {
 
 ## Scoped CSS
 
-In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute automatically at run time.
-
+In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute at run time.
 
 ## CSS Variables
 
@@ -82,7 +81,7 @@ One use case for CSS Variables is colors. If your app has a primary brand color 
 
 Here are the recommended steps to use CSS Variables in Stencil:
 
-- Create a css file to hold your variable definitions. We normally recommend creating a `variables.css` file in `src/global/`
+- Create a CSS file to hold your variable definitions. We normally recommend creating a `variables.css` file in `src/global/`
 - You can then put this config `globalStyle: 'src/global/variables.css'` into your `stencil.config.ts` file.
 
 That's it! Now you can start defining your variables.
@@ -103,7 +102,7 @@ In this example we have defined a CSS Variable called `--app-primary-color` that
 
 ### Using a CSS Variable
 
-Here is an example of using our CSS Variable we defined above:
+Here is an example of using the CSS Variable that we defined above:
 
 ```css
 h1 {
