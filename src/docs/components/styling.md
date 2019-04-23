@@ -98,7 +98,7 @@ Here is an example of defining a CSS Variable:
 }
 ```
 
-In this example we have defined a CSS Variable called `--app-primary-color` that is set to the color `#488aff`. The `:root` selector in this example is a CSS pseudo selector that defines the variable on the root element of your project (usually `<html>`) so that the variable can be used across your app.
+In this example we have defined a CSS Variable called `--app-primary-color` that is set to the color `#488aff`. The `:root` selector in this example is a [CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:root) that defines the variable on the root element of your project (usually `<html>`) so that the variable can be used across your app.
 
 ### Using a CSS Variable
 
