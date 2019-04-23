@@ -184,7 +184,7 @@ export class DSPage {
           <li id="advisory">
             <b>My team is new to Design Systems and we need help making our initiative successful. Do you offer Advisory Services?</b>
             <p>
-              Yes! The Stencil team is the same team that build and deployed one of the most successful open 
+              Yes! The Stencil team is the same team that built and deployed one of the most successful open 
               source Design Systems ever: Ionic Framework. Today, Ionic is used by millions of developers
               for over five million applications.
             </p>
