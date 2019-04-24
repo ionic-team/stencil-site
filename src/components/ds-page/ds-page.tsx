@@ -70,7 +70,7 @@ export class DSPage {
             <h4>Custom pricing</h4>
             <ul>
               <li><i>Everything in Stencil OSS +</i></li>
-              <li><a href="#bindings">Generate libraries for Angular, React, and Vue</a></li>
+              <li><a href="#libraries">Generate libraries for Angular, React, and Vue</a></li>
               <li><a href="#documentation">Automated Documentation generation</a></li>
               <li><a href="#testing">Visual Regression testing tools</a></li>
               <li><a href="#accessibility">Accessibility verification tools</a></li>
@@ -94,7 +94,7 @@ export class DSPage {
               helping teams be successful with their Design System initiatives.
             </p>
           </li>
-          <li id="bindings">
+          <li id="libraries">
             <b>What are Angular, React, and Vue libraries for Stencil?</b>
             <p>
               Stencil builds standard Web Components that run in all modern browsers, with intelligent loading of any 
