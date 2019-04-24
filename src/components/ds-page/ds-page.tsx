@@ -70,7 +70,7 @@ export class DSPage {
             <h4>Custom pricing</h4>
             <ul>
               <li><i>Everything in Stencil OSS +</i></li>
-              <li><a href="#bindings">Generate bindings for Angular, React, and Vue</a></li>
+              <li><a href="#bindings">Generate libraries for Angular, React, and Vue</a></li>
               <li><a href="#documentation">Automated Documentation generation</a></li>
               <li><a href="#testing">Visual Regression testing tools</a></li>
               <li><a href="#accessibility">Accessibility verification tools</a></li>
@@ -95,19 +95,19 @@ export class DSPage {
             </p>
           </li>
           <li id="bindings">
-            <b>Why do Angular, React, and Vue need bindings?</b>
+            <b>What are Angular, React, and Vue libraries for Stencil?</b>
             <p>
               Stencil builds standard Web Components that run in all modern browsers, with intelligent loading of any 
               necessary polyfills for clients with missing APIs.
             </p>
             <p>
-              However, certain frameworks, such as React, don't play as well with Web Components out of the box. Additionally,
-              developers often prefer a framework's conventions for naming and usage that deviates from typical Web Component usage.
+              However, developers often prefer a framework's conventions for naming and usage that deviates from typical Web Component usage.
+              In addition, building a library that can be consumed natively in each framework is tricky and is a moving target.
             </p>
             <p>
-              To bring the best of both worlds, Stencil DS automatically generates up-to-date bindings for all major frameworks and smooths
+              To help with this, Stencil DS automatically generates up-to-date libraries for all major frameworks and smooths
               out any rough edges in their Web Component support. This also makes using Stencil-built components feel
-              native to each framework.
+              native to each framework and work like other component libraries for that framework.
             </p>
           </li>
           <li id="documentation">
