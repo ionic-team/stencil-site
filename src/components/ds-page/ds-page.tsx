@@ -59,9 +59,11 @@ export class DSPage {
             <h2>Stencil OSS</h2>
             <h4>Free and Open Source Forever</h4>
             <ul>
+              <li>The Stencil you know and love</li>
               <li>Web Component compiler</li>
               <li>Lazy-loading for Components</li>
               <li>Intelligent polyfill loading</li>
+              <li>High-performance PWAs</li>
               <li>Community support</li>
             </ul>
           </div>
