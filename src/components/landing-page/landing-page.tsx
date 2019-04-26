@@ -114,15 +114,17 @@ export class LandingPage {
 
         <main>
           <section class="hero">
-            <img id="logo" src="/assets/img/logo.png" alt="Stencil Logo"></img>
-            <h1>The Magical Design System Toolchain</h1>
+            <h1>Stencil</h1>
+            <h3 class="subtitle">A toolchain for building Design Systems and Progressive Web Apps</h3>
           </section>
 
           <section class="overview">
             <p>
-              Stencil builds real-code Design Systems by taking the best concepts from popular frontend frameworks,
-              but instead generates standards-based Web Components that run in any modern browser and in any frontend framework.
-              Built to power the next generation of <a href="https://ionicframework.com/">Ionic Framework</a>, one of the most popular
+              Stencil builds reusable, scalable Design Systems by combining the best features from popular frontend frameworks but 
+              generating Web Components instead of a third-party component model.
+              Stencil-built Web Components run in all modern browsers and popular frontend frameworks, and are free from framework-churn.
+              <br /><br />
+              Stencil was built to power the next generation of <a href="https://ionicframework.com/">Ionic Framework</a>, one of the most popular
               open source Design Systems in the world.
             </p>
             <ul class="small list--unstyled list--icon">
@@ -181,7 +183,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/>Build a custom UI library that works across teams and projects</li>
               </ul>
               <p>Interested in learning more about building design systems with Stencil?</p>
-              <a href="https://ionicframework.com/sales?product_of_interest=Design%20Systems" class="btn btn--tertiary btn--small">Get in touch</a>
+              <stencil-route-link class="btn btn--tertiary btn--small" url="/design-systems">Learn more</stencil-route-link>
             </div>
           </section>
 
