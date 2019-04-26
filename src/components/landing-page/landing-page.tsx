@@ -120,9 +120,12 @@ export class LandingPage {
 
           <section class="overview">
             <p>
-              Stencil builds real-code Design Systems by taking the best concepts from popular frontend frameworks,
-              but instead generates standards-based Web Components that run in any modern browser and in any frontend framework.
-              Built to power the next generation of <a href="https://ionicframework.com/">Ionic Framework</a>, one of the most popular
+              Stencil builds reusable, scalable Design Systems by combining the best features from popular frontend frameworks but 
+              generating Web Components instead of a third-party component model.
+              Stencil-built Web Components run in all modern browsers and popular frontend frameworks, and are free from framework-churn.
+            </p>
+            <p>
+              Stencil was built to power the next generation of <a href="https://ionicframework.com/">Ionic Framework</a>, one of the most popular
               open source Design Systems in the world.
             </p>
             <ul class="small list--unstyled list--icon">
