@@ -73,6 +73,7 @@ export class DSPage {
             <ul>
               <li><i>Everything in Stencil OSS +</i></li>
               <li><a href="#libraries">Generate libraries for Angular, React, and Vue</a></li>
+              <li><a href="#cms">Content Management System (CMS) Integrations</a></li>
               <li><a href="#documentation">Automated Documentation generation</a></li>
               <li><a href="#testing">Visual Regression testing tools</a></li>
               <li><a href="#accessibility">Accessibility verification tools</a></li>
@@ -110,6 +111,20 @@ export class DSPage {
               To help with this, Stencil DS automatically generates up-to-date libraries for all major frameworks and smooths
               out any rough edges in their Web Component support. This also makes using Stencil-built components feel
               native to each framework and work like other component libraries for that framework.
+            </p>
+          </li>
+          <li id="cms">
+            <b>How do Content Management System (CMS) Integrations work?</b>
+            <p>
+              Teams building Design Systems are looking to bring consistent, well-supported components
+              to all corners of their app and web properties. For most teams, that means enabling
+              web and marketing teams to drop in components from your Design System directly in their CMS
+              workflow is key.
+            </p>
+            <p>
+              Stencil integrates with many popular CMS solutions to bring your Design System directly to content
+              creators in a way that works naturally with their existing tools, all while preserving the performance
+              and accessibility benefits of a Stencil-built component system.
             </p>
           </li>
           <li id="documentation">
