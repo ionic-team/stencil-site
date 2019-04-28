@@ -1,4 +1,4 @@
-import { Component, Element } from '@stencil/core';
+import { Component, Element, h } from '@stencil/core';
 
 declare var hbspt: any;
 
@@ -100,7 +100,7 @@ export class DSPage {
           <li id="libraries">
             <b>What are Angular, React, and Vue libraries for Stencil?</b>
             <p>
-              Stencil builds standard Web Components that run in all modern browsers, with intelligent loading of any 
+              Stencil builds standard Web Components that run in all modern browsers, with intelligent loading of any
               necessary polyfills for clients with missing APIs.
             </p>
             <p>
@@ -130,7 +130,7 @@ export class DSPage {
           <li id="documentation">
             <b>What is Automated Documentation Generation?</b>
             <p>
-              One of the greatest challenges for Design Systems is adoption. Developers will take the 
+              One of the greatest challenges for Design Systems is adoption. Developers will take the
               path of least resistance to get their work done, and that means the best documentation wins.
             </p>
             <p>
@@ -145,7 +145,7 @@ export class DSPage {
             </p>
             <p>
               The team behind Stencil DS's documentation generation built <a href="http://ionicframework.com/docs">Ionic Framework's
-              documentation</a>, regarded by many as some of the best developer documentation for an open source project. We 
+              documentation</a>, regarded by many as some of the best developer documentation for an open source project. We
               can bring that level of developer regard directly to your Design System's official documentation.
             </p>
           </li>
@@ -175,7 +175,7 @@ export class DSPage {
               The Ionic team built out a set of powerful visual regression testing tools to ensure consistency between releases.
             </p>
             <p>
-              Stencil DS brings these powerful visual regression tools to teams building Design Systems, 
+              Stencil DS brings these powerful visual regression tools to teams building Design Systems,
               and helps them integrate with your existing
               Continuous Integration workflow to provide UI verification on every single commit.
             </p>
@@ -189,7 +189,7 @@ export class DSPage {
             </p>
             <p>
               For teams deploying major Design System initiatives, relying on open source and community support is
-              not sufficient. You'll need 
+              not sufficient. You'll need
               assurance that key issues or features are identified and communicated quickly, with potential fixes or workarounds
               made available in a timely fashion.
             </p>
@@ -201,7 +201,7 @@ export class DSPage {
           <li id="advisory">
             <b>My team is new to Design Systems and we need help making our initiative successful. Do you offer Advisory Services?</b>
             <p>
-              Yes! The Stencil team is the same team that built and deployed one of the most successful open 
+              Yes! The Stencil team is the same team that built and deployed one of the most successful open
               source Design Systems ever: Ionic Framework. Today, Ionic is used by millions of developers
               for over five million applications.
             </p>

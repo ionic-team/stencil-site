@@ -18,7 +18,7 @@ export class LandingPage {
   videoPlayer: any;
 
   componentDidLoad() {
-    if (!Build.isServer) {
+    if (Build.isBrowser) {
       this.isModalOpen = false;
 
       // unfortunately necessary hack because Edge
@@ -91,7 +91,7 @@ export class LandingPage {
     return (
       <div>
 
-        {!Build.isServer
+        {Build.isBrowser
           ? <div class="modal">
               <div onClick={() => { this.closeModal() }} class="modal__background"></div>
                 <div class="modal__content" onClick={() => { this.closeModal() }}>
@@ -119,7 +119,7 @@ export class LandingPage {
 
           <section class="overview">
             <p>
-              Stencil builds reusable, scalable Design Systems by combining the best features from popular frontend frameworks but 
+              Stencil builds reusable, scalable Design Systems by combining the best features from popular frontend frameworks but
               generating Web Components instead of a third-party component model.
               Stencil-built Web Components run in all modern browsers and popular frontend frameworks, and are free from framework-churn.
               <br /><br />

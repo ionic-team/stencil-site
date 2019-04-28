@@ -42,6 +42,7 @@ export namespace Components {
   interface DocumentComponent {
     'page': string;
   }
+  interface DsPage {}
   interface HighlightCodeLine {
     'lines'?: string;
   }
@@ -73,6 +74,7 @@ export namespace Components {
     'selectedParent': SiteStructureItem;
     'siteStructureList': SiteStructureItem[];
   }
+  interface SiteTopBar {}
 }
 
 declare namespace LocalJSX {
@@ -103,6 +105,7 @@ declare namespace LocalJSX {
   interface DocumentComponent extends JSXBase.HTMLAttributes {
     'page'?: string;
   }
+  interface DsPage extends JSXBase.HTMLAttributes {}
   interface HighlightCodeLine extends JSXBase.HTMLAttributes {
     'lines'?: string;
   }
@@ -135,6 +138,7 @@ declare namespace LocalJSX {
     'selectedParent'?: SiteStructureItem;
     'siteStructureList'?: SiteStructureItem[];
   }
+  interface SiteTopBar extends JSXBase.HTMLAttributes {}
 
   interface ElementInterfaces {
     'AppBurger': Components.AppBurger;
@@ -170,6 +174,7 @@ declare namespace LocalJSX {
     'DemoCard': LocalJSX.DemoCard;
     'DemosPage': LocalJSX.DemosPage;
     'DocumentComponent': LocalJSX.DocumentComponent;
+    'DsPage': LocalJSX.DsPage;
     'HighlightCodeLine': LocalJSX.HighlightCodeLine;
     'InPageNavigation': LocalJSX.InPageNavigation;
     'LandingPage': LocalJSX.LandingPage;
@@ -180,6 +185,7 @@ declare namespace LocalJSX {
     'ResourcesPage': LocalJSX.ResourcesPage;
     'SiteHeader': LocalJSX.SiteHeader;
     'SiteMenu': LocalJSX.SiteMenu;
+    'SiteTopBar': LocalJSX.SiteTopBar;
   }
 }
 export { LocalJSX as JSX };
@@ -312,6 +318,12 @@ declare global {
   var HTMLSiteMenuElement: {
     prototype: HTMLSiteMenuElement;
     new (): HTMLSiteMenuElement;
+  };
+
+  interface HTMLSiteTopBarElement extends Components.SiteTopBar, HTMLStencilElement {}
+  var HTMLSiteTopBarElement: {
+    prototype: HTMLSiteTopBarElement;
+    new (): HTMLSiteTopBarElement;
   };
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement

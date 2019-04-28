@@ -13,6 +13,5 @@ export const config: Config = {
       dir: 'dist/prerender'
     }
   ],
-  globalStyle: 'src/global/style/app.css',
-  enableCache: false
+  globalStyle: 'src/global/style/app.css'
 };
