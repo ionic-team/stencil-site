@@ -146,6 +146,7 @@ declare namespace LocalJSX {
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
     'DocumentComponent': Components.DocumentComponent;
+    'DsPage': Components.DsPage;
     'HighlightCodeLine': Components.HighlightCodeLine;
     'InPageNavigation': Components.InPageNavigation;
     'LandingPage': Components.LandingPage;
@@ -156,6 +157,7 @@ declare namespace LocalJSX {
     'ResourcesPage': Components.ResourcesPage;
     'SiteHeader': Components.SiteHeader;
     'SiteMenu': Components.SiteMenu;
+    'SiteTopBar': Components.SiteTopBar;
   }
 
   interface IntrinsicElements {
@@ -246,6 +248,12 @@ declare global {
     new (): HTMLDocumentComponentElement;
   };
 
+  interface HTMLDsPageElement extends Components.DsPage, HTMLStencilElement {}
+  var HTMLDsPageElement: {
+    prototype: HTMLDsPageElement;
+    new (): HTMLDsPageElement;
+  };
+
   interface HTMLHighlightCodeLineElement extends Components.HighlightCodeLine, HTMLStencilElement {}
   var HTMLHighlightCodeLineElement: {
     prototype: HTMLHighlightCodeLineElement;
@@ -315,6 +323,7 @@ declare global {
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
     'document-component': HTMLDocumentComponentElement
+    'ds-page': HTMLDsPageElement
     'highlight-code-line': HTMLHighlightCodeLineElement
     'in-page-navigation': HTMLInPageNavigationElement
     'landing-page': HTMLLandingPageElement
@@ -325,6 +334,7 @@ declare global {
     'resources-page': HTMLResourcesPageElement
     'site-header': HTMLSiteHeaderElement
     'site-menu': HTMLSiteMenuElement
+    'site-top-bar': HTMLSiteTopBarElement
   }
 
   interface ElementTagNameMap {
@@ -337,6 +347,7 @@ declare global {
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
     'document-component': HTMLDocumentComponentElement;
+    'ds-page': HTMLDsPageElement;
     'highlight-code-line': HTMLHighlightCodeLineElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
@@ -347,6 +358,7 @@ declare global {
     'resources-page': HTMLResourcesPageElement;
     'site-header': HTMLSiteHeaderElement;
     'site-menu': HTMLSiteMenuElement;
+    'site-top-bar': HTMLSiteTopBarElement;
   }
 }
 

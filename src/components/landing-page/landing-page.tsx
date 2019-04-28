@@ -113,19 +113,30 @@ export class LandingPage {
 
         <main>
           <section class="hero">
-            <img id="logo" src="/assets/img/logo.png" alt="Stencil Logo"></img>
-            <h1>The magical, reusable web component compiler</h1>
+            <h1>Stencil</h1>
+            <h3 class="subtitle">A toolchain for building Design Systems and Progressive Web Apps</h3>
           </section>
 
           <section class="overview">
-            <p>Stencil combines the best concepts of the most popular frontend frameworks and generates 100% standards-based Web Components that run in any modern browser. Built by the <a href="https://ionicframework.com/">Ionic Framework</a> team.</p>
+            <p>
+              Stencil builds reusable, scalable Design Systems by combining the best features from popular frontend frameworks but 
+              generating Web Components instead of a third-party component model.
+              Stencil-built Web Components run in all modern browsers and popular frontend frameworks, and are free from framework-churn.
+              <br /><br />
+              Stencil was built to power the next generation of <a href="https://ionicframework.com/">Ionic Framework</a>, one of the most popular
+              open source Design Systems in the world.
+            </p>
             <ul class="small list--unstyled list--icon">
+              <li><app-icon name="checkmark"/> Based on Web Components</li>
+              <li><app-icon name="checkmark"/> Framework-free</li>
               <li><app-icon name="checkmark"/> TypeScript support</li>
               <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
               <li><app-icon name="checkmark"/> A tiny virtual DOM layer</li>
               <li><app-icon name="checkmark"/> One-way data binding</li>
               <li><app-icon name="checkmark"/> JSX support</li>
               <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
+              <li><app-icon name="checkmark"/> Component pre-rendering</li>
+              <li><app-icon name="checkmark"/> Routing and state management</li>
             </ul>
           </section>
 
@@ -171,7 +182,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/>Build a custom UI library that works across teams and projects</li>
               </ul>
               <p>Interested in learning more about building design systems with Stencil?</p>
-              <a href="https://ionicframework.com/sales?product_of_interest=Design%20Systems" class="btn btn--tertiary btn--small">Get in touch</a>
+              <stencil-route-link class="btn btn--tertiary btn--small" url="/design-systems">Learn more</stencil-route-link>
             </div>
           </section>
 

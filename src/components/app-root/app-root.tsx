@@ -65,6 +65,7 @@ export class AppRoot {
 
     return (
       <SiteProviderConsumer.Provider state={siteState}>
+        <site-top-bar />
         <site-header />
         <div class="root">
           <div class="container">
@@ -77,6 +78,7 @@ export class AppRoot {
                 <stencil-route url="/demos" component="demos-page" />
                 <stencil-route url="/pwa" component="pwas-page" />
                 <stencil-route url="/resources" component="resources-page" />
+                <stencil-route url="/design-systems" component="ds-page" />
                 <stencil-route component='notfound-page'></stencil-route>
               </stencil-route-switch>
             </stencil-router>
