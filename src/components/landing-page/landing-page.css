@@ -15,6 +15,11 @@ landing-page .hero {
   margin-bottom: 120px;
 }
 
+landing-page h3.subtitle {
+  margin-top: 15px;
+  font-weight: 300;
+}
+
 landing-page h1,
 landing-page h2,
 landing-page h3,
