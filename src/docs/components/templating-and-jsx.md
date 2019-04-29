@@ -349,7 +349,7 @@ The renderer caches element lookups in order to improve performance. However, a 
 
 In the example below, the `sharedNode` variable is resued multiple times within the `render()` function. The renderer is able to optimize its DOM element lookups by caching the reference, however, this causes issues when nodes are reused. Instead it's recommended to always generate unique nodes like the changed example below.
 
-```tsx
+```diff
 @Component({
   tag: 'my-cmp',
 })
