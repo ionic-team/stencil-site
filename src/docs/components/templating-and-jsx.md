@@ -371,7 +371,6 @@ export class MyCmp {
 
 Alternatively, creating a factory function to return a common JSX node could be used instead since the returned value would be a unique instance. For example:
 
-```
 ```tsx
 @Component({
   tag: 'my-cmp',
