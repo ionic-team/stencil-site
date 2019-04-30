@@ -347,7 +347,7 @@ In this example we are using `ref` to get a reference to our input `ref={(el) =>
 
 The renderer caches element lookups in order to improve performance. However, a side effect from this is that the exact same JSX node should not be shared within the same renderer.
 
-In the example below, the `sharedNode` variable is resued multiple times within the `render()` function. The renderer is able to optimize its DOM element lookups by caching the reference, however, this causes issues when nodes are reused. Instead it's recommended to always generate unique nodes like the changed example below.
+In the example below, the `sharedNode` variable is reused multiple times within the `render()` function. The renderer is able to optimize its DOM element lookups by caching the reference, however, this causes issues when nodes are reused. Instead, it's recommended to always generate unique nodes like the changed example below.
 
 ```diff
 @Component({
