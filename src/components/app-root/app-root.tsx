@@ -100,14 +100,6 @@ export class AppRoot {
               </div>
 
               <div class="footer__icons">
-                <iframe
-                  name='Github Star Count'
-                  class='star-button'
-                  src='https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true'
-                  frameBorder='0'
-                  scrolling='0'
-                  width='100px'
-                  height='20px'></iframe>
                 <a
                   class="svg-button"
                   id="stencil-twitter"
