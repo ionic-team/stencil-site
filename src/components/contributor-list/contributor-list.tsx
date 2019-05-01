@@ -21,7 +21,7 @@ export class ContributorList {
           {this.contributors.map(contributor => (
             <a href={`https://github.com/${contributor}`}>
               <span class="img-wrapper">
-                <img src={`https://github.com/${contributor}.png?size=90`} title={`Contributor ${contributor}`} />
+                <img src={`https://github.com/${contributor}.png?size=90`} loading="lazy" title={`Contributor ${contributor}`} importance="low"/>
               </span>
               <span class="username">{contributor}</span>
             </a>
