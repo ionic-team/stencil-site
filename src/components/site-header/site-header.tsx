@@ -55,7 +55,7 @@ export class SiteHeader {
   render() {
     return (
       <div class="container">
-        <stencil-route-link url="/" class="logo-link">
+        <stencil-route-link url="/" class="logo-link" anchorTitle="Stencil's logo">
           <app-icon name="logo"/>
         </stencil-route-link>
 
@@ -63,10 +63,10 @@ export class SiteHeader {
           <stencil-route-link urlMatch="/docs" url="/docs/introduction" onClick={() => { this.hideNav() }}>
             Docs
           </stencil-route-link>
-          <stencil-route-link url="/demos"  exact={true} onClick={() => { this.hideNav() }}>
+          <stencil-route-link url="/demos" exact={true} onClick={() => { this.hideNav() }}>
             Demos
           </stencil-route-link>
-          <stencil-route-link url="/resources"  exact={true} onClick={() => { this.hideNav() }}>
+          <stencil-route-link url="/resources" exact={true} onClick={() => { this.hideNav() }}>
             Resources
           </stencil-route-link>
           <stencil-route-link url="/design-systems" exact={true} onClick={() => { this.hideNav() }} class="stencil-ds">

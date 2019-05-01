@@ -94,7 +94,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/>Build a custom UI library that works across teams and projects</li>
               </ul>
               <p>Interested in learning more about building design systems with Stencil?</p>
-              <stencil-route-link class="btn btn--tertiary btn--small" url="/design-systems">Learn more</stencil-route-link>
+              <stencil-route-link class="btn btn--tertiary btn--small" url="/design-systems">Show me more</stencil-route-link>
             </div>
           </section>
 
