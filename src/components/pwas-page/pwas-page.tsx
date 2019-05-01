@@ -78,7 +78,7 @@ export class pwasPage {
 
           <p>And with just those three commands you now have a great looking PWA that scores 100 on lighthouse right out of the box.</p>
 
-          <img class="screenshot" src="/assets/img/pwa-lighthouse-score.png" srcSet="/assets/img/pwa-lighthouse-score.png 1x, /assets/img/pwa-lighthouse-score@2x.png 2x" />
+          <img class="screenshot" src="/assets/img/pwa-lighthouse-score.png" srcSet="/assets/img/pwa-lighthouse-score.png 1x, /assets/img/pwa-lighthouse-score@2x.png 2x" loading="lazy" />
 
           <h3 class="push">Under the hood</h3>
 

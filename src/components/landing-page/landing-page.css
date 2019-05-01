@@ -385,3 +385,136 @@ landing-page .video-wrapper iframe {
     font-size: 15px;
   }
 }
+
+.feature-list {
+  display: flex;
+}
+
+.feature-list__item {
+  padding-right: 32px;
+  flex: 1;
+}
+
+.feature-list__item app-icon {
+  padding: 1px;
+
+}
+.feature-list__item svg {
+  fill: #000 !important;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 8px;
+}
+
+.feature-list__item h3 {
+  margin-bottom: 8px;
+  color: var(--color-woodsmoke);
+}
+
+.feature-list__item p {
+  max-width: 270px;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 540px) {
+  .feature-list {
+    flex-direction: column;
+  }
+
+  .feature-list__item {
+    position: relative;
+    padding-left: 38px;
+    margin-top: 24px;
+  }
+
+  .feature-list__item app-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .feature-list__item svg {
+    margin: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-list__item p {
+    max-width: 100%;
+  }
+}
+
+
+
+.fw-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  background-image: url('/assets/img/frameworks-sprite.png');
+  background-repeat: no-repeat;
+  background-size: 35px 140px;
+}
+
+.fw-icon--react {
+  background-position: 0 0;
+}
+
+.fw-icon--angular {
+  background-position: 0 -35px;
+}
+
+.fw-icon--vue {
+  background-position: 0 -70px;
+}
+
+.fw-icon--ember {
+  background-position: 0 -105px;
+}
+
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  width: 100%;
+}
+.card-links li {
+  margin: 6px;
+}
+
+.card-links__item a {
+
+  transition: transform 0.2s;
+  display: block;
+  background: var(--color-white);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: none;
+  width: 96px;
+}
+
+@media screen and (max-width: 940px) {
+  .card-links li {
+    flex: 0 0 50%;
+    margin: 0;
+    padding: 6px;
+  }
+
+  .card-links__item a {
+    width: 100%;
+  }
+}
+
+.card-links__item a:hover {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+}
+
+.card-links__item .fw-icon {
+  margin: 8px 0 6px;
+}
