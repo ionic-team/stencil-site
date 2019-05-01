@@ -58,7 +58,7 @@ export class ResourcesPage {
           <ul class="list--unstyled">
             {
               this.LINKS.BLOGS.map(link => {
-                return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+                return (<li><a target="_blank" rel="noopener" href={link.url}>{link.title}</a></li>);
               })
             }
           </ul>
@@ -68,13 +68,13 @@ export class ResourcesPage {
           <h2>Third-party Components, Templates and Tools</h2>
           <ul class="list--unstyled">
             {this.LINKS.COMPONENTS.map(link => {
-              return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+              return (<li><a target="_blank" rel="noopener" href={link.url}>{link.title}</a></li>);
             })}
             {this.LINKS.TEMPLATES.map(link => {
-              return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+              return (<li><a target="_blank" rel="noopener" href={link.url}>{link.title}</a></li>);
             })}
             {this.LINKS.TOOLS.map(link => {
-              return (<li><a target="_blank" href={link.url}>{link.title}</a></li>);
+              return (<li><a target="_blank" rel="noopener" href={link.url}>{link.title}</a></li>);
             })}
           </ul>
         </div>
@@ -89,9 +89,9 @@ export class ResourcesPage {
           talk on Stencil.
           Built with <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
           </p>
-          <a target="_blank" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
+          <a target="_blank" rel="noopener" href="https://ionic-team.github.io/stencil-present/">Stencil Presentation</a>
           <br />
-          <a target="_blank" href="https://github.com/ionic-team/stencil-present/">Source</a>
+          <a target="_blank" rel="noopener" href="https://github.com/ionic-team/stencil-present/">Source</a>
         </div>
       </div>
     ];
