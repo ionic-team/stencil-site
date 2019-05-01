@@ -1,4 +1,4 @@
-import { Component, Element, State, Listen, h, Build } from '@stencil/core';
+import { Component, Element, State, h } from '@stencil/core';
 import copy from 'copy-text-to-clipboard';
 
 @Component({
@@ -8,77 +8,10 @@ import copy from 'copy-text-to-clipboard';
 export class LandingPage {
   @Element() el!: Element;
 
-  @State() isModalOpen = false;
   @State() isCopied = false;
 
   constructor() {
     document.title = `Stencil`;
-  }
-
-  videoPlayer: any;
-
-  componentDidLoad() {
-    if (Build.isBrowser) {
-      this.isModalOpen = false;
-
-      // unfortunately necessary hack because Edge
-      // dont show the animated youtube video in Edge because
-      // pointer-events: none; is broken in Edge
-      // just link to the youtube video directly like we do on mobile
-
-      // attach youtube iframe api
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      window['onYouTubeIframeAPIReady'] = () => {
-        this.videoPlayer = new window['YT'].Player('youtube-embed', {});
-      }
-    }
-  }
-
-  @Listen('keyup', { target: 'window' })
-  handleKeyUp(ev: any) {
-    if (ev.keyCode === 27 && this.isModalOpen) {
-      this.closeModal();
-      return;
-    }
-  }
-
-  handleWatchVideo() {
-    if (window.matchMedia('(min-width: 768px)').matches || (document as any).documentMode || /Edge/.test(window.navigator.userAgent)) {
-      this.openModal();
-    } else {
-      window.location.href = 'https://youtu.be/UfD-k7aHkQE';
-    }
-  }
-
-  openModal() {
-    document.body.classList.add('no-scroll');
-
-    const modal = (document.querySelector('.modal') as HTMLElement);
-    if (modal) {
-      modal.style.display = "block";
-      modal.classList.remove('modal--hide');
-      modal.classList.add('modal--show');
-
-      this.isModalOpen = true;
-    }
-  }
-
-  closeModal() {
-    document.body.classList.remove('no-scroll');
-    const modal = (document.querySelector('.modal') as HTMLElement);
-    if (modal) {
-      modal.classList.remove('modal--show');
-      modal.classList.add('modal--hide');
-      setTimeout(() => { modal.style.display = "none"; }, 200)
-    }
-
-    this.videoPlayer.pauseVideo();
-
-    this.isModalOpen = false;
   }
 
   copyCommand = () => {
@@ -90,27 +23,6 @@ export class LandingPage {
   render() {
     return (
       <div>
-
-        {Build.isBrowser
-          ? <div class="modal">
-              <div onClick={() => { this.closeModal() }} class="modal__background"></div>
-                <div class="modal__content" onClick={() => { this.closeModal() }}>
-                  <div class="video-wrapper">
-                    <iframe
-                      id="youtube-embed"
-                      frameBorder="0"
-                      title="Ionic team at Polymer Summit video"
-                      allowFullScreen={true}
-                      src="https://www.youtube.com/embed/UfD-k7aHkQE?enablejsapi=1"
-                      width="700"
-                      height="450">
-                    </iframe>
-                  </div>
-                </div>
-              </div>
-          : null
-        }
-
         <main>
           <section class="hero">
             <h1>Stencil</h1>
@@ -275,9 +187,9 @@ export class LandingPage {
               <h4>The Stencil story</h4>
               <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
               <div class="video-trigger ">
-                <div onClick={() => { this.handleWatchVideo() }} class="btn btn--tertiary btn--small">
+                <a href="https://youtu.be/UfD-k7aHkQE" class="btn btn--tertiary btn--small">
                   <img src="/assets/img/video-icon.png" alt="Icon for Video"></img><span>Watch launch video</span>
-                </div>
+                </a>
               </div>
             </div>
           </section>
