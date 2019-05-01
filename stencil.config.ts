@@ -2,14 +2,9 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    {
-      type: 'www',
-      serviceWorker: null,
-      empty: false
-    },
+    { type: 'www' },
     {
       type: 'dist-hydrate-script',
-      empty: false,
       dir: 'dist/prerender'
     }
   ],
