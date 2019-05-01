@@ -9,10 +9,6 @@ export class ContributorList {
 
   @Prop() contributors: string[]
 
-  componentWillLoad() {
-    console.log(this.contributors);
-  }
-
   render() {
     if (!this.contributors || this.contributors.length === 0) {
       return;
