@@ -74,7 +74,8 @@ import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
-  @Prop({ mutable: true }) name: string = 'Stencil';
+
+|  @Prop({ mutable: true }) name: string = 'Stencil';
 
   componentDidLoad() {
     this.name = 'Stencil 0.7.0';
@@ -95,9 +96,9 @@ import { Component, Prop} from '@stencil/core';
 
 @Component({ tag: 'my-cmp'})
 class Component {
-  @Prop() value: string;
-  @Prop() isValid: boolean;
-  @Prop() controller: MyController;
+|  @Prop() value: string;
+|  @Prop() isValid: boolean;
+|  @Prop() controller: MyController;
 }
 ```
 
@@ -120,8 +121,8 @@ import { Component, Prop} from '@stencil/core';
 @Component({ tag: 'my-cmp'})
 class Component {
   @Prop() value: string;
-  @Prop({ attribute: 'valid' }) isValid: boolean;
-  @Prop({ attribute: 'controller' }) controller: MyController;
+|  @Prop({ attribute: 'valid' }) isValid: boolean;
+|  @Prop({ attribute: 'controller' }) controller: MyController;
 }
 ```
 
@@ -145,9 +146,9 @@ Take the following component as example:
 ```tsx
 @Component({tag: 'my-cmp'})
 class Cmp {
-  @Prop({reflect: true}) message = 'Hello';
-  @Prop({reflect: false}) value = 'nothing';
-  @Prop({reflect: true}) number = 42;
+|  @Prop({reflect: true}) message = 'Hello';
+|  @Prop({reflect: false}) value = 'nothing';
+|  @Prop({reflect: true}) number = 42;
 }
 ```
 

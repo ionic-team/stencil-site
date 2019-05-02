@@ -31,8 +31,12 @@ Not all internal state might need the be decorated with `@State()`, in fact it's
 
 ```tsx
 class Component {
-  // If `cacheData` changes we don't want to re-render the component,
-  // so we DON'T decorate it with @State
-  cacheData = SOME_BIG_DATA;
+
+|  // If `cacheData` changes we don't want to re-render the component,
+|  // so we DON'T decorate it with @State
+|  cacheData = SOME_BIG_DATA;
+
+  // If this state change we want to run render() again
+  @State() value;
 }
 ```
