@@ -102,9 +102,9 @@ class Component {
 }
 ```
 
-This component has 3 properties, but the compiler will only create 2 attributes ("value" and "is-valid")!
+This component has **3 properties**, but the compiler will create **only 2** attributes: `value` and `is-valid`.
 
-```html
+```markup
 <my-cmp value="Hello" is-valid></my-cmp>
 ```
 
@@ -154,7 +154,7 @@ class Cmp {
 
 When rendered in the DOM, it will look like:
 
-```html
+```markup
 <my-cmp message="Hello" number="42"></my-cmp>
 ```
 

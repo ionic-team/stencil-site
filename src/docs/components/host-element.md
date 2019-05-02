@@ -69,7 +69,7 @@ render() {
 
 This JSX would render the following HTML:
 
-```html
+```markup
 <my-cmp>
   <h1>Title</h1>
   <p>Message</p>
