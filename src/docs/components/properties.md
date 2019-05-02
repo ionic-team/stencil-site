@@ -105,10 +105,36 @@ export class TodoList {
 
 ## Reflect Properties to Attributes
 
-In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the `reflectToAttr` option in the `@Prop()` decorator:
+In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can set the `reflect` option in the `@Prop()` decorator to `true`, since it defaults to `false`:
 
 ```tsx
 @Prop({
-  reflectToAttr: true
+|  reflect: true
 })
+```
+
+When a "prop" is set to "reflect", it means that their value will be rendered in the DOM as an HTML attribute:
+
+Take the following component as example:
+
+```tsx
+@Component({tag: 'my-cmp'})
+class Cmp {
+  @Prop({reflect: true}) message = 'Hello';
+  @Prop({reflect: false}) value = 'nothing';
+  @Prop({reflect: true}) number = 42;
+}
+```
+
+When rendered in the DOM, it will look like:
+
+```html
+<my-cmp message="Hello" number="42"></my-cmp>
+```
+
+Notice that the `value` property is not displayed in as an attribute, however it does not mean it's not there, the `number` property still contains the `42` value:
+
+```tsx
+const cmp = document.querySelector('my-cmp');
+console.log(cmp.number); // it prints 42
 ```

@@ -72,7 +72,7 @@ export class TodoList {
 
 ## Listen Decorator
 
-The `Listen()` decorator is for handling events dispatched from `@Events`.
+The `Listen()` decorator is for listening DOM events, including the ones dispatched from `@Events`.
 
 In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
 
@@ -89,22 +89,57 @@ export class TodoApp {
 }
 ```
 
-Handlers can also be registered for an event on a specific element.
-This is useful for listening to application-wide events.
-In the example below, we're going to listen for the scroll event.
+### Listen's options
+
+The `@Listen(eventName, opts?: ListenOptions)` includes a second optional argument that can be used to configure how the DOM event listener is attached.
 
 ```tsx
-import { Listen } from '@stencil/core';
+export interface ListenOptions {
+  target?: 'parent' | 'body' | 'document' | 'window';
+  capture?: boolean;
+  passive?: boolean;
+}
+```
 
-...
-export class TodoList {
+The available options are `target`, `capture` and `passive`:
 
-  @Listen('window:scroll')
+
+#### target
+
+Handlers can also be registered for an event other than the host itself.
+The `target` option can be used to change where the event listener is attached, this is useful for listening to application-wide events.
+
+In the example below, we're going to listen for the scroll event, emited from `window`:
+
+```tsx
+| @Listen('scroll', { target: 'window' })
   handleScroll(ev) {
     console.log('the body was scrolled', ev);
   }
-}
 ```
+
+### passive
+
+By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. Using the `passive` option can be used to change the default behaviour.
+
+Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
+
+
+### capture
+
+Event listener attached with `@Listen` does not "capture" by default.
+When a event listener is set to "capture", means the event will be dispatched during the "capture phase",
+check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html) for further information.
+
+
+```tsx
+| @Listen('click', { capture: true })
+  handleClick(ev) {
+    console.log('click');
+  }
+```
+
+## Keyboard events
 
 For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the key code, or some constants Stencil provides.
 

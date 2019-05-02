@@ -43,6 +43,4 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 ## Rendering methods
 
-- **[hostData()](host-element#hostdata-method)**
 - **[render()](templating-jsx)**
-

@@ -8,25 +8,76 @@ contributors:
 
 # Working with host elements
 
-Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). However, sometimes you will need to set properties on the host element itself. Stencil provides a couple of ways to access and update the host element.
+Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the times, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
 
-## hostData() method
+## <Host>
 
-The `hostData` method can be implemented by any Stencil component and provides a way to declaratively set properties on the host element during rendering. The `hostData` method is called whenever `render` is, so it is useful for reacting to state and prop changes.
+The `Host` functional component can be used at the root of the render function to set attributes and event listeners to the host element itself. This works just like any other JSX:
 
 ```tsx
-...
-export class TodoList {
+// Host is imported from '@stencil/core'
+import { Component, Host, h } from '@stencil/core';
 
-  hostData() {
-    return {
-      'class': { 'is-open': this.isOpen },
-      'aria-hidden': this.isOpen ? 'false' : 'true'
-    };
+@Component({tag: 'todo-list'})
+export class TodoList {
+  @Prop() open = false;
+  render() {
+    return (
+      <Host
+        aria-hidden={this.open ? 'false' : 'true'}
+        class={{
+          'todo-list': true,
+          'is-open': this.open
+        }}
+      />
+    )
   }
 }
 ```
+
+If `this.open === true`, it will render:
+```tsx
+<todo-list class="todo-list is-open" aria-hidden="false"></todo-list>
+```
+
+similary, if `this.open === false`:
+
+```tsx
+<todo-list class="todo-list" aria-hidden="true"></todo-list>
+```
+
+`<Host>` is a virtual component, a virtual API exposed by stencil to declarative set the attributes of the host element, it will never rendered in the DOM, ie you will never see `<Host>` in Chrome Dev Tools for instance.
+
+
+### <Host> can work as a <Fragment>
+
+`<Host>` can only be used when more than one component needs to be rendered at the root level for example:
+
+could be achieved by a `render()` method like this:
+
+```tsx
+render() {
+  return (
+    <Host>
+      <h1>Title</h1>
+      <p>Message</p>
+    </Host>
+  );
+}
+```
+
+This JSX would render the following HTML:
+
+```html
+<my-cmp>
+  <h1>Title</h1>
+  <p>Message</p>
+</my-cmp>
+```
+
+Even if we don't use `<Host>` to render any attribute in the host element, it's a useful API to render many elements at the root level.
+
 
 ## Element Decorator
 

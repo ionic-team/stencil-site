@@ -9,7 +9,7 @@ contributors:
 
 # Method Decorator
 
-The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element.
+The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element, ie. they are intented to be callable from the outside!
 
 > Developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
 
@@ -19,7 +19,7 @@ import { Method } from '@stencil/core';
 export class TodoList {
 
 | @Method()
-  showPrompt() {
+  async showPrompt() {
     // show a prompt
   }
 }
@@ -32,9 +32,9 @@ const todoListElement = document.querySelector('todo-list');
 todoListElement.showPrompt();
 ```
 
-## Methods must be async
+## Public methods must be async
 
-Stencil's architecture is async at all levels which allows for many performance benefits and ease of use. By ensuring publicly exposed methods using the @Method decorator return a promise:
+Stencil's architecture is async at all levels which allows for many performance benefits and ease of use. By ensuring publicly exposed methods using the `@Method` decorator return a promise:
 
 - Developers can call methods before the implementation was downloaded without componentOnReady(), which queues the method calls and resolves after the component has finished loading.
 
@@ -42,7 +42,7 @@ Stencil's architecture is async at all levels which allows for many performance 
 
 - By keeping a component's public API async, apps could move the components transparently to [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and the API would still be the same.
 
-- Returning a promise is only required for publicly exposed methods which have the @Method decorator. All other component methods are private to the component and are not required to be async.
+- Returning a promise is only required for publicly exposed methods which have the `@Method` decorator. All other component methods are private to the component and are not required to be async.
 
 
 ```tsx
@@ -58,9 +58,9 @@ myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: it returns nothing
+// VALID: even it returns nothing, it needs to be async
 @Method()
-myMethod3() {
+async myMethod3() {
   console.log(42);
 }
 
@@ -68,5 +68,24 @@ myMethod3() {
 @Method()
 notOk() {
   return 42;
+}
+```
+
+## Private methods
+
+Non-public methods can still be used to organize the businness logic of your component and they do NOT have to return a Promise.
+
+```tsx
+class Component {
+  // Since `getData` is not a public method exposed with @Method
+  // it does not need to be async
+| getData() {
+    return this.someData;
+  }
+  render() {
+    return (
+      <div>{this.getData()}</div>
+    );
+  }
 }
 ```
