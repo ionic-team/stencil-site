@@ -6,7 +6,7 @@ contributors:
   - dotNetkow
 ---
 
-# Using Stencil to Build a Design System Hello
+# Using Stencil to Build a Design System
 
 There’s a lot that goes into creating amazing UI components. Performance, accessibility, cross-platform capabilities, and user experience (not only of the UI component itself but how it fits into the entire design system) all must be considered.
 

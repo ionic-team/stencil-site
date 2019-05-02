@@ -4,7 +4,8 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      baseUrl: 'https://next.stenciljs.com'
+      baseUrl: 'https://next.stenciljs.com',
+      prerenderConfig: './prerender-config.js'
     },
     {
       type: 'dist-hydrate-script',

@@ -27,17 +27,16 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run build
+      - run: npm run build:ci
       - run:
           name: Checking clean build
           command: git diff --exit-code
-          
+
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
             - www
             - node_modules
-            - scripts/copy-robots.js
             - firebase.json
             - .firebaserc
             - package.json
@@ -49,10 +48,6 @@ jobs:
           at: /tmp/workspace
 
       - run:
-          name: Copy Prod robots.txt
-          command: node ./scripts/copy-robots.js --prod
-
-      - run:
           name: Deploy Prod to Firebase
           command: ./node_modules/.bin/firebase deploy --project prod --token=$FIREBASE_DEPLOY_TOKEN
 
@@ -61,10 +56,6 @@ jobs:
     steps:
       - attach_workspace:
           at: /tmp/workspace
-
-      - run:
-          name: Copy Next robots.txt
-          command: node ./scripts/copy-robots.js --next
 
       - run:
           name: Deploy Next to Firebase

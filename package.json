@@ -5,9 +5,10 @@
   "description": "Stencil Site",
   "scripts": {
     "build": "npm run site.structure && npm run docs && stencil build --prerender",
+    "build:ci": "npm run site.structure && npm run docs && stencil build --prerender --max-workers 0",
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html",
-    "deploy.next": "node scripts/copy-robots.js --next && firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
-    "deploy.prod": "node scripts/copy-robots.js --prod && firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
+    "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
+    "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
     "prerender": "stencil build --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
     "start": "npm run site.structure && npm run docs && stencil build --dev --watch --serve"
