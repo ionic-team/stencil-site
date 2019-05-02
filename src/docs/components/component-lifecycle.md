@@ -118,7 +118,7 @@ componentWillLoad() {
 This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
 
 ```tsx
-import { Component, State } from '@stencil/core';
+import { Component, State, h } from '@stencil/core';
 
 @Component({
   tag: 'custom-clock'

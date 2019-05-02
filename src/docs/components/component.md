@@ -34,7 +34,7 @@ Components can be composed easily by adding the HTML tag to the JSX code. Since 
 Here's an example of using a component within another component:
 
 ```tsx
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'my-embedded-component'
@@ -51,7 +51,7 @@ export class MyEmbeddedComponent {
 ```
 
 ```tsx
-import { Component } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'my-parent-component'

@@ -36,7 +36,32 @@ export class TodoList {
 
 The code above will dispatch a custom DOM event called `todoCompleted`.
 
-The `Event()` decorator optionally accepts an options object to shape the behavior of dispatched events. The options and defaults are described below
+The `Event(opts: EventOptions)` decorator optionally accepts an options object to shape the behavior of dispatched events. The options and defaults are described below
+
+```tsx
+export interface EventOptions {
+  /**
+   * A string custom event name to override the default.
+   */
+  eventName?: string;
+  /**
+   * A Boolean indicating whether the event bubbles up through the DOM or not.
+   */
+  bubbles?: boolean;
+
+  /**
+   * A Boolean indicating whether the event is cancelable.
+   */
+  cancelable?: boolean;
+
+  /**
+   * A Boolean value indicating whether or not the event can bubble across the boundary between the shadow DOM and the regular DOM.
+   */
+  composed?: boolean;
+}
+```
+
+Example:
 
 ```tsx
 import { Event, EventEmitter } from '@stencil/core';
@@ -44,22 +69,11 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
+  // Event called 'todoCompleted' that is "composed", "cancellable" and it will bubble up!
   @Event({
-    /*
-     * A string custom event name to override the default
-     */
     eventName: 'todoCompleted',
-    /*
-     * A Boolean value indicating whether or not the event can bubble across the boundary between the shadow DOM and the regular DOM.
-     */
     composed: true,
-    /*
-     * A Boolean indicating whether the event is cancelable
-     */
     cancelable: true,
-    /*
-     * A Boolean indicating whether the event bubbles up through the DOM or not.
-     */
     bubbles: true,
   }) todoCompleted: EventEmitter;
 
@@ -68,7 +82,6 @@ export class TodoList {
   }
 }
 ```
-
 
 ## Listen Decorator
 
