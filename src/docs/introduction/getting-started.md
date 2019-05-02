@@ -15,7 +15,7 @@ Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. 
 > Note that you will need to use npm 6 or higher.
 
 ```bash
- npm init stencil
+ npm init stencil app
 ```
 
 Stencil can be used to create standalone components, or entire apps. After running init
