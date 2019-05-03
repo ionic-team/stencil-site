@@ -1,9 +1,8 @@
 module.exports = {
-  robotsTxt(opts) {
+  robotsTxt() {
     return `
 User-agent: *
 Disallow: /
-Sitemap: ${opts.sitemapUrl}
 `
   }
 }

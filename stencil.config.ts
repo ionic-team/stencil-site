@@ -5,7 +5,10 @@ export const config: Config = {
     {
       type: 'www',
       baseUrl: 'https://next.stenciljs.com',
-      prerenderConfig: './prerender-config.js'
+      prerenderConfig: './prerender-config.js',
+      serviceWorker: {
+        unregister: true
+      }
     },
     {
       type: 'dist-hydrate-script',
