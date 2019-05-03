@@ -210,26 +210,6 @@
     ]
   },
   {
-    "text": "Routing",
-    "children": [
-      {
-        "text": "Overview",
-        "filePath": "/assets/docs/routing/overview.json",
-        "url": "/docs/router"
-      },
-      {
-        "text": "Tutorials",
-        "filePath": "/assets/docs/routing/tutorials.json",
-        "url": "/docs/router-tutorials"
-      },
-      {
-        "text": "API",
-        "filePath": "/assets/docs/routing/api.json",
-        "url": "/docs/router-api"
-      }
-    ]
-  },
-  {
     "text": "Advanced State Management",
     "children": [
       {
