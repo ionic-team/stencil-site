@@ -42,10 +42,6 @@
   * [Distribution](guides/distribution.md)
   * [Forms](guides/forms.md)
   * [Style Guide](guides/style-guide.md)
-* Routing
-  * [Overview](routing/overview.md)
-  * [Tutorials](routing/tutorials.md)
-  * [API](routing/api.md)
 * Advanced State Management
   * [State Tunnel](state-management/state-tunnel.md)
   * [Redux](state-management/redux.md)
