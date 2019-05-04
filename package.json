@@ -10,6 +10,7 @@
     "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
     "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
     "prerender": "stencil build --prerender",
+    "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
     "start": "npm run site.structure && npm run docs && stencil build --dev --watch --serve"
   },

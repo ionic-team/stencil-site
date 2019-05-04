@@ -12,6 +12,54 @@ Components have numerous lifecycle methods which can be used to know when the co
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
+## connectedCallback()
+
+Called every time the component is connected to the DOM.
+When the component is first connected, this method is called before `componentWillLoad`.
+
+This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+
+## disconnectedCallbacK()
+
+Called every time component is disconnected to the DOM.
+
+This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+
+## componentWillLoad()
+
+Called once just after the component is first connected to the DOM.
+A promise can be returned, that can be used to wait for the first render.
+
+## componentDidLoad()
+
+Called once just after the component fully loaded and the first `render()` occurs.
+
+## componentWillRender()
+
+Called before every `render()`.
+
+A promise can be returned, that can be used to wait for the upcoming render.
+
+
+## componentDidRender()
+
+Called after every `render()`.
+
+
+## componentWillUpdate()
+
+Called when the component is about to be updated because some `Prop()` or `State()` changed.
+It's never called during the first `render()`.
+
+A promise can be returned, that can be used to wait for the next render.
+
+
+## componentDidUpdate()
+
+Called just after the component updates.
+It's never called during the first `render()`.
+
+
 <svg viewbox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
   <g fill="none" fill-rule="evenodd">
     <path d="M552 576a90 90 0 0 0 90-90V165c0-58.5-47.2-106-105.5-106A105.8 105.8 0 0 0 431 165l.4 136.5v136" stroke="#B3B6C5" stroke-linecap="square"/>

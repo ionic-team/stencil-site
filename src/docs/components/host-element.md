@@ -11,7 +11,7 @@ contributors:
 Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the times, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
 
-## <Host>
+## `<Host>`
 
 The `Host` functional component can be used at the root of the render function to set attributes and event listeners to the host element itself. This works just like any other JSX:
 
@@ -50,7 +50,7 @@ similary, if `this.open === false`:
 `<Host>` is a virtual component, a virtual API exposed by stencil to declarative set the attributes of the host element, it will never rendered in the DOM, ie you will never see `<Host>` in Chrome Dev Tools for instance.
 
 
-### <Host> can work as a <Fragment>
+### `<Host>` can work as a `<Fragment>`
 
 `<Host>` can only be used when more than one component needs to be rendered at the root level for example:
 

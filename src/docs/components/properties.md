@@ -85,11 +85,11 @@ export class NameElement {
 
 ### Attribute Name
 
-Properties and component attributes are strongly connected but not necesary the same thing. While attributes are a HTML concept, properties are a JS concept inherent from object-oriented programming.
+Properties and component attributes are strongly connected but not necesary the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
 
-In stencil the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
+In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
 
-Usually the name of a property is the same as the attribute, but this is not always the case, take the following component as example:
+Usually the name of a property is the same as the attribute, but this is not always the case. Take the following component as example:
 
 ```tsx
 import { Component, Prop} from '@stencil/core';
@@ -110,7 +110,7 @@ This component has **3 properties**, but the compiler will create **only 2** att
 
 Notice that the `controller` type is not a primitive, since DOM attributes can ONLY be strings, it does not make sense to have an associated DOM attribute called "controller".
 
-At the same time, the `isValid` property follows a camelCase format, but attributes are case-insensitive, so the attribute name will be `is-valid` by default
+At the same time, the `isValid` property follows a _camelCase_ naming, but attributes are case-insensitive, so the attribute name will be `is-valid` by default.
 
 Fortunatelly, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
 
