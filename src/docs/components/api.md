@@ -34,18 +34,14 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 ## Lifecycle hooks
 
-- [connectedCallback()](component-lifecycle)
-- [disconnectedCallback()](component-lifecycle)
-
-- [componentWillLoad()](component-lifecycle)
-- [componentDidLoad()](component-lifecycle)
-
-- [componentWillRender()](component-lifecycle)
-- [componentDidRender()](component-lifecycle)
-
-- [componentWillUpdate()](component-lifecycle)
-- [componentDidUpdate()](component-lifecycle)
-
+- [connectedCallback()](component-lifecycle#connectedcallback-)
+- [disconnectedCallback()](component-lifecycle#disconnectedcallback-)
+- [componentWillLoad()](component-lifecycle#componentwillload-)
+- [componentDidLoad()](component-lifecycle#componentdidload-)
+- [componentWillRender()](component-lifecycle#componentwillrender-)
+- [componentDidRender()](component-lifecycle#componentdidrender-)
+- [componentWillUpdate()](component-lifecycle#componentwillupdate-)
+- [componentDidUpdate()](component-lifecycle#componentdidupdate-)
 - **[render()](templating-jsx)**
 
 

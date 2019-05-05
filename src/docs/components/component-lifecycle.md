@@ -17,13 +17,31 @@ Implement one of the following methods within a component class and Stencil will
 Called every time the component is connected to the DOM.
 When the component is first connected, this method is called before `componentWillLoad`.
 
+It's important to note that this method can be called more than once, everytime, the element is **attached** or **moved** in the DOM.
+
+```tsx
+const el = document.createElement('my-cmp');
+document.body.appendChild(el);
+// connectedCallback() called
+// componentWillLoad() called (first time)
+
+el.remove();
+// disconnectedCallback()
+
+document.body.appendChild(el);
+// connectedCallback() called again, but `componentWillLoad` is not.
+```
+
+It's a good practice to use this hook
+
+
 This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
 
-## disconnectedCallbacK()
+## disconnectedCallback()
 
-Called every time component is disconnected to the DOM.
+Called every time the component is disconnected to the DOM, ie, it call be dispatched more than once, DO not confuse with a "onDestroy" kind of event.
 
-This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
 ## componentWillLoad()
 
