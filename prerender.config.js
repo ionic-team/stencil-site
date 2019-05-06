@@ -1,8 +1,9 @@
+
 module.exports = {
   robotsTxt() {
     return `
-User-agent: *
-Disallow: /
-`
+      User-agent: *
+      Disallow: /
+    `;
   }
-}
+};

@@ -4,8 +4,8 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      baseUrl: 'https://next.stenciljs.com',
-      prerenderConfig: './prerender-config.js',
+      baseUrl: 'https://next.stenciljs.com/',
+      prerenderConfig: './prerender.config.js',
       serviceWorker: {
         unregister: true
       }
