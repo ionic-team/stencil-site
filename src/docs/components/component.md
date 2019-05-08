@@ -10,7 +10,7 @@ contributors:
 
 ## Component Decorator
 
-Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developer's must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
+Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developers must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
 
 Use a relative url to the `.css` file for the styleUrl(s).
 
