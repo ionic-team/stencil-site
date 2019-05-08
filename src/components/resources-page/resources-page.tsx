@@ -13,6 +13,7 @@ export class ResourcesPage {
       { title: 'Angular Stencil: use Stencil-built components in Angular', url: 'https://github.com/seveves/angular-stencil' }
     ],
     COMPONENTS: [
+      { title: 'Stencil Router', url: 'https://github.com/ionic-team/stencil-router/wiki'},
       { title: 'Stencil Card Component', url: 'https://github.com/henriquecustodia/stencil-card-app' },
       { title: 'st-image: lazy loaded images', url: 'https://github.com/jgw96/st-img' },
       { title: 'st-payment: Stencil Payment API Component', url: 'https://github.com/Fdom92/stencil-payment' },
