@@ -1,4 +1,5 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Build } from '@stencil/core';
+import { fileNotFound } from '../../global/site-structure-utils';
 
 
 @Component({
@@ -8,6 +9,11 @@ import { Component, h } from '@stencil/core';
 export class NotFoundPage {
 
   render() {
+    if (!Build.isBrowser) {
+      fileNotFound();
+      return null;
+    }
+
     return (
       <div>
         <h1>Uh oh! We can't find the page you're looking for.</h1>

@@ -1,6 +1,6 @@
-import { Component, Host, Prop, Watch, ComponentInterface, h } from '@stencil/core';
+import { Component, Host, Prop, Watch, ComponentInterface, h, Build } from '@stencil/core';
 import siteStructure from '../../assets/docs-structure.json';
-import { findItem, ItemInfo } from '../../global/site-structure-utils';
+import { findItem, fileNotFound, ItemInfo } from '../../global/site-structure-utils';
 import { MarkdownContent, SiteStructureItem } from '../../global/definitions';
 
 
@@ -23,13 +23,19 @@ export class DocumentComponent implements ComponentInterface {
 
   @Watch('page')
   async fetchNewContent() {
-    if (!this.page) {
-      return;
+    if (this.page) {
+      this.data = findItem(siteStructure as SiteStructureItem[], this.page);
+
+      if (!Build.isBrowser && !this.data.item) {
+        fileNotFound();
+        return;
+      }
+
+      this.content = await fetchContent(this.data.item.filePath);
+
+      this.lastHash = this.hash;
+      this.hash = this.content.hash;
     }
-    this.data = findItem(siteStructure as SiteStructureItem[], this.page);
-    this.lastHash = this.hash;
-    this.content = await fetchContent(this.data.item.filePath);
-    this.hash = this.content.hash;
   }
 
   render() {
