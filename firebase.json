@@ -81,12 +81,12 @@
       },
       {
         "source": "/docs/stencil-router",
-        "destination": "/docs/router",
+        "destination": "https://github.com/ionic-team/stencil-router/wiki",
         "type": 301
       },
       {
         "source": "/docs/routing",
-        "destination": "/docs/router",
+        "destination": "https://github.com/ionic-team/stencil-router/wiki",
         "type": 301
       },
       {

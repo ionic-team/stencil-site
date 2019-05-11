@@ -155,10 +155,10 @@ export class LandingPage {
               <p>We’re creating libraries to help you tackle the challenges of building large production applications with Web Components.</p>
               <ul class="link-list list--unstyled">
                 <li>
-                  <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/router">
+                  <a class="btn btn--tertiary btn--small" href="https://github.com/ionic-team/stencil-router/wiki">
                     <app-icon name="docs"/>
                     stencil-router
-                  </stencil-route-link>
+                  </a>
                 </li>
                 <li>
                   <a class="btn btn--tertiary btn--small" href="https://github.com/ionic-team/stencil-state-tunnel/">
