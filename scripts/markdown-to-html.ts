@@ -1,6 +1,7 @@
 import marked from 'marked';
 import glob from 'glob';
 import { promisify } from 'util';
+import crypto from 'crypto';
 import path from 'path';
 import fs from 'fs';
 import url from 'url';
@@ -55,19 +56,32 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
       htmlContents = marked(parsedMarkdown.body, {
         renderer,
         headerIds: true
-      });
+      }).trim();
 
       await mkdirp(path.join(
         DESTINATION_DIR,
         path.dirname(jsonFileName)
       ));
 
-      await writeFile(destinationFileName, JSON.stringify({
+      const data = {
         ...parsedMarkdown.attributes,
         ...markdownMetadata,
         srcPath: filePath,
-        content: htmlContents
-      }), {
+        html: htmlContents
+      };
+
+      if (typeof data.title !== 'string') {
+        data.title = 'Stencil';
+      } else {
+        data.title = data.title.trim() + ' - Stencil';
+      }
+
+      data.hash = crypto.createHash('md5')
+        .update(JSON.stringify(data))
+        .digest('base64')
+        .substr(0, 8);
+
+      await writeFile(destinationFileName, JSON.stringify(data), {
         encoding: 'utf8'
       });
 

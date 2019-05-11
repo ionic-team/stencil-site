@@ -5,7 +5,8 @@ export interface MarkdownContent {
   contributors?: string[];
   headings?: MarkdownHeading[];
   srcPath?: string;
-  content?: string;
+  html?: string;
+  hash?: string;
 }
 
 export interface MarkdownHeading {

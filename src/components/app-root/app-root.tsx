@@ -12,7 +12,7 @@ export class AppRoot {
     'site-header',
     'site-menu',
     'app-burger',
-    '.root'
+    'main'
   ];
 
   @Element() el!: HTMLElement;
@@ -67,13 +67,13 @@ export class AppRoot {
       <SiteProviderConsumer.Provider state={siteState}>
         <site-top-bar />
         <site-header />
-        <div class="root">
+        <main>
           <div class="container">
             <stencil-router scrollTopOffset={0}>
               <stencil-route-switch>
                 <stencil-route url="/" component="landing-page" exact={true} />
                 <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
-                  <document-component page={match.url}></document-component>
+                  <doc-component page={match.url}></doc-component>
                 )}/>
                 <stencil-route url="/demos" component="demos-page" />
                 <stencil-route url="/pwa" component="pwas-page" />
@@ -121,7 +121,7 @@ export class AppRoot {
               </div>
             </div>
           </footer>
-        </div>
+        </main>
       </SiteProviderConsumer.Provider>
     );
   }

@@ -45,17 +45,16 @@ stencil-site {
   flex: 1 0 auto;
 }
 
-.root {
+main {
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100.1vh;
-  /* padding: 110px 0 0; */
   padding-top: 40px;
 }
 
 @media screen and (max-width: 768px) {
-  .root {
+  main {
     padding-top: 92px;
   }
 }

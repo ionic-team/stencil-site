@@ -8,7 +8,6 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import { JSX } from '@stencil/core';
 import {
-  MarkdownContent,
   MarkdownHeading,
   SiteStructureItem,
 } from './global/definitions';
@@ -20,10 +19,6 @@ export namespace Components {
   }
   interface AppIcon {
     'name'?: string;
-  }
-  interface AppMarked {
-    'fetchPath'?: string;
-    'renderer'?: (doc: MarkdownContent) => JSX.Element;
   }
   interface AppRoot {}
   interface ContributorList {
@@ -39,7 +34,8 @@ export namespace Components {
     'sourceUrl'?: string;
   }
   interface DemosPage {}
-  interface DocumentComponent {
+  interface DocComponent {
+    'hash': string;
     'page': string;
   }
   interface DsPage {}
@@ -84,10 +80,6 @@ declare namespace LocalJSX {
   interface AppIcon extends JSXBase.HTMLAttributes {
     'name'?: string;
   }
-  interface AppMarked extends JSXBase.HTMLAttributes {
-    'fetchPath'?: string;
-    'renderer'?: (doc: MarkdownContent) => JSX.Element;
-  }
   interface AppRoot extends JSXBase.HTMLAttributes {}
   interface ContributorList extends JSXBase.HTMLAttributes {
     'contributors'?: string[];
@@ -102,7 +94,8 @@ declare namespace LocalJSX {
     'sourceUrl'?: string;
   }
   interface DemosPage extends JSXBase.HTMLAttributes {}
-  interface DocumentComponent extends JSXBase.HTMLAttributes {
+  interface DocComponent extends JSXBase.HTMLAttributes {
+    'hash'?: string;
     'page'?: string;
   }
   interface DsPage extends JSXBase.HTMLAttributes {}
@@ -143,13 +136,12 @@ declare namespace LocalJSX {
   interface ElementInterfaces {
     'AppBurger': Components.AppBurger;
     'AppIcon': Components.AppIcon;
-    'AppMarked': Components.AppMarked;
     'AppRoot': Components.AppRoot;
     'ContributorList': Components.ContributorList;
     'CustomClock': Components.CustomClock;
     'DemoCard': Components.DemoCard;
     'DemosPage': Components.DemosPage;
-    'DocumentComponent': Components.DocumentComponent;
+    'DocComponent': Components.DocComponent;
     'DsPage': Components.DsPage;
     'HighlightCodeLine': Components.HighlightCodeLine;
     'InPageNavigation': Components.InPageNavigation;
@@ -167,13 +159,12 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'AppBurger': LocalJSX.AppBurger;
     'AppIcon': LocalJSX.AppIcon;
-    'AppMarked': LocalJSX.AppMarked;
     'AppRoot': LocalJSX.AppRoot;
     'ContributorList': LocalJSX.ContributorList;
     'CustomClock': LocalJSX.CustomClock;
     'DemoCard': LocalJSX.DemoCard;
     'DemosPage': LocalJSX.DemosPage;
-    'DocumentComponent': LocalJSX.DocumentComponent;
+    'DocComponent': LocalJSX.DocComponent;
     'DsPage': LocalJSX.DsPage;
     'HighlightCodeLine': LocalJSX.HighlightCodeLine;
     'InPageNavigation': LocalJSX.InPageNavigation;
@@ -212,12 +203,6 @@ declare global {
     new (): HTMLAppIconElement;
   };
 
-  interface HTMLAppMarkedElement extends Components.AppMarked, HTMLStencilElement {}
-  var HTMLAppMarkedElement: {
-    prototype: HTMLAppMarkedElement;
-    new (): HTMLAppMarkedElement;
-  };
-
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
@@ -248,10 +233,10 @@ declare global {
     new (): HTMLDemosPageElement;
   };
 
-  interface HTMLDocumentComponentElement extends Components.DocumentComponent, HTMLStencilElement {}
-  var HTMLDocumentComponentElement: {
-    prototype: HTMLDocumentComponentElement;
-    new (): HTMLDocumentComponentElement;
+  interface HTMLDocComponentElement extends Components.DocComponent, HTMLStencilElement {}
+  var HTMLDocComponentElement: {
+    prototype: HTMLDocComponentElement;
+    new (): HTMLDocComponentElement;
   };
 
   interface HTMLDsPageElement extends Components.DsPage, HTMLStencilElement {}
@@ -328,13 +313,12 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement
     'app-icon': HTMLAppIconElement
-    'app-marked': HTMLAppMarkedElement
     'app-root': HTMLAppRootElement
     'contributor-list': HTMLContributorListElement
     'custom-clock': HTMLCustomClockElement
     'demo-card': HTMLDemoCardElement
     'demos-page': HTMLDemosPageElement
-    'document-component': HTMLDocumentComponentElement
+    'doc-component': HTMLDocComponentElement
     'ds-page': HTMLDsPageElement
     'highlight-code-line': HTMLHighlightCodeLineElement
     'in-page-navigation': HTMLInPageNavigationElement
@@ -352,13 +336,12 @@ declare global {
   interface ElementTagNameMap {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
-    'app-marked': HTMLAppMarkedElement;
     'app-root': HTMLAppRootElement;
     'contributor-list': HTMLContributorListElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
     'demos-page': HTMLDemosPageElement;
-    'document-component': HTMLDocumentComponentElement;
+    'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
     'highlight-code-line': HTMLHighlightCodeLineElement;
     'in-page-navigation': HTMLInPageNavigationElement;
