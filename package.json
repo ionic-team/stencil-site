@@ -10,12 +10,13 @@
     "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
     "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
     "prerender": "stencil build --prerender",
+    "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
     "start": "npm run site.structure && npm run docs && stencil build --dev --watch --serve"
   },
   "devDependencies": {
-    "@stencil/core": "1.0.0-alpha.23",
+    "@stencil/core": "1.0.0-alpha.27",
     "@stencil/router": "^0.3.4-2",
     "@stencil/state-tunnel": "^0.0.9-5",
     "@stencil/utils": "0.0.5",
