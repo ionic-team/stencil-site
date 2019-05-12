@@ -54,6 +54,11 @@
         "type": 301
       },
       {
+        "source": "/docs/router",
+        "destination": "https://github.com/ionic-team/stencil-router/wiki",
+        "type": 301
+      },
+      {
         "source": "/docs/stencil-router",
         "destination": "https://github.com/ionic-team/stencil-router/wiki",
         "type": 301
