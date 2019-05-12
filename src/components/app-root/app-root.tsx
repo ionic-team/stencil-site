@@ -1,4 +1,5 @@
 import '@stencil/router';
+import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 
@@ -7,7 +8,7 @@ import SiteProviderConsumer, { SiteState } from '../../global/site-provider-cons
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-
+  history: RouterHistory = null;
   elements = [
     'site-header',
     'site-menu',
@@ -30,6 +31,15 @@ export class AppRoot {
         });
       }
     });
+  }
+
+  setHistory = ({ history }: { history: RouterHistory }) => {
+    if (!this.history) {
+      this.history = history;
+      this.history.listen((location: LocationSegments) => {
+        (window as any).gtag('config', 'UA-44023830-34', { 'page_path': location.pathname + location.search });
+      });
+    }
   }
 
   componentDidLoad() {
@@ -70,6 +80,7 @@ export class AppRoot {
         <main>
           <div class="container">
             <stencil-router scrollTopOffset={0}>
+              <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
               <stencil-route-switch>
                 <stencil-route url="/" component="landing-page" exact={true} />
                 <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
