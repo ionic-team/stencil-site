@@ -39,7 +39,7 @@ export namespace Components {
     'page': string;
   }
   interface DsPage {}
-  interface HighlightCodeLine {
+  interface HighlightCode {
     'lines'?: string;
   }
   interface InPageNavigation {
@@ -99,7 +99,7 @@ declare namespace LocalJSX {
     'page'?: string;
   }
   interface DsPage extends JSXBase.HTMLAttributes {}
-  interface HighlightCodeLine extends JSXBase.HTMLAttributes {
+  interface HighlightCode extends JSXBase.HTMLAttributes {
     'lines'?: string;
   }
   interface InPageNavigation extends JSXBase.HTMLAttributes {
@@ -143,7 +143,7 @@ declare namespace LocalJSX {
     'DemosPage': Components.DemosPage;
     'DocComponent': Components.DocComponent;
     'DsPage': Components.DsPage;
-    'HighlightCodeLine': Components.HighlightCodeLine;
+    'HighlightCode': Components.HighlightCode;
     'InPageNavigation': Components.InPageNavigation;
     'LandingPage': Components.LandingPage;
     'LazyIframe': Components.LazyIframe;
@@ -166,7 +166,7 @@ declare namespace LocalJSX {
     'DemosPage': LocalJSX.DemosPage;
     'DocComponent': LocalJSX.DocComponent;
     'DsPage': LocalJSX.DsPage;
-    'HighlightCodeLine': LocalJSX.HighlightCodeLine;
+    'HighlightCode': LocalJSX.HighlightCode;
     'InPageNavigation': LocalJSX.InPageNavigation;
     'LandingPage': LocalJSX.LandingPage;
     'LazyIframe': LocalJSX.LazyIframe;
@@ -245,10 +245,10 @@ declare global {
     new (): HTMLDsPageElement;
   };
 
-  interface HTMLHighlightCodeLineElement extends Components.HighlightCodeLine, HTMLStencilElement {}
-  var HTMLHighlightCodeLineElement: {
-    prototype: HTMLHighlightCodeLineElement;
-    new (): HTMLHighlightCodeLineElement;
+  interface HTMLHighlightCodeElement extends Components.HighlightCode, HTMLStencilElement {}
+  var HTMLHighlightCodeElement: {
+    prototype: HTMLHighlightCodeElement;
+    new (): HTMLHighlightCodeElement;
   };
 
   interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {}
@@ -320,7 +320,7 @@ declare global {
     'demos-page': HTMLDemosPageElement
     'doc-component': HTMLDocComponentElement
     'ds-page': HTMLDsPageElement
-    'highlight-code-line': HTMLHighlightCodeLineElement
+    'highlight-code': HTMLHighlightCodeElement
     'in-page-navigation': HTMLInPageNavigationElement
     'landing-page': HTMLLandingPageElement
     'lazy-iframe': HTMLLazyIframeElement
@@ -343,7 +343,7 @@ declare global {
     'demos-page': HTMLDemosPageElement;
     'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
-    'highlight-code-line': HTMLHighlightCodeLineElement;
+    'highlight-code': HTMLHighlightCodeElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
     'lazy-iframe': HTMLLazyIframeElement;

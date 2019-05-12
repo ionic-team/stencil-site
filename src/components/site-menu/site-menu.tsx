@@ -26,7 +26,7 @@ export class SiteMenu implements ComponentInterface{
             <ul class='menu-list'>
               { this.siteStructureList.map((item) => (
                 <li>
-                  <a href={item.children[0].url} onClick={this.toggleParent(item)}>
+                  <a href={item.children[0].url || '#'} onClick={this.toggleParent(item)}>
                     <span class="section-label">
                       {item.text}
                     </span>

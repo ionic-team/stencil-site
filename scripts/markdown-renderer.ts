@@ -147,9 +147,9 @@ export function changeCodeCreation(renderer: marked.Renderer) {
     }
 
     return `
-  <highlight-code-line ${hcl.length > 0 ? `lines="${hcl.join()}"`: ``}>
+  <highlight-code ${hcl.length > 0 ? `lines="${hcl.join()}"`: ``}>
     <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${(escaped ? code : escape(code))}</code></pre>
-  </highlight-code-line>
+  </highlight-code>
   `;
   };
 }
