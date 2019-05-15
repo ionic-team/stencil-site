@@ -63,7 +63,8 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
 
 ```tsx
 devServer: {
-  openBrowser: true
+  openBrowser: true,
+  port: 3333
 }
 ```
 
