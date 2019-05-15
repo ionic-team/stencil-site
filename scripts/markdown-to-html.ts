@@ -1,11 +1,11 @@
 import marked from 'marked';
 import glob from 'glob';
 import { promisify } from 'util';
-import crypto from 'crypto';
 import path from 'path';
 import fs from 'fs';
 import url from 'url';
 import { rimraf, mkdirp } from '@stencil/utils';
+import { createDocument } from '@stencil/core/mock-doc';
 import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
 import frontMatter from 'front-matter';
 import fetch from 'node-fetch';
@@ -67,7 +67,7 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
         ...parsedMarkdown.attributes,
         ...markdownMetadata,
         srcPath: filePath,
-        html: htmlContents
+        hypertext: convertHtmlToHypertextData(htmlContents)
       };
 
       if (typeof data.title !== 'string') {
@@ -75,11 +75,6 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
       } else {
         data.title = data.title.trim() + ' - Stencil';
       }
-
-      data.hash = crypto.createHash('md5')
-        .update(JSON.stringify(data))
-        .digest('base64')
-        .substr(0, 8);
 
       await writeFile(destinationFileName, JSON.stringify(data), {
         encoding: 'utf8'
@@ -95,6 +90,54 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
 
   console.log(`successfully converted ${filePromises.length} files`);
 })();
+
+
+function convertHtmlToHypertextData(html: string) {
+  const doc = createDocument();
+  const div = doc.createElement('div');
+  div.innerHTML = html;
+  return convertElementToHypertextData(div);
+}
+
+function convertElementToHypertextData(node: Node) {
+  const data = [];
+
+  if (node.nodeType === 1) {
+    const elm = node as HTMLElement;
+    let tag = elm.tagName.toLowerCase();
+
+    if (tagBlacklist.includes(tag)) {
+      tag = 'template';
+    }
+
+    data.push(tag);
+
+    if (elm.attributes.length > 0) {
+      const attrs = {};
+      for (let j = 0; j < elm.attributes.length; j++) {
+        const attr = elm.attributes.item(j);
+        attrs[attr.nodeName] = attr.nodeValue;
+      }
+      data.push(attrs);
+
+    } else {
+      data.push(null);
+    }
+
+    for (let i = 0; i < elm.childNodes.length; i++) {
+      data.push(convertElementToHypertextData(elm.childNodes[i]));
+    }
+
+    return data;
+
+  } else if (node.nodeType === 3) {
+    return (node as Text).textContent;
+  }
+
+  return '';
+}
+
+const tagBlacklist = ['script', 'style', 'link', 'meta', 'object', 'head', 'html', 'body'];
 
 
 async function getGithubData(filePath: string, parsedMarkdown: any) {
@@ -113,7 +156,15 @@ async function getGithubData(filePath: string, parsedMarkdown: any) {
     }));
 
     const commits = await request.json();
-    const contributors = Array.from(new Set(commits.map(commit => commit.author.login)));
+
+    const contributors = Array.from(new Set(commits.map(commit => {
+      if (commit && commit.author && commit.author.login) {
+        return commit.author.login;
+      }
+      return null;
+    }))).filter(l => typeof l === 'string');
+
+    // const contributors = Array.from(new Set(commits.map(commit => commit.author.login)));
     const lastUpdated = commits.length ? commits[0].commit.author.date : since;
 
     const attributes = parsedMarkdown.attributes = parsedMarkdown.attributes || {};
