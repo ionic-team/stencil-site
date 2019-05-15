@@ -84,7 +84,7 @@ export class NameElement {
 }
 ```
 
-To do validation of a Prop, you can use the [@Watch()](#watch) decorator:
+To do validation of a Prop, you can use the [@Watch()](reactive-data/#watch-decorator) decorator:
 
 ```tsx
 import { Prop, Watch } from '@stencil/core';
