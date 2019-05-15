@@ -137,7 +137,7 @@ function convertElementToHypertextData(node: Node) {
   return '';
 }
 
-const tagBlacklist = ['script', 'style', 'link', 'meta', 'object', 'head', 'html', 'body'];
+const tagBlacklist = ['script', 'link', 'meta', 'object', 'head', 'html', 'body'];
 
 
 async function getGithubData(filePath: string, parsedMarkdown: any) {

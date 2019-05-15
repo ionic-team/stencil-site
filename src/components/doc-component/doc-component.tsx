@@ -45,10 +45,19 @@ export class DocumentComponent implements ComponentInterface {
     console.log('render3', this.page);
     return (
       <Host>
+        <stencil-route-title pageTitle={content.title}></stencil-route-title>
+        <app-burger />
         <site-menu selectedParent={data.parent} siteStructureList={siteStructure as SiteStructureItem[]} />
-          <div class="doc-content measure-lg">
-            {toHypertext(content.hypertext)}
-          </div>
+        <div class="doc-content measure-lg">
+          {toHypertext(content.hypertext)}
+          <lower-content-nav next={data.nextItem} prev={data.prevItem}></lower-content-nav>
+          <contributor-list contributors={content.contributors}></contributor-list>
+        </div>
+        <in-page-navigation
+          pageLinks={content.headings}
+          srcUrl={content.srcPath}
+          currentPageUrl={content.url}
+        ></in-page-navigation>
       </Host>
     );
   }
@@ -93,4 +102,4 @@ const toHypertext = (data: any) => {
   return (h as any).apply(null, args);
 };
 
-const tagBlacklist = ['script', 'style', 'link', 'meta', 'object', 'head', 'html', 'body'];
+const tagBlacklist = ['script', 'link', 'meta', 'object', 'head', 'html', 'body'];
