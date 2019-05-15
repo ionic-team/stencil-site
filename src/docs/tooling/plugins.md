@@ -20,12 +20,12 @@ contributors:
 
 ```tsx
 import { Config } from '@stencil/core';
-| import { sass } from '@stencil/sass';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
-|  plugins: [
-|    sass()
-|  ]
+  plugins: [
+    sass()
+  ]
 }
 ```
 

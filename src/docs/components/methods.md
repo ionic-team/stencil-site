@@ -18,7 +18,7 @@ import { Method } from '@stencil/core';
 
 export class TodoList {
 
-| @Method()
+  @Method()
   async showPrompt() {
     // show a prompt
   }
@@ -79,7 +79,7 @@ Non-public methods can still be used to organize the businness logic of your com
 class Component {
   // Since `getData` is not a public method exposed with @Method
   // it does not need to be async
-| getData() {
+  getData() {
     return this.someData;
   }
   render() {

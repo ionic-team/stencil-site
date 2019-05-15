@@ -123,18 +123,6 @@ export function changeCodeCreation(renderer: marked.Renderer) {
   }
 
   renderer.code = function (code, lang, escaped) {
-    const hcl = [];
-    code = code
-      .split('\n')
-      .map((line, index) => {
-        if (line.charAt(0) === '|') {
-          hcl.push(index + 1);
-          return line.substring(1);
-        }
-        return line;
-      })
-      .join('\n');
-
     const out = highlight(code, lang);
 
     if (out != null) {
@@ -143,11 +131,15 @@ export function changeCodeCreation(renderer: marked.Renderer) {
     }
 
     if (!lang) {
-      return `<pre><code>${(escaped ? code : escape(code))}</code></pre>`;
+      return `
+  <highlight-code>
+    <pre><code>${(escaped ? code : escape(code))}</code></pre>
+  </highlight-code>
+      `;
     }
 
     return `
-  <highlight-code ${hcl.length > 0 ? `lines="${hcl.join()}"`: ``}>
+  <highlight-code>
     <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${(escaped ? code : escape(code))}</code></pre>
   </highlight-code>
   `;

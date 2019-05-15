@@ -125,7 +125,7 @@ The `target` option can be used to change where the event listener is attached, 
 In the example below, we're going to listen for the scroll event, emited from `window`:
 
 ```tsx
-| @Listen('scroll', { target: 'window' })
+  @Listen('scroll', { target: 'window' })
   handleScroll(ev) {
     console.log('the body was scrolled', ev);
   }
@@ -146,7 +146,7 @@ check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmo
 
 
 ```tsx
-| @Listen('click', { capture: true })
+  @Listen('click', { capture: true })
   handleClick(ev) {
     console.log('click');
   }

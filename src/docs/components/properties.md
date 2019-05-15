@@ -15,10 +15,10 @@ import { Prop } from '@stencil/core';
 
 ...
 export class TodoList {
-|   @Prop() color: string;
-|   @Prop() favoriteNumber: number;
-|   @Prop() isSelected: boolean;
-|   @Prop() myHttpService: MyHttpService;
+  @Prop() color: string;
+  @Prop() favoriteNumber: number;
+  @Prop() isSelected: boolean;
+  @Prop() myHttpService: MyHttpService;
 }
 ```
 
@@ -75,7 +75,7 @@ import { Prop } from '@stencil/core';
 ...
 export class NameElement {
 
-|  @Prop({ mutable: true }) name: string = 'Stencil';
+  @Prop({ mutable: true }) name: string = 'Stencil';
 
   componentDidLoad() {
     this.name = 'Stencil 0.7.0';
@@ -96,9 +96,9 @@ import { Component, Prop} from '@stencil/core';
 
 @Component({ tag: 'my-cmp'})
 class Component {
-|  @Prop() value: string;
-|  @Prop() isValid: boolean;
-|  @Prop() controller: MyController;
+  @Prop() value: string;
+  @Prop() isValid: boolean;
+  @Prop() controller: MyController;
 }
 ```
 
@@ -121,8 +121,8 @@ import { Component, Prop} from '@stencil/core';
 @Component({ tag: 'my-cmp'})
 class Component {
   @Prop() value: string;
-|  @Prop({ attribute: 'valid' }) isValid: boolean;
-|  @Prop({ attribute: 'controller' }) controller: MyController;
+  @Prop({ attribute: 'valid' }) isValid: boolean;
+  @Prop({ attribute: 'controller' }) controller: MyController;
 }
 ```
 
@@ -135,7 +135,7 @@ In some cases it may be useful to keep a Prop in sync with an attribute. In this
 
 ```tsx
 @Prop({
-|  reflect: true
+  reflect: true
 })
 ```
 
@@ -146,9 +146,9 @@ Take the following component as example:
 ```tsx
 @Component({tag: 'my-cmp'})
 class Cmp {
-|  @Prop({reflect: true}) message = 'Hello';
-|  @Prop({reflect: false}) value = 'nothing';
-|  @Prop({reflect: true}) number = 42;
+  @Prop({reflect: true}) message = 'Hello';
+  @Prop({reflect: false}) value = 'nothing';
+  @Prop({reflect: true}) number = 42;
 }
 ```
 
@@ -174,7 +174,7 @@ import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
-|  @Prop() name: string = 'Stencil';
+  @Prop() name: string = 'Stencil';
 }
 ```
 
@@ -187,7 +187,7 @@ import { Prop, Watch } from '@stencil/core';
 export class TodoList {
   @Prop() name: string = 'Stencil';
 
-| @Watch('name')
+  @Watch('name')
   validateName(newValue: string, oldValue: string) {
     const isBlank = typeof newValue == null;
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;

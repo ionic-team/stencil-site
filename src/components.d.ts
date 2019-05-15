@@ -35,13 +35,10 @@ export namespace Components {
   }
   interface DemosPage {}
   interface DocComponent {
-    'hash': string;
     'page': string;
   }
   interface DsPage {}
-  interface HighlightCode {
-    'lines'?: string;
-  }
+  interface HighlightCode {}
   interface InPageNavigation {
     'currentPageUrl': string;
     'pageLinks': MarkdownHeading[];
@@ -95,13 +92,10 @@ declare namespace LocalJSX {
   }
   interface DemosPage extends JSXBase.HTMLAttributes {}
   interface DocComponent extends JSXBase.HTMLAttributes {
-    'hash'?: string;
     'page'?: string;
   }
   interface DsPage extends JSXBase.HTMLAttributes {}
-  interface HighlightCode extends JSXBase.HTMLAttributes {
-    'lines'?: string;
-  }
+  interface HighlightCode extends JSXBase.HTMLAttributes {}
   interface InPageNavigation extends JSXBase.HTMLAttributes {
     'currentPageUrl'?: string;
     'pageLinks'?: MarkdownHeading[];
