@@ -1,38 +1,28 @@
-import { Component, Prop } from "@stencil/core";
-
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'contributor-list',
   styleUrl: 'contributor-list.css'
 })
 export class ContributorList {
-
-  @Prop() contributors: string[]
-
-  componentWillLoad() {
-    console.log(this.contributors);
-  }
+  @Prop() contributors: string[] = [];
+  @Prop() link = (contributor: string) => `https://github.com/${contributor}`;
 
   render() {
-    if (!this.contributors || this.contributors.length === 0) {
-      return;
+    if (this.contributors.length === 0) {
+      return null;
     }
 
     return (
-      <section>
-        <h5>Contributors</h5>
-        <div>
-          {this.contributors.map(contributor => (
-            <a href={`https://github.com/${contributor}`}>
-              <span class="img-wrapper">
-                <img src={`https://github.com/${contributor}.png?size=90`} title={`Contributor ${contributor}`} />
-              </span>
-              <span class="username">{contributor}</span>
+      <ul class="img-list">
+        {this.contributors.reverse().map(contributor => (
+          <li>
+            <a class="contributor-img" target="_blank" href={this.link(contributor)}>
+              <img src={`https://github.com/${contributor}.png?size=90`} title={`Contributor ${contributor}`}/>
             </a>
-          ))}
-        </div>
-      </section>
+          </li>
+        ))}
+      </ul>
     );
   }
-
 }
