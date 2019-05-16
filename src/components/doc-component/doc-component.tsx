@@ -24,15 +24,7 @@ export class DocumentComponent implements ComponentInterface {
         return;
       }
 
-
       this.content = await fetchContent(this.data.item.filePath);
-      // return new Promise(resolve => {
-      //   setTimeout(async () => {
-      //     this.content = await fetchContent(this.data.item.filePath);
-      //     resolve();
-      //   }, 1000);
-      // })
-
     }
   }
 
@@ -83,6 +75,7 @@ const toHypertext = (data: any) => {
     let arg = data[i];
     if (i === 0 && typeof arg === 'string' && tagBlacklist.includes(arg.toLowerCase().trim())) {
       arg = 'template';
+
     } else if (i === 1 && arg) {
       const attrs = {};
       Object.keys(arg).forEach(key => {
@@ -90,8 +83,9 @@ const toHypertext = (data: any) => {
         if (!k.startsWith('on') && k !== 'innerhtml') {
           attrs[key] = arg[key];
         }
-        arg = attrs;
       });
+      arg = attrs;
+
     } else if (i > 1) {
       if (Array.isArray(arg)) {
         arg = toHypertext(arg);
