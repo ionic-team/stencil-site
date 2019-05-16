@@ -19,7 +19,7 @@ stencil test --e2e --screenshot
 ## Quick Example
 
 [pupeteer](https://github.com/GoogleChrome/puppeteer) is used to compare screenshots. In order to make one, you have to set up an e2e test, e.g.:
-```
+```javascript
   it('render something', async () => {
     const page: E2EPage = await newE2EPage();
     await page.setContent(`<my-cmp></my-cmp`);
@@ -30,7 +30,6 @@ stencil test --e2e --screenshot
 ## Advanced Example
 
 ```javascript
-
 describe('stencil-avatar', () => {
   it('renders and responds to the size property', async () => {
     const page = await newE2EPage();
