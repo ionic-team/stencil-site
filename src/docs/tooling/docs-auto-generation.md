@@ -42,7 +42,7 @@ export const config: Config = {
 Another option would be to add the flag `--docs`, such as:
 
 ```bash
-stencil build --docs
+stencil build --docs-readme
 ```
 
 ### Adding Custom Markdown to Auto-Generated Files
