@@ -97,6 +97,10 @@ document-component .caption {
   color: var(--color-dolphin);
 }
 
+document-component contributor-list {
+  margin: 14px 0px;
+}
+
 @media screen and (max-width: 1024px) {
   document-component .doc-content {
     padding-right: 0;
