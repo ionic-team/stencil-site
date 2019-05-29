@@ -84,7 +84,7 @@ export class ResourcesPage {
         <div>
           <h2>Present Stencil</h2>
           <div class="slide-wrapper screenshot">
-            <lazy-iframe src="https://ionic-team.github.io/stencil-present/" title="Present Stencil"></lazy-iframe>
+            <iframe src="https://ionic-team.github.io/stencil-present/" title="Present Stencil" loading="lazy"></iframe>
           </div>
           <p>
             A forkable presentation for your next meetup or conference
