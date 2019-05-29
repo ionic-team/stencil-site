@@ -309,7 +309,7 @@ It is also possible to use `innerHTML` to inline content straight into an elemen
 <div innerHTML={svgContent}></div>
 ```
 
-## Getting a reference to a dom element
+## Getting a reference to a DOM element
 
 In cases where you need to get a direct reference to an element, like you would normally do with `document.querySelector`, you might want to use a `ref` in JSX. Lets look at an example of using a `ref` in a form:
 
