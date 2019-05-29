@@ -59,14 +59,14 @@ export class InPageNavigtion implements ComponentInterface {
 
     if (pageLinks.length === 0) {
       return (
-        <div class="sticky">
+        <div>
           { submitEditLink }
         </div>
       );
     }
 
     return (
-      <div class="sticky">
+      <div>
         <h5>Contents</h5>
         <ul class="heading-links">
           { pageLinks.map(pl => (

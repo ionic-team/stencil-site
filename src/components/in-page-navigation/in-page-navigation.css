@@ -1,6 +1,8 @@
 in-page-navigation {
   flex: 0 0 180px;
   height: 100%;
+  position: sticky;
+  top: 24px;
 }
 
 in-page-navigation h5 {

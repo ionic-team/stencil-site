@@ -75,25 +75,21 @@ export class AppRoot {
 
     return (
       <SiteProviderConsumer.Provider state={siteState}>
-        <site-top-bar />
         <site-header />
         <main>
-          <div class="container">
-            <stencil-router scrollTopOffset={0}>
-              <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
-              <stencil-route-switch>
-                <stencil-route url="/" component="landing-page" exact={true} />
-                <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
-                  <doc-component page={match.url}></doc-component>
-                )}/>
-                <stencil-route url="/demos" component="demos-page" />
-                <stencil-route url="/pwa" component="pwas-page" />
-                <stencil-route url="/resources" component="resources-page" />
-                <stencil-route url="/design-systems" component="ds-page" />
-                <stencil-route component='notfound-page'></stencil-route>
-              </stencil-route-switch>
-            </stencil-router>
-          </div>
+          <stencil-router scrollTopOffset={0}>
+            <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
+            <stencil-route-switch>
+              <stencil-route url="/" component="landing-page" exact={true} />
+              <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
+                <doc-component page={match.url}></doc-component>
+              )}/>
+              <stencil-route url="/pwa" component="pwas-page" />
+              <stencil-route url="/resources" component="resources-page" />
+              <stencil-route url="/design-systems" component="ds-page" />
+              <stencil-route component='notfound-page'></stencil-route>
+            </stencil-route-switch>
+          </stencil-router>
           <footer>
             <div class="container">
               <div class="footer__open-source">

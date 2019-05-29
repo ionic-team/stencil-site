@@ -6,7 +6,6 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import { JSX } from '@stencil/core';
 import {
   MarkdownHeading,
   SiteStructureItem,
@@ -33,7 +32,6 @@ export namespace Components {
     'name'?: string;
     'sourceUrl'?: string;
   }
-  interface DemosPage {}
   interface DocComponent {
     'page': string;
   }
@@ -90,7 +88,6 @@ declare namespace LocalJSX {
     'name'?: string;
     'sourceUrl'?: string;
   }
-  interface DemosPage extends JSXBase.HTMLAttributes {}
   interface DocComponent extends JSXBase.HTMLAttributes {
     'page'?: string;
   }
@@ -127,62 +124,41 @@ declare namespace LocalJSX {
   }
   interface SiteTopBar extends JSXBase.HTMLAttributes {}
 
-  interface ElementInterfaces {
-    'AppBurger': Components.AppBurger;
-    'AppIcon': Components.AppIcon;
-    'AppRoot': Components.AppRoot;
-    'ContributorList': Components.ContributorList;
-    'CustomClock': Components.CustomClock;
-    'DemoCard': Components.DemoCard;
-    'DemosPage': Components.DemosPage;
-    'DocComponent': Components.DocComponent;
-    'DsPage': Components.DsPage;
-    'HighlightCode': Components.HighlightCode;
-    'InPageNavigation': Components.InPageNavigation;
-    'LandingPage': Components.LandingPage;
-    'LazyIframe': Components.LazyIframe;
-    'LowerContentNav': Components.LowerContentNav;
-    'NotfoundPage': Components.NotfoundPage;
-    'PwasPage': Components.PwasPage;
-    'ResourcesPage': Components.ResourcesPage;
-    'SiteHeader': Components.SiteHeader;
-    'SiteMenu': Components.SiteMenu;
-    'SiteTopBar': Components.SiteTopBar;
-  }
-
   interface IntrinsicElements {
-    'AppBurger': LocalJSX.AppBurger;
-    'AppIcon': LocalJSX.AppIcon;
-    'AppRoot': LocalJSX.AppRoot;
-    'ContributorList': LocalJSX.ContributorList;
-    'CustomClock': LocalJSX.CustomClock;
-    'DemoCard': LocalJSX.DemoCard;
-    'DemosPage': LocalJSX.DemosPage;
-    'DocComponent': LocalJSX.DocComponent;
-    'DsPage': LocalJSX.DsPage;
-    'HighlightCode': LocalJSX.HighlightCode;
-    'InPageNavigation': LocalJSX.InPageNavigation;
-    'LandingPage': LocalJSX.LandingPage;
-    'LazyIframe': LocalJSX.LazyIframe;
-    'LowerContentNav': LocalJSX.LowerContentNav;
-    'NotfoundPage': LocalJSX.NotfoundPage;
-    'PwasPage': LocalJSX.PwasPage;
-    'ResourcesPage': LocalJSX.ResourcesPage;
-    'SiteHeader': LocalJSX.SiteHeader;
-    'SiteMenu': LocalJSX.SiteMenu;
-    'SiteTopBar': LocalJSX.SiteTopBar;
+    'app-burger': AppBurger;
+    'app-icon': AppIcon;
+    'app-root': AppRoot;
+    'contributor-list': ContributorList;
+    'custom-clock': CustomClock;
+    'demo-card': DemoCard;
+    'doc-component': DocComponent;
+    'ds-page': DsPage;
+    'highlight-code': HighlightCode;
+    'in-page-navigation': InPageNavigation;
+    'landing-page': LandingPage;
+    'lazy-iframe': LazyIframe;
+    'lower-content-nav': LowerContentNav;
+    'notfound-page': NotfoundPage;
+    'pwas-page': PwasPage;
+    'resources-page': ResourcesPage;
+    'site-header': SiteHeader;
+    'site-menu': SiteMenu;
+    'site-top-bar': SiteTopBar;
   }
 }
+
 export { LocalJSX as JSX };
+
 
 declare module "@stencil/core" {
   export namespace JSX {
-    interface ElementInterfaces extends LocalJSX.ElementInterfaces {}
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
 
+
 declare global {
+
 
 
   interface HTMLAppBurgerElement extends Components.AppBurger, HTMLStencilElement {}
@@ -219,12 +195,6 @@ declare global {
   var HTMLDemoCardElement: {
     prototype: HTMLDemoCardElement;
     new (): HTMLDemoCardElement;
-  };
-
-  interface HTMLDemosPageElement extends Components.DemosPage, HTMLStencilElement {}
-  var HTMLDemosPageElement: {
-    prototype: HTMLDemosPageElement;
-    new (): HTMLDemosPageElement;
   };
 
   interface HTMLDocComponentElement extends Components.DocComponent, HTMLStencilElement {}
@@ -304,37 +274,14 @@ declare global {
     prototype: HTMLSiteTopBarElement;
     new (): HTMLSiteTopBarElement;
   };
-  interface HTMLElementTagNameMap {
-    'app-burger': HTMLAppBurgerElement
-    'app-icon': HTMLAppIconElement
-    'app-root': HTMLAppRootElement
-    'contributor-list': HTMLContributorListElement
-    'custom-clock': HTMLCustomClockElement
-    'demo-card': HTMLDemoCardElement
-    'demos-page': HTMLDemosPageElement
-    'doc-component': HTMLDocComponentElement
-    'ds-page': HTMLDsPageElement
-    'highlight-code': HTMLHighlightCodeElement
-    'in-page-navigation': HTMLInPageNavigationElement
-    'landing-page': HTMLLandingPageElement
-    'lazy-iframe': HTMLLazyIframeElement
-    'lower-content-nav': HTMLLowerContentNavElement
-    'notfound-page': HTMLNotfoundPageElement
-    'pwas-page': HTMLPwasPageElement
-    'resources-page': HTMLResourcesPageElement
-    'site-header': HTMLSiteHeaderElement
-    'site-menu': HTMLSiteMenuElement
-    'site-top-bar': HTMLSiteTopBarElement
-  }
 
-  interface ElementTagNameMap {
+  interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-root': HTMLAppRootElement;
     'contributor-list': HTMLContributorListElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
-    'demos-page': HTMLDemosPageElement;
     'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
     'highlight-code': HTMLHighlightCodeElement;
@@ -349,5 +296,7 @@ declare global {
     'site-menu': HTMLSiteMenuElement;
     'site-top-bar': HTMLSiteTopBarElement;
   }
+
+  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
 

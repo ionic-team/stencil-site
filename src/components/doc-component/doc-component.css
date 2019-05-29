@@ -1,9 +1,13 @@
 
 doc-component {
+
+}
+
+doc-component  .container-inner {
   display: flex;
-  margin-bottom: 100px;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 doc-component h1 {
