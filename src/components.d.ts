@@ -46,16 +46,6 @@ export namespace Components {
     'srcUrl': string;
   }
   interface LandingPage {}
-  interface LazyIframe {
-    'frameBorder'?: string;
-    'height'?: string;
-    'identifier'?: string;
-    'isVideo'?: boolean;
-    'name'?: string;
-    'scrolling'?: string;
-    'src'?: string;
-    'width'?: string;
-  }
   interface LowerContentNav {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
@@ -71,6 +61,7 @@ export namespace Components {
   interface SiteTopBar {}
 }
 
+<<<<<<< HEAD
 declare namespace LocalJSX {
   interface AppBurger extends JSXBase.HTMLAttributes {
     'toggleLeftSidebar'?: () => void;
@@ -164,6 +155,8 @@ declare module "@stencil/core" {
 }
 
 
+=======
+>>>>>>> next
 declare global {
 
 
@@ -240,12 +233,6 @@ declare global {
     new (): HTMLLandingPageElement;
   };
 
-  interface HTMLLazyIframeElement extends Components.LazyIframe, HTMLStencilElement {}
-  var HTMLLazyIframeElement: {
-    prototype: HTMLLazyIframeElement;
-    new (): HTMLLazyIframeElement;
-  };
-
   interface HTMLLowerContentNavElement extends Components.LowerContentNav, HTMLStencilElement {}
   var HTMLLowerContentNavElement: {
     prototype: HTMLLowerContentNavElement;
@@ -287,7 +274,10 @@ declare global {
     prototype: HTMLSiteTopBarElement;
     new (): HTMLSiteTopBarElement;
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> next
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
@@ -301,7 +291,6 @@ declare global {
     'highlight-code': HTMLHighlightCodeElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
-    'lazy-iframe': HTMLLazyIframeElement;
     'lower-content-nav': HTMLLowerContentNavElement;
     'notfound-page': HTMLNotfoundPageElement;
     'pwas-page': HTMLPwasPageElement;
@@ -312,5 +301,87 @@ declare global {
   }
 
   interface ElementTagNameMap extends HTMLElementTagNameMap {}
+<<<<<<< HEAD
+=======
 }
+
+declare namespace LocalJSX {
+  interface AppBurger extends JSXBase.HTMLAttributes<HTMLAppBurgerElement> {
+    'toggleLeftSidebar'?: () => void;
+  }
+  interface AppIcon extends JSXBase.HTMLAttributes<HTMLAppIconElement> {
+    'name'?: string;
+  }
+  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface ContributorList extends JSXBase.HTMLAttributes<HTMLContributorListElement> {
+    'contributors'?: string[];
+  }
+  interface CustomClock extends JSXBase.HTMLAttributes<HTMLCustomClockElement> {}
+  interface DemoCard extends JSXBase.HTMLAttributes<HTMLDemoCardElement> {
+    'SourceBufferList'?: string;
+    'demoUrl'?: string;
+    'description'?: string;
+    'imgPath'?: string;
+    'name'?: string;
+    'sourceUrl'?: string;
+  }
+  interface DemosPage extends JSXBase.HTMLAttributes<HTMLDemosPageElement> {}
+  interface DocComponent extends JSXBase.HTMLAttributes<HTMLDocComponentElement> {
+    'page'?: string;
+  }
+  interface DsPage extends JSXBase.HTMLAttributes<HTMLDsPageElement> {}
+  interface HighlightCode extends JSXBase.HTMLAttributes<HTMLHighlightCodeElement> {}
+  interface InPageNavigation extends JSXBase.HTMLAttributes<HTMLInPageNavigationElement> {
+    'currentPageUrl'?: string;
+    'pageLinks'?: MarkdownHeading[];
+    'srcUrl'?: string;
+  }
+  interface LandingPage extends JSXBase.HTMLAttributes<HTMLLandingPageElement> {}
+  interface LowerContentNav extends JSXBase.HTMLAttributes<HTMLLowerContentNavElement> {
+    'next'?: SiteStructureItem;
+    'prev'?: SiteStructureItem;
+  }
+  interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
+  interface PwasPage extends JSXBase.HTMLAttributes<HTMLPwasPageElement> {}
+  interface ResourcesPage extends JSXBase.HTMLAttributes<HTMLResourcesPageElement> {}
+  interface SiteHeader extends JSXBase.HTMLAttributes<HTMLSiteHeaderElement> {}
+  interface SiteMenu extends JSXBase.HTMLAttributes<HTMLSiteMenuElement> {
+    'selectedParent'?: SiteStructureItem;
+    'siteStructureList'?: SiteStructureItem[];
+  }
+  interface SiteTopBar extends JSXBase.HTMLAttributes<HTMLSiteTopBarElement> {}
+
+  interface IntrinsicElements {
+    'app-burger': AppBurger;
+    'app-icon': AppIcon;
+    'app-root': AppRoot;
+    'contributor-list': ContributorList;
+    'custom-clock': CustomClock;
+    'demo-card': DemoCard;
+    'demos-page': DemosPage;
+    'doc-component': DocComponent;
+    'ds-page': DsPage;
+    'highlight-code': HighlightCode;
+    'in-page-navigation': InPageNavigation;
+    'landing-page': LandingPage;
+    'lower-content-nav': LowerContentNav;
+    'notfound-page': NotfoundPage;
+    'pwas-page': PwasPage;
+    'resources-page': ResourcesPage;
+    'site-header': SiteHeader;
+    'site-menu': SiteMenu;
+    'site-top-bar': SiteTopBar;
+  }
+>>>>>>> next
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
 
