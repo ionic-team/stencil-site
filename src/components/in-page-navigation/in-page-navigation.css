@@ -98,6 +98,10 @@ in-page-navigation .submit-edit-link {
   display: flex;
 }
 
+in-page-navigation .submit-edit-link svg {
+  fill: var(--color-dodger-blue);
+}
+
 in-page-navigation .submit-edit-link span {
   transition: border 0.2s;
   height: 16px;
