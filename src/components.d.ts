@@ -198,8 +198,6 @@ declare global {
     'site-menu': HTMLSiteMenuElement;
     'site-top-bar': HTMLSiteTopBarElement;
   }
-
-  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
 
 declare namespace LocalJSX {
