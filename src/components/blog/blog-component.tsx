@@ -14,7 +14,7 @@ export class BlogIndex {
     }
   }
 
-  @Watch('page')
+  @Watch('pageUrl')
   fetchContent() {
     return fetch(`/assets${this.pageUrl}.html`)
       .then(response => response.text())
@@ -34,14 +34,22 @@ export class BlogIndex {
   ]
 
   constructor() {
-    document.title = `Stencil Blog`;
+    if (this.pageUrl) {
+      const post = this.POSTS.find(o => o.url === this.pageUrl);
+      document.title = `Stencil Blog - ${post.title}`;
+    } else {
+      document.title = `Stencil Blog`;
+    }
   }
 
+
   render() {
-    // if route had a /blog/:post param render the post, otherwise render the blog index
+    // if route had a /blog/:post param then render the post, otherwise render the blog index
 
     if (this.pageUrl) {
       const post = this.POSTS.find(o => o.url === this.pageUrl);
+      document.title = `Stencil Blog - ${post.title}`;
+
       return (
         <div class="blog-content measure-lg">
           <h1>{post.title}</h1>
@@ -52,6 +60,8 @@ export class BlogIndex {
         </div>
       );
     }
+
+    document.title = `Stencil Blog`;
 
     return (
       <div class="container">
