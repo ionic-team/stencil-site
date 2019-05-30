@@ -42,7 +42,6 @@ export class BlogIndex {
     }
   }
 
-
   render() {
     // if route had a /blog/:post param then render the post, otherwise render the blog index
 
@@ -60,8 +59,6 @@ export class BlogIndex {
         </div>
       );
     }
-
-    document.title = `Stencil Blog`;
 
     return (
       <div class="container">
