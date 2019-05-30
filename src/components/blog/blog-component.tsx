@@ -47,13 +47,14 @@ export class BlogIndex {
 
     if (this.pageUrl) {
       const post = this.POSTS.find(o => o.url === this.pageUrl);
+      const authorSlug = post.author.toLowerCase().replace(' ', '-');
       document.title = `Stencil Blog - ${post.title}`;
 
       return (
-        <div class="blog-content measure-lg">
+        <div class="blog-content container">
           <h1>{post.title}</h1>
           <span class="post-meta">
-            {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
+            <img class="post-author-image" src={`/assets/blog/img/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
           </span>
           <div innerHTML={this.postContent}></div>
         </div>
@@ -64,11 +65,12 @@ export class BlogIndex {
       <div class="container">
       {
         this.POSTS.map(post => {
+          const authorSlug = post.author.toLowerCase().replace(' ', '-');
           return (
             <div class="blog-item">
               <h1>{post.title}</h1>
               <span class="post-meta">
-                {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
+                <img class="post-author-image" src={`/assets/blog/img/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
               </span>
               <p>{post.description}</p>
               <stencil-route-link url={post.url}>

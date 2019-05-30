@@ -19,6 +19,7 @@ h1 a {
   font-size: 32px;
   line-height: 38px;
   font-weight: 600;
+  letter-spacing: -0.012em;
   color: var(--color-woodsmoke);
 }
 

@@ -14,6 +14,8 @@ blog-component .post-meta {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
 }
 
 blog-component h1 {
@@ -38,13 +40,11 @@ blog-component .blog-item a {
 }
 
 blog-component .blog-content {
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 640px;
   margin-bottom: 160px;
 }
 
 blog-component .blog-content .post-meta {
-  display: inline-block;
   margin-bottom: 80px;
 }
 
@@ -55,7 +55,14 @@ blog-component h3 {
   padding-top: 25px;
 }
 
-blog-component .blog-content img,
+blog-component .blog-content img:not(.post-author-image),
 blog-component .blog-content svg {
   width: 100%;
+}
+
+blog-component .post-author-image {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  flex: 0 0 24px;
 }
