@@ -84,6 +84,12 @@ export class AppRoot {
               <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
                 <doc-component page={match.url}></doc-component>
               )}/>
+
+              <stencil-route url="/blog/:pageName" routeRender={({ match }) => (
+                <blog-component pageUrl={match.url}></blog-component>
+              )}/>
+              <stencil-route url="/blog" component="blog-component" />
+
               <stencil-route url="/pwa" component="pwas-page" />
               <stencil-route url="/resources" component="resources-page" />
               <stencil-route url="/design-systems" component="ds-page" />
@@ -104,27 +110,6 @@ export class AppRoot {
                 <p>
                   Released under <span id="mit">MIT License</span> | Copyright @ 2018
                 </p>
-              </div>
-
-              <div class="footer__icons">
-                <a
-                  class="svg-button"
-                  id="stencil-twitter"
-                  href="https://twitter.com/stenciljs"
-                  target="_blank"
-                  rel="noopener"
-                  title="Open the stencil account on twitter">
-                  <app-icon name="twitter"></app-icon>
-                </a>
-                <a
-                  class="svg-button"
-                  id="ionic-forum"
-                  href="https://stencil-worldwide.herokuapp.com"
-                  target="_blank"
-                  rel="noopener"
-                  title="Join the stencil worldwide slack">
-                  <app-icon name="slack"></app-icon>
-                </a>
               </div>
             </div>
           </footer>

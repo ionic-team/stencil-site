@@ -20,6 +20,9 @@ export namespace Components {
     'name'?: string;
   }
   interface AppRoot {}
+  interface BlogComponent {
+    'pageUrl': string;
+  }
   interface ContributorList {
     'contributors': string[];
   }
@@ -76,6 +79,9 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface AppRoot extends JSXBase.HTMLAttributes {}
+  interface BlogComponent extends JSXBase.HTMLAttributes {
+    'pageUrl'?: string;
+  }
   interface ContributorList extends JSXBase.HTMLAttributes {
     'contributors'?: string[];
   }
@@ -128,6 +134,7 @@ declare namespace LocalJSX {
     'app-burger': AppBurger;
     'app-icon': AppIcon;
     'app-root': AppRoot;
+    'blog-component': BlogComponent;
     'contributor-list': ContributorList;
     'custom-clock': CustomClock;
     'demo-card': DemoCard;
@@ -177,6 +184,12 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
+  };
+
+  interface HTMLBlogComponentElement extends Components.BlogComponent, HTMLStencilElement {}
+  var HTMLBlogComponentElement: {
+    prototype: HTMLBlogComponentElement;
+    new (): HTMLBlogComponentElement;
   };
 
   interface HTMLContributorListElement extends Components.ContributorList, HTMLStencilElement {}
@@ -279,6 +292,7 @@ declare global {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-root': HTMLAppRootElement;
+    'blog-component': HTMLBlogComponentElement;
     'contributor-list': HTMLContributorListElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;

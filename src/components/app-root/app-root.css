@@ -49,8 +49,12 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100.1vh;
-  padding-top: 40px;
+  min-height: calc(100vh - 64px);
+  padding-top: 80px;
+}
+
+stencil-router {
+  flex: 1;
 }
 
 @media screen and (max-width: 768px) {

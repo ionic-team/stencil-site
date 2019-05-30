@@ -9,11 +9,13 @@ import { SiteStructureItem } from '../src/global/definitions';
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+const DESTINATION_FILE = './src/assets/docs-structure.json';
+const SOURCE_FILE = './src/docs/README.md';
+const ASSETS_DIR = '/assets/docs';
+
 const renderer = new marked.Renderer();
 
-siteStructure('./src/assets/docs-structure.json', './src/docs/README.md', '/assets/docs');
-
-async function siteStructure(DESTINATION_FILE, SOURCE_FILE, ASSETS_DIR) {
+(async function() {
   const metadataList: SiteStructureItem[] = [];
   const markdownContents = await readFile(SOURCE_FILE, { encoding: 'utf8' });
 
@@ -30,7 +32,7 @@ async function siteStructure(DESTINATION_FILE, SOURCE_FILE, ASSETS_DIR) {
   await writeFile(DESTINATION_FILE, JSON.stringify(metadataList, null, 2), {
     encoding: 'utf8'
   });
-};
+})();
 
 async function walkUpdateChildren(itemList, sourcePath) {
   for (const item of itemList) {
