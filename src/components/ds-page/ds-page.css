@@ -4,7 +4,7 @@
 .ds-blurb {
 }
 
-.measure-lg {
+ds-page .measure-lg {
   margin-left: auto;
   margin-right: auto;
 }
