@@ -1,3 +1,8 @@
+landing-page {
+  display: block;
+  overflow: hidden;
+}
+
 landing-page .hero {
   position: relative;
   margin-top: 120px;
@@ -8,11 +13,11 @@ landing-page .hero hgroup {
   max-width: 620px;
   position: relative;
   z-index: 2;
-
 }
 
 landing-page .hero hgroup h1 {
   font-size: 56px;
+  line-height: 54px;
   margin-bottom: 20px;
   letter-spacing: -0.018em;
   font-weight: 600;
@@ -26,7 +31,11 @@ landing-page .hero hgroup p {
   margin-bottom: 32px;
 }
 
-landing-page .hero hgroup .btn + .btn {
+landing-page .hero hgroup stencil-route-link {
+  display: inline-block;
+}
+
+landing-page .hero hgroup stencil-route-link + stencil-route-link {
   margin-left: 10px;
 }
 
@@ -362,11 +371,12 @@ landing-page .video-thumbnail:hover svg circle {
 
 
 @media screen and (max-width: 375px) {
-  landing-page .hero hgroup .btn {
+  landing-page .hero hgroup stencil-route-link,
+  landing-page .hero hgroup stencil-route-link a {
     width: 100%;
     display: block;
   }
-  landing-page .hero hgroup .btn + .btn {
+  landing-page .hero hgroup stencil-route-link + stencil-route-link {
     margin-left: 0;
     margin-top: 12px;
   }
