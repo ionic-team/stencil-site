@@ -60,6 +60,7 @@ stencil-router {
 @media screen and (max-width: 768px) {
   main {
     padding-top: 92px;
+    min-height: 100vh;
   }
 }
 
