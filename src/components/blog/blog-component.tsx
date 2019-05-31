@@ -8,11 +8,33 @@ export class BlogIndex {
   @Prop() pageUrl: string;
   @State() postContent: string
 
+  POSTS = [
+    {
+      title: 'Announcing Stencil 1.0.0',
+      date: 'June 6, 2019',
+      url: '/blog/announcing-stencil-one',
+      author: 'Manu Almeida',
+      description: 'Today, we’re thrilled to announce the release of Stencil 1.0 final (what we’re calling Stencil One), featuring an all-new compiler architecture. It is not only able to better optimize your components, but is designed to be completely future-proof.',
+      img:'/assets/img/blog/og/stencil-one.png'
+    }
+  ]
+
   componentWillLoad() {
     if (this.pageUrl) {
+      const post = this.POSTS.find(o => o.url === this.pageUrl);
+      insertOgTags(post);
+      document.title = `Stencil Blog - ${post.title}`;
       return this.fetchContent();
+    } else {
+      cleanOgTags();
+      document.title = `Stencil Blog`;
     }
   }
+
+  componentDidUnload(){
+    cleanOgTags();
+  }
+
 
   @Watch('pageUrl')
   fetchContent() {
@@ -21,25 +43,6 @@ export class BlogIndex {
       .then(data => {
         this.postContent = data;
       });
-  }
-
-  POSTS = [
-    {
-      title: 'Announcing Stencil 1.0.0',
-      date: 'June 6, 2019',
-      url: '/blog/announcing-stencil-one',
-      author: 'Manu Almeida',
-      description: 'Today, we’re thrilled to announce the release of Stencil 1.0 final (what we’re calling Stencil One), featuring an all-new compiler architecture. It is not only able to better optimize your components, but is designed to be completely future-proof.'
-    }
-  ]
-
-  constructor() {
-    if (this.pageUrl) {
-      const post = this.POSTS.find(o => o.url === this.pageUrl);
-      document.title = `Stencil Blog - ${post.title}`;
-    } else {
-      document.title = `Stencil Blog`;
-    }
   }
 
   render() {
@@ -54,7 +57,7 @@ export class BlogIndex {
         <div class="blog-content container">
           <h1>{post.title}</h1>
           <span class="post-meta">
-            <img class="post-author-image" src={`/assets/blog/img/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
+            <img class="post-author-image" src={`/assets/img/blog/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
           </span>
           <div innerHTML={this.postContent}></div>
         </div>
@@ -70,7 +73,7 @@ export class BlogIndex {
             <div class="blog-item">
               <h1>{post.title}</h1>
               <span class="post-meta">
-                <img class="post-author-image" src={`/assets/blog/img/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
+                <img class="post-author-image" src={`/assets/img/blog/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
               </span>
               <p>{post.description}</p>
               <stencil-route-link url={post.url}>
@@ -84,4 +87,31 @@ export class BlogIndex {
       </div>
     );
   }
+}
+
+
+function insertOgTags(post) {
+  cleanOgTags();
+  const ogTitle = createOgTag('og:title', `Stencil Blog - ${post.title}`);
+  const ogDescription = createOgTag('og:description', post.description);
+  const ogUrl = createOgTag('og:url', window.location.href);
+  const ogImage = createOgTag('og:image', `${window.location.origin}${post.img}`);
+  document.head.appendChild(ogTitle);
+  document.head.appendChild(ogDescription);
+  document.head.appendChild(ogUrl);
+  document.head.appendChild(ogImage);
+}
+
+function cleanOgTags() {
+  const tags = document.querySelectorAll('meta[property^="og:"]');
+  for (var i = 0; i < tags.length; i++) {
+    tags[i].remove();
+  }
+}
+
+function createOgTag(type, content) {
+  const el = document.createElement('meta');
+    el.setAttribute('property', type);
+    el.content = content;
+  return el;
 }
