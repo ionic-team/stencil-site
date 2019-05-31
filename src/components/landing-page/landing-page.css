@@ -158,7 +158,8 @@ landing-page section ul + p {
   margin-top: 16px;
 }
 
-landing-page section p + .btn {
+landing-page section p + stencil-route-link {
+  display: inline-block;
   margin-top: 20px;
 }
 

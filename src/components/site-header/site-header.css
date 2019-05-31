@@ -151,6 +151,7 @@ site-header .container {
   .header-menu stencil-route-link a {
     font-size: 24px;
     color: rgba(235, 235, 247, 0.7);
+    fill: rgba(235, 235, 247, 0.7);
   }
   .header-menu stencil-route-link a:hover,
   .header-menu stencil-route-link a.link-active {
@@ -159,14 +160,30 @@ site-header .container {
   .header-menu stencil-route-link a.link-active,
   .header-menu stencil-route-link a.link-active:hover {
     color: var(--color-white);
+    fill: var(--color-white);
   }
   .header-menu stencil-route-link,
-  .header-menu .link--external {
+  .header-menu .external-links {
     transition: transform 0.4s;
     transform: translateY(8px);
   }
   .header-menu .link--external:hover {
     color: var(--color-white);
+  }
+  .header-menu .external-links li + li {
+    margin-left: 24px;
+  }
+  .header-menu .link--external svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header-menu stencil-route-link + .external-links {
+    margin-left: 0;
+    margin-top: 48px;
+  }
+  .header-menu .stencil-ds svg {
+    transform: translate(-2px, 6px);
   }
 
   .show-mobile-menu {
@@ -178,7 +195,7 @@ site-header .container {
   }
 
   .show-mobile-menu .header-menu stencil-route-link,
-  .show-mobile-menu .header-menu .link--external {
+  .show-mobile-menu .header-menu .external-links {
     transform: translateY(0);
   }
 
