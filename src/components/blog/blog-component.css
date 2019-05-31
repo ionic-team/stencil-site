@@ -3,9 +3,8 @@ blog-component app-icon {
 }
 
 blog-component .container {
-  margin-top: 00px;
   margin-bottom: 160px;
-  max-width: 640px;
+  position: relative;
 }
 
 blog-component .post-meta {
@@ -39,8 +38,11 @@ blog-component .blog-item a {
   font-size: 16px;
 }
 
+blog-component .blog-index,
 blog-component .blog-content {
   max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 160px;
 }
 
@@ -65,4 +67,33 @@ blog-component .post-author-image {
   height: 24px;
   margin-right: 8px;
   flex: 0 0 24px;
+}
+
+blog-component .share-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+blog-component .share-links .sticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 24px;
+}
+
+blog-component .share-links a svg {
+  transition: fill 0.2s;
+  fill: #CED6E0;
+  width: 24px;
+  height: 24px;
+}
+
+blog-component .share-links a:hover svg{
+  fill: #B2BECD;
+}
+
+blog-component .share-links a + a {
+  margin-top: 12px;
 }

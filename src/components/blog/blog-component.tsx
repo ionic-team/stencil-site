@@ -54,18 +54,41 @@ export class BlogIndex {
       document.title = `Stencil Blog - ${post.title}`;
 
       return (
-        <div class="blog-content container">
-          <h1>{post.title}</h1>
-          <span class="post-meta">
-            <img class="post-author-image" src={`/assets/img/blog/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
-          </span>
-          <div innerHTML={this.postContent}></div>
+        <div class="container">
+
+        <div class="share-links">
+          <div class="sticky">
+            <a href={`http://twitter.com/home?status=${post.title}`} class="twitter" onClick={ function(ev){
+              ev.preventDefault();
+              window.open(this.href, 'Share via Twitter', 'width=400, height=300');}}>
+              <app-icon name="twitter"></app-icon>
+            </a>
+            <a href={`http://www.facebook.com/share.php?u=${window.location.href}&title=${post.title}`} class="facebook" onClick={ function(ev){
+              ev.preventDefault();
+              window.open(this.href, 'Share via Facebook', 'width=555, height=656');}}>
+              <app-icon name="facebook"></app-icon>
+            </a>
+            <a href={`http://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=${post.title}`} class="linkedin" onClick={ function(ev){
+              ev.preventDefault();
+              window.open(this.href, 'Share via LinkedIn', 'width=500, height=600');}}>
+              <app-icon name="linkedin"></app-icon>
+            </a>
+          </div>
+        </div>
+
+          <div class="blog-content">
+            <h1>{post.title}</h1>
+            <span class="post-meta">
+              <img class="post-author-image" src={`/assets/img/blog/authors/${authorSlug}.png`}/> {post.author}&nbsp;&nbsp;|&nbsp;&nbsp;{post.date}
+            </span>
+            <div innerHTML={this.postContent}></div>
+          </div>
         </div>
       );
     }
 
     return (
-      <div class="container">
+      <div class="container blog-index">
       {
         this.POSTS.map(post => {
           const authorSlug = post.author.toLowerCase().replace(' ', '-');
