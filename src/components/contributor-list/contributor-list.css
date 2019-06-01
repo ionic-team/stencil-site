@@ -1,8 +1,14 @@
 contributor-list {
   display: block;
+  margin-top: 60px;
 }
 
-contributor-list ul.img-list {
+contributor-list h5 {
+  margin: 10px 0;
+}
+
+
+contributor-list ul {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -11,8 +17,35 @@ contributor-list ul.img-list {
   padding: 0;
 }
 
-contributor-list li:not(:last-child) {
+contributor-list ul li:not(:last-child){
   margin-left: -10px;
+}
+
+contributor-list ul li:hover {
+  z-index: 5;
+}
+
+contributor-list a {
+  transition: transform 50ms ease-out;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-dodger-blue);
+  font-size: 11px;
+  border: 0;
+}
+
+contributor-list a:hover {
+  border: 0;
+  transform: scale(1.125);
+  z-index: 1;
+}
+
+contributor-list .img-wrapper {
+  border-radius: 100%;
+  display: inline-block;
+  overflow: hidden;
+  border: 2px solid #fff;
 }
 
 contributor-list img {
@@ -21,17 +54,4 @@ contributor-list img {
   height: 32px;
   width: 32px;
   border: 2px solid #FFF;
-}
-
-contributor-list a.contributor-img {
-  display: block;
-  border: none;
-  transition: transform 50ms ease-out;
-}
-
-@media (hover: hover) {
-  contributor-list a:hover {
-    transform: scale(1.125);
-    z-index: 1;
-  }
 }

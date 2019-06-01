@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop, Element, h } from '@stencil/core';
 import SiteProviderConsumer from '../../global/site-provider-consumer';
 
 @Component({
@@ -6,7 +6,7 @@ import SiteProviderConsumer from '../../global/site-provider-consumer';
   styleUrl: 'app-burger.css'
 })
 export class AppBurger {
-  @Element() el!: HTMLStencilElement;
+  @Element() el!: HTMLElement;
   @Prop() toggleLeftSidebar: () => void = () => {}
 
   render() {

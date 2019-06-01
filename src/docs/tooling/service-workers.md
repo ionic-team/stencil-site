@@ -128,7 +128,7 @@ The following example showcases this in combination with the Ionic framework, bu
 @Prop({ connect: 'ion-toast-controller' })
 toastCtrl: HTMLIonToastControllerElement;
 
-@Listen("window:swUpdate")
+@Listen("swUpdate", { target: 'window' })
 async onSWUpdate() {
   const registration = await navigator.serviceWorker.getRegistration();
 

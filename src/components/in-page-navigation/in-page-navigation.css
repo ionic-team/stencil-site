@@ -1,6 +1,8 @@
 in-page-navigation {
   flex: 0 0 180px;
   height: 100%;
+  position: sticky;
+  top: 24px;
 }
 
 in-page-navigation h5 {
@@ -94,6 +96,10 @@ in-page-navigation .submit-edit-link {
   font-weight: 600;
   text-decoration: none;
   display: flex;
+}
+
+in-page-navigation .submit-edit-link svg {
+  fill: var(--color-dodger-blue);
 }
 
 in-page-navigation .submit-edit-link span {

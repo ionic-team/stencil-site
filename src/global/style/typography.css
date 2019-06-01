@@ -16,8 +16,10 @@ body {
 
 h1,
 h1 a {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
   color: var(--color-woodsmoke);
 }
 

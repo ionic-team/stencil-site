@@ -5,6 +5,7 @@ url: /docs/build-variables
 contributors:
   - jthoms1
 ---
+
 # Build Constants
 
 Build Constants in Stencil allow you to run specific code only when Stencil is running in development mode. This code is stripped from your bundles when doing a production build, therefore keeping your bundles as small as possible.
@@ -28,11 +29,17 @@ export class StencilApp {
     } else {
       console.log('im running in production');
     }
+
+    if (Build.isBrowser) {
+      console.log('im in the browser');
+    } else {
+      console.log('im in prerendering (server)');
+    }
   }
 }
 ```
 
-As you can see from this example, we just need to import `Build` from `@stencil/core` and then we can use the `isDev` constant to detect when we are running in dev mode or production mode. 
+As you can see from this example, we just need to import `Build` from `@stencil/core` and then we can use the `isDev` constant to detect when we are running in dev mode or production mode.
 
 ### Use Cases
 
