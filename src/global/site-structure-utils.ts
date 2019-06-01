@@ -7,7 +7,7 @@ export interface ItemInfo {
   parent?: SiteStructureItem
 }
 
-export function findItem(siteStructureList: SiteStructureItem[], url: string, foundData: ItemInfo = { parent: null }) {
+export const findItem = (siteStructureList: SiteStructureItem[], url: string, foundData: ItemInfo = { parent: null }) => {
 
   for (const item of siteStructureList) {
     if (item.url === url) {
@@ -29,4 +29,12 @@ export function findItem(siteStructureList: SiteStructureItem[], url: string, fo
   }
 
   return foundData;
-}
+};
+
+
+export const fileNotFound = () => {
+  const metaTag = document.createElement('meta');
+  metaTag.setAttribute('http-equiv', 'status');
+  metaTag.setAttribute('content', '404');
+  document.head.appendChild(metaTag);
+};

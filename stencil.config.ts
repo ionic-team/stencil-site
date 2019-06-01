@@ -4,11 +4,16 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      serviceWorker: null
+      baseUrl: 'https://stenciljs.com/',
+      prerenderConfig: './prerender.config.js',
+      serviceWorker: {
+        unregister: true
+      }
+    },
+    {
+      type: 'dist-hydrate-script',
+      dir: 'dist/prerender'
     }
   ],
-  globalStyle: 'src/global/style/app.css',
-  copy: [
-    { src: 'robots.txt' }
-  ]
+  globalStyle: 'src/global/style/app.css'
 };
