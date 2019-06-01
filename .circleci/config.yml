@@ -49,7 +49,7 @@ jobs:
 
       - run:
           name: Deploy Prod to Firebase
-          command: ./node_modules/.bin/firebase deploy --project prod --token=$FIREBASE_DEPLOY_TOKEN
+          command: ./node_modules/.bin/firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN
 
   deploy-next:
     <<: *defaults
