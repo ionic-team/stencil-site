@@ -10,8 +10,8 @@ export class ContributorList {
   @Prop() contributors: string[]
 
   render() {
-    if (!this.contributors || this.contributors.length === 0) {
-      return;
+    if (this.contributors.length === 0) {
+      return null;
     }
 
     return (
@@ -33,5 +33,4 @@ export class ContributorList {
       </section>
     );
   }
-
 }

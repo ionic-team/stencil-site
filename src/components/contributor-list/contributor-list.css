@@ -1,4 +1,3 @@
-
 contributor-list {
   display: block;
   margin-top: 60px;
@@ -50,7 +49,9 @@ contributor-list .img-wrapper {
 }
 
 contributor-list img {
-  display: block;
-  width: 45px;
-  height: 45px;
+  border: solid 2px var(--background);
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  border: 2px solid #FFF;
 }

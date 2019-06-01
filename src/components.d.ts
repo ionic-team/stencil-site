@@ -25,6 +25,7 @@ export namespace Components {
   }
   interface ContributorList {
     'contributors': string[];
+    'link': any;
   }
   interface CustomClock {}
   interface DemoCard {
