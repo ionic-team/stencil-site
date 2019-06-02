@@ -13,7 +13,7 @@ contributors:
 
 Depending on which libraries a project is dependent on, the [rollup-plugin-node-builtins](https://www.npmjs.com/package/rollup-plugin-node-builtins) plugin may be required. In such cases, an error message similar to the following will be displayed at build time.
 
-```
+```bash
 [ ERROR ]  Bundling Node Builtin
            For the import "crypto" to be bundled from
            commonjs-external:crypto, ensure the "rollup-plugin-node-builtins"
