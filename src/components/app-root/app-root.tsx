@@ -1,5 +1,6 @@
+import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
-import { Component, Element, Listen, State } from '@stencil/core';
+import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 
 @Component({
@@ -12,14 +13,14 @@ export class AppRoot {
     'site-header',
     'site-menu',
     'app-burger',
-    '.root'
+    'main'
   ];
 
   @Element() el!: HTMLElement;
 
   @State() isLeftSidebarIn: boolean = false;
 
-  @Listen('window:resize')
+  @Listen('resize', { target: 'window' })
   handleResize() {
     requestAnimationFrame(() => {
       if (window.innerWidth > 768 && this.isLeftSidebarIn) {
@@ -31,7 +32,7 @@ export class AppRoot {
       }
     });
   }
-  
+
   setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
@@ -74,25 +75,28 @@ export class AppRoot {
 
     return (
       <SiteProviderConsumer.Provider state={siteState}>
-        <site-top-bar />
         <site-header />
-        <div class="root">
-          <div class="container">
-            <stencil-router scrollTopOffset={0}>
-              <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
-              <stencil-route-switch>
-                <stencil-route url="/" component="landing-page" exact={true} />
-                <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
-                  <document-component page={match.url}></document-component>
-                )}/>
-                <stencil-route url="/demos" component="demos-page" />
-                <stencil-route url="/pwa" component="pwas-page" />
-                <stencil-route url="/resources" component="resources-page" />
-                <stencil-route url="/design-systems" component="ds-page" />
-                <stencil-route component='notfound-page'></stencil-route>
-              </stencil-route-switch>
-            </stencil-router>
-          </div>
+        <main>
+          <stencil-router scrollTopOffset={0}>
+            <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
+            <stencil-route-switch>
+              <stencil-route url="/" component="landing-page" exact={true} />
+              <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
+                <doc-component page={match.url}></doc-component>
+              )}/>
+
+              <stencil-route url="/blog/:pageName" routeRender={({ match }) => (
+                <blog-component pageUrl={match.url}></blog-component>
+              )}/>
+
+              {/*<stencil-route url="/blog" component="blog-component" />*/}
+
+              <stencil-route url="/pwa" component="pwas-page" />
+              <stencil-route url="/resources" component="resources-page" />
+              <stencil-route url="/design-systems" component="ds-page" />
+              <stencil-route component='notfound-page'></stencil-route>
+            </stencil-route-switch>
+          </stencil-router>
           <footer>
             <div class="container">
               <div class="footer__open-source">
@@ -108,38 +112,9 @@ export class AppRoot {
                   Released under <span id="mit">MIT License</span> | Copyright @ 2018
                 </p>
               </div>
-
-              <div class="footer__icons">
-                <iframe
-                  name='Github Star Count'
-                  class='star-button'
-                  src='https://ghbtns.com/github-btn.html?user=ionic-team&repo=stencil&type=star&count=true'
-                  frameBorder='0'
-                  scrolling='0'
-                  width='100px'
-                  height='20px'></iframe>
-                <a
-                  class="svg-button"
-                  id="stencil-twitter"
-                  href="https://twitter.com/stenciljs"
-                  target="_blank"
-                  rel="noopener"
-                  title="Open the stencil account on twitter">
-                  <app-icon name="twitter"></app-icon>
-                </a>
-                <a
-                  class="svg-button"
-                  id="ionic-forum"
-                  href="https://stencil-worldwide.herokuapp.com"
-                  target="_blank"
-                  rel="noopener"
-                  title="Join the stencil worldwide slack">
-                  <app-icon name="slack"></app-icon>
-                </a>
-              </div>
             </div>
           </footer>
-        </div>
+        </main>
       </SiteProviderConsumer.Provider>
     );
   }

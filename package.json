@@ -4,28 +4,33 @@
   "version": "0.0.1",
   "description": "Stencil Site",
   "scripts": {
+    "build": "npm run site.structure && npm run docs && stencil build --prerender",
+    "build.ci": "npm run site.structure && npm run docs && stencil build --prerender --max-workers=1 --ci",
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html",
-    "site-structure": "tsc --p ./scripts && node ./scripts/site-structure",
-    "build-firebase-config": "node scripts/host-to-firebase.js",
-    "build": "npm run site-structure && npm run docs && stencil build --prerender && npm run build-firebase-config",
-    "deploy": "npm run build && firebase deploy",
-    "start": "npm run site-structure && npm run docs && stencil build --dev --watch --serve"
+    "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
+    "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
+    "prerender": "stencil build --prerender",
+    "test": "echo Good",
+    "prerender.dev": "stencil build --dev --prerender",
+    "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
+    "start": "npm run site.structure && npm run docs && stencil build --dev --watch --serve"
   },
   "devDependencies": {
-    "@stencil/core": "^0.17.0",
-    "@stencil/router": "^0.3.1",
-    "@stencil/state-tunnel": "0.0.9-1",
+    "@stencil/core": "1.0.0-beta.8",
+    "@stencil/router": "one",
+    "@stencil/state-tunnel": "one",
     "@stencil/utils": "0.0.5",
-    "@types/glob": "^7.1.0",
+    "@types/glob": "^7.1.1",
     "@types/marked": "^0.6.2",
-    "@types/prismjs": "1.9.0",
-    "copy-text-to-clipboard": "^1.0.4",
-    "firebase-tools": "^6.6.0",
+    "@types/prismjs": "^1.9.1",
+    "copy-text-to-clipboard": "^2.1.0",
+    "firebase-tools": "^6.8.0",
     "front-matter": "^3.0.1",
     "glob": "^7.1.3",
-    "marked": "^0.5.0",
+    "marked": "^0.6.2",
     "node-fetch": "^2.3.0",
-    "prismjs": "1.15.0"
+    "prismjs": "1.16.0",
+    "workbox-build": "4.3.1"
   },
   "author": "Ionic Team",
   "license": "MIT",
@@ -34,7 +39,7 @@
     "url": "git+https://github.com/ionic-team/stencil-site.git"
   },
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
+    "url": "https://github.com/ionic-team/stencil-site"
   },
-  "homepage": "https://github.com/ionic-team/stencil"
+  "homepage": "https://stenciljs.com/"
 }

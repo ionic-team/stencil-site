@@ -66,6 +66,6 @@ async function getMarkdownFileSitePath(filePath) {
     return null;
   }
   const metadata: any = frontMatter(markdownContents);
- 
+
   return (metadata && metadata.attributes ? metadata.attributes.url : null);
 }
