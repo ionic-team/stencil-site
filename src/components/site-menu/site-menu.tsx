@@ -1,4 +1,4 @@
-import { Component, Prop, ComponentInterface } from '@stencil/core';
+import { Component, Prop, ComponentInterface, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 import { SiteStructureItem } from '../../global/definitions';
 
@@ -26,7 +26,7 @@ export class SiteMenu implements ComponentInterface{
             <ul class='menu-list'>
               { this.siteStructureList.map((item) => (
                 <li>
-                  <a href="#" onClick={this.toggleParent(item)}>
+                  <a href={item.children[0].url || '#'} onClick={this.toggleParent(item)}>
                     <span class="section-label">
                       {item.text}
                     </span>

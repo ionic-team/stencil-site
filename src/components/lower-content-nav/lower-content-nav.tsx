@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { SiteStructureItem } from '../../global/definitions';
 
 @Component({
@@ -8,7 +8,7 @@ import { SiteStructureItem } from '../../global/definitions';
 export class LowerContentNav {
 
   @Prop() next?: SiteStructureItem;
-  @Prop() prev?: SiteStructureItem; 
+  @Prop() prev?: SiteStructureItem;
 
   render() {
     return [
