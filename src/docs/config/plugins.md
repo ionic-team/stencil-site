@@ -1,6 +1,6 @@
 ---
-title: Stencil Plugin Config
-description: Stencil Plugin Config
+title: Plugin Config
+description: Plugin Config
 url: /docs/plugins
 contributors:
   - adamdbradley
