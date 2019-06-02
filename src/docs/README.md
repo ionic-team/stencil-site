@@ -39,7 +39,6 @@
   * [dist](output-targets/dist.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
-  * [stats](output-targets/stats.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
   * [Bundling](guides/module-bundling.md)
