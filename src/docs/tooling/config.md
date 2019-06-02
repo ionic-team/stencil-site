@@ -60,10 +60,12 @@ In the copy config below, it will copy the entire directory from `src/docs-conte
 | Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | `openBrowser`   | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
+|`port`| By default the dev server will be started with port 3333. To use a different port, set this number appropriately.|`3333`|
 
 ```tsx
 devServer: {
-  openBrowser: true
+  openBrowser: true,
+  port: 3333
 }
 ```
 
