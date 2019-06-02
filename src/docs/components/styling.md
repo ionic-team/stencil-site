@@ -50,6 +50,9 @@ export class ShadowComponent {
 - Normally you would wrap your styles in the tag name of the component like so:
 
 ```css
+my-element {
+  color: black;
+}
 my-element div {
   background: blue;
 }
@@ -58,6 +61,9 @@ my-element div {
 With Shadow DOM enabled, elements within the shadow root are scoped, and styles outside of the component do not apply. As a result, CSS selectors inside the component can be simplified, and the above example could be:
 
 ```css
+:host {
+  color: black;
+}
 div {
   background: blue;
 }
