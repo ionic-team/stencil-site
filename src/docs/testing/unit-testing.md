@@ -18,7 +18,7 @@ To run unit tests, run `stencil test --spec`. Files ending in `.spec.ts` will be
 
 Typically, unit tests will instantiate a component by importing the class and instantiating it manually.
 Since Stencil components are plain JavaScript objects, you can `new` one up and execute its methods directly
-in order to test them. 
+in order to test them.
 
 ## Example Unit Test
 
