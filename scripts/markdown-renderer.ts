@@ -4,7 +4,7 @@ import path from 'path';
 import loadLanguages from 'prismjs/components/';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
-const languages = ['tsx', 'bash', 'typescript', 'javascript','markup', 'css', 'json', 'diff'];
+const languages = ['tsx', 'bash', 'typescript', 'javascript','markup', 'css', 'json', 'diff', 'html'];
 loadLanguages(languages);
 
 export function findItem(siteStructureList: SiteStructureItem[], filePath: string): SiteStructureItem {

@@ -3,58 +3,65 @@ title: Distributing Web Components Built with Stencil
 description: Distributing Web Components Built with Stencil
 url: /docs/distribution
 contributors:
+  - adamdbradley
   - jthoms1
 ---
 
-# Distributing Output Target: `dist`
+# Distribution Output Target: `dist`
 
-Stencil makes it easy to build and share web components across any framework.
-
-
-## Getting Started
-
-The easiest way to build and distribute web components with Stencil is by using our [stencil-component-starter](https://github.com/ionic-team/stencil-component-starter). This starter includes all of the config and package.json changes that are discussed below by default with instructions in the [readme](https://github.com/ionic-team/stencil-component-starter/blob/master/readme.md).
-
-
-## Distribution Config
-
-Configuring Stencil for distribution is easy. Set the following config options in the `stencil.config.ts` file:
+The `dist` type is to generate the component(s) as a reusable library, such as [Ionic](https://www.npmjs.com/package/@ionic/core). When creating a distribution, the project's `package.json` will also have to be updated. Don't worry, helper messages when compiling will state which package.json properties will need to be updated.
 
 ```tsx
-import { Config } from '@stencil/core';
-
-export const config: Config = {
-  namespace: 'myname',
-  outputTargets: [
-    {
-      type: 'dist'
-    },
-    {
-      type: 'www'
-    }
-  ]
-  ...
-};
+outputTargets: [
+  {
+    type: 'dist'
+  }
+]
 ```
 
-<stencil-route-link url="/docs/config" router="#router" custom="true">
-  Learn more about these config options here.
-</stencil-route-link>
+
+## Config
+
+| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `dir`    | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended this directory is not committed to a repository. | `dist`  |
+| `empty`  | By default, before each build the `dir` directory will be emptied of all files. However, to prevent this directory from being emptied change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
 
 
-You also need to add the following to your `package.json`:
+
+## package.json
+
+The purpose of the `package.json` file is to give other tools instructions on how to find the package's files, and to provide information about the package. For example, bundlers such as [Rollup](https://rollupjs.org/) and [Webpack](https://webpack.js.org/) use this configuration to locate the projects entry files.
+
+An advantage to using the compiler is it is able to provide help on how to best setup the project for distribution. Below is a common setup found within a project's `package.json` file:
 
 ```json
 {
   "main": "dist/index.js",
-  "types": "dist/types/components.d.ts",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/interface.d.ts",
+  "unpkg": "dist/ionic/ionic.js",
+  "collection:main": "dist/collection/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
-    "dist/"
+    "dist/",
+    "css/",
+    "loader/"
   ]
-  ...
 }
 ```
+
+| Property | Description                                                                                | Recommended                       |
+|----------|--------------------------------------------------------------------------------------------|-----------------------------------|
+| `main`   | Entry file in the CommonJS module format.                                                  | `dist/index.js`                   |
+| `module` | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.mjs`                  |
+| `es2015` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
+| `es2017` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
+| `types`  | Entry file to the project's types.                                                         | `dist/types/index.d.ts`           |
+| `unpkg`  | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
+
 
 ## Using your component in a framework
 

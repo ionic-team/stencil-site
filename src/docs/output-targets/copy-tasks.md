@@ -12,7 +12,7 @@ contributors:
 
 Each output target can have its own `copy` config, which is an array of objects that defines any files or folders that should be copied over to the output target's build directory.
 
-### `src`
+### src
 
 Each object in the array must include a `src` property which can be either an absolute path, a relative path from the `srcDir`, or a glob pattern. By default the item copied to the destination will take the same name as the source.
 
@@ -29,7 +29,7 @@ In the `copy` config within the `www` output target example below, the build wil
 ```
 
 
-### `dest`
+### dest
 
 The config can also provide an optional `dest` property which can be either an absolute path, or a path relative to the build directory of that output target. In the example below, we've customized the build directory to be `public` instead of the default, which will copy `src/files/fonts` over to `public/static/images`.
 
@@ -44,7 +44,7 @@ The config can also provide an optional `dest` property which can be either an a
   ]
 ```
 
-### `warn`
+### warn
 
 By default, if a file or directory is not available it will not warn if the copy task cannot find it. To see the warnings if a copy task source cannot be found, please set `warn: true` with the copy config object.
 
