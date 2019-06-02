@@ -15,10 +15,10 @@ import { Prop } from '@stencil/core';
 
 ...
 export class TodoList {
-|   @Prop() color: string;
-|   @Prop() favoriteNumber: number;
-|   @Prop() isSelected: boolean;
-|   @Prop() myHttpService: MyHttpService;
+  @Prop() color: string;
+  @Prop() favoriteNumber: number;
+  @Prop() isSelected: boolean;
+  @Prop() myHttpService: MyHttpService;
 }
 ```
 
@@ -52,7 +52,18 @@ console.log(todoListElement.myHttpService); // MyHttpService
 console.log(todoListElement.color); // blue
 ```
 
-## Prop value mutability
+## Prop options
+
+The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain option, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
+
+```tsx
+export interface PropOptions {
+  attribute?: string;
+  mutable?: boolean;
+  reflect?: boolean;
+```
+
+### Prop mutability
 
 It's important to know, that a Prop is _by default_ immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
 
@@ -63,12 +74,95 @@ import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
+
   @Prop({ mutable: true }) name: string = 'Stencil';
 
   componentDidLoad() {
     this.name = 'Stencil 0.7.0';
   }
 }
+```
+
+### Attribute Name
+
+Properties and component attributes are strongly connected but not necesary the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
+
+In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
+
+Usually the name of a property is the same as the attribute, but this is not always the case. Take the following component as example:
+
+```tsx
+import { Component, Prop} from '@stencil/core';
+
+@Component({ tag: 'my-cmp'})
+class Component {
+  @Prop() value: string;
+  @Prop() isValid: boolean;
+  @Prop() controller: MyController;
+}
+```
+
+This component has **3 properties**, but the compiler will create **only 2** attributes: `value` and `is-valid`.
+
+```markup
+<my-cmp value="Hello" is-valid></my-cmp>
+```
+
+Notice that the `controller` type is not a primitive, since DOM attributes can ONLY be strings, it does not make sense to have an associated DOM attribute called "controller".
+
+At the same time, the `isValid` property follows a _camelCase_ naming, but attributes are case-insensitive, so the attribute name will be `is-valid` by default.
+
+Fortunatelly, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
+
+
+```tsx
+import { Component, Prop} from '@stencil/core';
+
+@Component({ tag: 'my-cmp'})
+class Component {
+  @Prop() value: string;
+  @Prop({ attribute: 'valid' }) isValid: boolean;
+  @Prop({ attribute: 'controller' }) controller: MyController;
+}
+```
+
+By using this option, we are being explicit about which properties have an associated DOM attribute and the name of it.
+
+
+### Reflect Properties Values to Attributes
+
+In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can set the `reflect` option in the `@Prop()` decorator to `true`, since it defaults to `false`:
+
+```tsx
+@Prop({
+  reflect: true
+})
+```
+
+When a "prop" is set to "reflect", it means that their value will be rendered in the DOM as an HTML attribute:
+
+Take the following component as example:
+
+```tsx
+@Component({tag: 'my-cmp'})
+class Cmp {
+  @Prop({reflect: true}) message = 'Hello';
+  @Prop({reflect: false}) value = 'nothing';
+  @Prop({reflect: true}) number = 42;
+}
+```
+
+When rendered in the DOM, it will look like:
+
+```markup
+<my-cmp message="Hello" number="42"></my-cmp>
+```
+
+Notice that the `value` property is not displayed in as an attribute, however it does not mean it's not there, the `number` property still contains the `42` value:
+
+```tsx
+const cmp = document.querySelector('my-cmp');
+console.log(cmp.number); // it prints 42
 ```
 
 ## Prop default values and validation
@@ -80,7 +174,7 @@ import { Prop } from '@stencil/core';
 
 ...
 export class NameElement {
-|  @Prop() name: string = 'Stencil';
+  @Prop() name: string = 'Stencil';
 }
 ```
 
@@ -93,7 +187,7 @@ import { Prop, Watch } from '@stencil/core';
 export class TodoList {
   @Prop() name: string = 'Stencil';
 
-| @Watch('name')
+  @Watch('name')
   validateName(newValue: string, oldValue: string) {
     const isBlank = typeof newValue == null;
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
@@ -101,14 +195,4 @@ export class TodoList {
     if (!has2chars ) { throw new Error('name: has2chars') };
   }
 }
-```
-
-## Reflect Properties to Attributes
-
-In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can use the `reflectToAttr` option in the `@Prop()` decorator:
-
-```tsx
-@Prop({
-  reflectToAttr: true
-})
 ```

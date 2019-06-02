@@ -38,25 +38,29 @@ stencil-site {
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1136px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
   flex: 1 0 auto;
 }
 
-.root {
+main {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100.1vh;
-  /* padding: 110px 0 0; */
-  padding-top: 40px;
+  min-height: calc(100vh - 64px);
+  padding-top: 80px;
+}
+
+stencil-router {
+  flex: 1;
 }
 
 @media screen and (max-width: 768px) {
-  .root {
+  main {
     padding-top: 92px;
+    min-height: 100vh;
   }
 }
 
