@@ -34,7 +34,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-|    { type: 'docs' }
+    { type: 'docs' }
   ]
 };
 ```
@@ -67,7 +67,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-|    { type: 'docs-json' }
+    { type: 'docs-json' }
   ]
 };
 ```

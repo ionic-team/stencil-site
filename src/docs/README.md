@@ -50,6 +50,7 @@
   * [Unit Testing](testing/unit-testing.md)
   * [End-to-end Testing](testing/e2e-testing.md)
   * [Visual Screenshot Diff](testing/screenshot-visual-diff.md)
+  * [Mocking](testing/mocking.md)
 * Community
   * [Stencil on GitHub](https://github.com/ionic-team/stencil)
   * [Stencil on Slack](https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjYwNjg5NDMzODQwLTdiNWZiNDMyMWRjZTBiMjIzMGFlOTZiZWVkNDVjNzc2ZTI5MzI2Y2VjZDgwYjczMjU3NWIxMDYzMzI2ZjY3NjM)

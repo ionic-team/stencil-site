@@ -4,11 +4,11 @@
   text-decoration: none;
   border: none;
   outline: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 16px 20px;
-  border-radius: 2px;
+  border-radius: 6px;
   letter-spacing: 0.04em;
   box-shadow: var(--button-shadow);
   cursor: pointer;
@@ -19,6 +19,7 @@
 
 .btn a {
   text-decoration: none;
+  color: inherit;
 }
 
 .btn app-icon {
@@ -28,7 +29,7 @@
 
 .btn:hover {
   text-decoration: none;
-  transform: translateY(1px);
+  transform: translateY(-1px);
   box-shadow: var(--button-shadow-hover);
 }
 
