@@ -193,11 +193,6 @@
         "url": "/docs/docs-json"
       },
       {
-        "text": "stats",
-        "filePath": "/assets/docs/output-targets/stats.json",
-        "url": "/docs/stats"
-      },
-      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"
