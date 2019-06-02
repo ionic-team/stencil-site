@@ -1,4 +1,4 @@
-import { Component, Prop} from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'demo-card',
@@ -18,7 +18,7 @@ export class DemoCard {
       <div>
         <div class="demo-card__image">
           <a target="_blank" rel="noopener" href={this.demoUrl}>
-            <img src={`${this.imgPath}.jpg`} srcSet={`${this.imgPath}.jpg 1x, ${this.imgPath}@2x.jpg 2x`} />
+            <img src={`${this.imgPath}.jpg`} srcSet={`${this.imgPath}.jpg 1x, ${this.imgPath}@2x.jpg 2x`} loading="lazy" />
           </a>
         </div>
         <h3>{this.name}</h3>

@@ -34,14 +34,14 @@ And update the `stencil.config.ts` file including both plugins:
 
 ```tsx
 import { Config } from '@stencil/core';
-| import builtins from 'rollup-plugin-node-builtins';
-| import globals from 'rollup-plugin-node-globals';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 
 export const config: Config = {
   namespace: 'mycomponents',
-|  plugins: [
-|    builtins(),
-|    globals()
-|  ]
+  plugins: [
+    builtins(),
+    globals()
+  ]
 };
 ```
