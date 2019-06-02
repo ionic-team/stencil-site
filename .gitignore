@@ -1,10 +1,8 @@
 .stencil/
 dist/
 www/
-page-analysis/
 scripts/*.js
 src/assets/docs/
-firebase.json
 
 *~
 *.sw[mnpcod]

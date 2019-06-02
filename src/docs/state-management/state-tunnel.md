@@ -108,7 +108,7 @@ You can then create an exit point anywhere within your component tree that lives
 ```tsx
 // Filename: './components/way-down-child.tsx'
 
-import { Component } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 import Tunnel from './data/message'; // Import the tunnel
 
 @Component({
@@ -134,7 +134,7 @@ export class WayDownChild {
 Another approach to getting tunnel information into your components is by injecting the props using Tunnel.injectProps.
 
 ```tsx
-import { Component } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 import Tunnel from './data/message'; // Import the tunnel
 
 @Component({
