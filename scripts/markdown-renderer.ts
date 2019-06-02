@@ -117,24 +117,12 @@ export function collectHeadingMetadata(renderer: marked.Renderer, metadata: Mark
 export function changeCodeCreation(renderer: marked.Renderer) {
   function highlight(code: string, lang?: string) {
     if (lang != null && languages.indexOf(lang) !== -1) {
-      return Prism.highlight(code, Prism.languages[lang]);
+      return Prism.highlight(code, Prism.languages[lang], lang);
     }
     return code;
   }
 
   renderer.code = function (code, lang, escaped) {
-    const hcl = [];
-    code = code
-      .split('\n')
-      .map((line, index) => {
-        if (line.charAt(0) === '|') {
-          hcl.push(index + 1);
-          return line.substring(1);
-        }
-        return line;
-      })
-      .join('\n');
-
     const out = highlight(code, lang);
 
     if (out != null) {
@@ -143,13 +131,17 @@ export function changeCodeCreation(renderer: marked.Renderer) {
     }
 
     if (!lang) {
-      return `<pre><code>${(escaped ? code : escape(code))}</code></pre>`;
+      return `
+  <highlight-code>
+    <pre><code>${(escaped ? code : escape(code))}</code></pre>
+  </highlight-code>
+      `;
     }
 
     return `
-  <highlight-code-line ${hcl.length > 0 ? `lines="${hcl.join()}"`: ``}>
+  <highlight-code>
     <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${(escaped ? code : escape(code))}</code></pre>
-  </highlight-code-line>
+  </highlight-code>
   `;
   };
 }
