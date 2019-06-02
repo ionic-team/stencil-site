@@ -1,5 +1,5 @@
 ---
-title: Component
+title: Component API
 description: Component API
 url: /docs/decorators
 contributors:

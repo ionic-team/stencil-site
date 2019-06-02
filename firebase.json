@@ -75,6 +75,11 @@
         "type": 301
       },
       {
+        "source": "/docs/addons",
+        "destination": "/docs/plugins",
+        "type": 301
+      },
+      {
         "source": "/docs/templating",
         "destination": "/docs/templating-jsx",
         "type": 301
@@ -102,6 +107,11 @@
       {
         "source": "/docs/build-variables",
         "destination": "/docs/build-conditionals",
+        "type": 301
+      },
+      {
+        "source": "/docs/docs-auto-generation",
+        "destination": "/docs/docs-readme",
         "type": 301
       }
     ]

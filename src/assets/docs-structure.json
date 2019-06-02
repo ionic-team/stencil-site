@@ -58,19 +58,9 @@
         "url": "/docs/component"
       },
       {
-        "text": "Component Lifecycle",
+        "text": "Lifecycle Methods",
         "filePath": "/assets/docs/components/component-lifecycle.json",
         "url": "/docs/component-lifecycle"
-      },
-      {
-        "text": "Events",
-        "filePath": "/assets/docs/components/events.json",
-        "url": "/docs/events"
-      },
-      {
-        "text": "Methods",
-        "filePath": "/assets/docs/components/methods.json",
-        "url": "/docs/methods"
       },
       {
         "text": "Properties",
@@ -91,6 +81,16 @@
         "text": "Using JSX",
         "filePath": "/assets/docs/components/templating-and-jsx.json",
         "url": "/docs/templating-jsx"
+      },
+      {
+        "text": "Events",
+        "filePath": "/assets/docs/components/events.json",
+        "url": "/docs/events"
+      },
+      {
+        "text": "Methods",
+        "filePath": "/assets/docs/components/methods.json",
+        "url": "/docs/methods"
       },
       {
         "text": "Host Element",
@@ -145,47 +145,57 @@
     ]
   },
   {
-    "text": "Tooling",
+    "text": "Config",
     "children": [
       {
-        "text": "Config",
-        "filePath": "/assets/docs/tooling/config.json",
+        "text": "Overview",
+        "filePath": "/assets/docs/config/overview.json",
         "url": "/docs/config"
       },
       {
-        "text": "Bundling",
-        "filePath": "/assets/docs/tooling/module-bundling.json",
-        "url": "/docs/module-bundling"
-      },
-      {
         "text": "Dev Server",
-        "filePath": "/assets/docs/tooling/dev-server.json",
+        "filePath": "/assets/docs/config/dev-server.json",
         "url": "/docs/dev-server"
       },
       {
-        "text": "Prerendering",
-        "filePath": "/assets/docs/tooling/prerendering.json",
-        "url": "/docs/prerendering"
-      },
-      {
-        "text": "Service Workers",
-        "filePath": "/assets/docs/tooling/service-workers.json",
-        "url": "/docs/service-workers"
-      },
-      {
-        "text": "Typed Components",
-        "filePath": "/assets/docs/tooling/typed-components.json",
-        "url": "/docs/typed-components"
-      },
-      {
-        "text": "Docs Generation",
-        "filePath": "/assets/docs/tooling/docs-auto-generation.json",
-        "url": "/docs/docs-auto-generation"
-      },
-      {
         "text": "Plugins",
-        "filePath": "/assets/docs/tooling/plugins.json",
-        "url": "/docs/addons"
+        "filePath": "/assets/docs/config/plugins.json",
+        "url": "/docs/plugins"
+      }
+    ]
+  },
+  {
+    "text": "Output Targets",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/output-targets/overview.json",
+        "url": "/docs/output-targets"
+      },
+      {
+        "text": "www",
+        "filePath": "/assets/docs/output-targets/www.json",
+        "url": "/docs/www"
+      },
+      {
+        "text": "dist",
+        "filePath": "/assets/docs/output-targets/dist.json",
+        "url": "/docs/distribution"
+      },
+      {
+        "text": "docs-readme",
+        "filePath": "/assets/docs/output-targets/docs-readme.json",
+        "url": "/docs/docs-readme"
+      },
+      {
+        "text": "docs-json",
+        "filePath": "/assets/docs/output-targets/docs-json.json",
+        "url": "/docs/docs-json"
+      },
+      {
+        "text": "Copy Tasks",
+        "filePath": "/assets/docs/output-targets/copy-tasks.json",
+        "url": "/docs/copy-tasks"
       }
     ]
   },
@@ -193,9 +203,19 @@
     "text": "Guides",
     "children": [
       {
-        "text": "Distribution",
-        "filePath": "/assets/docs/guides/distribution.json",
-        "url": "/docs/distribution"
+        "text": "Bundling",
+        "filePath": "/assets/docs/guides/module-bundling.json",
+        "url": "/docs/module-bundling"
+      },
+      {
+        "text": "Typed Components",
+        "filePath": "/assets/docs/guides/typed-components.json",
+        "url": "/docs/typed-components"
+      },
+      {
+        "text": "Prerendering",
+        "filePath": "/assets/docs/guides/prerendering.json",
+        "url": "/docs/prerendering"
       },
       {
         "text": "Forms",
@@ -206,21 +226,21 @@
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
-      }
-    ]
-  },
-  {
-    "text": "Advanced State Management",
-    "children": [
+      },
+      {
+        "text": "Service Workers",
+        "filePath": "/assets/docs/guides/service-workers.json",
+        "url": "/docs/service-workers"
+      },
       {
         "text": "State Tunnel",
-        "filePath": "/assets/docs/state-management/state-tunnel.json",
-        "url": "/docs/state-tunnel"
+        "filePath": "/assets/docs/guides/state-tunnel.json",
+        "url": "/docs/stencil-state-tunnel"
       },
       {
         "text": "Redux",
-        "filePath": "/assets/docs/state-management/redux.json",
-        "url": "/docs/redux"
+        "filePath": "/assets/docs/guides/redux.json",
+        "url": "/docs/stencil-redux"
       }
     ]
   },
@@ -233,6 +253,11 @@
         "url": "/docs/testing-overview"
       },
       {
+        "text": "Config",
+        "filePath": "/assets/docs/testing/config.json",
+        "url": "/docs/testing-config"
+      },
+      {
         "text": "Unit Testing",
         "filePath": "/assets/docs/testing/unit-testing.json",
         "url": "/docs/unit-testing"
@@ -243,14 +268,14 @@
         "url": "/docs/end-to-end-testing"
       },
       {
-        "text": "Visual Screenshot Diff",
-        "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
-        "url": "/docs/screenshot-visual-diff"
-      },
-      {
         "text": "Mocking",
         "filePath": "/assets/docs/testing/mocking.json",
         "url": "/docs/mocking"
+      },
+      {
+        "text": "Visual Screenshot Diff",
+        "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
+        "url": "/docs/screenshot-visual-diff"
       }
     ]
   },
