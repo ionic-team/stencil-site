@@ -1,9 +1,13 @@
 
 doc-component {
+
+}
+
+doc-component  .container-inner {
   display: flex;
-  margin-bottom: 100px;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 doc-component h1 {
@@ -91,6 +95,10 @@ doc-component .align-right {
 doc-component .caption {
   font-size: 12px;
   color: var(--color-dolphin);
+}
+
+document-component contributor-list {
+  margin: 14px 0px;
 }
 
 @media screen and (max-width: 1024px) {

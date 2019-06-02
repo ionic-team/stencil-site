@@ -20,6 +20,9 @@ export namespace Components {
     'name'?: string;
   }
   interface AppRoot {}
+  interface BlogComponent {
+    'pageUrl': string;
+  }
   interface ContributorList {
     'contributors': string[];
   }
@@ -32,7 +35,6 @@ export namespace Components {
     'name'?: string;
     'sourceUrl'?: string;
   }
-  interface DemosPage {}
   interface DocComponent {
     'page': string;
   }
@@ -44,16 +46,6 @@ export namespace Components {
     'srcUrl': string;
   }
   interface LandingPage {}
-  interface LazyIframe {
-    'frameBorder'?: string;
-    'height'?: string;
-    'identifier'?: string;
-    'isVideo'?: boolean;
-    'name'?: string;
-    'scrolling'?: string;
-    'src'?: string;
-    'width'?: string;
-  }
   interface LowerContentNav {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
@@ -69,99 +61,7 @@ export namespace Components {
   interface SiteTopBar {}
 }
 
-declare namespace LocalJSX {
-  interface AppBurger extends JSXBase.HTMLAttributes {
-    'toggleLeftSidebar'?: () => void;
-  }
-  interface AppIcon extends JSXBase.HTMLAttributes {
-    'name'?: string;
-  }
-  interface AppRoot extends JSXBase.HTMLAttributes {}
-  interface ContributorList extends JSXBase.HTMLAttributes {
-    'contributors'?: string[];
-  }
-  interface CustomClock extends JSXBase.HTMLAttributes {}
-  interface DemoCard extends JSXBase.HTMLAttributes {
-    'SourceBufferList'?: string;
-    'demoUrl'?: string;
-    'description'?: string;
-    'imgPath'?: string;
-    'name'?: string;
-    'sourceUrl'?: string;
-  }
-  interface DemosPage extends JSXBase.HTMLAttributes {}
-  interface DocComponent extends JSXBase.HTMLAttributes {
-    'page'?: string;
-  }
-  interface DsPage extends JSXBase.HTMLAttributes {}
-  interface HighlightCode extends JSXBase.HTMLAttributes {}
-  interface InPageNavigation extends JSXBase.HTMLAttributes {
-    'currentPageUrl'?: string;
-    'pageLinks'?: MarkdownHeading[];
-    'srcUrl'?: string;
-  }
-  interface LandingPage extends JSXBase.HTMLAttributes {}
-  interface LazyIframe extends JSXBase.HTMLAttributes {
-    'frameBorder'?: string;
-    'height'?: string;
-    'identifier'?: string;
-    'isVideo'?: boolean;
-    'name'?: string;
-    'onVideoLoaded'?: (event: CustomEvent<any>) => void;
-    'scrolling'?: string;
-    'src'?: string;
-    'width'?: string;
-  }
-  interface LowerContentNav extends JSXBase.HTMLAttributes {
-    'next'?: SiteStructureItem;
-    'prev'?: SiteStructureItem;
-  }
-  interface NotfoundPage extends JSXBase.HTMLAttributes {}
-  interface PwasPage extends JSXBase.HTMLAttributes {}
-  interface ResourcesPage extends JSXBase.HTMLAttributes {}
-  interface SiteHeader extends JSXBase.HTMLAttributes {}
-  interface SiteMenu extends JSXBase.HTMLAttributes {
-    'selectedParent'?: SiteStructureItem;
-    'siteStructureList'?: SiteStructureItem[];
-  }
-  interface SiteTopBar extends JSXBase.HTMLAttributes {}
-
-  interface IntrinsicElements {
-    'app-burger': AppBurger;
-    'app-icon': AppIcon;
-    'app-root': AppRoot;
-    'contributor-list': ContributorList;
-    'custom-clock': CustomClock;
-    'demo-card': DemoCard;
-    'demos-page': DemosPage;
-    'doc-component': DocComponent;
-    'ds-page': DsPage;
-    'highlight-code': HighlightCode;
-    'in-page-navigation': InPageNavigation;
-    'landing-page': LandingPage;
-    'lazy-iframe': LazyIframe;
-    'lower-content-nav': LowerContentNav;
-    'notfound-page': NotfoundPage;
-    'pwas-page': PwasPage;
-    'resources-page': ResourcesPage;
-    'site-header': SiteHeader;
-    'site-menu': SiteMenu;
-    'site-top-bar': SiteTopBar;
-  }
-}
-
-export { LocalJSX as JSX };
-
-
-declare module "@stencil/core" {
-  export namespace JSX {
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
-  }
-}
-
-
 declare global {
-
 
 
   interface HTMLAppBurgerElement extends Components.AppBurger, HTMLStencilElement {}
@@ -182,6 +82,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLBlogComponentElement extends Components.BlogComponent, HTMLStencilElement {}
+  var HTMLBlogComponentElement: {
+    prototype: HTMLBlogComponentElement;
+    new (): HTMLBlogComponentElement;
+  };
+
   interface HTMLContributorListElement extends Components.ContributorList, HTMLStencilElement {}
   var HTMLContributorListElement: {
     prototype: HTMLContributorListElement;
@@ -198,12 +104,6 @@ declare global {
   var HTMLDemoCardElement: {
     prototype: HTMLDemoCardElement;
     new (): HTMLDemoCardElement;
-  };
-
-  interface HTMLDemosPageElement extends Components.DemosPage, HTMLStencilElement {}
-  var HTMLDemosPageElement: {
-    prototype: HTMLDemosPageElement;
-    new (): HTMLDemosPageElement;
   };
 
   interface HTMLDocComponentElement extends Components.DocComponent, HTMLStencilElement {}
@@ -234,12 +134,6 @@ declare global {
   var HTMLLandingPageElement: {
     prototype: HTMLLandingPageElement;
     new (): HTMLLandingPageElement;
-  };
-
-  interface HTMLLazyIframeElement extends Components.LazyIframe, HTMLStencilElement {}
-  var HTMLLazyIframeElement: {
-    prototype: HTMLLazyIframeElement;
-    new (): HTMLLazyIframeElement;
   };
 
   interface HTMLLowerContentNavElement extends Components.LowerContentNav, HTMLStencilElement {}
@@ -283,21 +177,19 @@ declare global {
     prototype: HTMLSiteTopBarElement;
     new (): HTMLSiteTopBarElement;
   };
-
   interface HTMLElementTagNameMap {
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-root': HTMLAppRootElement;
+    'blog-component': HTMLBlogComponentElement;
     'contributor-list': HTMLContributorListElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
-    'demos-page': HTMLDemosPageElement;
     'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
     'highlight-code': HTMLHighlightCodeElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
-    'lazy-iframe': HTMLLazyIframeElement;
     'lower-content-nav': HTMLLowerContentNavElement;
     'notfound-page': HTMLNotfoundPageElement;
     'pwas-page': HTMLPwasPageElement;
@@ -306,7 +198,86 @@ declare global {
     'site-menu': HTMLSiteMenuElement;
     'site-top-bar': HTMLSiteTopBarElement;
   }
-
-  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
+
+declare namespace LocalJSX {
+  interface AppBurger extends JSXBase.HTMLAttributes<HTMLAppBurgerElement> {
+    'toggleLeftSidebar'?: () => void;
+  }
+  interface AppIcon extends JSXBase.HTMLAttributes<HTMLAppIconElement> {
+    'name'?: string;
+  }
+  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
+  interface BlogComponent extends JSXBase.HTMLAttributes<HTMLBlogComponentElement> {
+    'pageUrl'?: string;
+  }
+  interface ContributorList extends JSXBase.HTMLAttributes<HTMLContributorListElement> {
+    'contributors'?: string[];
+  }
+  interface CustomClock extends JSXBase.HTMLAttributes<HTMLCustomClockElement> {}
+  interface DemoCard extends JSXBase.HTMLAttributes<HTMLDemoCardElement> {
+    'SourceBufferList'?: string;
+    'demoUrl'?: string;
+    'description'?: string;
+    'imgPath'?: string;
+    'name'?: string;
+    'sourceUrl'?: string;
+  }
+  interface DocComponent extends JSXBase.HTMLAttributes<HTMLDocComponentElement> {
+    'page'?: string;
+  }
+  interface DsPage extends JSXBase.HTMLAttributes<HTMLDsPageElement> {}
+  interface HighlightCode extends JSXBase.HTMLAttributes<HTMLHighlightCodeElement> {}
+  interface InPageNavigation extends JSXBase.HTMLAttributes<HTMLInPageNavigationElement> {
+    'currentPageUrl'?: string;
+    'pageLinks'?: MarkdownHeading[];
+    'srcUrl'?: string;
+  }
+  interface LandingPage extends JSXBase.HTMLAttributes<HTMLLandingPageElement> {}
+  interface LowerContentNav extends JSXBase.HTMLAttributes<HTMLLowerContentNavElement> {
+    'next'?: SiteStructureItem;
+    'prev'?: SiteStructureItem;
+  }
+  interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
+  interface PwasPage extends JSXBase.HTMLAttributes<HTMLPwasPageElement> {}
+  interface ResourcesPage extends JSXBase.HTMLAttributes<HTMLResourcesPageElement> {}
+  interface SiteHeader extends JSXBase.HTMLAttributes<HTMLSiteHeaderElement> {}
+  interface SiteMenu extends JSXBase.HTMLAttributes<HTMLSiteMenuElement> {
+    'selectedParent'?: SiteStructureItem;
+    'siteStructureList'?: SiteStructureItem[];
+  }
+  interface SiteTopBar extends JSXBase.HTMLAttributes<HTMLSiteTopBarElement> {}
+
+  interface IntrinsicElements {
+    'app-burger': AppBurger;
+    'app-icon': AppIcon;
+    'app-root': AppRoot;
+    'blog-component': BlogComponent;
+    'contributor-list': ContributorList;
+    'custom-clock': CustomClock;
+    'demo-card': DemoCard;
+    'doc-component': DocComponent;
+    'ds-page': DsPage;
+    'highlight-code': HighlightCode;
+    'in-page-navigation': InPageNavigation;
+    'landing-page': LandingPage;
+    'lower-content-nav': LowerContentNav;
+    'notfound-page': NotfoundPage;
+    'pwas-page': PwasPage;
+    'resources-page': ResourcesPage;
+    'site-header': SiteHeader;
+    'site-menu': SiteMenu;
+    'site-top-bar': SiteTopBar;
+  }
+}
+
+export { LocalJSX as JSX };
+
+
+declare module "@stencil/core" {
+  export namespace JSX {
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+  }
+}
+
 
