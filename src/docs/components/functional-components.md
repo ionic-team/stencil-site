@@ -42,7 +42,7 @@ Stencil provides a `FunctionalComponent` generic type that allows to specify an 
 ```tsx
 // Hello.tsx
 
-import { FunctionalComponent } from '@stencil/core';
+import { FunctionalComponent, h } from '@stencil/core';
 
 interface HelloProps {
   name: string;

@@ -246,6 +246,11 @@
         "text": "Visual Screenshot Diff",
         "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
         "url": "/docs/screenshot-visual-diff"
+      },
+      {
+        "text": "Mocking",
+        "filePath": "/assets/docs/testing/mocking.json",
+        "url": "/docs/mocking"
       }
     ]
   },

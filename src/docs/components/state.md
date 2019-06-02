@@ -16,11 +16,27 @@ import { State } from '@stencil/core';
 
 export class TodoList {
 
-| @State() completedTodos: Todo[];
+@State() completedTodos: Todo[];
 
   completeTodo(todo: Todo) {
     // This will cause our render function to be called again
     this.completedTodos = [...this.completedTodos, todo];
   }
+}
+```
+
+## When to use?
+
+Not all internal state might need the be decorated with `@State()`, in fact it's a good practice to avoid using it if you know for sure that the value will not change or that it does NOT need to trigger a re-rendering:
+
+```tsx
+class Component {
+
+// If `cacheData` changes we don't want to re-render the component,
+// so we DON'T decorate it with @State
+cacheData = SOME_BIG_DATA;
+
+  // If this state change we want to run render() again
+  @State() value;
 }
 ```

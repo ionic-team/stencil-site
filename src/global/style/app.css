@@ -2,7 +2,6 @@
 
 @import './html.css';
 @import './buttons.css';
-@import './bs-chart.css';
 @import './headline.css';
 @import './link.css';
 @import './lists.css';
@@ -10,12 +9,7 @@
 @import './screenshot.css';
 @import './code.css';
 @import './table.css';
-@import './modal.css';
-@import './feature-list.css';
-@import './card-links.css';
 @import './typography.css';
-@import './framework-icon.css';
-@import './hubspot.css';
 @import './utils.css';
 
 * {
