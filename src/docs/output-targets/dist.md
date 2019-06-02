@@ -6,7 +6,7 @@ contributors:
   - jthoms1
 ---
 
-# Distributing Web Components Built with Stencil
+# Distributing Output Target: `dist`
 
 Stencil makes it easy to build and share web components across any framework.
 
