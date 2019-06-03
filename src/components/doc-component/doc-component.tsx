@@ -74,6 +74,10 @@ const fetchContent = (path: string) => {
 }
 
 const toHypertext = (data: any) => {
+  if (!Array.isArray(data)) {
+    console.error('content error, hypertext is undefined')
+    return null;
+  }
   const args = [];
   for (let i = 0; i < data.length; i++) {
     let arg = data[i];
