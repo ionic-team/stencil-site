@@ -203,6 +203,11 @@
     "text": "Guides",
     "children": [
       {
+        "text": "Prerendering",
+        "filePath": "/assets/docs/guides/prerendering.json",
+        "url": "/docs/prerendering"
+      },
+      {
         "text": "Bundling",
         "filePath": "/assets/docs/guides/module-bundling.json",
         "url": "/docs/module-bundling"
@@ -211,11 +216,6 @@
         "text": "Typed Components",
         "filePath": "/assets/docs/guides/typed-components.json",
         "url": "/docs/typed-components"
-      },
-      {
-        "text": "Prerendering",
-        "filePath": "/assets/docs/guides/prerendering.json",
-        "url": "/docs/prerendering"
       },
       {
         "text": "Forms",
