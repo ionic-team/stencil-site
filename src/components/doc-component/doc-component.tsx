@@ -67,7 +67,7 @@ const fetchContent = (path: string) => {
   let promise = localCache.get(path);
   if (!promise) {
     console.log('fetchContent', path);
-    promise = fetch(path, {cache: 'force-cache'}).then(response => response.json());
+    promise = fetch(path).then(response => response.json());
     localCache.set(path, promise);
   }
   return promise;
