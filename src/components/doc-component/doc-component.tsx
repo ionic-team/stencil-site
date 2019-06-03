@@ -67,13 +67,17 @@ const fetchContent = (path: string) => {
   let promise = localCache.get(path);
   if (!promise) {
     console.log('fetchContent', path);
-    promise = fetch(path, {cache: 'force-cache'}).then(response => response.json());
+    promise = fetch(path).then(response => response.json());
     localCache.set(path, promise);
   }
   return promise;
 }
 
 const toHypertext = (data: any) => {
+  if (!Array.isArray(data)) {
+    console.error('content error, hypertext is undefined')
+    return null;
+  }
   const args = [];
   for (let i = 0; i < data.length; i++) {
     let arg = data[i];
