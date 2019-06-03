@@ -35,10 +35,15 @@ Links to the source files from development errors are clickable which will open 
 
 ## Dev Server Config
 
-| Property      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `openBrowser` | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.  | `true`  |
-| `port`        | Sets a different port. | `3333` |
+| Property         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `address`        | IP address used by the dev server. The default is `0.0.0.0`, which points to all IPv4 addresses on the local machine, such as `localhost`. | `0.0.0.0` |
+| `basePath`       | Base path to be used by the server. Defaults to the root pathname. | `/` |
+| `initialLoadUrl` | When `true`, every request to the server will be logged within the terminal. | `false` |
+| `logRequests`    | Every request to the server will be logged within the terminal. | `false` |
+| `openBrowser`    | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.  | `true`  |
+| `reloadStrategy` | When files are watched and updated, by default the dev server will use `hmr` (Hot Module Replacement) to update the page without a full page refresh. To have the page do a full refresh use `pageReload`. To disable any reloading, use `null`. | `hmr` |
+| `port`           | Sets the server's port. | `3333` |
 
 
 ## Example
@@ -48,7 +53,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   devServer: {
-    openBrowser: false,
+    reloadStrategy: 'pageReload',
     port: 4444
   }
 };
