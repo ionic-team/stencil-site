@@ -5,6 +5,7 @@ url: /docs/copy-tasks
 contributors:
   - adamdbradley
   - manucorporat
+  - jeanbenitez
 ---
 
 
@@ -20,7 +21,8 @@ In the `copy` config within the `www` output target example below, the build wil
 
 ```tsx
   outputTargets: [
-    www: {
+    {
+      type: 'www',
       copy: [
         { src: 'images' }
       ]
@@ -35,7 +37,8 @@ The config can also provide an optional `dest` property which can be either an a
 
 ```tsx
   outputTargets: [
-    www: {
+    {
+      type: 'www',
       dir: 'public',
       copy: [
         { src: 'files/fonts', dest: 'static/web-fonts' }
@@ -50,7 +53,8 @@ By default, if a file or directory is not available it will not warn if the copy
 
 ```tsx
   outputTargets: [
-    dist: {
+    {
+      type: 'dist',
       copy: [
         { src: 'fonts', warn: true }
       ]
