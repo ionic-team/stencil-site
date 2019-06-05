@@ -1,4 +1,4 @@
-import { Component, Element, h, Listen } from '@stencil/core';
+import { Component, Element, h, Listen, Build } from '@stencil/core';
 
 declare var hbspt: any;
 
@@ -44,23 +44,25 @@ export class DSPage {
   }
 
   startRendering() {
-    let time = Math.random();
-    const glshader = this.glShader;
-    const timeStep = () => {
-      const width = glshader.offsetWidth;
-      const height = glshader.offsetHeight;
-      const x = this.pageX - glshader.offsetLeft;
-      const y = height - this.pageY;
+    if (Build.isBrowser) {
+      let time = Math.random();
+      const glshader = this.glShader;
+      const timeStep = () => {
+        const width = glshader.offsetWidth;
+        const height = glshader.offsetHeight;
+        const x = this.pageX - glshader.offsetLeft;
+        const y = height - this.pageY;
 
-      glshader.uniforms = {
-        '1f:iTime': time/600,
-        '2fv:iResolution': [width, height],
-        '2fv:iMouse': [x, y]
+        glshader.uniforms = {
+          '1f:iTime': time/600,
+          '2fv:iResolution': [width, height],
+          '2fv:iMouse': [x, y]
+        };
+        time++;
+        this.raf = requestAnimationFrame(timeStep);
       };
-      time++;
       this.raf = requestAnimationFrame(timeStep);
-    };
-    this.raf = requestAnimationFrame(timeStep);
+    }
   }
 
   @Listen('mousemove', {target: 'document'})
@@ -259,29 +261,29 @@ float tetraNoise(in vec3 p) {
 
 vec2 smoothRepeatStart(float x, float size) {
   return vec2(
-      mod(x - size / 2., size),
-      mod(x, size)
+    mod(x - size / 2., size),
+    mod(x, size)
   );
 }
 
 float smoothRepeatEnd(float a, float b, float x, float size) {
   return mix(a, b,
     smoothstep(
-        0., 1.,
-        sin((x / size) * PI * 2. - PI * .5) * .5 + .5
+      0., 1.,
+      sin((x / size) * PI * 2. - PI * .5) * .5 + .5
     )
   );
 }
+
+#define repeatSize 10.
 
 void main() {
   vec2 uv = (-iResolution.xy + 2. * gl_FragCoord.xy) / iResolution.y;
   float dist = distance(gl_FragCoord.xy, iMouse) / length(iResolution);
 
   // Zoom in a bit
-  uv /= 2.;
-  uv *= 1.8;
+  uv *= 0.9;
 
-  float repeatSize = 10.;
   float x = uv.x - mod(iTime, repeatSize / 2.);
   float y = uv.y;
 
@@ -305,8 +307,7 @@ void main() {
   noiseB = tetraNoise(9.+vec3(vec2(ab.y, uv.y) * .05, 0)) * 5.;
   noise *= smoothRepeatEnd(noiseA, noiseB, x, repeatSize);
 
-  noise *= 0.8;
-  noise = mix(noise, dot(uv, vec2(-.66,1.)*.4), .6);
+  noise = mix(noise * .8, dot(uv, vec2(-.66,1.)*.4), .6);
 
   float spacing = 1./90.;
   float lines = mod(noise, spacing) / spacing;
@@ -314,10 +315,9 @@ void main() {
   lines /= fwidth(noise / spacing);
 
   // Double to occupy two pixels and appear smoother
-  lines /= 2.;
-  lines = 1. - lines;
+  lines = 1. - lines * 0.5;
 
-  float iconRate = clamp(1., 240./distance(gl_FragCoord.xy, vec2(iResolution.x / 2. - 30.0, iResolution.y - 265.)), 300.);
+  float iconRate = clamp(1., 240./distance(gl_FragCoord.xy, vec2(iResolution.x *.5 - 30.0, iResolution.y - 265.)), 300.);
 gl_FragColor = vec4(
   vec3(0.04, 0.04, 0.078) +
   (vec3(lines) * clamp(.0, abs(noise), 1.) * 0.4 * iconRate)
