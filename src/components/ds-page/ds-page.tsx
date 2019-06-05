@@ -10,6 +10,7 @@ export class DSPage {
 
   private pageX = 0;
   private pageY = 0;
+  private raf: any;
   private glShader: HTMLProGlshaderElement;
 
   @Element() el: Element;
@@ -24,6 +25,7 @@ export class DSPage {
 
   componentDidUnload() {
     document.body.classList.remove('dark');
+    cancelAnimationFrame(this.raf);
   }
 
   componentDidLoad() {
@@ -56,9 +58,9 @@ export class DSPage {
         '2fv:iMouse': [x, y]
       };
       time++;
-      requestAnimationFrame(timeStep);
+      this.raf = requestAnimationFrame(timeStep);
     };
-    requestAnimationFrame(timeStep);
+    this.raf = requestAnimationFrame(timeStep);
   }
 
   @Listen('mousemove', {target: 'document'})
@@ -319,7 +321,7 @@ void main() {
 
 gl_FragColor = vec4(
   vec3(0.04, 0.04, 0.078) +
-  (vec3(lines) * clamp(.0, abs(noise), 1.)*0.8)
+  (vec3(lines) * clamp(.0, abs(noise), 1.) * 0.4)
 ,1.0);
 }
 `;
