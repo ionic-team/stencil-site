@@ -277,7 +277,7 @@ float smoothRepeatEnd(float a, float b, float x, float size) {
 
 void main() {
   vec2 uv = (-iResolution.xy + 2. * gl_FragCoord.xy) / iResolution.y;
-  float distance = distance(gl_FragCoord.xy, iMouse) / length(iResolution);
+  float dist = distance(gl_FragCoord.xy, iMouse) / length(iResolution);
 
   // Zoom in a bit
   uv /= 2.;
@@ -292,7 +292,7 @@ void main() {
   float noise;
   float noiseA, noiseB;
 
-  ab = smoothRepeatStart(x, repeatSize) * distance;
+  ab = smoothRepeatStart(x, repeatSize) * dist;
   noiseA = tetraNoise(16.+vec3(vec2(ab.x, uv.y) * 1.2, 0)) * .5;
   noiseB = tetraNoise(16.+vec3(vec2(ab.y, uv.y) * 1.2, 0)) * .5;
   noise = smoothRepeatEnd(noiseA, noiseB, x, repeatSize);
@@ -310,7 +310,7 @@ void main() {
   noise *= 0.9;
   noise = mix(noise, dot(uv, vec2(-.66,1.)*.4), .6);
 
-  float spacing = 1./70.;
+  float spacing = 1./90.;
   float lines = mod(noise, spacing) / spacing;
   lines = min(lines * 2., 1.) - max(lines * 2. - 1., 0.);
   lines /= fwidth(noise / spacing);
@@ -319,9 +319,10 @@ void main() {
   lines /= 2.;
   lines = 1. - lines;
 
+  float iconRate = clamp(1., 300./distance(gl_FragCoord.xy, vec2(iResolution.x / 2. - 30.0, iResolution.y - 260.)), 300.);
 gl_FragColor = vec4(
   vec3(0.04, 0.04, 0.078) +
-  (vec3(lines) * clamp(.0, abs(noise), 1.) * 0.4)
+  (vec3(lines) * clamp(.0, abs(noise), 1.) * 0.4 * iconRate)
 ,1.0);
 }
 `;
