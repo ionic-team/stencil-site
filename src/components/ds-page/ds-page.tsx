@@ -78,6 +78,14 @@ export class DSPage {
     });
   }
 
+  handleCtaClick(ev, id) {
+    if (document.documentElement.scrollIntoView) {
+      ev.preventDefault();
+      const el = document.getElementById(id);
+      scrollTo(el);
+    }
+  }
+
   render() {
     return [
       <section class="hero">
@@ -88,7 +96,7 @@ export class DSPage {
               <svg class="ds-logo" width="208" height="208" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="104" cy="104" r="48" fill="#001AFF" opacity=".3" filter="url(#filter0_f)"/><path d="M155.84 122c11.62 0 17.95-7.15 17.95-17.04 0-9.89-6.33-17.04-17.95-17.04H143.6V122h12.24zm10.56-17.04c0 6.38-3.31 10.6-10.75 10.6h-5.04v-21.2h5.04c7.44 0 10.75 4.22 10.75 10.6z" fill="url(#paint0_linear)"/><path d="M189.59 116.43c-4.42 0-6.43-2.45-6.63-5.23h-6.9c.19 5.62 3.69 11.47 13.15 11.47 8.1 0 13.48-4.32 13.48-10.41 0-13.54-18.43-8.16-18.43-14.98 0-2.2 2.11-3.84 5.43-3.84 3.64 0 5.75 2.16 5.9 5.14h6.86c-.19-6.15-4.7-11.38-12.67-11.38-7.87 0-12.43 4.75-12.43 10.51 0 13.35 18.24 8.07 18.24 14.79 0 2.5-2.26 3.93-6 3.93z" fill="url(#paint1_linear)"/><g filter="url(#filter1_dddi)" fill="#fff"><path d="M95.6 113.76h24.67L106.93 128H82.4l13.2-14.24z"/><path opacity=".3" d="M95.6 113.76h24.67L89 120.88l6.6-7.12z"/><path d="M136 96.88H85.33L72 111.12h50.67L136 96.88zM101.03 80h24.57l-13.27 14.24h-24.6L101.03 80z"/></g><defs><filter id="filter0_f" x="0" y="0" width="208" height="208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="28" result="effect1_foregroundBlur"/></filter><filter id="filter1_dddi" x="32" y="40" width="144" height="128" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="4"/><feColorMatrix values="0 0 0 0 0.439216 0 0 0 0 0.498039 0 0 0 0 1 0 0 0 0.75 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="20"/><feColorMatrix values="0 0 0 0 0.529412 0 0 0 0 0.564706 0 0 0 0 1 0 0 0 1 0"/><feBlend in2="effect1_dropShadow" result="effect2_dropShadow"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="8"/><feColorMatrix values="0 0 0 0 0.14902 0 0 0 0 0.215686 0 0 0 0 1 0 0 0 1 0"/><feBlend in2="effect2_dropShadow" result="effect3_dropShadow"/><feBlend in="SourceGraphic" in2="effect3_dropShadow" result="shape"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="3"/><feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix values="0 0 0 0 0.752941 0 0 0 0 0.988235 0 0 0 0 1 0 0 0 1 0"/><feBlend in2="shape" result="effect4_innerShadow"/></filter><linearGradient id="paint0_linear" x1="144" y1="105" x2="203" y2="105" gradientUnits="userSpaceOnUse"><stop stop-color="#F9F9FD"/><stop offset="1" stop-color="#DAD9E9" stop-opacity=".9"/></linearGradient><linearGradient id="paint1_linear" x1="144" y1="105" x2="203" y2="105" gradientUnits="userSpaceOnUse"><stop stop-color="#F9F9FD"/><stop offset="1" stop-color="#DAD9E9" stop-opacity=".9"/></linearGradient></defs></svg>
               <h1>Bring your  company’s design system to life.</h1>
               <p>Reduce design debt, connect disparate tech teams, and enforce brand consistency at scale with code-based, world-class design systems that work everywhere.</p>
-              <a href="#learn-more">
+              <a href="#learn-more" onClick={(ev) => this.handleCtaClick(ev, 'learn-more')}>
                 Learn more <app-icon name="arrow-down"/>
               </a>
             </hgroup>
@@ -161,7 +169,7 @@ export class DSPage {
               <tbody>
                 <tr>
                   <td><stencil-route-link anchorClass="btn btn--secondary" url="/docs/getting-started">Install Stencil</stencil-route-link></td>
-                  <td><a href="#cta-form" class="btn btn--primary">Get in touch</a></td>
+                  <td><a href="#cta-form" class="btn btn--primary" onClick={(ev) => this.handleCtaClick(ev, 'cta-form')}>Get in touch</a></td>
                 </tr>
               </tbody>
             </table>
@@ -326,3 +334,29 @@ gl_FragColor = vec4(
 ,1.0);
 }
 `;
+
+function scrollTo (el) {
+  const scrollY = window.scrollY;
+  const scrollTargetY = el.offsetTop;
+  const speed = 600;
+  const easeOutExpo = function(pos) {
+    return (pos===1) ? 1 : -Math.pow(2, -10 * pos) + 1;
+  };
+  let currentTime = 0;
+  const time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
+
+  function tick() {
+    currentTime += 1 / 60;
+
+    const p = currentTime / time;
+    const t = easeOutExpo(p);
+
+    if (p < 1) {
+      requestAnimationFrame(tick);
+      window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+    } else {
+      window.scrollTo(0, scrollTargetY);
+    }
+  }
+  tick();
+}
