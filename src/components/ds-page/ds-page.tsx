@@ -1,4 +1,4 @@
-import { Component, Element, h } from '@stencil/core';
+import { Component, Element, h, Listen } from '@stencil/core';
 
 declare var hbspt: any;
 
@@ -7,6 +7,11 @@ declare var hbspt: any;
   styleUrl: 'ds-page.css'
 })
 export class DSPage {
+
+  private pageX = 0;
+  private pageY = 0;
+  private glShader: HTMLProGlshaderElement;
+
   @Element() el: Element;
 
   constructor() {
@@ -33,8 +38,33 @@ export class DSPage {
       this.injectForm();
     }
     document.body.appendChild(script);
-    /*
-    */
+    this.startRendering();
+  }
+
+  startRendering() {
+    let time = 0;
+    const glshader = this.glShader;
+    const timeStep = () => {
+      const width = glshader.offsetWidth;
+      const height = glshader.offsetHeight;
+      const x = this.pageX - glshader.offsetLeft;
+      const y = height - this.pageY + glshader.offsetTop;
+
+      glshader.uniforms = {
+        '1f:iTime': time/600,
+        '2fv:iResolution': [width, height],
+        '2fv:iMouse': [x, y]
+      };
+      time++;
+      requestAnimationFrame(timeStep);
+    };
+    requestAnimationFrame(timeStep);
+  }
+
+  @Listen('mousemove', {target: 'document'})
+  onMouseMove(ev: MouseEvent) {
+    this.pageX = ev.pageX;
+    this.pageY = ev.pageY;
   }
 
   injectForm() {
@@ -49,6 +79,7 @@ export class DSPage {
   render() {
     return [
       <section class="hero">
+        <pro-glshader class="shader" frag={FLAG} ref={el => this.glShader = el}></pro-glshader>
         <div class="container">
           <div class="measure-lg">
             <hgroup>
@@ -197,3 +228,98 @@ export class DSPage {
     ];
   }
 }
+
+const FLAG = `
+#extension GL_EXT_shader_texture_lod : enable
+#extension GL_OES_standard_derivatives : enable
+precision highp float;
+
+uniform float iTime;
+uniform vec2 iResolution;
+uniform vec2 iMouse;
+
+#define ALTERNATE_VERSION
+
+vec3 hash33(vec3 p) {
+  float n = sin(dot(p, vec3(7, 157, 113)));
+  return fract(vec3(2097152, 262144, 32768)*n)*2. - 1.;
+}
+
+float tetraNoise(in vec3 p)
+{
+  vec3 i = floor(p + dot(p, vec3(0.333333)) );  p -= i - dot(i, vec3(0.166666)) ;
+  vec3 i1 = step(p.yzx, p), i2 = max(i1, 1.0-i1.zxy); i1 = min(i1, 1.0-i1.zxy);
+  vec3 p1 = p - i1 + 0.166666, p2 = p - i2 + 0.333333, p3 = p - 0.5;
+  vec4 v = max(0.5 - vec4(dot(p,p), dot(p1,p1), dot(p2,p2), dot(p3,p3)), 0.0);
+  vec4 d = vec4(dot(p, hash33(i)), dot(p1, hash33(i + i1)), dot(p2, hash33(i + i2)), dot(p3, hash33(i + 1.)));
+  return clamp(dot(d, v*v*v*8.)*1.732 + .5, 0., 1.); // Not sure if clamping is necessary. Might be overkill.
+}
+
+#define PI 3.14159265359
+
+vec2 smoothRepeatStart(float x, float size) {
+  return vec2(
+      mod(x - size / 2., size),
+      mod(x, size)
+  );
+}
+
+float smoothRepeatEnd(float a, float b, float x, float size) {
+  return mix(a, b,
+    smoothstep(
+        0., 1.,
+        sin((x / size) * PI * 2. - PI * .5) * .5 + .5
+    )
+  );
+}
+
+void main() {
+  vec2 uv = (-iResolution.xy + 2. * gl_FragCoord.xy) / iResolution.y;
+  float distance = distance(gl_FragCoord.xy, iMouse) / length(iResolution);
+
+  // Zoom in a bit
+  uv /= 2.;
+  uv *= 1.8;
+
+  float repeatSize = 10.;
+  float x = uv.x - mod(iTime, repeatSize / 2.);
+  float y = uv.y;
+
+  vec2 ab; // two sample points on one axis
+
+  float noise;
+  float noiseA, noiseB;
+
+  ab = smoothRepeatStart(x, repeatSize) * distance;
+  noiseA = tetraNoise(16.+vec3(vec2(ab.x, uv.y) * 1.2, 0)) * .5;
+  noiseB = tetraNoise(16.+vec3(vec2(ab.y, uv.y) * 1.2, 0)) * .5;
+  noise = smoothRepeatEnd(noiseA, noiseB, x, repeatSize);
+
+  ab = smoothRepeatStart(y, repeatSize / 2.);
+  noiseA = tetraNoise(vec3(vec2(uv.x, ab.x) * .5, 0)) * 2.;
+  noiseB = tetraNoise(vec3(vec2(uv.x, ab.y) * .5, 0)) * 2.;
+  noise *= smoothRepeatEnd(noiseA, noiseB, y, repeatSize / 2.);
+
+  ab = smoothRepeatStart(x, repeatSize);
+  noiseA = tetraNoise(9.+vec3(vec2(ab.x, uv.y) * .05, 0)) * 5.;
+  noiseB = tetraNoise(9.+vec3(vec2(ab.y, uv.y) * .05, 0)) * 5.;
+  noise *= smoothRepeatEnd(noiseA, noiseB, x, repeatSize);
+
+  noise *= 0.9;
+  noise = mix(noise, dot(uv, vec2(-.66,1.)*.4), .6);
+
+  float spacing = 1./70.;
+  float lines = mod(noise, spacing) / spacing;
+  lines = min(lines * 2., 1.) - max(lines * 2. - 1., 0.);
+  lines /= fwidth(noise / spacing);
+
+  // Double to occupy two pixels and appear smoother
+  lines /= 2.;
+  lines = 1. - lines;
+
+gl_FragColor = vec4(
+  vec3(0.04, 0.04, 0.078) +
+  (vec3(lines) * clamp(.0, abs(noise), 1.)*0.8)
+,1.0);
+}
+`;
