@@ -66,42 +66,13 @@ export class SiteHeader {
           <stencil-route-link url="/resources" exact={true} onClick={() => { this.hideNav() }}>
             Resources
           </stencil-route-link>
-          
+
           <stencil-route-link url="/blog" exact={true} onClick={() => { this.hideNav() }}>
             Blog
           </stencil-route-link>
 
           <stencil-route-link url="/design-systems" exact={true} onClick={() => { this.hideNav() }} class="stencil-ds">
-            <svg width="21" height="14" viewBox="0 0 21 14" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-              <filter id="glow" x="-40px" y="-20" width="100" height="84.7473" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                <feOffset/>
-                <feGaussianBlur stdDeviation="4"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.439216 0 0 0 0 0.498039 0 0 0 0 1 0 0 0 0.75 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                <feOffset/>
-                <feGaussianBlur stdDeviation="20"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.529412 0 0 0 0 0.564706 0 0 0 0 1 0 0 0 1 0"/>
-                <feBlend mode="normal" in2="effect1_dropShadow" result="effect2_dropShadow"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                <feOffset/>
-                <feGaussianBlur stdDeviation="8"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.215686 0 0 0 0 1 0 0 0 1 0"/>
-                <feBlend mode="normal" in2="effect2_dropShadow" result="effect3_dropShadow"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow" result="shape"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset/>
-                <feGaussianBlur stdDeviation="3"/>
-                <feComposite in2="hardAlpha" operator="arithmetic" k2="0" k3="0"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.752941 0 0 0 0 0.988235 0 0 0 0 1 0 0 0 1 0"/>
-                <feBlend mode="normal" in2="shape" result="effect4_innerShadow"/>
-              </filter>
-              </defs>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.77264 4.60664L8.95159 1H13.9671L10.7921 4.60664H5.77264ZM4.42225 4.62637L8.5 0H16.1797L12.107 4.62637H20.25L16.0855 9.37363H16.0791L12 14H4.33337L8.37826 9.37363H0.25L4.41447 4.62637H4.42225ZM4.86748 5.62637L2.45748 8.37364H15.6325L18.0425 5.62637H4.86748ZM7.96391 11.3668L6.536 13H11.5485L14.6914 9.43542L7.96391 11.3668Z"/>
-            </svg>
+            <svg width="21" height="14" viewBox="0 0 21 14" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.77264 4.60664L8.95159 1H13.9671L10.7921 4.60664H5.77264ZM4.42225 4.62637L8.5 0H16.1797L12.107 4.62637H20.25L16.0855 9.37363H16.0791L12 14H4.33337L8.37826 9.37363H0.25L4.41447 4.62637H4.42225ZM4.86748 5.62637L2.45748 8.37364H15.6325L18.0425 5.62637H4.86748ZM7.96391 11.3668L6.536 13H11.5485L14.6914 9.43542L7.96391 11.3668Z"/></svg>
             DS
           </stencil-route-link>
 
