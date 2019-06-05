@@ -72,7 +72,7 @@ blog-component .post-author-image {
 blog-component .share-links {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 64px;
   height: 100%;
 }
 
@@ -96,4 +96,34 @@ blog-component .share-links a:hover svg{
 
 blog-component .share-links a + a {
   margin-top: 12px;
+}
+
+
+@media screen and (max-width: 840px) {
+  blog-component .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  blog-component .blog-content {
+    margin-bottom: 42px;
+  }
+
+  blog-component .blog-content .post-meta {
+    margin-bottom: 42px;
+  }
+
+  blog-component .share-links {
+    position: static;
+  }
+
+  blog-component .share-links .sticky {
+    flex-direction: row;
+  }
+
+  blog-component .share-links a + a {
+    margin-top: 0;
+    margin-lefT: 12px;
+  }
+
 }
