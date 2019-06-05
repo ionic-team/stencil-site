@@ -319,7 +319,7 @@ void main() {
   lines /= 2.;
   lines = 1. - lines;
 
-  float iconRate = clamp(1., 300./distance(gl_FragCoord.xy, vec2(iResolution.x / 2. - 30.0, iResolution.y - 260.)), 300.);
+  float iconRate = clamp(1., 240./distance(gl_FragCoord.xy, vec2(iResolution.x / 2. - 30.0, iResolution.y - 265.)), 300.);
 gl_FragColor = vec4(
   vec3(0.04, 0.04, 0.078) +
   (vec3(lines) * clamp(.0, abs(noise), 1.) * 0.4 * iconRate)
