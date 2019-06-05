@@ -31,7 +31,7 @@ export class DSPage {
   componentDidLoad() {
     let existingScript = document.querySelector('#hbs-script');
     if (existingScript) {
-      existingScript.parentNode.removeChild(existingScript);
+      existingScript.remove();
     }
     const script = document.createElement('script');
     script.src = '//js.hsforms.net/forms/v2.js';
@@ -44,13 +44,13 @@ export class DSPage {
   }
 
   startRendering() {
-    let time = 0;
+    let time = Math.random();
     const glshader = this.glShader;
     const timeStep = () => {
       const width = glshader.offsetWidth;
       const height = glshader.offsetHeight;
       const x = this.pageX - glshader.offsetLeft;
-      const y = height - this.pageY + glshader.offsetTop;
+      const y = height - this.pageY;
 
       glshader.uniforms = {
         '1f:iTime': time/600,
@@ -241,14 +241,14 @@ uniform vec2 iResolution;
 uniform vec2 iMouse;
 
 #define ALTERNATE_VERSION
+#define PI 3.14159265359
 
 vec3 hash33(vec3 p) {
   float n = sin(dot(p, vec3(7, 157, 113)));
   return fract(vec3(2097152, 262144, 32768)*n)*2. - 1.;
 }
 
-float tetraNoise(in vec3 p)
-{
+float tetraNoise(in vec3 p) {
   vec3 i = floor(p + dot(p, vec3(0.333333)) );  p -= i - dot(i, vec3(0.166666)) ;
   vec3 i1 = step(p.yzx, p), i2 = max(i1, 1.0-i1.zxy); i1 = min(i1, 1.0-i1.zxy);
   vec3 p1 = p - i1 + 0.166666, p2 = p - i2 + 0.333333, p3 = p - 0.5;
@@ -256,8 +256,6 @@ float tetraNoise(in vec3 p)
   vec4 d = vec4(dot(p, hash33(i)), dot(p1, hash33(i + i1)), dot(p2, hash33(i + i2)), dot(p3, hash33(i + 1.)));
   return clamp(dot(d, v*v*v*8.)*1.732 + .5, 0., 1.); // Not sure if clamping is necessary. Might be overkill.
 }
-
-#define PI 3.14159265359
 
 vec2 smoothRepeatStart(float x, float size) {
   return vec2(
@@ -307,7 +305,7 @@ void main() {
   noiseB = tetraNoise(9.+vec3(vec2(ab.y, uv.y) * .05, 0)) * 5.;
   noise *= smoothRepeatEnd(noiseA, noiseB, x, repeatSize);
 
-  noise *= 0.9;
+  noise *= 0.8;
   noise = mix(noise, dot(uv, vec2(-.66,1.)*.4), .6);
 
   float spacing = 1./90.;
