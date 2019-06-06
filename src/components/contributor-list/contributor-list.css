@@ -42,10 +42,7 @@ contributor-list a:hover {
 }
 
 contributor-list .img-wrapper {
-  border-radius: 100%;
-  display: inline-block;
-  overflow: hidden;
-  border: 2px solid #fff;
+  margin: 2px;
 }
 
 contributor-list img {
