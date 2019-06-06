@@ -7,10 +7,11 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class ContributorList {
 
-  @Prop() contributors: string[]
+  @Prop() contributors?: string[];
 
   render() {
-    if (this.contributors.length === 0) {
+    const contributors = this.contributors;
+    if (!contributors || contributors.length === 0) {
       return null;
     }
 
@@ -19,7 +20,7 @@ export class ContributorList {
         <h5>Contributors</h5>
         <div>
           <ul>
-          {this.contributors.map(contributor => (
+          {contributors.map(contributor => (
             <li>
               <a href={`https://github.com/${contributor}`} target="_blank">
                 <span class="img-wrapper">

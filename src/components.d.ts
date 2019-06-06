@@ -20,10 +20,10 @@ export namespace Components {
   }
   interface AppRoot {}
   interface BlogComponent {
-    'pageUrl': string;
+    'pageUrl'?: string;
   }
   interface ContributorList {
-    'contributors': string[];
+    'contributors'?: string[];
   }
   interface CustomClock {}
   interface DemoCard {
@@ -35,7 +35,7 @@ export namespace Components {
     'sourceUrl'?: string;
   }
   interface DocComponent {
-    'page': string;
+    'page'?: string;
   }
   interface DsPage {}
   interface HighlightCode {}
@@ -62,7 +62,7 @@ export namespace Components {
   interface ResourcesPage {}
   interface SiteHeader {}
   interface SiteMenu {
-    'selectedParent': SiteStructureItem;
+    'selectedParent'?: SiteStructureItem;
     'siteStructureList': SiteStructureItem[];
   }
   interface SiteTopBar {}

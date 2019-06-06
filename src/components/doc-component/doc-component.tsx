@@ -10,21 +10,23 @@ import { MarkdownContent, SiteStructureItem } from '../../global/definitions';
 })
 export class DocumentComponent implements ComponentInterface {
 
-  @Prop() page: string;
-  data: ItemInfo;
-  content: MarkdownContent;
+  @Prop() page?: string;
+  data?: ItemInfo;
+  content?: MarkdownContent;
 
   async componentWillRender() {
     if (this.page) {
       console.log('componentWillRender', this.page);
-      this.data = findItem(siteStructure as SiteStructureItem[], this.page);
+      const data = this.data = findItem(siteStructure as SiteStructureItem[], this.page);
 
-      if (!Build.isBrowser && !this.data.item) {
+      if (!Build.isBrowser && !data.item) {
         fileNotFound();
         return;
       }
 
-      this.content = await fetchContent(this.data.item.filePath);
+      if (data.item && data.item.filePath) {
+        this.content = await fetchContent(data.item.filePath);
+      }
     }
   }
 
@@ -85,7 +87,7 @@ const toHypertext = (data: any) => {
       arg = 'template';
 
     } else if (i === 1 && arg) {
-      const attrs = {};
+      const attrs: any = {};
       Object.keys(arg).forEach(key => {
         const k = key.toLowerCase();
         if (!k.startsWith('on') && k !== 'innerhtml') {
