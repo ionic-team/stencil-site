@@ -43,7 +43,7 @@ export class DSPage {
 
   startRendering() {
     if (Build.isBrowser) {
-      let time = Math.random();
+      let time = Math.random() * 10000.0;
       const glshader = this.glShader;
       const timeStep = () => {
         const width = glshader.offsetWidth;
