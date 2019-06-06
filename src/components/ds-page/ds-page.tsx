@@ -43,20 +43,23 @@ export class DSPage {
 
   startRendering() {
     if (Build.isBrowser) {
-      let time = Math.random() * 10000.0;
+      let last = 0;
+      const offset = Math.random() * 10000.0;
       const glshader = this.glShader;
-      const timeStep = () => {
-        const width = glshader.offsetWidth;
-        const height = glshader.offsetHeight;
-        const x = this.pageX - glshader.offsetLeft;
-        const y = height - this.pageY;
+      const timeStep = (time: number) => {
+        if (time > last) {
+          const width = glshader.offsetWidth;
+          const height = glshader.offsetHeight;
+          const x = this.pageX - glshader.offsetLeft;
+          const y = height - this.pageY;
 
-        glshader.uniforms = {
-          '1f:iTime': time/600,
-          '2fv:iResolution': [width, height],
-          '2fv:iMouse': [x, y]
-        };
-        time++;
+          glshader.uniforms = {
+            '1f:iTime': (time + offset)/16000,
+            '2fv:iResolution': [width, height],
+            '2fv:iMouse': [x, y]
+          };
+          last = time + 32;
+        }
         this.raf = requestAnimationFrame(timeStep);
       };
       this.raf = requestAnimationFrame(timeStep);
