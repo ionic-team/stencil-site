@@ -19,16 +19,14 @@ export class DSPage {
     document.title = `Stencil DS - Stencil for Production Design Systems`;
   }
 
-  componentWillLoad() {
-    document.body.classList.add('dark');
-  }
-
   componentDidUnload() {
     document.body.classList.remove('dark');
     cancelAnimationFrame(this.raf);
   }
 
   componentDidLoad() {
+    document.body.classList.add('dark');
+
     let existingScript = document.querySelector('#hbs-script');
     if (existingScript) {
       existingScript.remove();
