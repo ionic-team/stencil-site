@@ -2,17 +2,14 @@ import marked from 'marked';
 import glob from 'glob';
 import { promisify } from 'util';
 import path from 'path';
-import fs from 'fs';
+import {readFile, writeFile, mkdirp, remove} from 'fs-extra';
 import url from 'url';
-import { rimraf, mkdirp } from '@stencil/utils';
 import { createDocument } from '@stencil/core/mock-doc';
 import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
 import frontMatter from 'front-matter';
 import fetch from 'node-fetch';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
 const globAsync = promisify(glob);
 
 const DESTINATION_DIR = './src/assets/docs';
@@ -26,7 +23,7 @@ const SITE_STRUCTURE_FILE= './src/assets/docs-structure.json';
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
   const files = await globAsync(`${SOURCE_DIR}/**/*.md`, {});
 
-  await rimraf(DESTINATION_DIR);
+  await remove(DESTINATION_DIR);
 
   const filePromises = files.map(async (filePath) => {
     if (filePath === './src/docs/README.md') {
