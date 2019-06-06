@@ -11,7 +11,6 @@ import {
   SiteStructureItem,
 } from './global/definitions';
 
-
 export namespace Components {
   interface AppBurger {
     'toggleLeftSidebar': () => void;
@@ -51,6 +50,14 @@ export namespace Components {
     'prev'?: SiteStructureItem;
   }
   interface NotfoundPage {}
+  interface ProGlshader {
+    'frag': string;
+    'media'?: string;
+    'ready': boolean;
+    'retina': boolean;
+    'uniforms': any;
+    'vert': string;
+  }
   interface PwasPage {}
   interface ResourcesPage {}
   interface SiteHeader {}
@@ -148,6 +155,12 @@ declare global {
     new (): HTMLNotfoundPageElement;
   };
 
+  interface HTMLProGlshaderElement extends Components.ProGlshader, HTMLStencilElement {}
+  var HTMLProGlshaderElement: {
+    prototype: HTMLProGlshaderElement;
+    new (): HTMLProGlshaderElement;
+  };
+
   interface HTMLPwasPageElement extends Components.PwasPage, HTMLStencilElement {}
   var HTMLPwasPageElement: {
     prototype: HTMLPwasPageElement;
@@ -192,6 +205,7 @@ declare global {
     'landing-page': HTMLLandingPageElement;
     'lower-content-nav': HTMLLowerContentNavElement;
     'notfound-page': HTMLNotfoundPageElement;
+    'pro-glshader': HTMLProGlshaderElement;
     'pwas-page': HTMLPwasPageElement;
     'resources-page': HTMLResourcesPageElement;
     'site-header': HTMLSiteHeaderElement;
@@ -239,6 +253,14 @@ declare namespace LocalJSX {
     'prev'?: SiteStructureItem;
   }
   interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
+  interface ProGlshader extends JSXBase.HTMLAttributes<HTMLProGlshaderElement> {
+    'frag'?: string;
+    'media'?: string;
+    'ready'?: boolean;
+    'retina'?: boolean;
+    'uniforms'?: any;
+    'vert'?: string;
+  }
   interface PwasPage extends JSXBase.HTMLAttributes<HTMLPwasPageElement> {}
   interface ResourcesPage extends JSXBase.HTMLAttributes<HTMLResourcesPageElement> {}
   interface SiteHeader extends JSXBase.HTMLAttributes<HTMLSiteHeaderElement> {}
@@ -263,6 +285,7 @@ declare namespace LocalJSX {
     'landing-page': LandingPage;
     'lower-content-nav': LowerContentNav;
     'notfound-page': NotfoundPage;
+    'pro-glshader': ProGlshader;
     'pwas-page': PwasPage;
     'resources-page': ResourcesPage;
     'site-header': SiteHeader;

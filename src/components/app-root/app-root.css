@@ -38,15 +38,14 @@ stencil-site {
 
 .container {
   width: 100%;
-  max-width: 1136px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 15px;
+  padding: 0 64px;
   flex: 1 0 auto;
 }
 
 main {
-  position: relative;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 64px);
@@ -58,6 +57,10 @@ stencil-router {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
   main {
     padding-top: 92px;
     min-height: 100vh;

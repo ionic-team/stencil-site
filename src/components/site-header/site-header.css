@@ -4,7 +4,6 @@ site-header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-white);
   z-index: 99;
 }
 
@@ -13,6 +12,14 @@ site-header .container {
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+site-header .icon-logo {
+  fill: #000;
+}
+
+body.dark site-header .icon-logo {
+  fill: #fff;
 }
 
 .header-menu {
@@ -67,6 +74,58 @@ site-header .container {
   fill: var(--color-dodger-blue);
 }
 
+.header-menu stencil-route-link.stencil-ds a.link-active {
+  border-bottom: 0;
+  border-bottom-color: transparent;
+}
+
+body.dark .header-menu stencil-route-link:not(.stencil-ds) a {
+  color: #DCDCEE;
+}
+
+body.dark .header-menu stencil-route-link:not(.stencil-ds) a:hover {
+  color: #fff;
+}
+
+body.dark .header-menu stencil-route-link:not(.stencil-ds) a.link-active:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark .header-menu stencil-route-link.stencil-ds a {
+  position: relative;
+  color: #CDFCFF;
+  text-shadow: 0px 0px 8px rgba(112, 127, 255, 0.75), 0px 0px 40px #8790FF, 0px 0px 16px #2637FF;
+}
+
+body.dark .header-menu stencil-route-link.stencil-ds a::before,
+body.dark .header-menu stencil-route-link.stencil-ds a::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #001AFF;
+  opacity: 0.3;
+  filter: blur(18px);
+  width: 56px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+body.dark .header-menu stencil-route-link.stencil-ds a::after {
+  transform: translate(calc(-50% - 12px), -50%);
+  width: 28px;
+  height: 28px;
+  opacity: 0.25;
+  z-index: -1;
+  filter: blur(6px);
+}
+
+body.dark .header-menu stencil-route-link.stencil-ds a svg {
+  fill: #b2e4fb;
+}
+
 .header-menu .external-links {
   display: flex;
   align-items: center;
@@ -88,6 +147,10 @@ site-header .container {
 }
 .header-menu .link--external:hover svg {
   fill: var(--color-gunpowder);
+}
+
+body.dark .header-menu .link--external:hover svg {
+  fill: #fff;
 }
 
 .header-overflow,
@@ -123,6 +186,11 @@ site-header .container {
 @media screen and (max-width: 768px) {
   site-header {
     position: fixed;
+    background-color: #fff;
+  }
+
+  body.dark site-header {
+    background-color: #0A0A16;
   }
 
   .header-menu {
