@@ -74,6 +74,18 @@ site-menu .menu-list ul.collapsed li {
   height: 0;
 }
 
+site-menu .search-container {
+  padding: 10px 0;
+}
+
+site-menu .search-container input {
+  border: none;
+  border-bottom: 1px solid #A3A3B0;
+  color: currentColor;
+  padding: 5px;
+  background: transparent;
+}
+
 @media screen and (max-width: 768px) {
   site-menu {
     position: fixed;
@@ -94,6 +106,10 @@ site-menu .menu-list ul.collapsed li {
     color: rgba(255, 255, 255, 0.6);
   }
   site-menu .menu-list a:hover:not(.link-active) {
+    color: white;
+  }
+
+  site-menu .search-container input {
     color: white;
   }
 }
