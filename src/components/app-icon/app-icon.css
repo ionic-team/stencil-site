@@ -74,3 +74,8 @@ app-icon .icon-arrow-right {
   height: 10px;
   width: 7px;
 }
+
+app-icon .icon-arrow-down {
+  height: 16px;
+  width: 16px;
+}
