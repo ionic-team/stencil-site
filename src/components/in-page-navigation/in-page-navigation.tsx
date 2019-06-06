@@ -12,11 +12,17 @@ interface ItemOffset {
 })
 export class InPageNavigtion implements ComponentInterface {
 
+  @Prop() pageLinks: MarkdownHeading[] = [];
+  @Prop() srcUrl: string = '';
+  @Prop() currentPageUrl: string = '';
+  @State() itemOffsets: ItemOffset[] = [];
+  @State() selectedId?: string;
+
   @Listen('scroll', { target: 'window' })
   function() {
     const itemIndex = this.itemOffsets.findIndex(item => item.topOffset > window.scrollY);
     if (itemIndex === 0) {
-      this.selectedId = null;
+      this.selectedId = undefined;
     } else if (itemIndex === -1) {
       this.selectedId = this.itemOffsets[this.itemOffsets.length - 1].id
     } else {
@@ -24,18 +30,13 @@ export class InPageNavigtion implements ComponentInterface {
     }
   }
 
-  @Prop() pageLinks: MarkdownHeading[] = [];
-  @Prop() srcUrl: string = '';
-  @Prop() currentPageUrl: string = '';
-  @State() itemOffsets: ItemOffset[] = [];
-  @State() selectedId: string = null;
 
   @Watch('pageLinks')
   @Listen('resize', { target: 'window' })
   updateItemOffsets() {
     requestAnimationFrame(() => {
       this.itemOffsets = this.pageLinks.map((pl) => {
-        const item = document.getElementById(pl.id);
+        const item = document.getElementById(pl.id)!;
         return {
           id: pl.id,
           topOffset: item.getBoundingClientRect().top + window.scrollY
