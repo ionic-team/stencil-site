@@ -11,7 +11,6 @@ import {
   SiteStructureItem,
 } from './global/definitions';
 
-
 export namespace Components {
   interface AppBurger {
     'toggleLeftSidebar': () => void;
