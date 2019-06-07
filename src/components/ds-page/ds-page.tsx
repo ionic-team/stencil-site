@@ -11,9 +11,9 @@ export class DSPage {
   private pageX = 0;
   private pageY = 0;
   private raf: any;
-  private glShader: HTMLProGlshaderElement;
+  private glShader?: HTMLProGlshaderElement;
 
-  @Element() el: Element;
+  @Element() el!: Element;
 
   constructor() {
     document.title = `Stencil DS - Stencil for Production Design Systems`;
@@ -42,10 +42,10 @@ export class DSPage {
   }
 
   startRendering() {
-    if (Build.isBrowser) {
+    const glshader = this.glShader;
+    if (Build.isBrowser && glshader) {
       let last = 0;
       const offset = Math.random() * 10000.0;
-      const glshader = this.glShader;
       const timeStep = (time: number) => {
         if (time > last) {
           const width = glshader.offsetWidth;
@@ -81,11 +81,13 @@ export class DSPage {
     });
   }
 
-  handleCtaClick(ev, id) {
+  handleCtaClick(ev: Event, id: string) {
     if (document.documentElement.scrollIntoView) {
       ev.preventDefault();
       const el = document.getElementById(id);
-      scrollTo(el);
+      if (el) {
+        scrollTo(el);
+      }
     }
   }
 
@@ -334,17 +336,17 @@ gl_FragColor = vec4(
 }
 `;
 
-function scrollTo (el) {
+function scrollTo (el: HTMLElement) {
+  let currentTime = 0;
   const scrollY = window.scrollY;
   const scrollTargetY = el.offsetTop;
   const speed = 600;
-  const easeOutExpo = function(pos) {
+  const easeOutExpo = (pos: number) => {
     return (pos===1) ? 1 : -Math.pow(2, -10 * pos) + 1;
   };
-  let currentTime = 0;
   const time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
 
-  function tick() {
+  const tick = () => {
     currentTime += 1 / 60;
 
     const p = currentTime / time;
