@@ -66,7 +66,7 @@ export interface ComponentOptions {
    * String that contains inlined CSS instead of using an external stylesheet.
    * The performance characteristics of this feature are the same as using an external stylesheet.
    *
-   * Notice, you can't use sass, or less, only `css` is allowed using `styles`, use `styleUrl` is you need more advanced features.
+   * Notice, you can't use sass, or less, only `css` is allowed using `styles`, use `styleUrl` if you need more advanced features.
    */
   styles?: string;
 
