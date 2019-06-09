@@ -45,7 +45,6 @@ contributor-list .img-wrapper {
   border-radius: 100%;
   display: inline-block;
   overflow: hidden;
-  border: 2px solid #fff;
 }
 
 contributor-list img {

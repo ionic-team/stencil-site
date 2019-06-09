@@ -8,7 +8,7 @@ import SiteProviderConsumer, { SiteState } from '../../global/site-provider-cons
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-  history: RouterHistory = null;
+  history?: RouterHistory;
   elements = [
     'site-header',
     'site-menu',
@@ -27,13 +27,13 @@ export class AppRoot {
         this.isLeftSidebarIn = false;
         document.body.classList.remove('no-scroll');
         this.elements.forEach((el) => {
-          this.el.querySelector(el).classList.remove('left-sidebar-in');
+          this.el.querySelector(el)!.classList.remove('left-sidebar-in');
         });
       }
     });
   }
 
-  setHistory = ({ history }: { history: RouterHistory }) => {
+  private setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
       this.history.listen((location: LocationSegments) => {
@@ -46,23 +46,27 @@ export class AppRoot {
     this.isLeftSidebarIn = false;
   }
 
-  toggleLeftSidebar = () => {
+  private toggleLeftSidebar = () => {
     if (window.innerWidth >= 768) {
       return;
     }
+    const elements = this.elements
+      .map(el => this.el.querySelector(el))
+      .filter(el => !!el) as Element[];
+
     if (this.isLeftSidebarIn) {
       this.isLeftSidebarIn = false;
       document.body.classList.remove('no-scroll');
-      this.elements.forEach((el) => {
-        this.el.querySelector(el).classList.remove('left-sidebar-in');
-        this.el.querySelector(el).classList.add('left-sidebar-out');
+      elements.forEach(el => {
+        el.classList.remove('left-sidebar-in');
+        el.classList.add('left-sidebar-out');
       });
     } else {
       this.isLeftSidebarIn = true;
       document.body.classList.add('no-scroll');
-      this.elements.forEach((el) => {
-        this.el.querySelector(el).classList.add('left-sidebar-in');
-        this.el.querySelector(el).classList.remove('left-sidebar-out');
+      elements.forEach(el => {
+        el.classList.add('left-sidebar-in');
+        el.classList.remove('left-sidebar-out');
       });
     }
   }
@@ -82,11 +86,11 @@ export class AppRoot {
             <stencil-route-switch>
               <stencil-route url="/" component="landing-page" exact={true} />
               <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
-                <doc-component page={match.url}></doc-component>
+                <doc-component page={match!.url}></doc-component>
               )}/>
 
               <stencil-route url="/blog/:pageName" routeRender={({ match }) => (
-                <blog-component pageUrl={match.url}></blog-component>
+                <blog-component pageUrl={match!.url}></blog-component>
               )}/>
 
               {/*<stencil-route url="/blog" component="blog-component" />*/}

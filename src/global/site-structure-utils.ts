@@ -7,7 +7,7 @@ export interface ItemInfo {
   parent?: SiteStructureItem
 }
 
-export const findItem = (siteStructureList: SiteStructureItem[], url: string, foundData: ItemInfo = { parent: null }) => {
+export const findItem = (siteStructureList: SiteStructureItem[], url: string, foundData: ItemInfo = { parent: undefined }) => {
 
   for (const item of siteStructureList) {
     if (item.url === url) {

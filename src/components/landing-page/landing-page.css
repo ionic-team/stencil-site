@@ -114,7 +114,7 @@ landing-page .cta__primary code.copied {
 landing-page .cta__primary span,
 landing-page .cta__primary span a {
   font-size: 11px;
-  color: #9F9EB2;
+  color: var(--color-dolphin);
 }
 
 landing-page .cta__primary span a,
@@ -238,11 +238,16 @@ landing-page .list--icon svg {
   fill: var(--color-dodger-blue) !important;
 }
 
+landing-page .videos {
+  display: flex;
+  justify-content: center;
+}
+
 landing-page .video-thumbnail {
   transition: transform 0.2s;
   display: block;
-  margin: 0 auto;
-  width: 216px;
+  margin: 0;
+  width: 230px;
   height: 150px;
   position: relative;
   text-decoration: none;
@@ -251,6 +256,10 @@ landing-page .video-thumbnail {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+landing-page .video-thumbnail + .video-thumbnail {
+  margin-left: 8px;
 }
 
 landing-page .video-thumbnail::before {
@@ -272,6 +281,14 @@ landing-page .video-thumbnail::before {
   z-index: 1;
 }
 
+landing-page .video-thumbnail--launch::before {
+  background-image: url('/assets/img/video-thumbnail.png');
+}
+
+landing-page .video-thumbnail--announcement::before {
+  background-image: url('/assets/img/video-thumbnail-2.png');
+}
+
 landing-page .video-thumbnail:hover::before {
   transform: scale(0.982);
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
@@ -289,6 +306,7 @@ landing-page .video-thumbnail span {
   color: #fff;
   font-size: 14px;
   font-weight: 600;
+  text-shadow: 0px 2px 4px rgba(2, 8, 20, 0.2);
 }
 
 landing-page .video-thumbnail svg {

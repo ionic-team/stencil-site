@@ -8,7 +8,7 @@ import { SiteStructureItem } from '../../global/definitions';
 })
 export class SiteMenu implements ComponentInterface{
   @Prop() siteStructureList: SiteStructureItem[] = [];
-  @Prop({ mutable: true }) selectedParent: SiteStructureItem = null;
+  @Prop({ mutable: true }) selectedParent?: SiteStructureItem;
 
   toggleParent = (parentItem: SiteStructureItem) => {
     return (e: MouseEvent) => {
@@ -26,13 +26,13 @@ export class SiteMenu implements ComponentInterface{
             <ul class='menu-list'>
               { this.siteStructureList.map((item) => (
                 <li>
-                  <a href={item.children[0].url || '#'} onClick={this.toggleParent(item)}>
+                  <a href={item.children![0].url || '#'} onClick={this.toggleParent(item)}>
                     <span class="section-label">
                       {item.text}
                     </span>
                   </a>
                   <ul class={{ 'collapsed': item !== this.selectedParent }}>
-                  { item.children.map((childItem) => (
+                  { item.children!.map((childItem) => (
                     <li>
                       { (childItem.url) ?
                       <stencil-route-link url={childItem.url} onClick={toggleLeftSidebar}>
