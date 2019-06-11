@@ -6,6 +6,9 @@ export const config: Config = {
       type: 'www',
       baseUrl: 'https://stenciljs.com/',
       prerenderConfig: './prerender.config.js',
+      serviceWorker: {
+        unregister: true
+      }
     },
     {
       type: 'dist-hydrate-script',

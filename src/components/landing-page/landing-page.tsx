@@ -273,20 +273,14 @@ export class LandingPage {
           <div class="container">
             <h4>The Stencil story</h4>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
-            <div class="video-trigger">
-              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail">
-                <svg width="61" height="61" viewBox="0 0 61 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="30.5" cy="30.5" r="30.5" transform="rotate(-180 30.5 30.5)" fill="url(#paint0_linear)" fill-opacity="0.9"/>
-                  <path d="M41.676 28.768C43.0094 29.5378 43.0094 31.4623 41.676 32.2321L26.4119 41.0448C25.0786 41.8146 23.4119 40.8524 23.4119 39.3128L23.4119 21.6873C23.4119 20.1477 25.0786 19.1855 26.4119 19.9553L41.676 28.768Z" fill="#5755F6"/>
-                  <defs>
-                    <linearGradient id="paint0_linear" x1="30.5" y1="-1.90735e-06" x2="30.5" y2="61" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#E9E9FF"/>
-                      <stop offset="0.0001" stop-color="#DBDBFF"/>
-                      <stop offset="1" stop-color="white"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+            <div class="videos">
+              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+                <app-icon name="play"/>
                 <span>Watch launch video</span>
+              </a>
+              <a href="https://youtu.be/M1F81V-NhP0" class="video-thumbnail video-thumbnail--announcement">
+                <app-icon name="play"/>
+                <span>See the v1 announcement</span>
               </a>
             </div>
           </div>
