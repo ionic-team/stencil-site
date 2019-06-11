@@ -92,9 +92,9 @@ In Stencil, the `@Prop()` decorator applied to a **property** will instruct the 
 Usually the name of a property is the same as the attribute, but this is not always the case. Take the following component as example:
 
 ```tsx
-import { Component, Prop} from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
-@Component({ tag: 'my-cmp'})
+@Component({ tag: 'my-cmp' })
 class Component {
   @Prop() value: string;
   @Prop() isValid: boolean;
@@ -116,9 +116,9 @@ Fortunatelly, this "default" behaviour can be changed using the `attribute` opti
 
 
 ```tsx
-import { Component, Prop} from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
-@Component({ tag: 'my-cmp'})
+@Component({ tag: 'my-cmp' })
 class Component {
   @Prop() value: string;
   @Prop({ attribute: 'valid' }) isValid: boolean;
@@ -144,11 +144,11 @@ When a "prop" is set to "reflect", it means that their value will be rendered in
 Take the following component as example:
 
 ```tsx
-@Component({tag: 'my-cmp'})
+@Component({ tag: 'my-cmp' })
 class Cmp {
-  @Prop({reflect: true}) message = 'Hello';
-  @Prop({reflect: false}) value = 'nothing';
-  @Prop({reflect: true}) number = 42;
+  @Prop({ reflect: true }) message = 'Hello';
+  @Prop({ reflect: false }) value = 'nothing';
+  @Prop({ reflect: true }) number = 42;
 }
 ```
 
@@ -192,7 +192,7 @@ export class TodoList {
     const isBlank = typeof newValue == null;
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
     if (isBlank) { throw new Error('name: required') };
-    if (!has2chars ) { throw new Error('name: has2chars') };
+    if (!has2chars) { throw new Error('name: has2chars') };
   }
 }
 ```
