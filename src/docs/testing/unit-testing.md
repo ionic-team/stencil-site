@@ -47,7 +47,7 @@ The `newSpecPage(options)` method takes an options argument to help write tests:
 | `components` | An array of components to test. Component classes can be imported into the spec file, then their reference should be added to the `component` array in order to be used throughout the test. *Required* |
 | `html` | The initial HTML used to generate the test. This can be useful to construct a collection of components working together, and assign HTML attributes. This value sets the mocked `document.body.innerHTML`. |
 | `autoApplyChanges` | By default, any changes to component properties and attributes must call `page.waitForChanges()` in order to test the updates. As an option, `autoApplyChanges` continuously flushes the queue in the background. Defaults to  `false` |
-| `cookie` | Sets the mocked `document.cookie`.
+| `cookie` | Sets the mocked `document.cookie`. |
 | `direction` | Sets the mocked `dir` attribute on `<html>`. |
 | `language` | Sets the mocked `lang` attribute on `<html>`. |
 | `referrer` | Sets the mocked `document.referrer`. |
@@ -60,7 +60,7 @@ The `newSpecPage(options)` method takes an options argument to help write tests:
 
 The returned "page" object from `newSpecPage()` contains the initial results from the first render. It's also important to note that the returned page result is a `Promise`, so for convenience it's recommended to use async/await.
 
-The most useful property on the page results would be `root`, which is for convenience to find the first root component found in the document. For example, if a component is nested in many `<div>` elements, the `root` property goes directly to the component being tested in order to skip the query selector boilerplate code.
+The most useful property on the page results would be `root`, which is for convenience to find the first root component in the document. For example, if a component is nested in many `<div>` elements, the `root` property goes directly to the component being tested in order to skip the query selector boilerplate code.
 
 
 ## Testing Component Class Logic
