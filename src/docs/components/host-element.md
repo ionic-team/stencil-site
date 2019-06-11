@@ -57,13 +57,16 @@ similary, if `this.open === false`:
 could be achieved by a `render()` method like this:
 
 ```tsx
-render() {
-  return (
-    <Host>
-      <h1>Title</h1>
-      <p>Message</p>
-    </Host>
-  );
+@Component({tag: 'my-cmp'})
+export class MyCmp {
+  render() {
+    return (
+      <Host>
+        <h1>Title</h1>
+        <p>Message</p>
+      </Host>
+    );
+  }
 }
 ```
 
@@ -83,8 +86,6 @@ Even if we don't use `<Host>` to render any attribute in the host element, it's 
 
 The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
 
-If you need to update the host element in response to prop or state changes, you should do so using the `hostData` method.
-
 ```tsx
 import { Element } from '@stencil/core';
 
@@ -98,3 +99,5 @@ export class TodoList {
   }
 }
 ```
+
+If you need to update the host element in response to prop or state changes, you should do so in the `render()` method using the `<Host>` element.
