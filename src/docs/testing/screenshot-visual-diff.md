@@ -58,6 +58,6 @@ describe('stencil-avatar', () => {
 After you've run your tests, you can open the `/screenshot/compare.html` page in your project to see the changes and their differences. 
 
 ## Current issues: 
-- [] Only screenshot the inner width of the items in the body itself. Currently the screenshot is taken at 600x600 pixels, so it makes "allowableMismatchedRatio" not a very valuable option. Something like a `await page.readjustSize()` that would clip the puppeteer page to the width of the rendered content would help make allowableMismatchedRatio more usable. 
-- [] Needs more testing! 
+- Only screenshot the inner width of the items in the body itself. Currently the screenshot is taken at 600x600 pixels, so it makes "allowableMismatchedRatio" not a very valuable option. Something like a `await page.readjustSize()` that would clip the puppeteer page to the width of the rendered content would help make allowableMismatchedRatio more usable. 
+- Needs more testing! 
 

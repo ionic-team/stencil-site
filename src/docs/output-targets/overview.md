@@ -74,6 +74,6 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
    /**
     * @prop --primary: Primary header color.
     */
-   --background: blue;
+   --primary: blue;
  }
 ```
