@@ -253,30 +253,23 @@ export class Something {
   }
 
   /**
-   * 10. hostData() function
-   * Used to dynamically set host element attributes.
-   * Should be placed directly above render()
-   */
-  hostData() {
-    return {
-      attribute: 'navigation',
-      side: this.isRightSide ? 'right' : 'left',
-      type: this.type,
-      class: {
-        'something-is-animating': this.isAnimating
-      }
-    };
-  }
-
-  /**
-   * 11. render() function
+   * 10. render() function
    * Always the last one in the class.
    */
   render() {
     return (
-      <div class='menu-inner page-inner'>
-        <slot></slot>
-      </div>
+      <Host
+        attribute="navigation"
+        side={this.isRightSide ? 'right' : 'left'}
+        type={this.type}
+        class={{
+          'something-is-animating': this.isAnimating
+        }}
+      >
+        <div class='menu-inner page-inner'>
+          <slot></slot>
+        </div>
+      </Host>
     );
   }
 }
