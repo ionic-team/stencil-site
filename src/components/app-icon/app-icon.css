@@ -79,3 +79,8 @@ app-icon .icon-arrow-down {
   height: 16px;
   width: 16px;
 }
+
+app-icon .icon-play {
+  height: 61px;
+  width: 61px;
+}
