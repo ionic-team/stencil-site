@@ -8,6 +8,7 @@ contributors:
   - kensodemann
   - peterpeterparker
   - jeanbenitez
+  - mburger81
 ---
 
 # Angular
@@ -50,7 +51,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-import { defineCustomElements } from 'test-components/dist/loader';
+import { defineCustomElements } from 'test-components/loader';
 
 if (environment.production) {
   enableProdMode();
