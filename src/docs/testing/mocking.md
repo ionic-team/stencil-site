@@ -122,7 +122,10 @@ import { Foo } from './components/foo/foo';
 
 describe('Foo', () => {
 	it('bar()', async () => {
-		const page = await newSpecPage({ components: [Foo] });
+		const page = await newSpecPage({
+			components: [Foo],
+			html: '<foo-component></foo-component>',
+		});
 		const foo = page.body.querySelector('foo-component');
 
 		if (!foo) {
