@@ -62,6 +62,16 @@ The returned "page" object from `newSpecPage()` contains the initial results fro
 
 The most useful property on the page results would be `root`, which is for convenience to find the first root component in the document. For example, if a component is nested in many `<div>` elements, the `root` property goes directly to the component being tested in order to skip the query selector boilerplate code.
 
+| Result | Description |
+|--------|-------------|
+| `body` | Mocked testing `document.body`. |
+| `doc` | Mocked testing `document`. |
+| `root` | The first component found within the mocked `document.body`. If a component isn't found, then it'll return `document.body.firstElementChild`.  |
+| `rootInstance` | Similar to `root`, except returns the component instance. If a root component was not found it'll return `null`. |
+| `setContent(html)` | Convenience function to set `document.body.innerHTML` and `waitForChanges()`. Function argument should be an html string. |
+| `waitForChanges()` | After changes have been made to a component, such as a update to a property or attribute, the test page does not automatically apply the changes. In order to wait for, and apply the update, call `await page.waitForChanges()`. |
+| `win` | Mocked testing `window`. |
+
 
 ## Testing Component Class Logic
 
