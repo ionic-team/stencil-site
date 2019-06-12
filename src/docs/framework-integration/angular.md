@@ -51,6 +51,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+// Note: loader import location set using "esmLoaderPath" within the output target confg
 import { defineCustomElements } from 'test-components/loader';
 
 if (environment.production) {
