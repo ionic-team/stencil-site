@@ -11,13 +11,13 @@ contributors:
 
 # Module Bundling
 
-Stencil uses rollup in order to bundle your components. There are certain restrictions that stencil applies in order to optimize much better your collection of components. This guide will explain and recommend certain work-around for some of the issues you might encounter.
+Stencil uses rollup under the hood to bundle your components. This guide will explain and recommend certain work-arounds for some of the most common bundling issues you might encounter.
 
 ## One component per module
 
-Code-splitting in rollup happens at the module level, that means that it's not possible to code-split logic within the same module (`.ts` file). In order for Stencil to bundle your components in the most efficient way, you must declare a single component (class decorated with `@Component`) per *TypeScript* file.
+Code-splitting in rollup happens at the module level, that means that it's not possible to code-split logic within the same module (`.ts` file). In order for Stencil to bundle your components in the most efficient way, you must declare a single component (class decorated with `@Component`) per *TypeScript* file, and the component itself **must** be unique `export`.
 
-Modules that contain a component are also entry-points, which means that no other module should import anything from them. The only single `export` must be the component itself.
+Modules that contain a component are entry-points, which means that no other module should import anything from them, ie. they cannot contain any shared logic imported by other components (modules).
 
 The following example is **NOT** valid:
 
@@ -25,7 +25,7 @@ The following example is **NOT** valid:
 ```tsx
 // This module has a component, you cannot export anything else
 export function someUtilFunction() {
- console.log('do stuff');
+  console.log('do stuff');
 }
 
 @Component({
@@ -36,7 +36,7 @@ export class MyCmp {}
 
 In this case, the compiler will emit an error that looks like this:
 
-```
+```bash
 [ ERROR ]  src/components/my-cmp.tsx:4:1
         To allow efficient bundling, modules using @Component() can only have a single export which is the component
         class itself. Any other exports should be moved to a separate file. For further information check out:
@@ -46,7 +46,7 @@ In this case, the compiler will emit an error that looks like this:
   L5:   console.log('do stuff');
 ```
 
-If you want to have shared functionality used across components, move any shared functions or classes to a different `.ts` file, like this:
+The solution is to move any shared functions or classes to a different `.ts` file, like this:
 
 **src/utils.ts:**
 ```tsx
@@ -57,7 +57,7 @@ export function someUtilFunction() {
 
 **src/components/my-cmp.tsx:**
 ```tsx
-| import { someUtilFunction } from '../utils.ts';
+import { someUtilFunction } from '../utils.ts';
 
 @Component({
   tag: 'my-cmp'
@@ -68,7 +68,7 @@ export class MyCmp {}
 **src/components/my-cmp-two.tsx:**
 
 ```tsx
-| import { someUtilFunction } from '../utils.ts';
+import { someUtilFunction } from '../utils.ts';
 
 @Component({
   tag: 'my-cmp-two'
@@ -85,39 +85,40 @@ Since `commonjs` libraries are still common today, Stencil comes with [`rollup-p
 
 At compiler-time, the `rollup-plugin-commonjs` plugin does a best-effort to **transform commonjs into ESM**, but this is not always a easy task. Commonjs is dynamic by nature, while ESM is static by design.
 
-Stencil's config exposes a `commonjs` property that is passed down to the rollup commonjs plugin, we can use this setting to work around certain bundling issues.
+Stencil's config exposes a `commonjs` property that is passed down to the rollup commonjs plugin, you can use this setting to work around certain bundling issues.
 
 
 ### NamedModules: X is not exported by X
 
-Sometimes, rollup is unable to properly static analyse `commonjs` exports, and it misses some named exports. This should be easily fixable by the authors by writting explicitt exports in commonjs or migrating to ESM. Fortunatelly, there is a workaround we can use.
+Sometimes, rollup is unable to properly static analyse `commonjs` modules, and it misses some named exports. Fortunatelly, there is a workaround we can use.
 
-As we already know, `stencil.config.ts` exposes a `commonjs` property, in this case we can  define *namedExports* for a given module id.
+As we already know, `stencil.config.ts` exposes a `commonjs` property, in this case we can take advantage of [the *namedExports* property](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports).
 
 Let's say, rollup fails, when trying to use the `hello` named export of the `commonjs-dep` module:
 
-```js
+```tsx
 // NamedModules: hello is not exported by commonjs-dep
 import { hello } from 'commonjs-dep';
 ```
 
 We can use the `config.commonjs.namedExports` setting in the `stencil.config.ts` file to work around the issue:
 
-```js
+```tsx
 export const config = {
-|  commonjs: {
-|    namedExports: {
+  commonjs: {
+    namedExports: {
        // commonjs-dep has a "hello" export
-|      'commonjs-dep': ['hello']
-|    }
-|  }
+      'commonjs-dep': ['hello']
+    }
+  }
 }
 ```
 
 > We can set a map of namedExports for problematic dependencies, in this case, we are explicitally defining the named `hello` export in the `commonjs-dep` module.
 
+For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/rollup-plugin-commonjs).
 
-### Node polyfills
+## Node polyfills
 
 Depending on which libraries a project is dependent on, the [rollup-plugin-node-polyfills](https://www.npmjs.com/package/rollup-plugin-node-builtins) plugin may be required. In such cases, an error message similar to the following will be displayed at build time.
 
@@ -130,15 +131,13 @@ Depending on which libraries a project is dependent on, the [rollup-plugin-node-
 
 This is caused by some third-party dependencies that use [Node APIs](https://nodejs.org/dist/latest-v10.x/docs/api/) that are not available in the browser, the `rollup-plugin-node-polyfills` plugin works by transparently polyfilling this missing APIs in the browser.
 
-In order to work:
-
-1. Install rollup-plugin-node-polyfills:
+### 1. Install rollup-plugin-node-polyfills:
 
 ```bash
 npm install rollup-plugin-node-polyfills --save-dev
 ```
 
-And update the `stencil.config.ts` file including the plugin:
+### 2. Update the `stencil.config.ts` file including the plugin:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -151,3 +150,11 @@ export const config: Config = {
   ]
 };
 ```
+
+## Strict mode
+
+ES modules are always parsed in strict mode. That means that certain non-strict constructs (like octal literals) will be treated as syntax errors when Rollup parses modules that use them. Some older CommonJS modules depend on those constructs, and if you depend on them your bundle will blow up. There's basically nothing we can do about that.
+
+Luckily, there is absolutely no good reason not to use strict mode for everything — so the solution to this problem is to lobby the authors of those modules to update them.
+
+*Source: [https://github.com/rollup/rollup-plugin-commonjs#strict-mode](https://github.com/rollup/rollup-plugin-commonjs#strict-mode)*
