@@ -78,7 +78,7 @@ Called just after the component updates.
 It's never called during the first `render()`.
 
 
-<svg viewbox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
+<svg viewBox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
   <g fill="none" fill-rule="evenodd">
     <path d="M552 576a90 90 0 0 0 90-90V165c0-58.5-47.2-106-105.5-106A105.8 105.8 0 0 0 431 165l.4 136.5v136" stroke="#B3B6C5" stroke-linecap="square"/>
     <path stroke="#B3B6C5" d="M437.6 432.3l-6.3 6.3-6.3-6.3"/>

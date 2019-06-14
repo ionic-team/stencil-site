@@ -12,9 +12,9 @@ contributors:
 
 # Vue
 
-In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file. 
+In order to use the custom element library within the Vue app, the application must be modified to define the custom elements and to inform the Vue compiler which elements to ignore during compilation. This can all be done within the `main.js` file.
 
-Assuming you’ve run `npm install --save test-components` beforehand, and that `test-component` is the name of our made up Web Components that we have published to npm, you import the components into the 'main.js' file by 
+Assuming you’ve run `npm install --save test-components` beforehand, and that `test-component` is the name of our made up Web Components that we have published to npm, you import the components into the 'main.js' file by
 
 - importing the node module
 - telling Vue to ignore the custom element tags (see `https://vuejs.org/v2/api/#ignoredElements`)
@@ -24,13 +24,13 @@ Assuming you’ve run `npm install --save test-components` beforehand, and that 
 import Vue from 'vue';
 import App from './App.vue';
 
-import { defineCustomElements } from 'test-components/dist/loader'; 
+import { defineCustomElements } from 'test-components/dist/loader';
 
 Vue.config.productionTip = false;
 // tell Vue to ignore all components defined in the test-components
-// package. The regex assumes all components names are prefixed 
+// package. The regex assumes all components names are prefixed
 // 'test'
-Vue.config.ignoredElements = [/test-\w*/]; 
+Vue.config.ignoredElements = [/test-\w*/];
 
 // Bind the custom elements to the window object
 applyPolyfills().then(() => {
@@ -42,8 +42,8 @@ new Vue({
 }).$mount('#app');
 ```
 
-The components should then be available in any of the Vue components 
-```
+The components should then be available in any of the Vue components
+```tsx
 render() {
   return (
     <div>
