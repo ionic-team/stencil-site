@@ -33,7 +33,9 @@ Vue.config.productionTip = false;
 Vue.config.ignoredElements = [/test-\w*/]; 
 
 // Bind the custom elements to the window object
-defineCustomElements(window); 
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
 
 new Vue({
   render: h => h(App)
