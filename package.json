@@ -13,12 +13,12 @@
     "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
-    "start": "npm run site.structure && npm run docs && stencil build --dev --watch --serve"
+    "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
-    "@stencil/core": "1.0.1",
-    "@stencil/router": "1.0.0",
-    "@stencil/state-tunnel": "1.0.0",
+    "@stencil/core": "1.0.4",
+    "@stencil/router": "1.0.1",
+    "@stencil/state-tunnel": "1.0.1",
     "@types/fs-extra": "^7.0.0",
     "@types/glob": "^7.1.1",
     "@types/marked": "^0.6.2",

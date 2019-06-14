@@ -100,7 +100,7 @@ hashedFileNameLength: 8
 The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
 
 ```tsx
-  namespace: "Ionic"
+namespace: "Ionic"
 ```
 
 
@@ -121,7 +121,7 @@ Please see the [Plugin docs](/docs/plugins).
 The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
 
 ```tsx
-  preamble: "Built with Stencil"
+preamble: "Built with Stencil"
 ```
 
 
