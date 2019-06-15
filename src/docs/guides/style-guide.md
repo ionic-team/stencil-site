@@ -227,15 +227,17 @@ export class Something {
    * 8. Public methods API
    * These methods are exposed on the host element.
    * Always use two lines.
+   * Public Methods must be async.
    * Requires JSDocs for public API documentation.
    */
   @Method()
-  open() {
+  async open(): Promise<boolean> {
     ...
+    return true;
   }
 
   @Method()
-  close() {
+  async close(): Promise<void> {
     ...
   }
 

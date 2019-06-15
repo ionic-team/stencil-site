@@ -147,7 +147,7 @@ Take the following component as example:
 @Component({ tag: 'my-cmp' })
 class Cmp {
   @Prop({ reflect: true }) message = 'Hello';
-  @Prop({ reflect: false }) value = 'nothing';
+  @Prop({ reflect: false }) value = 'The meaning of life...';
   @Prop({ reflect: true }) number = 42;
 }
 ```
@@ -157,12 +157,13 @@ When rendered in the DOM, it will look like:
 ```markup
 <my-cmp message="Hello" number="42"></my-cmp>
 ```
+Notice that properties set to "reflect" (true) render as attributes, and properties not set to "reflect" do not.
 
-Notice that the `value` property is not displayed in as an attribute, however it does not mean it's not there, the `number` property still contains the `42` value:
+While the properties not set to "reflect", such as 'value', are not rendered as attributes, it does not mean it's not there - the `value` property still contains the `The meaning of life...` value as assigned:
 
 ```tsx
 const cmp = document.querySelector('my-cmp');
-console.log(cmp.number); // it prints 42
+console.log(cmp.value); // it prints 'The meaning of life...'
 ```
 
 ## Prop default values and validation

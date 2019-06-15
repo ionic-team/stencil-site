@@ -25,15 +25,17 @@ Integrating a component built with Stencil to a project without a JavaScript fra
 </html>
 ```
 
-Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement.
+Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. Note that in this scenario `applyPolyfills` is needed if you are targeting Edge or IE11.
 
 ```markup
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <script type="module">
-    import { defineCustomElements } from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
-    defineCustomElements(window);
+    import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
+    applyPolyfills().then(() => {
+      defineCustomElements(window);
+    });
   </script>
 </head>
 <body>
