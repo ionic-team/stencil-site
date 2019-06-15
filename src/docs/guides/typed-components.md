@@ -63,3 +63,10 @@ the property is passed out.
 ```tsx
 @Prop() value!: string;
 ```
+
+### Reserved properties
+
+Stencil internally uses a few property names that should not be used to avoid conflicts. The reserved property names are:
+
+```tsx
+@Prop() key: string;
