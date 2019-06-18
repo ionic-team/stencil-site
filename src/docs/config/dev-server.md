@@ -6,6 +6,7 @@ contributors:
   - adamdbradley
   - BDav24
   - feerglas
+  - simonhaenisch
 ---
 
 # Integrated Dev Server
@@ -40,6 +41,7 @@ which will open the source file directly in your IDE.
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | `address`        | IP address used by the dev server. The default is `0.0.0.0`, which points to all IPv4 addresses on the local machine, such as `localhost`. | `0.0.0.0` |
 | `basePath`       | Base path to be used by the server. Defaults to the root pathname. | `/` |
+| `https`          | By default the dev server runs over the http protocol. Set this to `true` to run the dev-server over https via an auto-generated self-signed SSL certificate. If you want to provide your own certificate, you can set this to an object `{ key, cert }` instead (see example below). | `false` |
 | `initialLoadUrl` | The URL the dev server should first open to. | `/` |
 | `logRequests`    | Every request to the server will be logged within the terminal. | `false` |
 | `openBrowser`    | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.  | `true`  |
@@ -50,12 +52,17 @@ which will open the source file directly in your IDE.
 ## Example
 
 ```tsx
+import fs from 'fs';
 import { Config } from '@stencil/core';
 
 export const config: Config = {
   devServer: {
     reloadStrategy: 'pageReload',
-    port: 4444
+    port: 4444,
+    https: {
+      key: fs.readFileSync('./key.pem', 'utf8'),
+      cert: fs.readFileSync('./cert.pem', 'utf8')
+    }
   }
 };
 ```
