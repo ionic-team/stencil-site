@@ -12,7 +12,7 @@ contributors:
 
 The `www` output target type is oriented for webapps and websites, hosted from an http server, which can benefit from prerendering and service workers, such as this very site you're reading. If the `outputTarget` config is not provided it'll default to having just the `www` type.
 
-Even if a project is meant to only build a reusabe component library, the `www` output target is useful to build out and test the components throughout development.
+Even if a project is meant to only build a reusable component library, the `www` output target is useful to build out and test the components throughout development.
 
 ```tsx
 outputTargets: [
