@@ -71,6 +71,11 @@ landing-page .companies ul {
   align-items: center;
 }
 
+landing-page .companies ul li {
+  padding: 20px;
+  display: inherit;
+}
+
 landing-page .cta {
   background: #F4F7FA;
   text-align: center;
@@ -369,6 +374,7 @@ landing-page .video-thumbnail:hover svg circle {
 
   landing-page .companies ul li {
     padding: 20px;
+
   }
 
   landing-page section {
