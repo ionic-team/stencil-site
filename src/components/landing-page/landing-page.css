@@ -72,7 +72,6 @@ landing-page .companies ul {
 }
 
 landing-page .companies ul li {
-  padding: 20px;
   display: inherit;
 }
 
@@ -331,6 +330,20 @@ landing-page .video-thumbnail:hover svg circle {
   fill-opacity: 1;
 }
 
+@media screen and (max-width: 960px) {
+  landing-page .companies ul {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin: -20px;
+    max-width: 544px;
+  }
+
+  landing-page .companies ul li {
+    padding: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   landing-page .hero {
     text-align: center;
@@ -356,25 +369,16 @@ landing-page .video-thumbnail:hover svg circle {
     text-align: center;
   }
 
+  landing-page .companies ul {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   landing-page .companies h3 {
     margin-left: auto;
     margin-right: auto;
     max-width: 500px;
-  }
-
-  landing-page .companies ul {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: -20px;
-    max-width: 544px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  landing-page .companies ul li {
-    padding: 20px;
-
   }
 
   landing-page section {
