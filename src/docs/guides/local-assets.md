@@ -39,7 +39,7 @@ export class StencilAsset {
   @Prop() src: "sunset.jpg"|"beach.jpg" = "sunset.jpg";
 
   render() {
-    <img src={`${getAssetPath('.')/assets/${this.asset}`} />
+    <img src={`${getAssetPath('.')}assets/${this.asset}`} />
   }
 }
 ```
