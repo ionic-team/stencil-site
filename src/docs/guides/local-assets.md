@@ -7,9 +7,9 @@ contributors:
 
 # Local Assets
 
-Referencing Assets in Stencil can be tricky, but if you follow this guide you'll have no problem. 
+Components usually need assets, such as images, videos or any kind of data files, Stencil includes certain features, so make this task easy.
 
-### Using Local Assets
+## Component's assetsDirs
 
 Lets dive in and look at an example of how to use local assets:
 
@@ -24,7 +24,7 @@ stencil-asset/
   stencil-asset.tsx
 ```
 
-Below is the stencil-asset.tsx file which will correctly load the assets based on a property called `src`. 
+Below is the `stencil-asset.tsx` file which will correctly load the assets based on a property called `src`. 
 
 ```tsx
 import { Component, Prop, getAssetPath, h } from '@stencil/core';
@@ -36,15 +36,17 @@ import { Component, Prop, getAssetPath, h } from '@stencil/core';
 })
 export class StencilAsset {
 
-  @Prop() src: "sunset.jpg"|"beach.jpg" = "sunset.jpg";
+  @Prop() image = "sunset.jpg";
 
   render() {
-    <img src={`${getAssetPath('.')}assets/${this.asset}`} />
+    <img src={getAssetPath(`./assets/${this.image}`)} />
   }
 }
 ```
 
-As you can see from this example, we import `getAssetPath` and use it in the `src` property of the img tag in our render function. This function will help determine what path the asset should be loaded from. 
+As you can see from this example, the component decorator has the `assetsDirs` property, which points to the `./assets` folder, this instructs the Stencil compiler to copy that folder into the distribution folder (`dist` or `www`).
+
+Then, within the component's logic, the `getAssetPath` function (imported from `@stencil/core`) is used to determine the absolute path from where the assets should be loaded from.
 
 ### Use Cases
 
