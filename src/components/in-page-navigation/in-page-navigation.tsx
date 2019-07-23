@@ -49,6 +49,16 @@ export class InPageNavigtion implements ComponentInterface {
     this.updateItemOffsets();
   }
 
+
+  cleanHeader(str: string) {
+    // The Markdown headers can contain HTML escaped characters such as "&#39;" (')
+    // or especially on the Host Element page "&lt;"/"&gt;"
+    // This is a hack to evaluate those as DOM elements and extract the text out.
+    const headerEl = document.createElement('span');
+    headerEl.innerHTML = str;
+    return headerEl.innerText;
+  }
+
   render() {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
     const submitEditLink = (
@@ -76,7 +86,7 @@ export class InPageNavigtion implements ComponentInterface {
               [`size-h${pl.level}`]: true,
               'selected': this.selectedId === pl.id
             }}>
-            <stencil-route-link url={`${this.currentPageUrl}#${pl.id}`}>{pl.text}</stencil-route-link>
+            <stencil-route-link url={`${this.currentPageUrl}#${pl.id}`}>{this.cleanHeader(pl.text)}</stencil-route-link>
           </li>
           )) }
         </ul>
