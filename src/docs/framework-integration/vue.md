@@ -24,10 +24,11 @@ Assuming you’ve run `npm install --save test-components` beforehand, and that 
 import Vue from 'vue';
 import App from './App.vue';
 
-import { applyPolyfills, defineCustomElements } from 'test-components/dist/loader';
+import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 
 Vue.config.productionTip = false;
-// tell Vue to ignore all components defined in the test-components
+
+// Tell Vue to ignore all components defined in the test-components
 // package. The regex assumes all components names are prefixed
 // 'test'
 Vue.config.ignoredElements = [/test-\w*/];
