@@ -52,7 +52,7 @@ similary, if `this.open === false`:
 
 ### `<Host>` can work as a `<Fragment>`
 
-`<Host>` can only be used when more than one component needs to be rendered at the root level for example:
+`<Host>` can also be used when more than one component needs to be rendered at the root level for example:
 
 could be achieved by a `render()` method like this:
 
@@ -101,3 +101,40 @@ export class TodoList {
 ```
 
 If you need to update the host element in response to prop or state changes, you should do so in the `render()` method using the `<Host>` element.
+
+## Styling
+
+See full information about styling on the [Styling page](https://stenciljs.com/docs/styling#shadow-dom-in-stencil).
+
+CSS can be applied to the `<Host>` element by using its component tag defined in the `@Component` decorator.
+```tsx
+@Component({
+  tag: 'my-cmp',
+  styleUrl: 'my-cmp.css'
+})
+...
+```
+my-cmp.css:
+```css
+my-cmp {
+  width: 100px;
+}
+```
+
+### Shadow DOM
+
+Something to beware of is that Styling the `<Host>` element when using shadow DOM does not work quite the same. Instead of using the `my-cmp` element selector you must `:host`. 
+```tsx
+@Component({
+  tag: 'my-cmp',
+  styleUrl: 'my-cmp.css',
+  shadow: true
+})
+...
+```
+my-cmp.css:
+```css
+:host {
+  width: 100px;
+}
+```
