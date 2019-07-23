@@ -39,7 +39,7 @@ This `lifecycle` hook follows the same semantics as the one described by the [Cu
 
 ## disconnectedCallback()
 
-Called every time the component is disconnected to the DOM, ie, it call be dispatched more than once, DO not confuse with a "onDestroy" kind of event.
+Called every time the component is disconnected from the DOM, ie, it call be dispatched more than once, DO not confuse with a "onDestroy" kind of event.
 
 This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
