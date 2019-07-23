@@ -33,7 +33,7 @@ In the `copy` config within the `www` output target example below, the build wil
 
 ### dest
 
-The config can also provide an optional `dest` property which can be either an absolute path, or a path relative to the build directory of that output target. In the example below, we've customized the build directory to be `public` instead of the default, which will copy `src/files/fonts` over to `public/static/images`.
+The config can also provide an optional `dest` property which can be either an absolute path, or a path relative to the build directory of that output target. In the example below, we've customized the build directory to be `public` instead of the default, which will copy `src/files/fonts` over to `public/static/web-fonts`.
 
 ```tsx
   outputTargets: [
