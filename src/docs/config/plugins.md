@@ -30,3 +30,7 @@ export const config: Config = {
 - [@stencil/postcss](https://www.npmjs.com/package/@stencil/postcss)
 - [@stencil/sass](https://www.npmjs.com/package/@stencil/sass)
 - [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
+
+
+## Node Polyfills
+See the [Node Polyfills in Module bundling](https://stenciljs.com/docs/module-bundling#node-polyfills) for other examples.
