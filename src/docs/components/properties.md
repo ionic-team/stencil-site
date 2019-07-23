@@ -112,7 +112,7 @@ Notice that the `controller` type is not a primitive, since DOM attributes can O
 
 At the same time, the `isValid` property follows a _camelCase_ naming, but attributes are case-insensitive, so the attribute name will be `is-valid` by default.
 
-Fortunatelly, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
+Fortunately, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
 
 
 ```tsx
