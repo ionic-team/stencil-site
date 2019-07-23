@@ -52,7 +52,7 @@ similary, if `this.open === false`:
 
 ### `<Host>` can work as a `<Fragment>`
 
-`<Host>` can only be used when more than one component needs to be rendered at the root level for example:
+`<Host>` can also be used when more than one component needs to be rendered at the root level for example:
 
 could be achieved by a `render()` method like this:
 
