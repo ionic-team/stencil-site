@@ -26,7 +26,7 @@ export class NewsletterSignup {
       email: email
     }]);
      _hsq.push(["trackEvent", {
-        id: "Signed Up for Newsletter",
+        id: "Signed up for Stencil newsletter",
         value: true
     }]);
 
