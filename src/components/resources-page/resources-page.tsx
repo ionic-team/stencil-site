@@ -11,7 +11,7 @@ export class ResourcesPage {
   }
 
   render() {
-    return (
+    return [
       <div class="container">
         <h1 class="headline measure-md">Resources to help you get more out of Stencil</h1>
 
@@ -77,8 +77,9 @@ export class ResourcesPage {
           <br />
           <a target="_blank" rel="noopener" href="https://github.com/ionic-team/stencil-present/">Source</a>
         </section>
-      </div>
-    );
+      </div>,
+      <pre-footer />
+    ];
   }
 }
 
