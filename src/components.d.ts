@@ -51,6 +51,7 @@ export namespace Components {
   }
   interface NewsletterSignup {}
   interface NotfoundPage {}
+  interface PreFooter {}
   interface ProGlshader {
     'frag': string;
     'media'?: string;
@@ -162,6 +163,12 @@ declare global {
     new (): HTMLNotfoundPageElement;
   };
 
+  interface HTMLPreFooterElement extends Components.PreFooter, HTMLStencilElement {}
+  var HTMLPreFooterElement: {
+    prototype: HTMLPreFooterElement;
+    new (): HTMLPreFooterElement;
+  };
+
   interface HTMLProGlshaderElement extends Components.ProGlshader, HTMLStencilElement {}
   var HTMLProGlshaderElement: {
     prototype: HTMLProGlshaderElement;
@@ -213,6 +220,7 @@ declare global {
     'lower-content-nav': HTMLLowerContentNavElement;
     'newsletter-signup': HTMLNewsletterSignupElement;
     'notfound-page': HTMLNotfoundPageElement;
+    'pre-footer': HTMLPreFooterElement;
     'pro-glshader': HTMLProGlshaderElement;
     'pwas-page': HTMLPwasPageElement;
     'resources-page': HTMLResourcesPageElement;
@@ -262,6 +270,7 @@ declare namespace LocalJSX {
   }
   interface NewsletterSignup extends JSXBase.HTMLAttributes<HTMLNewsletterSignupElement> {}
   interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
+  interface PreFooter extends JSXBase.HTMLAttributes<HTMLPreFooterElement> {}
   interface ProGlshader extends JSXBase.HTMLAttributes<HTMLProGlshaderElement> {
     'frag'?: string;
     'media'?: string;
@@ -295,6 +304,7 @@ declare namespace LocalJSX {
     'lower-content-nav': LowerContentNav;
     'newsletter-signup': NewsletterSignup;
     'notfound-page': NotfoundPage;
+    'pre-footer': PreFooter;
     'pro-glshader': ProGlshader;
     'pwas-page': PwasPage;
     'resources-page': ResourcesPage;

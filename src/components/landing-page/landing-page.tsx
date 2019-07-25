@@ -228,7 +228,6 @@ export class LandingPage {
           </div>
         </section>
 
-
         <section>
           <div class="container">
             <div class="two-col">
@@ -287,7 +286,7 @@ export class LandingPage {
         </section>
 
         <newsletter-signup />
-
+        <pre-footer />
       </div>
     );
   }
