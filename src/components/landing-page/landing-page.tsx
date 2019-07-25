@@ -228,7 +228,6 @@ export class LandingPage {
           </div>
         </section>
 
-
         <section>
           <div class="container">
             <div class="two-col">
@@ -271,7 +270,7 @@ export class LandingPage {
 
         <section class="stencil-story">
           <div class="container">
-            <h4>The Stencil story</h4>
+            <h2><strong>The Stencil story</strong></h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div class="videos">
               <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
@@ -286,6 +285,8 @@ export class LandingPage {
           </div>
         </section>
 
+        <newsletter-signup />
+        <pre-footer />
       </div>
     );
   }

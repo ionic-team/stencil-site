@@ -227,15 +227,21 @@ landing-page .gradient-bg {
 landing-page .stencil-story {
   border-top: 1px solid var(--color-whisper);
   text-align: center;
-  padding: 60px 0 80px;
+  padding: 160px 0 90px;
 }
 
 landing-page .stencil-story .container {
   max-width: 620px;
 }
 
+landing-page .stencil-story h2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+}
+
 landing-page .stencil-story p {
-  margin-bottom: 22px;
+  margin-bottom: 28px;
 }
 
 landing-page .list--icon svg {
@@ -263,7 +269,7 @@ landing-page .video-thumbnail {
 }
 
 landing-page .video-thumbnail + .video-thumbnail {
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 landing-page .video-thumbnail::before {
