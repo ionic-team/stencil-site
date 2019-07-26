@@ -49,7 +49,9 @@ export namespace Components {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
   }
+  interface NewsletterSignup {}
   interface NotfoundPage {}
+  interface PreFooter {}
   interface ProGlshader {
     'frag': string;
     'media'?: string;
@@ -149,10 +151,22 @@ declare global {
     new (): HTMLLowerContentNavElement;
   };
 
+  interface HTMLNewsletterSignupElement extends Components.NewsletterSignup, HTMLStencilElement {}
+  var HTMLNewsletterSignupElement: {
+    prototype: HTMLNewsletterSignupElement;
+    new (): HTMLNewsletterSignupElement;
+  };
+
   interface HTMLNotfoundPageElement extends Components.NotfoundPage, HTMLStencilElement {}
   var HTMLNotfoundPageElement: {
     prototype: HTMLNotfoundPageElement;
     new (): HTMLNotfoundPageElement;
+  };
+
+  interface HTMLPreFooterElement extends Components.PreFooter, HTMLStencilElement {}
+  var HTMLPreFooterElement: {
+    prototype: HTMLPreFooterElement;
+    new (): HTMLPreFooterElement;
   };
 
   interface HTMLProGlshaderElement extends Components.ProGlshader, HTMLStencilElement {}
@@ -204,7 +218,9 @@ declare global {
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
     'lower-content-nav': HTMLLowerContentNavElement;
+    'newsletter-signup': HTMLNewsletterSignupElement;
     'notfound-page': HTMLNotfoundPageElement;
+    'pre-footer': HTMLPreFooterElement;
     'pro-glshader': HTMLProGlshaderElement;
     'pwas-page': HTMLPwasPageElement;
     'resources-page': HTMLResourcesPageElement;
@@ -252,7 +268,9 @@ declare namespace LocalJSX {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
   }
+  interface NewsletterSignup extends JSXBase.HTMLAttributes<HTMLNewsletterSignupElement> {}
   interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
+  interface PreFooter extends JSXBase.HTMLAttributes<HTMLPreFooterElement> {}
   interface ProGlshader extends JSXBase.HTMLAttributes<HTMLProGlshaderElement> {
     'frag'?: string;
     'media'?: string;
@@ -284,7 +302,9 @@ declare namespace LocalJSX {
     'in-page-navigation': InPageNavigation;
     'landing-page': LandingPage;
     'lower-content-nav': LowerContentNav;
+    'newsletter-signup': NewsletterSignup;
     'notfound-page': NotfoundPage;
+    'pre-footer': PreFooter;
     'pro-glshader': ProGlshader;
     'pwas-page': PwasPage;
     'resources-page': ResourcesPage;
