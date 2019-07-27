@@ -154,7 +154,7 @@ check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmo
 
 ## Keyboard events
 
-For keyboard events, you can use the standard `keydown` event in `@Listen()` and then figure out the key code, or some constants Stencil provides.
+For keyboard events, you can use the standard `keydown` event in `@Listen()` and use `event.keyCode` or `event.which` to get the key code, or `event.key` for the string representation of the key.
 
 ```tsx
 @Listen('keydown')

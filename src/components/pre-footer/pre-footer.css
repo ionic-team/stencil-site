@@ -1,0 +1,89 @@
+pre-footer {
+  display: block;
+  border-top: 1px solid #e9edf3;
+  border-bottom: 1px solid #e9edf3;
+}
+
+pre-footer .container {
+  display: flex;
+}
+
+pre-footer stencil-route-link {
+  display: block;
+  flex: 1;
+}
+
+pre-footer stencil-route-link + stencil-route-link {
+  border-left: 1px solid #e9edf3;
+}
+
+pre-footer stencil-route-link a {
+  display: block;
+  padding: 60px;
+}
+
+pre-footer stencil-route-link:first-child a {
+  padding-left: 0;
+}
+pre-footer stencil-route-link:last-child a {
+  padding-right: 0;
+}
+
+pre-footer .link {
+  text-decoration: none;
+}
+
+pre-footer hgroup h3,
+pre-footer hgroup p {
+  margin: 0;
+}
+pre-footer hgroup h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  margin: 8px 0 4px;
+}
+
+pre-footer hgroup h3 app-icon {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+pre-footer stencil-route-link:hover hgroup h3 app-icon {
+  transform: translate(2px, 0);
+}
+
+pre-footer hgroup h3 app-icon .icon-arrow-right {
+  fill: #000;
+  width: 8px;
+  height: 14px;
+}
+
+pre-footer hgroup p {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 560px) {
+  pre-footer .container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  pre-footer .container stencil-route-link a,
+  pre-footer
+    .container
+    stencil-route-link:first-child
+    a
+    pre-footer
+    .container
+    stencil-route-link:last-child
+    a {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  pre-footer stencil-route-link + stencil-route-link {
+    border-left: 0;
+    border-top: 1px solid #e9edf3;
+  }
+}

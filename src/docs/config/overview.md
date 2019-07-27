@@ -114,6 +114,11 @@ Please see the [Output Target docs](/docs/output-targets).
 Please see the [Plugin docs](/docs/plugins).
 
 
+## devServer
+
+Please see the [Dev-Server docs](/docs/dev-server).
+
+
 ## preamble
 
 *default: `undefined`*

@@ -108,18 +108,26 @@ export class AppRoot {
           </stencil-router>
           <footer>
             <div class="container">
-              <div class="footer__open-source">
-                <a
-                  href="http://ionicframework.com/"
-                  title="IonicFramework.com"
-                  rel="noopener">
-                  <img
-                    src="/assets/img/ionic-os-logo.png"
-                    alt="Ionic Open Source Logo" />
-                </a>
-                <p>
-                  Released under <span id="mit">MIT License</span> | Copyright @ 2019
-                </p>
+              <div class="footer-col">
+                <app-icon name="logo"/>
+                <p>© 2019 StencilJS.  Released under MIT License</p>
+                <ul class="external-links list--unstyled">
+                  <li>
+                    <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs">
+                      <app-icon name="twitter"></app-icon>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com">
+                      <app-icon name="slack"></app-icon>
+                    </a>
+                  </li>
+                  <li>
+                    <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil">
+                      <app-icon name="github"></app-icon>
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </footer>

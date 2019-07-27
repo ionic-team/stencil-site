@@ -208,7 +208,7 @@ For non-shadow content:
 
 As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Hea is actually used in your pipeline.
 
-Exemple of a config you might need in a Gitlab CI environment :
+Example of a config you might need in a Gitlab CI environment :
 
 ```typescript
 export const config: Config = {
