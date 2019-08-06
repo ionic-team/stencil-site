@@ -79,9 +79,7 @@ It's never called during the first `render()`.
 
 
 ## componentDidUnload()
-Cleanup just before Stencil destroys the component. Best place to detach event handlers to avoid memory leaks.
-
-Called just before Stencil destroys the component.
+Called just before Stencil destroys the component. Best place to detach event handlers to avoid memory leaks.
 
 <svg viewBox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
   <g fill="none" fill-rule="evenodd">
