@@ -6,6 +6,7 @@
   * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
+  * [FAQ](introduction/faq.md)
 * Design Systems
   * [What is a Design System?](design-systems/what-is-design-system.md)
   * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
