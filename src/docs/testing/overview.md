@@ -43,7 +43,7 @@ use one of those templates to start your project, you should not have to add any
 
 ### Testing Configuration
 
-Stencil will apply defaults from data it has already gathered. For example, Stencil already knows what directories to look through, and what files are spec and e2e files. Jest can still be configured using the same config names, but now using the stencil config `testing` property. Please see the [Testing Config docs](docs/config/testing) for more info.
+Stencil will apply defaults from data it has already gathered. For example, Stencil already knows what directories to look through, and what files are spec and e2e files. Jest can still be configured using the same config names, but now using the stencil config `testing` property. Please see the [Testing Config docs](/docs/config/testing) for more info.
 
 ```tsx
 import { Config } from '@stencil/core';
