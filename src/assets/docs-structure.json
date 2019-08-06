@@ -26,6 +26,11 @@
         "text": "My First Component",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
+      },
+      {
+        "text": "FAQ",
+        "filePath": "/assets/docs/introduction/faq.json",
+        "url": "/docs/faq"
       }
     ]
   },
