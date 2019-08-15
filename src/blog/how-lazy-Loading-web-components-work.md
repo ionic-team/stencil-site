@@ -8,9 +8,9 @@ description: When you’re building an app that requires a large library of comp
 img: /assets/img/blog/posts/stencil-lazy-loading.png
 ---
 
-When you’re building an app that requires a large library of components in a single file download, you’re often forced to either sacrifice performance - and specifically startup time - for the sake of easily accessing all those components. The two are often mutually exclusive. Choose to have all the components available, or choose blazing fast startup, but it’s difficult to get both. At least that’s the experience for many.
+![Stencil Lazy Loading](/assets/img/blog/posts/stencil-lazy-loading.png)
 
-![](/assets/img/blog/posts/stencil-lazy-loading.png)
+When you’re building an app that requires a large library of components in a single file download, you’re often forced to either sacrifice performance - and specifically startup time - for the sake of easily accessing all those components. The two are often mutually exclusive. Choose to have all the components available, or choose blazing fast startup, but it’s difficult to get both. At least that’s the experience for many.
 
 In fact, downloading and parsing a large set of JavaScript just to show the first page is where many apps struggle, and in many cases “lazy-loading” is a great solution to the problem. Lazy-loading is a term used for loading components only when the end-user requires it, which is a common technique used to speed-up app initialization.
 
