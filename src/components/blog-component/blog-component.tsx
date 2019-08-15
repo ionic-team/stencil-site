@@ -83,7 +83,10 @@ const insertMetaTags = (post: BlogPostInterface) => {
   createOgTag('og:url', window.location.href);
   createOgTag('og:image', `${window.location.origin}${post.img}`);
 
-  createTwitterTag('twitter:card', `${post.title}`);
+  createTwitterTag('twitter:card', `summary`);
+  createTwitterTag('twitter:title', post.title);
+  createTwitterTag('twitter:description', post.description);
+  createTwitterTag('twitter:image', `${window.location.origin}${post.img}`);
   if (post.twitter) {
     createTwitterTag('twitter:creator', `@${post.twitter}`);
   }
