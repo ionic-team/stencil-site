@@ -30,10 +30,6 @@ export class BlogIndex {
     }
   }
 
-  componentDidUnload(){
-    cleanOgTags();
-  }
-
   render() {
     if (!this.data || !this.content) {
       return;
@@ -81,32 +77,25 @@ export class BlogIndex {
 }
 
 
-function insertOgTags(post: BlogPostInterface) {
-  cleanOgTags();
-  const ogTitle = createOgTag('og:title', `Stencil Blog - ${post.title}`);
-  const ogDescription = createOgTag('og:description', post.description);
-  const ogUrl = createOgTag('og:url', window.location.href);
-  const ogImage = createOgTag('og:image', `${window.location.origin}${post.img}`);
-  document.head.appendChild(ogTitle);
-  document.head.appendChild(ogDescription);
-  document.head.appendChild(ogUrl);
-  document.head.appendChild(ogImage);
-}
-
-const cleanOgTags = () => {
-  const tags = document.querySelectorAll('meta[property^="og:"]');
-  for (var i = 0; i < tags.length; i++) {
-    tags[i].remove();
-  }
+const insertOgTags = (post: BlogPostInterface) => {
+  createOgTag('og:title', `Stencil Blog - ${post.title}`);
+  createOgTag('og:description', post.description);
+  createOgTag('og:url', window.location.href);
+  createOgTag('og:image', `${window.location.origin}${post.img}`);
 }
 
 const createOgTag = (type: string, content: string) => {
-  const el = document.createElement('meta');
+  let el = document.head.querySelector(`meta[property="${type}"]`);
+  if (!el) {
+    el = document.createElement('meta');
     el.setAttribute('property', type);
-    el.content = content;
-  return el;
+    el.setAttribute('content', content);
+    document.head.appendChild(el);
+  } else {
+    el.setAttribute('property', type);
+    el.setAttribute('content', content);
+  }
 };
-
 
 
 const localCache = new Map<string, Promise<MarkdownContent>>();
