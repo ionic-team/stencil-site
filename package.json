@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run site.structure && npm run docs && stencil build --prerender",
     "build.ci": "npm run site.structure && npm run docs && stencil build --prerender --max-workers=1 --ci",
-    "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html",
+    "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html && node ./scripts/blog-list",
     "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
     "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
     "prerender": "stencil build --prerender",

@@ -1,13 +1,13 @@
-blog-component app-icon {
+blog-list app-icon {
   margin-left: 4px;
 }
 
-blog-component .container {
+blog-list .container {
   margin-bottom: 160px;
   position: relative;
 }
 
-blog-component .post-meta {
+blog-list .post-meta {
   text-transform: uppercase;
   color: #92A1B3;
   font-size: 11px;
@@ -17,111 +17,139 @@ blog-component .post-meta {
   align-items: center;
 }
 
-blog-component h1 {
+blog-list .post-title a {
+  text-decoration: none;
+}
+
+blog-list .post-title a:hover h1 {
+  color: var(--color-gunpowder);
+}
+
+blog-list h1 {
   font-size: 32px;
   line-height: 38px;
   font-weight: 600;
   margin: 0 0 12px;
 }
 
-blog-component .blog-item p {
+blog-list .blog-item {
+  margin-bottom: 40px;
+}
+
+blog-list .blog-item p {
   font-size: 16px;
   line-height: 1.8;
   color: #27323F;
   margin: 22px 0;
 }
 
-blog-component .blog-item a {
+blog-list .read-more a {
   color: var(--color-dodger-blue);
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
 }
 
-blog-component .blog-index,
-blog-component .blog-content {
+blog-list .blog-index,
+blog-list .blog-content {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 160px;
 }
 
-blog-component .blog-content .post-meta {
+blog-list .blog-content .post-meta {
   margin-bottom: 80px;
 }
 
-blog-component h2,
-blog-component h3 {
+blog-list h2,
+blog-list h3 {
   margin-bottom: 0;
   margin-top: 27px;
   padding-top: 25px;
 }
 
-blog-component .blog-content img:not(.post-author-image),
-blog-component .blog-content svg {
+blog-list .blog-content img:not(.post-author-image),
+blog-list .blog-content svg {
   width: 100%;
 }
 
-blog-component .post-author-image {
+blog-list .post-author-image {
   width: 24px;
   height: 24px;
   margin-right: 8px;
   flex: 0 0 24px;
+  border-radius: 12px;
 }
 
-blog-component .share-links {
+blog-list .post-author-name {
+  padding-right: 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+blog-list .post-author-name:hover {
+  text-decoration: underline;
+}
+
+blog-list .post-date::before {
+  content: "|";
+  padding-right: 12px;
+}
+
+blog-list .share-links {
   position: absolute;
   top: 0;
   right: 64px;
   height: 100%;
 }
 
-blog-component .share-links .sticky {
+blog-list .share-links .sticky {
   display: flex;
   flex-direction: column;
   position: sticky;
   top: 24px;
 }
 
-blog-component .share-links a svg {
+blog-list .share-links a svg {
   transition: fill 0.2s;
   fill: #CED6E0;
   width: 24px;
   height: 24px;
 }
 
-blog-component .share-links a:hover svg{
+blog-list .share-links a:hover svg{
   fill: #B2BECD;
 }
 
-blog-component .share-links a + a {
+blog-list .share-links a + a {
   margin-top: 12px;
 }
 
 
 @media screen and (max-width: 840px) {
-  blog-component .container {
+  blog-list .container {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  blog-component .blog-content {
+  blog-list .blog-content {
     margin-bottom: 42px;
   }
 
-  blog-component .blog-content .post-meta {
+  blog-list .blog-content .post-meta {
     margin-bottom: 42px;
   }
 
-  blog-component .share-links {
+  blog-list .share-links {
     position: static;
   }
 
-  blog-component .share-links .sticky {
+  blog-list .share-links .sticky {
     flex-direction: row;
   }
 
-  blog-component .share-links a + a {
+  blog-list .share-links a + a {
     margin-top: 0;
     margin-lefT: 12px;
   }
