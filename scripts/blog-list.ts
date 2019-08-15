@@ -4,52 +4,48 @@ import { promisify } from 'util';
 import path from 'path';
 import {readFile, writeFile, mkdirp, remove} from 'fs-extra';
 
-import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
+import { changeCodeCreation } from './markdown-renderer';
 import frontMatter from 'front-matter';
-import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
-import { getGithubData } from './lib/github';
+import { BlogPostInterface } from '../src/global/definitions';
 import { convertHtmlToHypertextData } from './lib/hypertext'
 
 const globAsync = promisify(glob);
 
-const DESTINATION_DIR = './src/assets/docs';
-const SOURCE_DIR = './src/docs';
-const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
+const DESTINATION_DIR = './src/assets/blog';
+const SOURCE_DIR = './src/blog';
+const BLOG_LIST_FILE = './src/assets/blog/list.json';
 
 
 (async function() {
-  const siteStructure = await readFile(SITE_STRUCTURE_FILE, { encoding: 'utf8' });
-  const siteStructureJson: SiteStructureItem[] = JSON.parse(siteStructure);
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
   const files = await globAsync(`${SOURCE_DIR}/**/*.md`, {});
+  const allBlogPosts: BlogPostInterface[] = [];
 
   await remove(DESTINATION_DIR);
 
   const filePromises = files.map(async (filePath) => {
-    if (filePath === './src/docs/README.md') {
-      return Promise.resolve();
-    }
     let htmlContents = '';
-    let markdownMetadata: MarkdownContent = {};
     const jsonFileName = path.relative(SOURCE_DIR, filePath);
     const destinationFileName = path.join(
       DESTINATION_DIR,
       path.dirname(jsonFileName),
       path.basename(jsonFileName, '.md') + '.json'
     );
-    markdownMetadata.headings = [];
 
     const markdownContents = await readFile(filePath, { encoding: 'utf8' });
 
     try {
       let parsedMarkdown = frontMatter<any>(markdownContents);
-      parsedMarkdown = await getGithubData(filePath, parsedMarkdown);
 
       const renderer = new marked.Renderer();
 
-      collectHeadingMetadata(renderer, markdownMetadata);
       changeCodeCreation(renderer);
-      localizeMarkdownLink(renderer, destinationFileName.replace('src',''), siteStructureJson);
+
+      allBlogPosts.push({
+        ...parsedMarkdown.attributes,
+        filePath: path.join('/assets/blog/', path.basename(jsonFileName, '.md') + '.json')
+      });
+
       htmlContents = marked(parsedMarkdown.body, {
         renderer,
         headerIds: true
@@ -62,16 +58,11 @@ const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
 
       const data = {
         ...parsedMarkdown.attributes,
-        ...markdownMetadata,
         srcPath: filePath,
         hypertext: convertHtmlToHypertextData(htmlContents)
       };
 
-      if (typeof data.title !== 'string') {
-        data.title = 'Stencil';
-      } else {
-        data.title = data.title.trim() + ' - Stencil';
-      }
+      data.title = `Stencil Blog - ${data.title.trim()}`;
 
       await writeFile(destinationFileName, JSON.stringify(data), {
         encoding: 'utf8'
@@ -85,8 +76,15 @@ const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
 
   await Promise.all(filePromises);
 
+
+  allBlogPosts.sort((a, b) => {
+    return Date.parse(b.date) - Date.parse(a.date);
+  });
+  await writeFile(BLOG_LIST_FILE, JSON.stringify(allBlogPosts, null, 2), {
+      encoding: 'utf8'
+  });
+
   console.log(`successfully converted ${filePromises.length} files`);
 })();
-
 
 

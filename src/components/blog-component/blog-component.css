@@ -1,0 +1,145 @@
+blog-component app-icon {
+  margin-left: 4px;
+}
+
+blog-component .container {
+  margin-bottom: 160px;
+  position: relative;
+}
+
+blog-component .post-meta {
+  text-transform: uppercase;
+  color: #92A1B3;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+}
+
+blog-component h1 {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+blog-component .blog-item p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #27323F;
+  margin: 22px 0;
+}
+
+blog-component .blog-item a {
+  color: var(--color-dodger-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+blog-component .blog-index,
+blog-component .blog-content {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 160px;
+}
+
+blog-component .blog-content .post-meta {
+  margin-bottom: 80px;
+}
+
+blog-component h2,
+blog-component h3 {
+  margin-bottom: 0;
+  margin-top: 27px;
+  padding-top: 25px;
+}
+
+blog-component .blog-content img:not(.post-author-image),
+blog-component .blog-content svg {
+  width: 100%;
+}
+
+blog-component .post-author-image {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  flex: 0 0 24px;
+  border-radius: 12px;
+}
+
+blog-component .post-author-name {
+  padding-right: 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+blog-component .post-author-name:hover {
+  text-decoration: underline;
+}
+
+blog-component .post-date::before {
+  content: "|";
+  padding-right: 12px;
+}
+
+blog-component .share-links {
+  position: absolute;
+  top: 0;
+  right: 64px;
+  height: 100%;
+}
+
+blog-component .share-links .sticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 24px;
+}
+
+blog-component .share-links a svg {
+  transition: fill 0.2s;
+  fill: #CED6E0;
+  width: 24px;
+  height: 24px;
+}
+
+blog-component .share-links a:hover svg{
+  fill: #B2BECD;
+}
+
+blog-component .share-links a + a {
+  margin-top: 12px;
+}
+
+
+@media screen and (max-width: 840px) {
+  blog-component .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  blog-component .blog-content {
+    margin-bottom: 42px;
+  }
+
+  blog-component .blog-content .post-meta {
+    margin-bottom: 42px;
+  }
+
+  blog-component .share-links {
+    position: static;
+  }
+
+  blog-component .share-links .sticky {
+    flex-direction: row;
+  }
+
+  blog-component .share-links a + a {
+    margin-top: 0;
+    margin-lefT: 12px;
+  }
+
+}

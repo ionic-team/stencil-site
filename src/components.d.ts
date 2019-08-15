@@ -20,8 +20,9 @@ export namespace Components {
   }
   interface AppRoot {}
   interface BlogComponent {
-    'pageUrl'?: string;
+    'page'?: string;
   }
+  interface BlogList {}
   interface ContributorList {
     'contributors'?: string[];
   }
@@ -95,6 +96,12 @@ declare global {
   var HTMLBlogComponentElement: {
     prototype: HTMLBlogComponentElement;
     new (): HTMLBlogComponentElement;
+  };
+
+  interface HTMLBlogListElement extends Components.BlogList, HTMLStencilElement {}
+  var HTMLBlogListElement: {
+    prototype: HTMLBlogListElement;
+    new (): HTMLBlogListElement;
   };
 
   interface HTMLContributorListElement extends Components.ContributorList, HTMLStencilElement {}
@@ -209,6 +216,7 @@ declare global {
     'app-icon': HTMLAppIconElement;
     'app-root': HTMLAppRootElement;
     'blog-component': HTMLBlogComponentElement;
+    'blog-list': HTMLBlogListElement;
     'contributor-list': HTMLContributorListElement;
     'custom-clock': HTMLCustomClockElement;
     'demo-card': HTMLDemoCardElement;
@@ -239,8 +247,9 @@ declare namespace LocalJSX {
   }
   interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
   interface BlogComponent extends JSXBase.HTMLAttributes<HTMLBlogComponentElement> {
-    'pageUrl'?: string;
+    'page'?: string;
   }
+  interface BlogList extends JSXBase.HTMLAttributes<HTMLBlogListElement> {}
   interface ContributorList extends JSXBase.HTMLAttributes<HTMLContributorListElement> {
     'contributors'?: string[];
   }
@@ -293,6 +302,7 @@ declare namespace LocalJSX {
     'app-icon': AppIcon;
     'app-root': AppRoot;
     'blog-component': BlogComponent;
+    'blog-list': BlogList;
     'contributor-list': ContributorList;
     'custom-clock': CustomClock;
     'demo-card': DemoCard;

@@ -20,3 +20,14 @@ export interface SiteStructureItem {
   filePath?: string;
   children?: SiteStructureItem[];
 }
+
+export interface BlogPostInterface {
+  title: string;
+  date: string;
+  url: string;
+  author: string;
+  twitter: string;
+  description: string;
+  img: string;
+  filePath?: string;
+}
