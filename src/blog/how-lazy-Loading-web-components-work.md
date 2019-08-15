@@ -1,7 +1,7 @@
 ---
 title: How Lazy-Loading Web Components Work with Stencil
 date: August 15, 2019
-url: /blog/how-lazy-Loading-web-components-work
+url: /blog/how-lazy-loading-web-components-work
 author: Adam Bradley
 twitter: adamdbradley
 description: When you’re building an app that requires a large library of components in a single file download, you’re often forced to sacrifice performance - and specifically startup time - for the sake of accessing all those components. The two are often mutually exclusive. Choose to easily have all the components available, or choose blazing fast startup, but it’s difficult to get both. At least that’s the experience for many.
