@@ -23,7 +23,7 @@ export class BlogIndex {
       }
 
       if (post && post.filePath) {
-        insertOgTags(post);
+        insertMetaTags(post);
         document.title = post.title;
         this.content = await fetchContent(post.filePath);
       }
@@ -77,11 +77,16 @@ export class BlogIndex {
 }
 
 
-const insertOgTags = (post: BlogPostInterface) => {
+const insertMetaTags = (post: BlogPostInterface) => {
   createOgTag('og:title', `Stencil Blog - ${post.title}`);
   createOgTag('og:description', post.description);
   createOgTag('og:url', window.location.href);
   createOgTag('og:image', `${window.location.origin}${post.img}`);
+
+  createTwitterTag('twitter:card', `${post.title}`);
+  if (post.twitter) {
+    createTwitterTag('twitter:creator', `@${post.twitter}`);
+  }
 }
 
 const createOgTag = (type: string, content: string) => {
@@ -93,6 +98,19 @@ const createOgTag = (type: string, content: string) => {
     document.head.appendChild(el);
   } else {
     el.setAttribute('property', type);
+    el.setAttribute('content', content);
+  }
+};
+
+const createTwitterTag = (type: string, content: string) => {
+  let el = document.head.querySelector(`meta[name="${type}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('name', type);
+    el.setAttribute('content', content);
+    document.head.appendChild(el);
+  } else {
+    el.setAttribute('name', type);
     el.setAttribute('content', content);
   }
 };
