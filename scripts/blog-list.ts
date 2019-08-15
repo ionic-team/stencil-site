@@ -2,7 +2,7 @@ import marked from 'marked';
 import glob from 'glob';
 import { promisify } from 'util';
 import path from 'path';
-import {readFile, writeFile, mkdirp, remove} from 'fs-extra';
+import {readFile, writeFile, ensureDir, mkdirp } from 'fs-extra';
 
 import { changeCodeCreation } from './markdown-renderer';
 import frontMatter from 'front-matter';
@@ -17,11 +17,13 @@ const BLOG_LIST_FILE = './src/assets/blog/list.json';
 
 
 (async function() {
+  try {
+    await ensureDir(DESTINATION_DIR);
+  } catch (e) {}
+
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
   const files = await globAsync(`${SOURCE_DIR}/**/*.md`, {});
   const allBlogPosts: BlogPostInterface[] = [];
-
-  await remove(DESTINATION_DIR);
 
   const filePromises = files.map(async (filePath) => {
     let htmlContents = '';
@@ -73,15 +75,16 @@ const BLOG_LIST_FILE = './src/assets/blog/list.json';
       throw e;
     }
   });
+  filePromises;
 
   await Promise.all(filePromises);
-
 
   allBlogPosts.sort((a, b) => {
     return Date.parse(b.date) - Date.parse(a.date);
   });
+
   await writeFile(BLOG_LIST_FILE, JSON.stringify(allBlogPosts, null, 2), {
-      encoding: 'utf8'
+    encoding: 'utf8'
   });
 
   console.log(`successfully converted ${filePromises.length} files`);
