@@ -89,3 +89,22 @@ stencil generate
 ```
 
 You can optionally pass the component tag name directly to the command. Remember that the component tag name needs to be lowercase and contain at least one hyphen. In the second step, the generator will ask you which files to generate. This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
+
+All components will be generated within the `src/components` folder. Within that, a folder will be created with the same name as the component tag name you provided, and within that folder the files will be generated. It is also possible to specify one or multiple sub-folders to generate the component in.
+
+For example, if you specify `pages/page-home` as the component tag name, the files will be generated in `src/components/pages/page-home`.
+
+```shell
+stencil generate pages/page-home
+```
+
+```plain
+src
+ |- components
+     |- pages
+         |- page-home
+             |- page-home.css
+             |- page-home.e2e.ts
+             |- page-home.spec.ts
+             |- page-home.tsx
+```
