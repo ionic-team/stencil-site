@@ -4,6 +4,7 @@ description: My First Component
 url: /docs/my-first-component
 contributors:
   - jthoms1
+  - simonhaenisch
 ---
 
 # My First Component
@@ -72,3 +73,19 @@ We set this property like so:
 ```
 Any property decorated with `@Prop()` is also automatically watched for changes.
 If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
+
+## Component Generator
+
+The Stencil CLI can generate new components for you. If you used one of the starters, you can simply run the `generate` npm script in your project, which will start the interactive generator.
+
+```shell
+npm run generate
+```
+
+Or you can invoke the Stencil CLI directly with the `generate` command (`g` for short). If you don't have `stencil` installed globally, prefix the command with `npx`.
+
+```shell
+stencil generate
+```
+
+You can optionally pass the component tag name directly to the command. Remember that the component tag name needs to be lowercase and contain at least one hyphen. In the second step, the generator will ask you which files to generate. This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
