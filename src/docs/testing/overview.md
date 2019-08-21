@@ -57,7 +57,7 @@ export const config: Config = {
 
 ## Running and Debugging Tests in VS Code
 
-Adding the following configurations to `.vscode/launch.json` will allow you to run the Stencil test runner for the currently active file in your editor.
+Adding the following configurations to `.vscode/launch.json` will allow you to use the VS Code Debugger to run the Stencil test runner for the currently active file in your editor. Just make sure you're in the test file you want to run, then select the debug configuration respectively (depending on whether it's a spec or e2e test), and hit the play button.
 
 ```tsx
 {
