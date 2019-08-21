@@ -54,3 +54,36 @@ export const config: Config = {
   }
 };
 ```
+
+## Running and Debugging Tests in VS Code
+
+Adding the following configurations to `.vscode/launch.json` will allow you to run the Stencil test runner for the currently active file in your editor.
+
+```tsx
+{
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "E2E Test Current File",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/node_modules/.bin/stencil",
+      "args": ["test", "--e2e", "${relativeFile}"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Spec Test Current File",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/node_modules/.bin/stencil",
+      "args": ["test", "--spec", "${relativeFile}"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true
+    }
+  ]
+}
+```
