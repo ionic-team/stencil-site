@@ -198,7 +198,10 @@ announcement-bar .modal .modal__body hgroup p {
 
 .modal #modal__form-container .hs-error-msgs {
   list-style: none;
-  font-size: 8px;
   color: red;
   padding: 0;
+}
+
+.modal #modal__form-container .hs_error_rollup {
+  margin: 0 auto;
 }
