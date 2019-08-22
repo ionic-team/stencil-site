@@ -126,5 +126,72 @@ announcement-bar .modal .modal__body hgroup p {
 .modal #modal__form-container {
   width: 464px;
   max-width: 100%;
+  margin: 0 auto 20px;
+}
+
+.modal #modal__form-container form {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -24px;
+}
+
+.modal #modal__form-container fieldset {
+  flex: 100%;
+  margin-bottom: 12px;
+}
+
+.modal #modal__form-container fieldset:first-child {
+  flex: 50%;
+}
+
+.modal #modal__form-container fieldset:nth-child(2) {
+  flex: calc(50% - 15px);
+  margin-right: 15px;
+}
+
+.modal #modal__form-container fieldset label {
+  font-size: 14px;
+  line-height: 160%;
+  font-weight: 500;
+}
+
+.modal #modal__form-container fieldset input,
+.modal #modal__form-container fieldset select {
+  background: #FFFFFF;
+  border: 1px solid #DEE3EA;
+  box-sizing: border-box;
+  border-radius: 6px;
+  height: 50px;
+  padding: 8px;
+  font-size: 16px;
+  color: #151518;
+}
+
+.modal #modal__form-container fieldset select {
+  background: #F4F7FA;
+}
+
+.modal #modal__form-container .hs-submit {
+  width: 100%;
+} 
+
+.modal #modal__form-container .hs-button {
+  background: #4C48FF;
+  box-shadow: 0px 2px 4px rgba(2, 8, 20, 0.1), 0px 1px 2px rgba(2, 8, 20, 0.08);
+  border-radius: 6px;
+  color: white;
+  height: 50px;
+  width: 240px;
+  max-width: 100%;
   margin: 0 auto;
+  display: block;
+  font-size: 14px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: none;
+  font-weight: 600;
 }

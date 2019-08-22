@@ -17,8 +17,8 @@ export class AnnouncementBar {
   hubspot = {
     jsSrc: 'https://js.hsforms.net/forms/v2.js',
     formOptions: {
-      portalId: "3776657",
-      formId: "8ac8655d-3f54-4844-8d7c-19fb01da1dd7"
+      portalId: '3776657',
+      formId: '00343e47-6f40-4702-911d-f7fabdb72996'
     }
   }
 
@@ -53,8 +53,8 @@ export class AnnouncementBar {
           <button onClick={() => { this.active = false }}
                   class="modal__body__close">&#xd7;</button>
           <hgroup>
-            <h2>Thanks for your interest in our whitepaper!</h2>
-            <p>We just need some basic information so we can send the eBook your way.</p>
+            <h2>Thanks for your interest!</h2>
+            <p>We just need some basic information so we can send the paper your way.</p>
           </hgroup>
 
           <div id="modal__form-container"></div>
