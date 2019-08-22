@@ -1,0 +1,130 @@
+.announcement {
+  background: #F4F4FF;
+  border-radius: 240px;
+  font-size: 13px;
+  line-height: 160%;
+  color: #4441E1;
+  padding: 4px 5px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.announcement strong {
+  display: block;
+  background: #4C48FF;
+  border-radius: 380px;
+  color: white;
+  padding: 0px 6px 1px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.announcement app-icon .icon-arrow-right {
+  fill: #A09DFF;
+  height: 14px;
+  width: 8px;
+  display: block;
+  margin: 0 5px;    
+  transform: scale(.66);
+  opacity: .4;
+  transition: .3s transform ease;
+}
+
+.announcement:hover app-icon .icon-arrow-right {
+  transform: scale(.66) translateX(2px);
+}
+
+
+.modal {
+  position: fixed;
+  background: rgba(0, 0, 0, .85);
+  backdrop-filter: blur(5px);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s opacity;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.modal .modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal .modal__body {
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1), 0 6px 14px rgba(0,0,0,.06);
+  max-width: calc(100% - 16px);
+  position: relative;
+  margin: 20px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: .4s opacity .2s, .2s transform ease-out .2s;
+}
+
+.modal.active .modal__body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.modal .modal__body__close {
+  border: 0;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: var(--color-dolphin);
+  font-size: 30px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: .2s color;
+}
+
+.modal .modal__body__close:hover,
+.modal .modal__body__close:active,
+.modal .modal__body__close:focus {
+  color: var(--color-woodsmoke);
+  outline: none;
+}
+
+announcement-bar .modal .modal__body hgroup {
+  text-align: center;
+  max-width: 320px;
+  margin: 24px auto 0;
+}
+
+.modal__body h2 {
+  color: black;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+announcement-bar .modal .modal__body hgroup p {
+  font-size: 16px;
+  color: var(--color-gandalf);
+}
+
+.modal #modal__form-container {
+  width: 464px;
+  max-width: 100%;
+  margin: 0 auto;
+}

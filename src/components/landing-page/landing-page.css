@@ -39,7 +39,7 @@ landing-page .hero hgroup stencil-route-link + stencil-route-link {
   margin-left: 10px;
 }
 
-landing-page .hero svg {
+landing-page .hero .landing-page__bg {
   position: absolute;
   z-index: 1;
   top: 50%;
@@ -50,7 +50,7 @@ landing-page .hero svg {
 
 landing-page .companies {
   position: relative;
-  z-index: 2;
+  /* z-index: 2; */
   padding-bottom: 80px;
   border-bottom: 1px solid var(--color-whisper);
 }

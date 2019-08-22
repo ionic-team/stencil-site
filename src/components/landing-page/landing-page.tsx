@@ -25,12 +25,13 @@ export class LandingPage {
       <div>
         <div class="hero container">
           <hgroup>
+            <announcement-bar></announcement-bar>
             <h1>Build. Distribute. Adopt. </h1>
             <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
             <stencil-route-link anchorClass="btn btn--primary" url="/docs/getting-started">Get started</stencil-route-link>
             <stencil-route-link anchorClass="btn btn--secondary" url="/docs/introduction">Why Stencil?</stencil-route-link>
           </hgroup>
-          <svg width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF"/>
             <path opacity="0.4" d="M585.269 95.2073H660.886L620.011 140.163H544.801L585.269 95.2073Z" fill="#EBEEFF"/>
             <path opacity="0.5" d="M90.1233 373.915H177.864L130.436 426.012H43.1665L90.1233 373.915Z" fill="#F4F6FF"/>

@@ -12,6 +12,7 @@ import {
 } from './global/definitions';
 
 export namespace Components {
+  interface AnnouncementBar {}
   interface AppBurger {
     'toggleLeftSidebar': () => void;
   }
@@ -73,6 +74,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLAnnouncementBarElement extends Components.AnnouncementBar, HTMLStencilElement {}
+  var HTMLAnnouncementBarElement: {
+    prototype: HTMLAnnouncementBarElement;
+    new (): HTMLAnnouncementBarElement;
+  };
 
   interface HTMLAppBurgerElement extends Components.AppBurger, HTMLStencilElement {}
   var HTMLAppBurgerElement: {
@@ -212,6 +219,7 @@ declare global {
     new (): HTMLSiteTopBarElement;
   };
   interface HTMLElementTagNameMap {
+    'announcement-bar': HTMLAnnouncementBarElement;
     'app-burger': HTMLAppBurgerElement;
     'app-icon': HTMLAppIconElement;
     'app-root': HTMLAppRootElement;
@@ -239,6 +247,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface AnnouncementBar extends JSXBase.HTMLAttributes<HTMLAnnouncementBarElement> {}
   interface AppBurger extends JSXBase.HTMLAttributes<HTMLAppBurgerElement> {
     'toggleLeftSidebar'?: () => void;
   }
@@ -298,6 +307,7 @@ declare namespace LocalJSX {
   interface SiteTopBar extends JSXBase.HTMLAttributes<HTMLSiteTopBarElement> {}
 
   interface IntrinsicElements {
+    'announcement-bar': AnnouncementBar;
     'app-burger': AppBurger;
     'app-icon': AppIcon;
     'app-root': AppRoot;
