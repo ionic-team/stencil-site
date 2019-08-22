@@ -195,3 +195,10 @@ announcement-bar .modal .modal__body hgroup p {
   border: none;
   font-weight: 600;
 }
+
+.modal #modal__form-container .hs-error-msgs {
+  list-style: none;
+  font-size: 8px;
+  color: red;
+  padding: 0;
+}
