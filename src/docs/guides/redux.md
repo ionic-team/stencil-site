@@ -6,13 +6,24 @@ contributors:
   - jthoms1
   - adamdbradley
   - corysmc
+  - bitflower
 ---
 
 ## What is Redux?
 
-Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a Stencil PWA. For more info on Redux, [check out their docs](https://redux.js.org)
+Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a PWA with stencil. For more info on Redux, [check out their docs](https://redux.js.org)
 
-## 1. Install dependencies:
+Although redux may feel like "a lot of boilerplate code" in scalable applications the benefits outweigh the cost.
+
+1. Redux Store => backbone of redux, includes callback functions to getState and "dispatch" functions to change state.
+2. Redux Reducers => reducers manage a global state object
+3. Redux Actions => Functions that are called to change state.
+4. mapStateToProps => used to map your reducer state to your existing components
+5. mapDispatchToProps => used to map your redux actions to your existing components.
+
+For more info on Redux, [check out their docs](https://redux.js.org)
+
+## 1. install dependencies:
 
 - init stencil project `npm init stencil`
 - redux `npm i redux`
@@ -154,13 +165,15 @@ To access the store from within any of your child components you need to use the
 ```tsx
 // /src/components/my-name-input-component/my-name-input-component.tsx
 import { Component, State, Prop, h } from "@stencil/core";
-import { Store } from "@stencil/redux";
+import { Store, Unsubscribe } from "@stencil/redux";
 
 @Component({
   tag: "my-name-input-component",
   styleUrl: "name-input-component.css"
 })
 export class NameInputComponent {
+  storeUnsubscribe: Unsubscribe;
+
   @State()
   name: MyAppState["user"]["name"];
 
@@ -178,6 +191,10 @@ export class NameInputComponent {
     });
   }
 
+  componentDidUnload() {
+    this.storeUnsubscribe();
+  }
+
   render() {
     return <p>{this.name}</p>;
   }
@@ -189,6 +206,7 @@ Notice above we are:
 1. Creating a state variable
 2. Mapping that state variable to our redux store
 3. Displaying it in the render function.
+4. Unsubscribing to the state changes when the component unloads.
 
 > Note that the order you return your variables **does** matter within the mapStateToProps function, they will be mapped in the order you return them.
 
@@ -250,7 +268,9 @@ import { setUserName } from "../../../store/actions/user";
   // styleUrl: "name-input-component.css"
 })
 export class NameInputComponent {
+  storeUnsubscribe: Unsubscribe;
   setUserName: typeof setUserName;
+
   @State()
   name: MyAppState["user"]["name"];
 
@@ -267,6 +287,10 @@ export class NameInputComponent {
         name
       };
     });
+  }
+
+  componentDidUnload() {
+    this.storeUnsubscribe();
   }
 
   render() {
@@ -289,7 +313,7 @@ export class NameInputComponent {
 
 If you're using redux devtools, you can now see that the action is being emitted each time you type into the input. The last step is to handle those actions to change your app state.
 
-## 10. Handling actions to update your app state
+## 10. handling actions to mutate your app state
 
 Back to our user reducer we'll import `ActionTypes` and handle the action.
 
@@ -319,7 +343,5 @@ With that you've create a store, set the default state, mapped that state to you
 
 ### Other Resources
 
-- Redux Docs https://redux.js.org
-- Stencil Redux Demo App https://github.com/ionic-team/stencil-redux-demo
 - Intro to Redux by Josh Moroni https://www.youtube.com/watch?v=BccpaouJuxA
 - State Management with Redux in Ionic & StencilJS: Loading Data by Josh Moroni https://www.joshmorony.com/state-management-with-redux-in-ionic-stenciljs-loading-data/
