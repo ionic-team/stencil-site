@@ -26,7 +26,7 @@ export class LandingPage {
         <div class="hero container">
           <hgroup>
             <announcement-bar></announcement-bar>
-            <h1>Build. Distribute. Adopt. </h1>
+            <h1>構築. 再利用性. 導入. </h1>
             <p>Stencilは、再利用可能でスケーラブルなデザインシステムを構築するためのツールチェーンです。あらゆるブラウザで動作する、小型で高速かつ100%標準ベースのWebコンポーネントを生成します。</p>
             <stencil-route-link anchorClass="btn btn--primary" url="/docs/getting-started">はじめよう</stencil-route-link>
             <stencil-route-link anchorClass="btn btn--secondary" url="/docs/introduction">なぜStencil?</stencil-route-link>
