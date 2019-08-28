@@ -27,9 +27,9 @@ export class LandingPage {
           <hgroup>
             <announcement-bar></announcement-bar>
             <h1>Build. Distribute. Adopt. </h1>
-            <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
-            <stencil-route-link anchorClass="btn btn--primary" url="/docs/getting-started">Get started</stencil-route-link>
-            <stencil-route-link anchorClass="btn btn--secondary" url="/docs/introduction">Why Stencil?</stencil-route-link>
+            <p>Stencilは、再利用可能でスケーラブルなデザインシステムを構築するためのツールチェーンです。あらゆるブラウザで動作する、小型で高速かつ100%標準ベースのWebコンポーネントを生成します。</p>
+            <stencil-route-link anchorClass="btn btn--primary" url="/docs/getting-started">はじめよう</stencil-route-link>
+            <stencil-route-link anchorClass="btn btn--secondary" url="/docs/introduction">なぜStencil?</stencil-route-link>
           </hgroup>
           <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF"/>
@@ -50,7 +50,7 @@ export class LandingPage {
 
         <div class="companies">
           <div class="container">
-            <h3>Powering design systems and cross-framework components at</h3>
+            <h3>デザインシステムとフレームワーク共通で使えるコンポーネントの促進</h3>
             <ul>
               <li>
                 <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,56 +129,56 @@ export class LandingPage {
           <div class="container">
             <div class="two-col">
               <hgroup>
-                <h2><strong>The magical, reusable web component compiler.</strong> Start building in seconds.</h2>
+                <h2><strong>魔法のような再利用可能なWeb Componentsのコンパイラ。</strong> 数秒で構築を開始できます。</h2>
               </hgroup>
 
               <ul class="list--unstyled list--icon">
-                <li><app-icon name="checkmark"/> Web Component-based</li>
-                <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
-                <li><app-icon name="checkmark"/> TypeScript support</li>
-                <li><app-icon name="checkmark"/> One-way Data Binding</li>
-                <li><app-icon name="checkmark"/> Component pre-rendering</li>
-                <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
-                <li><app-icon name="checkmark"/> JSX support</li>
-                <li><app-icon name="checkmark"/> Dependency-free components</li>
+                <li><app-icon name="checkmark"/> Web Componentsベース</li>
+                <li><app-icon name="checkmark"/> 非同期レンダリング</li>
+                <li><app-icon name="checkmark"/> TypeScriptサポート</li>
+                <li><app-icon name="checkmark"/> 一方向データバインディング</li>
+                <li><app-icon name="checkmark"/> コンポーネントのプリレンダリング</li>
+                <li><app-icon name="checkmark"/> シンプルなコンポーネントの遅延読み込み</li>
+                <li><app-icon name="checkmark"/> JSXサポート</li>
+                <li><app-icon name="checkmark"/> 依存関係のないコンポーネント</li>
               </ul>
             </div>
           </div>
 
           <div class="cta">
             <div class="cta__primary">
-              <h3>Getting started is simple:</h3>
+              <h3>はじめるのは簡単です：</h3>
               <code class={{'copied': this.isCopied}} onClick={this.copyCommand}>{this.isCopied ? 'copied!' : '$ npm init stencil'}</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
-            <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
+            <p class="cta__secondary">より詳しく <stencil-route-link url="/docs/getting-started">はじめ方</stencil-route-link> を確認する</p>
           </div>
         </section>
 
         <section class="gradient-bg">
           <div class="container">
-            <h2><strong>Stencil doesn’t fight the web platform.</strong> It embraces it.</h2>
+            <h2><strong>StencilはWebプラットフォームと競合しません。</strong> 内包します。</h2>
             <ul class="feature-list list--unstyled">
               <li class="feature-list__item">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z" fill="#141334"/>
                   <path d="M16 23C19.866 23 23 19.866 23 16C23 12.134 19.866 9 16 9C12.134 9 9 12.134 9 16C9 19.866 12.134 23 16 23Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <h3>Simple</h3>
+                <h3>シンプル</h3>
                 <p>With intentionally small tooling, a tiny API, and zero configuration, Stencil gets out of the way and lets you focus on your work.</p>
               </li>
               <li class="feature-list__item">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M32 9.44131C32 11.9453 30.9989 14.3467 29.2168 16.1173L18.5481 26.7486H7.32378L12.8017 21.306H20.4702C21.2663 21.306 21.9116 20.6645 21.9116 19.8732C21.9116 19.0819 21.2663 18.4404 20.4702 18.4404H15.686L23.9875 10.1925C24.5505 9.63308 24.5507 8.72586 23.988 8.16617C23.4252 7.60647 22.5125 7.60625 21.9495 8.16566L5.09347 24.9129V13.3809L15.778 2.76529C17.5601 0.994706 19.9771 0 22.4974 0C25.0177 0 27.4347 0.994706 29.2168 2.76529C30.9989 4.53588 32 6.93732 32 9.44131ZM5.09347 24.9129V26.7486H7.32378L2.46041 31.5806C1.89736 32.14 0.9847 32.1398 0.421929 31.5801C-0.140841 31.0204 -0.140614 30.1132 0.422437 29.5537L5.09347 24.9129Z" fill="#141334"/>
                 </svg>
-                <h3>Lightweight</h3>
+                <h3>軽量</h3>
                 <p>A tiny runtime, pre-rendering, and the raw power of native Web Components make Stencil one of the fastest compilers around.</p>
               </li>
               <li class="feature-list__item">
                 <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 12.1808 29.2223 9.54324 27.8696 7.2902L31.5477 3.66785C32.1512 3.07346 32.1507 2.11024 31.5466 1.51645C30.9424 0.922648 29.9634 0.923129 29.3599 1.51752L26.0119 4.81476C23.2719 1.85374 19.3524 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM26.0119 4.81476L13.9602 16.6839L10.1062 12.8921C9.5024 12.298 8.52339 12.298 7.91955 12.8921C7.31572 13.4862 7.31572 14.4494 7.91955 15.0435L12.8675 19.9116C13.1575 20.1969 13.551 20.3572 13.9612 20.3571C14.3714 20.357 14.7648 20.1965 15.0547 19.911L27.8696 7.2902C27.3358 6.40101 26.7124 5.5717 26.0119 4.81476Z" fill="#141334"/>
                 </svg>
-                <h3>Future proof</h3>
+                <h3>将来への対応</h3>
                 <p>Build cross-framework components and design systems on open web standards, and break free of Framework Churn.</p>
               </li>
             </ul>
