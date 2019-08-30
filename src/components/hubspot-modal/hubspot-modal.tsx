@@ -47,11 +47,14 @@ export class HubspotModal {
 
   render() {
     const bod = document.querySelector('body');
-    if (this.active === true) {
-      bod.classList.add('no-scroll');
-    } else {
-      bod.classList.remove('no-scroll');
+    if (bod) {
+      if ( this.active === true) {
+        bod.classList.add('no-scroll');
+      } else {
+        bod.classList.remove('no-scroll');
+      }
     }
+
 
     return ([
       <div class={`modal ${this.active ? 'active' : ''}`}>
