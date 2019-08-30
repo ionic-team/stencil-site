@@ -181,6 +181,7 @@ export class DSPage {
           </div>
         </div>
       </section>,
+      <guide-callout />,
       <section class="content">
         <div class="container">
           <hgroup>

@@ -19,6 +19,7 @@ export class AppRoot {
   @Element() el!: HTMLElement;
 
   @State() isLeftSidebarIn: boolean = false;
+  @State() isModalOpen: boolean = false;
 
   @Listen('resize', { target: 'window' })
   handleResize() {
@@ -31,6 +32,11 @@ export class AppRoot {
         });
       }
     });
+  }
+
+  @Listen('toggleModal')
+  handleToggleModal(ev: CustomEvent) {
+    this.isModalOpen = ev.detail;
   }
 
   private setHistory = ({ history }: { history: RouterHistory }) => {
@@ -131,6 +137,8 @@ export class AppRoot {
               </div>
             </div>
           </footer>
+
+          <hubspot-modal active={this.isModalOpen}/>
         </main>
       </SiteProviderConsumer.Provider>
     );
