@@ -5,7 +5,7 @@ landing-page {
 
 landing-page .hero {
   position: relative;
-  margin-top: 120px;
+  margin-top: 0px;
   margin-bottom: 220px;
 }
 
@@ -19,6 +19,7 @@ landing-page .hero hgroup h1 {
   font-size: 56px;
   line-height: 54px;
   margin-bottom: 20px;
+  margin-top: 64px;
   letter-spacing: -0.018em;
   font-weight: 600;
 }

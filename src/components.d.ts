@@ -40,7 +40,11 @@ export namespace Components {
     'page'?: string;
   }
   interface DsPage {}
+  interface GuideCallout {}
   interface HighlightCode {}
+  interface HubspotModal {
+    'active': boolean;
+  }
   interface InPageNavigation {
     'currentPageUrl': string;
     'pageLinks': MarkdownHeading[];
@@ -141,10 +145,22 @@ declare global {
     new (): HTMLDsPageElement;
   };
 
+  interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {}
+  var HTMLGuideCalloutElement: {
+    prototype: HTMLGuideCalloutElement;
+    new (): HTMLGuideCalloutElement;
+  };
+
   interface HTMLHighlightCodeElement extends Components.HighlightCode, HTMLStencilElement {}
   var HTMLHighlightCodeElement: {
     prototype: HTMLHighlightCodeElement;
     new (): HTMLHighlightCodeElement;
+  };
+
+  interface HTMLHubspotModalElement extends Components.HubspotModal, HTMLStencilElement {}
+  var HTMLHubspotModalElement: {
+    prototype: HTMLHubspotModalElement;
+    new (): HTMLHubspotModalElement;
   };
 
   interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {}
@@ -230,7 +246,9 @@ declare global {
     'demo-card': HTMLDemoCardElement;
     'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
+    'guide-callout': HTMLGuideCalloutElement;
     'highlight-code': HTMLHighlightCodeElement;
+    'hubspot-modal': HTMLHubspotModalElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
     'lower-content-nav': HTMLLowerContentNavElement;
@@ -247,7 +265,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface AnnouncementBar extends JSXBase.HTMLAttributes<HTMLAnnouncementBarElement> {}
+  interface AnnouncementBar extends JSXBase.HTMLAttributes<HTMLAnnouncementBarElement> {
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
   interface AppBurger extends JSXBase.HTMLAttributes<HTMLAppBurgerElement> {
     'toggleLeftSidebar'?: () => void;
   }
@@ -275,7 +295,14 @@ declare namespace LocalJSX {
     'page'?: string;
   }
   interface DsPage extends JSXBase.HTMLAttributes<HTMLDsPageElement> {}
+  interface GuideCallout extends JSXBase.HTMLAttributes<HTMLGuideCalloutElement> {
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
   interface HighlightCode extends JSXBase.HTMLAttributes<HTMLHighlightCodeElement> {}
+  interface HubspotModal extends JSXBase.HTMLAttributes<HTMLHubspotModalElement> {
+    'active'?: boolean;
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
   interface InPageNavigation extends JSXBase.HTMLAttributes<HTMLInPageNavigationElement> {
     'currentPageUrl'?: string;
     'pageLinks'?: MarkdownHeading[];
@@ -318,7 +345,9 @@ declare namespace LocalJSX {
     'demo-card': DemoCard;
     'doc-component': DocComponent;
     'ds-page': DsPage;
+    'guide-callout': GuideCallout;
     'highlight-code': HighlightCode;
+    'hubspot-modal': HubspotModal;
     'in-page-navigation': InPageNavigation;
     'landing-page': LandingPage;
     'lower-content-nav': LowerContentNav;
