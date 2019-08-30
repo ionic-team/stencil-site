@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
 
 // tell Typescript that hbspt exists on window
 declare global {
@@ -14,6 +14,11 @@ export class HubspotModal {
   @Prop() active = false;
 
   @Event() toggleModal!: EventEmitter;
+
+  @Listen('keyup', { target: 'window' })
+  handleKeyDown(ev: KeyboardEvent){
+    if (ev.key === 'Escape' && this.active) this.handleClose();
+  }
 
   // Hubspot Data
   hubspot = {
