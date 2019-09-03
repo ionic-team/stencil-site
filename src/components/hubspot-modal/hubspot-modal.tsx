@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, Listen, h } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Listen, h, Build } from '@stencil/core';
 
 // tell Typescript that hbspt exists on window
 declare global {
@@ -31,12 +31,15 @@ export class HubspotModal {
 
   constructor() {
     // load hubspot JS immediately
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = this.hubspot.jsSrc;
-    document.getElementsByTagName('head')[0].appendChild(script);
-    // add form to (stil hidden) modal ASAP
-    script.onload = () => this.addForm();
+    if (Build.isBrowser && !window.hbspt.forms) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.defer = true;
+      script.src = this.hubspot.jsSrc;
+      document.getElementsByTagName('head')[0].appendChild(script);
+      // add form to (stil hidden) modal ASAP
+      script.onload = () => this.addForm();
+    }
   }
 
   addForm() {
