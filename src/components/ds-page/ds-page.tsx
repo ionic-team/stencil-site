@@ -26,18 +26,20 @@ export class DSPage {
 
   componentDidLoad() {
     document.body.classList.add('dark');
-
-    let existingScript = document.querySelector('#hbs-script');
-    if (existingScript) {
-      existingScript.remove();
+    if (Build.isBrowser) {
+      let existingScript = document.querySelector('#hbs-script');
+      if (existingScript) {
+        existingScript.remove();
+      }
+      const script = document.createElement('script');
+      script.src = '//js.hsforms.net/forms/v2.js';
+      script.id = 'hbs-script';
+      script.defer = true;
+      script.onload = () => {
+        this.injectForm();
+      }
+      document.body.appendChild(script);
     }
-    const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/v2.js';
-    script.id = 'hbs-script';
-    script.onload = () => {
-      this.injectForm();
-    }
-    document.body.appendChild(script);
     this.startRendering();
   }
 
