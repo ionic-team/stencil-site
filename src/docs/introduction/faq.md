@@ -74,7 +74,7 @@ Stencil purposely does not strive to act as a stand-alone framework, but rather 
 
 ### Does Stencil come with a testing framework?
 
-Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. Learn more about testing with Stencil.
+Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. Learn more about <stencil-route-link url="/docs/testing-overview">testing with Stencil</stencil-router-link>.
 
 
 
