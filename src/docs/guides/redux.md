@@ -9,4 +9,4 @@ contributors:
 
 # Redux
 
-TODO
+Refer to https://github.com/ionic-team/stencil-redux for now.
