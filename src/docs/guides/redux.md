@@ -13,17 +13,17 @@ contributors:
 
 Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a PWA with stencil. For more info on Redux, [check out their docs](https://redux.js.org)
 
-Although redux may feel like "a lot of boilerplate code" in scalable applications the benefits outweigh the cost.
+Although redux may feel like "a lot of boilerplate code" in scalable applications the benefits can outweigh the cost.
 
-1. Redux Store => backbone of redux, includes callback functions to getState and "dispatch" functions to change state.
-2. Redux Reducers => reducers manage a global state object
-3. Redux Actions => Functions that are called to change state.
-4. mapStateToProps => used to map your reducer state to your existing components
-5. mapDispatchToProps => used to map your redux actions to your existing components.
+1. Redux Store: backbone of redux, includes callback functions to getState and "dispatch" functions to change state.
+2. Redux Reducers: reducers manage a global state object
+3. Redux Actions: functions that are called to change state.
+4. mapStateToProps: used to map your reducer state to your existing components
+5. mapDispatchToProps: used to map your redux actions to your existing components.
 
 For more info on Redux, [check out their docs](https://redux.js.org)
 
-## 1. install dependencies:
+## 1. Install dependencies:
 
 - init stencil project `npm init stencil`
 - redux `npm i redux`
@@ -35,7 +35,7 @@ For more info on Redux, [check out their docs](https://redux.js.org)
 
 > Having a strongly typed reducer will really speed up development in the future, especially if and when your application structure changes. Here’s an example of how to set the types for your root reducer.
 
-```ts
+```tsx
 // src/interfaces.d.ts
 
 interface UserState {
@@ -49,7 +49,7 @@ interface MyAppState {
 
 ## 3. Create store
 
-```ts
+```tsx
 // /src/store/index.ts
 
 import { createStore, applyMiddleware } from "redux";
@@ -69,7 +69,7 @@ export const configureStore = (preloadedState: Partial<MyAppState>) =>
 
 Reducers are a way to separate your app logic. Redux has a function to combine these separate states into one using 'combineReducers'. Your root reducer will look something like this:
 
-```ts
+```tsx
 // /src/store/reducers/index.ts
 
 import user from "./user";
@@ -84,7 +84,7 @@ export default rootReducer;
 
 Your user reducer might look something like this:
 
-```ts
+```tsx
 // /src/store/reducers/user.ts
 
 const getInitialState = (): UserState => {
@@ -108,7 +108,7 @@ export default user;
 
 ## 5. Initilize Store
 
-Initialize the store from within your root component. The store can then be accessed from within other components (see step 5).
+Initialize the store from within your root component. The store can then be accessed from within other components, which will be shown in the next step.
 
 ```tsx
 // /src/components/app-root/app-root.tsx
@@ -153,7 +153,7 @@ export class MyApp {
 }
 ```
 
-You can now see `Hello, my name is StencilJS` that is being managed via your redux store!!
+You can now see `Hello, my name is StencilJS`, and that data is coming from your redux store!!
 Next lets access that state from within a child component.
 
 ## 6. mapStateToProps within your components
@@ -181,7 +181,7 @@ export class NameInputComponent {
   store: Store;
 
   componentWillLoad() {
-    this.store.mapStateToProps(this, (state: MyAppState) => {
+    this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
       const {
         user: { name }
       } = state;
@@ -210,11 +210,11 @@ Notice above we are:
 
 > Note that the order you return your variables **does** matter within the mapStateToProps function, they will be mapped in the order you return them.
 
-Next we want to change the name `StencilJS` and update our state to reflect that new name across our app. Changing state happens via actions. First we're going to create a type for our action...
+Next we want to change the name `StencilJS` and update our state to reflect that new name across our app. Changing state happens via actions. First we're going to create types for our actions...
 
 ## 7. Type your actions
 
-```ts
+```tsx
 // /src/store/actions/index.ts
 import { SetUserName } from "./user";
 
@@ -235,7 +235,9 @@ export enum TypeKeys {
 
 ## 8. Create Actions
 
-```ts
+Typically you'll have an action file for each reducer, as shown below:
+
+```tsx
 // /src/store/actions/user.ts
 import { TypeKeys } from "./index";
 
@@ -279,7 +281,7 @@ export class NameInputComponent {
 
   componentWillLoad() {
     this.store.mapDispatchToProps(this, { setUserName });
-    this.store.mapStateToProps(this, (state: MyAppState) => {
+    this.storeUnsubscribe = this.store.mapStateToProps(this, (state: MyAppState) => {
       const {
         user: { name }
       } = state;
@@ -307,7 +309,7 @@ export class NameInputComponent {
 }
 ```
 
-1. import the action
+1. Import the action
 2. Add the action and type it using `typeof`
 3. Use mapDispatchToProps to map action to component class
 
@@ -317,7 +319,7 @@ If you're using redux devtools, you can now see that the action is being emitted
 
 Back to our user reducer we'll import `ActionTypes` and handle the action.
 
-```ts
+```tsx
 // /src/store/reducers/user.ts
 import { ActionTypes, TypeKeys } from "./../actions/index";
 
