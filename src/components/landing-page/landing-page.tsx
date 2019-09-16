@@ -28,8 +28,8 @@ export class LandingPage {
             <announcement-bar></announcement-bar>
             <h1>Build. Distribute. Adopt. </h1>
             <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
-            <yahr-button url="/docs/getting-started">Get started</yahr-button>
-            <yahr-button variant="secondary" url="/docs/introduction">Why Stencil?</yahr-button>
+            <yahr-button href="/docs/getting-started">Get started</yahr-button>
+            <yahr-button variant="secondary" href="/docs/introduction">Why Stencil?</yahr-button>
           </hgroup>
           <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF"/>
