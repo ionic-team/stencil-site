@@ -32,11 +32,11 @@ landing-page .hero hgroup p {
   margin-bottom: 32px;
 }
 
-landing-page .hero hgroup stencil-route-link {
+landing-page .hero hgroup yahr-button {
   display: inline-block;
 }
 
-landing-page .hero hgroup stencil-route-link + stencil-route-link {
+landing-page .hero hgroup yahr-button + yahr-button {
   margin-left: 10px;
 }
 

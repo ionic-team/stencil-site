@@ -2,6 +2,8 @@ import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
+import '@stencil/yahara';
+
 
 @Component({
   tag: 'app-root',
