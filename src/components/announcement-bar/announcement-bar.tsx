@@ -10,11 +10,11 @@ export class AnnouncementBar {
 
   render() {
     return ([
-      <a onClick={() => { this.toggleModal.emit(true); }} class="announcement">
-        <strong class="announcement__pill">New</strong>
-        Guide to Building Design Systems with Web Components
+      <stencil-route-link url="/blog/stencil-roadmap-fall-2019" class="announcement">
+        <strong class="announcement__pill">Blog</strong>
+        Fall 2019 Stencil Roadmap
         <app-icon name="arrow-right"></app-icon>
-      </a>
+      </stencil-route-link>
     ])
   }
 }

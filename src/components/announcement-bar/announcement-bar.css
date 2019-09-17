@@ -1,4 +1,4 @@
-.announcement {
+.announcement a {
   background: #F4F4FF;
   border-radius: 240px;
   font-size: 13px;
@@ -10,6 +10,7 @@
   align-items: center;
   font-weight: 500;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .announcement strong {
@@ -35,6 +36,6 @@
   transition: .3s transform ease;
 }
 
-.announcement:hover app-icon .icon-arrow-right {
+.announcement a:hover app-icon .icon-arrow-right {
   transform: scale(.66) translateX(2px);
 }
