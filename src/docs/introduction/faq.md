@@ -169,7 +169,7 @@ some out-of-date clients don’t support the Web Components standard.
 
 In addition, while Web Components technically work with any framework, there are some limitations like lack of type support and input bindings, and challenges passing properties to components, as noted above.
 
-The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. And [StencilDS](https://stenciljs.com/design-systems) includes framework bindings, so you can easily import WC libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
+The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. And [StencilDS](https://stenciljs.com/design-systems) includes framework bindings, so you can easily import Web Component libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
 
 
 ### What are framework bindings?
