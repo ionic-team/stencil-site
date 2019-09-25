@@ -101,7 +101,7 @@ Since Stencil uses a compiler, it is able to adjust code as new improvements and
 
 Rather than inventing yet another template syntax which needs to be documented and taught, Stencil opted for arguably the most commonly used template syntax: JSX. Millions of developers around the world are already familiar with JSX due to React’s popularity, making it easier for developers to pick up Stencil quickly. Additionally, with a traditional runtime template syntax, any changes to the API often require a rewrite of the component.
 
-It’s important to note that JSX and VDom are not necessarily the same thing. One is a template syntax (JSX) and the other is a renderer (VDom). Stencil uses a much smaller and highly optimized VDom, but “how” the renderer works and improvements to be made are behind JSX. All of this is to a compiler’s advantage, allowing user code to write the commonly known JSX, while letting the internals optimize further.
+It’s important to note that JSX and VDom are not necessarily the same thing. One is a template syntax (JSX) and the other is a renderer (VDom). Stencil uses a much smaller and highly optimized VDom, but “how” the renderer works and improvements to be made are behind JSX. All of this is to a compiler’s advantage, allowing users to write  code in the commonly known JSX syntax, while letting the internals optimize further.
 
 
 ### Why does Stencil allow components to be lazy loaded?
