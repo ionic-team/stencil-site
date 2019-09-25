@@ -112,9 +112,9 @@ For example, Ionic Framework includes close to 100 UI components that are all bu
 
 At the same time, components built with Stencil can still be imported and consumed by traditional bundlers. They can also be prerendered, to include shadow dom, run in a Node environment, and can be used within any framework.
 
-A consumer of a component library may only use one component, a few of them, or all of them. In the scenario where a component library is used by just adding a script tag, lazy-load is a great way to ensure fast startup.
+A consumer of a component library may use one component, a few of them, or all of them. In any of these scenarios a component library is used by just adding a script tag, lazy loading ensures fast startup with a low bandwidth footprint.
 
-You can also read more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
+You can read more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
 
 
 ### Why doesn’t Stencil extend HTMLElement?
