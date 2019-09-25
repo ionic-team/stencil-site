@@ -184,7 +184,7 @@ Web Components by themselves weren't enough to provide a quality development exp
 Compared to using Web Components directly, Stencil provides extra APIs that make writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
 
-### What browsers does Stencil components work on?
+### What browsers can support Stencil components?
 
 Stencil works on Internet Explorer 11 and above.
 
