@@ -92,7 +92,7 @@ After all, as much as we love the hot frameworks of today, who knows what tomorr
 
 Traditional frameworks provide a runtime API, and developers can pick and choose which APIs to use per component. However, this means every feature needs to be available to every component, just in case the component may or may not use the API.
 
-With Stencil, the compiler is able to perform static analysis on each component in order to understand which APIs are and are not being used. By doing do, Stencil is able to customize each build to use exactly what each component needs, making for highly optimized runtime with a minimal size.
+With Stencil, the compiler is able to perform static analysis on each component in order to understand which APIs are and are not being used. By doing so, Stencil is able to customize each build to use exactly what each component needs, making for highly optimized runtime with a minimal size.
 
 Since Stencil uses a compiler, it is able to adjust code as new improvements and features become available. Source code can continue to be written using the same public API and syntax, while the compiler can adjust the code to further take advantage of modern features, without requiring re-writes.
 
