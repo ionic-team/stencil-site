@@ -38,8 +38,15 @@ export class MyToggleButton {
 }
 ```
 
+For more advanced use cases state can be a complex Type. In the below example we maintain a list of `Todo` type values.
+
 ```tsx
 import { State } from '@stencil/core';
+
+type Todo = {
+  done: boolean,
+  description: string,
+}
 
 export class TodoList {
 
