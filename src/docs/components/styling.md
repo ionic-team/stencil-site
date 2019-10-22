@@ -79,7 +79,7 @@ In browsers that do not currently support Shadow DOM, web components built with 
 
 ### What are CSS Variables?
 
-[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) are a lot like [Sass Variables](https://ionicframework.com/docs/theming/sass-variables/), but built into the browser. CSS Variables allow you to specify CSS properties that can be used across your app.
+[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) are a lot like [Less Variables](http://lesscss.org/#variables), but built into the browser. CSS Variables allow you to specify CSS properties that can be used across your app.
 
 ### Use Case
 
