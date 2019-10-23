@@ -26,18 +26,20 @@ export class DSPage {
 
   componentDidLoad() {
     document.body.classList.add('dark');
-
-    let existingScript = document.querySelector('#hbs-script');
-    if (existingScript) {
-      existingScript.remove();
+    if (Build.isBrowser) {
+      let existingScript = document.querySelector('#hbs-script');
+      if (existingScript) {
+        existingScript.remove();
+      }
+      const script = document.createElement('script');
+      script.src = '//js.hsforms.net/forms/v2.js';
+      script.id = 'hbs-script';
+      script.defer = true;
+      script.onload = () => {
+        this.injectForm();
+      }
+      document.body.appendChild(script);
     }
-    const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/v2.js';
-    script.id = 'hbs-script';
-    script.onload = () => {
-      this.injectForm();
-    }
-    document.body.appendChild(script);
     this.startRendering();
   }
 
@@ -181,6 +183,7 @@ export class DSPage {
           </div>
         </div>
       </section>,
+      <guide-callout />,
       <section class="content">
         <div class="container">
           <hgroup>
@@ -188,7 +191,7 @@ export class DSPage {
           </hgroup>
           <div class="faq-grid">
             <div>
-              <h4>What parts of Stencil are free? What parts are commerically licensed?</h4>
+              <h4>What parts of Stencil are free? What parts are commercially licensed?</h4>
               <p>Yes, the official Stencil project is 100% free and open source (MIT licensed), and always will be. We offer Stencil DS for teams undertaking large Design System initiatives which offers additional features and tools that are not free. This keeps the lights on and lets us keep making the Stencil you know and love better and better, all while helping teams be successful with their Design System initiatives.</p>
             </div>
             <div>

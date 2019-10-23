@@ -9,4 +9,4 @@ contributors:
 
 # State Tunnel
 
-TODO
+Please refer to https://github.com/ionic-team/stencil-state-tunnel/wiki/Getting-started for now.

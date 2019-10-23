@@ -1,3 +1,4 @@
+import 'dotenv';
 import marked from 'marked';
 import glob from 'glob';
 import { promisify } from 'util';

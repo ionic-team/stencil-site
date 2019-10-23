@@ -7,6 +7,7 @@ contributors:
   - jthoms1
   - flawyte
   - BDav24
+  - simonhaenisch
 ---
 
 # Stencil Config
@@ -47,6 +48,15 @@ Stencil will cache build results in order to speed up rebuilds. To disable this 
 ```tsx
 enableCache: true
 ```
+
+
+## globalScript
+
+The global script runs once before your library/app loads, so you can do things like setting up a connection to an external service or configuring a library you are using.
+
+The code to be executed should be placed within a default function that is exported by the global script. Ensure all of the code in the global script is wrapped in the function that is exported.
+
+The global script config option takes a file path as a string.
 
 
 ## globalStyle

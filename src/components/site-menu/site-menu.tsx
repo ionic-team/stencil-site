@@ -6,7 +6,7 @@ import { SiteStructureItem } from '../../global/definitions';
   tag: 'site-menu',
   styleUrl: 'site-menu.css'
 })
-export class SiteMenu implements ComponentInterface{
+export class SiteMenu implements ComponentInterface {
   @Prop() siteStructureList: SiteStructureItem[] = [];
   @Prop({ mutable: true }) selectedParent?: SiteStructureItem;
 
