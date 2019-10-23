@@ -1,8 +1,10 @@
 ---
 title: Local Assets
 description: Using Local Assets in your Components
+url: /docs/local-assets
 contributors:
   - splitinfinities
+  - simonhaenisch
 ---
 
 # Local Assets

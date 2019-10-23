@@ -46,6 +46,7 @@
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)
   * [Forms](guides/forms.md)
+  * [Local Assets](guides/local-assets.md)
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
   * [State Tunnel](guides/state-tunnel.md)
