@@ -18,12 +18,14 @@ Lets dive in and look at an example of how to use local assets:
 Below is an example of your Component's folder structure containing the component, the stylesheet, and an assets directory. 
 
 ```bash
-stencil-asset/
-  assets/
-    sunset.jpg
-    beach.jpg
-  stencil-asset.css
-  stencil-asset.tsx
+src/
+  components/
+    stencil-asset/
+      assets/
+        sunset.jpg
+        beach.jpg
+      stencil-asset.css
+      stencil-asset.tsx
 ```
 
 Below is the `stencil-asset.tsx` file which will correctly load the assets based on a property called `src`. 
