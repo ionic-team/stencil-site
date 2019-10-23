@@ -47,7 +47,7 @@ export interface ComponentOptions {
 
   /**
    * If `true`, the component will use native shadow-dom encapsulation, it will fallback to `scoped` if the browser
-   * does not support shadow-dom nativelly. Defaults to `false`.
+   * does not support shadow-dom natively. Defaults to `false`.
    */
   shadow?: boolean;
 
