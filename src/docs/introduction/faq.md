@@ -1,5 +1,5 @@
 ---
-title: Stencil Fequently Asked Questions
+title: Stencil Frequently Asked Questions
 description: Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems.
 url: /docs/faq
 contributors:
@@ -74,7 +74,7 @@ Stencil purposely does not strive to act as a stand-alone framework, but rather 
 
 ### Does Stencil come with a testing framework?
 
-Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. Learn more about testing with Stencil.
+Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. [Learn more about testing with Stencil](/docs/testing-overview).
 
 
 
@@ -92,7 +92,7 @@ After all, as much as we love the hot frameworks of today, who knows what tomorr
 
 Traditional frameworks provide a runtime API, and developers can pick and choose which APIs to use per component. However, this means every feature needs to be available to every component, just in case the component may or may not use the API.
 
-With Stencil, the compiler is able to perform static analysis on each component in order to understand which APIs are and are not being used. By doing do, Stencil is able to customize each build to use exactly what each component needs, making for highly optimized runtime with a minimal size.
+With Stencil, the compiler is able to perform static analysis on each component in order to understand which APIs are and are not being used. By doing so, Stencil is able to customize each build to use exactly what each component needs, making for a highly optimized runtime with minimal size.
 
 Since Stencil uses a compiler, it is able to adjust code as new improvements and features become available. Source code can continue to be written using the same public API and syntax, while the compiler can adjust the code to further take advantage of modern features, without requiring re-writes.
 
@@ -101,7 +101,7 @@ Since Stencil uses a compiler, it is able to adjust code as new improvements and
 
 Rather than inventing yet another template syntax which needs to be documented and taught, Stencil opted for arguably the most commonly used template syntax: JSX. Millions of developers around the world are already familiar with JSX due to React’s popularity, making it easier for developers to pick up Stencil quickly. Additionally, with a traditional runtime template syntax, any changes to the API often require a rewrite of the component.
 
-It’s important to note that JSX and VDom are not necessarily the same thing. One is a template syntax (JSX) and the other is a renderer (VDom). Stencil uses a much smaller and highly optimized VDom, but “how” the renderer works and improvements to be made are behind JSX. All of this is to a compiler’s advantage, allowing user code to write the commonly known JSX, while letting the internals optimize further.
+It’s important to note that JSX and VDom are not necessarily the same thing. One is a template syntax (JSX) and the other is a renderer (VDom). Stencil uses a much smaller and highly optimized VDom, but “how” the renderer works and improvements to be made are behind JSX. All of this is to a compiler’s advantage, allowing users to write  code in the commonly known JSX syntax, while letting the internals optimize further.
 
 
 ### Why does Stencil allow components to be lazy loaded?
@@ -112,9 +112,9 @@ For example, Ionic Framework includes close to 100 UI components that are all bu
 
 At the same time, components built with Stencil can still be imported and consumed by traditional bundlers. They can also be prerendered, to include shadow dom, run in a Node environment, and can be used within any framework.
 
-A consumer of a component library may only use one component, a few of them, or all of them. In the scenario where a component library is used by just adding a script tag, lazy-load is a great way to ensure fast startup.
+A consumer of a component library may use one component, a few of them, or all of them. In any of these scenarios a component library is used by just adding a script tag, lazy loading ensures fast startup with a low bandwidth footprint.
 
-You can also read more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
+You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
 
 
 ### Why doesn’t Stencil extend HTMLElement?
@@ -169,7 +169,7 @@ some out-of-date clients don’t support the Web Components standard.
 
 In addition, while Web Components technically work with any framework, there are some limitations like lack of type support and input bindings, and challenges passing properties to components, as noted above.
 
-The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. And [StencilDS](https://stenciljs.com/design-systems) includes framework bindings, so you can easily import WC libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
+The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. And [StencilDS](https://stenciljs.com/design-systems) includes framework bindings, so you can easily import Web Component libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
 
 
 ### What are framework bindings?
@@ -184,7 +184,7 @@ Web Components by themselves weren't enough to provide a quality development exp
 Compared to using Web Components directly, Stencil provides extra APIs that make writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
 
-### What browsers does Stencil components work on?
+### What browsers can support Stencil components?
 
 Stencil works on Internet Explorer 11 and above.
 

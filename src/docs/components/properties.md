@@ -85,7 +85,7 @@ export class NameElement {
 
 ### Attribute Name
 
-Properties and component attributes are strongly connected but not necesary the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
+Properties and component attributes are strongly connected but not necessarily the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
 
 In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
 

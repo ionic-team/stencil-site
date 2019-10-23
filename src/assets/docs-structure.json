@@ -228,6 +228,11 @@
         "url": "/docs/forms"
       },
       {
+        "text": "Local Assets",
+        "filePath": "/assets/docs/guides/local-assets.json",
+        "url": "/docs/local-assets"
+      },
+      {
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"

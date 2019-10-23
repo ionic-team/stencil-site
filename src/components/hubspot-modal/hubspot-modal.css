@@ -1,0 +1,206 @@
+.modal {
+    position: fixed;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(5px);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s opacity;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal.active {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .modal .modal__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .modal .modal__body {
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1), 0 6px 14px rgba(0,0,0,.06);
+    max-width: calc(100% - 16px);
+    position: relative;
+    margin: 20px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: .4s opacity .2s, .2s transform ease-out .2s;
+  }
+
+  .modal.active .modal__body {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  .modal .modal__body__close {
+    border: 0;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: var(--color-dolphin);
+    font-size: 30px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: .2s color;
+    background: transparent;
+  }
+
+  .modal .modal__body__close:hover,
+  .modal .modal__body__close:active,
+  .modal .modal__body__close:focus {
+    color: var(--color-woodsmoke);
+    outline: none;
+  }
+
+ .modal .modal__body hgroup {
+    text-align: center;
+    max-width: 320px;
+    margin: 24px auto 42px;
+  }
+
+  .modal__body h2 {
+    color: black;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+ .modal .modal__body hgroup p {
+    font-size: 16px;
+    color: var(--color-gandalf);
+    line-height: 1.4;
+    margin-top: 0;
+  }
+
+  .modal #modal__form-container {
+    width: 464px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+
+  .modal #modal__form-container form {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .modal #modal__form-container fieldset {
+    flex: 100%;
+    margin-bottom: 12px;
+  }
+
+  .modal #modal__form-container fieldset:first-child {
+    flex: 50%;
+  }
+
+  .modal #modal__form-container fieldset:nth-child(2) {
+    flex: calc(50%);
+  }
+
+  .modal #modal__form-container fieldset label {
+    font-size: 14px;
+    line-height: 160%;
+    font-weight: 500;
+  }
+
+  .modal #modal__form-container fieldset input[type="text"],
+  .modal #modal__form-container fieldset input[type="email"],
+  .modal #modal__form-container fieldset select {
+    transition: border 0.2s;
+    background: #FFFFFF;
+    border: 1px solid #DEE3EA;
+    box-sizing: border-box;
+    border-radius: 6px;
+    height: 50px;
+    padding: 8px 14px;
+    font-size: 16px;
+    color: #151518;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .modal #modal__form-container fieldset input[type="text"]:focus,
+  .modal #modal__form-container fieldset input[type="email"]:focus {
+    border: 1px solid #4C48FF;
+    outline: none;
+  }
+
+  .modal #modal__form-container fieldset select {
+    background: #F4F7FA;
+  }
+
+  .modal #modal__form-container .hs-submit {
+    width: 100%;
+  }
+
+  .modal #modal__form-container .hs-button {
+    background: #4C48FF;
+    box-shadow: 0px 2px 4px rgba(2, 8, 20, 0.1), 0px 1px 2px rgba(2, 8, 20, 0.08);
+    border-radius: 6px;
+    color: white;
+    height: 50px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal #modal__form-container .hs-error-msgs {
+    list-style: none;
+    color: red;
+    padding: 0;
+    margin: 0;
+  }
+
+  .modal #modal__form-container .hs-error-msg {
+    font-size: 12px;
+  }
+
+  .modal #modal__form-container .hs_error_rollup {
+    margin: 0 auto;
+  }
+
+  .modal #modal__form-container .inputs-list:not(.hs-error-msgs) {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .modal #modal__form-container .inputs-list li {
+    display: flex;
+  }
+
+  .modal #modal__form-container .hs-input[type="checkbox"] {
+    margin-right: 8px;
+  }
+
+  .modal #modal__form-container .hs-form-required {
+    color: red;
+  }
+
+  .modal #modal__form-container .hs_error_rollup {
+    margin-bottom: 12px;
+  }
