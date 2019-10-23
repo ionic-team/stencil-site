@@ -114,7 +114,7 @@ At the same time, components built with Stencil can still be imported and consum
 
 A consumer of a component library may use one component, a few of them, or all of them. In any of these scenarios a component library is used by just adding a script tag, lazy loading ensures fast startup with a low bandwidth footprint.
 
-You can read more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
+You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
 
 
 ### Why doesn’t Stencil extend HTMLElement?
