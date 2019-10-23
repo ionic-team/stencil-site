@@ -90,7 +90,7 @@ Stencil's config exposes a `commonjs` property that is passed down to the rollup
 
 ### NamedModules: X is not exported by X
 
-Sometimes, rollup is unable to properly static analyse `commonjs` modules, and it misses some named exports. Fortunatelly, there is a workaround we can use.
+Sometimes, rollup is unable to properly static analyse `commonjs` modules, and it misses some named exports. Fortunately, there is a workaround we can use.
 
 As we already know, `stencil.config.ts` exposes a `commonjs` property, in this case we can take advantage of [the *namedExports* property](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports).
 
