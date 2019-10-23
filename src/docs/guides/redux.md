@@ -106,7 +106,7 @@ const user = (
 export default user;
 ```
 
-## 5. Initilize Store
+## 5. Initialize Store
 
 Initialize the store from within your root component. The store can then be accessed from within other components, which will be shown in the next step.
 
