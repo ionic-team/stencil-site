@@ -47,6 +47,18 @@ stencil build --prerender
 
 **Client-side Hydration**: After the HTML and inlined styles have rendered the first paint, the next step is for the same nodes within the DOM to be hydrated by the client-side JavaScript. Each component within the page will asynchronously hydrate using the initial order they were found in the DOM structure. Next, as each component lazily hydrates they're able to reuse the existing nodes found in the DOM.
 
+## Server Side Rendering
+
+Server side rendering (SSR) can be accomplished in a similar way to prerendering. Instead of using the `--prerender` CLI flag, you can add `{ type: 'dist-hydrate-script' }` to your `stencil.config.js`. This will generate a "hydrate" app in your root project directory that can be used by your Node server.
+
+After publishing your component library, You can import the hydrate app into server code.
+
+```javascript
+import  { hydrateDocument } from 'yourpackage/hydrate';
+```
+
+`hydrateDocument` takes two arguments, a document and a config object. The function also returns a promise with the results of the hydration. You can use `hydrateDocument` as a part of your server's response logic before serving the web page.
+
 
 ## Things to Watch For
 
