@@ -51,14 +51,37 @@ stencil build --prerender
 
 Server side rendering (SSR) can be accomplished in a similar way to prerendering. Instead of using the `--prerender` CLI flag, you can add `{ type: 'dist-hydrate-script' }` to your `stencil.config.js`. This will generate a "hydrate" app in your root project directory that can be used by your Node server.
 
-After publishing your component library, You can import the hydrate app into server code.
+After publishing your component library, you can import the hydrate app into your server's code like this:
 
 ```javascript
-import  { hydrateDocument } from 'yourpackage/hydrate';
+import { hydrateDocument } from 'yourpackage/hydrate';
 ```
 
-`hydrateDocument` takes two arguments, a document and a config object. The function also returns a promise with the results of the hydration. You can use `hydrateDocument` as a part of your server's response logic before serving the web page.
+ You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a document and a config object. The function also returns a promise with `HydrateResults`.
 
+**Example taken from Ionic Angular server**
+
+ ```javascript
+import { hydrateDocument } from 'yourpackage/hydrate';
+
+export function hydrateComponents(doc) {
+  return () => {
+    return hydrateDocument(doc)
+      .then((hydrateResults) => {
+        // execute logic based on results
+      })
+  }
+}
+```
+
+ The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`.
+
+```javascript
+const results = await hydrate.renderToString(srcHtml, {
+  prettyHtml: true,
+  removeScripts: true
+})
+```
 
 ## Things to Watch For
 
