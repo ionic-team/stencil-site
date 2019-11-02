@@ -57,7 +57,7 @@ After publishing your component library, you can import the hydrate app into you
 import { hydrateDocument } from 'yourpackage/hydrate';
 ```
 
- You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a document and a config object. The function also returns a promise with `HydrateResults`.
+You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a document and a config object. The function also returns a promise with `HydrateResults`.
 
 **Example taken from Ionic Angular server**
 
@@ -74,7 +74,7 @@ export function hydrateComponents(doc) {
 }
 ```
 
- The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`.
+The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`.
 
 ```javascript
 const results = await hydrate.renderToString(srcHtml, {
