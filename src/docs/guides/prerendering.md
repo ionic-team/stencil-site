@@ -5,6 +5,7 @@ url: /docs/prerendering
 contributors:
   - adamdbradley
   - ryan3E0
+  - dgautsch
 ---
 
 # Prerendering
@@ -33,7 +34,7 @@ stencil build --prerender
 
 ## How Prerendering Works
 
-**Build Hydrate App**: The first step in prerendering is for the compiler to generate a "hydrate" app, which is a single directory to be used by Node.js. The "hydrate" app is automatically generated when the `--prerender` CLI flag is provided and by default the app is saved to `dist/hydrate`.
+**Build Hydrate App**: The first step in prerendering is for the compiler to generate a "hydrate" app, which is a single directory to be used by Node.js. The "hydrate" app is automatically generated when the `--prerender` CLI flag is provided and by default the app is saved to `dist/hydrate`. Prerendering uses the hydrate app internally, however it can be used directly at a lower-level. [Learn more about the Hydrate App](./hydrate-app).
 
 **Fork Prerender Tasks to Available CPUs**: Stencil can efficiently divide out the prerendering to each of the current machine's CPUs using [Node.js' Child Process API](https://nodejs.org/api/child_process.html). By tasking each CPU on the machine, the compiler can drastically speed up prerendering times.
 
@@ -46,78 +47,6 @@ stencil build --prerender
 **Static HTML Response**: With the static HTML files deploy to a server, visitors of each prerendered page first receive the HTML with inline styles, and no blocking JS or CSS. Additionally, the compiler is already aware of the exact modules the visitor will need for this page, and will asynchronously preload the modules using [link `modulepreload`](https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload).
 
 **Client-side Hydration**: After the HTML and inlined styles have rendered the first paint, the next step is for the same nodes within the DOM to be hydrated by the client-side JavaScript. Each component within the page will asynchronously hydrate using the initial order they were found in the DOM structure. Next, as each component lazily hydrates they're able to reuse the existing nodes found in the DOM.
-
-## How to Use the Hydrate App
-
-Server side rendering (SSR) can be accomplished in a similar way to prerendering. Instead of using the `--prerender` CLI flag, you can add `{ type: 'dist-hydrate-script' }` to your `stencil.config.js`. This will generate a `hydrate` app in your root project directory that can be imported and used by your Node server.
-
-After publishing your component library, you can import the hydrate app into your server's code like this:
-
-```javascript
-import { hydrateDocument } from 'yourpackage/hydrate';
-```
-
-The app comes with two methods, `hydrateDocument` and `renderToString`.
-
-**hydrateDocument**: You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a document and a config object. The function returns a promise with the hydrated results. The resulting html can be parsed from the `html` property in the returned results.
-
-*Example taken from Ionic Angular server*
-
- ```javascript
-import { hydrateDocument } from 'yourpackage/hydrate';
-
-export function hydrateComponents(doc) {
-  return () => {
-    return hydrateDocument(doc)
-      .then((hydrateResults) => {
-        // execute logic based on results
-        console.log(hydrateResults.html);
-        return hydrateResults;
-      });
-  }
-}
-```
-
-#### Configuration Options
-  - `canonicalUrl` - string
-  - `constrainTimeouts` - boolean
-  - `clientHydrateAnnotations` - boolean
-  - `cookie` - string
-  - `direction` - string
-  - `language` - string
-  - `maxHydrateCount` - number
-  - `referrer` - string
-  - `removeScripts` - boolean
-  - `removeUnusedStyles` - boolean
-  - `resourcesUrl` - string
-  - `timeout` - number
-  - `title` - string
-  - `url` - string
-  - `userAgent` - string
-
-**renderToString**: The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`. The second parameter is a config object that can alter the output of the markup. Like `hydrateDocument`, the resulting string can be parsed from the `html` property.
-
-*Exampe taken from Ionic Core*
-
-```javascript
-const results = await hydrate.renderToString(srcHtml, {
-  prettyHtml: true,
-  removeScripts: true
-});
-
-console.log(results.html);
-```
-
-#### Configuration Options
-
-  - `approximateLineWidth` - number
-  - `prettyHtml` - boolean
-  - `removeAttributeQuotes` - boolean
-  - `removeBooleanAttributeQuotes` - boolean
-  - `removeEmptyAttributes` - boolean
-  - `removeHtmlComments` - boolean
-  - `afterHydrate` - boolean
-  - `beforeHydrate` - boolean
 
 ## Things to Watch For
 

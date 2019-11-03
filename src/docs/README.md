@@ -43,6 +43,7 @@
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
   * [Prerendering](guides/prerendering.md)
+  * [Hydrate App](guides/hydrate-app.md)
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)
   * [Forms](guides/forms.md)
