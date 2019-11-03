@@ -95,7 +95,7 @@ export function hydrateComponents(doc) {
   - `url` - string
   - `userAgent` - string
 
-**renderToString**: The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`. The second parameter is a config object that can alter the output of the string. Like `hydrateDocument`, the resulting strin gcan be parsed from the `html` property.
+**renderToString**: The hydrate app also has a `renderToString` method that allows you to pass in an html string that also returns a promise of `HydrateResults`. The second parameter is a config object that can alter the output of the markup. Like `hydrateDocument`, the resulting string can be parsed from the `html` property.
 
 *Exampe taken from Ionic Core*
 
