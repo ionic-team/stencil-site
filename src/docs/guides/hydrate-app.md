@@ -59,7 +59,7 @@ export function hydrateComponents(doc) {
 
 **renderToString**: The hydrate app also has a `renderToString` function that allows you to pass in an html string that also returns a promise of `HydrateResults`. The second parameter is a config object that can alter the output of the markup. Like `hydrateDocument`, the resulting string can be parsed from the `html` property.
 
-*Exampe taken from Ionic Core*
+*Example taken from Ionic Core*
 
 ```javascript
 const results = await hydrate.renderToString(srcHtml, {
