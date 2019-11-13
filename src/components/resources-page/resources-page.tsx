@@ -106,7 +106,9 @@ const LINKS = {
     { title: 'st-fetch: A simple component for performing http fetch calls', url: 'https://github.com/Fdom92/stencil-fetch' },
     { title: 'web-photo-filter: Use webGL for amazing instagram like filters', url: 'https://github.com/peterpeterparker/web-photo-filter' },
     { title: 'stencil-flip-images: Awesome animated image gallery', url: 'https://github.com/jepiqueau/stencil-flip-images'},
-    { title: 'd3-stencil: Charts built with D3 and Stencil. Framework-agnostic, simple.', url: 'https://d3-stencil.dev'}
+    { title: 'd3-stencil: Charts built with D3 and Stencil. Framework-agnostic, simple.', url: 'https://d3-stencil.dev'},
+    { title: '<animatable/>: Animate any HTML Element using Web Animations API in a declarative way! 💅', url: 'https://proyecto26.github.io/animatable-component'},
+    { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser'}
   ],
   TOOLS: [
     { title: 'xLayers Lite', url: 'https://github.com/xlayers/xlayers-lite' },
