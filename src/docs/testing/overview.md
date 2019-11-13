@@ -87,3 +87,7 @@ Adding the following configurations to `.vscode/launch.json` will allow you to u
   ]
 }
 ```
+
+## Other Resources
+
+- [The Basics of Unit Testing in StencilJS](https://www.joshmorony.com/the-basics-of-unit-testing-in-stencil-js/)
