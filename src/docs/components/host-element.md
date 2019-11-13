@@ -47,7 +47,7 @@ similary, if `this.open === false`:
 <todo-list class="todo-list" aria-hidden="true"></todo-list>
 ```
 
-`<Host>` is a virtual component, a virtual API exposed by stencil to declarative set the attributes of the host element, it will never rendered in the DOM, ie you will never see `<Host>` in Chrome Dev Tools for instance.
+`<Host>` is a virtual component, a virtual API exposed by stencil to declaratively set the attributes of the host element, it will never rendered in the DOM, ie you will never see `<Host>` in Chrome Dev Tools for instance.
 
 
 ### `<Host>` can work as a `<Fragment>`
