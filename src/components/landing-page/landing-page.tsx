@@ -288,7 +288,7 @@ const COPY_STATES = [
   'hyper copied!!!',
   'definively copied',
   'seriously?',
-  'trust me, it\' copied',
+  'trust me, it\'s copied',
   'you can paste it already',
   'WTF',
   'PLEASE STOP',
