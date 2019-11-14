@@ -111,7 +111,6 @@ landing-page .cta__primary code:hover {
 }
 
 landing-page .cta__primary code.copied {
-  cursor: default;
   background-color: #5cba47;
   color: #fff;
 }

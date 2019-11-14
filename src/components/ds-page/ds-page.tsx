@@ -84,7 +84,7 @@ export class DSPage {
   }
 
   handleCtaClick(ev: Event, id: string) {
-    if (document.documentElement.scrollIntoView) {
+    if ((document.documentElement as any).scrollIntoView) {
       ev.preventDefault();
       const el = document.getElementById(id);
       if (el) {

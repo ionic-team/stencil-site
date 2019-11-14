@@ -6,9 +6,10 @@ import copy from 'copy-text-to-clipboard';
   styleUrl: 'landing-page.css'
 })
 export class LandingPage {
+  private timer: any;
   @Element() el!: Element;
 
-  @State() isCopied = false;
+  @State() copiedState = 0;
 
   constructor() {
     document.title = `Stencil`;
@@ -16,8 +17,9 @@ export class LandingPage {
 
   copyCommand = () => {
     copy('npm init stencil');
-    this.isCopied = true;
-    setTimeout(() => this.isCopied = false, 1500);
+    this.copiedState = Math.min(COPY_STATES.length - 1, this.copiedState + 1);
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.copiedState = 0, 1500);
   }
 
   render() {
@@ -140,7 +142,7 @@ export class LandingPage {
           <div class="cta">
             <div class="cta__primary">
               <h3>Getting started is simple:</h3>
-              <code class={{'copied': this.isCopied}} onClick={this.copyCommand}>{this.isCopied ? 'copied!' : '$ npm init stencil'}</code>
+              <code class={{'copied': this.copiedState > 0}} onClick={this.copyCommand}>{COPY_STATES[this.copiedState]}</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
             <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
@@ -276,3 +278,19 @@ export class LandingPage {
     );
   }
 }
+
+const COPY_STATES = [
+  '$ npm init stencil',
+  'copied!',
+  'double copied!',
+  'triple copied!',
+  'super copied!',
+  'hyper copied!!!',
+  'definively copied',
+  'seriously?',
+  'trust me, it\'s copied',
+  'you can paste it already',
+  'WTF',
+  'PLEASE STOP',
+  'ok, i am out'
+];
