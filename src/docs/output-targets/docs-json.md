@@ -36,7 +36,7 @@ export const config: Config = {
 Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/docs.ts
 
 
-## Documenting CSS Variables
+## CSS Variables
 
 Stencil will also document CSS variables when you specify them via jsdoc-style comments inside your css/scss files:
 
@@ -46,4 +46,32 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
  * @prop --background-activated: Background of the button when activated
  * @prop --background-focused: Background of the button when focused
  */
+```
+
+
+## Slots
+
+Slots can be documented by adding `@slot` tags to the doc comments above the component decorator.
+
+```tsx
+/**
+ * @slot slotName - slotDescription
+ * @slot buttonContent - Slot for the content of the button
+ */
+```
+
+
+## Usage
+
+The content of `.md` files in a `usage` subdirectory of a component will be added to the `usage` property of the generated json. 
+
+```bash
+src/
+  components/
+    my-component/
+      usage/
+        usage-example.md
+        another-example.md
+      my-component.css
+      my-component.tsx
 ```
