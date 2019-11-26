@@ -141,7 +141,7 @@ TypeScript. That’s it.
 
 Just like any other DOM element in a webpage, any data in the form of arrays, objects, strings and numbers can be passed to element properties. Stencil is designed from the ground up to ensure this capability stays unlocked for application developers.
 
-One misconception that falsely claims only strings can be passed to custom elements comes from React’s version of VDom. Out of the box, React can only pass strings and numbers to components and it cannot listen to custom events. With [StencilDS bindings](https://stenciljs.com/design-systems), the components appear as though they are React components and all properties get passed correctly including functions, objects, and arrays. The bindings also account for custom events by creating a prop called “on<EventName>”. These allow React developers to interact with the Web Components as though they are React components.
+One misconception that falsely claims only strings can be passed to custom elements comes from React’s version of VDom. Out of the box, React can only pass strings and numbers to components and it cannot listen to custom events. With Stencil, the components appear as though they are React components and all properties get passed correctly including functions, objects, and arrays. The bindings also account for custom events by creating a prop called “on<EventName>”. These allow React developers to interact with the Web Components as though they are React components.
 
 
 ### What technology is Stencil built with?
@@ -169,12 +169,12 @@ some out-of-date clients don’t support the Web Components standard.
 
 In addition, while Web Components technically work with any framework, there are some limitations like lack of type support and input bindings, and challenges passing properties to components, as noted above.
 
-The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. And [StencilDS](https://stenciljs.com/design-systems) includes framework bindings, so you can easily import Web Component libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
+The good news is that, with help from open source tools like Stencil, you can overcome all of these challenges. Stencil includes framework bindings for Angular, React, and Vue, so you can easily import Web Component libraries into any framework, and interact with them just like they were native to that framework, with all the functionality you’re used to.
 
 
 ### What are framework bindings?
 
-While Web Components can be paired with any JavaScript framework, Stencil has built-in special-purpose bindings -- available as part of [StencilDS](https://stenciljs.com/design-systems), our design systems solution -- to deliver the more advanced features enterprise teams expect when building applications in Angular, React, and Vue.
+While Web Components can be paired with any JavaScript framework, Stencil has built-in special-purpose bindings to deliver the more advanced features enterprise teams expect when building applications in Angular, React, and Vue.
 
 
 ### What features does Stencil add to Web Components?
@@ -201,7 +201,7 @@ Additionally, modern browsers are able to use the latest features natively, with
 
 ### Where can I get support?
 
-Stencil team offers [comprehensive assistance](https://stenciljs.com/design-systems) for enterprises embarking on their design systems journey. If this is your first time building a design system, or you’re new to Stencil, [get in touch](https://stenciljs.com/design-systems) with one of our Solutions Engineers for a consultation on how to meet your goals and get the most out of the platform.
+If this is your first time building a design system, or you’re new to Stencil, [get in touch](https://ionicframework.com/sales?product_of_interest=Design%20Systems) with one of our Solutions Engineers for a consultation on how to meet your goals and get the most out of the platform.
 
 
 ### How do I get involved?
