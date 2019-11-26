@@ -86,8 +86,7 @@ export class ResourcesPage {
           <br />
           <a target="_blank" rel="noopener" href="https://github.com/ionic-team/stencil-present/">Source</a>
         </section>
-      </div>,
-      <pre-footer />
+      </div>
     ];
   }
 }

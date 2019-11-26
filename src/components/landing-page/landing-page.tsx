@@ -273,7 +273,6 @@ export class LandingPage {
         </section>
 
         <newsletter-signup />
-        <pre-footer />
       </div>
     );
   }

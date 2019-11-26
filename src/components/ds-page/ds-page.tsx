@@ -153,19 +153,6 @@ export class DSPage {
                 </tr>
                 <tr>
                   <td class="empty"></td>
-                  <td><div class="icon-cell"><app-icon name="checkmark"/> Automated Documentation generation</div></td>
-                </tr>
-
-                <tr>
-                  <td class="empty"></td>
-                  <td><div class="icon-cell"><app-icon name="checkmark"/> Visual Regression testing tools</div></td>
-                </tr>
-                <tr>
-                  <td class="empty"></td>
-                  <td><div class="icon-cell"><app-icon name="checkmark"/> Accessibility verification tools</div></td>
-                </tr>
-                <tr>
-                  <td class="empty"></td>
                   <td><div class="icon-cell"><app-icon name="checkmark"/> Expert advisory on your Design System project</div></td>
                 </tr>
                 <tr>
