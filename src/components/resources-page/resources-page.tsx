@@ -117,6 +117,7 @@ const LINKS = {
     { title: 'tslint-stencil: TSLint rules for Stencil components', url: 'https://www.npmjs.com/package/tslint-stencil' }
   ],
   BLOGS: [
+    { title: 'Creating a Progressive Web App with StencilJS and Workbox', url: 'https://julienrenaux.fr/2019/11/25/creating-progressive-web-app-pwa-serviceworker-stenciljs-workbox/' },
     { title: 'How to Build Reusable Web Components Using Stencil.js', url: 'https://morioh.com/p/f2eefe79f2c9' },
     { title: 'Using RxJS Observables with StencilJS and Ionic', url: 'https://www.joshmorony.com/using-observables-with-stencil-js-and-ionic/' },
     { title: 'Apple Cements the Unlikely Rise of Web Components', url: 'https://hackernoon.com/apple-cements-the-unlikely-rise-of-web-components-6b1d3g1t' },
