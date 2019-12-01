@@ -13,8 +13,9 @@ import { convertHtmlToHypertextData } from './lib/hypertext'
 
 const globAsync = promisify(glob);
 
+const LANG_PREFIX = "_ja"
 const DESTINATION_DIR = './src/assets/docs';
-const SOURCE_DIR = './src/docs';
+const SOURCE_DIR = './src/docs' + LANG_PREFIX;
 const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
 
 
@@ -27,7 +28,7 @@ const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
   await remove(DESTINATION_DIR);
 
   const filePromises = files.map(async (filePath) => {
-    if (filePath === './src/docs/README.md') {
+    if (filePath === `./src/docs${LANG_PREFIX}/README.md`) {
       return Promise.resolve();
     }
     let htmlContents = '';
