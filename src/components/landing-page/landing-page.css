@@ -5,7 +5,7 @@ landing-page {
 
 landing-page .hero {
   position: relative;
-  margin-top: 120px;
+  margin-top: 0px;
   margin-bottom: 220px;
 }
 
@@ -19,6 +19,7 @@ landing-page .hero hgroup h1 {
   font-size: 56px;
   line-height: 54px;
   margin-bottom: 20px;
+  margin-top: 64px;
   letter-spacing: -0.018em;
   font-weight: 600;
 }
@@ -31,11 +32,11 @@ landing-page .hero hgroup p {
   margin-bottom: 32px;
 }
 
-landing-page .hero hgroup stencil-route-link {
+landing-page .hero hgroup yahr-button {
   display: inline-block;
 }
 
-landing-page .hero hgroup stencil-route-link + stencil-route-link {
+landing-page .hero hgroup yahr-button + yahr-button {
   margin-left: 10px;
 }
 
@@ -110,7 +111,6 @@ landing-page .cta__primary code:hover {
 }
 
 landing-page .cta__primary code.copied {
-  cursor: default;
   background-color: #5cba47;
   color: #fff;
 }

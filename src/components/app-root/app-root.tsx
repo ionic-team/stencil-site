@@ -2,6 +2,8 @@ import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
+import '@stencil/yahara';
+
 
 @Component({
   tag: 'app-root',
@@ -19,6 +21,7 @@ export class AppRoot {
   @Element() el!: HTMLElement;
 
   @State() isLeftSidebarIn: boolean = false;
+  @State() isModalOpen: boolean = false;
 
   @Listen('resize', { target: 'window' })
   handleResize() {
@@ -31,6 +34,11 @@ export class AppRoot {
         });
       }
     });
+  }
+
+  @Listen('toggleModal')
+  handleToggleModal(ev: CustomEvent) {
+    this.isModalOpen = ev.detail;
   }
 
   private setHistory = ({ history }: { history: RouterHistory }) => {
@@ -102,7 +110,6 @@ export class AppRoot {
 
               <stencil-route url="/pwa" component="pwas-page" />
               <stencil-route url="/resources" component="resources-page" />
-              <stencil-route url="/design-systems" component="ds-page" />
               <stencil-route component='notfound-page'></stencil-route>
             </stencil-route-switch>
           </stencil-router>
@@ -131,6 +138,8 @@ export class AppRoot {
               </div>
             </div>
           </footer>
+
+          <hubspot-modal active={this.isModalOpen}/>
         </main>
       </SiteProviderConsumer.Provider>
     );

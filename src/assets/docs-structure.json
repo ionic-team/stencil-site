@@ -213,6 +213,11 @@
         "url": "/docs/prerendering"
       },
       {
+        "text": "Hydrate App",
+        "filePath": "/assets/docs/guides/hydrate-app.json",
+        "url": "/docs/hydrate-app"
+      },
+      {
         "text": "Bundling",
         "filePath": "/assets/docs/guides/module-bundling.json",
         "url": "/docs/module-bundling"
@@ -226,6 +231,11 @@
         "text": "Forms",
         "filePath": "/assets/docs/guides/forms.json",
         "url": "/docs/forms"
+      },
+      {
+        "text": "Local Assets",
+        "filePath": "/assets/docs/guides/local-assets.json",
+        "url": "/docs/local-assets"
       },
       {
         "text": "Style Guide",

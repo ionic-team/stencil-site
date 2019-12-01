@@ -16,7 +16,7 @@ Testing within Stencil is broken up into two distinct types: Unit tests and End-
 
 ## Unit Testing vs. End-to-end Testing
 
-There are countless philosophies on how testing should be done, and what should be considered a unit test, end-to-end test or even integration tests. To simplify it all, Stencil breaks it down to so developers have a defined description of when to use each type of testing.
+There are countless philosophies on how testing should be done, and what should be considered a unit test, end-to-end test or even integration tests. To simplify it all, Stencil breaks it down so developers have a defined description of when to use each type of testing.
 
 **Unit tests** focuses on testing a component's methods in isolation. For example, when a method is given the argument `X`, it should return `Y`.
 
@@ -87,3 +87,7 @@ Adding the following configurations to `.vscode/launch.json` will allow you to u
   ]
 }
 ```
+
+## Other Resources
+
+- [The Basics of Unit Testing in StencilJS](https://www.joshmorony.com/the-basics-of-unit-testing-in-stencil-js/)

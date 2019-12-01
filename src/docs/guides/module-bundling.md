@@ -83,14 +83,14 @@ Rollup depends on [ES modules](https://hacks.mozilla.org/2018/03/es-modules-a-ca
 
 Since `commonjs` libraries are still common today, Stencil comes with [`rollup-plugin-commonjs`](https://github.com/rollup/rollup-plugin-commonjs) already installed and configured.
 
-At compiler-time, the `rollup-plugin-commonjs` plugin does a best-effort to **transform commonjs into ESM**, but this is not always a easy task. Commonjs is dynamic by nature, while ESM is static by design.
+At compiler-time, the `rollup-plugin-commonjs` plugin does a best-effort to **transform commonjs into ESM**, but this is not always an easy task. `Commonjs` is dynamic by nature, while ESM is static by design.
 
-Stencil's config exposes a `commonjs` property that is passed down to the rollup commonjs plugin, you can use this setting to work around certain bundling issues.
+Stencil's config exposes a `commonjs` property that is passed down to the rollup `commonjs` plugin, you can use this setting to work around certain bundling issues.
 
 
 ### NamedModules: X is not exported by X
 
-Sometimes, rollup is unable to properly static analyse `commonjs` modules, and it misses some named exports. Fortunatelly, there is a workaround we can use.
+Sometimes, rollup is unable to properly static analyse `commonjs` modules, and it misses some named exports. Fortunately, there is a workaround we can use.
 
 As we already know, `stencil.config.ts` exposes a `commonjs` property, in this case we can take advantage of [the *namedExports* property](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports).
 
@@ -137,7 +137,7 @@ This is caused by some third-party dependencies that use [Node APIs](https://nod
 npm install rollup-plugin-node-polyfills --save-dev
 ```
 
-### 2. Update the `stencil.config.ts` file including the plugin:
+### 2. Update the  `  stencil.config.ts  `  file including the plugin:
 
 ```tsx
 import { Config } from '@stencil/core';

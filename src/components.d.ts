@@ -40,7 +40,11 @@ export namespace Components {
     'page'?: string;
   }
   interface DsPage {}
+  interface GuideCallout {}
   interface HighlightCode {}
+  interface HubspotModal {
+    'active': boolean;
+  }
   interface InPageNavigation {
     'currentPageUrl': string;
     'pageLinks': MarkdownHeading[];
@@ -141,10 +145,22 @@ declare global {
     new (): HTMLDsPageElement;
   };
 
+  interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {}
+  var HTMLGuideCalloutElement: {
+    prototype: HTMLGuideCalloutElement;
+    new (): HTMLGuideCalloutElement;
+  };
+
   interface HTMLHighlightCodeElement extends Components.HighlightCode, HTMLStencilElement {}
   var HTMLHighlightCodeElement: {
     prototype: HTMLHighlightCodeElement;
     new (): HTMLHighlightCodeElement;
+  };
+
+  interface HTMLHubspotModalElement extends Components.HubspotModal, HTMLStencilElement {}
+  var HTMLHubspotModalElement: {
+    prototype: HTMLHubspotModalElement;
+    new (): HTMLHubspotModalElement;
   };
 
   interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {}
@@ -230,7 +246,9 @@ declare global {
     'demo-card': HTMLDemoCardElement;
     'doc-component': HTMLDocComponentElement;
     'ds-page': HTMLDsPageElement;
+    'guide-callout': HTMLGuideCalloutElement;
     'highlight-code': HTMLHighlightCodeElement;
+    'hubspot-modal': HTMLHubspotModalElement;
     'in-page-navigation': HTMLInPageNavigationElement;
     'landing-page': HTMLLandingPageElement;
     'lower-content-nav': HTMLLowerContentNavElement;
@@ -247,23 +265,25 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface AnnouncementBar extends JSXBase.HTMLAttributes<HTMLAnnouncementBarElement> {}
-  interface AppBurger extends JSXBase.HTMLAttributes<HTMLAppBurgerElement> {
+  interface AnnouncementBar {
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
+  interface AppBurger {
     'toggleLeftSidebar'?: () => void;
   }
-  interface AppIcon extends JSXBase.HTMLAttributes<HTMLAppIconElement> {
+  interface AppIcon {
     'name'?: string;
   }
-  interface AppRoot extends JSXBase.HTMLAttributes<HTMLAppRootElement> {}
-  interface BlogComponent extends JSXBase.HTMLAttributes<HTMLBlogComponentElement> {
+  interface AppRoot {}
+  interface BlogComponent {
     'page'?: string;
   }
-  interface BlogList extends JSXBase.HTMLAttributes<HTMLBlogListElement> {}
-  interface ContributorList extends JSXBase.HTMLAttributes<HTMLContributorListElement> {
+  interface BlogList {}
+  interface ContributorList {
     'contributors'?: string[];
   }
-  interface CustomClock extends JSXBase.HTMLAttributes<HTMLCustomClockElement> {}
-  interface DemoCard extends JSXBase.HTMLAttributes<HTMLDemoCardElement> {
+  interface CustomClock {}
+  interface DemoCard {
     'SourceBufferList'?: string;
     'demoUrl'?: string;
     'description'?: string;
@@ -271,25 +291,32 @@ declare namespace LocalJSX {
     'name'?: string;
     'sourceUrl'?: string;
   }
-  interface DocComponent extends JSXBase.HTMLAttributes<HTMLDocComponentElement> {
+  interface DocComponent {
     'page'?: string;
   }
-  interface DsPage extends JSXBase.HTMLAttributes<HTMLDsPageElement> {}
-  interface HighlightCode extends JSXBase.HTMLAttributes<HTMLHighlightCodeElement> {}
-  interface InPageNavigation extends JSXBase.HTMLAttributes<HTMLInPageNavigationElement> {
+  interface DsPage {}
+  interface GuideCallout {
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
+  interface HighlightCode {}
+  interface HubspotModal {
+    'active'?: boolean;
+    'onToggleModal'?: (event: CustomEvent<any>) => void;
+  }
+  interface InPageNavigation {
     'currentPageUrl'?: string;
     'pageLinks'?: MarkdownHeading[];
     'srcUrl'?: string;
   }
-  interface LandingPage extends JSXBase.HTMLAttributes<HTMLLandingPageElement> {}
-  interface LowerContentNav extends JSXBase.HTMLAttributes<HTMLLowerContentNavElement> {
+  interface LandingPage {}
+  interface LowerContentNav {
     'next'?: SiteStructureItem;
     'prev'?: SiteStructureItem;
   }
-  interface NewsletterSignup extends JSXBase.HTMLAttributes<HTMLNewsletterSignupElement> {}
-  interface NotfoundPage extends JSXBase.HTMLAttributes<HTMLNotfoundPageElement> {}
-  interface PreFooter extends JSXBase.HTMLAttributes<HTMLPreFooterElement> {}
-  interface ProGlshader extends JSXBase.HTMLAttributes<HTMLProGlshaderElement> {
+  interface NewsletterSignup {}
+  interface NotfoundPage {}
+  interface PreFooter {}
+  interface ProGlshader {
     'frag'?: string;
     'media'?: string;
     'ready'?: boolean;
@@ -297,14 +324,14 @@ declare namespace LocalJSX {
     'uniforms'?: any;
     'vert'?: string;
   }
-  interface PwasPage extends JSXBase.HTMLAttributes<HTMLPwasPageElement> {}
-  interface ResourcesPage extends JSXBase.HTMLAttributes<HTMLResourcesPageElement> {}
-  interface SiteHeader extends JSXBase.HTMLAttributes<HTMLSiteHeaderElement> {}
-  interface SiteMenu extends JSXBase.HTMLAttributes<HTMLSiteMenuElement> {
+  interface PwasPage {}
+  interface ResourcesPage {}
+  interface SiteHeader {}
+  interface SiteMenu {
     'selectedParent'?: SiteStructureItem;
     'siteStructureList'?: SiteStructureItem[];
   }
-  interface SiteTopBar extends JSXBase.HTMLAttributes<HTMLSiteTopBarElement> {}
+  interface SiteTopBar {}
 
   interface IntrinsicElements {
     'announcement-bar': AnnouncementBar;
@@ -318,7 +345,9 @@ declare namespace LocalJSX {
     'demo-card': DemoCard;
     'doc-component': DocComponent;
     'ds-page': DsPage;
+    'guide-callout': GuideCallout;
     'highlight-code': HighlightCode;
+    'hubspot-modal': HubspotModal;
     'in-page-navigation': InPageNavigation;
     'landing-page': LandingPage;
     'lower-content-nav': LowerContentNav;
@@ -339,7 +368,34 @@ export { LocalJSX as JSX };
 
 declare module "@stencil/core" {
   export namespace JSX {
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+    interface IntrinsicElements {
+      'announcement-bar': LocalJSX.AnnouncementBar & JSXBase.HTMLAttributes<HTMLAnnouncementBarElement>;
+      'app-burger': LocalJSX.AppBurger & JSXBase.HTMLAttributes<HTMLAppBurgerElement>;
+      'app-icon': LocalJSX.AppIcon & JSXBase.HTMLAttributes<HTMLAppIconElement>;
+      'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'blog-component': LocalJSX.BlogComponent & JSXBase.HTMLAttributes<HTMLBlogComponentElement>;
+      'blog-list': LocalJSX.BlogList & JSXBase.HTMLAttributes<HTMLBlogListElement>;
+      'contributor-list': LocalJSX.ContributorList & JSXBase.HTMLAttributes<HTMLContributorListElement>;
+      'custom-clock': LocalJSX.CustomClock & JSXBase.HTMLAttributes<HTMLCustomClockElement>;
+      'demo-card': LocalJSX.DemoCard & JSXBase.HTMLAttributes<HTMLDemoCardElement>;
+      'doc-component': LocalJSX.DocComponent & JSXBase.HTMLAttributes<HTMLDocComponentElement>;
+      'ds-page': LocalJSX.DsPage & JSXBase.HTMLAttributes<HTMLDsPageElement>;
+      'guide-callout': LocalJSX.GuideCallout & JSXBase.HTMLAttributes<HTMLGuideCalloutElement>;
+      'highlight-code': LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
+      'hubspot-modal': LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;
+      'in-page-navigation': LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
+      'landing-page': LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
+      'lower-content-nav': LocalJSX.LowerContentNav & JSXBase.HTMLAttributes<HTMLLowerContentNavElement>;
+      'newsletter-signup': LocalJSX.NewsletterSignup & JSXBase.HTMLAttributes<HTMLNewsletterSignupElement>;
+      'notfound-page': LocalJSX.NotfoundPage & JSXBase.HTMLAttributes<HTMLNotfoundPageElement>;
+      'pre-footer': LocalJSX.PreFooter & JSXBase.HTMLAttributes<HTMLPreFooterElement>;
+      'pro-glshader': LocalJSX.ProGlshader & JSXBase.HTMLAttributes<HTMLProGlshaderElement>;
+      'pwas-page': LocalJSX.PwasPage & JSXBase.HTMLAttributes<HTMLPwasPageElement>;
+      'resources-page': LocalJSX.ResourcesPage & JSXBase.HTMLAttributes<HTMLResourcesPageElement>;
+      'site-header': LocalJSX.SiteHeader & JSXBase.HTMLAttributes<HTMLSiteHeaderElement>;
+      'site-menu': LocalJSX.SiteMenu & JSXBase.HTMLAttributes<HTMLSiteMenuElement>;
+      'site-top-bar': LocalJSX.SiteTopBar & JSXBase.HTMLAttributes<HTMLSiteTopBarElement>;
+    }
   }
 }
 

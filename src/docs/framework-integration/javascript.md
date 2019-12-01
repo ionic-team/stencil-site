@@ -32,7 +32,7 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
 <html lang="en">
 <head>
   <script type="module">
-    import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/latest/dist/esm/es2017/test-components.define.js';
+    import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/loader';
     applyPolyfills().then(() => {
       defineCustomElements(window);
     });

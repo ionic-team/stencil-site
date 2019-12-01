@@ -1,65 +1,20 @@
-import { Component, State, h } from '@stencil/core';
-
-// tell Typescript that hbspt exists on window
-declare global {
-  interface Window { hbspt: any; }
-}
-window.hbspt = window.hbspt || {};
+import { Component, State, h, Event, EventEmitter  } from '@stencil/core';
 
 @Component({
   tag: 'announcement-bar',
   styleUrl: 'announcement-bar.css'
 })
 export class AnnouncementBar {
-  @State() active = false;
-  
-  // Hubspot Data
-  hubspot = {
-    jsSrc: 'https://js.hsforms.net/forms/v2.js',
-    formOptions: {
-      portalId: '3776657',
-      formId: '00343e47-6f40-4702-911d-f7fabdb72996'
-    }
-  }
-
-  constructor() {
-    // load hubspot JS immediately
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = this.hubspot.jsSrc;
-    document.getElementsByTagName('head')[0].appendChild(script);
-    // add form to (stil hidden) modal ASAP
-    script.onload = () => this.addForm();
-  }
-
-  addForm() {
-    window.hbspt.forms.create({
-      ...this.hubspot.formOptions,
-      target: '#modal__form-container'
-    });
-  }
+  @State() isModalOpen: boolean = false;
+  @Event() toggleModal!: EventEmitter;
 
   render() {
     return ([
-      <a onClick={() => { this.active = true }} class="announcement">
-        <strong class="announcement__pill">New</strong>
-        Guide to Building Design Systems with Web Components
+      <stencil-route-link url="/blog/stencil-roadmap-fall-2019" class="announcement">
+        <strong class="announcement__pill">Blog</strong>
+        Fall 2019 Stencil Roadmap
         <app-icon name="arrow-right"></app-icon>
-      </a>,
-
-      <div class={`modal ${this.active ? 'active' : ''}`}>
-        <div class="modal__bg" onClick={() => { this.active = false }}></div>
-        <div class="modal__body" onClick={e => e.stopPropagation()}>
-          <button onClick={() => { this.active = false }}
-                  class="modal__body__close">&#xd7;</button>
-          <hgroup>
-            <h2>Thanks for your interest!</h2>
-            <p>We just need some basic information so we can send the paper your way.</p>
-          </hgroup>
-
-          <div id="modal__form-container"></div>
-        </div>
-      </div>
+      </stencil-route-link>
     ])
   }
 }

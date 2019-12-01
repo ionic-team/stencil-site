@@ -30,7 +30,7 @@ What we’re really excited about is that any new output targets do not require 
 
 ## Design System Tooling and Documentation
 
-An area we’re looking to further improve is being able to generate <a href="https://stenciljs.com/design-systems" rel="noopener noreferrer" target="_blank">design systems</a> that scale for numerous teams and projects. As you’ve guessed it, Ionic is already using a lot of Stencil’s tooling to generate the <a href="https://ionicframework.com/docs/api/button" rel="noopener noreferrer" target="_blank">Ionic Documentation</a> site. But there’s so much more to improve upon. Most of these features will be very specific to teams building actual design systems but one key feature we have been getting asked for is an isolated environment for developing components.
+An area we’re looking to further improve is being able to generate <a href="https://stenciljs.com/docs/stencil-for-design-systems" rel="noopener noreferrer" target="_blank">design systems</a> that scale for numerous teams and projects. As you’ve guessed it, Ionic is already using a lot of Stencil’s tooling to generate the <a href="https://ionicframework.com/docs/api/button" rel="noopener noreferrer" target="_blank">Ionic Documentation</a> site. But there’s so much more to improve upon. Most of these features will be very specific to teams building actual design systems but one key feature we have been getting asked for is an isolated environment for developing components.
 
 You will soon be able to develop a component in an environment that is isolated from the rest of your application.  Part of the tooling will allow you to specify multiple component states so that you can see many example states while developing your component.
 
