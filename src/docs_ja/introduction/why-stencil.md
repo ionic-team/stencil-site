@@ -28,14 +28,14 @@ StencilはWeb標準に準拠したWebコンポーネントを生成するため�
 デベロッパーエクスペリエンス(DX)も考慮されており、Live Reloadとコンパイラに組み込まれた小さな開発サーバーが付属しています。
 
 
-## Why Stencil?
+## なぜStencilか?
 
-Stencil was created by the [Ionic Framework](http://ionicframework.com/) team to help build faster, more capable components that worked across all major frameworks.
+Stencilは、[Ionic Framework](http://ionicframework.com/)チームによって作成されました。すべての主要なフレームワークで機能する、より高速で機能性の高いWebコンポーネントを支援します。
 
-While Ionic primarily targeted Cordova apps, the emergence of Progressive Web Apps as a rapidly growing target for web developers demanded a different approach to web app development performance. With Ionic's classic use of traditional frameworks and bundling techniques, the team was struggling to meet latency and code size demands for Progressive Web Apps that ran equally well on fast and slow networks, across a diversity of platforms and devices.
+Ionicは主にCordovaアプリを対象としていましたが、Web開発者にとって急速に成長するターゲッっととしてのProgressive Web Appsの出現は、Webアプリ開発のパフォーマンスに対する異なるアプローチを要求していました。Ionicは従来のフレームワークとバンドルテクニックを古典的に使用していたため、チームはさまざまなプラットフォームとデバイスで高速ネットワークと低速ネットワークで同等に動作するProgressive Web Appsのレイテンシとコードサイズの要件を満たすのに苦労していました。
 
-Additionally, framework fragmentation had created a web development interoperability nightmare, where components built for one framework didn't work with another framework.
+さらに、フレームワークを複数使用する場合、あるフレームワーク用に構築されたコンポーネントが別のフレームワークと連動しないという、Web開発の相互運用性の悪夢が生まれました。
 
-Web Components offered a solution to both problems, pushing more work to the browser for better performance, and targeting a standards-based component model that all frameworks could use.
+Webコンポーネントは両方の問題の解決策を提供し、パフォーマンスを向上させるためにより多くの作業をブラウザーにプッシュし、すべてのフレームワークが使用できる標準ベースのコンポーネントモデルをターゲットにしました。
 
-However, Web Components by themselves weren't enough. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.
+ただし、Webコンポーネントだけでは十分ではありませんでした。 高速なWebアプリを構築するには、従来のWebフレームワークの内部に閉じ込められていた革新が必要でした。Stencilは、これらの機能を従来のフレームワークから引き出して、急速に出現するWebコンポーネント標準にそれらをもたらすために構築されました。
