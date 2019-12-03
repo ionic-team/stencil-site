@@ -198,6 +198,11 @@
         "url": "/docs/docs-json"
       },
       {
+        "text": "docs-custom",
+        "filePath": "/assets/docs/output-targets/docs-custom.json",
+        "url": "/docs/docs-custom"
+      },
+      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"

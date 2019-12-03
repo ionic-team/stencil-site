@@ -40,6 +40,7 @@
   * [dist](output-targets/dist.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
+  * [docs-custom](output-targets/docs-custom.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
   * [Prerendering](guides/prerendering.md)
