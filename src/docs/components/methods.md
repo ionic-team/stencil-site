@@ -58,7 +58,7 @@ myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: even it returns nothing, it needs to be async
+// VALID: even if it returns nothing, it needs to be async
 @Method()
 async myMethod3() {
   console.log(42);
