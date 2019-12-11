@@ -66,7 +66,8 @@ defineCustomElements(window);
 
 ## Edge and IE11 polyfills
 
-If you want your custom elements to be able to work on older browser, you should add the `applyPolyfills()` that surrond the `defineCustomElements()` function.
+If you want your custom elements to be able to work on older browser, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+
 ```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
