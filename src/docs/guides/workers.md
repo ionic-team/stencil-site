@@ -191,6 +191,6 @@ const workerPool = [
 
 In this example, we exclusively take advantage of the bundling performed by the compiler to obtain the `workerPath` to the worker's entry point, then manually create a pool of workers.
 
->Stencil will not instantiate a worker if it's used, it takes advantage of tree-shaking to do this.
+>Stencil will not instantiate a worker if it's unused, it takes advantage of tree-shaking to do this.
 
 
