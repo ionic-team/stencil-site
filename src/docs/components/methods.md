@@ -73,7 +73,7 @@ notOk() {
 
 ## Private methods
 
-Non-public methods can still be used to organize the businness logic of your component and they do NOT have to return a Promise.
+Non-public methods can still be used to organize the business logic of your component and they do NOT have to return a Promise.
 
 ```tsx
 class Component {
