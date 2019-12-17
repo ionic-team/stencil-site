@@ -42,6 +42,7 @@
   * [docs-json](output-targets/docs-json.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
+  * [Web Workers](guides/workers.md)
   * [Prerendering](guides/prerendering.md)
   * [Hydrate App](guides/hydrate-app.md)
   * [Bundling](guides/module-bundling.md)
