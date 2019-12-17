@@ -194,3 +194,16 @@ In this example, we exclusively take advantage of the bundling performed by the 
 >Stencil will not instantiate a worker if it's unused, it takes advantage of tree-shaking to do this.
 
 
+#### Worker Termination
+
+Any Web Workers can be terminated using the [`Worker.terminate()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/terminate) API, but since Stencil creates one worker shared across all the proxied methods, it's not a recommended to terminate it manually. If you have a use case for using terminate and rebuilding workers, then we recommend using the Worker API directly:
+
+```tsx
+import { workerPath } from '../../stuff.worker.ts?worker';
+const worker = new Worker(workerPath);
+// ...
+worker.terminate()
+```
+
+
+
