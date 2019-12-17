@@ -8,30 +8,32 @@ url: /docs/web-workers
 
 > **EXPERIMENTAL:** only available in `@stencil/core` 1.9.0-4 or up.
 
-[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are a widely supported (Chrome, Firefox, Safari, Edge and IE11) technology that allows to run JS in a different thread, maximizing the usage of multiple CPUs, but most importantly not blocking the **main thread**.
+[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are a widely supported technology (Chrome, Firefox, Safari, Edge and IE11) that allows to run JS in a different thread, maximizing the usage of multiple CPUs; but most importantly not blocking the **main thread**.
 
-The **main thread** is where Javascript runs by default, it has access to the DOM and other visual APIs, the problem is that long running JS prevents the browser for running animations (CSS animations, transitions, canvas, svg...), making it look like it's frozen. That's why if your application needs to run CPU-intensive JS, Web Workers is your best friend.
+The **main thread** is where Javascript runs by default, it has access to the DOM and other visual APIs, the problem is that long running JS prevents the browser from running animations (CSS animations, transitions, canvas, svg...), making your site to look frozen. That's why if your application needs to run CPU-intensive tasks, Web Workers will be a great help.
 
 
 ## When to use them?
 
-Web Workers come with several costs:
+First thing to understand is when to use a Web Workers or not, since it comes with a set of costs and limitations:
 
-- You can't access the dom.
+- You can't access the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 - You can't access any of the `@stencil/core` API, or use or declare a component.
 - Isolated state (each worker has their own memory space).
 - Big overhead passing data back and forward between workers and main thread.
 - Communication is always asynchronous.
-- You can only pass primitives and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) objects.
+- You can **only** pass primitives and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) objects.
 
 This is why you should try to:
 
 - Use pure and functional algorithms in workers. `(input1, input2) => output`
-- Minimize passing data back and forward
-- Minimize state within the worker (don't put redux inside a worker)
+- Never pass class instances or functions.
+- Minimize passing data back and forward.
+- Minimize state within the worker (don't put redux inside a worker!).
+- The cost of a worker will be easily amortized because you will be doing some CPU-intensive work.
 
 
-## How does workers "work"?
+## How vanilla Web Workers "work"?
 
 Web Workers comes with a `Worker` API, that works the following way:
 
@@ -44,6 +46,8 @@ worker.onmessage = (event) => {
 ```
 
 This API, while powerful, is very low level and makes it hard to write complex apps, since the event-driven paradigm leads easily to [spaghetti-code](https://en.wikipedia.org/wiki/Spaghetti_code).
+
+For further information, check out [this fantastic tutorial](https://www.html5rocks.com/en/tutorials/workers/basics/) by our friends at HTML5Rocks.
 
 It also requires of the generation of a different chunk of JS, the `my-worker.js` in the example above. This means you usually need extra-tooling that transpiles the worker entry point a generates another `.js` file.
 
@@ -75,7 +79,7 @@ import { Component } from '@stencil/core';
 
 // Import worker directly
 // Stencil will automatically create a proxy and run the module in a worker
-import { sum, expensiveTask} from '../../stuff.worker.ts';
+import { sum, expensiveTask} from '../../stuff.worker';
 
 @Component({
   tag: 'my-cmp'
@@ -98,6 +102,44 @@ export class MyApp {
 
 Under the hood, stencil compiles a worker file, and uses the standard `new Worker()` API to instantiate the worker, then it creates proxies for each of the exported functions, so developers can interact with it using [structured programming constructs](https://en.wikipedia.org/wiki/Structured_programming) instead of event-based ones.
 
+> Workers are already placed in a different chunk, and dynamically loaded using `new Worker()`, you should not use a dynamic `import()` to load them, understand the ESM is only loading the proxies.
+
+### Imports within a worker
+
+Normal `ESM` imports are possible when building workers in stencil. Under the hood, the compiler bundles all the dependencies of a worker into a single file that becomes the worker's entry-point, a dependency-free file that can run without problems.
+
+**src/loader.worker.ts:**
+
+```tsx
+import upngjs from 'upng-js';
+import { Images } from './materials';
+
+export const loadTexture = async (imagesSrcs: Images) => {
+  const images = await Promise.all(
+    imagesSrcs.map(loadOriginalImage)
+  );
+  return images;
+}
+
+async function loadOriginalImage(src: string) {
+  const res = await fetch(src);
+  const png = upngjs.decode(await res.arrayBuffer());
+  return png;
+}
+```
+
+In this example, we are building a worker called `loader.worker.ts` that imports an NPM dependency (`upngjs`, used to parse png files), and a local module (`./materials`). Stencil will use [rollup](https://rollupjs.org/guide/en/) to bundle all this dependencies and remove all imports at runtime, notice that code will be duplicated if used inside and outside a worker.
+
+#### Dynamic imports
+
+In order to load dynamically, Web Workers come with a handy API, [`importScript()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts).
+
+Here's an example of how to use `comlink` directly from the CDN.
+```tsx
+importScripts("https://cdn.jsdelivr.net/npm/comlinkjs/comlink.global.min.js");
+```
+
+> Do not use `importScript()` to load dependencies you previously installed using `npm` or `yarn`. Use normal ESM imports as usual, so the bundler can understand it.
 
 ### Advanced cases
 
@@ -113,6 +155,9 @@ In this case, we just have to add `?worker` at the end of a ESM import, this vir
 
 ```tsx
 import { Component } from '@stencil/core';
+import { sum } from '../../stuff.worker';
+
+// Using the ?worker query, allows to access the worker instance directly.
 import { worker } from '../../stuff.worker.ts?worker';
 
 @Component({
@@ -121,7 +166,12 @@ import { worker } from '../../stuff.worker.ts?worker';
 export class MyApp {
 
   componentWillLoad() {
+    // Use worker api directly
     worker.postMessage(['send data manually']);
+
+    // Use the proxy
+    const result = await sum(1, 2);
+    console.log(result); // 3
   }
 }
 ```
