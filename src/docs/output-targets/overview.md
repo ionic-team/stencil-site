@@ -17,7 +17,7 @@ One of the more powerful features of the compiler is its ability to generate var
  - [`www`: Website](/docs/www)
  - [`docs-readme`: Documentation readme files formatted in markdown](/docs/docs-readme)
  - [`docs-json`: Documentation data formatted in JSON](/docs/docs-json)
-
+ - [`docs-custom`: Custom documentation generation](/docs/docs-custom)
 
 ## Example:
 
