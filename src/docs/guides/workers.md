@@ -20,17 +20,17 @@ First thing to understand is when to use a Web Workers or not, since it comes wi
 - You can't access the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
 - You can't access any of the `@stencil/core` API, or use or declare a component.
 - Isolated state (each worker has their own memory space).
-- Big overhead passing data back and forward between workers and main thread.
+- Big overhead passing data back and forth between workers and main thread.
 - Communication is always asynchronous.
-- You can **only** pass primitives and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) objects.
+- You can **only** pass primitives and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
 This is why you should try to:
 
 - Use pure and functional algorithms in workers. `(input1, input2) => output`
 - Never pass class instances or functions.
-- Minimize passing data back and forward.
+- Look for ways to reduce passing data around.
 - Minimize state within the worker (don't put redux inside a worker!).
-- The cost of a worker will be easily amortized because you will be doing some CPU-intensive work.
+- The cost of a worker should be easily amortized because it would be doing some CPU-intensive jobs.
 
 
 ## How vanilla Web Workers "work"?
