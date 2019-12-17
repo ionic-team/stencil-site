@@ -49,7 +49,7 @@ This API, while powerful, is very low level and makes it hard to write complex a
 
 For further information, check out [this fantastic tutorial](https://www.html5rocks.com/en/tutorials/workers/basics/) by our friends at HTML5Rocks.
 
-It also requires of the generation of a different chunk of JS, the `my-worker.js` in the example above. This means you usually need extra-tooling that transpiles the worker entry point a generates another `.js` file.
+It also requires of the generation of a different chunk of JS, the `my-worker.js` in the example above. This means you usually need extra tooling that transpiles and bundles the worker entry point into another `.js` file.
 
 Fortunately Stencil can help you solve these two problems: the tooling problem and the communication problem.
 
@@ -175,5 +175,22 @@ export class MyApp {
   }
 }
 ```
+
+You can even use this feature you create multiple Worker manually:
+
+```tsx
+import { workerPath } from '../../stuff.worker.ts?worker';
+
+const workerPool = [
+  new Worker(workerPath),
+  new Worker(workerPath),
+  new Worker(workerPath),
+  new Worker(workerPath),
+];
+```
+
+In this example, we exclusively take advantage of the bundling performed by the compiler to obtain the `workerPath` to the worker's entry point, then manually create a pool of workers.
+
+>Stencil will not instantiate a worker if it's used, it takes advantage of tree-shaking to do this.
 
 
