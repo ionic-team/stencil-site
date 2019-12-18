@@ -22,7 +22,7 @@ export class ContributorList {
           <ul>
           {contributors.map(contributor => (
             <li>
-              <a href={`https://github.com/${contributor}`} target="_blank">
+              <a rel="noopener" href={`https://github.com/${contributor}`} target="_blank">
                 <span class="img-wrapper">
                   <img
                     src={`https://github.com/${contributor}.png?size=90`}

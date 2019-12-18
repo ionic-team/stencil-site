@@ -19,7 +19,6 @@ export class AppRoot {
   @Element() el!: HTMLElement;
 
   @State() isLeftSidebarIn: boolean = false;
-  @State() isModalOpen: boolean = false;
 
   @Listen('resize', { target: 'window' })
   handleResize() {
@@ -34,11 +33,6 @@ export class AppRoot {
     });
   }
 
-  @Listen('toggleModal')
-  handleToggleModal(ev: CustomEvent) {
-    this.isModalOpen = ev.detail;
-  }
-
   private setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
@@ -47,8 +41,8 @@ export class AppRoot {
         (window as any).gtag('config', 'UA-44023830-34', { 'page_path': location.pathname + location.search });
 
         // Hubspot
-        (window as any)._hsq.push(['setPath', location.pathname + location.search ]);
-        (window as any)._hsq.push(['trackPageView']);
+        // (window as any)._hsq.push(['setPath', location.pathname + location.search ]);
+        // (window as any)._hsq.push(['trackPageView']);
       });
     }
   }
@@ -136,8 +130,6 @@ export class AppRoot {
               </div>
             </div>
           </footer>
-
-          <hubspot-modal active={this.isModalOpen}/>
         </main>
       </SiteProviderConsumer.Provider>
     );
