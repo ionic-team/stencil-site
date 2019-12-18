@@ -152,13 +152,13 @@ importScripts("https://cdn.jsdelivr.net/npm/typescript@latest/lib/typescript.js"
 
 ### Worker Callbacks
 
-In most cases, waiting for a Promise to resolve with the output data is all we'll need. However, a limitation with native Promises is that it provides only one returned value. Where a traditional callback still shines is that it can be call numerous times with different data.
+In most cases, waiting for a Promise to resolve with the output data is all we'll need. However, a limitation with native Promises is that it provides only one returned value. Where a traditional callback still shines is that it can be called numerous times with different data.
 
-Let's say that we have a long running process that may take a few seconds to complete. With a Promise, we're unable to periodically receive the progress, or the completed percentage, of the task, since all we can do is wait for Promise to resolve.
+Let's say that we have a long running process that may take a few seconds to complete. With a Promise, we're unable to periodically receive the progress of the task, since all we can do is wait for Promise to resolve.
 
-A feature with Stencil's worker is the ability to pass a callback to the method, and within the Worker, execute the callback as much as it's needed before the task resolves.
+A feature with Stencil's worker is the ability to pass a callback to the method, and within the worker, execute the callback as much as it's needed before the task resolves.
 
-In the example below, the task is given a number that it counts down from, and the task completes when it gets to `0`. During the count down however, the main thread will still receive an update every second. This example will console log from `10` to `0`
+In the example below, the task is given a number that it counts down from, and the task completes when it gets to `0`. During the count down however, the main thread will still receive an update every second. This example will console log from `5` to `0`
 
 
 **src/countdown.worker.ts:**
