@@ -24,7 +24,13 @@ export class ContributorList {
             <li>
               <a href={`https://github.com/${contributor}`} target="_blank">
                 <span class="img-wrapper">
-                  <img src={`https://github.com/${contributor}.png?size=90`} loading="lazy" title={`Contributor ${contributor}`} importance="low"/>
+                  <img
+                    src={`https://github.com/${contributor}.png?size=90`}
+                    loading="lazy"
+                    width="32"
+                    height="32"
+                    title={`Contributor ${contributor}`}
+                    importance="low"/>
                 </span>
               </a>
             </li>

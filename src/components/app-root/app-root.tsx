@@ -2,8 +2,6 @@ import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
-import '@stencil/yahara';
-
 
 @Component({
   tag: 'app-root',
@@ -120,17 +118,17 @@ export class AppRoot {
                 <p>© 2019 StencilJS.  Released under MIT License</p>
                 <ul class="external-links list--unstyled">
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
                       <app-icon name="twitter"></app-icon>
                     </a>
                   </li>
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com" aria-label="Slack">
                       <app-icon name="slack"></app-icon>
                     </a>
                   </li>
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil" aria-label="Github">
                       <app-icon name="github"></app-icon>
                     </a>
                   </li>

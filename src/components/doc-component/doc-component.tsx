@@ -16,7 +16,6 @@ export class DocumentComponent implements ComponentInterface {
 
   async componentWillRender() {
     if (this.page) {
-      console.log('componentWillRender', this.page);
       const data = this.data = findItem(siteStructure as SiteStructureItem[], this.page);
 
       if (!Build.isBrowser && !data.item) {
@@ -36,7 +35,6 @@ export class DocumentComponent implements ComponentInterface {
     if (!data || !content) {
       return null;
     }
-    console.log('render3', this.page);
     return (
       <Host>
         <div class="container">

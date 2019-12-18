@@ -111,6 +111,7 @@ export class NewsletterSignup {
                     disabled={this.isLoading}
                     placeholder="Email address"
                     class={this.isValid ? '' : 'error'}
+                    aria-label="Email"
                     required />
                   <button
                     class="btn btn--primary"
