@@ -10,7 +10,7 @@ url: /docs/web-workers
 
 [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) are a widely supported technology (Chrome, Firefox, Safari, Edge and IE11) that allows JavaScript to execute in a different thread, maximizing the usage of multiple CPUs; but most importantly not blocking the **main thread**.
 
-The **main thread** is where Javascript runs by default and has access to the `document`, `window` and other DOM APIs. The problem is that long running JS prevents the browser from running smooth animations (CSS animations, transitions, canvas, svg...), making your site to look frozen. That's why if your application needs to run CPU-intensive tasks, Web Workers will be a great help.
+The **main thread** is where Javascript runs by default and has access to the `document`, `window` and other DOM APIs. The problem is that long running JS prevents the browser from running smooth animations (CSS animations, transitions, canvas, svg...), making your site look frozen. That's why if your application needs to run CPU-intensive tasks, Web Workers are a great help.
 
 
 ## When to use Web Workers?
@@ -20,17 +20,19 @@ First thing to understand is when to use a Web Workers, and when *not* to use th
 - There is no access to the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). This means you cannot interact with `document`, `window` or any elements in the page.
 - There is no access to any of the `@stencil/core` APIs. For example you cannot declare and use component in a Web Worker, for the same reasons there is **no access to the DOM**.
 - A Web Worker has its own **isolated state** sine each worker has their own memory space. For example, a variable declared on the main thread cannot be directly referenced from a worker.
-- There is an overhead when passing data between workers and the main thread. As a general rule, it's best minimize the amount of data sent to and from the worker.
-- Communication is always **asynchronous**. Luckily Promises and async/await makes this relatively easy, but it's important to understand that communication between threads will always async.
-- You can **only** pass primitives and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Best way to think of it is any data that can be serialized to JSON is safe to use.
+- There is an overhead when passing data between workers and the main thread. As a general rule, it's best minimize the amount of data sent to and from the worker, and be mindful if the work to send your data takes more time than doing it on the main thread.
+- Communication is always **asynchronous**. Luckily Promises and async/await makes this relatively easy, but it's important to understand that communication between threads is always asynchronous.
+- You can **only** pass [primitives](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values) and objects that implement the [structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm). Best way to think of it is any data that can be serialized to JSON is safe to use.
+
+In short, it's generally a good idea to use workers to move logic that is thread-blocking -- or UI-blocking, preventing users from interacting with the page -- into a Web Worker, such as real-time code syntax highlighting.
 
 ## Best Practices when using Web Workers
 
 - Use pure and functional algorithms in workers. `(input1, input2) => output`.
 - The worker logic itself can be as complex as it has to be, however, the input and output data should stay fairly simple.
-- Look for ways to reduce passing data between threads.
+- Look for ways to reduce passing data between the main thread and worker thread.
 - Class instances cannot be passed as data. Instead, only work with data can be JSON serializable.
-- Minimize state within the worker, or better yet, completely avoid maintaining any state (don't put redux inside a worker!).
+- Minimize state within the worker, or better yet, completely avoid maintaining any state (e.g., don't put redux inside a worker).
 - The cost of a worker should be easily amortized because it would be doing some CPU-intensive jobs.
 
 
@@ -110,7 +112,7 @@ export class MyApp {
 
 Under the hood, Stencil compiles a worker file, and uses the standard `new Worker()` API to instantiate the worker. Then it creates proxies for each of the exported functions, so developers can interact with it using [structured programming constructs](https://en.wikipedia.org/wiki/Structured_programming) instead of event-based ones.
 
-> Workers are already placed in a different chunk, and dynamically loaded using `new Worker()`. Tou should not use a dynamic `import()` to load them, but instead only use ES module imports since it's only importing the proxies for posting data to the worker.
+> Workers are already placed in a different chunk, and dynamically loaded using `new Worker()`. You should avoid using a dynamic `import()` to load them, as this will cause two network requests. Instead, use ES module imports as it's only importing the proxies for communicating with the worker.
 
 ### Imports within a worker
 
@@ -136,11 +138,11 @@ async function loadOriginalImage(src: string) {
 }
 ```
 
-In this example, we are building a worker called `loader.worker.ts` that imports an NPM dependency (`upngjs`, used to parse png files), and a local module (`./materials`). Stencil will use [Rollup](https://rollupjs.org/guide/en/) to bundle all dependencies and remove all imports at runtime. Notice that code will be duplicated if used inside and outside a worker.
+In this example, we are building a worker called `loader.worker.ts` that imports an NPM dependency (`upngjs`, used to parse png files), and a local module (`./materials`). Stencil will use [Rollup](https://rollupjs.org/guide/en/) to bundle all dependencies and remove all imports at runtime. Be aware that code will be duplicated if imported inside and outside a worker.
 
 #### Dynamic imports
 
-In order to load dynamically, Web Workers come with a handy API, [`importScript()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts).
+In order to load scripts dynamically inside of a worker, Web Workers come with a handy API, [`importScript()`](https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts).
 
 Here's an example of how to use `typescript` directly from a CDN with `importScript()`.
 
@@ -148,7 +150,7 @@ Here's an example of how to use `typescript` directly from a CDN with `importScr
 importScripts("https://cdn.jsdelivr.net/npm/typescript@latest/lib/typescript.js");
 ```
 
-> Do not use `importScript()` to load dependencies you previously installed using `npm` or `yarn`. Use normal ESM imports as usual, so the bundler can understand it.
+> Do not use `importScript()` to import NPM dependencies you have installed using `npm` or `yarn`. Use normal ES module imports as usual, so the bundler can understand it.
 
 ### Worker Callbacks
 
@@ -158,7 +160,7 @@ Let's say that we have a long running process that may take a few seconds to com
 
 A feature with Stencil's worker is the ability to pass a callback to the method, and within the worker, execute the callback as much as it's needed before the task resolves.
 
-In the example below, the task is given a number that it counts down from, and the task completes when it gets to `0`. During the count down however, the main thread will still receive an update every second. This example will console log from `5` to `0`
+In the example below, the task is given a number that it counts down from the number provided, and the task completes when it gets to `0`. During the count down however, the main thread will still receive an update every second. This example will console log from `5` to `0`
 
 
 **src/countdown.worker.ts:**
@@ -213,7 +215,6 @@ progress 1
 finish 0
 ```
 
-
 ## Advanced cases
 
 Sometimes it might be necessary to access the actual [`Worker`](https://developer.mozilla.org/en-US/docs/Web/API/Worker) instance, because manual usage of the [`postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage) and [`onmessage`](https://developer.mozilla.org/en-US/docs/Web/API/DedicatedWorkerGlobalScope/onmessage) is desired. However, there's still a tooling challenge in having to bundle the worker, and have the main bundle correctly reference the worker bundle url path. In that case, Stencil also has an API that exposes the worker directly so it can be used instead of the proxies mentioned early.
@@ -264,8 +265,7 @@ const workerPool = [
 
 In this example, we exclusively take advantage of the bundling performed by the compiler to obtain the `workerPath` to the worker's entry point, then manually create a pool of workers.
 
->Stencil will not instantiate a worker if it's unused, it takes advantage of tree-shaking to do this.
-
+> Stencil will not instantiate a worker if it's unused, it takes advantage of tree-shaking to do this.
 
 #### Worker Termination
 
