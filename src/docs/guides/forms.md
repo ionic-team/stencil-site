@@ -58,13 +58,17 @@ Here is an example of a component with a more advanced form:
   styleUrl: 'my-name.css'
 })
 export class MyName {
-
+  selectedReceiverIds = [102, 103];
   @State() value: string;
   @State() selectValue: string;
   @State() secondSelectValue: string;
-  @State() avOptions: any[];
+  @State() avOptions: any[] = = [
+    { 'id': 101, 'name': 'Mark' },
+    { 'id': 102, 'name': 'Smith' }
+  ];
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     console.log(this.value);
   }
 
