@@ -70,14 +70,14 @@ Below is an example folder structure containing a webapp's global css file, name
 ```bash
 src/
   components/
-  globals/
+  global/
     app.css
 ```
 
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
 ```tsx
-globalStyle: 'src/globals/app.css'
+globalStyle: 'src/global/app.css'
 ```
 
 

@@ -72,30 +72,30 @@ export class SiteHeader {
 
           <ul class="external-links list--unstyled">
             <li>
-              <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs">
+              <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
                 <app-icon name="twitter"></app-icon>
               </a>
             </li>
             <li>
-              <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com">
+              <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com" aria-label="Slack">
                 <app-icon name="slack"></app-icon>
               </a>
             </li>
             <li>
-              <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil">
+              <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil" aria-label="Github">
                 <app-icon name="github"></app-icon>
               </a>
             </li>
           </ul>
 
-          <div class="header-close" onClick={() => { this.hideNav() }}>
+          <button class="header-close" onClick={() => { this.hideNav() }}>
             <app-icon name="close"></app-icon>
-          </div>
+          </button>
         </div>
 
-        <div class="header-overflow" onClick={() => { this.showNav() }}>
+        <button class="header-overflow" onClick={() => { this.showNav() }} aria-label="Open menu">
           <app-icon name="more"></app-icon>
-        </div>
+        </button>
       </div>
     );
   }

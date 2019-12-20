@@ -119,6 +119,10 @@ body.dark .header-menu .link--external:hover svg {
 
 .header-overflow,
 .header-close {
+  -webkit-appearance: none;
+  border: 0;
+  height: 24px;
+  background: transparent;
   transition: opacity 0.3s;
   position: absolute;
   top: 15px;

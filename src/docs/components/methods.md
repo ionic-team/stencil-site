@@ -58,7 +58,7 @@ myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: even it returns nothing, it needs to be async
+// VALID: even if it returns nothing, it needs to be async
 @Method()
 async myMethod3() {
   console.log(42);
@@ -73,7 +73,7 @@ notOk() {
 
 ## Private methods
 
-Non-public methods can still be used to organize the businness logic of your component and they do NOT have to return a Promise.
+Non-public methods can still be used to organize the business logic of your component and they do NOT have to return a Promise.
 
 ```tsx
 class Component {

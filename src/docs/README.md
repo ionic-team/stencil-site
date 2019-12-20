@@ -40,8 +40,10 @@
   * [dist](output-targets/dist.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
+  * [docs-custom](output-targets/docs-custom.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
+  * [Web Workers](guides/workers.md)
   * [Prerendering](guides/prerendering.md)
   * [Hydrate App](guides/hydrate-app.md)
   * [Bundling](guides/module-bundling.md)
