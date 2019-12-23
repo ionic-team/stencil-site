@@ -62,7 +62,7 @@ export class MyName {
   @State() value: string;
   @State() selectValue: string;
   @State() secondSelectValue: string;
-  @State() avOptions: any[] = = [
+  @State() avOptions: any[] = [
     { 'id': 101, 'name': 'Mark' },
     { 'id': 102, 'name': 'Smith' }
   ];
