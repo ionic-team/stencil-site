@@ -8,7 +8,8 @@ contributors:
   - corysmc
   - bitflower
 ---
-
+Want to skip the tutorial and just check out the code? 
+https://github.com/corysmc/ionic-pwa-stencil-redux
 ## What is Redux?
 
 Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a PWA with stencil. For more info on Redux, [check out their docs](https://redux.js.org)
