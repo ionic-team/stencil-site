@@ -27,9 +27,14 @@ export class TodoList {
 
 Call the method like this:
 
+> Developers should ensure that the component is defined by using the whenDefined method of the custom element registry before attempting to call public methods.
+
 ```tsx
-const todoListElement = document.querySelector('todo-list');
-todoListElement.showPrompt();
+(async () => {
+  await customElements.whenDefined('todo-list');
+  const todoListElement = document.querySelector('todo-list');
+  await todoListElement.showPrompt();
+})();
 ```
 
 ## Public methods must be async
