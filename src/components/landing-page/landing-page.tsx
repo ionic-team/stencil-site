@@ -27,7 +27,6 @@ export class LandingPage {
       <div>
         <div class="hero container">
           <hgroup>
-            <announcement-bar></announcement-bar>
             <h1>Build. Distribute. Adopt. </h1>
             <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
             <stencil-route-link url="/docs/getting-started" class="hero-button" anchorClass="btn-get-started">Get started</stencil-route-link>
