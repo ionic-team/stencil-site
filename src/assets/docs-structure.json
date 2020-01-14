@@ -166,6 +166,11 @@
         "text": "Plugins",
         "filePath": "/assets/docs/config/plugins.json",
         "url": "/docs/plugins"
+      },
+      {
+        "text": "Extras",
+        "filePath": "/assets/docs/config/extras.json",
+        "url": "/docs/config-extras"
       }
     ]
   },
