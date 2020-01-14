@@ -1,7 +1,7 @@
 ---
 title: Extras Config
 description: Extras Config
-url: /docs/config/extras
+url: /docs/config-extras
 contributors:
   - mattdsteele
 ---
