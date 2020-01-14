@@ -161,3 +161,8 @@ The `excludeSrc` config setting specifies a set of regular expressions that shou
 ## testing
 
 Please see the [testing config docs](/docs/testing-config).
+
+
+## extras
+
+Please see the [Extras docs](/docs/config/extras).
