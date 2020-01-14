@@ -165,4 +165,4 @@ Please see the [testing config docs](/docs/testing-config).
 
 ## extras
 
-Please see the [Extras docs](/docs/config/extras).
+Please see the [Extras docs](/docs/config-extras).
