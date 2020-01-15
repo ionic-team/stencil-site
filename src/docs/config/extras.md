@@ -40,6 +40,16 @@ that uses the slot polyfill. This is an opt-in polyfill for those who need it.
 Include the CSS Custom Property polyfill/shim for legacy browsers. Defaults to `true`
 for legacy builds only. ESM builds will not include the css vars shim. This is an opt-out polyfill.
 
+A result of setting this to `false` is that you will need to manually provide "fallback" properties to legacy builds.
+For example:
+
+```css
+div {
+  color: blue; /* Used by IE */
+  color: var(--color); /* Used by modern browsers */
+}
+```
+
 ### lifecycleDOMEvents
 
 Dispatches component lifecycle events. Mainly used for testing.
