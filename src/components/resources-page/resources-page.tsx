@@ -107,7 +107,8 @@ const LINKS = {
     { title: 'stencil-flip-images: Awesome animated image gallery', url: 'https://github.com/jepiqueau/stencil-flip-images'},
     { title: 'd3-stencil: Charts built with D3 and Stencil. Framework-agnostic, simple.', url: 'https://d3-stencil.dev'},
     { title: 'Animatable: Animate any HTML Element using Web Animations API in a declarative way! 💅', url: 'https://proyecto26.github.io/animatable-component'},
-    { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser'}
+    { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser'},
+    { title: 'Stace Editor: 📖 A web component wrapper for Ace Editor, using Stencil + brace', url: 'https://github.com/jeanbenitez/stace-editor'}
   ],
   TOOLS: [
     { title: 'xLayers Lite', url: 'https://github.com/xlayers/xlayers-lite' },
