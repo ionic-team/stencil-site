@@ -259,13 +259,17 @@ export class LandingPage {
             <h2><strong>The Stencil story</strong></h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div class="videos">
-              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+              <a href="https://youtu.be/RZ6MLELGsD8" class="video-thumbnail video-thumbnail--architecting">
                 <app-icon name="play"/>
-                <span>Watch launch video</span>
+                <span>Architecting A Component Compiler</span>
               </a>
               <a href="https://youtu.be/M1F81V-NhP0" class="video-thumbnail video-thumbnail--announcement">
                 <app-icon name="play"/>
                 <span>See the v1 announcement</span>
+              </a>
+              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+                <app-icon name="play"/>
+                <span>Watch launch video</span>
               </a>
             </div>
           </div>

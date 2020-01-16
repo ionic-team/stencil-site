@@ -313,7 +313,6 @@ landing-page .video-thumbnail::before {
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/img/video-thumbnail.png');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 6px;
@@ -324,6 +323,10 @@ landing-page .video-thumbnail::before {
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+landing-page .video-thumbnail--architecting::before {
+  background-image: url('/assets/img/video-thumbnail-3.png');
 }
 
 landing-page .video-thumbnail--launch::before {
