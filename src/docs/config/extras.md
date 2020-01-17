@@ -52,4 +52,16 @@ div {
 
 ### lifecycleDOMEvents
 
-Dispatches component lifecycle events. Mainly used for testing.
+Dispatches component lifecycle events. By default these events are not dispatched,
+but by enabling this to `true` these events can be listened for on `window`.
+Mainly for used testing.
+
+| Event Name                     | Description                                                    |
+|--------------------------------|----------------------------------------------------------------|
+| `stencil_appload`              | The app and all of its child components have finished loading. |
+| `stencil_componentWillLoad`    | Dispatched for each component's `componentWillLoad`. |
+| `stencil_componentWillUpdate`  | Dispatched for each component's `componentWillUpdate`. |
+| `stencil_componentWillRender`  | Dispatched for each component's `componentWillRender`. |
+| `stencil_componentDidLoad`     | Dispatched for each component's `componentDidLoad`. |
+| `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
+| `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
