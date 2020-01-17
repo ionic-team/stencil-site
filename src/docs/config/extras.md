@@ -15,7 +15,7 @@ Most of these are opt-in, since not all users require the additional runtime.
 
 Example usage:
 
-```ts
+```tsx
 export const config: Config = {
   extras: {
     appendChildSlotFix: true,
@@ -38,10 +38,9 @@ that uses the slot polyfill. This is an opt-in polyfill for those who need it.
 ### cssVarsShim
 
 Include the CSS Custom Property polyfill/shim for legacy browsers. Defaults to `true`
-for legacy builds only. ESM builds will not include the css vars shim. This is an opt-out polyfill.
+for legacy builds only. ESM builds will not include the css vars shim. This is an opt-out polyfill for legacy builds.
 
-A result of setting this to `false` is that you will need to manually provide "fallback" properties to legacy builds.
-For example:
+A result of setting this to `false` is that you will need to manually provide "fallback" properties to legacy builds. For example, in the css below, the css variable will not be polyfilled for IE11, so the developer will manually need to provide a fallback just before the css variable. Doing
 
 ```css
 div {
