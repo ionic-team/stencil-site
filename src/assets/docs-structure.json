@@ -171,6 +171,11 @@
         "text": "Extras",
         "filePath": "/assets/docs/config/extras.json",
         "url": "/docs/config-extras"
+      },
+      {
+        "text": "CLI",
+        "filePath": "/assets/docs/config/cli.json",
+        "url": "/docs/cli"
       }
     ]
   },
