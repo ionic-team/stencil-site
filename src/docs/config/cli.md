@@ -48,5 +48,7 @@ Tests a Stencil project. The flags below are the available options for the `test
 
 ## `stencil`
 
+| Flag | Description |
+|------|-------------|
 | `--help` | Display the help output explaining the different flags. | `-h` |
 | `--version` | Prints the current Stencil version. | `-v` |
