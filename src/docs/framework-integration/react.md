@@ -61,7 +61,7 @@ export default DailyForecast;
 
 In this example, there are three properties: `forecast` is an array of objects, `iconPaths` is an object, and `scale` is a string. Since `scale` is a string it can be handled normally. However, the other two properties are non-scalar and must be set via the `ref` to the Custom Element. Wrapping the Custom Element as such prevents you from having to obtain a `ref` with every instance of `kws-daily-forecast` that you may need since you will instead be using the `DailyForecast` React component as such:
 
-```HTML
+```tsx
 <DailyForecast scale={scale} forecast={f}></DailyForecast
 ```
 
