@@ -54,10 +54,17 @@ enableCache: true
 
 The global script runs once before your library/app loads, so you can do things like setting up a connection to an external service or configuring a library you are using.
 
-The code to be executed should be placed within a default function that is exported by the global script. Ensure all of the code in the global script is wrapped in the function that is exported.
+The code to be executed should be placed within a default function that is exported by the global script. Ensure all of the code in the global script is wrapped in the function that is exported:
+
+```javascript
+export default function() { // or export default async function()
+  initServerConnection();
+}
+```
 
 The global script config option takes a file path as a string.
 
+> The exported function can also be `async`
 
 ## globalStyle
 
