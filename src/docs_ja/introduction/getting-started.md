@@ -12,13 +12,13 @@ contributors:
 
 Stencilは最近のLTSバージョンの[NodeJS](https://nodejs.org/)とnpmが必要です。 続ける前にNodeのインストールおよびアップデート済みであることを確認してください。
 
-> npm 6以降を使用する必要があることに注意してください。
+> npm 6以上を使用する必要があることに注意してください。
 
 ```bash
 npm init stencil
 ```
 
-Stencilを使用して、独立したコンポーネントまたはアプリケーション全体を作成できます。
+Stencilを使用して、スタンドアロンなコンポーネントまたはアプリケーション全体を作成できます。
 initを実行すると、開始するプロジェクトの種類を選択できるプロンプトが表示されます。
 
 ```bash
@@ -32,7 +32,7 @@ initを実行すると、開始するプロジェクトの種類を選択でき�
 
 ## Stencilを更新する
 
-@stencil/coreの最新バージョンを取得するには次のコマンドを実行します。
+@stencil/coreの最新バージョンを取得するためには、次のコマンドを実行します。
 
 ```bash
 npm install @stencil/core@latest --save-exact
