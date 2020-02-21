@@ -61,7 +61,7 @@ export class TodoList {
 
 ## When to use?
 
-Not all internal state might need the be decorated with `@State()`, in fact it's a good practice to avoid using it if you know for sure that the value will not change or that it does NOT need to trigger a re-rendering:
+Not all internal state might need to be decorated with `@State()`, in fact it's a good practice to avoid using it if you know for sure that the value will not change or that it does NOT need to trigger a re-rendering:
 
 ```tsx
 class Component {
