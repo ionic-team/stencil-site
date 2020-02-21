@@ -33,7 +33,7 @@ export const config: Config = {
 };
 ```
 
-Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/docs.ts
+Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/stencil-public-docs.ts
 
 
 ## CSS Variables
