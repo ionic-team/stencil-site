@@ -52,3 +52,8 @@ Tests a Stencil project. The flags below are the available options for the `test
 |------|-------------|
 | `--help` | Display the help output explaining the different flags. | `-h` |
 | `--version` | Prints the current Stencil version. | `-v` |
+
+
+## `stencil generate <sub-folder>`
+
+Starts the interactive component generator. You can specify one or more sub-folders to generate the component in.
