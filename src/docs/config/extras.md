@@ -53,7 +53,7 @@ div {
 
 Dispatches component lifecycle events. By default these events are not dispatched,
 but by enabling this to `true` these events can be listened for on `window`.
-Mainly for used testing.
+Mainly used for testing.
 
 | Event Name                     | Description                                                    |
 |--------------------------------|----------------------------------------------------------------|
