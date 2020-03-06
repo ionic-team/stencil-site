@@ -346,5 +346,5 @@ With that you've create a store, set the default state, mapped that state to you
 
 ### Other Resources
 
-- Intro to Redux by Josh Moroni https://www.youtube.com/watch?v=BccpaouJuxA
-- State Management with Redux in Ionic & StencilJS: Loading Data by Josh Moroni https://www.joshmorony.com/state-management-with-redux-in-ionic-stenciljs-loading-data/
+- Intro to Redux by Josh Morony https://www.youtube.com/watch?v=BccpaouJuxA
+- State Management with Redux in Ionic & StencilJS: Loading Data by Josh Morony https://www.joshmorony.com/state-management-with-redux-in-ionic-stenciljs-loading-data/
