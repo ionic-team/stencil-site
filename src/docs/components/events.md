@@ -131,14 +131,14 @@ In the example below, we're going to listen for the scroll event, emitted from `
   }
 ```
 
-### passive
+#### passive
 
 By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. The `passive` option can be used to change the default behaviour.
 
 Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
 
 
-### capture
+#### capture
 
 Event listener attached with `@Listen` does not "capture" by default.
 When a event listener is set to "capture", it means the event will be dispatched during the "capture phase".
