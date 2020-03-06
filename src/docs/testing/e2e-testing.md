@@ -206,7 +206,7 @@ For non-shadow content:
 
 ## Caveat about e2e tests automation on CD/CI
 
-As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Hea is actually used in your pipeline.
+As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Headless Chrome is actually used in your pipeline.
 
 Example of a config you might need in a Gitlab CI environment :
 
