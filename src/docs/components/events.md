@@ -78,7 +78,10 @@ export class TodoList {
   }) todoCompleted: EventEmitter;
 
   todoCompletedHandler(todo: Todo) {
-    this.todoCompleted.emit(todo);
+    const event = this.todoCompleted.emit(todo);
+    if(!event.defaultPrevented) {
+      // if not prevented, do some default handling code
+    }
   }
 }
 ```
