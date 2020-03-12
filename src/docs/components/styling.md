@@ -124,7 +124,7 @@ This will apply the color we defined in our CSS Variable, in this case `#488aff`
 
 IE11 does not support CSS variables natively, stencil does however provide a best-effort polyfill since it's impossible to polyfill CSS features in the same way JS can be polyfilled.
 
-The stencil polyfill for CSS variables has plenty of limitations with respect a browser supporting it natively, and incours in heavy performance overhead.
+The stencil polyfill for CSS variables has plenty of limitations with respect a browser supporting it natively, and incurs in heavy performance overhead.
 
 - Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
 - Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
