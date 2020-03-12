@@ -16,7 +16,7 @@
     "start": "stencil build --dev --watch --serve --next"
   },
   "devDependencies": {
-    "@stencil/core": "1.9.0-13",
+    "@stencil/core": "1.9.2",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
     "@types/fs-extra": "^8.0.0",
