@@ -128,7 +128,7 @@ The stencil polyfill for CSS variables has plenty of limitations with respect a 
 
 - Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
 - Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
-- CSS variables within a component can ONLY be defined withing a `:host(...)` selector.
+- CSS variables within a component can ONLY be defined within a `:host(...)` selector.
 ```css
 :host() {
   /* This works */
@@ -146,6 +146,6 @@ The stencil polyfill for CSS variables has plenty of limitations with respect a 
 
 - CSS variables within a component can be consumed (`var(--thing)`) in any selector.
 
-The performance overhead of using CSS variables in IE11 is elevated in terms of CPU time and memory. This is because in order to "simulate" the dynamic nature of CSS variables, the polyfill needs to dynamically generate a different stylesheet PER instance, ie, if you have 200 `my-cmp` elements in the DOM, the polyfill will attach 200 analogous `<style>` to style each element.
+The performance overhead of using CSS variables in IE11 is elevated in terms of CPU time and memory. This is because in order to "simulate" the dynamic nature of CSS variables, the polyfill needs to dynamically generate a different stylesheet PER instance. For example, if you have 200 `my-cmp` elements in the DOM, the polyfill will attach 200 analogous `<style>` tags to style each element.
 
-The total amount of stylesheets to handle by IE11 will grow easily, consuming a lot of memory and requiring a lot of CPU for each Style Invalidation.
+The total amount of stylesheets to be handled by IE11 can quickly grow, consuming a lot of memory and requiring a lot of CPU for each Style Invalidation.
