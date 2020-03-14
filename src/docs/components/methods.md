@@ -53,23 +53,23 @@ Stencil's architecture is async at all levels which allows for many performance 
 ```tsx
 // VALID: using Promise.resolve()
 @Method()
-myMethod2() {
+myMethod() {
   return Promise.resolve(42);
 }
 
-// VALID: even if it returns nothing, it needs to be async
+// VALID: even if it returns nothing, it needs to be asynchronous
 @Method()
 async myMethod3() {
   console.log(42);
 }
 
-// INVALID
+// INVALID: must use "async" keyword or return Promise
 @Method()
 notOk() {
   return 42;
 }
 
-// INVALID
+// INVALID: must return Promise
 @Method()
 async myMethod() {
   return 42;
