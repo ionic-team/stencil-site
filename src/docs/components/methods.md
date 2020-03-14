@@ -51,12 +51,6 @@ Stencil's architecture is async at all levels which allows for many performance 
 
 
 ```tsx
-// VALID: using async
-@Method()
-async myMethod() {
-  return 42;
-}
-
 // VALID: using Promise.resolve()
 @Method()
 myMethod2() {
@@ -72,6 +66,12 @@ async myMethod3() {
 // INVALID
 @Method()
 notOk() {
+  return 42;
+}
+
+// INVALID
+@Method()
+async myMethod() {
   return 42;
 }
 ```
