@@ -77,7 +77,7 @@ notOk() /* returnType: number */ {
 
 // ERROR: ts(1064) The return type of an async function or method must be the global Promise<T> type.
 @Method()
-notOk2(): number {
+async notOk2(): number {
   return 42;
 }
 ```
