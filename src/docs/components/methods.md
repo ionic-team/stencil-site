@@ -51,13 +51,19 @@ Stencil's architecture is async at all levels which allows for many performance 
 
 
 ```tsx
+// VALID: using "async" keyword
+@Method()
+async myMethod() /* returnType: Promise<number> */ {
+  return 42;
+}
+
 // VALID: using Promise.resolve()
 @Method()
-myMethod() {
+myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: even if it returns nothing, it needs to be asynchronous
+// VALID: even if it returns nothing, it needs to be async
 @Method()
 async myMethod3() {
   console.log(42);
@@ -65,13 +71,13 @@ async myMethod3() {
 
 // INVALID: must use "async" keyword or return Promise
 @Method()
-notOk() {
+notOk() /* returnType: number */ {
   return 42;
 }
 
-// INVALID: must return Promise
+// ERROR: ts(1064) The return type of an async function or method must be the global Promise<T> type.
 @Method()
-async myMethod() {
+notOk2(): number {
   return 42;
 }
 ```
