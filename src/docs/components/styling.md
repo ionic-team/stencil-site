@@ -128,7 +128,7 @@ The stencil polyfill for CSS variables has plenty of limitations with respect a 
 
 - Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
 - Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
-- CSS variables within a component can ONLY be defined withing a `:host(...)` selector.
+- CSS variables within a component can ONLY be defined within a `:host(...)` selector.
 ```css
 :host() {
   /* This works */
