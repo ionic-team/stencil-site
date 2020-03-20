@@ -12,7 +12,7 @@ contributors:
 ---
 # React
 
-With an application built using the `create-react-app` script the easiest way to include the component library is to call `defineCustomElements(window)` from the `index.js` file.
+With an application built using the `create-react-app` script the easiest way to include the component library is to call `defineCustomElements()` from the `index.js` file.
 Note that in this scenario `applyPolyfills` is needed if you are targeting Edge or IE11.
 
 ```tsx
@@ -30,7 +30,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 
 applyPolyfills().then(() => {
-  defineCustomElements(window);
+  defineCustomElements();
 });
 ```
 
