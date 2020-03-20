@@ -34,7 +34,7 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
   <script type="module">
     import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/loader';
     applyPolyfills().then(() => {
-      defineCustomElements(window);
+      defineCustomElements();
     });
   </script>
 </head>

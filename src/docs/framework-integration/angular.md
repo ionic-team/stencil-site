@@ -16,7 +16,7 @@ contributors:
 Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:
 
 1. Include the `CUSTOM_ELEMENTS_SCHEMA` in the modules that use the components.
-2. Call `defineCustomElements(window)` from `main.ts` (or some other appropriate place).
+2. Call `defineCustomElements()` from `main.ts` (or some other appropriate place).
 
 ## Including the Custom Elements Schema
 
@@ -61,7 +61,7 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
-defineCustomElements(window);
+defineCustomElements();
 ```
 
 ## Edge and IE11 polyfills
@@ -72,7 +72,7 @@ If you want your custom elements to be able to work on older browsers, you shoul
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
 applyPolyfills().then(() => {
-  defineCustomElements(window)
+  defineCustomElements()
 })
 
 ```

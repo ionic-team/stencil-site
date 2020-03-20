@@ -35,7 +35,7 @@ Vue.config.ignoredElements = [/test-\w*/];
 
 // Bind the custom elements to the window object
 applyPolyfills().then(() => {
-  defineCustomElements(window);
+  defineCustomElements();
 });
 
 new Vue({
