@@ -47,12 +47,17 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 ## Other
 
-- Host
-- h
-- getAssetPath
-- readTask
-- writeTask
+- [**Host**](host-element): Host is a functional component can be used at the root of the render function to set attributes and event listeners to the host element itself.
+
+- [**h()**](templating-jsx): It's used within the `render()` to turn the JSX into Virtual DOM elements.
+
+- [**readTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-read task. The provided callback will be executed in the best moment to perform DOM reads without causing layout thrashing.
+
+- [**writeTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-write task. The provided callback will be executed in the best moment to perform DOM mutations without causing layout thrashing.
+
+- **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not syncronous and might perform the DOM render in the next frame.
+
+- getAssetPath()
 - setMode()
 - getMode()
 - getElement()
-- JSX

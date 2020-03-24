@@ -18,17 +18,17 @@ export class NewsletterSignup {
 
   handleSubmit(ev: any) {
     ev.preventDefault();
-    const email = this.email;
+    // const email = this.email;
     this.isLoading = true;
 
-    const _hsq = (window as any)['_hsq'] = (window as any)['_hsq'] || [];
-    _hsq.push(["identify",{
-      email: email
-    }]);
-     _hsq.push(["trackEvent", {
-        id: "Signed up for Stencil newsletter",
-        value: true
-    }]);
+    // const _hsq = (window as any)['_hsq'] = (window as any)['_hsq'] || [];
+    // _hsq.push(["identify",{
+    //   email: email
+    // }]);
+    //  _hsq.push(["trackEvent", {
+    //     id: "Signed up for Stencil newsletter",
+    //     value: true
+    // }]);
 
     // Send
     var xhr = new XMLHttpRequest();
@@ -111,6 +111,7 @@ export class NewsletterSignup {
                     disabled={this.isLoading}
                     placeholder="Email address"
                     class={this.isValid ? '' : 'error'}
+                    aria-label="Email"
                     required />
                   <button
                     class="btn btn--primary"

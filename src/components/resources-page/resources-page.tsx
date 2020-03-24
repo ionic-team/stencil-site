@@ -107,7 +107,8 @@ const LINKS = {
     { title: 'stencil-flip-images: Awesome animated image gallery', url: 'https://github.com/jepiqueau/stencil-flip-images'},
     { title: 'd3-stencil: Charts built with D3 and Stencil. Framework-agnostic, simple.', url: 'https://d3-stencil.dev'},
     { title: 'Animatable: Animate any HTML Element using Web Animations API in a declarative way! 💅', url: 'https://proyecto26.github.io/animatable-component'},
-    { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser'}
+    { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser'},
+    { title: 'Stace Editor: 📖 A web component wrapper for Ace Editor, using Stencil + brace', url: 'https://github.com/jeanbenitez/stace-editor'}
   ],
   TOOLS: [
     { title: 'xLayers Lite', url: 'https://github.com/xlayers/xlayers-lite' },
@@ -138,6 +139,7 @@ const LINKS = {
     { title: "Webkomponenten mit Stencil – Ein erster Überblick (in German)", url: 'https://www.datacodedesign.de/webkomponenten-mit-stencil-ein-erster-ueberblick/' },
     { title: 'Stencil’e Giriş (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencile-giri%C5%9F-41e90e37595d' },
     { title: 'Stencil’de Bileşenler Arası Haberleşme (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9' },
+    { title: 'Stencil Bileşen Yaşam Döngüsü (in Turkish)', url: 'https://medium.com/@selcukkutuk/bilesen-yasam-dongusu-c53dc42c2384' },
     { title: 'Stencil Tricks - A collection of community-written articles on how to do awesome things in Stencil JS', url: 'https://medium.com/stencil-tricks' }
   ],
   VIDEOS: [

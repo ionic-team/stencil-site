@@ -50,7 +50,5 @@ contributor-list .img-wrapper {
 contributor-list img {
   border: solid 2px var(--background);
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
   border: 2px solid #FFF;
 }

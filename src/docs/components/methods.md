@@ -27,9 +27,14 @@ export class TodoList {
 
 Call the method like this:
 
+> Developers should ensure that the component is defined by using the whenDefined method of the custom element registry before attempting to call public methods.
+
 ```tsx
-const todoListElement = document.querySelector('todo-list');
-todoListElement.showPrompt();
+(async () => {
+  await customElements.whenDefined('todo-list');
+  const todoListElement = document.querySelector('todo-list');
+  await todoListElement.showPrompt();
+})();
 ```
 
 ## Public methods must be async
@@ -58,7 +63,7 @@ myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: even it returns nothing, it needs to be async
+// VALID: even if it returns nothing, it needs to be async
 @Method()
 async myMethod3() {
   console.log(42);
@@ -73,7 +78,7 @@ notOk() {
 
 ## Private methods
 
-Non-public methods can still be used to organize the businness logic of your component and they do NOT have to return a Promise.
+Non-public methods can still be used to organize the business logic of your component and they do NOT have to return a Promise.
 
 ```tsx
 class Component {
