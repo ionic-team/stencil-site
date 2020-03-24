@@ -232,13 +232,13 @@ export class Something {
    */
   @Method()
   async open(): Promise<boolean> {
-    ...
+    // ...
     return true;
   }
 
   @Method()
   async close(): Promise<void> {
-    ...
+    // ...
   }
 
   /**
@@ -247,11 +247,11 @@ export class Something {
    * called from the host element.
    */
   prepareAnimation(): Promise<void> {
-    ...
+    // ...
   }
 
   updateState() {
-    ...
+    // ...
   }
 
   /**
