@@ -33,6 +33,57 @@ Another option would be to add the flag `--docs-readme`, such as:
 stencil build --docs-readme
 ```
 
-### Adding Custom Markdown to Auto-Generated Files
+## Adding Custom Markdown to Auto-Generated Files
 
 Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
+
+## Custom Footer
+
+Removing or customizing the footer can be done by adding a `footer` property to the output target. Markdown can be used to enhance the footer if needed.
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    { 
+      type: 'docs-readme',
+      footer: '*Built with love!*',
+    }
+  ]
+};
+```
+
+## Generating to a Directory
+
+By default, a readme file will be generated in its corresponding component directory. This behavior can be changed through the `dir` property of the output target configuration. Specifying a directory will create the structure `{dir}/{component}/readme.md`.
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    { 
+      type: 'docs-readme',
+      dir: 'output'
+    }
+  ]
+};
+```
+
+## Strict Mode
+
+Adding `strict: true` to the output target configuration will cause Stencil to output a warning whenever the project is built with missing documentation.
+
+```tsx
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    { 
+      type: 'docs-readme',
+      strict: true
+    }
+  ]
+};
+```

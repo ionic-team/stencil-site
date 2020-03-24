@@ -9,7 +9,7 @@ contributors:
 
 # Local Assets
 
-Components usually need assets, such as images, videos or any kind of data files, Stencil includes certain features, so make this task easy.
+Components usually need assets, such as images, videos or any kind of data files, Stencil includes certain features to make this task easy.
 
 ## Component's assetsDirs
 
@@ -43,7 +43,7 @@ export class StencilAsset {
   @Prop() image = "sunset.jpg";
 
   render() {
-    <img src={getAssetPath(`./assets/${this.image}`)} />
+   return <img src={getAssetPath(`./assets/${this.image}`)} />
   }
 }
 ```

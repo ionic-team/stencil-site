@@ -61,6 +61,7 @@ export interface PropOptions {
   attribute?: string;
   mutable?: boolean;
   reflect?: boolean;
+}
 ```
 
 ### Prop mutability
