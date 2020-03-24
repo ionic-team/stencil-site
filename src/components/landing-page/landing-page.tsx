@@ -30,8 +30,8 @@ export class LandingPage {
             <announcement-bar></announcement-bar>
             <h1>構築. 再利用性. 導入. </h1>
             <p>Stencilは、再利用可能でスケーラブルなデザインシステムを構築するためのツールチェーンです。あらゆるブラウザで動作する、小型で高速かつ100%標準ベースのWebコンポーネントを生成します。</p>
-            <yahr-button href="/docs/getting-started">はじめよう</yahr-button>
-            <yahr-button variant="secondary" href="/docs/introduction">なぜStencilか</yahr-button>
+            <stencil-route-link url="/docs/getting-started" class="hero-button" anchorClass="btn-get-started">Get started</stencil-route-link>
+            <stencil-route-link url="/docs/introduction" class="hero-button" anchorClass="btn-why-stencil">Why Stencil?</stencil-route-link>
           </hgroup>
           <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF"/>
@@ -260,13 +260,17 @@ export class LandingPage {
             <h2><strong>The Stencil story</strong></h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div class="videos">
-              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+              <a href="https://youtu.be/RZ6MLELGsD8" class="video-thumbnail video-thumbnail--architecting">
                 <app-icon name="play"/>
-                <span>Watch launch video</span>
+                <span>Architecting A Component Compiler</span>
               </a>
               <a href="https://youtu.be/M1F81V-NhP0" class="video-thumbnail video-thumbnail--announcement">
                 <app-icon name="play"/>
                 <span>See the v1 announcement</span>
+              </a>
+              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+                <app-icon name="play"/>
+                <span>Watch launch video</span>
               </a>
             </div>
           </div>

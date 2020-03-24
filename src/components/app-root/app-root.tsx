@@ -2,8 +2,6 @@ import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
-import '@stencil/yahara';
-
 
 @Component({
   tag: 'app-root',
@@ -21,7 +19,6 @@ export class AppRoot {
   @Element() el!: HTMLElement;
 
   @State() isLeftSidebarIn: boolean = false;
-  @State() isModalOpen: boolean = false;
 
   @Listen('resize', { target: 'window' })
   handleResize() {
@@ -36,11 +33,6 @@ export class AppRoot {
     });
   }
 
-  @Listen('toggleModal')
-  handleToggleModal(ev: CustomEvent) {
-    this.isModalOpen = ev.detail;
-  }
-
   private setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
@@ -49,8 +41,8 @@ export class AppRoot {
         (window as any).gtag('config', 'UA-44023830-34', { 'page_path': location.pathname + location.search });
 
         // Hubspot
-        (window as any)._hsq.push(['setPath', location.pathname + location.search ]);
-        (window as any)._hsq.push(['trackPageView']);
+        // (window as any)._hsq.push(['setPath', location.pathname + location.search ]);
+        // (window as any)._hsq.push(['trackPageView']);
       });
     }
   }
@@ -120,17 +112,17 @@ export class AppRoot {
                 <p>© 2019 StencilJS.  Released under MIT License</p>
                 <ul class="external-links list--unstyled">
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
                       <app-icon name="twitter"></app-icon>
                     </a>
                   </li>
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://stencil-worldwide.herokuapp.com" aria-label="Slack">
                       <app-icon name="slack"></app-icon>
                     </a>
                   </li>
                   <li>
-                    <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil">
+                    <a rel="noopener" class="link--external" target="_blank" href="https://github.com/ionic-team/stencil" aria-label="Github">
                       <app-icon name="github"></app-icon>
                     </a>
                   </li>
@@ -138,8 +130,6 @@ export class AppRoot {
               </div>
             </div>
           </footer>
-
-          <hubspot-modal active={this.isModalOpen}/>
         </main>
       </SiteProviderConsumer.Provider>
     );

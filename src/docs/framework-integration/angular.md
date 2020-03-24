@@ -16,11 +16,11 @@ contributors:
 Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:
 
 1. Include the `CUSTOM_ELEMENTS_SCHEMA` in the modules that use the components.
-2. Call `defineCustomElements(window)` from `main.ts` (or some other appropriate place).
+2. Call `defineCustomElements()` from `main.ts` (or some other appropriate place).
 
 ## Including the Custom Elements Schema
 
-Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web components in the HTML markup without the compiler producing errors this code should be added into the `AppModule` and in every other modules that use your custom elements.  
+Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web components in the HTML markup without the compiler producing errors. This code should be added into the `AppModule` and in every other modules that use your custom elements.  
 Here is an example of adding it to `AppModule`:
 
 ```tsx
@@ -52,8 +52,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-// Note: loader import location set using "esmLoaderPath" within the output target confg
-import { defineCustomElements } from 'test-components/dist/loader';
+// Note: loader import location set using "esmLoaderPath" within the output target config
+import { defineCustomElements } from 'test-components/loader';
 
 if (environment.production) {
   enableProdMode();
@@ -61,17 +61,18 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
-defineCustomElements(window);
+defineCustomElements();
 ```
 
 ## Edge and IE11 polyfills
 
-If you want your custom elements to be able to work on older browser, you should add the `applyPolyfills()` that surrond the `defineCustomElements()` function.
+If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+
 ```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
 applyPolyfills().then(() => {
-  defineCustomElements(window)
+  defineCustomElements()
 })
 
 ```

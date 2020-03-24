@@ -36,7 +36,7 @@ export class TodoList {
 
 The code above will dispatch a custom DOM event called `todoCompleted`.
 
-The `Event(opts: EventOptions)` decorator optionally accepts an options object to shape the behavior of dispatched events. The options and defaults are described below
+The `Event(opts: EventOptions)` decorator optionally accepts an options object to shape the behavior of dispatched events. The options and defaults are described below.
 
 ```tsx
 export interface EventOptions {
@@ -122,7 +122,7 @@ The available options are `target`, `capture` and `passive`:
 Handlers can also be registered for an event other than the host itself.
 The `target` option can be used to change where the event listener is attached, this is useful for listening to application-wide events.
 
-In the example below, we're going to listen for the scroll event, emited from `window`:
+In the example below, we're going to listen for the scroll event, emitted from `window`:
 
 ```tsx
   @Listen('scroll', { target: 'window' })
@@ -131,18 +131,18 @@ In the example below, we're going to listen for the scroll event, emited from `w
   }
 ```
 
-### passive
+#### passive
 
-By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. Using the `passive` option can be used to change the default behaviour.
+By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. The `passive` option can be used to change the default behaviour.
 
 Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
 
 
-### capture
+#### capture
 
 Event listener attached with `@Listen` does not "capture" by default.
-When a event listener is set to "capture", means the event will be dispatched during the "capture phase",
-check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html) for further information.
+When a event listener is set to "capture", it means the event will be dispatched during the "capture phase".
+Check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html) for further information.
 
 
 ```tsx
@@ -164,14 +164,14 @@ handleKeyDown(ev: KeyboardEvent){
   }
 }
 ```
-More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values);
+More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 
 ## Using events in JSX
 
 Within a stencil compiled application or component you can also bind listeners to events directly in JSX. This works very similar to normal DOM events such as `onClick`.
 
-Lets use our TodoList component from above:
+Let's use our TodoList component from above:
 
 ```tsx
 import { Event, EventEmitter } from '@stencil/core';

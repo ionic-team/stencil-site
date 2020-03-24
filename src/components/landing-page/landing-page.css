@@ -32,11 +32,45 @@ landing-page .hero hgroup p {
   margin-bottom: 32px;
 }
 
-landing-page .hero hgroup yahr-button {
+.btn-get-started,
+.btn-why-stencil {
+  transition: all ease 0.15s;
+  text-decoration: none;
+  color: inherit;
   display: inline-block;
+  padding: 20px;
+  border-radius: 6px;
+  color: white;
+  background: rgb(76, 72, 255);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.56px;
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 2px 4px 0px, rgba(2, 8, 20, 0.08) 0px 1px 2px 0px;;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
 }
 
-landing-page .hero hgroup yahr-button + yahr-button {
+.btn-get-started:hover,
+.btn-why-stencil:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 8px rgba(2,8,20,0.1),0px 2px 4px rgba(2,8,20,0.08);
+}
+
+.btn-why-stencil {
+  background: white;
+  color: rgb(76, 72, 255);
+}
+
+landing-page .hero stencil-route-link + stencil-route-link {
   margin-left: 10px;
 }
 
@@ -97,6 +131,7 @@ landing-page .cta__primary h3 {
 landing-page .cta__primary code {
   font-size: 16px;
   padding: 19px 26px 19px;
+  user-select: none;
   border-radius: 8px;
   background-color: #161525;
   color: #E0E0F1;
@@ -278,7 +313,6 @@ landing-page .video-thumbnail::before {
   display: block;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/img/video-thumbnail.png');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 6px;
@@ -289,6 +323,10 @@ landing-page .video-thumbnail::before {
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+landing-page .video-thumbnail--architecting::before {
+  background-image: url('/assets/img/video-thumbnail-3.png');
 }
 
 landing-page .video-thumbnail--launch::before {
@@ -406,12 +444,12 @@ landing-page .video-thumbnail:hover svg circle {
 
 
 @media screen and (max-width: 375px) {
-  landing-page .hero hgroup stencil-route-link,
-  landing-page .hero hgroup stencil-route-link a {
+  landing-page .hero hgroup .hero-button,
+  landing-page .hero hgroup .hero-button a {
     width: 100%;
     display: block;
   }
-  landing-page .hero hgroup stencil-route-link + stencil-route-link {
+  landing-page .hero hgroup .hero-button + .hero-button {
     margin-left: 0;
     margin-top: 12px;
   }

@@ -70,14 +70,14 @@ Below is an example folder structure containing a webapp's global css file, name
 ```bash
 src/
   components/
-  globals/
+  global/
     app.css
 ```
 
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
 ```tsx
-globalStyle: 'src/globals/app.css'
+globalStyle: 'src/global/app.css'
 ```
 
 
@@ -161,3 +161,8 @@ The `excludeSrc` config setting specifies a set of regular expressions that shou
 ## testing
 
 Please see the [testing config docs](/docs/testing-config).
+
+
+## extras
+
+Please see the [Extras docs](/docs/config-extras).

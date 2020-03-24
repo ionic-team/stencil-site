@@ -24,7 +24,7 @@ Assuming you’ve run `npm install --save test-components` beforehand, and that 
 import Vue from 'vue';
 import App from './App.vue';
 
-import { applyPolyfills, defineCustomElements } from 'test-components/dist/loader';
+import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 
 Vue.config.productionTip = false;
 
@@ -35,7 +35,7 @@ Vue.config.ignoredElements = [/test-\w*/];
 
 // Bind the custom elements to the window object
 applyPolyfills().then(() => {
-  defineCustomElements(window);
+  defineCustomElements();
 });
 
 new Vue({
