@@ -6,6 +6,7 @@ contributors:
   - adamdbradley
   - ryan3E0
   - dgautsch
+  - shreeshbhat
 ---
 
 # Prerendering
@@ -25,7 +26,21 @@ For an example of what this looks like, right-click on this page and hit the Vie
 
 ## Enabling Prerender Builds
 
-By default, dev and prod builds do not perform prerendering since not all projects require it. During prod builds, to enable prerendering simply add the `--prerender` CLI flag:
+By default, dev and prod builds do not perform prerendering since not all projects require it. 
+
+After v1.9.0:
+
+You can run a prerender task after doing a `stencil build` by running the following command:
+
+```bash
+stencil prerender path/to/prerender/index.js
+```
+
+The reason behind separating out the two commands is that `index.js` need not be rebuilt every time.
+
+Before v1.9.0:
+
+During prod builds, to enable prerendering simply add the `--prerender` CLI flag:
 
 ```bash
 stencil build --prerender
