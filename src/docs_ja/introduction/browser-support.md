@@ -9,9 +9,8 @@ contributors:
   - arjunyel
 ---
 
-# Browser Support
+# ブラウザサポート
 
-Stencil builds Web Components that run natively or near-natively in all widely used desktop and mobile browsers.
 Stencilは、主要なデスクトップブラウザ、または、モバイルブラウザで、ネイティブ、または、ほぼネイティブとして動作するWebコンポーネントを構築します。
 
 <div class="bs-chart">
@@ -51,18 +50,13 @@ Stencilは、主要なデスクトップブラウザ、または、モバイル�
   </div>
 </div>
 
-Web Components are a set of standardized browser APIs centered around the Custom Elements v1 spec, a cross-browser way to define and create essentially new HTML tags, and is the successor to the now-defunct v0 spec.
-Webコンポーネントとは、Custom Elements v1の仕様を中心とした、標準化されたブラウザAPIのセットであり、本質的に新しいHTMLタグを定義、および作成するクロスブラウザの方法であり、現在は廃止されたv0仕様の後継です。
+Webコンポーネントとは、Custom Elements v1の仕様を中心とした、標準化されたブラウザAPIのセットであり、本質的に新しいHTMLタグを定義、および作成するクロスブラウザの方法です。Custom Elements v1は、現在は廃止されたv0仕様の後継です。
 
-Custom Elements are natively supported in Chrome, Firefox, and Safari (including iOS)! Support in Edge is currently in development.
-カスタムエレメントは、Chrome、Firefox、Safari（iOSを含む）で、ネイティブにサポートされています。Edgeのサポートは現在開発中です。
+カスタムエレメントは、Chrome、Firefox、Safari（iOSを含む）で、サポートされています。Edgeは現在開発中です。
 
-For browsers without native support, a small polyfill helps developers use Custom Elements seamlessly and with little performance overhead.
-ネイティブサポートのないブラウザの場合、小さなポリフィルは、開発者がパフォーマンスのオーバーヘッドを最小限に抑えて、シームレスにカスタムエレメントを使用するのに役立ちます。
+サポートがないブラウザの場合、ポリフィル(小サイズ！)によりカスタムエレメントを利用できます。このポリフィルは、パフォーマンスのオーバーヘッドを最小限に抑えて、シームレスにカスタムエレメントを使用するのに役立ちます。
 
-
-Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil's browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.
-Stencilは、それを必要とするブラウザ上でのみ、カスタム要素ポリフィルをロードするためにダイナミックローダーを使用します。このポリフィルでStencilのブラウザは、Chrome（すべてのChromeベースのブラウザ）、Safari、Firefox、Edge、IE11をサポートしています。
+Stencilは、ダイナミックローダーを使用して、ポリフィルを必要とするブラウザ上でのみ、カスタムエレメントのポリフィルをロードします。このポリフィルで、Stencilは、Chrome（および、すべてのChromeベースのブラウザ）、Safari、Firefox、Edge、IE11をサポートしています。
 
 |                  | Chrome 60+                             | Safari 10.1+                              | Firefox 63+                            | Edge 16+                               | IE 11+                                 |
 | ---------------- | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: |
