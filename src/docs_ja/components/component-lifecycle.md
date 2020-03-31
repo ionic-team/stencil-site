@@ -1,23 +1,23 @@
 ---
-title: Component Lifecycle Methods
-description: Component Lifecycle Methods
+title: コンポーネントライフサイクル
+description: コンポーネントライフサイクル
 url: /docs/component-lifecycle
 contributors:
   - jthoms1
 ---
 
-# Component Lifecycle Methods
+# コンポーネントのライフサイクル関数
 
-Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and unload. These methods can be added to a component to hook into operations at the right time.
+Stencilのコンポーネントには、多数のライフサイクルメソッドがあり、コンポーネントのロード、更新、アンロードのタイミングを知るために使用できます。これらのメソッドをコンポーネントに追加すれば、適切なタイミングで、任意の操作を行えます。
 
-Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
+コンポーネントクラス内で、次に紹介するメソッドを使用すると、Stencilはそれらを正しい順序で自動的に呼び出します。
 
 ## connectedCallback()
 
-Called every time the component is connected to the DOM.
-When the component is first connected, this method is called before `componentWillLoad`.
+コンポーネントがDOMに接続されるたびに、呼び出されます。
+コンポーネントが最初に接続されたとき、このメソッドは `componentWillLoad`の前に呼び出されます。
 
-It's important to note that this method can be called more than once, everytime, the element is **attached** or **moved** in the DOM.
+このメソッドは、DOM内で要素が、**attached**または、**move**されるたびに、複数回呼び出されるので注意してください。
 
 ```tsx
 const el = document.createElement('my-cmp');
@@ -32,50 +32,50 @@ document.body.appendChild(el);
 // connectedCallback() called again, but `componentWillLoad` is not.
 ```
 
-It's a good practice to use this hook
+これは、このメソッドの素晴らしい使用例です！
 
 
-This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+この `lifecycle`フックは、[Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)で説明されているものと、同じセマンティクスに従います。
 
 ## disconnectedCallback()
 
-Called every time the component is disconnected from the DOM, ie, it can be dispatched more than once, DO not confuse with a "onDestroy" kind of event.
+コンポーネントが、DOMから切断されるたびに呼び出されます。つまり、コンポーネントが複数回ディスパッチされる可能性があり、"onDestroy"のイベントと混同しないでください。
 
-This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
+この `lifecycle`フックは、[Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)で説明されているものと同じセマンティクスに従います。
 
 ## componentWillLoad()
 
-Called once just after the component is first connected to the DOM.
-A promise can be returned, that can be used to wait for the first render.
+コンポーネントが、最初にDOMに接続された直後に、1回だけ呼び出されます。
+promiseを返すことができ、最初のレンダリングを待つために使用できます。
 
 ## componentDidLoad()
 
-Called once just after the component fully loaded and the first `render()` occurs.
+コンポーネントが完全に読み込まれ、最初の `render（）`が発生した直後に1回呼び出されます。
 
 ## componentWillRender()
 
-Called before every `render()`.
+すべての `render()`の前に呼び出されます。
 
-A promise can be returned, that can be used to wait for the upcoming render.
+promiseを返すことができ、今後のレンダリングを待機するために使用できます。
 
 
 ## componentDidRender()
 
-Called after every `render()`.
+すべての `render()`の後に呼び出されます。
 
 
 ## componentWillUpdate()
 
-Called when the component is about to be updated because some `Prop()` or `State()` changed.
-It's never called during the first `render()`.
+一部の `Prop()`または `State()`が変更されたために、コンポーネントが更新されようとしているときに呼び出されます。
+最初の `render()`の間に呼び出されることはありません。
 
-A promise can be returned, that can be used to wait for the next render.
+promiseを返すことができ、次のレンダリングを待つために使用できます。
 
 
 ## componentDidUpdate()
 
-Called just after the component updates.
-It's never called during the first `render()`.
+コンポーネントが更新された直後に呼び出されます。
+最初の `render()`の間に呼び出されることはありません。
 
 
 <svg viewBox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
@@ -129,20 +129,20 @@ It's never called during the first `render()`.
   </g>
 </svg>
 
-## Rendering State
+## レンダリングの状態
 
-It's always recommended to make any rendered state updates within `componentWillLoad()` or `componentWillUpdate()`, since these are the methods which get called _before_ the `render()` method. Alternatively, updating rendered state with the `componentDidLoad()` or `componentDidUpdate()` methods will cause another re-render, which isn't ideal for performance.
+レンダリングされた状態を更新する場合は、常に `componentWillLoad()` または `componentWillUpdate()` メソッド内で行うことをお勧めします。また、 `componentDidLoad()`メソッドや、 `componentDidUpdate()`メソッドを使用してレンダリングされた状態を更新すると、別の再レンダリングが発生しますが、これはパフォーマンスにとって理想的ではありません。
 
-If state _must_ be updated in `componentDidUpdate()`, it has the potential of getting components stuck in an infinite loop. If updating state within `componentDidUpdate()` is unavoidable, then the method should also come with a way to detect if the props or state is "dirty" or not (is the data actually different or is it the same as before). By doing a dirty check, `componentDidUpdate()` is able to avoid rendering the same data, and which in turn calls `componentDidUpdate()` again.
+`componentDidUpdate()`で状態を更新する必要がある場合、コンポーネントが無限ループに陥る可能性があります。 もし、`componentDidUpdate()` 内で状態を更新することが避けられないなら、そのメソッドは、propsや状態が"ダーティ"であるかどうか（データが実際に違うのか、以前と同じなのか）を検出する方法を持っていなければいません。ダーティーチェックを行うことで、 `componentDidUpdate()`は同じデータをレンダリングすることを回避できます。
 
 
-## Lifecycle Hierarchy
+## ライフサイクルヒエラルキー
 
-A useful feature of lifecycle methods is that they take their child component's lifecycle into consideration too. For example, if the parent component, `cmp-a`, has a child component, `cmp-b`, then `cmp-a` isn't considered "loaded" until `cmp-b` has finished loading. Another way to put it is that the deepest components finish loading first, then the `componentDidLoad()` calls bubble up.
+ライフサイクルメソッドの便利な機能は、子コンポーネントのライフサイクルも考慮に入れていることです。たとえば、親コンポーネントの"cmp-a"に子コンポーネントの"cmp-b"がある場合、"cmp-a"は"cmp-b"のロードが完了するまで"ロードされた"とは見なされません。別の言い方をすれば、最も深いコンポーネントが最初にロードを終えてから、 `componentDidLoad()`の呼び出しが始まるということです。
 
-It's also important to note that even though Stencil can [lazy-load components](/blog/how-lazy-loading-web-components-work), and has asynchronous rendering, the lifecycle methods are still called in the correct order. So while the top-level component could have already been loaded, all of its lifecycle methods are still called in the correct order, which means it'll wait for a child components to finish loading. The same goes for the exact opposite, where the child components may already be ready while the parent isn't.
+また、Stencilが[lazy-load components](/blog/how-lazy-loading-web-components-work)を実行できて、非同期レンダリングを持っていても、ライフサイクルメソッドは、正しい順序で呼び出されることに、注意が必要です。つまり、トップレベルのコンポーネントは、すでにロードされてる可能性がありますが、すべてのライフサイクルメソッドは、正しい順序で呼び出されます。これは、子コンポーネントの読み込みが完了するまで待機することを意味します。同じことがまったく逆の場合にも当てはまります。つまり、子コンポーネントはすでに準備されているが、親コンポーネントは準備ができていない場合があります。
 
-In the example below we have a simple hierarchy of components. The numbered list shows the order of which the lifecycle methods will fire.
+以下の例では、コンポーネントの単純な階層構造を示しています。番号付きリストは、ライフサイクルメソッドが起動する順番を示します。
 
 ```markup
   <cmp-a>
@@ -159,14 +159,14 @@ In the example below we have a simple hierarchy of components. The numbered list
 5. `cmp-b` - `componentDidLoad()`
 6. `cmp-a` - `componentDidLoad()`
 
-Even if some components may or may not be already loaded, the entire component hierarchy waits on its child components to finish loading and rendering.
+一部のコンポーネントが、既に読み込まれている場合と、読み込まれていない場合でも、コンポーネント階層全体は、その子コンポーネントの読み込みとレンダリングが完了するまで待機します。
 
 
-## Async Lifecycle Methods
+## 非同期ライフサイクルメソッド
 
-Lifecycle methods can also return promises which allows the method to asynchronously retrieve data or perform any async tasks. A great example of this is fetching data to be rendered in a component. For example, this very site you're reading first fetches content data before rendering. But because `fetch()` is async, it's important that `componentWillLoad()` returns a `Promise` to ensure its parent component isn't considered "loaded" until all of its content has rendered.
+ライフサイクル・メソッドはプロミスを返すこともでき、これによってメソッドは非同期的にデータを取得したり、非同期タスクを実行したりすることができます。これの例として、コンポーネントでレンダリングされるデータをフェッチすることが挙げられます。たとえば、あなたが読んでいるこのサイトでは、レンダリングの前にコンテンツデータをフェッチします。しかい、 `fetch()`は非同期であるため、すべてのコンテンツがレンダリングされるまで、親コンポーネントが"ロード済み"と見なされないようにするには、 `componentWillLoad()`が `Promise`を返すことが重要です。
 
-Below is a quick example showing how `componentWillLoad()` is able to have its parent component wait on it to finish loading its data.
+以下の例は、 `componentWillLoad()`が親コンポーネントに、データの読み込みが完了するのを待つ方法を示す簡単な例です。
 
 ```tsx
 componentWillLoad() {
@@ -179,9 +179,9 @@ componentWillLoad() {
 ```
 
 
-## Example
+## 例
 
-This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
+この簡単な例は、時計を示しており、1秒ごとに現在の時刻を更新します。 `componentDidLoad`は1回しか呼び出さないので、タイマーのインスタンスは一度しか実行されないことになります。コンポーネントがアンロードされると、タイマーが停止します。
 
 ```tsx
 import { Component, State, h } from '@stencil/core';
@@ -215,5 +215,5 @@ export class CustomClock {
 }
 ```
 
-> Here is the example running.  If you want to see it in action then just inspect it with dev tools.
+> 以下は実行例です。動作を確認したい場合は、開発ツールで調べてください。
 > <custom-clock/>
