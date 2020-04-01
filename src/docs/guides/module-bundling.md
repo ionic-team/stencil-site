@@ -12,7 +12,7 @@ contributors:
 
 # Module Bundling
 
-Stencil uses Rollup under the hood to bundle your components. This guide will explain and recommend certain workarounds for some of the most common bundling issues you might encounter.
+Stencil uses [Rollup](https://rollupjs.org/guide/en/) under the hood to bundle your components. This guide will explain and recommend certain workarounds for some of the most common bundling issues you might encounter.
 
 ## One Component Per Module
 
@@ -118,6 +118,29 @@ export const config = {
 
 For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/rollup-plugin-commonjs).
 
+
+## Custom Rollup plugins
+
+Stencil provides an API to pass custom rollup plugins to the bundling process in `stencil.config.ts`. Under the hood, stencil ships with some built-in plugins including `node-resolve` and `commonjs`, since the execution order of some rollup plugins is important, stencil provides an API to inject custom plugin **before node-resolve** and after **commonjs transform**:
+
+```tsx
+export const config = {
+  rollupPlugins: {
+    before: [
+      // Plugins injected before rollupNodeResolve()
+      resolvePlugin()
+    ],
+    after: [
+      // Plugins injected after commonjs()
+      nodePolyfills()
+    ]
+  }
+}
+```
+
+As a rule of thumb, plugins that need to resolve modules, should be place in `before`, while code transform plugins like: `node-polyfills`, `replace`... should be placed in `after`. Follow the plugin's documentation to make sure it's executed in the right order.
+
+
 ## Node Polyfills
 
 Depending on which libraries a project is dependent on, the [rollup-plugin-node-polyfills](https://www.npmjs.com/package/rollup-plugin-node-polyfills) plugin may be required. In such cases, an error message similar to the following will be displayed at build time.
@@ -137,7 +160,7 @@ This is caused by some third-party dependencies that use [Node APIs](https://nod
 npm install rollup-plugin-node-polyfills --save-dev
 ```
 
-### 2. Update the  `  stencil.config.ts  `  file including the plugin:
+### 2. Update the `stencil.config.ts` file including the plugin:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -145,11 +168,15 @@ import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
   namespace: 'mycomponents',
-  plugins: [
-    nodePolyfills(),
-  ]
+  rollupPlugins: {
+    after: [
+      nodePolyfills(),
+    ]
+  }
 };
 ```
+
+>NOTE: `rollup-plugin-node-polyfills` is a code-transform plugin, so it needs to run AFTER the commonjs transform plugin, that's the reason it's placed in the "after" array of plugins.
 
 ## Strict Mode
 

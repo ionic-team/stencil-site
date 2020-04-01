@@ -10,7 +10,9 @@ contributors:
 
 # Plugins
 
-The `plugins` config can be used to add your own [Rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the `plugins` array.
+## Stencil plugins
+
+By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the `plugins` array.
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -23,6 +25,26 @@ export const config: Config = {
 };
 ```
 
+## Rollup plugins
+
+The `rollupPlugins` config can be used to add your own [Rollup](https://rollupjs.org) plugins.
+Under the hood, stencil ships with some built-in plugins including `node-resolve` and `commonjs`, since the execution order of rollup plugins is important, stencil provides an API to inject custom plugin **before node-resolve** and after **commonjs transform**:
+
+
+```tsx
+export const config = {
+  rollupPlugins: {
+    before: [
+      // Plugins injected before rollupNodeResolve()
+      resolvePlugin()
+    ],
+    after: [
+      // Plugins injected after commonjs()
+      nodePolyfills()
+    ]
+  }
+}
+```
 
 ### Related Plugins
 
