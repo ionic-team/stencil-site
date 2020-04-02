@@ -12,7 +12,7 @@ The `extras` config contains options to add and remove runtime for DOM features 
 
 Many of the options are also available to remove unnecessary runtime your app does not need. For example, by default Stencil works on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. While modern browsers will not download and run the polyfills, there's still additional checks within the runtime in order to support legacy browsers. By using the `extras` config, apps can completely opt-out of the additional runtime.
 
-Example `extras` config when not supporting legacy browser:
+Example `extras` config when __not__ supporting legacy browsers:
 
 ```tsx
 export const config: Config = {
@@ -27,7 +27,7 @@ export const config: Config = {
 };
 ```
 
-Note: The `buildEs5` config was also set in the example. See the [buildEs5 config](/docs/config#buildes5) for more information.
+Note: `buildEs5: false` was also set in the config since this example does not need to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
 
 ### appendChildSlotFix
 
