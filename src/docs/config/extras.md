@@ -8,20 +8,26 @@ contributors:
 
 # Extras
 
-The `extras` config contains options to add additional runtime for DOM features that require manipulations to polyfills.
+The `extras` config contains options to add and remove runtime for DOM features that require manipulations to polyfills. For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
 
-For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+Many of the options are also available to remove unnecessary runtime your app does not need. For example, by default Stencil works on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. While modern browsers will not download and run the polyfills, there's still additional checks within the runtime in order to support legacy browsers. By using the `extras` config, apps can completely opt-out of the additional runtime.
 
-Example usage:
+Example `extras` config when not supporting legacy browser:
 
 ```tsx
 export const config: Config = {
+  buildEs5: false,
   extras: {
-    appendChildSlotFix: true,
-    cssVarsShim: false
+    cssVarsShim: false,
+    dynamicImportShim: false,
+    safari10: false,
+    scriptDataOpts: false,
+    shadowDomShim: false
   }
 };
 ```
+
+Note: The `buildEs5` config was also set in the example. See the [buildEs5 config](/docs/config#buildes5) for more information.
 
 ### appendChildSlotFix
 
@@ -72,7 +78,7 @@ It is possible to assign data to the actual `<script>` element's `data-opts` pro
 
 ### shadowDomShim
 
-If enabled `true`, the runtime will check if the shadow dom shim is required. However, if it's determined that shadow dom is already natively supported by the browser then it does not request the shim. Setting to `false` will avoid all shadow dom tests. If the app does not need to support IE11 or Edge 18 it's recommended to set `shadowDomShim` to `false`. Defaults to `true`.
+If enabled `true`, the runtime will check if the shadow dom shim is required. However, if it's determined that shadow dom is already natively supported by the browser then it does not request the shim. Setting to `false` will avoid all shadow dom tests. If the app does not need to support IE11 or Edge 18 and below, it's recommended to set `shadowDomShim` to `false`. Defaults to `true`.
 
 ### slotChildNodesFix
 

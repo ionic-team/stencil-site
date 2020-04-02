@@ -27,9 +27,7 @@ export const config: Config = {
 
 ## buildEs5
 
-Sets if the ES5 build must be generated or not. It defaults to `false` in dev mode, and `true` in production mode. Notice that Stencil always generates a modern build too, this setting will just disable the additional `es5` build. Basically if the app does not
-need to run on IE11, it's safe to set `buildEs5` to `false`, which will also speed up
-production build times.
+Sets if the ES5 build should be generated or not. It defaults to `false` in dev mode, and `true` in production mode. Notice that Stencil always generates a modern build too, whereas this setting will either disable es5 builds entirely with `false`, or always create es5 builds (even in dev mode) when set to `true`. Basically if the app does not need to run on legacy browsers (IE11 and Edge 18 and below), it's safe to set `buildEs5` to `false`, which will also speed up production build times. In addition to not creating es5 builds, apps may also be interested in disabling any unnecessary runtime when support legacy browsers. See [config extras](/docs/config-extras) for more information.
 
 ```tsx
 buildEs5: false
