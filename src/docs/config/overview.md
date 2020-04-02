@@ -25,6 +25,16 @@ export const config: Config = {
 };
 ```
 
+## buildEs5
+
+Sets if the ES5 build must be generated or not. It defaults to `false` in dev mode, and `true` in production mode. Notice that Stencil always generates a modern build too, this setting will just disable the additional `es5` build. Basically if the app does not
+need to run on IE11, it's safe to set `buildEs5` to `false`, which will also speed up
+production build times.
+
+```tsx
+buildEs5: false
+```
+
 ## bundles
 
 By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
