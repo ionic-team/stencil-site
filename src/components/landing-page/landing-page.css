@@ -331,10 +331,12 @@ landing-page .video-thumbnail--architecting::before {
 
 landing-page .video-thumbnail--launch::before {
   background-image: url('/assets/img/video-thumbnail.png');
+  background-position: center;
 }
 
 landing-page .video-thumbnail--announcement::before {
   background-image: url('/assets/img/video-thumbnail-2.png');
+  background-position: center;
 }
 
 landing-page .video-thumbnail:hover::before {
