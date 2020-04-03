@@ -54,8 +54,7 @@
   * [Local Assets](guides/local-assets.md)
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
-  * [State Tunnel](guides/state-tunnel.md)
-  * [Redux](guides/redux.md)
+  * [Stencil Store](guides/store.md)
 * Testing
   * [Overview](testing/overview.md)
   * [Config](testing/config.md)
