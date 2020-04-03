@@ -15,7 +15,7 @@ url: /docs/stencil-store
 
 ## Installation
 
-```
+```bash
 npm install @stencil/store --save-dev
 ```
 
