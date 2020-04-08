@@ -11,42 +11,41 @@ contributors:
 
 # Integrated Dev Server
 
-Stencil comes with an integrated dev server in order to simplify development. By integrating the build process and the dev server, Stencil is able to drastically improve the development experience without requiring complicated build scripts and configuration. As app builds and re-builds take place, the compiler is able to communicate with the dev server, and vice versa.
+Stencilには、開発を簡単にするために、統合された開発サーバーが付属しています。ビルドプロセスと開発サーバーを統合することで、Stencilは複雑なビルドスクリプトや設定を必要とせずに、開発時の体験を大幅に改善できます。アプリのビルドや再ビルドが行われると、コンパイラは開発サーバーと通信することができ、その逆も可能です。
 
 
 ## Hot Module Replacement
 
-The compiler already provides a watch mode, but coupled with the dev server it's able to go one step farther by reloading only what has changed within the browser. Hot Module Replacement allows the app to keep its state within the browser, while switching out individual components with their updated logic after file saves.
+コンパイラは監視モードを提供していますが、開発サーバーと組み合わせてブラウザ内で変更されたものだけをリロードすることで、さらに一歩先へ行くことができます。Hot Module Replacementを使用すると、アプリはブラウザ内の状態を維持しながら、ファイルの保存後に更新されたロジックで個々のコンポーネントを切り替えることができます。
 
 
 ## Style Replacement
 
-Web components can come with their own css, can use shadow dom, and can have individual style tags. Traditionally, live-reload external css links usually does the trick, however, updating components with inline styles within shadow roots has been a challenge. With the integrated dev server, Stencil is able to dynamically update styles for all components, whether they're using shadow dom or not, without requiring a page refresh.
+Webコンポーネントには独自のCSSが付属し、Shadow DOMを使用して固有のstyle tagを持つことができます。従来では、外部CSSリンクでは通常ライブリロードがうまくいきますが、shadow root内のインラインスタイルでコンポーネントを更新することは困難でした。統合された開発サーバーを使用すると、StencilはShadow DOMを使用しているかどうかに関係なく、ページ自体の更新を行うことなくすべてのコンポーネントのスタイルを動的に更新できます。
 
 
 ## Development Errors
 
-When errors happen during development, such as printing an error for invalid syntax, Stencil will not only log the error and the source of the error in the console, but also overlay the app with the error so it's easier to read.
+開発中に無効な構文などのエラーが発生した場合、Stencilはエラーやその原因をコンソールに記録するだけでなく、エラーをアプリにオーバーレイ表示して読みやすくします。
 
 
 ## Open In Editor
 
-When a development error is shown and overlays the project within the browser, line numbers pointing to the source text are clickable,
-which will open the source file directly in your IDE.
+開発中にブラウザ内でエラーがオーバーレイすると、ソーステキストを指す行番号がクリック可能になり、IDEでソースファイルを直接開きます。
 
 
 ## Dev Server Config
 
 | Property         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `address`        | IP address used by the dev server. The default is `0.0.0.0`, which points to all IPv4 addresses on the local machine, such as `localhost`. | `0.0.0.0` |
-| `basePath`       | Base path to be used by the server. Defaults to the root pathname. | `/` |
-| `https`          | By default the dev server runs over the http protocol. Instead you can run it over https by providing your own SSL certificate and key (see example below). | `false` |
-| `initialLoadUrl` | The URL the dev server should first open to. | `/` |
-| `logRequests`    | Every request to the server will be logged within the terminal. | `false` |
-| `openBrowser`    | By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.  | `true`  |
-| `reloadStrategy` | When files are watched and updated, by default the dev server will use `hmr` (Hot Module Replacement) to update the page without a full page refresh. To have the page do a full refresh use `pageReload`. To disable any reloading, use `null`. | `hmr` |
-| `port`           | Sets the server's port. | `3333` |
+| `address`        | 開発サーバーが使用するIPアドレス。デフォルトは`0.0.0.0`で、これは`localhost`などのローカルマシン上のすべてのIPv4アドレスを指します。 | `0.0.0.0` |
+| `basePath`       | サーバーが使用するベースのパス。デフォルトはルートパス名です。 | `/` |
+| `https`          | デフォルトでは、開発サーバーはhttpプロトコルで実行されます。代わりに、独自のSSL証明書とキーを提供することによって、httpsで実行できます（以下の例を参照）。 | `false` |
+| `initialLoadUrl` | 開発サーバーが最初に開くURL。 | `/` |
+| `logRequests`    | サーバーへのすべてのリクエストは、ターミナル内で記録されます。 | `false` |
+| `openBrowser`    | デフォルトでは、開発サーバーが起動するとローカル開発URLがデフォルトのブラウザーで開かれます。このURLが開かれないようにするには、この値を`false`に変更します。  | `true`  |
+| `reloadStrategy` | ファイルが監視および更新された時、開発サーバーはデフォルトで`hmr`（Hot Module Replacement）を使用して、ページ全体を更新せずにページを更新します。ページを完全に更新するには、`pageReload`を使用します。リロードを無効にするには、`null`を使用します。 | `hmr` |
+| `port`           | サーバーのポートを設定します。 | `3333` |
 
 
 ## Example
