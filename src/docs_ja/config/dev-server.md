@@ -1,6 +1,6 @@
 ---
-title: 統合された開発サーバー
-description: 統合された開発サーバー
+title: Integrated Dev Server Config
+description: Integrated Dev Server Config
 url: /docs/dev-server
 contributors:
   - adamdbradley
@@ -9,7 +9,7 @@ contributors:
   - simonhaenisch
 ---
 
-# 統合された開発サーバー
+# Integrated Dev Server
 
 Stencilには、開発を簡単にするために、統合された開発サーバーが付属しています。ビルドプロセスと開発サーバーを統合することで、Stencilは複雑なビルドスクリプトや設定を必要とせずに、開発時の体験を大幅に改善できます。アプリのビルドや再ビルドが行われると、コンパイラは開発サーバーと通信することができ、その逆も可能です。
 
@@ -24,12 +24,12 @@ Stencilには、開発を簡単にするために、統合された開発サー�
 Webコンポーネントには独自のCSSが付属し、Shadow DOMを使用して固有のstyle tagを持つことができます。従来では、外部CSSリンクでは通常ライブリロードがうまくいきますが、shadow root内のインラインスタイルでコンポーネントを更新することは困難でした。統合された開発サーバーを使用すると、StencilはShadow DOMを使用しているかどうかに関係なく、ページ自体の更新を行うことなくすべてのコンポーネントのスタイルを動的に更新できます。
 
 
-## 開発中のエラー
+## Development Errors
 
 開発中に無効な構文などのエラーが発生した場合、Stencilはエラーやその原因をコンソールに記録するだけでなく、エラーをアプリにオーバーレイ表示して読みやすくします。
 
 
-## エディタで開く
+## Open In Editor
 
 開発中にブラウザ内でエラーがオーバーレイすると、ソーステキストを指す行番号がクリック可能になり、IDEでソースファイルを直接開きます。
 
