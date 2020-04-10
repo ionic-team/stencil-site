@@ -8,9 +8,9 @@ contributors:
   - mgalic
 ---
 
-# Plugins
+# プラグイン
 
-The `plugins` config can be used to add your own [Rollup](https://rollupjs.org) plugins. By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the `plugins` array.
+`plugins`を使用して、独自の[Rollup](https://rollupjs.org)プラグインを追加できます。Stencilはデフォルトで`Sass`や`PostCss`をサポートしていません。ただし、どちらも`plugins`の配列を使用して追加できます。
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -24,7 +24,7 @@ export const config: Config = {
 ```
 
 
-### Related Plugins
+### 関連プラグイン
 
 - [@stencil/less](https://www.npmjs.com/package/@stencil/less)
 - [@stencil/postcss](https://www.npmjs.com/package/@stencil/postcss)
@@ -32,5 +32,6 @@ export const config: Config = {
 - [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 
-## Node Polyfills
-See the [Node Polyfills in Module bundling](https://stenciljs.com/docs/module-bundling#node-polyfills) for other examples.
+## Nodeポリフィル
+
+他の例は、[モジュールバンドリングのNodeポリフィル](https://stenciljs.jp/docs/module-bundling/#node-polyfills)を参照してください。
