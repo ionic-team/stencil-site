@@ -63,7 +63,7 @@ Slots can be documented by adding `@slot` tags to the doc comments above the com
 
 ## Usage
 
-The content of `.md` files in a `usage` subdirectory of a component will be added to the `usage` property of the generated json. 
+The content of `.md` files in a `usage` subdirectory of a component will be added to the `usage` property of the generated json.
 
 ```bash
 src/
@@ -74,4 +74,31 @@ src/
         another-example.md
       my-component.css
       my-component.tsx
+```
+
+
+## Custom JSDocs Tags
+
+In additional to reading the predefined JSDoc tags, users can provide their own custom tags which also get included in the JSON data. This makes it easier for teams to provide their own documentation and conventions to get built within the JSON data. For example, if we added a comment into our source code like this:
+
+```tsx
+/**
+ * @MyDocTag someName - some value
+ * @MyOtherDocTag someOtherName - some other name
+ */
+```
+
+It would end up in the JSON data like this:
+
+```tsx
+"docsTags": [
+  {
+    "text": "someName - some value",
+    "name": "myDocTag"
+  },
+  {
+    "text": "someOtherName - some other name",
+    "name": "myOtherDocTag"
+  }
+],
 ```
