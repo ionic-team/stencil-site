@@ -83,8 +83,8 @@ In additional to reading the predefined JSDoc tags, users can provide their own 
 
 ```tsx
 /**
- * @MyDocTag someName - some value
- * @MyOtherDocTag someOtherName - some other name
+ * @myDocTag someName - some value
+ * @myOtherDocTag someOtherName - some other name
  */
 ```
 
