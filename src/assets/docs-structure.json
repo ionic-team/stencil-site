@@ -268,14 +268,9 @@
         "url": "/docs/service-workers"
       },
       {
-        "text": "State Tunnel",
-        "filePath": "/assets/docs/guides/state-tunnel.json",
-        "url": "/docs/stencil-state-tunnel"
-      },
-      {
-        "text": "Redux",
-        "filePath": "/assets/docs/guides/redux.json",
-        "url": "/docs/stencil-redux"
+        "text": "Stencil Store",
+        "filePath": "/assets/docs/guides/store.json",
+        "url": "/docs/stencil-store"
       }
     ]
   },
