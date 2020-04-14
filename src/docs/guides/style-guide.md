@@ -24,24 +24,24 @@ This is a component style guide created and enforced internally by the core team
 Example from ionic-core:
 
 ```bash
-├── card
-│   ├── card.ios.css
-│   ├── card.md.css
-│   ├── card.css
-│   ├── card.tsx
+├── my-card
+│   ├── my-card.ios.css
+│   ├── my-card.md.css
+│   ├── my-card.css
+│   ├── my-card.tsx
 │   └── test
 │       └── basic
 │           ├── e2e.js
 │           └── index.html
-├── card-content
-│   ├── card-content.ios.css
-│   ├── card-content.md.css
-│   ├── card-content.css
-│   └── card-content.tsx
-├── card-title
-│   ├── card-title.ios.css
-│   ├── card-title.md.css
-│   ├── card-title.css
+├── my-card-content
+│   ├── my-card-content.ios.css
+│   ├── my-card-content.md.css
+│   ├── my-card-content.css
+│   └── my-card-content.tsx
+├── my-card-title
+│   ├── my-card-title.ios.css
+│   ├── my-card-title.md.css
+│   ├── my-card-title.css
 ```
 
 

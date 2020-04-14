@@ -88,6 +88,8 @@ The global style config takes a file path as a string. The output from this buil
 globalStyle: 'src/global/app.css'
 ```
 
+Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
+
 
 ## hashFileNames
 
