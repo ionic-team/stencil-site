@@ -24,59 +24,77 @@ npm install @stencil/store --save-dev
 **store.ts:**
 
 ```tsx
-import { createStore } from "@stencil/store";
+import { createStore } from '@stencil/store'
 
 const { state, onChange } = createStore({
-  clicks: 0,
-  seconds: 0,
-  squaredClicks: 0
-});
+	clicks: 0,
+	seconds: 0,
+	squaredClicks: 0,
+})
 
-onChange('clicks', value => {
-  state.squaredClicks = value ** 2;
-});
+onChange('clicks', (value) => {
+	// IE11 NOT compatible
+	state.squaredClicks = value ** 2
+  // IE11 compatibility solution: 
+  state.set('squaredClicks', value ** 2);
+})
 
-export default state;
+export default state
 ```
 
 **component.tsx:**
 
 ```tsx
-import { Component, h } from '@stencil/core';
-import state from '../store';
+import { Component, h } from '@stencil/core'
+import state from '../store'
 
 @Component({
-  tag: 'app-profile',
+	tag: 'app-profile',
 })
 export class AppProfile {
+	componentWillLoad() {
+		// IE11 NOT compatible
+		setInterval(() => state.seconds++, 1000)
+		// IE11 compatibility solution:
+		setInterval(() => state.set('seconds', state.get('seconds')++), 1000)
+	}
 
-  componentWillLoad() {
-    setInterval(() => state.seconds++, 1000);
-  }
-
-  render() {
-    return (
-      <div>
-        <p>
-          <MyGlobalCounter />
-          <p>
-            Seconds: {state.seconds}
-            <br />
-            Squared Clicks: {state.squaredClicks}
-          </p>
-        </p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<p>
+					<MyGlobalCounter />
+					<p>
+						{/* IE11 NOT compatible */}
+						Seconds: {state.seconds}
+						{/* IE11 compatibility solution */}
+						Seconds: {state.get('seconds')}
+						<br />
+						{/* IE11 NOT compatible */}
+						Squared Clicks: {state.squaredClicks}
+						{/* IE11 compatibility solution */}
+						Squared Clicks: {state.get('squaredClicks')}
+					</p>
+				</p>
+			</div>
+		)
+	}
 }
 
 const MyGlobalCounter = () => {
-  return (
-    <button onClick={() => state.clicks++}>
-      {state.clicks}
-    </button>
-  );
-};
+	{
+		/* IE11 NOT compatible */
+	}
+	return <button onClick={() => state.clicks++}>{state.clicks}</button>
+	{
+		/* IE11 compatibility solution */
+	}
+	return (
+		<button onClick={() => state.set('clicks', state.get('click')++)}>
+			{state.get('clicks')}
+		</button>
+	)
+}
 ```
 
 ## API
@@ -117,16 +135,15 @@ Reset the store to its initial state.
 
 Use the given subscriptions in the store. A subscription is an object that defines one or more of the properties `get`, `set` or `reset`.
 
-
 ## Testing
 
 Like any global state library, state should be reset between each spec test.
 Use the `reset()` API in the `beforeEach` hook.
 
 ```ts
-import store from '../store';
+import store from '../store'
 
 beforeEach(() => {
-  store.reset();
-});
+	store.reset()
+})
 ```
