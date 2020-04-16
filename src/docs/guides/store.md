@@ -33,10 +33,10 @@ const { state, onChange } = createStore({
 })
 
 onChange('clicks', (value) => {
-	// IE11 NOT compatible
+	// IE11 NOT compatible:
 	state.squaredClicks = value ** 2
-  // IE11 compatibility solution: 
-  state.set('squaredClicks', value ** 2);
+  // IE11 compatible:
+	store.set('squaredClicks', value ** 2);
 })
 
 export default state
@@ -53,10 +53,10 @@ import state from '../store'
 })
 export class AppProfile {
 	componentWillLoad() {
-		// IE11 NOT compatible
+		// IE11 NOT compatible:
 		setInterval(() => state.seconds++, 1000)
-		// IE11 compatibility solution:
-		setInterval(() => state.set('seconds', state.get('seconds')++), 1000)
+		// IE11 compatible:
+		setInterval(() => store.set('seconds', store.get('seconds')++), 1000)
 	}
 
 	render() {
@@ -65,15 +65,15 @@ export class AppProfile {
 				<p>
 					<MyGlobalCounter />
 					<p>
-						{/* IE11 NOT compatible */}
+						{/* IE11 NOT compatible: */}
 						Seconds: {state.seconds}
-						{/* IE11 compatibility solution */}
-						Seconds: {state.get('seconds')}
+						{/* IE11 compatible: */}
+						Seconds: {store.get('seconds')}
 						<br />
-						{/* IE11 NOT compatible */}
+						{/* IE11 NOT compatible: */}
 						Squared Clicks: {state.squaredClicks}
-						{/* IE11 compatibility solution */}
-						Squared Clicks: {state.get('squaredClicks')}
+						{/* IE11 compatible: */}
+						Squared Clicks: {store.get('squaredClicks')}
 					</p>
 				</p>
 			</div>
@@ -83,15 +83,15 @@ export class AppProfile {
 
 const MyGlobalCounter = () => {
 	{
-		/* IE11 NOT compatible */
+		/* IE11 NOT compatible: */
 	}
 	return <button onClick={() => state.clicks++}>{state.clicks}</button>
 	{
-		/* IE11 compatibility solution */
+		/* IE11 compatible: */
 	}
 	return (
-		<button onClick={() => state.set('clicks', state.get('click')++)}>
-			{state.get('clicks')}
+		<button onClick={() => store.set('clicks', store.get('click')++)}>
+			{store.get('clicks')}
 		</button>
 	)
 }
