@@ -19,7 +19,7 @@ url: /docs/stencil-store
 npm install @stencil/store --save-dev
 ```
 
-## Example
+## Example 1 (NOT COMPATIBLE IE11, see below for IE11 compatible version)
 
 **store.ts:**
 
@@ -33,10 +33,7 @@ const { state, onChange } = createStore({
 })
 
 onChange('clicks', (value) => {
-	// IE11 NOT compatible:
 	state.squaredClicks = value ** 2
-  // IE11 compatible:
-	store.set('squaredClicks', value ** 2);
 })
 
 export default state
@@ -53,10 +50,7 @@ import state from '../store'
 })
 export class AppProfile {
 	componentWillLoad() {
-		// IE11 NOT compatible:
 		setInterval(() => state.seconds++, 1000)
-		// IE11 compatible:
-		setInterval(() => store.set('seconds', store.get('seconds')++), 1000)
 	}
 
 	render() {
@@ -65,14 +59,63 @@ export class AppProfile {
 				<p>
 					<MyGlobalCounter />
 					<p>
-						{/* IE11 NOT compatible: */}
 						Seconds: {state.seconds}
-						{/* IE11 compatible: */}
+						<br />
+						Squared Clicks: {state.squaredClicks}
+					</p>
+				</p>
+			</div>
+		)
+	}
+}
+
+const MyGlobalCounter = () => {
+	return <button onClick={() => state.clicks++}>{state.clicks}</button>
+}
+```
+
+## Example 2 (COMPATIBLE IE11, see API details for more explanations)
+
+**store.ts:**
+
+```tsx
+import { createStore } from '@stencil/store'
+
+const store = createStore({
+	clicks: 0,
+	seconds: 0,
+	squaredClicks: 0,
+})
+
+store.onChange('clicks', (value) => {
+	store.set('squaredClicks', value ** 2)
+})
+
+export default store
+```
+
+**component.tsx:**
+
+```tsx
+import { Component, h } from '@stencil/core'
+import store from '../store'
+
+@Component({
+	tag: 'app-profile',
+})
+export class AppProfile {
+	componentWillLoad() {
+		setInterval(() => store.set('seconds', store.get('seconds') + 1), 1000)
+	}
+
+	render() {
+		return (
+			<div>
+				<p>
+					<MyGlobalCounter />
+					<p>
 						Seconds: {store.get('seconds')}
 						<br />
-						{/* IE11 NOT compatible: */}
-						Squared Clicks: {state.squaredClicks}
-						{/* IE11 compatible: */}
 						Squared Clicks: {store.get('squaredClicks')}
 					</p>
 				</p>
@@ -82,15 +125,12 @@ export class AppProfile {
 }
 
 const MyGlobalCounter = () => {
-	{
-		/* IE11 NOT compatible: */
-	}
-	return <button onClick={() => state.clicks++}>{state.clicks}</button>
-	{
-		/* IE11 compatible: */
-	}
 	return (
-		<button onClick={() => store.set('clicks', store.get('click')++)}>
+		<button
+			onClick={() => {
+				store.set('clicks', store.get('clicks') + 1)
+			}}
+		>
 			{store.get('clicks')}
 		</button>
 	)
