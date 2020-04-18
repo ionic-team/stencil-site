@@ -12,7 +12,30 @@ contributors:
 
 ## `stencil build`
 
+Stencilプロジェクトをビルドします。以下のフラグは`build`コマンドで利用可能なオプションです。
+
 Builds a Stencil project. The flags below are the available options for the `build` command.
+
+| フラグ | 説明 | エイリアス |
+|------|-------------|-------|
+| `--ci` | 継続的インテグレーション（CI）環境の推奨設定を使用してビルドを実行します。ワーカーの数をデフォルトで4に設定すると、テストでスクリーンショットを撮り、コンソールのログを変更する場合に、追加の時間が許可されます。 | |
+| `--config` | `stencil.config.ts`ファイルのパス。Stencilが設定を見つけるので、このフラグはほとんどの場合必要ありません。さらに、Stencilのconfigは必須ではありません。 | `-c` |
+| `--debug` | デバッグに役立つランタイムコードを追加し、より詳細なログの出力レベルを設定します。 | |
+| `--dev` | 開発ビルドを実行します。 | |
+| `--docs` | コンポーネントのタイプ、プロパティ、メソッド、イベント、JSDoc、CSSカスタムプロパティなどに基づいて、`readme.md`ドキュメントを生成します。 | |
+| `--es5` | ES5互換のビルドを作成します。デフォルトでは、ビルド時間を短縮するために、開発中はES5ビルドを作成されません。ただし、プロダクションビルド中は常にES5ビルドを作成します。このフラグを使用すると、開発中にもES5ビルドを作成します。 | |
+| `--log` | `stencil build`のログを`stencil-build.log`に書き込みます。ログファイルは設定と同じディレクトリに書き込まれます。 | |
+| `--prerender` | ビルドが完了した後、`www`出力ターゲットを使用してアプリケーションを事前にレンダリングします。 | |
+| `--prod` | バンドルの改善や未使用のコードを削除、最小化するなど、各ファイルを最適化して本番ビルドを実行します。本番ビルドはデフォルトであり、このフラグは`--dev`フラグをオーバーライドする時のみに使用されます。 | |
+| `--max-workers` | コンパイラが使用するワーカーの最大数。デフォルトでは、OSで使用可能なCPUと同じ数を使用します。 | |
+| `--next` | "次期の"Stencilコンパイラ機能をテストするためのオプトイン。 | |
+| `--no-cache` | キャッシュの使用を無効にします。 | |
+| `--no-open` | デフォルトでは `--serve`コマンドはブラウザウィンドウを開きます。`--no-open`を使用すると、ブラウザは自動的に開かなくなります。 | |
+| `--port` | [Integrated Dev Server](/docs/dev-server)のポート。 デフォルトは"3333"です。 | `-p` |
+| `--serve` | [Integrated Dev Server](/docs/dev-server)を起動します. | |
+| `--stats` | プロジェクトに関する統計を `stencil-stats.json`に書き込みます。統計ファイルは、構成と同じ場所に書き込まれます。 | |
+| `--verbose` | ビルドの各ステップに関する追加情報をログに記録します。 | |
+| `--watch` | 開発中にファイルを監視し、ファイルが更新されると再ビルドします。 | |
 
 | Flag | Description | Alias |
 |------|-------------|-------|
@@ -38,22 +61,26 @@ Builds a Stencil project. The flags below are the available options for the `bui
 
 ## `stencil test`
 
+Stencilプロジェクトをテストします。以下のフラグは`test`コマンドで利用可能なオプションです。
+
 Tests a Stencil project. The flags below are the available options for the `test` command.
 
-| Flag | Description |
+| フラグ | 説明 |
 |------|-------------|
-| `--spec` | Tests `.spec.ts` files using [Jest](https://jestjs.io/). |
-| `--e2e` | Tests `.e2e.ts` files using [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Jest](https://jestjs.io/). |
+| `--spec` | [Jest](https://jestjs.io/)を使用して `.spec.ts`ファイルをテストします。 |
+| `--e2e` | [Puppeteer](https://developers.google.com/web/tools/puppeteer)と[Jest](https://jestjs.io/)を使用して`.e2e.ts`ファイルをテストします。 |
 
 
 ## `stencil`
 
-| Flag | Description |
+| フラグ | 説明 |
 |------|-------------|
-| `--help` | Display the help output explaining the different flags. | `-h` |
-| `--version` | Prints the current Stencil version. | `-v` |
+| `--help` | さまざまなフラグを説明するヘルプ情報を表示します。 | `-h` |
+| `--version` | 現在のステンシルバージョンを表示します。 | `-v` |
 
 
 ## `stencil generate <sub-folder>`
+
+インタラクティブなコンポーネントジェネレータを起動します。コンポーネントを生成するサブフォルダーを1つ以上指定できます。
 
 Starts the interactive component generator. You can specify one or more sub-folders to generate the component in.
