@@ -51,13 +51,16 @@ export class NewsletterSignup {
         this.isValid = false;
       }
     };
+    const hutkMatch = document.cookie.match && document.cookie.match(/hubspotutk=(.*?);/)
+    const hutk = hutkMatch ? hutkMatch[1] : '';
+
     xhr.send(JSON.stringify({
       fields: [{
         name: 'email',
         value: this.email
       }],
       context: {
-        hutk: document.cookie.match(/hubspotutk=(.*?);/)![1],
+        hutk,
         pageUri: window.location.href,
         pageName: document.title
       }
