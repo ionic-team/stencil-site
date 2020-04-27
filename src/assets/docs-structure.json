@@ -163,6 +163,11 @@
         "url": "/docs/static-site-generation-debugging"
       },
       {
+        "text": "Meta tags",
+        "filePath": "/assets/docs/static-site-generation/meta.json",
+        "url": "/docs/static-site-generation-meta-tags"
+      },
+      {
         "text": "Server Side Rendering",
         "filePath": "/assets/docs/static-site-generation/server-side-rendering-ssr.json",
         "url": "/docs/static-site-generation-server-side-rendering-ssr"

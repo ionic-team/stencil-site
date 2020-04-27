@@ -33,6 +33,7 @@
   * [Overview](static-site-generation/overview.md)
   * [Basics](static-site-generation/basics.md)
   * [Debugging](static-site-generation/debugging.md)
+  * [Meta tags](static-site-generation/meta.md)
   * [Server Side Rendering](static-site-generation/server-side-rendering-ssr.md)
   * [Deployment](static-site-generation/deployment.md)
 * Config
