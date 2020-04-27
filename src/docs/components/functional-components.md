@@ -53,7 +53,44 @@ export const Hello: FunctionalComponent<HelloProps> = ({ name }) => (
 );
 ```
 
+## Working with children
+
+The second argument of a functional component receives the passed children, but in order to work with them, the `FunctionalComponent` provides an utils object that exposes a `map()` method to transform the children, and `forEach()` to read them. Reading the `children` array is not recommended since the stencil compiler can rename the vNode properties in prod mode.
+
+```tsx
+export interface FunctionalUtilities {
+  forEach: (children: VNode[], cb: (vnode: ChildNode, index: number, array: ChildNode[]) => void) => void;
+  map: (children: VNode[], cb: (vnode: ChildNode, index: number, array: ChildNode[]) => ChildNode) => VNode[];
+}
+export interface ChildNode {
+  vtag?: string | number | Function;
+  vkey?: string | number;
+  vtext?: string;
+  vchildren?: VNode[];
+  vattrs?: any;
+  vname?: string;
+}
+```
+
+**Example:**
+
+```tsx
+export const AddClass: FunctionalComponent = (_, children, utils) => (
+  utils.map(children, child => ({
+    ...child,
+    vattrs: {
+      ...child.vattrs,
+      class: `${child.vattrs.class} add-class`
+    }
+  }
+  ))
+);
+```
+
 > When using a functional component in JSX, its name must start with a capital letter. Therefore it makes sense to export it as such.
+
+
+## Disclaimer
 
 There are a few major differences between functional components and class components. Since functional components are just syntactic sugar within JSX, they...
 
