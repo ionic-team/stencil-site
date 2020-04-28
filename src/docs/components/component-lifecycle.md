@@ -56,9 +56,9 @@ Called once just after the component fully loaded and the first `render()` occur
 
 ## componentShouldUpdate(newVal: any, oldVal: any, propName: string) => boolean
 
-This hook is called when a component's `Prop` or `State` property changes and a re-render is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should re-render (`true`) or not (`false`).
+This hook is called when a component's `Prop` or `State` property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
 
-A couple of things to notice is that this method will not be executed before the initial render, that is, when the component is first attached to the dom, nor when a re-render is already scheduled in the next frame.
+A couple of things to notice is that this method will not be executed before the initial render, that is, when the component is first attached to the dom, nor when a rerender is already scheduled in the next frame.
 
 Let’s say the following two props of a component change synchronously:
 
@@ -67,7 +67,7 @@ component.somePropA = 42;
 component.somePropB = 88;
 ```
 
-The `componentShouldUpdate` will be first called with arguments: `42`, `undefined` and `somePropA`. If it does return `true`, the hook will not be called again since the re-render is already scheduled to happen. Instead, if the first hook returned `false`, then `componentShouldUpdate` will be called again with `88`, `undefined` and `somePropB` as arguments, triggered by the `component.somePropB = 88` mutation.
+The `componentShouldUpdate` will be first called with arguments: `42`, `undefined` and `somePropA`. If it does return `true`, the hook will not be called again since the rerender is already scheduled to happen. Instead, if the first hook returned `false`, then `componentShouldUpdate` will be called again with `88`, `undefined` and `somePropB` as arguments, triggered by the `component.somePropB = 88` mutation.
 
 Since the execution of this hook might be conditioned, it's not good to rely on it to watch for prop changes, instead use the `@Watch` decorator for that.
 
@@ -131,7 +131,7 @@ It's never called during the first `render()`.
       <tspan x="346" y="198">@Watch(‘propName’)</tspan>
     </text>
     <text font-size="14" letter-spacing="-.2" fill="#9A6400">
-      <tspan x="110.8" y="580">Change in a value of prop or state triggers re-render</tspan>
+      <tspan x="110.8" y="580">Change in a value of prop or state triggers rerender</tspan>
     </text>
     <text font-size="14" letter-spacing="-.2" fill="#9A6400">
       <tspan x="211.7" y="640">Component removed</tspan>
@@ -149,7 +149,7 @@ It's never called during the first `render()`.
 
 ## Rendering State
 
-It's always recommended to make any rendered state updates within `componentWillRender()`, since these is the method which get called _before_ the `render()` method. Alternatively, updating rendered state with the `componentDidLoad()`, `componentDidUpdate()` and `componentDidRender()` methods will cause another re-render, which isn't ideal for performance.
+It's always recommended to make any rendered state updates within `componentWillRender()`, since these is the method which get called _before_ the `render()` method. Alternatively, updating rendered state with the `componentDidLoad()`, `componentDidUpdate()` and `componentDidRender()` methods will cause another rerender, which isn't ideal for performance.
 
 If state _must_ be updated in `componentDidUpdate()` or `componentDidRender()`, it has the potential of getting components stuck in an infinite loop. If updating state within `componentDidUpdate()` is unavoidable, then the method should also come with a way to detect if the props or state is "dirty" or not (is the data actually different or is it the same as before). By doing a dirty check, `componentDidUpdate()` is able to avoid rendering the same data, and which in turn calls `componentDidUpdate()` again.
 
