@@ -14,7 +14,7 @@ Since this step runs in a Node.js process instead of a browser, debugging can't 
 
 ## Overview
 
-When pre-rendering, Stencil creates a file in `dist/prerender` that is used to actually execute your components. Debugging thi
+When pre-rendering, Stencil creates a file in `dist/prerender` that is used to actually execute your components.
 
 ## Debugging in VS Code
 
