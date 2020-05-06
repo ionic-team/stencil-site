@@ -6,11 +6,11 @@ contributors:
   - adamdbradley
 ---
 
-# Distribution Output Target: `dist-custom-elements-bundle`
+# Custom Elements Bundle
 
 The `dist-custom-elements-bundle` type is used to generate a custom elements as a single bundle. Don't worry about the output being a "single" bundle, because it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
-### How is this different than `dist` output target?
+### How is this different than "dist" output target?
 
 The `dist-custom-elements-bundle` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element witht he styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
 
@@ -27,11 +27,10 @@ outputTargets: [
 ]
 ```
 
-## Distributing Custom Elements Bundle
+## Custom Elements Bundle
 
 Your component library can be easily distributed on Npm, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there consumers of your library can decide how to import your library into their project.
 
--
 
 ## Importing and Defining Custom Elements
 
