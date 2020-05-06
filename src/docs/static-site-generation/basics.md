@@ -4,6 +4,7 @@ description: Quick introducgion to configuring and using Static Site Generation 
 url: /docs/static-site-generation-basics
 contributors:
   - mlynch
+  - adamdbradley
 ---
 
 # Static Site Generation Basics
@@ -14,17 +15,15 @@ Using Static Site Generation in Stencil requires running a build command, return
 
 ## Static Build
 
-Stencil doesn't pre-render components by default. However, the build can be made to pre-render using the `--prerender` flag:
+Stencil doesn't prerender components by default. However, the build can be made to prerender using the `--prerender` flag:
 
 ```bash
-npm run build -- --prerender
+stencil build --prerender
 ```
-
-Under the hood, this runs `stencil build --prerender`.
 
 ## Rendering Dynamic Data
 
-Many components need to render based on data fetched from a server. Stencil handles this by allowing components to return `Promise`'s from lifecycle methods like `componentDidLoad` (this can be achieved by using `async/await` as well). 
+Many components need to render based on data fetched from a server. Stencil handles this by allowing components to return `Promise`'s from lifecycle methods like `componentDidLoad` (this can be achieved by using `async/await` as well).
 
 For example, this is how to have Stencil wait to render a component until it fetches data from the server:
 
@@ -40,48 +39,36 @@ async componentWillLoad() {
 
 Since Stencil will actually navigate to and execute components, it has full support for a router, including Stencil Router.
 
-There are no changes necessary to access route params and matches. However, make sure your routes can accept a trailing slash as pre-rendered static content will be treated as loading an `index.html` file at that path, and so the browser may append a trailing slash.
+There are no changes necessary to access route params and matches. However, make sure your routes can accept a trailing slash as prerendered static content will be treated as loading an `index.html` file at that path, and so the browser may append a trailing slash.
 
 In particular, if using Stencil Router, double check usage of `exact={true}` which could cause your routes to not match when loaded with a trailing slash.
 
 ## Page and URL Discovery
 
-By default, Stencil crawls your app starting at the root component and discovers all paths that need to be indexed. By default this will only discover pages that are linked at build time, but can be easily configured to build any possible URL for the app.
+By default, Stencil crawls your app starting at base URL of `/` and discovers all paths that need to be indexed. By default this will only discover pages that are linked at build time, but can be easily configured to build any possible URL for the app.
 
-To do this, add a `prerender.config.js` or `.ts` file to the root of your stencil project, and point to it by setting `prerenderConfig` in your `www` output in `stencil.config.ts`, for example:
+As each page is generated and new links are found, Stencil will continue to crawl and prerender pages.
 
-```typescript
-import { Config } from '@stencil/core';
+See the [prerender config](/docs/prerender-config) docs to see how this can be customized further.
 
-export const config: Config = {
-  // ...
-  outputTargets: [
-    {
-      type: 'www',
-      prerenderConfig: './prerender.config.js',
-      // ...
-    },
-  ],
-  // ...
-};
-```
 
-Next, inside of the `prerender.config.js`, all urls we wish Stencil to crawl can be specified in the `entryUrls` option:
+## Things to Watch For
 
-```javascript
-// Get all URLS here, must be synchronous
+There may be some areas of your code that should absolutely not run while prerendering. To help avoid certain code Stencil provides a `Build.isBrowser` build conditional to tell prerendering to skip over. Here is an example of how to use this utility:
 
-// For example, if we have all URLs generated in a urls.json file:
-const fs = require('fs');
-const urls = JSON.parse(fs.readFileSync('urls.json'));
+```tsx
+import { Build } from '@stencil/core';
 
-module.exports = {
-  entryUrls: urls
+connectedCallback() {
+  // Build.isBrowser is true when running in the
+  // browser and false when being prerendered
+
+  if (Build.isBrowser) {
+    console.log('running in browser');
+  } else {
+    console.log('running in node while prerendering');
+  }
 }
 ```
 
-Then Stencil will request and start crawling at each one of these URLs.
-
-## Other Configuration Options
-
-Stencil has a number of other configuration options for pre-rendering. Consult [the source](https://github.com/ionic-team/stencil/blob/253894d3ea154c0471e1345ad79fea3e708121d5/src/declarations/stencil-public-compiler.ts#L498) for more info.
+Also note that the actual runtime generated for the browser builds will not include code that has been excluded because of the `if (Build.isBrowser)` statement. In the above example, only `console.log('running in browser')` would be included within the component's runtime.

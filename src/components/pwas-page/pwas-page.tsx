@@ -44,7 +44,7 @@ export class pwasPage {
         <ul class="list--unstyled list--icon list--columns">
           <li><app-icon name="checkmark"></app-icon> Push notifications</li>
           <li><app-icon name="checkmark"></app-icon> Routing</li>
-          <li><app-icon name="checkmark"></app-icon> Pre-rendering</li>
+          <li><app-icon name="checkmark"></app-icon> prerendering</li>
           <li><app-icon name="checkmark"></app-icon> Update toasts</li>
           <li><app-icon name="checkmark"></app-icon> Unit Tests</li>
           <li><app-icon name="checkmark"></app-icon> Zero config lazy loading</li>

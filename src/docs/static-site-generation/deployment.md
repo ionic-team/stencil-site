@@ -8,7 +8,7 @@ contributors:
 
 # Deploying a Stencil Static Site
 
-Deploying a pre-rendered static site built with Stencil is exactly like deploying any static site, because the output is just a set of HTML files.
+Deploying a prerendered static site built with Stencil is exactly like deploying any static site, because the output is just a set of HTML files.
 
 Every path that Stencil detects (or is provided using `entryUrls` in the prerender config) is generated in the `www` output target's directory, with each url given an `index.html` that becomes the root for the app.
 

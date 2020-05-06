@@ -31,6 +31,7 @@
   * [JavaScript](framework-integration/javascript.md)
 * Static Site Generation
   * [Overview](static-site-generation/overview.md)
+  * [Prerender Config](guides/prerender-config.md)
   * [Basics](static-site-generation/basics.md)
   * [Debugging](static-site-generation/debugging.md)
   * [Meta tags](static-site-generation/meta.md)
@@ -53,7 +54,6 @@
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
   * [Web Workers](guides/workers.md)
-  * [Prerendering](guides/prerendering.md)
   * [Hydrate App](guides/hydrate-app.md)
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)

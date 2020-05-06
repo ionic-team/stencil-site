@@ -130,7 +130,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
                 <li><app-icon name="checkmark"/> TypeScript support</li>
                 <li><app-icon name="checkmark"/> One-way Data Binding</li>
-                <li><app-icon name="checkmark"/> Component pre-rendering</li>
+                <li><app-icon name="checkmark"/> Component prerendering</li>
                 <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
                 <li><app-icon name="checkmark"/> JSX support</li>
                 <li><app-icon name="checkmark"/> Dependency-free components</li>
@@ -165,7 +165,7 @@ export class LandingPage {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M32 9.44131C32 11.9453 30.9989 14.3467 29.2168 16.1173L18.5481 26.7486H7.32378L12.8017 21.306H20.4702C21.2663 21.306 21.9116 20.6645 21.9116 19.8732C21.9116 19.0819 21.2663 18.4404 20.4702 18.4404H15.686L23.9875 10.1925C24.5505 9.63308 24.5507 8.72586 23.988 8.16617C23.4252 7.60647 22.5125 7.60625 21.9495 8.16566L5.09347 24.9129V13.3809L15.778 2.76529C17.5601 0.994706 19.9771 0 22.4974 0C25.0177 0 27.4347 0.994706 29.2168 2.76529C30.9989 4.53588 32 6.93732 32 9.44131ZM5.09347 24.9129V26.7486H7.32378L2.46041 31.5806C1.89736 32.14 0.9847 32.1398 0.421929 31.5801C-0.140841 31.0204 -0.140614 30.1132 0.422437 29.5537L5.09347 24.9129Z" fill="#141334"/>
                 </svg>
                 <h3>Lightweight</h3>
-                <p>A tiny runtime, pre-rendering, and the raw power of native Web Components make Stencil one of the fastest compilers around.</p>
+                <p>A tiny runtime, prerendering, and the raw power of native Web Components make Stencil one of the fastest compilers around.</p>
               </li>
               <li class="feature-list__item">
                 <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">

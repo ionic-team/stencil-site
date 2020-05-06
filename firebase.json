@@ -101,7 +101,12 @@
       },
       {
         "source": "/docs/server-side-rendering",
-        "destination": "/docs/prerendering",
+        "destination": "/docs/static-site-generation-server-side-rendering-ssr",
+        "type": 301
+      },
+      {
+        "source": "/docs/prerendering",
+        "destination": "/docs/static-site-generation",
         "type": 301
       },
       {

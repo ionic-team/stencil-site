@@ -19,7 +19,7 @@ Stencil focuses on building components with web standards. It’s used by develo
 
 ### What does Stencil do?
 
-Stencil helps developers and teams build and share custom components. Since Stencil generates standards-compliant Web Components, the components you build with Stencil will work with many popular frameworks right out of the box, and can even be used without a framework because they are just Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, pre-rendering, and objects-as-properties (instead of just strings).
+Stencil helps developers and teams build and share custom components. Since Stencil generates standards-compliant Web Components, the components you build with Stencil will work with many popular frameworks right out of the box, and can even be used without a framework because they are just Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
 
 
 ### Who is Stencil for?
