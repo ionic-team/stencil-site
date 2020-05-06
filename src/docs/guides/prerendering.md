@@ -8,11 +8,11 @@ contributors:
   - dgautsch
 ---
 
-# Prerendering
+# Static Site Generation and Prerendering
 
-One of the benefits of Stencil is that it allows for prerendering of your web components. Prerendering generates static HTML files at build time that can then be served to the browser and asynchronously hydrated on the client-side.
+One of the benefits of Stencil is that it allows for prerendering of your web components, which in the end can be used as a Static Site Generator (SSG). Prerendering generates static HTML files at build time that can then be served to the browser and asynchronously hydrated on the client-side.
 
-For an example of what this looks like, right-click on this page and hit the View Page Source option. You'll notice this page does not require any external JavaScript or CSS files for the first paint.
+For an example of what this looks like, right-click on this very page and hit the View Page Source option of `stenciljs.com/docs/prerendering`. You'll notice this page does not require any external JavaScript or CSS files for the first paint.
 
 
 ## Benefits
@@ -47,6 +47,38 @@ stencil build --prerender
 **Static HTML Response**: With the static HTML files deploy to a server, visitors of each prerendered page first receive the HTML with inline styles, and no blocking JS or CSS. Additionally, the compiler is already aware of the exact modules the visitor will need for this page, and will asynchronously preload the modules using [link `modulepreload`](https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload).
 
 **Client-side Hydration**: After the HTML and inlined styles have rendered the first paint, the next step is for the same nodes within the DOM to be hydrated by the client-side JavaScript. Each component within the page will asynchronously hydrate using the initial order they were found in the DOM structure. Next, as each component lazily hydrates they're able to reuse the existing nodes found in the DOM.
+
+
+## Prerender Config for Static Site Generation (SSG)
+
+As of `1.13.0`, the optional prerender config can be used while prerendering a `www` output target.
+A `prerender.config.ts` can be provided which is can be used to further customize each prerendered page.
+
+Within `stencil.config.ts`, set the path to the prerendering config file path using the `prerenderConfig`
+property, such as:
+
+```tsx
+import { Config } from '@stencil/core';
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'www',
+      baseUrl: 'https://stenciljs.com/',
+      prerenderConfig: './prerender.config.ts',
+    }
+  ]
+};
+```
+
+The `prerender.config.ts` should export a `config` object using the `PrerenderConfig` interface.
+
+```tsx
+import { PrerenderConfig } from '@stencil/core';
+export const config: PrerenderConfig = {
+  ...
+};
+```
+
 
 ## Things to Watch For
 
