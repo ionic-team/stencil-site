@@ -31,7 +31,7 @@
   * [JavaScript](framework-integration/javascript.md)
 * Static Site Generation
   * [Overview](static-site-generation/overview.md)
-  * [Prerender Config](guides/prerender-config.md)
+  * [Prerender Config](static-site-generation/prerender-config.md)
   * [Basics](static-site-generation/basics.md)
   * [Debugging](static-site-generation/debugging.md)
   * [Meta tags](static-site-generation/meta.md)

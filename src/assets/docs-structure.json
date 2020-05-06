@@ -154,8 +154,8 @@
       },
       {
         "text": "Prerender Config",
-        "filePath": "/assets/docs/guides/prerender-config.json",
-        "url": null
+        "filePath": "/assets/docs/static-site-generation/prerender-config.json",
+        "url": "/docs/prerender-config"
       },
       {
         "text": "Basics",
