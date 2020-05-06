@@ -25,6 +25,7 @@
     "@types/prismjs": "^1.9.1",
     "copy-text-to-clipboard": "^2.2.0",
     "dotenv": "^8.2.0",
+    "firebase-tools": "^8.2.0",
     "front-matter": "^3.1.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
