@@ -40,6 +40,7 @@
   * [Overview](output-targets/overview.md)
   * [www](output-targets/www.md)
   * [dist](output-targets/dist.md)
+  * [dist](output-targets/custom-elements.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
   * [docs-custom](output-targets/docs-custom.md)
