@@ -5,6 +5,7 @@ url: /docs/docs-custom
 contributors:
   - adamdbradley
   - manucorporat
+  - arayik-yervandyan
 ---
 
 # Custom Docs Generation
