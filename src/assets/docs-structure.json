@@ -31,12 +31,7 @@
         "text": "FAQ",
         "filePath": "/assets/docs/introduction/faq.json",
         "url": "/docs/faq"
-      }
-    ]
-  },
-  {
-    "text": "Design Systems",
-    "children": [
+      },
       {
         "text": "What is a Design System?",
         "filePath": "/assets/docs/design-systems/what-is-design-system.json",
@@ -146,6 +141,41 @@
         "text": "JavaScript",
         "filePath": "/assets/docs/framework-integration/javascript.json",
         "url": "/docs/javascript"
+      }
+    ]
+  },
+  {
+    "text": "Static Site Generation",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/static-site-generation/overview.json",
+        "url": "/docs/static-site-generation"
+      },
+      {
+        "text": "Basics",
+        "filePath": "/assets/docs/static-site-generation/basics.json",
+        "url": "/docs/static-site-generation-basics"
+      },
+      {
+        "text": "Debugging",
+        "filePath": "/assets/docs/static-site-generation/debugging.json",
+        "url": "/docs/static-site-generation-debugging"
+      },
+      {
+        "text": "Meta tags",
+        "filePath": "/assets/docs/static-site-generation/meta.json",
+        "url": "/docs/static-site-generation-meta-tags"
+      },
+      {
+        "text": "Server Side Rendering",
+        "filePath": "/assets/docs/static-site-generation/server-side-rendering-ssr.json",
+        "url": "/docs/static-site-generation-server-side-rendering-ssr"
+      },
+      {
+        "text": "Deployment",
+        "filePath": "/assets/docs/static-site-generation/deployment.json",
+        "url": "/docs/static-site-generation-deployment"
       }
     ]
   },

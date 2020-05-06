@@ -7,7 +7,6 @@
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
   * [FAQ](introduction/faq.md)
-* Design Systems
   * [What is a Design System?](design-systems/what-is-design-system.md)
   * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
 * Components
@@ -30,6 +29,13 @@
   * [Vue](framework-integration/vue.md)
   * [Ember](framework-integration/ember.md)
   * [JavaScript](framework-integration/javascript.md)
+* Static Site Generation
+  * [Overview](static-site-generation/overview.md)
+  * [Basics](static-site-generation/basics.md)
+  * [Debugging](static-site-generation/debugging.md)
+  * [Meta tags](static-site-generation/meta.md)
+  * [Server Side Rendering](static-site-generation/server-side-rendering-ssr.md)
+  * [Deployment](static-site-generation/deployment.md)
 * Config
   * [Overview](config/overview.md)
   * [Dev Server](config/dev-server.md)
