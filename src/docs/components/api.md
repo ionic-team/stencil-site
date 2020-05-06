@@ -38,6 +38,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [disconnectedCallback()](component-lifecycle#disconnectedcallback-)
 - [componentWillLoad()](component-lifecycle#componentwillload-)
 - [componentDidLoad()](component-lifecycle#componentdidload-)
+- [componentShouldUpdate(newValue, oldValue, propName): boolean](component-lifecycle#componentshouldupdate-newval-any-oldval-any-propname-string-boolean)
 - [componentWillRender()](component-lifecycle#componentwillrender-)
 - [componentDidRender()](component-lifecycle#componentdidrender-)
 - [componentWillUpdate()](component-lifecycle#componentwillupdate-)
@@ -47,7 +48,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 ## Other
 
-- [**Host**](host-element): Host is a functional component can be used at the root of the render function to set attributes and event listeners to the host element itself.
+- [**Host**](host-element): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
 
 - [**h()**](templating-jsx): It's used within the `render()` to turn the JSX into Virtual DOM elements.
 

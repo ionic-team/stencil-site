@@ -75,6 +75,42 @@ div {
 
 In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute at run time.
 
+
+## Global styles
+
+While Stencil encourages developers to write the styles scoped to each component, sometimes it's required to have global styles that apply to the whole document regardless of which components are used.
+
+In order to do so, `stencil.config.ts` comes with an optional [`globalStyle` setting](https://stenciljs.com/docs/config#globalstyle) that points to a stylesheet path.
+
+```tsx
+export const config: Config = {
+  namespace: 'app',
+  globalStyle: 'src/global/global.css',
+  outputTarget: [{
+    type: 'www'
+  }]
+}
+```
+
+The compiler will run the same minification, autoprefixing and plugins over `global.css` and generate an output file for the [`www`](https://stenciljs.com/docs/www) and [`dist`](https://stenciljs.com/docs/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
+
+In the example above, since the namespace is `app`, the generated global styles file will be located at: `./www/build/app.css`.
+
+This file must be manually imported in the `index.html` of your application, which you can find in `src/index.html`:
+
+```tsx
+<link rel="stylesheet" href="/build/app.css">
+```
+
+Keep in mind that global styles should be reserved for **global** styles, ie, you should try to avoid styling your components with it, instead, some interesting use cases can be:
+
+- Theming: defining CSS variables used across the app
+- Load fonts with `@font-face`
+- App wide font-family
+- Style body background
+- CSS resets
+
+
 ## CSS Variables
 
 ### What are CSS Variables?
@@ -129,6 +165,7 @@ The stencil polyfill for CSS variables has plenty of limitations with respect a 
 - Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
 - Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
 - CSS variables within a component can ONLY be defined within a `:host(...)` selector.
+
 ```css
 :host() {
   /* This works */
