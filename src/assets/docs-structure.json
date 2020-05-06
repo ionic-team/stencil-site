@@ -153,6 +153,11 @@
         "url": "/docs/static-site-generation"
       },
       {
+        "text": "Prerender Config",
+        "filePath": "/assets/docs/guides/prerender-config.json",
+        "url": null
+      },
+      {
         "text": "Basics",
         "filePath": "/assets/docs/static-site-generation/basics.json",
         "url": "/docs/static-site-generation-basics"
@@ -261,11 +266,6 @@
         "text": "Web Workers",
         "filePath": "/assets/docs/guides/workers.json",
         "url": "/docs/web-workers"
-      },
-      {
-        "text": "Prerendering",
-        "filePath": "/assets/docs/guides/prerendering.json",
-        "url": "/docs/prerendering"
       },
       {
         "text": "Hydrate App",
