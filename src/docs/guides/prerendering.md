@@ -29,7 +29,7 @@ testing, but for performance reasons it's not ideal to quickly generate a large 
 
 Instead, Stencil uses its own internal DOM APIs which strictly follow the web standards, but optimized for prerendering, Static Site Generation and Serverside Rendering. By doing so, developers can still use all the same APIs they're already familiar with and using, but they'll seemlessly work within a NodeJS environment too. This means developers often do not have to write code differently in how they're building components, but rather they focus only on writing one type of component, and coding it using the standards they already know. To reiterate, developers do not have to learn a new API for prerendering. It's just the same web APIs your components are already using.
 
-Every component, machine and environment will perform differently, so it's difficult to provide benchmark and performance numbers. However, Ionic's Documentation site has hundreds of pages and Stencil is able to prerender the entire site in a few seconds.
+Every component, machine and environment will perform differently, so it's difficult to provide a consistent benchmark. However, what we do know is that [Ionic's Documentation site](https://ionicframework.com/docs) has hundreds of pages and Stencil is able to prerender the entire site in a few seconds.
 
 
 ## How Prerendering Works
@@ -129,7 +129,37 @@ import { PrerenderConfig } from '@stencil/core';
 export const config: PrerenderConfig = {
   // ideal for debugging purposes
   crawlUrls: false,
-  entryUrls: ['/only-url-i-want-to-prerender'],
+  entryUrls: ['/path-to-the-only-url-i-want-to-prerender'],
   runtimeLogging: true
 };
 ```
+
+Next, we've found [VSCode's Debugger](https://code.visualstudio.com/docs/editor/debugging) to be the easiest way to set breakpoints and step through the prerendering process. Below is an example launcher config the debugger will use:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Prerender",
+      "args": [
+        "${workspaceFolder}/node_modules/@stencil/core/bin/stencil",
+        "prerender",
+        "/path/to/hydrate/index.js",
+        "--max-workers=0",
+        "--config",
+        "${workspaceFolder}/stencil.config.ts"
+      ],
+      "protocol": "inspector"
+    }
+  ]
+}
+```
+
+In the example above, we're starting the stencil prerender command, and providing it an exact path to where
+the hydrate script can be found. Next we're using `--max-workers=0` so we do not fork out numerous processes,
+which makes it difficult to debug.
+
+
