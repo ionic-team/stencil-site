@@ -38,9 +38,9 @@
   * [CLI](config/cli.md)
 * Output Targets
   * [Overview](output-targets/overview.md)
-  * [www](output-targets/www.md)
+  * [dist-custom-elements-bundle](output-targets/custom-elements.md)
   * [dist](output-targets/dist.md)
-  * [dist](output-targets/custom-elements.md)
+  * [www](output-targets/www.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
   * [docs-custom](output-targets/docs-custom.md)

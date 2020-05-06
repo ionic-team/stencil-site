@@ -188,14 +188,19 @@
         "url": "/docs/output-targets"
       },
       {
-        "text": "www",
-        "filePath": "/assets/docs/output-targets/www.json",
-        "url": "/docs/www"
+        "text": "dist-custom-elements-bundle",
+        "filePath": "/assets/docs/output-targets/custom-elements.json",
+        "url": "/docs/custom-elements"
       },
       {
         "text": "dist",
         "filePath": "/assets/docs/output-targets/dist.json",
         "url": "/docs/distribution"
+      },
+      {
+        "text": "www",
+        "filePath": "/assets/docs/output-targets/www.json",
+        "url": "/docs/www"
       },
       {
         "text": "docs-readme",

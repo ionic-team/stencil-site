@@ -36,59 +36,34 @@ outputTargets: [
 | `empty`  | By default, before each build the `dir` directory will be emptied of all files. However, to prevent this directory from being emptied change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
 
 
+## Publishing
 
-## package.json
-
-The purpose of the `package.json` file is to give other tools instructions on how to find the package's files, and to provide information about the package. For example, bundlers such as [Rollup](https://rollupjs.org/) and [Webpack](https://webpack.js.org/) use this configuration to locate the projects entry files.
-
-An advantage to using the compiler is it is able to provide help on how to best setup the project for distribution. Below is a common setup found within a project's `package.json` file:
-
-```json
-{
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/interface.d.ts",
-  "unpkg": "dist/ionic/ionic.js",
-  "collection:main": "dist/collection/index.js",
-  "collection": "dist/collection/collection-manifest.json",
-  "files": [
-    "dist/",
-    "css/",
-    "loader/"
-  ]
-}
-```
-
-| Property | Description                                                                                | Recommended                       |
-|----------|--------------------------------------------------------------------------------------------|-----------------------------------|
-| `main`   | Entry file in the CommonJS module format.                                                  | `dist/index.js`                   |
-| `module` | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.mjs`                  |
-| `es2015` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
-| `es2017` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
-| `types`  | Entry file to the project's types.                                                         | `dist/types/index.d.ts`           |
-| `unpkg`  | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
+Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
 
 
-## Using your component in a framework
+## Distribution Options
 
-There are three strategies we recommend for using web components built with Stencil.
+Each output target, form of bundling and distribution each have their own pros and cons. Luckily you can worry about writing some good source code for your component, and Stencil will handle generating the various bundles, and consumers of your library can decide how apply your components to their external projects. Below are a few of the options.
 
-The first step for all three of these strategies is to
-[Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 ### Script tag
 
-- Put a script tag similar to this `<script src='https://unpkg.com/my-name@0.0.1/dist/myname.js'></script>` in the head of your index.html
+- Use a script tag linked to a CDN copy of your published NPM module, for example: `<script type="module" src='https://cdn.jsdelivr.net/npm/my-name@0.0.1/dist/myname.js'></script>`.
+- The initial script itself is extremely tiny and does not represent the entire library, it's only a small registry.
+- You can use any or all components within your library anywhere within that webpage.
+- Doesn't matter if the actual component was written within the HTML, or created with vanilla JavaScript, jQuery, React, etc.
+- Only the components used on that page will actually be requested and lazy-loaded.
+
+
+### Import the `dist` library using a bundler
+- Run `npm install my-name --save`
+- Add an `import` within the root component: `import my-component`;
+- Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
 - Then you can use the element anywhere in your template, JSX, html etc.
 
-### Node Modules
-- Run `npm install my-name --save`
-- Put a script tag similar to this `<script src='node_modules/my-name/dist/myname.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc.
 
-### In a stencil-app-starter app
+### Import the `dist` library into another Stencil app
 - Run `npm install my-name --save`
-- Add an import to the npm packages: `import my-component`;
+- Add an `import` within the root component: `import my-component`;
+- Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
 - Then you can use the element anywhere in your template, JSX, html etc.

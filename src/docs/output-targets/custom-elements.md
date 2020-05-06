@@ -26,3 +26,22 @@ outputTargets: [
   }
 ]
 ```
+
+## Distributing Custom Elements Bundle
+
+Your component library can be easily distributed on Npm, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there consumers of your library can decide how to import your library into their project.
+
+-
+
+## Importing and Defining Custom Elements
+
+The generated bundle will export each component class and will already have the styles bundled . However, it does not define the custom elements, or apply any polyfills.
+
+
+## Legacy Browsers
+
+If the library is to be used on IE11 we recommand using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` we only recommend if for modern browsers that already support Custom Elements, Shadow DOM and CSS Variables (basically not IE11 or Edge 18 and below). Good news is that they're all widely supported for modern web develoment:
+
+- [Custom Elements Support](https://caniuse.com/#feat=custom-elementsv1)
+- [Shadow DOM Support](https://caniuse.com/#feat=shadowdomv1)
+- [CSS Variables Support](https://caniuse.com/#feat=css-variables)
