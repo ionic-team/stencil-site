@@ -186,7 +186,9 @@ Compared to using Web Components directly, Stencil provides extra APIs that make
 
 ### What browsers can support Stencil components?
 
-Stencil works on Internet Explorer 11 and above.
+Stencil works on modern browsers and Internet Explorer 11.
+
+[Learn more about browser support](docs/browser-support).
 
 
 ### What polyfills does Stencil provide?
