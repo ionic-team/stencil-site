@@ -68,7 +68,6 @@ The generated docs JSON data will in the type of `JsonDocs` which consists of ma
 | `props`    | Array of component properties information   |
 | `methods`    | Array of component methods information   |
 | `events`    |    |
-| `usage`    |    |
 | `listeners`    |    |
 | `styles`    |    |
 | `slots`    |    |
