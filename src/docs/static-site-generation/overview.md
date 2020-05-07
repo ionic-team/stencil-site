@@ -5,6 +5,7 @@ url: /docs/static-site-generation
 contributors:
   - mlynch
   - adamdbradley
+  - bitflower
 ---
 
 # Static Site Generation with Stencil
@@ -49,7 +50,7 @@ Stencil makes SSG easy, so read on to see how to incorporate it into your apps.
 
 ## Tooling
 
-To be clear, Stencil does _not_ use `Puppeteer` or `jsdom` for prerendering. Puppeteer is great for End-toEnd
+To be clear, Stencil does _not_ use `Puppeteer` or `jsdom` for prerendering. Puppeteer is great for End-to-End
 testing, but for performance reasons it's not ideal to quickly generate a large website with hundreds or thousands of pages. Additionally, `jsdom` is often used for unit testing, but in our experience it's difficult to use with async components and its global environment nature.
 
 Instead, Stencil uses its own internal DOM APIs which strictly follow the web standards, but optimized for prerendering, Static Site Generation and Serverside Rendering. By doing so, developers can still use all the same APIs they're already familiar with, but they'll seemlessly work within a NodeJS environment too. This means developers often do not have to write code differently in how they're building components, but rather they focus only on writing one type of component, and coding it using the standards they already know. To reiterate, developers do not have to learn a new API for prerendering. It's just the same web APIs your components are already using.

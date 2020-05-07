@@ -5,11 +5,14 @@ url: /docs/hydrate-app
 contributors:
   - adamdbradley
   - dgautsch
+  - bitflower
 ---
 
 # Hydrate App
 
-The hydrate app is a bundle of your same components, but compiled so they can be hydrated on a NodeJS server, and generate HTML. This is the same NodeJS app which prerendering uses internally, and the same one which Angular Universal SSR uses for Ionic. Like Stencil components, the hydrate app itself is not restricted to one framework. _Note that Stencil does **NOT** use Puppeteer for SSR or prerendering._
+The hydrate app is a bundle of your same components, but compiled so they can be hydrated on a NodeJS server, and generate HTML. This is the same NodeJS app which prerendering uses internally, and the same one which Angular Universal SSR uses for Ionic. Like Stencil components, the hydrate app itself is not restricted to one framework.
+
+_Note that Stencil does **NOT** use Puppeteer for SSR or prerendering._
 
 ## How to Use the Hydrate App
 
