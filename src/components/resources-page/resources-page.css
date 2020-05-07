@@ -85,6 +85,7 @@ resources-page form input::placeholder {
 resources-page form button {
   flex: 0 0 auto;
   text-align: center;
+  cursor: pointer;
 }
 
 resources-page .error-message {
@@ -179,6 +180,7 @@ resources-page .tablist button {
   padding: 24px 32px;
   text-align: left;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 resources-page .tablist button.active {
