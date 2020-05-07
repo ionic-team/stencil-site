@@ -17,13 +17,19 @@ export class ResourcesPage {
     this.filterLinks = this.filterLinks.bind(this);
   }
 
-  activateTab(ev: any) {
+  activateTab = (ev: any) => {
     this.activeTab = ev.target.id;
-    console.log(this.activeTab);
   }
 
-  handleSearchInput(ev: any) {
+  handleSearchInput = (ev: any) => {
+    ev.preventDefault();
+    ev.stopPropagation();
     this.searchTerm = ev.target.value;
+  }
+
+  handleSearchSubmit = (ev: any) => {
+    ev.preventDefault();
+    ev.stopPropagation();
   }
 
   filterLinks(link: any) {
@@ -39,7 +45,7 @@ export class ResourcesPage {
       <div class="container">
         <header>
           <h1 class="headline measure-md"><span>Resources</span> to help you get more out of Stencil</h1>
-          <form class="form">
+          <form class="form" onSubmit={this.handleSearchSubmit}>
             <div class="form-group">
               <input
                 name="search"
