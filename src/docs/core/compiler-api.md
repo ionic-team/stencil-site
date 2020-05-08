@@ -58,6 +58,9 @@ should already be created using the `loadConfig({...})` method.
 Below is an example of a NodeJS environment running a full build.
 
 ```tsx
+import { createNodeLogger, createNodeSystem } from '@stencil/core/cli';
+import { createCompiler, loadConfig } from '@stencil/core/compiler';
+
 const logger = createNodeLogger(process);
 const sys = createNodeSystem(process);
 const validated = await loadConfig({
