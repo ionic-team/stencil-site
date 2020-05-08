@@ -7,7 +7,7 @@ search-bar .form-group {
   position: relative;
 }
 
-search-bar .form-group > svg {
+search-bar .form-group>svg {
   position: absolute;
   left: 16px;
   top: 50%;
@@ -17,6 +17,7 @@ search-bar .form-group > svg {
 
 search-bar input {
   min-height: 45px;
+  max-width: 100%;
 }
 
 search-bar input {

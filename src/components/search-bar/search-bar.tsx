@@ -8,18 +8,29 @@ export class SearchBar implements ComponentInterface {
   @Prop() placeholder?: string = 'Search';
   @Prop() searchTerm?: string = '';
   @Prop() handleInput?: (ev: any) => void;
+  @Prop() debounce?: number = 0;
+
+  timer: any = undefined;
+
+  onHandleInput(ev: any) {
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      if (this.handleInput) {
+        this.handleInput(ev)
+      }
+    }, this.debounce);
+  }
 
   render() {
     const {
       placeholder,
       searchTerm,
-      handleInput
     } = this;
 
     return (
       <Host>
         <div class="form-group">
-          <input name="search" type="search" autocomplete="off" value={searchTerm} onInput={handleInput} placeholder={placeholder} aria-label="Search" required />
+          <input name="search" type="search" autocomplete="off" value={searchTerm} onKeyUp={this.onHandleInput.bind(this)} placeholder={placeholder} aria-label="Search" required />
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M7.48776 6.4556C7.19995 6.16779 6.74338 6.16779 6.47995 6.4556C5.49557 7.43999 4.94434 8.75999 4.94434 10.1756C4.94434 11.5678 5.49653 12.8878 6.47995 13.8956C6.62433 14.04 6.81557 14.1112 6.98434 14.1112C7.15215 14.1112 7.34433 14.039 7.48872 13.8956C7.77653 13.6078 7.77653 13.1512 7.48872 12.8878C6.76872 12.1678 6.36091 11.2078 6.36091 10.2C6.36091 9.19227 6.76872 8.23223 7.48872 7.51227C7.75217 7.20008 7.75217 6.74447 7.48778 6.45572L7.48776 6.4556Z"

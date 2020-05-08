@@ -22,8 +22,6 @@ export class ResourcesPage {
   };
 
   handleSearchInput = (ev: any) => {
-    ev.preventDefault();
-    ev.stopPropagation();
     this.searchTerm = ev.target.value;
   };
 
