@@ -39,15 +39,15 @@ Also note that the generated bundle will export each component class and will al
 
 Your component library can be easily distributed on Npm, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there consumers of your library can decide how to import your library into their project. For the `dist-custom-elements-bundle`, the default import location would be `my-library/dist/custom-elements-bundle`, but this can get further configured within the `package.json` file.
 
-To make this bundle the entry module for a package, set the `package.json`'s `main` property to:
+To make this bundle the entry module for a package, set the `package.json`'s `module` property to:
 
 ```tsx
 {
-  "main": "dist/custom-elements-bundle/index.mjs"
+  "module": "dist/custom-elements-bundle/index.mjs"
 }
 ```
 
-Note: If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's best to pick one of them as the main entry, that's up to you.
+Note: If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's best to choose which one of them should be the `module` entry, but that's up to you.
 
 Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
 
