@@ -205,11 +205,14 @@ export class Something {
    * Ordered by their natural call order, for example
    * WillLoad should go before DidLoad.
    */
-  componentWillLoad() {}
+  connectedCallback() {}
+  disconnectedCallback() {}
   componentDidLoad() {}
   componentWillUpdate() {}
   componentDidUpdate() {}
-  componentDidUnload() {}
+  componentWillRender() {}
+  componentShouldRender(newVal: any, oldVal: any, propName: string) {}
+  componentDidRender() {}
 
   /**
    * 7. Listeners

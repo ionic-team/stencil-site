@@ -8,7 +8,7 @@ contributors:
 
 # Component Lifecycle Methods
 
-Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and unload. These methods can be added to a component to hook into operations at the right time.
+Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and render. These methods can be added to a component to hook into operations at the right time.
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
@@ -105,6 +105,7 @@ Implement one of the following methods within a component class and Stencil will
     </g>
   </g>
 </svg>
+
 
 ## connectedCallback()
 
@@ -242,7 +243,7 @@ componentWillLoad() {
 
 ## Example
 
-This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
+This simple example shows a clock and updates the current time every second. The timer is started when the component is added to the DOM. Once it's removed from the DOM, the timer is stopped.
 
 ```tsx
 import { Component, State, h } from '@stencil/core';
@@ -256,13 +257,13 @@ export class CustomClock {
 
   @State() time: number = Date.now();
 
-  componentDidLoad() {
+  connectedCallback() {
     this.timer = window.setInterval(() => {
       this.time = Date.now();
     }, 1000);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     window.clearInterval(this.timer);
   }
 
