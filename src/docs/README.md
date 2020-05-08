@@ -24,6 +24,7 @@
   * [Functional Components](components/functional-components.md)
 * Framework Integrations
   * [Overview](framework-integration/overview.md)
+  * [Bindings](framework-integration/bindings.md)
   * [Angular](framework-integration/angular.md)
   * [React](framework-integration/react.md)
   * [Vue](framework-integration/vue.md)

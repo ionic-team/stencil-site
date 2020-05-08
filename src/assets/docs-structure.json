@@ -118,6 +118,11 @@
         "url": "/docs/overview"
       },
       {
+        "text": "Bindings",
+        "filePath": "/assets/docs/framework-integration/bindings.json",
+        "url": "/docs/framework-bindings"
+      },
+      {
         "text": "Angular",
         "filePath": "/assets/docs/framework-integration/angular.json",
         "url": "/docs/angular"
