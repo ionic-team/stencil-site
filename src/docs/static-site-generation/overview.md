@@ -12,7 +12,7 @@ contributors:
 
 One of the best ways to build fast, interactive web sites and web apps is to utilize Static Site Generation instead of Server Side Rendering (known as SSR) or Client Side Rendering (known as Single Page Apps, or SPAs).
 
-Static Site Generation (SSG) means building and rendering components and routes at build time (aka prerendering) rather than server request time (SSR) or at client run-time (SPA). Because a route is already prerendered, all of the content for the route is available to search engines and clients *immediately*, so SEO and performance are maximized.
+Static Site Generation (SSG) means building and rendering components and routes at build time (aka prerendering) rather than server request time (SSR) or at client run-time (SPA). Because a route is already prerendered, all of the content for the route is available to search engines and clients _immediately_, so SEO and performance are maximized.
 
 Static Site Generation doesn't mean your pages have to be _stay_ static! Stencil utilizes hydration to efficiently load client-side components at runtime to get the best of both worlds.
 
@@ -22,14 +22,12 @@ Since Static Site Generation prerenders components, there are some tradeoffs and
 
 Stencil makes SSG easy, so read on to see how to incorporate it into your apps.
 
-
 ## Benefits of Static Site Generation
 
 - Great [Lighthouse](https://developers.google.com/web/tools/lighthouse/) scores
-- Faster time to [first meaningful paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
-- Better [SEO](https://support.google.com/webmasters/answer/7451184)
+- Faster time to [Largest Contentful Paint (LCP)](https://web.dev/lcp/)
+- Better [Search Engine Optimization (SEO)](https://support.google.com/webmasters/answer/7451184)
 - Provides functionality for users with JavaScript disabled
-
 
 ## How Static Site Generation and Prerendering Works
 
@@ -46,7 +44,6 @@ Stencil makes SSG easy, so read on to see how to incorporate it into your apps.
 **Static HTML Response**: With the static HTML files deploy to a server, visitors of each prerendered page first receive the HTML with inline styles, and no blocking JS or CSS. Additionally, the compiler is already aware of the exact modules the visitor will need for this page, and will asynchronously preload the modules using [link `modulepreload`](https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload).
 
 **Client-side Hydration**: After the HTML and inlined styles have rendered the first paint, the next step is for the same nodes within the DOM to be hydrated by the client-side JavaScript. Each component within the page will asynchronously hydrate using the initial order they were found in the DOM structure. Next, as each component lazily hydrates they're able to reuse the existing nodes found in the DOM.
-
 
 ## Tooling
 
