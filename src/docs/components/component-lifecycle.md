@@ -148,7 +148,7 @@ A promise can be returned, that can be used to wait for the first render.
 Called once just after the component fully loaded and the first `render()` occurs.
 
 
-## componentShouldUpdate(newVal: any, oldVal: any, propName: string) => boolean
+## componentShouldUpdate()
 
 This hook is called when a component's `Prop` or `State` property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
 
