@@ -55,6 +55,23 @@ be compiled then the `compiler()` function should be used instead.
 Given a Stencil config, this method asynchronously returns a `Compiler` instance. The config provided
 should already be created using the `loadConfig({...})` method.
 
+Below is an example of a NodeJS environment running a full build.
+
+```tsx
+const logger = createNodeLogger(process);
+const sys = createNodeSystem(process);
+const validated = await loadConfig({
+  logger,
+  sys,
+  config: {
+    /* user config */
+  },
+});
+const compiler = await createCompiler(validated.config);
+const results = await compiler.build();
+```
+
+
 ## createSystem()
 
 ```tsx
