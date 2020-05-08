@@ -1,8 +1,122 @@
+resource-page .timeline-Header {
+  display: none;
+}
+
+resources-page .headline {
+  margin-bottom: 0;
+}
+
+resources-page .headline span {
+  position: relative;
+}
+
+resources-page .headline span::after {
+  background-color: var(--color-dodger-blue);
+  bottom: 0;
+  content: '';
+  height: 50%;
+  left: 0;
+  opacity: 0.25;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+resources-page .container>header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 120px;
+}
+
+resources-page .form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+resources-page .form-group {
+  display: flex;
+  position: relative;
+}
+
+resources-page .form-group svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+resources-page form input, resources-page form button, resources-page .form-message {
+  min-height: 45px;
+}
+
+resources-page form input {
+  transition: border 0.3s;
+  margin-right: 8px;
+  padding: 10px 16px 10px 56px;
+  font-size: 16px;
+  border: 1px solid #DEE3EA;
+  box-sizing: border-box;
+  border-radius: 6px;
+  flex: 1;
+  -webkit-appearance: none;
+}
+
+resources-page form input:invalid {
+  box-shadow: none;
+}
+
+resources-page form input:focus {
+  outline: none;
+  border: 1px solid #786DF9;
+}
+
+resources-page form input.error {
+  border: 1px solid #F88D8D;
+}
+
+resources-page form input::placeholder {
+  color: #6D6C82;
+  opacity: 0.6;
+}
+
+resources-page form button {
+  flex: 0 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+resources-page .error-message {
+  font-size: 14px;
+  color: #E13535;
+}
+
+resources-page .form-message {
+  padding: 8px 26px 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #F4F4FF;
+  border-radius: 6px;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+resources-page .form-message p {
+  color: #5755F6;
+}
+
+resources-page .form-message app-icon {
+  height: 18px;
+  margin-right: 12px;
+}
+
 resources-page .measure-lg {
   margin-bottom: 100px;
 }
 
-resources-page .measure-lg > div + div {
+resources-page .measure-lg>div+div {
   margin-top: 56px;
 }
 
@@ -10,11 +124,11 @@ resources-page .list--unstyled {
   line-height: 1.4;
 }
 
-resources-page .list--unstyled li + li {
+resources-page .list--unstyled li+li {
   margin-top: 20px;
 }
 
-resources-page h2 + .list--unstyled {
+resources-page h2+.list--unstyled {
   margin-top: 22px;
 }
 
@@ -36,4 +150,147 @@ resources-page .slide-wrapper iframe {
 
 resources-page a {
   text-decoration: none;
+}
+
+resources-page .tabs {
+  display: flex;
+}
+
+resources-page .tablist {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+resources-page .tablist button {
+  -webkit-appearance: none;
+  align-items: center;
+  appearance: none;
+  background: none;
+  border: 1px solid white;
+  border-left: 10px solid rgba(var(--color-dodger-blue-rgb), 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 15px 25px rgba(68, 68, 68, 0.05);
+  display: flex;
+  font-size: 22px;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  max-width: 100%;
+  outline: none;
+  padding: 24px 32px;
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+resources-page .tablist button:focus {
+  border-color: rgba(var(--color-dodger-blue-rgb), 0.5);
+}
+
+resources-page .tablist button.active {
+  border-left: 10px solid rgba(var(--color-dodger-blue-rgb), 1);
+  box-shadow: 0px 15px 25px rgba(68, 68, 68, 0.15);
+}
+
+resources-page .tablist button span {
+  padding-right: 24px;
+  pointer-events: none;
+}
+
+resources-page .tablist button svg {
+  fill: rgba(var(--color-dodger-blue-rgb), 0.5);
+  height: 35px;
+  pointer-events: none;
+  width: 35px;
+}
+
+resources-page .tablist button.active svg {
+  fill: rgba(var(--color-dodger-blue-rgb), 1);
+}
+
+resources-page .tabpanel {
+  flex: 1;
+  margin-left: 80px;
+}
+
+resources-page .tabpanel section header {
+  margin-bottom: 32px;
+}
+
+resources-page .tabpanel section header h2 {
+  margin: 0;
+}
+
+@media screen and (max-width: 460px) {
+  resources-page .form-group {
+    flex-direction: column;
+  }
+  resources-page form input {
+    margin-right: 0px;
+  }
+  resources-page .form-group input, resources-page .form-group button {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  resources-page .container>header {
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+  resources-page .form {
+    justify-content: center;
+  }
+  resources-page .tabs {
+    flex-direction: column;
+  }
+  resources-page .tabs .tablist {
+    flex-direction: row;
+    justify-content: center;
+    max-width: unset;
+    margin-bottom: 32px;
+  }
+  resources-page .tabs .tablist>button {
+    border-left: none;
+    border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 0.5);
+    margin-bottom: 0;
+    margin-right: 16px;
+    padding: 16px;
+  }
+  resources-page .tabs .tablist>button:last-child {
+    margin-right: 0;
+  }
+  resources-page .tabs .tablist>button.active {
+    border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 1);
+  }
+  resources-page .tabpanel {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  resources-page .container, resources-page .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  resources-page .header hgroup {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  resources-page .form {
+    width: 100%;
+    margin-left: 0;
+  }
+  resources-page .form-message {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  resources-page .tablist button span {
+    display: none;
+  }
 }

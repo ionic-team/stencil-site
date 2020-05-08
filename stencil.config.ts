@@ -1,11 +1,12 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
+  taskQueue: 'async',
   outputTargets: [
     {
       type: 'www',
       baseUrl: 'https://stenciljs.com/',
-      prerenderConfig: './prerender.config.js',
+      prerenderConfig: './prerender.config.ts',
       serviceWorker: {
         unregister: true
       }

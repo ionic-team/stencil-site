@@ -101,7 +101,12 @@
       },
       {
         "source": "/docs/server-side-rendering",
-        "destination": "/docs/prerendering",
+        "destination": "/docs/static-site-generation-server-side-rendering-ssr",
+        "type": 301
+      },
+      {
+        "source": "/docs/prerendering",
+        "destination": "/docs/static-site-generation",
         "type": 301
       },
       {
@@ -112,6 +117,11 @@
       {
         "source": "/docs/docs-auto-generation",
         "destination": "/docs/docs-readme",
+        "type": 301
+      },
+      {
+        "source": "/design-systems",
+        "destination": "/docs/stencil-for-design-systems",
         "type": 301
       }
     ]

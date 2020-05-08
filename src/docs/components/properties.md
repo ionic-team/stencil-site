@@ -8,7 +8,7 @@ contributors:
 
 # Prop Decorator
 
-Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
+Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently rerender.
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -61,6 +61,7 @@ export interface PropOptions {
   attribute?: string;
   mutable?: boolean;
   reflect?: boolean;
+}
 ```
 
 ### Prop mutability
@@ -85,7 +86,7 @@ export class NameElement {
 
 ### Attribute Name
 
-Properties and component attributes are strongly connected but not necesary the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
+Properties and component attributes are strongly connected but not necessarily the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
 
 In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
 

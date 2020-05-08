@@ -47,14 +47,14 @@ similary, if `this.open === false`:
 <todo-list class="todo-list" aria-hidden="true"></todo-list>
 ```
 
-`<Host>` is a virtual component, a virtual API exposed by stencil to declarative set the attributes of the host element, it will never rendered in the DOM, ie you will never see `<Host>` in Chrome Dev Tools for instance.
+`<Host>` is a virtual component, a virtual API exposed by stencil to declaratively set the attributes of the host element, it will never be rendered in the DOM, i.e. you will never see `<Host>` in Chrome Dev Tools for instance.
 
 
 ### `<Host>` can work as a `<Fragment>`
 
 `<Host>` can also be used when more than one component needs to be rendered at the root level for example:
 
-could be achieved by a `render()` method like this:
+It could be achieved by a `render()` method like this:
 
 ```tsx
 @Component({tag: 'my-cmp'})
@@ -81,7 +81,6 @@ This JSX would render the following HTML:
 
 Even if we don't use `<Host>` to render any attribute in the host element, it's a useful API to render many elements at the root level.
 
-
 ## Element Decorator
 
 The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
@@ -107,6 +106,7 @@ If you need to update the host element in response to prop or state changes, you
 See full information about styling on the [Styling page](https://stenciljs.com/docs/styling#shadow-dom-in-stencil).
 
 CSS can be applied to the `<Host>` element by using its component tag defined in the `@Component` decorator.
+
 ```tsx
 @Component({
   tag: 'my-cmp',
@@ -114,7 +114,9 @@ CSS can be applied to the `<Host>` element by using its component tag defined in
 })
 ...
 ```
+
 my-cmp.css:
+
 ```css
 my-cmp {
   width: 100px;
@@ -123,7 +125,8 @@ my-cmp {
 
 ### Shadow DOM
 
-Something to beware of is that Styling the `<Host>` element when using shadow DOM does not work quite the same. Instead of using the `my-cmp` element selector you must `:host`. 
+Something to beware of is that Styling the `<Host>` element when using shadow DOM does not work quite the same. Instead of using the `my-cmp` element selector you must use `:host`.
+
 ```tsx
 @Component({
   tag: 'my-cmp',
@@ -132,7 +135,9 @@ Something to beware of is that Styling the `<Host>` element when using shadow DO
 })
 ...
 ```
+
 my-cmp.css:
+
 ```css
 :host {
   width: 100px;

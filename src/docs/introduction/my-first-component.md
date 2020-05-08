@@ -4,6 +4,7 @@ description: My First Component
 url: /docs/my-first-component
 contributors:
   - jthoms1
+  - simonhaenisch
 ---
 
 # My First Component
@@ -59,7 +60,7 @@ This is where you'll write the bulk of your code to bring your Stencil component
 Here is where you'd write functions or provide business logic.
 
 In order for the component to render something to the screen, we must declare a render function that returns JSX.
-If you're not sure what JSX is, don't worry, we'll go over it in detail in the <stencil-route-link url="/docs/templating">Templating Docs</stencil-router-link>.
+If you're not sure what JSX is, don't worry, we'll go over it in detail in the <stencil-route-link url="/docs/templating">Templating Docs</stencil-route-link>.
 
 The quick idea is that our render function needs to return a representation of the HTML we want to push to the DOM.
 
@@ -72,3 +73,38 @@ We set this property like so:
 ```
 Any property decorated with `@Prop()` is also automatically watched for changes.
 If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
+
+## Component Generator
+
+The Stencil CLI can generate new components for you. If you used one of the starters, you can simply run the `generate` npm script in your project, which will start the interactive generator.
+
+```shell
+npm run generate
+```
+
+Or you can invoke the Stencil CLI directly with the `generate` command (`g` for short). If you don't have `stencil` installed globally, prefix the command with `npx`.
+
+```shell
+stencil generate
+```
+
+You can optionally pass the component tag name directly to the command. Remember that the component tag name needs to be lowercase and contain at least one hyphen. In the second step, the generator will ask you which files to generate. This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
+
+All components will be generated within the `src/components` folder. Within that, a folder will be created with the same name as the component tag name you provided, and within that folder the files will be generated. It is also possible to specify one or multiple sub-folders to generate the component in.
+
+For example, if you specify `pages/page-home` as the component tag name, the files will be generated in `src/components/pages/page-home`.
+
+```shell
+stencil generate pages/page-home
+```
+
+```plain
+src
+ |- components
+     |- pages
+         |- page-home
+             |- page-home.css
+             |- page-home.e2e.ts
+             |- page-home.spec.ts
+             |- page-home.tsx
+```

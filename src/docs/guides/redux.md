@@ -8,7 +8,8 @@ contributors:
   - corysmc
   - bitflower
 ---
-
+Want to skip the tutorial and just check out the code?
+https://github.com/corysmc/ionic-pwa-stencil-redux
 ## What is Redux?
 
 Redux is a state management library that separates app state and business logic from your view, and makes that state available across any of your stencil components, which makes it a great addition to stencil when building a PWA with stencil. For more info on Redux, [check out their docs](https://redux.js.org)
@@ -106,7 +107,7 @@ const user = (
 export default user;
 ```
 
-## 5. Initilize Store
+## 5. Initialize Store
 
 Initialize the store from within your root component. The store can then be accessed from within other components, which will be shown in the next step.
 
@@ -341,9 +342,9 @@ const user = (state = getInitialState(), action: ActionTypes): UserState => {
 export default user;
 ```
 
-With that you've create a store, set the default state, mapped that state to your view components, emitted an action, updated the redux store, which triggered a re-render!!! 
+With that you've create a store, set the default state, mapped that state to your view components, emitted an action, updated the redux store, which triggered a rerender!!!
 
 ### Other Resources
 
-- Intro to Redux by Josh Moroni https://www.youtube.com/watch?v=BccpaouJuxA
-- State Management with Redux in Ionic & StencilJS: Loading Data by Josh Moroni https://www.joshmorony.com/state-management-with-redux-in-ionic-stenciljs-loading-data/
+- Intro to Redux by Josh Morony https://www.youtube.com/watch?v=BccpaouJuxA
+- State Management with Redux in Ionic & StencilJS: Loading Data by Josh Morony https://www.joshmorony.com/state-management-with-redux-in-ionic-stenciljs-loading-data/

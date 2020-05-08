@@ -25,6 +25,14 @@ export const config: Config = {
 };
 ```
 
+## buildEs5
+
+Sets if the ES5 build should be generated or not. It defaults to `false` in dev mode, and `true` in production mode. Notice that Stencil always generates a modern build too, whereas this setting will either disable es5 builds entirely with `false`, or always create es5 builds (even in dev mode) when set to `true`. Basically if the app does not need to run on legacy browsers (IE11 and Edge 18 and below), it's safe to set `buildEs5` to `false`, which will also speed up production build times. In addition to not creating es5 builds, apps may also be interested in disabling any unnecessary runtime when __not__ supporting legacy browsers. See [config extras](/docs/config-extras) for more information.
+
+```tsx
+buildEs5: false
+```
+
 ## bundles
 
 By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
@@ -70,15 +78,17 @@ Below is an example folder structure containing a webapp's global css file, name
 ```bash
 src/
   components/
-  globals/
+  global/
     app.css
 ```
 
 The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
 
 ```tsx
-globalStyle: 'src/globals/app.css'
+globalStyle: 'src/global/app.css'
 ```
+
+Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
 
 
 ## hashFileNames
@@ -136,7 +146,7 @@ Please see the [Dev-Server docs](/docs/dev-server).
 The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
 
 ```tsx
-preamble: "Built with Stencil"
+preamble: 'Built with Stencil'
 ```
 
 
@@ -151,13 +161,45 @@ srcDir: 'src'
 ```
 
 
-## excludeSrc
+## taskQueue
 
-*default: `['**/test/**', '**/*.spec.*']`*
+*default: `congestionAsync`*
 
-The `excludeSrc` config setting specifies a set of regular expressions that should be excluded from the build process.  The defaults are meant to exclude possible test files that you would not want to include in your final build.
+Sets the task queue used by stencil's runtime. The task queue schedules DOM read and writes
+across the frames to efficiently render and reduce layout thrashing. By default, the
+`congestionAsync` is used. It's recommended to also try each setting to decide which works
+best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
+main thread to periodically lock-up, it's always recommended to try
+[Web Workers](https://stenciljs.com/docs/web-workers) for those tasks.
 
+* `congestionAsync`: DOM reads and writes are scheduled in the next frame to prevent layout
+  thrashing. When the app is heavily tasked and the queue becomes congested it will then
+  split the work across multiple frames to prevent blocking the main thread. However, it can
+  also introduce unnecesary reflows in some cases, especially during startup. `congestionAsync`
+  is ideal for apps running animations while also simultaniously executing intesive tasks
+  which may lock-up the main thread.
+
+* `async`: DOM read and writes are scheduled in the next frame to prevent layout thrashing.
+  During intensive CPU tasks it will not reschedule rendering to happen in the next frame.
+  `async` is ideal for most apps, and if the app has many intensive tasks causing the main
+  thread to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers)
+  rather than the congestion async queue.
+
+* `immediate`: Makes writeTask() and readTask() callbacks to be executed syncronously. Tasks
+  are not scheduled to run in the next frame, but do note there is at least one microtask.
+  The `immediate` setting is ideal for apps that do not provide long running and smooth
+  animations. Like the async setting, if the app has intensive tasks causing the main thread
+  to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers).
+
+```tsx
+taskQueue: 'async'
+```
 
 ## testing
 
 Please see the [testing config docs](/docs/testing-config).
+
+
+## extras
+
+Please see the [Extras docs](/docs/config-extras).

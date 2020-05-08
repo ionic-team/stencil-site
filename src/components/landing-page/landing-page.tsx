@@ -6,9 +6,10 @@ import copy from 'copy-text-to-clipboard';
   styleUrl: 'landing-page.css'
 })
 export class LandingPage {
+  private timer: any;
   @Element() el!: Element;
 
-  @State() isCopied = false;
+  @State() copiedState = 0;
 
   constructor() {
     document.title = `Stencil`;
@@ -16,8 +17,9 @@ export class LandingPage {
 
   copyCommand = () => {
     copy('npm init stencil');
-    this.isCopied = true;
-    setTimeout(() => this.isCopied = false, 1500);
+    this.copiedState = Math.min(COPY_STATES.length - 1, this.copiedState + 1);
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.copiedState = 0, 1500);
   }
 
   render() {
@@ -25,11 +27,10 @@ export class LandingPage {
       <div>
         <div class="hero container">
           <hgroup>
-            <announcement-bar></announcement-bar>
             <h1>Build. Distribute. Adopt. </h1>
             <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
-            <yahr-button href="/docs/getting-started">Get started</yahr-button>
-            <yahr-button variant="secondary" href="/docs/introduction">Why Stencil?</yahr-button>
+            <stencil-route-link url="/docs/getting-started" class="hero-button" anchorClass="btn-get-started">Get started</stencil-route-link>
+            <stencil-route-link url="/docs/introduction" class="hero-button" anchorClass="btn-why-stencil">Why Stencil?</stencil-route-link>
           </hgroup>
           <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF"/>
@@ -129,7 +130,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
                 <li><app-icon name="checkmark"/> TypeScript support</li>
                 <li><app-icon name="checkmark"/> One-way Data Binding</li>
-                <li><app-icon name="checkmark"/> Component pre-rendering</li>
+                <li><app-icon name="checkmark"/> Component prerendering</li>
                 <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
                 <li><app-icon name="checkmark"/> JSX support</li>
                 <li><app-icon name="checkmark"/> Dependency-free components</li>
@@ -140,7 +141,7 @@ export class LandingPage {
           <div class="cta">
             <div class="cta__primary">
               <h3>Getting started is simple:</h3>
-              <code class={{'copied': this.isCopied}} onClick={this.copyCommand}>{this.isCopied ? 'copied!' : '$ npm init stencil'}</code>
+              <code class={{'copied': this.copiedState > 0}} onClick={this.copyCommand}>{COPY_STATES[this.copiedState]}</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
             <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
@@ -164,7 +165,7 @@ export class LandingPage {
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M32 9.44131C32 11.9453 30.9989 14.3467 29.2168 16.1173L18.5481 26.7486H7.32378L12.8017 21.306H20.4702C21.2663 21.306 21.9116 20.6645 21.9116 19.8732C21.9116 19.0819 21.2663 18.4404 20.4702 18.4404H15.686L23.9875 10.1925C24.5505 9.63308 24.5507 8.72586 23.988 8.16617C23.4252 7.60647 22.5125 7.60625 21.9495 8.16566L5.09347 24.9129V13.3809L15.778 2.76529C17.5601 0.994706 19.9771 0 22.4974 0C25.0177 0 27.4347 0.994706 29.2168 2.76529C30.9989 4.53588 32 6.93732 32 9.44131ZM5.09347 24.9129V26.7486H7.32378L2.46041 31.5806C1.89736 32.14 0.9847 32.1398 0.421929 31.5801C-0.140841 31.0204 -0.140614 30.1132 0.422437 29.5537L5.09347 24.9129Z" fill="#141334"/>
                 </svg>
                 <h3>Lightweight</h3>
-                <p>A tiny runtime, pre-rendering, and the raw power of native Web Components make Stencil one of the fastest compilers around.</p>
+                <p>A tiny runtime, prerendering, and the raw power of native Web Components make Stencil one of the fastest compilers around.</p>
               </li>
               <li class="feature-list__item">
                 <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +191,7 @@ export class LandingPage {
                   <li><app-icon name="checkmark"/>Build a custom UI library that works across teams and projects</li>
                 </ul>
                 <p>Interested in learning more about building design systems with Stencil?</p>
-                <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/design-systems">Show me more</stencil-route-link>
+                <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/stencil-for-design-systems">Show me more</stencil-route-link>
               </div>
             </div>
           </div>
@@ -258,21 +259,40 @@ export class LandingPage {
             <h2><strong>The Stencil story</strong></h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div class="videos">
-              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+              <a href="https://youtu.be/RZ6MLELGsD8" class="video-thumbnail video-thumbnail--architecting">
                 <app-icon name="play"/>
-                <span>Watch launch video</span>
+                <span>Architecting A Component Compiler</span>
               </a>
               <a href="https://youtu.be/M1F81V-NhP0" class="video-thumbnail video-thumbnail--announcement">
                 <app-icon name="play"/>
                 <span>See the v1 announcement</span>
+              </a>
+              <a href="https://youtu.be/UfD-k7aHkQE" class="video-thumbnail video-thumbnail--launch">
+                <app-icon name="play"/>
+                <span>Watch launch video</span>
               </a>
             </div>
           </div>
         </section>
 
         <newsletter-signup />
-        <pre-footer />
       </div>
     );
   }
 }
+
+const COPY_STATES = [
+  '$ npm init stencil',
+  'copied!',
+  'double copied!',
+  'triple copied!',
+  'super copied!',
+  'hyper copied!!!',
+  'definitively copied',
+  'seriously?',
+  'trust me, it\'s copied',
+  'you can paste it already',
+  'WTF',
+  'PLEASE STOP',
+  'ok, i am out'
+];

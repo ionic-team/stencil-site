@@ -31,12 +31,7 @@
         "text": "FAQ",
         "filePath": "/assets/docs/introduction/faq.json",
         "url": "/docs/faq"
-      }
-    ]
-  },
-  {
-    "text": "Design Systems",
-    "children": [
+      },
       {
         "text": "What is a Design System?",
         "filePath": "/assets/docs/design-systems/what-is-design-system.json",
@@ -123,6 +118,11 @@
         "url": "/docs/overview"
       },
       {
+        "text": "Bindings",
+        "filePath": "/assets/docs/framework-integration/bindings.json",
+        "url": "/docs/framework-bindings"
+      },
+      {
         "text": "Angular",
         "filePath": "/assets/docs/framework-integration/angular.json",
         "url": "/docs/angular"
@@ -150,6 +150,46 @@
     ]
   },
   {
+    "text": "Static Site Generation",
+    "children": [
+      {
+        "text": "Overview",
+        "filePath": "/assets/docs/static-site-generation/overview.json",
+        "url": "/docs/static-site-generation"
+      },
+      {
+        "text": "Prerender Config",
+        "filePath": "/assets/docs/static-site-generation/prerender-config.json",
+        "url": "/docs/prerender-config"
+      },
+      {
+        "text": "Basics",
+        "filePath": "/assets/docs/static-site-generation/basics.json",
+        "url": "/docs/static-site-generation-basics"
+      },
+      {
+        "text": "Debugging",
+        "filePath": "/assets/docs/static-site-generation/debugging.json",
+        "url": "/docs/static-site-generation-debugging"
+      },
+      {
+        "text": "Meta tags",
+        "filePath": "/assets/docs/static-site-generation/meta.json",
+        "url": "/docs/static-site-generation-meta-tags"
+      },
+      {
+        "text": "Server Side Rendering",
+        "filePath": "/assets/docs/static-site-generation/server-side-rendering-ssr.json",
+        "url": "/docs/static-site-generation-server-side-rendering-ssr"
+      },
+      {
+        "text": "Deployment",
+        "filePath": "/assets/docs/static-site-generation/deployment.json",
+        "url": "/docs/static-site-generation-deployment"
+      }
+    ]
+  },
+  {
     "text": "Config",
     "children": [
       {
@@ -166,6 +206,16 @@
         "text": "Plugins",
         "filePath": "/assets/docs/config/plugins.json",
         "url": "/docs/plugins"
+      },
+      {
+        "text": "Extras",
+        "filePath": "/assets/docs/config/extras.json",
+        "url": "/docs/config-extras"
+      },
+      {
+        "text": "CLI",
+        "filePath": "/assets/docs/config/cli.json",
+        "url": "/docs/cli"
       }
     ]
   },
@@ -178,14 +228,19 @@
         "url": "/docs/output-targets"
       },
       {
-        "text": "www",
-        "filePath": "/assets/docs/output-targets/www.json",
-        "url": "/docs/www"
+        "text": "dist-custom-elements-bundle",
+        "filePath": "/assets/docs/output-targets/custom-elements.json",
+        "url": "/docs/custom-elements"
       },
       {
         "text": "dist",
         "filePath": "/assets/docs/output-targets/dist.json",
         "url": "/docs/distribution"
+      },
+      {
+        "text": "www",
+        "filePath": "/assets/docs/output-targets/www.json",
+        "url": "/docs/www"
       },
       {
         "text": "docs-readme",
@@ -198,6 +253,11 @@
         "url": "/docs/docs-json"
       },
       {
+        "text": "docs-custom",
+        "filePath": "/assets/docs/output-targets/docs-custom.json",
+        "url": "/docs/docs-custom"
+      },
+      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"
@@ -208,9 +268,14 @@
     "text": "Guides",
     "children": [
       {
-        "text": "Prerendering",
-        "filePath": "/assets/docs/guides/prerendering.json",
-        "url": "/docs/prerendering"
+        "text": "Web Workers",
+        "filePath": "/assets/docs/guides/workers.json",
+        "url": "/docs/web-workers"
+      },
+      {
+        "text": "Hydrate App",
+        "filePath": "/assets/docs/guides/hydrate-app.json",
+        "url": "/docs/hydrate-app"
       },
       {
         "text": "Bundling",
@@ -228,6 +293,11 @@
         "url": "/docs/forms"
       },
       {
+        "text": "Local Assets",
+        "filePath": "/assets/docs/guides/local-assets.json",
+        "url": "/docs/local-assets"
+      },
+      {
         "text": "Style Guide",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
@@ -238,14 +308,9 @@
         "url": "/docs/service-workers"
       },
       {
-        "text": "State Tunnel",
-        "filePath": "/assets/docs/guides/state-tunnel.json",
-        "url": "/docs/stencil-state-tunnel"
-      },
-      {
-        "text": "Redux",
-        "filePath": "/assets/docs/guides/redux.json",
-        "url": "/docs/stencil-redux"
+        "text": "Stencil Store",
+        "filePath": "/assets/docs/guides/store.json",
+        "url": "/docs/stencil-store"
       }
     ]
   },

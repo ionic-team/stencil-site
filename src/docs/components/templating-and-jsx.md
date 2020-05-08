@@ -391,3 +391,7 @@ export class MyCmp {
   }
 }
 ```
+
+## Other Resources
+
+- [Understanding JSX for StencilJS Applications](https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/)

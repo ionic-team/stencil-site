@@ -75,6 +75,42 @@ div {
 
 In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill. Scoped CSS automatically scopes CSS to an element by appending each of your styles with a data attribute at run time.
 
+
+## Global styles
+
+While Stencil encourages developers to write the styles scoped to each component, sometimes it's required to have global styles that apply to the whole document regardless of which components are used.
+
+In order to do so, `stencil.config.ts` comes with an optional [`globalStyle` setting](https://stenciljs.com/docs/config#globalstyle) that points to a stylesheet path.
+
+```tsx
+export const config: Config = {
+  namespace: 'app',
+  globalStyle: 'src/global/global.css',
+  outputTarget: [{
+    type: 'www'
+  }]
+}
+```
+
+The compiler will run the same minification, autoprefixing and plugins over `global.css` and generate an output file for the [`www`](https://stenciljs.com/docs/www) and [`dist`](https://stenciljs.com/docs/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
+
+In the example above, since the namespace is `app`, the generated global styles file will be located at: `./www/build/app.css`.
+
+This file must be manually imported in the `index.html` of your application, which you can find in `src/index.html`:
+
+```tsx
+<link rel="stylesheet" href="/build/app.css">
+```
+
+Keep in mind that global styles should be reserved for **global** styles, ie, you should try to avoid styling your components with it, instead, some interesting use cases can be:
+
+- Theming: defining CSS variables used across the app
+- Load fonts with `@font-face`
+- App wide font-family
+- Style body background
+- CSS resets
+
+
 ## CSS Variables
 
 ### What are CSS Variables?
@@ -119,3 +155,34 @@ h1 {
 ```
 
 This will apply the color we defined in our CSS Variable, in this case `#488aff`, to our `h1` element.
+
+### IE support
+
+IE11 does not support CSS variables natively, stencil does however provide a best-effort polyfill since it's impossible to polyfill CSS features in the same way JS can be polyfilled.
+
+The stencil polyfill for CSS variables has plenty of limitations with respect a browser supporting it natively, and incurs in heavy performance overhead.
+
+- Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
+- Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
+- CSS variables within a component can ONLY be defined within a `:host(...)` selector.
+
+```css
+:host() {
+  /* This works */
+  --color: black;
+}
+:host(.white) {
+  /* This works */
+  --color: white;
+}
+.selector {
+  /* This DOES NOT work in IE11 */
+  --color: red;
+}
+```
+
+- CSS variables within a component can be consumed (`var(--thing)`) in any selector.
+
+The performance overhead of using CSS variables in IE11 is elevated in terms of CPU time and memory. This is because in order to "simulate" the dynamic nature of CSS variables, the polyfill needs to dynamically generate a different stylesheet PER instance. For example, if you have 200 `my-cmp` elements in the DOM, the polyfill will attach 200 analogous `<style>` tags to style each element.
+
+The total amount of stylesheets to be handled by IE11 can quickly grow, consuming a lot of memory and requiring a lot of CPU for each Style Invalidation.

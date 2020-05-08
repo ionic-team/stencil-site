@@ -6,9 +6,9 @@ contributors:
   - jthoms1
 ---
 
-# Stencil: A Compiler for Web Components
+# Stencil: A Compiler for Web Components and High Performance Web Apps
 
-Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
+Stencil is a compiler that generates Web Components (more specifically, Custom Elements) and builds high performance web apps. Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
 
 Stencil takes features such as
 
@@ -17,15 +17,17 @@ Stencil takes features such as
 - Reactive data-binding
 - TypeScript
 - JSX
+- Static Site Generation (SSG)
 
-and then generates standards-based Web Components with these features baked in.
+and then generates standards-based Web Components and web apps with these features baked in.
 
-Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can be used without a framework because they are just web components. Stencil also enables a number of key capabilities on top of Web Components, in particular, pre-rendering, and objects-as-properties (instead of just strings).
+Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can be used without a framework because they are just web components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
 
 Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
 The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
 
+But Stencil can also be used to build high performance web apps, offering advanced features such as Static Site Generation and powerful caching.
 
 ## Why Stencil?
 

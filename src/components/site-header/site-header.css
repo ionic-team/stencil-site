@@ -31,10 +31,6 @@ body.dark site-header .icon-logo {
   transform: translate(0, -3px);
 }
 
-.header-menu .stencil-ds svg {
-  transform: translate(-2px, 1px);
-}
-
 @media screen and (max-width: 768px) {
   site-header .container {
     padding-top: 15px;
@@ -74,56 +70,24 @@ body.dark site-header .icon-logo {
   fill: var(--color-dodger-blue);
 }
 
-.header-menu stencil-route-link.stencil-ds a.link-active {
-  border-bottom: 0;
-  border-bottom-color: transparent;
-}
 
-body.dark .header-menu stencil-route-link:not(.stencil-ds) a {
+
+body.dark .header-menu stencil-route-link a {
   color: #DCDCEE;
 }
 
-body.dark .header-menu stencil-route-link:not(.stencil-ds) a:hover {
+body.dark .header-menu stencil-route-link a:hover {
   color: #fff;
 }
 
-body.dark .header-menu stencil-route-link:not(.stencil-ds) a.link-active:hover {
+body.dark .header-menu stencil-route-link a.link-active:hover {
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
-body.dark .header-menu stencil-route-link.stencil-ds a {
+body.dark .header-menu stencil-route-link a {
   position: relative;
   color: #CDFCFF;
   text-shadow: 0px 0px 8px rgba(112, 127, 255, 0.75), 0px 0px 40px #8790FF, 0px 0px 16px #2637FF;
-}
-
-body.dark .header-menu stencil-route-link.stencil-ds a::before,
-body.dark .header-menu stencil-route-link.stencil-ds a::after {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #001AFF;
-  opacity: 0.3;
-  filter: blur(18px);
-  width: 56px;
-  height: 40px;
-  border-radius: 100%;
-}
-
-body.dark .header-menu stencil-route-link.stencil-ds a::after {
-  transform: translate(calc(-50% - 12px), -50%);
-  width: 28px;
-  height: 28px;
-  opacity: 0.25;
-  z-index: -1;
-  filter: blur(6px);
-}
-
-body.dark .header-menu stencil-route-link.stencil-ds a svg {
-  fill: #b2e4fb;
 }
 
 .header-menu .external-links {
@@ -155,6 +119,10 @@ body.dark .header-menu .link--external:hover svg {
 
 .header-overflow,
 .header-close {
+  -webkit-appearance: none;
+  border: 0;
+  height: 24px;
+  background: transparent;
   transition: opacity 0.3s;
   position: absolute;
   top: 15px;

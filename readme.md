@@ -12,7 +12,7 @@ The documentation content is formatted in markdown and can be found in the [src/
 
 ## Building the Site
 
-To build the site from the source, ensure you're using the most recent versions of Node and Npm, and pull the lastest from master. Next, run `npm install` and `npm start` to launch the site in development mode.
+To build the site from the source, ensure you're using the most recent versions of Node and Npm, and pull the latest from master. Next, run `npm install`, `npm run docs` to build the docs files and `npm start` to launch the site in development mode.
 
 
 ## Related

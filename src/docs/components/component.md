@@ -33,7 +33,7 @@ The `tag` name is the only required property, but there are plenty of them:
 export interface ComponentOptions {
   /**
    * Tag name of the web component. Ideally, the tag name must be globally unique,
-   * so it's recommended to choose an unique prefix for all your components within the same collection.
+   * so it's recommended to choose a unique prefix for all your components within the same collection.
    *
    * In addition, tag name must contain a '-'
    */
@@ -47,7 +47,7 @@ export interface ComponentOptions {
 
   /**
    * If `true`, the component will use native shadow-dom encapsulation, it will fallback to `scoped` if the browser
-   * does not support shadow-dom nativelly. Defaults to `false`.
+   * does not support shadow-dom natively. Defaults to `false`.
    */
   shadow?: boolean;
 

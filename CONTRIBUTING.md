@@ -29,27 +29,24 @@ Thanks for your interest in contributing to the Stencil Docs! :tada:
 2. Clone your fork.
 3. Make a branch for your change.
 4. Run `npm install` (make sure you have [node](https://nodejs.org/en/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm) installed first).
-
-
-#### Developing
-
-1. Run `npm run dev`
-
+5. Run `npm run docs` to build the documentation files.
+6. Run `npm start`.
 
 #### Adding Documentation
 
-1. To add documentation first create a new markdown file in `docs-md` in the folder that fits your doc best. For example, if your doc is covering something in the Stencil compiler, you would put it in `docs-md/compiler`.
+1. To add documentation first create a new markdown file in `docs` in the folder that fits your doc best. For example, if your doc is a guide, you would put it in `docs/guides`.
 2. Write your documentation following the style in the other docs markdown files. Try to aim for being as clear and concise as possible. We recommend checking out the [vue.js docs](https://vuejs.org/) for examples of good docs.
-3. Open `src/components/stencil-site.tsx` in your editor and add the path to your new docs markdown file but using `.html` instead of `.md` to [here](https://github.com/ionic-team/stencil-site/blob/master/src/components/stencil-site/stencil-site.tsx#L33). For example, if my new doc was located at `docs-md/basics/my-cool-doc.md` I would add `'my-cool-doc': 'basics/my-cool-doc.html',` to that object.
-4. Open `src/components/site-menu.tsx` in your editor and add a new `<stencil-route-link />` with the `url` attribute pointing to the path for your new doc. For example, if I just added the doc mentioned above, my path would be `basics/my-cool-doc`.
-5. Run `npm run dev` to make sure your doc shows up in the menu, that you can navigate to the doc, and that your docs layout looks correct.
-
+3. Make sure the page header contains title, description, url and contributors. See other docs files for examples.
+4. Add your page to `src/docs/README.md` to have it appear in the table of contents.
+5. Run `npm run site.structure` then start the app with `npm start`. You should see your new page in the table of contents and be able to access it.
 
 #### Modifying documentation
 
-1. Locate the doc you want to modify in `docs-md/`.
+1. Locate the doc you want to modify in `docs/`.
 2. Modify the documentation, making sure to keep the format the same as the rest of the doc.
-3. Run `npm run dev` to make sure your changes look correct.
+3. Run `npm run docs` then `npm start` to make sure your changes look correct.
+
+Alternatively, modify documentation through the GitHub interface.
 
 ## Commit Message Format
 

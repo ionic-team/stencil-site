@@ -124,7 +124,6 @@ const localCache = new Map<string, Promise<MarkdownContent>>();
 const fetchContent = (path: string) => {
   let promise = localCache.get(path);
   if (!promise) {
-    console.log('fetchContent', path);
     promise = fetch(path).then(response => response.json());
     localCache.set(path, promise);
   }

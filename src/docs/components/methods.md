@@ -9,7 +9,7 @@ contributors:
 
 # Method Decorator
 
-The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element, ie. they are intented to be callable from the outside!
+The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element, ie. they are intended to be callable from the outside!
 
 > Developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
 
@@ -27,9 +27,14 @@ export class TodoList {
 
 Call the method like this:
 
+> Developers should ensure that the component is defined by using the whenDefined method of the custom element registry before attempting to call public methods.
+
 ```tsx
-const todoListElement = document.querySelector('todo-list');
-todoListElement.showPrompt();
+(async () => {
+  await customElements.whenDefined('todo-list');
+  const todoListElement = document.querySelector('todo-list');
+  await todoListElement.showPrompt();
+})();
 ```
 
 ## Public methods must be async
@@ -58,7 +63,7 @@ myMethod2() {
   return Promise.resolve(42);
 }
 
-// VALID: even it returns nothing, it needs to be async
+// VALID: even if it returns nothing, it needs to be async
 @Method()
 async myMethod3() {
   console.log(42);
@@ -73,7 +78,7 @@ notOk() {
 
 ## Private methods
 
-Non-public methods can still be used to organize the businness logic of your component and they do NOT have to return a Promise.
+Non-public methods can still be used to organize the business logic of your component and they do NOT have to return a Promise.
 
 ```tsx
 class Component {
