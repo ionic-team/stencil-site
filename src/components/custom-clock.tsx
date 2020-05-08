@@ -4,18 +4,19 @@ import { Component, State, h } from '@stencil/core';
   tag: 'custom-clock'
 })
 export class CustomClock {
-  timer: any;
+
+  timer?: number;
 
   @State() time: number = Date.now();
 
-  componentDidLoad() {
-    this.timer = setInterval(() => {
+  connectedCallback() {
+    this.timer = window.setInterval(() => {
       this.time = Date.now();
     }, 1000);
   }
 
-  componentDidUnload() {
-    clearInterval(this.timer);
+  disconnectedCallback() {
+    window.clearInterval(this.timer);
   }
 
   render() {
