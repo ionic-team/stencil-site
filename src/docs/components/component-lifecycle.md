@@ -40,8 +40,8 @@ Implement one of the following methods within a component class and Stencil will
     <g fill="#7b83a6">
       <rect x="303" y="620" width="252" height="49" rx="24.5" ry="24.5" />
       <rect x="303" y="161" width="252" height="49" rx="24.5" ry="24.5" />
-      <a href="#componentshouldupdate-newval-any-oldval-any-propname-string-boolean">
-        <rect x="303" y="233" width="252" height="49" rx="24.5" ry="24.5" />
+      <a href="#componentshouldupdate-newval-any-oldval-any-propname-string-boolean" fill="none">
+        <rect x="303" y="233" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
       </a>
       <rect x="303" y="305" width="252" height="49" rx="24.5" ry="24.5" />
     </g>
@@ -71,8 +71,8 @@ Implement one of the following methods within a component class and Stencil will
       <text x="78.77652" y="26.198486">
         <tspan x="117.17651" y="118.19849">connectedCallback()</tspan>
       </text>
-      <a href="#componentshouldupdate-newval-any-oldval-any-propname-string-boolean">
-        <text x="-11.721779" y="2.8359385">
+      <a href="#componentshouldupdate-newval-any-oldval-any-propname-string-boolean" fill="none">
+        <text x="-11.721779" y="2.8359385" fill="#ffffff">
           <tspan x="320.37817" y="261.83594">componentShouldUpdate()*</tspan>
         </text>
       </a>
