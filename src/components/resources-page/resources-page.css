@@ -36,80 +36,9 @@ resources-page .form {
   margin-top: 10px;
 }
 
-resources-page .form-group {
-  display: flex;
-  position: relative;
-}
-
-resources-page .form-group svg {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translate3d(0, -50%, 0);
-}
-
-resources-page form input, resources-page form button, resources-page .form-message {
-  min-height: 45px;
-}
-
-resources-page form input {
-  transition: border 0.3s;
-  margin-right: 8px;
-  padding: 10px 16px 10px 56px;
-  font-size: 16px;
-  border: 1px solid #DEE3EA;
-  box-sizing: border-box;
-  border-radius: 6px;
-  flex: 1;
-  -webkit-appearance: none;
-}
-
-resources-page form input:invalid {
-  box-shadow: none;
-}
-
-resources-page form input:focus {
-  outline: none;
-  border: 1px solid #786DF9;
-}
-
-resources-page form input.error {
-  border: 1px solid #F88D8D;
-}
-
-resources-page form input::placeholder {
-  color: #6D6C82;
-  opacity: 0.6;
-}
-
-resources-page form button {
-  flex: 0 0 auto;
-  text-align: center;
-  cursor: pointer;
-}
-
 resources-page .error-message {
   font-size: 14px;
   color: #E13535;
-}
-
-resources-page .form-message {
-  padding: 8px 26px 8px 20px;
-  display: flex;
-  align-items: center;
-  background-color: #F4F4FF;
-  border-radius: 6px;
-  align-self: flex-start;
-  font-weight: 500;
-}
-
-resources-page .form-message p {
-  color: #5755F6;
-}
-
-resources-page .form-message app-icon {
-  height: 18px;
-  margin-right: 12px;
 }
 
 resources-page .measure-lg {
@@ -224,7 +153,7 @@ resources-page .tabpanel section header h2 {
   resources-page form input {
     margin-right: 0px;
   }
-  resources-page .form-group input, resources-page .form-group button {
+  resources-page .form-group input {
     width: 100%;
     display: block;
   }
@@ -278,10 +207,6 @@ resources-page .tabpanel section header h2 {
   resources-page .form {
     width: 100%;
     margin-left: 0;
-  }
-  resources-page .form-message {
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 

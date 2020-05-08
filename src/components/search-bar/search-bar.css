@@ -1,0 +1,51 @@
+search-bar {
+  display: block;
+}
+
+search-bar .form-group {
+  display: flex;
+  position: relative;
+}
+
+search-bar .form-group > svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  width: auto;
+}
+
+search-bar input {
+  min-height: 45px;
+}
+
+search-bar input {
+  transition: border 0.3s;
+  margin-right: 8px;
+  padding: 10px 16px 10px 56px;
+  font-size: 16px;
+  border: 1px solid #DEE3EA;
+  box-sizing: border-box;
+  border-radius: 6px;
+  flex: 1;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+search-bar input:invalid {
+  box-shadow: none;
+}
+
+search-bar input:focus {
+  outline: none;
+  border: 1px solid #786DF9;
+}
+
+search-bar input.error {
+  border: 1px solid #F88D8D;
+}
+
+search-bar input::placeholder {
+  color: #6D6C82;
+  opacity: 0.6;
+}
