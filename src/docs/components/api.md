@@ -38,7 +38,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [disconnectedCallback()](component-lifecycle#disconnectedcallback-)
 - [componentWillLoad()](component-lifecycle#componentwillload-)
 - [componentDidLoad()](component-lifecycle#componentdidload-)
-- [componentShouldUpdate(newValue, oldValue, propName): boolean](component-lifecycle#componentshouldupdate-newval-any-oldval-any-propname-string-boolean)
+- [componentShouldUpdate(newValue, oldValue, propName): boolean](component-lifecycle#componentshouldupdate)
 - [componentWillRender()](component-lifecycle#componentwillrender-)
 - [componentDidRender()](component-lifecycle#componentdidrender-)
 - [componentWillUpdate()](component-lifecycle#componentwillupdate-)
