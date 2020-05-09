@@ -4,7 +4,7 @@ import path from 'path';
 import loadLanguages from 'prismjs/components/';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
-const languages = ['tsx', 'bash', 'typescript', 'javascript','markup', 'css', 'json', 'diff'];
+const languages = ['tsx', 'bash', 'typescript', 'javascript', 'markup', 'css', 'json', 'diff'];
 loadLanguages(languages);
 
 export function findItem(siteStructureList: SiteStructureItem[], filePath: string): SiteStructureItem {
@@ -27,52 +27,51 @@ export function listFactory(renderer: marked.Renderer, metadataList: SiteStructu
   const prevListitem = renderer.listitem;
   const prevLink = renderer.link;
 
-  renderer.list = function(body, ordered) {
+  renderer.list = function (body, ordered) {
     lastItem = {
-      type: 'list'
+      type: 'list',
     };
     return prevList.call(this, body, ordered);
   };
-  renderer.listitem = function(text) {
+  renderer.listitem = function (text) {
     if (lastItem.type === 'list') {
-      const [ itemText ] = text.split('<ul');
+      const [itemText] = text.split('<ul');
       lastItem = {
         type: 'listitem',
         text: itemText,
-        children: activeList
-      }
+        children: activeList,
+      };
       metadataList.push({
         text: itemText,
-        children: activeList
+        children: activeList,
       });
       activeList = [];
-
     } else if (lastItem.type === 'link') {
       lastItem = {
         type: 'listitem',
         text: lastItem.text,
-        filePath: lastItem.filePath
-      }
+        filePath: lastItem.filePath,
+      };
       activeList.push({
         text: lastItem.text,
-        filePath: lastItem.filePath
+        filePath: lastItem.filePath,
       });
     } else {
       lastItem = {
         type: 'listitem',
-        text: text
-      }
+        text: text,
+      };
       activeList.push({
-        text
+        text,
       });
     }
     return prevListitem.call(this, text);
   };
-  renderer.link = function(href: string, title: string, text: string) {
+  renderer.link = function (href: string, title: string, text: string) {
     lastItem = {
       type: 'link',
       text,
-      filePath: href
+      filePath: href,
     };
     return prevLink.call(this, href, title, text);
   };
@@ -81,7 +80,7 @@ export function listFactory(renderer: marked.Renderer, metadataList: SiteStructu
 export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string, metadataList: SiteStructureItem[]) {
   const prevLink = renderer.link;
 
-  renderer.link = function(href: string, title: string, text: string) {
+  renderer.link = function (href: string, title: string, text: string) {
     if (!(href.startsWith('/') || href.startsWith('#') || href.startsWith('http'))) {
       let [pathname, fragment] = href.split('#');
       fragment = fragment ? `#${fragment}` : '';
@@ -92,23 +91,31 @@ export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string
       }
     }
     return prevLink.call(this, href, title, text);
-  }
+  };
 }
 
 export function collectHeadingMetadata(renderer: marked.Renderer, metadata: MarkdownContent) {
-  renderer.heading = function(text, level, raw) {
-    const id = raw.toLowerCase().replace(/[^\w]+/g, '-');
+  renderer.heading = function (text, level, raw) {
+    let id = raw.toLowerCase().replace(/[^\w]+/g, '-');
+
+    while (id.startsWith('-')) {
+      id = id.substring(1);
+    }
+    while (id.endsWith('-')) {
+      id = id.substring(0, id.length - 1);
+    }
+
     metadata.headings.push({
       id,
       level,
-      text
+      text,
     });
 
     return `
 <h${level} id="${id}">
-  ${(level !== 1) ? `<a class="heading-link" href="#${id}"><app-icon name="link"></app-icon>` : ''}
+  ${level !== 1 ? `<a class="heading-link" href="#${id}"><app-icon name="link"></app-icon>` : ''}
   ${text}
-  ${(level !== 1) ? `</a>` : ''}
+  ${level !== 1 ? `</a>` : ''}
 </h${level}>
 `;
   };
@@ -133,14 +140,14 @@ export function changeCodeCreation(renderer: marked.Renderer) {
     if (!lang) {
       return `
   <highlight-code>
-    <pre><code>${(escaped ? code : escape(code))}</code></pre>
+    <pre><code>${escaped ? code : escape(code)}</code></pre>
   </highlight-code>
       `;
     }
 
     return `
   <highlight-code>
-    <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${(escaped ? code : escape(code))}</code></pre>
+    <pre class="language-${escape(lang)}"><code class="language-${escape(lang)}">${escaped ? code : escape(code)}</code></pre>
   </highlight-code>
   `;
   };

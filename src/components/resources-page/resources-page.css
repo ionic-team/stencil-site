@@ -96,7 +96,7 @@ resources-page .tablist button {
   align-items: center;
   appearance: none;
   background: none;
-  border: none;
+  border: 1px solid white;
   border-left: 10px solid rgba(var(--color-dodger-blue-rgb), 0.5);
   border-radius: 10px;
   box-shadow: 0px 15px 25px rgba(68, 68, 68, 0.05);
@@ -110,6 +110,10 @@ resources-page .tablist button {
   text-align: left;
   transition: all 0.2s ease;
   cursor: pointer;
+}
+
+resources-page .tablist button:focus {
+  border-color: rgba(var(--color-dodger-blue-rgb), 0.5);
 }
 
 resources-page .tablist button.active {

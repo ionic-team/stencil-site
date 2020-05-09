@@ -8,9 +8,134 @@ contributors:
 
 # Component Lifecycle Methods
 
-Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and unload. These methods can be added to a component to hook into operations at the right time.
+Components have numerous lifecycle methods which can be used to know when the component "will" and "did" load, update, and render. These methods can be added to a component to hook into operations at the right time.
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
+
+
+<svg viewBox="0 0 643 922" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
+  <g fill-rule="evenodd">
+    <path d="m552 743c49.706 0 90-40.294 90-90v-488c0-58.5-47.2-106-105.5-106-58.393 0.16547-105.61 47.607-105.5 106l0.4 74.5" fill="none" stroke="#7b83a6" stroke-linecap="square" />
+    <path d="m437.7 600.3-6.3 6.3-6.3-6.3" fill="none" stroke="#b3b6c5" />
+    <path d="m431.4 347.5v258" fill="none" stroke="#7b83a6" stroke-linecap="square" />
+    <path d="m431.4 281.42v24.337" fill="none" stroke="#7b83a6" stroke-dasharray="1, 6" stroke-linecap="square" />
+    <path d="m126.4 19.5v586" fill="none" stroke="#212431" stroke-linecap="square" />
+    <path d="m132.7 600.3-6.3 6.3-6.3-6.3" fill="none" stroke="#212431" />
+    <path d="m278 19.5v58.059" fill="none" stroke="#575e7f" stroke-linecap="square" />
+    <path d="m284.3 71.993-6.3 6.3-6.3-6.3" fill="none" stroke="#575e7f" />
+    <path d="m278.5 805v53.5" fill="none" stroke="#575e7f" stroke-linecap="square" />
+    <path d="m284.8 852.3-6.3 6.3-6.3-6.3" fill="none" stroke="#575e7f" />
+    <rect x="1" y="718" width="555" height="50" rx="4" ry="4" fill="#fdf5e4" />
+    <rect x="1" y="779" width="555" height="50" rx="4" ry="4" fill="#fdf5e4" />
+    <rect width="190" height="50" rx="4" ry="4" fill="#fdf5e4" />
+    <rect x="215" width="190" height="50" rx="4" ry="4" fill="#fdf5e4" />
+    <g font-family="SFMono-Regular, 'SF Mono', 'Lucida Console', monospace" font-size="15px">
+      <g>
+        <a href="#componentdidload">
+          <rect y="620" width="252" height="49" rx="24.5" ry="24.5" fill="#212431" />
+          <text x="2.2028809" y="166.83597" fill="#ffffff">
+            <tspan x="45.202881" y="648.83594">componentDidLoad()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentdidupdate">
+          <rect x="303" y="620" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
+          <text x="2.8501587" y="166.83597" fill="#ffffff">
+            <tspan x="339.15015" y="648.83594">componentDidUpdate()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#disconnectedcallback">
+          <rect x="152.5" y="873" width="252" height="49" rx="24.5" ry="24.5" fill="#4b516e" />
+          <text x="-18.570755" y="148.19852" fill="#ffffff">
+            <tspan x="179.72925" y="902.19849">disconnectedCallback()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="/docs/reactive-data#watch-decorator">
+          <rect x="303" y="161" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
+          <text x="2.5288086" y="-8" fill="#ffffff">
+            <tspan x="348.52881" y="190">@Watch(‘propName’)</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="/docs/templating-jsx">
+          <rect y="451" width="555" height="49" rx="24.5" ry="24.5" fill="#39b54a" />
+          <text x="1.035553" y="109.1985" fill="#ffffff">
+            <tspan x="241.43555" y="480.19852">render()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#connectedcallback">
+          <rect x="65" y="89" width="275" height="49" rx="24.5" ry="24.5" fill="#4b516e" />
+          <text x="78.77652" y="26.198486" fill="#ffffff">
+            <tspan x="117.17651" y="118.19849">connectedCallback()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentshouldupdate">
+          <rect x="303" y="233" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
+          <text x="-6.5288005" y="2.8359385" fill="#ffffff">
+            <tspan x="325.57117" y="261.83594">componentShouldUpdate()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentwillrender">
+          <rect x="77.5" y="377" width="400" height="49" rx="24.5" ry="24.5" fill="#4b516e" />
+          <text x="-148.97623" y="146.83594" fill="#ffffff">
+            <tspan x="183.12378" y="405.83594">componentWillRender()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentwillupdate">
+          <rect x="303" y="305" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
+          <text x="2.5237732" y="74.835938" fill="#ffffff">
+            <tspan x="334.62378" y="333.83594">componentWillUpdate()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentdidrender">
+          <rect x="77.5" y="523" width="400" height="49" rx="24.5" ry="24.5" fill="#4b516e" />
+          <text x="-144.44986" y="292.83597" fill="#ffffff">
+            <tspan x="187.65015" y="551.83594">componentDidRender()</tspan>
+          </text>
+        </a>
+      </g>
+      <g>
+        <a href="#componentwillload">
+          <rect y="161" width="252" height="49" rx="24.5" ry="24.5" fill="#212431" />
+          <text x="2.2765121" y="97.835938" fill="#ffffff">
+            <tspan x="40.676514" y="189.83594">componentWillLoad()</tspan>
+          </text>
+        </a>
+      </g>
+    </g>
+    <g fill="#9a6400" font-size="14px" letter-spacing="-.2" text-anchor="middle" text-align="center">
+      <text x="111.24316" y="-1.0898438">
+        <tspan x="95.239258" y="28.910156">Component initialized</tspan>
+      </text>
+      <text x="344.75723" y="166.90677">
+        <tspan x="278.08643" y="746.90674">Change in a value of prop or state triggers rerender</tspan>
+      </text>
+      <text x="138.02324" y="167.91019">
+        <tspan x="278.73926" y="807.91016">Component removed</tspan>
+      </text>
+      <text x="330.85489" y="-1.0898438">
+        <tspan x="310.23926" y="28.910156">Component reattached</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
+
 
 ## connectedCallback()
 
@@ -54,7 +179,7 @@ A promise can be returned, that can be used to wait for the first render.
 Called once just after the component fully loaded and the first `render()` occurs.
 
 
-## componentShouldUpdate(newVal: any, oldVal: any, propName: string) => boolean
+## componentShouldUpdate()
 
 This hook is called when a component's `Prop` or `State` property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
 
@@ -95,57 +220,6 @@ A promise can be returned, that can be used to wait for the next render.
 Called just after the component updates.
 It's never called during the first `render()`.
 
-
-<svg viewBox="0 0 643 774" xmlns="http://www.w3.org/2000/svg" style="margin: 60px 0;">
-  <g fill="none" fill-rule="evenodd">
-    <path d="M552 576a90 90 0 0 0 90-90V165c0-58.5-47.2-106-105.5-106A105.8 105.8 0 0 0 431 165l.4 136.5v136" stroke="#B3B6C5" stroke-linecap="square"/>
-    <path stroke="#B3B6C5" d="M437.6 432.3l-6.3 6.3-6.3-6.3"/>
-    <path d="M126.4 19.5v419" stroke="#B3B6C5" stroke-linecap="square"/>
-    <path stroke="#B3B6C5" d="M132.6 432.3l-6.3 6.3-6.3-6.3"/>
-    <path d="M290.3 628.5v82" stroke="#B3B6C5" stroke-linecap="square"/>
-    <path stroke="#B3B6C5" d="M296.6 704.3l-6.3 6.3-6.3-6.3"/>
-    <rect fill="#FDF5E4" x="1" y="550" width="555" height="50" rx="4"/>
-    <rect fill="#FDF5E4" x="1" y="611" width="555" height="50" rx="4"/>
-    <rect fill="#FDF5E4" width="252" height="50" rx="4"/>
-    <rect fill="#212431" y="452" width="252" height="49" rx="24.5"/>
-    <rect fill="#212431" x="303" y="452" width="252" height="49" rx="24.5"/>
-    <rect fill="#212431" x="303" y="229" width="252" height="49" rx="24.5"/>
-    <rect fill="#212431" x="164" y="725" width="252" height="49" rx="24.5"/>
-    <rect fill="#212431" x="303" y="169" width="252" height="49" rx="24.5"/>
-    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
-      <tspan x="57" y="30">Component initialized</tspan>
-    </text>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="43" y="482">componentDidLoad()</tspan>
-    </text>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="336.3" y="482">componentDidUpdate()</tspan>
-    </text>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="332.1" y="259">componentWillUpdate()</tspan>
-    </text>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="198.3" y="754">componentDidUnload()</tspan>
-    </text>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="346" y="198">@Watch(‘propName’)</tspan>
-    </text>
-    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
-      <tspan x="110.8" y="580">Change in a value of prop or state triggers rerender</tspan>
-    </text>
-    <text font-size="14" letter-spacing="-.2" fill="#9A6400">
-      <tspan x="211.7" y="640">Component removed</tspan>
-    </text>
-    <rect fill="#39B54A" y="342" width="555" height="49" rx="24.5"/>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="240.4" y="371">render()</tspan>
-    </text>
-    <rect fill="#212431" y="63" width="252" height="49" rx="24.5"/>
-    <text font-family="SFMono-Regular, SF Mono, Lucida Console, monospace" font-size="15" fill="#FFF">
-      <tspan x="38.4" y="92">componentWillLoad()</tspan>
-    </text>
-  </g>
-</svg>
 
 ## Rendering State
 
@@ -199,7 +273,7 @@ componentWillLoad() {
 
 ## Example
 
-This simple example shows a clock and updates the current time every second. Since `componentDidLoad` is only called once, we will only ever have one instance of the timer running. Once the component unloads, the timer is stopped.
+This simple example shows a clock and updates the current time every second. The timer is started when the component is added to the DOM. Once it's removed from the DOM, the timer is stopped.
 
 ```tsx
 import { Component, State, h } from '@stencil/core';
@@ -213,13 +287,13 @@ export class CustomClock {
 
   @State() time: number = Date.now();
 
-  componentDidLoad() {
+  connectedCallback() {
     this.timer = window.setInterval(() => {
       this.time = Date.now();
     }, 1000);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     window.clearInterval(this.timer);
   }
 
