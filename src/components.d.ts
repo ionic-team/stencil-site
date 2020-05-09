@@ -62,6 +62,7 @@ export namespace Components {
     interface ResourcesPage {
     }
     interface SearchBar {
+        "debounce"?: number;
         "handleInput"?: (ev: any) => void;
         "placeholder"?: string;
         "searchTerm"?: string;
@@ -297,6 +298,7 @@ declare namespace LocalJSX {
     interface ResourcesPage {
     }
     interface SearchBar {
+        "debounce"?: number;
         "handleInput"?: (ev: any) => void;
         "placeholder"?: string;
         "searchTerm"?: string;

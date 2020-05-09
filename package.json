@@ -13,6 +13,7 @@
     "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
+    "site.search": "tsc --p ./scripts && node ./scripts/markdown-to-html",
     "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
@@ -45,5 +46,9 @@
   "bugs": {
     "url": "https://github.com/ionic-team/stencil-site"
   },
-  "homepage": "https://stenciljs.com/"
+  "homepage": "https://stenciljs.com/",
+  "dependencies": {
+    "algoliasearch": "^4.2.0",
+    "rollup-plugin-dotenv": "^0.2.0"
+  }
 }
