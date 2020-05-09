@@ -4,7 +4,6 @@ import glob from 'glob';
 import { promisify } from 'util';
 import path from 'path';
 import {readFile, writeFile, mkdirp, remove} from 'fs-extra';
-// import removeMd from 'remove-markdown';
 
 import { collectHeadingMetadata, changeCodeCreation, localizeMarkdownLink } from './markdown-renderer';
 import frontMatter from 'front-matter';
