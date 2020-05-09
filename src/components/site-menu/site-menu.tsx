@@ -53,7 +53,7 @@ export class SiteMenu implements ComponentInterface {
         {({ toggleLeftSidebar }: SiteState) => (
           <div>
             {process.env.ENABLE_SEARCH === "true" &&
-              <search-bar class="site-search" searchTerm={this.searchTerm} handleInput={this.doSiteSearch} placeholder={'Search Docs'}></search-bar>
+              <search-bar class="site-search" debounce={500} searchTerm={this.searchTerm} handleInput={this.doSiteSearch} placeholder={'Search Docs'}></search-bar>
             }
             {this.searchResults.length > 0 &&
               <div class="wrapper">
