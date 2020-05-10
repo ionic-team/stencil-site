@@ -1,5 +1,4 @@
-
-app-icon .icon-logo  {
+app-icon .icon-logo {
   width: 96px;
   height: 23px;
 }
@@ -60,8 +59,8 @@ app-icon .icon-docs {
 
 app-icon .icon-link {
   fill: var(--color-woodsmoke);
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 17px;
 }
 
 app-icon .icon-circle {
