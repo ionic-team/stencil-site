@@ -64,7 +64,7 @@ export default function() { // or export default async function()
 
 The global script config option takes a file path as a string.
 
-> The exported function can also be `async`
+> The exported function can also be `async`.
 
 ## globalStyle
 
