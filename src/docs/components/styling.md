@@ -30,13 +30,13 @@ In browsers which do not support Shadow DOM we fall back to scoped CSS. This giv
 
 ### Shadow DOM in Stencil
 
-Shadow DOM is not currently turned on by default for web components built with Stencil. To turn on Shadow DOM in a web component built with Stencil, you can use the `shadow` param in the component decorator. Below is an example of this:
+Shadow DOM is currently turned on by default for web components built with Stencil. To turn off Shadow DOM in a web component built with Stencil, you can use the `shadow` param in the component decorator. Below is an example of this:
 
 ```tsx
 @Component({
   tag: 'shadow-component',
   styleUrl: 'shadow-component.css',
-  shadow: true
+  shadow: false
 })
 export class ShadowComponent {
 
