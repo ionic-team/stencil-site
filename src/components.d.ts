@@ -47,6 +47,8 @@ export namespace Components {
     }
     interface LandingPage {
     }
+    interface LifecycleChart {
+    }
     interface LowerContentNav {
         "next"?: SiteStructureItem;
         "prev"?: SiteStructureItem;
@@ -149,6 +151,12 @@ declare global {
         prototype: HTMLLandingPageElement;
         new (): HTMLLandingPageElement;
     };
+    interface HTMLLifecycleChartElement extends Components.LifecycleChart, HTMLStencilElement {
+    }
+    var HTMLLifecycleChartElement: {
+        prototype: HTMLLifecycleChartElement;
+        new (): HTMLLifecycleChartElement;
+    };
     interface HTMLLowerContentNavElement extends Components.LowerContentNav, HTMLStencilElement {
     }
     var HTMLLowerContentNavElement: {
@@ -217,6 +225,7 @@ declare global {
         "highlight-code": HTMLHighlightCodeElement;
         "in-page-navigation": HTMLInPageNavigationElement;
         "landing-page": HTMLLandingPageElement;
+        "lifecycle-chart": HTMLLifecycleChartElement;
         "lower-content-nav": HTMLLowerContentNavElement;
         "newsletter-signup": HTMLNewsletterSignupElement;
         "notfound-page": HTMLNotfoundPageElement;
@@ -270,6 +279,8 @@ declare namespace LocalJSX {
     }
     interface LandingPage {
     }
+    interface LifecycleChart {
+    }
     interface LowerContentNav {
         "next"?: SiteStructureItem;
         "prev"?: SiteStructureItem;
@@ -306,6 +317,7 @@ declare namespace LocalJSX {
         "highlight-code": HighlightCode;
         "in-page-navigation": InPageNavigation;
         "landing-page": LandingPage;
+        "lifecycle-chart": LifecycleChart;
         "lower-content-nav": LowerContentNav;
         "newsletter-signup": NewsletterSignup;
         "notfound-page": NotfoundPage;
@@ -334,6 +346,7 @@ declare module "@stencil/core" {
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
             "in-page-navigation": LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
             "landing-page": LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
+            "lifecycle-chart": LocalJSX.LifecycleChart & JSXBase.HTMLAttributes<HTMLLifecycleChartElement>;
             "lower-content-nav": LocalJSX.LowerContentNav & JSXBase.HTMLAttributes<HTMLLowerContentNavElement>;
             "newsletter-signup": LocalJSX.NewsletterSignup & JSXBase.HTMLAttributes<HTMLNewsletterSignupElement>;
             "notfound-page": LocalJSX.NotfoundPage & JSXBase.HTMLAttributes<HTMLNotfoundPageElement>;
