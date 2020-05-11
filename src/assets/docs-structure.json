@@ -350,19 +350,39 @@
     ]
   },
   {
+    "text": "Core Compiler API",
+    "children": [
+      {
+        "text": "Compiler API",
+        "filePath": "/assets/docs/core/compiler-api.json",
+        "url": "/docs/compiler-api"
+      },
+      {
+        "text": "CLI API",
+        "filePath": "/assets/docs/core/cli-api.json",
+        "url": "/docs/cli-api"
+      },
+      {
+        "text": "Dev Server API",
+        "filePath": "/assets/docs/core/dev-server-api.json",
+        "url": "/docs/dev-server-api"
+      }
+    ]
+  },
+  {
     "text": "Community",
     "children": [
       {
-        "text": "Stencil on GitHub",
-        "filePath": "https://github.com/ionic-team/stencil"
+        "text": "Stencil on Twitter",
+        "filePath": "https://twitter.com/stenciljs"
       },
       {
         "text": "Stencil on Slack",
         "filePath": "https://stencil-worldwide.herokuapp.com/"
       },
       {
-        "text": "Stencil on Twitter",
-        "filePath": "https://twitter.com/stenciljs"
+        "text": "Stencil on GitHub",
+        "filePath": "https://github.com/ionic-team/stencil"
       }
     ]
   }

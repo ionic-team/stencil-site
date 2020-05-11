@@ -9,7 +9,7 @@ contributors:
 ---
 
 
-## Prerender Config for Static Site Generation (SSG)
+# Prerender Config for Static Site Generation (SSG)
 
 As of `1.13.0`, the optional prerender config can be used while prerendering a `www` output target. The `prerender.config.ts` file can further update the parsed document of each page, before it is serialized to HTML.
 

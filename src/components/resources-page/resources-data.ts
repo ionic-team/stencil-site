@@ -28,6 +28,7 @@ export const RESOURCES = {
     { title: 'yo Stencil: A yeoman generator for Stencil', url: 'https://github.com/AkashGutha/generator-stencil' },
     { title: 'Stencil Snippets: A Stencil snippets package for VS Code', url: 'https://marketplace.visualstudio.com/items?itemName=fdom.stencil-snippets' },
     { title: 'tslint-stencil: TSLint rules for Stencil components', url: 'https://www.npmjs.com/package/tslint-stencil' },
+    { title: 'stencil-lerna: lerna based Stencil monorepo starter project', url: 'https://github.com/bitflower/stencil-lerna' },
   ],
   BLOGS: [
     { title: 'Creating and Integrating Design Systems with StencilJS', url: 'https://medium.com/swlh/creating-and-integrating-design-systems-with-stenciljs-598ecbc33af6' },

@@ -70,7 +70,11 @@
   * [End-to-end Testing](testing/e2e-testing.md)
   * [Mocking](testing/mocking.md)
   * [Visual Screenshot Diff](testing/screenshot-visual-diff.md)
+* Core Compiler API
+  * [Compiler API](core/compiler-api.md)
+  * [CLI API](core/cli-api.md)
+  * [Dev Server API](core/dev-server-api.md)
 * Community
-  * [Stencil on GitHub](https://github.com/ionic-team/stencil)
-  * [Stencil on Slack](https://stencil-worldwide.herokuapp.com/)
   * [Stencil on Twitter](https://twitter.com/stenciljs)
+  * [Stencil on Slack](https://stencil-worldwide.herokuapp.com/)
+  * [Stencil on GitHub](https://github.com/ionic-team/stencil)
