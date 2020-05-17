@@ -7,8 +7,6 @@
     "build": "npm run site.structure && npm run docs && stencil build --prerender",
     "build.ci": "npm run site.structure && npm run docs && stencil build --prerender --max-workers=1 --ci --next",
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html && node ./scripts/blog-list",
-    "deploy.next": "firebase deploy --project next --token=$FIREBASE_DEPLOY_TOKEN",
-    "deploy.prod": "firebase deploy --project production --token=$FIREBASE_DEPLOY_TOKEN",
     "prerender": "stencil build --prerender",
     "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
@@ -16,7 +14,7 @@
     "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
-    "@stencil/core": "^1.13.0-4",
+    "@stencil/core": "^1.14.0-0",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
     "@types/fs-extra": "^8.1.0",
@@ -25,7 +23,6 @@
     "@types/prismjs": "^1.9.1",
     "copy-text-to-clipboard": "^2.2.0",
     "dotenv": "^8.2.0",
-    "firebase-tools": "^8.2.0",
     "front-matter": "^3.1.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
