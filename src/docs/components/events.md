@@ -7,6 +7,7 @@ contributors:
   - mgalic
   - BDav24
   - mattcosta7
+  - noherczeg
 ---
 
 # Events
@@ -26,7 +27,7 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Event() todoCompleted: EventEmitter;
+  @Event() todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
     this.todoCompleted.emit(todo);
@@ -75,7 +76,7 @@ export class TodoList {
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) todoCompleted: EventEmitter;
+  }) todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
     this.todoCompleted.emit(todo);
@@ -96,7 +97,7 @@ import { Listen } from '@stencil/core';
 export class TodoApp {
 
   @Listen('todoCompleted')
-  todoCompletedHandler(event: CustomEvent) {
+  todoCompletedHandler(event: CustomEvent<Todo>) {
     console.log('Received the custom todoCompleted event: ', event.detail);
   }
 }
@@ -179,7 +180,7 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Event() todoCompleted: EventEmitter;
+  @Event() todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
     this.todoCompleted.emit(todo);
