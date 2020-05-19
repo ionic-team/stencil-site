@@ -21,7 +21,7 @@ Builds a Stencil project. The flags below are the available options for the `bui
 | `--debug` | Adds additional runtime code to help debug, and sets the log level for more verbose output. | |
 | `--dev` | Runs a development build. | |
 | `--docs` | Generate `readme.md` docs based on the component types, properties, methods, events, JSDocs, CSS Custom Properties, etc. | |
-| `--es5` | Creates an ES5 compatible build. By default ES5 builds are no created during development in order to improve build times. However, ES5 builds are always created during production builds. Use this flag to create ES5 builds during development. | |
+| `--es5` | Creates an ES5 compatible build. By default ES5 builds are not created during development in order to improve build times. However, ES5 builds are always created during production builds. Use this flag to create ES5 builds during development. | |
 | `--log` | Write logs for the `stencil build` into `stencil-build.log`. The log file is written in the same location as the config. | |
 | `--prerender` | Prerender the application using the `www` output target after the build has completed. | |
 | `--prod` | Runs a production build which will optimize each file, improve bundling, remove unused code, minify, etc. A production build is the default, this flag is only used to override the `--dev` flag. | |
