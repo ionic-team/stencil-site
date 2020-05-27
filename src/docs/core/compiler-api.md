@@ -29,14 +29,16 @@ importScripts('https://cdn.jsdelivr.net/npm/@stencil/core@[VERSION]/compiler/ste
 ## transpile()
 
 ```tsx
-transpile(code: string, opts?: CompileOptions): Promise<TranspileResults>
+transpile(code: string, opts?: TranspileOptions): Promise<TranspileResults>
 ```
 
 The `transpile()` function inputs source code as a string, with various options
 within the second argument. The function is stateless and returns a `Promise` of the
 results, including diagnostics and the transpiled code. The `transpile()` function
 does not handle any bundling, minifying, or precompiling any CSS preprocessing like
-Sass or Less. The `transpileSync()` equivalent is available so the same function
+Sass or Less. 
+
+The `transpileSync()` equivalent is available so the same function
 it can be called synchronously. However, TypeScript must be already loaded within
 the global for it to work, where as the async `transpile()` function will load
 TypeScript automatically.
@@ -51,7 +53,7 @@ as `es2017`.
 ## transpileSync()
 
 ```tsx
-transpileSync(code: string, opts?: CompileOptions): TranspileResults
+transpileSync(code: string, opts?: TranspileOptions): TranspileResults
 ```
 
 Synchronous equivalent of the `transpile()` function. When used in a browser
