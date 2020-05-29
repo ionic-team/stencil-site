@@ -163,6 +163,11 @@ export class ResourcesPage {
                 </svg>
               </div>
             </form>
+            <p>
+              <a class="add-resource" href="https://github.com/ionic-team/stencil-site/edit/master/src/components/resources-page/resources-data.ts">
+                + Add A Resource
+              </a>
+            </p>
           </header>
 
           <section>

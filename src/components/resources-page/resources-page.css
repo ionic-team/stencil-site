@@ -300,3 +300,8 @@ resources-page .tabpanel section header h2 {
     display: none;
   }
 }
+
+.add-resource {
+  padding-top: 6px;
+  font-size: 12px;
+}
