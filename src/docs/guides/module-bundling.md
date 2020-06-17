@@ -16,9 +16,9 @@ Stencil uses [Rollup](https://rollupjs.org/guide/en/) under the hood to bundle y
 
 ## One Component Per Module
 
-Code-splitting in Rollup happens at the module level, which means that it's not possible to code-split logic within the same module (`.ts` file). For Stencil to bundle your components most efficiently, you must declare a single component (class decorated with `@Component`) per *TypeScript* file, and the component itself **must** be unique `export`.
+For Stencil to bundle your components most efficiently, you must declare a single component (class decorated with `@Component`) per *TypeScript* file, and the component itself **must** have a unique `export`. By doing so, Stencil is able to easily analyze the entire component graph within the app, and best understand how components should be bundled together. Under-the-hood it uses the Rollup bundler to efficiently bundled shared code together. Additionally, lazy-loading is a default feature of Stencil, so code-splitting is already happening automatically, and only dynamically importing components which are being used on the page.
 
-Modules that contain a component are entry-points, which means that no other module should import anything from them, ie. they cannot contain any shared logic imported by other components (modules).
+Modules that contain a component are entry-points, which means that no other module should import anything from them.
 
 The following example is **NOT** valid:
 
