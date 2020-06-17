@@ -31,11 +31,16 @@ Next, you can use the `entryUrls` config to provide an array of paths to prerend
 Additionally, console logs that are printed within the runtime are surpressed while prerendering (otherwise the terminal would be overloaded with logs). By setting `runtimeLogging: true`, the runtime console logs will be printed in the terminal. Below is an example setup for prerender debugging:
 
 ```tsx
+// prerender.config.ts
 import { PrerenderConfig } from '@stencil/core';
 export const config: PrerenderConfig = {
   crawlUrls: false,
   entryUrls: ['/example'],
-  runtimeLogging: true
+  hydrateOptions: _url => {
+    return {
+      runtimeLogging: true
+    };
+  }
 };
 ```
 
@@ -47,6 +52,7 @@ We've found [VS Code's Debugger](https://code.visualstudio.com/docs/editor/debug
 To debug your prerendering process in VS Code, enter the Debug tab and create a new `launch.json` file with the following contents:
 
 ```json
+// launch.json
 {
   "version": "0.2.0",
   "configurations": [

@@ -26,34 +26,39 @@ importScripts('https://cdn.jsdelivr.net/npm/@stencil/core@[VERSION]/compiler/ste
 ```
 
 
-## compile()
+## transpile()
 
 ```tsx
-compile(code: string, opts?: CompileOptions): Promise<CompileResults>
+transpile(code: string, opts?: TranspileOptions): Promise<TranspileResults>
 ```
 
-The `compile()` function inputs source code as a string, with various options
-within the second argument. The function returns a `Promise` of the compile results, including
-diagnostics and the compiled code. The `compile()` function does not handle any bundling,
-minifying, or precompiling any CSS preprocessing like Sass or Less. The `compileSync()`
-equivalent is available so the same function it can be called synchronously, however,
-TypeScript must be already loaded within the global for it to work, where as the async
-`compile()` function will load TypeScript automatically.
+The `transpile()` function inputs source code as a string, with various options
+within the second argument. The function is stateless and returns a `Promise` of the
+results, including diagnostics and the transpiled code. The `transpile()` function
+does not handle any bundling, minifying, or precompiling any CSS preprocessing like
+Sass or Less. 
 
-Since TypeScript is used, the compiler is able to transpile from TypeScript to JavaScript,
-and does not require Babel presets. Additionally, the compile results includes an `imports`
-array of all the import paths found in the source file. The compile options can be used to set
-the `module` format, such as `cjs`, and JavaScript `target` version, such as `es2017`.
+The `transpileSync()` equivalent is available so the same function
+it can be called synchronously. However, TypeScript must be already loaded within
+the global for it to work, where as the async `transpile()` function will load
+TypeScript automatically.
+
+Since TypeScript is used, the source code will transpile from TypeScript to JavaScript,
+and does not require Babel presets. Additionally, the results includes an `imports`
+array of all the import paths found in the source file. The transpile options can be
+used to set the `module` format, such as `cjs`, and JavaScript `target` version, such
+as `es2017`.
 
 
-## compileSync()
+## transpileSync()
 
 ```tsx
-compileSync(code: string, opts?: CompileOptions): CompileResults
+transpileSync(code: string, opts?: TranspileOptions): TranspileResults
 ```
 
-Synchronous equivalent of the `compile()` function. When used in a browser environment, TypeScript must
-already be available globally, where as the async `compile()` function will load TypeScript automatically.
+Synchronous equivalent of the `transpile()` function. When used in a browser
+environment, TypeScript must already be available globally, where as the async
+`transpile()` function will load TypeScript automatically.
 
 
 ## createCompiler()
@@ -65,7 +70,7 @@ createCompiler(config: Config): Promise<Compiler>
 The compiler is the utility that brings together many tools to build optimized components, such as a
 transpiler, bundler and minifier. When using the CLI, the `stencil build` command uses the compiler for
 the various builds, such as a production build, or watch mode during development. If only one file should
-be compiled then the `compiler()` function should be used instead.
+be transpiled (converting source code from TypeScript to JavaScript) then the `transpile()` function should be used instead.
 
 Given a Stencil config, this method asynchronously returns a `Compiler` instance. The config provided
 should already be created using the `loadConfig({...})` method.

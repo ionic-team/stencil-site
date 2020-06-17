@@ -43,7 +43,7 @@ export function hydrateComponents(doc) {
 }
 ```
 
-#### Configuration Options
+#### hydrateDocument Options
   - `canonicalUrl` - string
   - `constrainTimeouts` - boolean
   - `clientHydrateAnnotations` - boolean
@@ -73,7 +73,7 @@ const results = await hydrate.renderToString(srcHtml, {
 console.log(results.html);
 ```
 
-#### Configuration Options
+#### renderToString Options
 
   - `approximateLineWidth` - number
   - `prettyHtml` - boolean

@@ -22,7 +22,7 @@ resources-page .headline span::after {
   z-index: -1;
 }
 
-resources-page .container>header {
+resources-page .container > header {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -36,16 +36,89 @@ resources-page .form {
   margin-top: 10px;
 }
 
+resources-page .form-group {
+  display: flex;
+  position: relative;
+}
+
+resources-page .form-group svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+resources-page form input,
+resources-page form button,
+resources-page .form-message {
+  min-height: 45px;
+}
+
+resources-page form input {
+  transition: border 0.3s;
+  margin-right: 8px;
+  padding: 10px 16px 10px 56px;
+  font-size: 16px;
+  border: 1px solid #dee3ea;
+  box-sizing: border-box;
+  border-radius: 6px;
+  flex: 1;
+  -webkit-appearance: none;
+}
+
+resources-page form input:invalid {
+  box-shadow: none;
+}
+
+resources-page form input:focus {
+  outline: none;
+  border: 1px solid #786df9;
+}
+
+resources-page form input.error {
+  border: 1px solid #f88d8d;
+}
+
+resources-page form input::placeholder {
+  color: #6d6c82;
+  opacity: 0.6;
+}
+
+resources-page form button {
+  flex: 0 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
 resources-page .error-message {
   font-size: 14px;
-  color: #E13535;
+  color: #e13535;
+}
+
+resources-page .form-message {
+  padding: 8px 26px 8px 20px;
+  display: flex;
+  align-items: center;
+  background-color: #f4f4ff;
+  border-radius: 6px;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+resources-page .form-message p {
+  color: #5755f6;
+}
+
+resources-page .form-message app-icon {
+  height: 18px;
+  margin-right: 12px;
 }
 
 resources-page .measure-lg {
   margin-bottom: 100px;
 }
 
-resources-page .measure-lg>div+div {
+resources-page .measure-lg > div + div {
   margin-top: 56px;
 }
 
@@ -53,11 +126,11 @@ resources-page .list--unstyled {
   line-height: 1.4;
 }
 
-resources-page .list--unstyled li+li {
+resources-page .list--unstyled li + li {
   margin-top: 20px;
 }
 
-resources-page h2+.list--unstyled {
+resources-page h2 + .list--unstyled {
   margin-top: 22px;
 }
 
@@ -128,6 +201,7 @@ resources-page .tablist button span {
 
 resources-page .tablist button svg {
   fill: rgba(var(--color-dodger-blue-rgb), 0.5);
+  stroke: rgba(var(--color-dodger-blue-rgb), 0.5);
   height: 35px;
   pointer-events: none;
   width: 35px;
@@ -135,6 +209,7 @@ resources-page .tablist button svg {
 
 resources-page .tablist button.active svg {
   fill: rgba(var(--color-dodger-blue-rgb), 1);
+  stroke: rgba(var(--color-dodger-blue-rgb), 1);
 }
 
 resources-page .tabpanel {
@@ -157,14 +232,15 @@ resources-page .tabpanel section header h2 {
   resources-page form input {
     margin-right: 0px;
   }
-  resources-page .form-group input {
+  resources-page .form-group input,
+  resources-page .form-group button {
     width: 100%;
     display: block;
   }
 }
 
 @media screen and (max-width: 768px) {
-  resources-page .container>header {
+  resources-page .container > header {
     flex-direction: column;
     margin-bottom: 80px;
   }
@@ -180,17 +256,17 @@ resources-page .tabpanel section header h2 {
     max-width: unset;
     margin-bottom: 32px;
   }
-  resources-page .tabs .tablist>button {
+  resources-page .tabs .tablist > button {
     border-left: none;
     border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 0.5);
     margin-bottom: 0;
     margin-right: 16px;
     padding: 16px;
   }
-  resources-page .tabs .tablist>button:last-child {
+  resources-page .tabs .tablist > button:last-child {
     margin-right: 0;
   }
-  resources-page .tabs .tablist>button.active {
+  resources-page .tabs .tablist > button.active {
     border-bottom: 10px solid rgba(var(--color-dodger-blue-rgb), 1);
   }
   resources-page .tabpanel {
@@ -199,7 +275,8 @@ resources-page .tabpanel section header h2 {
 }
 
 @media screen and (max-width: 860px) {
-  resources-page .container, resources-page .header {
+  resources-page .container,
+  resources-page .header {
     flex-direction: column;
     align-items: center;
   }
@@ -218,4 +295,9 @@ resources-page .tabpanel section header h2 {
   resources-page .tablist button span {
     display: none;
   }
+}
+
+.add-resource {
+  padding-top: 6px;
+  font-size: 12px;
 }

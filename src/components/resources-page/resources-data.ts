@@ -28,6 +28,8 @@ export const RESOURCES = {
     { title: 'yo Stencil: A yeoman generator for Stencil', url: 'https://github.com/AkashGutha/generator-stencil' },
     { title: 'Stencil Snippets: A Stencil snippets package for VS Code', url: 'https://marketplace.visualstudio.com/items?itemName=fdom.stencil-snippets' },
     { title: 'tslint-stencil: TSLint rules for Stencil components', url: 'https://www.npmjs.com/package/tslint-stencil' },
+    { title: 'stencil-lerna: lerna based Stencil monorepo starter project', url: 'https://github.com/bitflower/stencil-lerna' },
+    { title: 'WebComponents.dev: Online Component IDE - Try Stencil right away', url: 'https://webcomponents.dev/edit/collection/JFDS0nXQUi7cNRMrxHkI/1fjZJBjdBc73coC5F1iz?sv=1&pm=1' },
   ],
   BLOGS: [
     { title: 'Creating and Integrating Design Systems with StencilJS', url: 'https://medium.com/swlh/creating-and-integrating-design-systems-with-stenciljs-598ecbc33af6' },
@@ -88,6 +90,7 @@ export const RESOURCES = {
     { title: 'Stencil’de Bileşenler Arası Haberleşme (in Turkish)', url: 'https://medium.com/t%C3%BCrkiye/stencilde-bilesenler-arasi-haberlesme-52523a470fa9' },
     { title: 'Stencil Bileşen Yaşam Döngüsü (in Turkish)', url: 'https://medium.com/@selcukkutuk/bilesen-yasam-dongusu-c53dc42c2384' },
     { title: 'Stencil Tricks - A collection of community-written articles on how to do awesome things in Stencil JS', url: 'https://medium.com/stencil-tricks' },
+    { title: 'Stencil Testing Cheatsheet - A collection of useful code snippets and examples for writing End to End tests in a Stencil project.', url: 'https://paulcpederson.com/articles/stencil-tests/' },
   ],
   VIDEOS: [
     { title: 'Stencil: a built-time approach to the web by Manu Martinez-Almeida | JSConf EU 2019', url: 'https://www.youtube.com/watch?v=M1F81V-NhP0' },
