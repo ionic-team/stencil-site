@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import dotenvPlugin from 'rollup-plugin-dotenv';
 
 export const config: Config = {
   taskQueue: 'async',
@@ -17,4 +18,5 @@ export const config: Config = {
     },
   ],
   globalStyle: 'src/global/style/app.css',
+  plugins: [dotenvPlugin()],
 };

@@ -51,7 +51,7 @@ export class SiteMenu implements ComponentInterface {
         <SiteProviderConsumer.Consumer>
           {({ toggleLeftSidebar }: SiteState) => (
             <div>
-              {typeof process !== 'undefined' && process.env.ENABLE_SEARCH === 'true' && (
+              {process.env.ENABLE_SEARCH === 'true' && (
                 <search-bar class="site-search" debounce={500} searchTerm={this.searchTerm} handleInput={this.doSiteSearch} placeholder={'Search Docs'}></search-bar>
               )}
               {this.searchResults.length > 0 && (
