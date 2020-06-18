@@ -10,6 +10,7 @@ import frontMatter from 'front-matter';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 import { getGithubData } from './lib/github';
 import { convertHtmlToHypertextData } from './lib/hypertext'
+import { updateRecords} from './lib/algolia';
 
 const globAsync = promisify(glob);
 
@@ -17,12 +18,12 @@ const DESTINATION_DIR = './src/assets/docs';
 const SOURCE_DIR = './src/docs';
 const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
 
-
 (async function() {
   const siteStructure = await readFile(SITE_STRUCTURE_FILE, { encoding: 'utf8' });
   const siteStructureJson: SiteStructureItem[] = JSON.parse(siteStructure);
   console.log(`running glob: ${SOURCE_DIR}/**/*.md`);
   const files = await globAsync(`${SOURCE_DIR}/**/*.md`, {});
+  const indexRecords = [];
 
   await remove(DESTINATION_DIR);
 
@@ -74,6 +75,18 @@ const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
         data.title = data.title.trim() + ' - Stencil';
       }
 
+      const startsWithMatch = /^[#a-zA-z0-9]/mg;
+      const removeCodeBlocks = /```[\s\S]*?```/mg;
+      const { title, description, url } = data;
+      const alogliaData = {
+        title,
+        description,
+        url,
+        content: parsedMarkdown.body.replace(removeCodeBlocks, '').split('\n').filter((line) => line.length && line.match(startsWithMatch)).map((line) => line.replace(/#(\S*)/g, '').trim())
+      };
+
+      indexRecords.push(alogliaData);
+
       await writeFile(destinationFileName, JSON.stringify(data), {
         encoding: 'utf8'
       });
@@ -86,8 +99,8 @@ const SITE_STRUCTURE_FILE = './src/assets/docs-structure.json';
 
   await Promise.all(filePromises);
 
+  /** Sends the data to aloglia */
+  updateRecords(indexRecords);
+
   console.log(`successfully converted ${filePromises.length} files`);
 })();
-
-
-

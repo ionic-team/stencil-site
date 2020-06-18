@@ -63,6 +63,12 @@ export namespace Components {
     }
     interface ResourcesPage {
     }
+    interface SearchBar {
+        "debounce"?: number;
+        "handleInput"?: (ev: any) => void;
+        "placeholder"?: string;
+        "searchTerm"?: string;
+    }
     interface SiteHeader {
     }
     interface SiteMenu {
@@ -193,6 +199,12 @@ declare global {
         prototype: HTMLResourcesPageElement;
         new (): HTMLResourcesPageElement;
     };
+    interface HTMLSearchBarElement extends Components.SearchBar, HTMLStencilElement {
+    }
+    var HTMLSearchBarElement: {
+        prototype: HTMLSearchBarElement;
+        new (): HTMLSearchBarElement;
+    };
     interface HTMLSiteHeaderElement extends Components.SiteHeader, HTMLStencilElement {
     }
     var HTMLSiteHeaderElement: {
@@ -232,6 +244,7 @@ declare global {
         "pre-footer": HTMLPreFooterElement;
         "pwas-page": HTMLPwasPageElement;
         "resources-page": HTMLResourcesPageElement;
+        "search-bar": HTMLSearchBarElement;
         "site-header": HTMLSiteHeaderElement;
         "site-menu": HTMLSiteMenuElement;
         "site-top-bar": HTMLSiteTopBarElement;
@@ -295,6 +308,12 @@ declare namespace LocalJSX {
     }
     interface ResourcesPage {
     }
+    interface SearchBar {
+        "debounce"?: number;
+        "handleInput"?: (ev: any) => void;
+        "placeholder"?: string;
+        "searchTerm"?: string;
+    }
     interface SiteHeader {
     }
     interface SiteMenu {
@@ -324,6 +343,7 @@ declare namespace LocalJSX {
         "pre-footer": PreFooter;
         "pwas-page": PwasPage;
         "resources-page": ResourcesPage;
+        "search-bar": SearchBar;
         "site-header": SiteHeader;
         "site-menu": SiteMenu;
         "site-top-bar": SiteTopBar;
@@ -353,6 +373,7 @@ declare module "@stencil/core" {
             "pre-footer": LocalJSX.PreFooter & JSXBase.HTMLAttributes<HTMLPreFooterElement>;
             "pwas-page": LocalJSX.PwasPage & JSXBase.HTMLAttributes<HTMLPwasPageElement>;
             "resources-page": LocalJSX.ResourcesPage & JSXBase.HTMLAttributes<HTMLResourcesPageElement>;
+            "search-bar": LocalJSX.SearchBar & JSXBase.HTMLAttributes<HTMLSearchBarElement>;
             "site-header": LocalJSX.SiteHeader & JSXBase.HTMLAttributes<HTMLSiteHeaderElement>;
             "site-menu": LocalJSX.SiteMenu & JSXBase.HTMLAttributes<HTMLSiteMenuElement>;
             "site-top-bar": LocalJSX.SiteTopBar & JSXBase.HTMLAttributes<HTMLSiteTopBarElement>;

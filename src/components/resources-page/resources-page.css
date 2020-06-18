@@ -289,10 +289,6 @@ resources-page .tabpanel section header h2 {
     width: 100%;
     margin-left: 0;
   }
-  resources-page .form-message {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 @media screen and (max-width: 1024px) {
