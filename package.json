@@ -32,7 +32,7 @@
     "marked": "^0.7.0",
     "node-fetch": "^2.3.0",
     "prismjs": "1.20.0",
-    "rollup-plugin-dotenv": "^0.2.0"
+    "rollup-plugin-dotenv": "^0.2.0",
     "typescript": "^3.9.3",
     "workbox-build": "4.3.1"
   },
