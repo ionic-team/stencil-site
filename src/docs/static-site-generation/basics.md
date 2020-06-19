@@ -23,7 +23,7 @@ stencil build --prerender
 
 ## Rendering Dynamic Data
 
-Many components need to render based on data fetched from a server. Stencil handles this by allowing components to return `Promise`'s from lifecycle methods like `componentDidLoad` (this can be achieved by using `async/await` as well).
+Many components need to render based on data fetched from a server. Stencil handles this by allowing components to return `Promise`'s from lifecycle methods like `componentWillLoad` (this can be achieved by using `async/await` as well).
 
 For example, this is how to have Stencil wait to render a component until it fetches data from the server:
 
