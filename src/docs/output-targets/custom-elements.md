@@ -20,12 +20,12 @@ outputTargets: [
 
 ## Defining Exported Custom Elements
 
-By default, the custom elements bundle will be written to `dist/custom-elements-bundle/index.mjs`. This directory can be configured using the output target's `dir` config. The generated `index.mjs` contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements, or apply any polyfills.
+By default, the custom elements bundle will be written to `dist/custom-elements/index.mjs`. This directory can be configured using the output target's `dir` config. The generated `index.mjs` contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements, or apply any polyfills.
 
 Below is an example of defining a custom element within the bundle:
 
 ```tsx
-import { HelloWorld } from 'my-library/dist/custom-elements-bundle';
+import { HelloWorld } from 'my-library/dist/custom-elements';
 
 customElements.define('hello-world', HelloWorld);
 ```
@@ -37,13 +37,13 @@ Also note that the generated bundle will export each component class and will al
 
 ## Distributing Custom Elements
 
-Your component library can be easily distributed on NPM, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there consumers of your library can decide how to import your library into their project. For the `dist-custom-elements-bundle`, the default import location would be `my-library/dist/custom-elements-bundle`, but this can get further configured within the `package.json` file.
+Your component library can be easily distributed on NPM, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there consumers of your library can decide how to import your library into their project. For the `dist-custom-elements-bundle`, the default import location would be `my-library/dist/custom-elements`, but this can get further configured within the `package.json` file.
 
 To make this bundle the entry module for a package, set the `package.json`'s `module` property to:
 
 ```tsx
 {
-  "module": "dist/custom-elements-bundle/index.mjs"
+  "module": "dist/custom-elements/index.mjs"
 }
 ```
 
