@@ -11,6 +11,7 @@ export const config: Config = {
       serviceWorker: {
         unregister: true,
       },
+      copy: [{ src: 'cli.ts.deno', dest: 'cli.ts' }],
     },
     {
       type: 'dist-hydrate-script',
