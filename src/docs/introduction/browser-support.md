@@ -28,6 +28,10 @@ Stencil builds Web Components that run natively or near-natively in all widely u
         <app-icon name="checkmark"></app-icon>
         Firefox 63+
       </div>
+      <div class="bs-chart__card">
+        <app-icon name="checkmark"></app-icon>
+        Edge 79+
+      </div>
     </div>
     <div class="bs-chart__group-label">
       Full native support
@@ -37,11 +41,7 @@ Stencil builds Web Components that run natively or near-natively in all widely u
     <div class="bs-chart__cards">
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Edge 16+
-      </div>
-      <div class="bs-chart__card">
-        <app-icon name="checkmark"></app-icon>
-        IE 11
+        IE 11, Edge <=18
       </div>
     </div>
     <div class="bs-chart__group-label">
@@ -58,13 +58,13 @@ For browsers without native support, a small polyfill helps developers use Custo
 
 Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil's browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.
 
-|                  | Chrome 60+                             | Safari 10.1+                              | Firefox 63+                            | Edge 16+                               | IE 11+                                 |
-| ---------------- | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: |
-| [CSS Variables](https://caniuse.com/#feat=css-variables)    | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    |
-| [Custom Elements](https://caniuse.com/#feat=custom-elementsv1) | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon>    |
-| [Shadow Dom](https://caniuse.com/#feat=shadowdomv1)      | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon>    |
-| [es2017](https://caniuse.com/#feat=async-functions)           | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
-| [ES Modules](https://caniuse.com/#feat=es6-module)     | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
+|                                                                | Chrome 60+                             | Safari 10.1+                           | Firefox 63+                            | Edge 79+                               | Edge <= 18                             | IE 11                               |
+| -------------------------------------------------------------- | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :---------------------------------: |
+| [CSS Variables](https://caniuse.com/#feat=css-variables)       | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
+| [Custom Elements](https://caniuse.com/#feat=custom-elementsv1) | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon> |
+| [Shadow Dom](https://caniuse.com/#feat=shadowdomv1)            | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon> |
+| [es2017](https://caniuse.com/#feat=async-functions)            | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
+| [ES Modules](https://caniuse.com/#feat=es6-module)             | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
 
 <div class="align-right">
   <app-icon name="circle"></app-icon> <span class="caption">Stencil compiles with polyfills for features not supported natively</span>
@@ -96,13 +96,13 @@ Stencil uses a dynamic loader to load the custom elements polyfill only on brows
 }
 
 .bs-chart__card {
-  width: 117px;
+  width: 110px;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
   color: #fff;
-  padding: 12px;
-  font-size: 13px;
+  padding: 8px;
+  font-size: 11px;
   font-weight: 600;
 }
 
