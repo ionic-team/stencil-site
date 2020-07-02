@@ -2,6 +2,7 @@ import { Component, Prop, h, Build } from '@stencil/core'
 import blogStructure from '../../assets/blog/list.json'
 import { fileNotFound } from '../../global/site-structure-utils';
 import { MarkdownContent, BlogPostInterface } from '../../global/definitions'
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'blog-component',
@@ -38,8 +39,7 @@ export class BlogIndex {
     const content = this.content;
 
     return (
-      <div class="container">
-
+      <ResponsiveContainer>
         <div class="share-links">
           <div class="sticky">
             <a href={`http://twitter.com/home?status=${post.title}`} class="twitter" onClick={ function(this: HTMLAnchorElement, ev){
@@ -71,7 +71,7 @@ export class BlogIndex {
           </span>
           {toHypertext(content.hypertext)}
         </div>
-      </div>
+      </ResponsiveContainer>
     );
   }
 }

@@ -1,6 +1,7 @@
 import { Component, h } from '@stencil/core';
 import blogStructure from '../../assets/blog/list.json';
 import { BlogPostInterface } from '../../global/definitions'
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'blog-list',
@@ -10,7 +11,7 @@ export class BlogIndex {
 
   render() {
     return (
-      <div class="container">
+      <ResponsiveContainer>
         <div class="blog-index">
         {
           (blogStructure as BlogPostInterface[]).map(post => {
@@ -35,7 +36,7 @@ export class BlogIndex {
           })
         }
         </div>
-      </div>
+      </ResponsiveContainer>
     );
   }
 }

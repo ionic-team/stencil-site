@@ -2,6 +2,7 @@ import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'app-root',
@@ -83,7 +84,9 @@ export class AppRoot {
     };
 
     return (
-      <SiteProviderConsumer.Provider state={siteState}>
+    <SiteProviderConsumer.Provider state={siteState}>
+      <site-root>
+        <site-platform-bar productName='Stencil'/>
         <site-header />
         <main>
           <stencil-router scrollTopOffset={0}>
@@ -106,7 +109,7 @@ export class AppRoot {
             </stencil-route-switch>
           </stencil-router>
           <footer>
-            <div class="container">
+            <ResponsiveContainer>
               <div class="footer-col">
                 <app-icon name="logo"/>
                 <p>© 2020 StencilJS.  Released under MIT License</p>
@@ -128,10 +131,11 @@ export class AppRoot {
                   </li>
                 </ul>
               </div>
-            </div>
+            </ResponsiveContainer>
           </footer>
         </main>
-      </SiteProviderConsumer.Provider>
+      </site-root>
+    </SiteProviderConsumer.Provider>
     );
   }
 }

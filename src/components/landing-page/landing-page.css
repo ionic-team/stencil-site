@@ -265,7 +265,7 @@ landing-page .stencil-story {
   padding: 160px 0 90px;
 }
 
-landing-page .stencil-story .container {
+landing-page .stencil-story .ui-container {
   max-width: 620px;
 }
 
@@ -436,7 +436,7 @@ landing-page .video-thumbnail:hover svg circle {
     padding-top: 0px;
   }
 
-  landing-page .container {
+  landing-page .ui-container {
     max-width: 560px;
   }
   landing-page .two-col {

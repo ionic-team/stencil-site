@@ -1,4 +1,5 @@
 import { Component, Element, Listen, State, h } from '@stencil/core';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'site-header',
@@ -54,7 +55,7 @@ export class SiteHeader {
 
   render() {
     return (
-      <div class="container">
+      <ResponsiveContainer>
         <stencil-route-link url="/" class="logo-link" anchorTitle="Stencil logo">
           <app-icon name="logo"/>
         </stencil-route-link>
@@ -96,7 +97,7 @@ export class SiteHeader {
         <button class="header-overflow" onClick={() => { this.showNav() }} aria-label="Open menu">
           <app-icon name="more"></app-icon>
         </button>
-      </div>
+      </ResponsiveContainer>
     );
   }
 }

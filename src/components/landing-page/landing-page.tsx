@@ -1,5 +1,6 @@
 import { Component, Element, State, h } from '@stencil/core';
 import copy from 'copy-text-to-clipboard';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'landing-page',
@@ -25,7 +26,7 @@ export class LandingPage {
   render() {
     return (
       <div>
-        <div class="hero container">
+        <ResponsiveContainer class="hero">
           <hgroup>
             <h1>Build. Distribute. Adopt. </h1>
             <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
@@ -47,10 +48,10 @@ export class LandingPage {
             <path opacity="0.7" d="M293.465 53.9561H512.026L393.989 182.081H175.254L293.465 53.9561Z" fill="#E6EAFF"/>
             <path opacity="0.43" d="M273.266 9H374.089L319.589 67.6927H219.309L273.266 9Z" fill="#F4F6FF"/>
           </svg>
-        </div>
+        </ResponsiveContainer>
 
         <div class="companies">
-          <div class="container">
+          <ResponsiveContainer>
             <h3>Powering design systems and cross-framework components at</h3>
             <ul>
               <li>
@@ -115,11 +116,11 @@ export class LandingPage {
                 </svg>
               </li>
             </ul>
-          </div>
+          </ResponsiveContainer>
         </div>
 
         <section class="overview">
-          <div class="container">
+          <ResponsiveContainer>
             <div class="two-col">
               <hgroup>
                 <h2><strong>The magical, reusable web component compiler.</strong> Start building in seconds.</h2>
@@ -136,7 +137,7 @@ export class LandingPage {
                 <li><app-icon name="checkmark"/> Dependency-free components</li>
               </ul>
             </div>
-          </div>
+          </ResponsiveContainer>
 
           <div class="cta">
             <div class="cta__primary">
@@ -149,7 +150,7 @@ export class LandingPage {
         </section>
 
         <section class="gradient-bg">
-          <div class="container">
+          <ResponsiveContainer>
             <h2><strong>Stencil doesn’t fight the web platform.</strong> It embraces it.</h2>
             <ul class="feature-list list--unstyled">
               <li class="feature-list__item">
@@ -175,11 +176,11 @@ export class LandingPage {
                 <p>Build cross-framework components and design systems on open web standards, and break free of Framework Churn.</p>
               </li>
             </ul>
-          </div>
+          </ResponsiveContainer>
         </section>
 
         <section>
-          <div class="container">
+          <ResponsiveContainer>
             <div class="two-col">
               <hgroup>
                 <h2>The perfect tool for <strong>building a design system.</strong></h2>
@@ -194,11 +195,11 @@ export class LandingPage {
                 <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/stencil-for-design-systems">Show me more</stencil-route-link>
               </div>
             </div>
-          </div>
+          </ResponsiveContainer>
         </section>
 
         <section>
-          <div class="container">
+          <ResponsiveContainer>
             <div class="two-col">
               <hgroup>
                 <h2><strong>Awesome developer experience</strong> out of the box.</h2>
@@ -211,11 +212,11 @@ export class LandingPage {
                 </ul>
               </div>
             </div>
-          </div>
+          </ResponsiveContainer>
         </section>
 
         <section>
-          <div class="container">
+          <ResponsiveContainer>
             <div class="two-col">
               <hgroup>
                 <h2><strong>Build one component library</strong> for all of your apps.</h2>
@@ -251,11 +252,11 @@ export class LandingPage {
                 </ul>
               </div>
             </div>
-          </div>
+          </ResponsiveContainer>
         </section>
 
         <section class="stencil-story">
-          <div class="container">
+          <ResponsiveContainer>
             <h2><strong>The Stencil story</strong></h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div class="videos">
@@ -272,7 +273,7 @@ export class LandingPage {
                 <span>Watch launch video</span>
               </a>
             </div>
-          </div>
+          </ResponsiveContainer>
         </section>
 
         <newsletter-signup />

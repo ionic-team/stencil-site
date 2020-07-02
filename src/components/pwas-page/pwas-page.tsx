@@ -1,4 +1,5 @@
 import { Component, h } from '@stencil/core';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'pwas-page',
@@ -36,7 +37,7 @@ export class pwasPage {
 
   render() {
     return (
-      <div class="container">
+      <ResponsiveContainer>
         <div class="measure-xl">
           <img src="/assets/img/pwa-toolkit-logo.png" srcSet="/assets/img/pwa-toolkit-logo.png 1x, /assets/img/pwa-toolkit-logo@2x.png 2x" />
           <h1 >Everything you need to easily build fast, production ready Progressive Web Apps</h1>
@@ -128,7 +129,7 @@ export class pwasPage {
           })}
         </div>
 
-      </div>
+      </ResponsiveContainer>
     );
   }
 }

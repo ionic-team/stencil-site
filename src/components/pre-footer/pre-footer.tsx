@@ -1,4 +1,5 @@
 import { Component, h } from '@stencil/core';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'pre-footer',
@@ -8,7 +9,7 @@ export class PreFooter {
 
   render() {
     return (
-      <div class="container">
+      <ResponsiveContainer>
         <stencil-route-link anchorClass="link" url="/docs/introduction">
           <hgroup>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +29,7 @@ export class PreFooter {
             <p>Start building cross-framework design systems at scale.</p>
           </hgroup>
         </stencil-route-link>
-      </div>
+      </ResponsiveContainer>
     );
   }
 
