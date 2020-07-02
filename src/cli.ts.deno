@@ -1,12 +1,12 @@
 // deno install -n stencil --allow-read --allow-write --allow-net --unstable https://stenciljs.com/cli.ts
 
-import { run } from 'https://cdn.jsdelivr.net/npm/@stencil/core@1.16.0-0/cli/index.js';
-import { createDenoLogger, createDenoSys } from 'https://cdn.jsdelivr.net/npm/@stencil/core@1.16.0-0/sys/deno/index.js';
+import { run } from 'https://cdn.jsdelivr.net/npm/@stencil/core@1.16.0-1/cli/index.js';
+import { createDenoLogger, createDenoSys } from 'https://cdn.jsdelivr.net/npm/@stencil/core@1.16.0-1/sys/deno/index.js';
 
 if (import.meta.main) {
   try {
     const denoLogger = createDenoLogger({ Deno });
-    const denoSys = createDenoSys({ Deno, logger: denoLogger });
+    const denoSys = createDenoSys({ Deno });
 
     run({
       args: Deno.args,
