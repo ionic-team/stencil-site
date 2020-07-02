@@ -33,6 +33,8 @@
     "marked": "^0.7.0",
     "node-fetch": "^2.3.0",
     "prismjs": "1.20.0",
+    "prismic-dom": "^2.2.3",
+    "prismic-javascript": "^2.7.1",
     "rollup-plugin-dotenv": "^0.3.0",
     "typescript": "^3.9.5",
     "workbox-build": "4.3.1"
