@@ -1,8 +1,6 @@
 
 site-header {
   position: relative;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 99;
 }
@@ -12,6 +10,24 @@ site-header .ui-container {
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+site-header .ui-container stencil-route-link {
+  display: flex;
+  align-items: center;
+}
+
+site-header .ui-container stencil-route-link.burger-menu a{
+  visibility: hidden;
+}
+
+site-header .ui-container stencil-route-link.burger-menu .link-active {
+  visibility: visible;
+}
+
+site-header .ui-container stencil-route-link a app-icon{
+  display: flex;
+  align-items: center;
 }
 
 site-header .icon-logo {
@@ -35,7 +51,6 @@ body.dark site-header .icon-logo {
   site-header .ui-container {
     padding-top: 15px;
     padding-bottom: 15px;
-    flex-direction: column;
     align-items: center;
   }
 }
@@ -117,18 +132,27 @@ body.dark .header-menu .link--external:hover svg {
   fill: #fff;
 }
 
-.header-overflow,
-.header-close {
+.header-overflow {
   -webkit-appearance: none;
   border: 0;
   height: 24px;
   background: transparent;
   transition: opacity 0.3s;
-  position: absolute;
-  top: 15px;
+  display: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.header-close {
+  display: none;
+  padding: 0;
+  -webkit-appearance: none;
+  border: 0;
+  height: 24px;
+  background: transparent;
+  transition: opacity 0.3s;
+  position: fixed;
   right: 15px;
-  width: 22px;
-  height: 18px;
+  top: 15px;
   display: none;
   cursor: pointer;
   opacity: 0.7;
@@ -139,11 +163,10 @@ body.dark .header-menu .link--external:hover svg {
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .header-overflow,
-  .header-close {
+@media screen and (max-width: 768px) {  
+  .header-close, .header-overflow {
     display: flex;
-    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -153,8 +176,15 @@ body.dark .header-menu .link--external:hover svg {
 
 @media screen and (max-width: 768px) {
   site-header {
-    position: fixed;
+    position:relative;
     background-color: #fff;
+  }
+
+  site-header .ui-container {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
   }
 
   body.dark site-header {

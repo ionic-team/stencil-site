@@ -41,7 +41,6 @@ export class DocumentComponent implements ComponentInterface {
         <ResponsiveContainer>
           <div class="container-inner">
             <stencil-route-title pageTitle={content.title}></stencil-route-title>
-            <app-burger />
             <site-menu selectedParent={data.parent} siteStructureList={siteStructure as SiteStructureItem[]} />
             <div class="doc-content measure-lg">
               {toHypertext(content.hypertext)}

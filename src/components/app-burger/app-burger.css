@@ -1,14 +1,9 @@
 
 app-burger {
   display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 999;
 }
 
 app-burger > div {
-  padding: 18px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
