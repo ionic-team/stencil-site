@@ -56,9 +56,7 @@ export class SiteHeader {
   render() {
     return (
       <ResponsiveContainer>
-        <stencil-route-link class="burger-menu" urlMatch="/docs">
-          <app-burger />
-        </stencil-route-link>        
+        <stencil-route class="burger-menu" url="/docs" component="app-burger" />    
         <stencil-route-link url="/" class="logo-link" anchorTitle="Stencil logo">
           <app-icon name="logo"/>
         </stencil-route-link>

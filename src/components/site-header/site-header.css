@@ -12,17 +12,13 @@ site-header .ui-container {
   justify-content: space-between;
 }
 
+site-header .ui-container .burger-menu {
+  display:none;
+}
+
 site-header .ui-container stencil-route-link {
   display: flex;
   align-items: center;
-}
-
-site-header .ui-container stencil-route-link.burger-menu a{
-  visibility: hidden;
-}
-
-site-header .ui-container stencil-route-link.burger-menu .link-active {
-  visibility: visible;
 }
 
 site-header .ui-container stencil-route-link a app-icon{
@@ -185,6 +181,10 @@ body.dark .header-menu .link--external:hover svg {
     position: sticky;
     top: 0;
     z-index: 9999;
+  }
+
+  site-header .ui-container .burger-menu {
+    display: flex;
   }
 
   body.dark site-header {
