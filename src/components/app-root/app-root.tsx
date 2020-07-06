@@ -1,6 +1,6 @@
 import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
-import { Component, Element, Listen, State, h, Prop, Watch } from '@stencil/core';
+import { Component, Element, Listen, State, h} from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
@@ -33,11 +33,6 @@ export class AppRoot {
         });
       }
     });
-  }
-
-  @Listen('scroll', { target: 'body' })
-  updateScrollY() {
-    this.scrollY = window.scrollY;
   }
 
   private setHistory = ({ history }: { history: RouterHistory }) => {
