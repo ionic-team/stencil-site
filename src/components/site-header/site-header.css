@@ -36,11 +36,7 @@ body.dark site-header .icon-logo {
 
 .header-menu {
   display: flex;
-  align-items: center;
-}
-
-.header-menu stencil-route-link {
-  transform: translate(0, -3px);
+  /* align-items: center; */
 }
 
 @media screen and (max-width: 768px) {
@@ -52,10 +48,8 @@ body.dark site-header .icon-logo {
 }
 
 .header-menu stencil-route-link a {
-  transition: border .3s, color .3s;
+  position:relative;
   font-size: 14px;
-  padding-bottom: 4px;
-  border-bottom: 3px solid transparent;
   vertical-align: top;
   color: var(--color-gunpowder);
   text-decoration: none;
@@ -69,11 +63,24 @@ body.dark site-header .icon-logo {
   margin-left: 36px;
 }
 
-.header-menu stencil-route-link a:hover {
-  border-bottom-color:var(--color-whisper);
+.header-menu stencil-route-link a::after {
+  content: '';
+  transition: opacity .3s;
+  position:absolute;
+  bottom: -4px;
+  left:0;
+  height: 3px;
+  width: 100%;
+  background: var(--color-whisper);
+  opacity: 0;
 }
-.header-menu stencil-route-link a.link-active {
-  border-bottom-color: rgba(87, 85, 246, 0.3);
+.header-menu stencil-route-link a:hover::after {
+  opacity: 1;
+  transition: opacity .3s;
+}
+.header-menu stencil-route-link a.link-active::after {
+  opacity: 1;
+  transition: opacity .3s;
 }
 
 .header-menu stencil-route-link a.link-active {
@@ -101,9 +108,12 @@ body.dark .header-menu stencil-route-link a {
   text-shadow: 0px 0px 8px rgba(112, 127, 255, 0.75), 0px 0px 40px #8790FF, 0px 0px 16px #2637FF;
 }
 
-.header-menu .external-links {
+.header-menu .external-links, .header-menu .external-links li {
   display: flex;
   align-items: center;
+}
+.header-menu .external-links app-icon{
+  display: flex;
 }
 .header-menu .external-links li + li {
   margin-left: 16px;
@@ -172,7 +182,6 @@ body.dark .header-menu .link--external:hover svg {
 
 @media screen and (max-width: 768px) {
   site-header {
-    position:relative;
     background-color: #fff;
   }
 

@@ -1,6 +1,6 @@
 import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
-import { Component, Element, Listen, State, h } from '@stencil/core';
+import { Component, Element, Listen, State, h, Prop, Watch } from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
 import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
@@ -9,7 +9,8 @@ import { ResponsiveContainer } from '@ionic-internal/sites-shared';
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-  history?: RouterHistory;
+  private scrollY = 0;
+  private history?: RouterHistory;
   elements = [
     'site-header',
     'site-menu',
@@ -34,6 +35,11 @@ export class AppRoot {
     });
   }
 
+  @Listen('scroll', { target: 'body' })
+  updateScrollY() {
+    this.scrollY = window.scrollY;
+  }
+
   private setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
@@ -52,7 +58,7 @@ export class AppRoot {
     this.isLeftSidebarIn = false;
   }
 
-  private toggleLeftSidebar = () => {
+  private toggleLeftSidebar = () => {    
     if (window.innerWidth >= 768) {
       return;
     }
@@ -60,20 +66,24 @@ export class AppRoot {
       .map(el => this.el.querySelector(el))
       .filter(el => !!el) as Element[];
 
+    this.scrollY = window.scrollY;
+
     if (this.isLeftSidebarIn) {
       this.isLeftSidebarIn = false;
       document.body.classList.remove('no-scroll');
       elements.forEach(el => {
         el.classList.remove('left-sidebar-in');
         el.classList.add('left-sidebar-out');
-      });
+      }); 
+      window.requestAnimationFrame(() => window.scrollTo(0, this.scrollY));
     } else {
       this.isLeftSidebarIn = true;
       document.body.classList.add('no-scroll');
       elements.forEach(el => {
         el.classList.add('left-sidebar-in');
         el.classList.remove('left-sidebar-out');
-      });
+      });    
+      window.requestAnimationFrame(() => window.scrollTo(0, this.scrollY)); 
     }
   }
 
@@ -89,10 +99,10 @@ export class AppRoot {
         <site-platform-bar productName='Stencil'/>
         <site-header />
         <main>
-          <stencil-router scrollTopOffset={0}>
+          <stencil-router scrollTopOffset={0}> 
             <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
             <stencil-route-switch>
-              <stencil-route url="/" component="landing-page" exact={true} />
+              <stencil-route url="/" component="landing-page" exact={true}/>
               <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
                 <doc-component page={match!.url}></doc-component>
               )}/>

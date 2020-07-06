@@ -28,7 +28,6 @@ app-burger app-icon {
 }
 
 app-burger.left-sidebar-in > div {
-  height: 100vh;
   padding-right: 50px;
 }
 
