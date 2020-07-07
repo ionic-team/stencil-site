@@ -53,8 +53,8 @@ export class AppRoot {
     this.isLeftSidebarIn = false;
   }
 
-  private toggleLeftSidebar = () => {    
-    if (window.innerWidth >= 768) {
+  private toggleLeftSidebar = () => {
+    if (window.innerWidth > 768) {
       return;
     }
     const elements = this.elements

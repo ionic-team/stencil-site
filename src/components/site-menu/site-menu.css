@@ -1,7 +1,7 @@
 site-menu {
   display: block;
   flex: 0 0 auto;
-  max-width: 250px;
+  /* max-width: 250px; */
 }
 
 site-menu .wrapper {
@@ -120,10 +120,11 @@ site-menu .menu-list ul.collapsed li {
     background: var(--color-woodsmoke);
     z-index: 999;
     padding: 20px;
-    width: calc(100vw - 56px);
-    transform: translateX(calc(-100vw + 56px));
+    width: calc(50vw - 64px);
+    transform: translate3d(calc(-100vw + 56px), 0, 0);
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
   site-menu .menu-list .section-label {
     color: white;
@@ -133,5 +134,17 @@ site-menu .menu-list ul.collapsed li {
   }
   site-menu .menu-list a:hover:not(.link-active) {
     color: white;
+  }
+  .algolia-autocomplete .ds-dropdown-menu {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  site-menu {
+    width: calc(100vw - 64px);
+    transform: translate3d(calc(-100vw + 56px), 0, 0);
   }
 }
