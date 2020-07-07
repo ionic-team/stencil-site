@@ -14,7 +14,7 @@ One of the best ways to build fast, interactive web sites and web apps is to uti
 
 Static Site Generation (SSG) means building and rendering components and routes at build time (aka prerendering) rather than server request time (SSR) or at client run-time (SPA). Because a route is already prerendered, all of the content for the route is available to search engines and clients _immediately_, so SEO and performance are maximized.
 
-Static Site Generation doesn't mean your pages have to be _stay_ static! Stencil utilizes hydration to efficiently load client-side components at runtime to get the best of both worlds.
+Static Site Generation doesn't mean your pages have to be and/or _stay_ static! Stencil utilizes hydration to efficiently load client-side components at runtime to get the best of both worlds.
 
 For an example of what this looks like, right-click on this very page and hit the View Page Source option. You'll notice this page does not require any external JavaScript or CSS files for the first paint.
 
