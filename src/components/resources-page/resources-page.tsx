@@ -1,5 +1,6 @@
 import { Component, h, State, Host } from '@stencil/core';
 import { RESOURCES } from './resources-data';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'resources-page',
@@ -139,7 +140,7 @@ export class ResourcesPage {
   render() {
     return (
       <Host>
-        <div class="container">
+        <ResponsiveContainer>
           <header>
             <h1 class="headline measure-md">
               <span>Resources</span> to help you get more out of Stencil
@@ -226,7 +227,7 @@ export class ResourcesPage {
               Source
             </a>
           </section>
-        </div>
+        </ResponsiveContainer>
       </Host>
     );
   }

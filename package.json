@@ -14,6 +14,7 @@
     "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
+    "@ionic-internal/sites-shared": "0.0.32",
     "@stencil/core": "^1.16.0-0",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
@@ -32,6 +33,8 @@
     "marked": "^0.7.0",
     "node-fetch": "^2.3.0",
     "prismjs": "1.20.0",
+    "prismic-dom": "^2.2.3",
+    "prismic-javascript": "^2.7.1",
     "rollup-plugin-dotenv": "^0.3.0",
     "typescript": "^3.9.5",
     "workbox-build": "4.3.1"

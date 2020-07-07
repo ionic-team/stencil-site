@@ -36,15 +36,6 @@ stencil-site {
   }
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 64px;
-  flex: 1 0 auto;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -57,7 +48,7 @@ stencil-router {
 }
 
 @media screen and (max-width: 768px) {
-  .container {
+  .ui-container {
     padding: 0 16px;
   }
 
@@ -75,7 +66,7 @@ footer {
   display: flex;
 }
 
-footer .container {
+footer .ui-container {
   display: flex;
 }
 footer .footer-col {

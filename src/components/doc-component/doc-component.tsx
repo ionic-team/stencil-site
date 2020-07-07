@@ -2,6 +2,7 @@ import { Component, Host, Prop, ComponentInterface, h, Build } from '@stencil/co
 import siteStructure from '../../assets/docs-structure.json';
 import { findItem, fileNotFound, ItemInfo } from '../../global/site-structure-utils';
 import { MarkdownContent, SiteStructureItem } from '../../global/definitions';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 
 @Component({
@@ -37,10 +38,9 @@ export class DocumentComponent implements ComponentInterface {
     }
     return (
       <Host>
-        <div class="container">
+        <ResponsiveContainer>
           <div class="container-inner">
             <stencil-route-title pageTitle={content.title}></stencil-route-title>
-            <app-burger />
             <site-menu selectedParent={data.parent} siteStructureList={siteStructure as SiteStructureItem[]} />
             <div class="doc-content measure-lg">
               {toHypertext(content.hypertext)}
@@ -53,7 +53,7 @@ export class DocumentComponent implements ComponentInterface {
               currentPageUrl={content.url}
             ></in-page-navigation>
           </div>
-        </div>
+        </ResponsiveContainer>
       </Host>
     );
   }
