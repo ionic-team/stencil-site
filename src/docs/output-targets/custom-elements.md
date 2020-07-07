@@ -62,7 +62,7 @@ Luckily, both builds can be generated at the same time, and shipped in the same 
 
 ## Legacy Browsers
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` we only recommend if for modern browsers that already support Custom Elements, Shadow DOM and CSS Variables (basically not IE11 or Edge 18 and below). If this this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` we only recommend if for modern browsers that already support Custom Elements, Shadow DOM and CSS Variables (basically not IE11 or Edge 18 and below). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
 Good news is that they're all widely supported for modern web develoment:
 
