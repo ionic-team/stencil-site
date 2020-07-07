@@ -63,6 +63,7 @@
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
   * [Stencil Store](guides/store.md)
+  * [Publishing](guides/publishing.md)
 * Testing
   * [Overview](testing/overview.md)
   * [Config](testing/config.md)

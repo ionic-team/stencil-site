@@ -311,6 +311,11 @@
         "text": "Stencil Store",
         "filePath": "/assets/docs/guides/store.json",
         "url": "/docs/stencil-store"
+      },
+      {
+        "text": "Publishing",
+        "filePath": "/assets/docs/guides/publishing.json",
+        "url": "/docs/publishing"
       }
     ]
   },
