@@ -28,7 +28,7 @@ export class SearchBar implements ComponentInterface {
     } = this;
 
     return (
-      <Host>
+      <Host id="algolia-search">
         <div class="form-group">
           <input
             name="search"
