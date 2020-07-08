@@ -2,6 +2,7 @@ site-menu {
   display: block;
   flex: 0 0 auto;
   /* max-width: 250px; */
+  z-index: 1;
 }
 
 site-menu .wrapper {
