@@ -50,3 +50,84 @@ search-bar input::placeholder {
   color: #6D6C82;
   opacity: 0.6;
 }
+
+/* Main dropdown wrapper */
+#algolia-search .algolia-autocomplete .ds-dropdown-menu {
+  position: relative;
+  z-index: 2;
+}
+
+/* Main category (eg. Getting Started) */
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-woodsmoke);
+  border-bottom-width: 0;
+  margin-bottom: 0px;
+  line-height: 112%;
+}
+
+#algolia-search .algolia-docsearch-suggestion {
+
+}
+
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--category-header::after {
+  
+}
+
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--category-header
+.algolia-docsearch-suggestion--category-header-lvl0
+.algolia-docsearch-suggestion--highlight {
+  color: inherit;
+}
+
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  color: gray;
+}
+
+
+#algolia-search .algolia-docsearch-suggestion--subcategory-column {
+  
+}
+
+/* Title (eg. Bootstrap CDN) */
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: bold;
+  color: black;
+  font-weight: normal;
+}
+
+/* Description description (eg. Bootstrap currently works...) */
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--text {
+  
+}
+
+/* Highlighted text */
+#algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  color: var(--color-dodger-blue);
+  display:inline;
+  box-shadow: 0 3px 0 0 var(--color-whisper);;
+  padding: 0px;
+}
+
+#algolia-search .algolia-docsearch-suggestion--category-header {
+  border-bottom: solid 1px var(--c-carbon-10);
+}
+
+@media screen and (max-width: 768px) {
+  #algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+    display:none;
+  }
+
+  #algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column::after {
+    display:none;
+  }
+
+  #algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--title {
+    font-weight: normal;
+    margin-inline-start: 16px;
+  }
+  #algolia-search .algolia-autocomplete .algolia-docsearch-suggestion--text {
+    margin-inline-start: 32px;
+  }
+}
