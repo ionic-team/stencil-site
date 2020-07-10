@@ -64,9 +64,12 @@ doc-component .doc-content {
   margin-right: auto;
 }
 
+doc-component .doc-content .heading-link {
+  z-index: -1;
+}
+
 doc-component .heading-link {
   position: relative;
-  z-index: -1;
   text-decoration: none;
   display: flex;
   align-items: center;
