@@ -66,6 +66,7 @@ doc-component .doc-content {
 
 doc-component .heading-link {
   position: relative;
+  z-index: -1;
   text-decoration: none;
   display: flex;
   align-items: center;
