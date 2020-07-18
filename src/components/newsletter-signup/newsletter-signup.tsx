@@ -55,7 +55,7 @@ export class NewsletterSignup {
       }
     };
     const hutkMatch = document.cookie.match && document.cookie.match(/hubspotutk=(.*?);/)
-    const hutk = hutkMatch ? hutkMatch[1] : '';
+    const hutk = hutkMatch ? hutkMatch[1] : undefined;
 
     xhr.send(JSON.stringify({
       fields: [{
