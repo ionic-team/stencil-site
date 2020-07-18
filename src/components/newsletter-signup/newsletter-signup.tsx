@@ -41,12 +41,14 @@ export class NewsletterSignup {
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
+        console.dir(xhr);
         var json = JSON.parse(xhr.responseText);
         this.inlineMessage = json.inlineMessage;
         this.isLoading = false;
         this.hasSubmitted = true;
         this.isValid = true;
       } else if (xhr.readyState == 4 && xhr.status == 400){
+        console.dir(xhr);
         this.inlineMessage = 'Please enter a valid email address.';
         this.isLoading = false;
         this.isValid = false;
