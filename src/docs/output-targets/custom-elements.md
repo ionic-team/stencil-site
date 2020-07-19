@@ -30,7 +30,7 @@ import { HelloWorld } from 'my-library/dist/custom-elements-bundle';
 customElements.define('hello-world', HelloWorld);
 ```
 
-For convinence, the bundle also exports a `defineCustomElements()` method. When the `defineCustomElements()` is called it will define each component in the bundle. However, it does not run automatically and it will not be called if it is not imported and executed.
+For convenience, the bundle also exports a `defineCustomElements()` method. When the `defineCustomElements()` is called it will define each component in the bundle. However, it does not run automatically and it will not be called if it is not imported and executed.
 
 Also note that the generated bundle will export each component class and will already have the styles bundled. However, it does not define the custom elements, or apply any polyfills.
 
