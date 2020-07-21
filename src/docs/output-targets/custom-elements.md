@@ -20,12 +20,12 @@ outputTargets: [
 
 ## Defining Exported Custom Elements
 
-By default, the custom elements bundle will be written to `dist/custom-elements-bundle/index.mjs`. This directory can be configured using the output target's `dir` config. The generated `index.mjs` contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements, or apply any polyfills.
+By default, the custom elements bundle will be written to `dist/custom-elements/index.mjs`. This directory can be configured using the output target's `dir` config. The generated `index.mjs` contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements, or apply any polyfills.
 
 Below is an example of defining a custom element within the bundle:
 
 ```tsx
-import { HelloWorld } from 'my-library/dist/custom-elements-bundle';
+import { HelloWorld } from 'my-library/dist/custom-elements';
 
 customElements.define('hello-world', HelloWorld);
 ```
