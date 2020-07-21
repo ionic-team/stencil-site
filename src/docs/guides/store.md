@@ -121,12 +121,12 @@ Use the given subscriptions in the store. A subscription is an object that defin
 ## Testing
 
 Like any global state library, state should be reset between each spec test.
-Use the `reset()` API in the `beforeEach` hook.
+Use the `dispose()` API in the `beforeEach` hook.
 
 ```ts
 import store from '../store';
 
 beforeEach(() => {
-  store.reset();
+  store.dispose();
 });
 ```
