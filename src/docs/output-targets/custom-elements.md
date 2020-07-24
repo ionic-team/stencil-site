@@ -40,7 +40,20 @@ import { defineCustomElements } from 'my-library/dist/custom-elements';
 defineCustomElements();
 ```
 
-Also note that the generated bundle will export each component class and will already have the styles bundled. However, it does not define the custom elements or apply any polyfills.
+The generated bundle will export each component class and will already have the styles bundled. However, it does not define the custom elements or apply any polyfills.
+
+## Making Assets Available
+
+The generated bundle also does not include [local assets](/docs/local-assets). To make assets available, set the asset path using `setAssetPath()`.
+
+```tsx
+import { defineCustomElements, setAssetPath } from 'my-library/dist/custom-elements';
+
+setAssetPath(document.currentScript.src);
+defineCustomElements();
+```
+
+Make sure to copy the assets over to a public directory in your app. The configs below provide examples of how to do this automatically with popular bundlers.
 
 ## Distributing Custom Elements
 
@@ -57,6 +70,85 @@ To make the custom elements bundle the entry module for a package, set the `modu
 Note: If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's up to you to choose which one of them should be available in the `module` entry.
 
 Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
+
+## Example Bundler Configs
+
+Instructions for consuming the custom elements bundle vary depending on the bundler you're using. These examples will help your users consume your components with webpack and Rollup.
+
+The following examples assume your component library is published to NPM as `my-library`. You should change this to the name you actually publish your library with.
+
+Users will need to install your library before importing them.
+
+```bash
+npm install my-library
+```
+
+### webpack.config.js
+
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes includes [local assets](/docs/local-assets).
+
+```javascript
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'node_modules/my-library/dist/my-library/assets'),
+          to: path.resolve(__dirname, 'dist/assets'),
+        },
+      ],
+    }),
+  ],
+};
+```
+
+### rollup.config.js
+
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/docs/local-assets).
+
+```javascript
+import path from 'path';
+import commonjs from '@rollup/plugin-commonjs';
+import copy from 'rollup-plugin-copy';
+import postcss from 'rollup-plugin-postcss';
+import resolve from '@rollup/plugin-node-resolve';
+
+export default {
+  input: 'src/index.js',
+  output: [{ dir: path.resolve('dist/'), format: 'es' }],
+  plugins: [
+    resolve(),
+    commonjs(),
+    postcss({
+      extensions: ['.css'],
+    }),
+    copy({
+      targets: [
+        {
+          src: path.resolve(__dirname, 'node_modules/my-library/dist/my-library/assets'),
+          dest: path.resolve(__dirname, 'dist'),
+        },
+      ],
+    }),
+  ],
+};
+```
 
 ## How is this different from the "dist" output target?
 
