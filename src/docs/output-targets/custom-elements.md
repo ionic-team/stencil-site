@@ -44,8 +44,8 @@ The generated bundle will export each component class and will already have the 
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) to be built within but JavaScript output, 
-but instead it's recommended to keep static assets as external files. By keeping them external this ensure they can be requested on-demand, rather
+For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) built within the JavaScript output, 
+but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
 One method to ensure [local assets](/docs/local-assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
