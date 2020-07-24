@@ -8,7 +8,7 @@ contributors:
 
 # Custom Elements Bundle
 
-The `dist-custom-elements-bundle` output target is used to generate custom elements as a single bundle. The output can be a "single" bundle because it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
+The `dist-custom-elements-bundle` output target is used to generate custom elements as a single bundle. Even though the output ends up as a "single" bundle, it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
 ```tsx
 outputTargets: [
@@ -44,7 +44,20 @@ The generated bundle will export each component class and will already have the 
 
 ## Making Assets Available
 
-The generated bundle also does not include [local assets](/docs/local-assets). To make assets available, set the asset path using `setAssetPath()`.
+For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) to be built within but JavaScript output, 
+but instead it's recommended to keep static assets as external files. By keeping them external this ensure they can be requested on-demand, rather
+than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
+One method to ensure [local assets](/docs/local-assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+
+The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
+For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
+build directory. However, for custom elements builds, the `setAssetPath(path)` should be
+used to customize the asset path depending on where they are found on the http server.
+
+If the component's script is a `type="module"`, it's recommended to use `import.meta.url`, such
+as `setAssetPath(import.meta.url)`. Other options include `setAssetPath(document.currentScript.src)`, or using a bundler's replace plugin to
+dynamically set the path at build time, such as `setAssetPath(process.env.ASSET_PATH)`.
+
 
 ```tsx
 import { defineCustomElements, setAssetPath } from 'my-library/dist/custom-elements';
@@ -53,7 +66,9 @@ setAssetPath(document.currentScript.src);
 defineCustomElements();
 ```
 
-Make sure to copy the assets over to a public directory in your app. The configs below provide examples of how to do this automatically with popular bundlers.
+Make sure to copy the assets over to a public directory in your app.  This configuration depends on how your script is bundled, or lack of
+bunding, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling. 
+The configs below provide examples of how to do this automatically with popular bundlers.
 
 ## Distributing Custom Elements
 
@@ -156,14 +171,16 @@ The `dist-custom-elements-bundle` builds each component as a stand-alone class t
 
 The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
 
-Luckily, both builds can be generated at the same time and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
+Luckily, both builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
 
-## Legacy Browsers
+## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 18 and below). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 16-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
-Good news is that they're all widely supported for modern web develoment:
+Good news is that these are already widely supported for modern web develoment:
 
 - [Custom Elements Support](https://caniuse.com/#feat=custom-elementsv1)
 - [Shadow DOM Support](https://caniuse.com/#feat=shadowdomv1)
 - [CSS Variables Support](https://caniuse.com/#feat=css-variables)
+- [ES Modules](https://caniuse.com/#feat=es6-module)
+- [async/await](https://caniuse.com/#feat=async-functions)
