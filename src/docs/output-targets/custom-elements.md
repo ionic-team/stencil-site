@@ -76,9 +76,15 @@ Your component library can be easily distributed on NPM, similar to how [`@ionic
 
 To make the custom elements bundle the entry module for a package, set the `module` property in `package.json` to:
 
+Also be sure to set `@stencil/core` as a dependency of the package.
+
 ```tsx
 {
-  "module": "dist/custom-elements-bundle/index.js"
+  "module": "dist/custom-elements-bundle/index.js",
+  "dependencies": {
+    "@stencil/core": "latest"
+  },
+  ...
 }
 ```
 
