@@ -11,36 +11,32 @@ contributors:
 
 # Components without a Framework
 
-Integrating a component built with Stencil to a project without a JavaScript framework is straight forward. If you're using a simple HTML page, you can add your component via a script tag. For example, if we published a component to npm, we could load the component through unpkg like this:
+Integrating a component built with Stencil to a project without a JavaScript framework is straight forward. If you're using a simple HTML page, you can add your component via a script tag. For example, if we published a component to npm, we could load the component through a CDN like this:
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script src="https://unpkg.com/test-components/latest/dist/test-components.js"></script>
-</head>
-<body>
-  <test-component></test-component>
-</body>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic.js"></script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
 </html>
 ```
 
-Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. Note that in this scenario `applyPolyfills` is needed if you are targeting Edge or IE11.
+Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. _Note that type="module" only works in modern browsers (not available in IE11 or Edge 12-18)._
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script type="module">
-    import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/loader';
-    applyPolyfills().then(() => {
+<html>
+  <head>
+    <script type="module">
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@ionic/core/loader/index.es2017.mjs';
       defineCustomElements();
-    });
-  </script>
-</head>
-<body>
-  <test-component></test-component>
-</body>
+    </script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
 </html>
 ```
 
