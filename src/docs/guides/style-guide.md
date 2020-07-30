@@ -207,6 +207,7 @@ export class Something {
    */
   connectedCallback() {}
   disconnectedCallback() {}
+  componentWillLoad() {}
   componentDidLoad() {}
   componentWillUpdate() {}
   componentDidUpdate() {}
