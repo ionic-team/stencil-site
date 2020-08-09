@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@ionic-internal/sites-shared": "1.0.2-1",
-    "@stencil/core": "^1.16.0-0",
+    "@stencil/core": "^2.0.0-0",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
     "@types/fs-extra": "^9.0.1",

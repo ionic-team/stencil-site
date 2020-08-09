@@ -3,6 +3,14 @@ import dotenvPlugin from 'rollup-plugin-dotenv';
 
 export const config: Config = {
   taskQueue: 'async',
+  buildEs5: true,
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    safari10: true,
+    scriptDataOpts: true,
+    shadowDomShim: true,
+  },
   outputTargets: [
     {
       type: 'www',
@@ -13,7 +21,7 @@ export const config: Config = {
       },
       copy: [
         { src: 'cli.ts.deno', dest: 'cli.ts' },
-        { src: '../node_modules/@ionic-internal/sites-shared/www/assets/fonts', dest: 'assets/fonts' }
+        { src: '../node_modules/@ionic-internal/sites-shared/www/assets/fonts', dest: 'assets/fonts' },
       ],
     },
     {
