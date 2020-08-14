@@ -191,7 +191,7 @@ export class TodoList {
 
   @Watch('name')
   validateName(newValue: string, oldValue: string) {
-    const isBlank = typeof newValue == null;
+    const isBlank = typeof newValue !== 'string' || newValue === '';
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
     if (isBlank) { throw new Error('name: required') };
     if (!has2chars) { throw new Error('name: has2chars') };
