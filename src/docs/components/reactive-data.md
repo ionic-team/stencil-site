@@ -13,7 +13,7 @@ Stencil components update when props or state on a component change. For perform
 
 ## Rendering methods
 
-When a component updates because a state change (props or state change), the [`render()`](templating-jsx) method is scheduled to run.
+When a component updates because of a state change (props or state change), the [`render()`](templating-jsx) method is scheduled to run.
 
 
 ## Watch Decorator
