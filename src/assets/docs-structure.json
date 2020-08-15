@@ -316,6 +316,11 @@
         "text": "Publishing",
         "filePath": "/assets/docs/guides/publishing.json",
         "url": "/docs/publishing"
+      },
+      {
+        "text": "Deno (experimental)",
+        "filePath": "/assets/docs/guides/deno.json",
+        "url": "/docs/deno"
       }
     ]
   },

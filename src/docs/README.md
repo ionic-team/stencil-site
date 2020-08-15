@@ -64,6 +64,7 @@
   * [Service Workers](guides/service-workers.md)
   * [Stencil Store](guides/store.md)
   * [Publishing](guides/publishing.md)
+  * [Deno (experimental)](guides/deno.md)
 * Testing
   * [Overview](testing/overview.md)
   * [Config](testing/config.md)
