@@ -17,6 +17,13 @@ export const RESOURCES = {
     { title: 'Animatable: Animate any HTML Element using Web Animations API in a declarative way! 💅', url: 'https://proyecto26.github.io/animatable-component' },
     { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser' },
     { title: 'Stace Editor: 📖 A web component wrapper for Ace Editor, using Stencil + brace', url: 'https://github.com/jeanbenitez/stace-editor' },
+    { title: '<s-swipe /> A web component to detect swipe events. Framework-agnostic, simple. ',url:'https://github.com/ranjeetsinghbnl/s-swipe' },
+    { title: '<smt-progress-spinner /> Stencil progress spinner component is a circular indicators of progress and activity. It is inspired from material progress bar indicator. Framework-agnostic, simple. ',url:'https://github.com/ranjeetsinghbnl/smt-spinner' },
+    { title: 'Step by step guide of using component in Vue',url:'https://github.com/ranjeetsinghbnl/stenciljs-vue' },
+    { title: 'Step by step guide of using component in React',url:'https://github.com/ranjeetsinghbnl/stenciljs-react' },
+    { title: 'Step by step guide of using component in Angular',url:'https://github.com/ranjeetsinghbnl/stenciljs-angular' },
+    { title: 'Step by step guide of using component in Html',url:'https://github.com/ranjeetsinghbnl/stenciljs-javascript' },
+    { title: 'A showcase of product list and cart components in Stencil js to demonstrate Framework-agnostic approach and implement as a Micro frontend.', url:'https://github.com/ranjeetsinghbnl/product-mgmt-stenciljs' }
   ],
   TOOLS: [
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
