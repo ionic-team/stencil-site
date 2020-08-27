@@ -40,13 +40,15 @@ An advantage to using the compiler is it is able to provide help on how to best 
 }
 ```
 
-| Property | Description                                                                                | Recommended                       |
-|----------|--------------------------------------------------------------------------------------------|-----------------------------------|
-| `main`   | Entry file in the CommonJS module format.                                                  | `dist/index.js`                   |
-| `module` | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.mjs`                  |
-| `es2015` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
-| `es2017` | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
-| `types`  | Entry file to the project's types.                                                         | `dist/types/index.d.ts`           |
-| `unpkg`  | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
+| Property | Description                                                                                         | Recommended                       |
+|----------|-----------------------------------------------------------------------------------------------------|-----------------------------------|
+| `main`            | Entry file in the CommonJS module format.                                                  | `dist/index.js`                   |
+| `module`          | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.mjs`                  |
+| `es2015`          | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
+| `es2017`          | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
+| `types`           | Entry file to the project's types.                                                         | `dist/types/index.d.ts`           |
+| `unpkg`           | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
+
+The `collection` properties are used to allow lazy loading in other Stencil applications.
 
 Note: If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's best to pick one of them as the main entry, that's up to you.
