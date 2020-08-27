@@ -89,7 +89,7 @@ export class TodoList {
 
 ## Listen Decorator
 
-The `Listen()` decorator is for listening DOM events, including the ones dispatched from `@Events`.
+The `Listen()` decorator is for listening to DOM events, including the ones dispatched from `@Events`.
 
 In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
 
