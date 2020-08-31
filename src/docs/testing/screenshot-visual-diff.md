@@ -23,7 +23,7 @@ stencil test --e2e --screenshot
   it('render something', async () => {
     const page: E2EPage = await newE2EPage();
     await page.setContent('<my-cmp></my-cmp>');
-    await page.compareScreenshot('My Componment (...is beautiful. Look at it!)', {fullPage: false});
+    await page.compareScreenshot('My Component (...is beautiful. Look at it!)', {fullPage: false});
   });
 
 ```
