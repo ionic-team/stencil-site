@@ -3,6 +3,7 @@ export const RESOURCES = {
     { title: 'Official Stencil App Starter Project', url: 'https://github.com/ionic-team/stencil-app-starter' },
     { title: 'Official Stencil Component Starter Project', url: 'https://github.com/ionic-team/stencil-component-starter' },
     { title: 'Angular Stencil: use Stencil-built components in Angular', url: 'https://github.com/seveves/angular-stencil' },
+    { title: 'Stencil + Firebase + Stencil Store Web App Starter Project', url: 'https://github.com/ranjeetsinghbnl/stencil-firebase' },
   ],
   COMPONENTS: [
     { title: 'Animatable components with Web Animations API', url: 'https://proyecto26.com/animatable-component/' },
@@ -19,10 +20,10 @@ export const RESOURCES = {
     { title: 'Stace Editor: 📖 A web component wrapper for Ace Editor, using Stencil + brace', url: 'https://github.com/jeanbenitez/stace-editor' },
     { title: '<s-swipe /> A web component to detect swipe events. Framework-agnostic, simple. ',url:'https://github.com/ranjeetsinghbnl/s-swipe' },
     { title: '<smt-progress-spinner /> Stencil progress spinner component is a circular indicators of progress and activity. It is inspired from material progress bar indicator. Framework-agnostic, simple. ',url:'https://github.com/ranjeetsinghbnl/smt-spinner' },
-    { title: 'Step by step guide of using component in Vue',url:'https://github.com/ranjeetsinghbnl/stenciljs-vue' },
-    { title: 'Step by step guide of using component in React',url:'https://github.com/ranjeetsinghbnl/stenciljs-react' },
-    { title: 'Step by step guide of using component in Angular',url:'https://github.com/ranjeetsinghbnl/stenciljs-angular' },
-    { title: 'Step by step guide of using component in Html',url:'https://github.com/ranjeetsinghbnl/stenciljs-javascript' },
+    { title: 'Step by step guide of using stencil component in Vue',url:'https://github.com/ranjeetsinghbnl/stenciljs-vue' },
+    { title: 'Step by step guide of using stencil component in React',url:'https://github.com/ranjeetsinghbnl/stenciljs-react' },
+    { title: 'Step by step guide of using stencil component in Angular',url:'https://github.com/ranjeetsinghbnl/stenciljs-angular' },
+    { title: 'Step by step guide of using stencil component in Html',url:'https://github.com/ranjeetsinghbnl/stenciljs-javascript' },
     { title: 'A showcase of product list and cart components in Stencil js to demonstrate Framework-agnostic approach and implement as a Micro frontend.', url:'https://github.com/ranjeetsinghbnl/product-mgmt-stenciljs' }
   ],
   TOOLS: [
