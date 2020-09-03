@@ -10,24 +10,27 @@ contributors:
 
 The `extras` config contains options to add and remove runtime for DOM features that require manipulations to polyfills. For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
 
-Many of the options are also available to remove unnecessary runtime your app does not need. For example, by default Stencil works on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. While modern browsers will not download and run the polyfills, there's still additional checks within the runtime in order to support legacy browsers. By using the `extras` config, apps can completely opt-out of the additional runtime.
+By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
 
-Example `extras` config when __not__ supporting legacy browsers:
+Example `extras` config when __supporting__ legacy browsers:
 
 ```tsx
 export const config: Config = {
-  buildEs5: false,
+  buildEs5: 'prod',
   extras: {
-    cssVarsShim: false,
-    dynamicImportShim: false,
-    safari10: false,
-    scriptDataOpts: false,
-    shadowDomShim: false
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    shadowDomShim: true,
+    safari10: true,
+    scriptDataOpts: true,
+    appendChildSlotFix: false,
+    cloneNodeFix: false,
+    slotChildNodesFix: true,
   }
 };
 ```
 
-Note: `buildEs5: false` was also set in the config since this example does not need to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
+Note: `buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
 
 ### appendChildSlotFix
 
