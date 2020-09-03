@@ -16,7 +16,7 @@ Example `extras` config when __supporting__ legacy browsers:
 
 ```tsx
 export const config: Config = {
-  buildEs5: true,
+  buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,
@@ -30,7 +30,7 @@ export const config: Config = {
 };
 ```
 
-Note: `buildEs5: true` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
+Note: `buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
 
 ### appendChildSlotFix
 
