@@ -18,7 +18,7 @@ Example `extras` config when __supporting__ legacy browsers:
 export const config: Config = {
   buildEs5: true,
   extras: {
-    cssVarsShim: false,
+    cssVarsShim: true,
     dynamicImportShim: true,
     shadowDomShim: true,
     safari10: true,
