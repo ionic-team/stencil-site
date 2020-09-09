@@ -26,6 +26,9 @@ export const RESOURCES = {
     { title: 'Step by step guide of using stencil component in Html',url:'https://github.com/ranjeetsinghbnl/stenciljs-javascript' },
     { title: 'A showcase of product list and cart components in Stencil js to demonstrate Framework-agnostic approach and implement as a Micro frontend.', url:'https://github.com/ranjeetsinghbnl/product-mgmt-stenciljs' },
     { title: 'RevoGrid "excel like" complex virtual grid with amazing performance', url: 'https://github.com/revolist/revogrid' },
+    { title: 'Alert Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/alert-component' },
+    { title: 'Badge Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/badge-component' },
+    { title: 'Progress Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/progress-component' },
   ],
   TOOLS: [
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
