@@ -112,7 +112,7 @@ The `@Listen(eventName, opts?: ListenOptions)` includes a second optional argume
 
 ```tsx
 export interface ListenOptions {
-  target?: 'parent' | 'body' | 'document' | 'window';
+  target?: 'body' | 'document' | 'window';
   capture?: boolean;
   passive?: boolean;
 }
