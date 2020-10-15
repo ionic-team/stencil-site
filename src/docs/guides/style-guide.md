@@ -260,7 +260,8 @@ export class Something {
 
   /**
    * 10. render() function
-   * Always the last one in the class.
+   * Always the last public method in the class.
+   * If private methods present, they are below public methods.
    */
   render() {
     return (
