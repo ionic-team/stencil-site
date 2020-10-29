@@ -356,6 +356,11 @@
         "text": "Visual Screenshot Diff",
         "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
         "url": "/docs/screenshot-visual-diff"
+      },
+      {
+        "text": "Screenshot Connector",
+        "filePath": "/assets/docs/testing/screenshot-connector.json",
+        "url": "/docs/screenshot-connector"
       }
     ]
   },
