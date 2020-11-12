@@ -29,6 +29,7 @@ export const RESOURCES = {
     { title: 'Alert Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/alert-component' },
     { title: 'Badge Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/badge-component' },
     { title: 'Progress Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/progress-component' },
+    { title: 'A small collection of Awesome Stencil UI components', url: 'https://github.com/dlucidone/awesome-ui' }
   ],
   TOOLS: [
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
