@@ -230,48 +230,30 @@ Here's an example of handling a button click. Note the use of the [Arrow functio
 ```tsx
 ...
 export class MyComponent {
-  handleClick(event: UIEvent) {
+  private handleClick = () => {
     alert('Received the button click!');
   }
 
   render() {
     return (
-      <button onClick={ (event: UIEvent) => this.handleClick(event)}>Click Me!</button>
+      <button onClick={this.handleClick}>Click Me!</button>
     );
   }
 }
 ```
-
-An alternate syntax for this is to use the following:
-
-```tsx
-  handleClick(event: UIEvent) {
-    alert('Received the button click!');
-  }
-
-  render() {
-    return (
-      <button onClick={this.handleClick.bind(this)}>Click Me!</button>
-    );
-  }
-```
-
-Both options are valid.
-
-
 
 Here's another example of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ```tsx
 ...
 export class MyComponent {
-  inputChanged(event) {
-    console.log('input changed: ', event.target.value);
+  private inputChanged = (event: Event) => {
+    console.log('input changed: ', (event.target as HTMLInputElement).value);
   }
 
   render() {
     return (
-      <input onChange={(event: UIEvent) => this.inputChanged(event)}>
+      <input onChange={this.inputChanged}/>
     );
   }
 }
@@ -323,8 +305,8 @@ export class AppHome {
 
   textInput!: HTMLInputElement;
 
-  handleSubmit = (ev: Event) => {
-    ev.preventDefault();
+  handleSubmit = (event: Event) => {
+    event.preventDefault();
     console.log(this.textInput.value);
   }
 
