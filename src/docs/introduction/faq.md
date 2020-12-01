@@ -14,7 +14,7 @@ contributors:
 
 Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
 
-Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://raw.githubusercontent.com/ionic-team/stencil/master/LICENSE.md).
+Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
 
 
 ### What does Stencil do?
