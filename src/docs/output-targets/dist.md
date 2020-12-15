@@ -43,7 +43,7 @@ Next you can publish your library to [Node Package Manager (NPM)](https://www.np
 
 ## Distribution Options
 
-Each output target, form of bundling and distribution each have their own pros and cons. Luckily you can worry about writing some good source code for your component, and Stencil will handle generating the various bundles, and consumers of your library can decide how apply your components to their external projects. Below are a few of the options.
+Each output target, form of bundling and distribution each have their own pros and cons. Luckily you can worry about writing some good source code for your component, and Stencil will handle generating the various bundles, and consumers of your library can decide how to apply your components to their external projects. Below are a few of the options.
 
 
 ### Script tag
