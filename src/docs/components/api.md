@@ -1,7 +1,7 @@
 ---
 title: Component API
 description: Component API
-url: /docs/decorators
+url: /docs/api
 contributors:
   - manucorporat
   - Mawulijo
