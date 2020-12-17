@@ -52,7 +52,7 @@ In addition to component-specific lifecycle hooks, a special event called `applo
 
 If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](/docs/config/testing#namespace) you've set in your Stencil config.
 
-```ts
+```tsx
 window.addEventListener('appload', (event) => {
   console.log(event.detail.namespace);
 });
