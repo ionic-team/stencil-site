@@ -46,6 +46,18 @@ Once all the metadata has been collected, all the decorators are removed from th
 - **[render()](templating-jsx)**
 
 
+## The appload event
+
+In addition to component-specific lifecycle hooks, a special event called `appload` will be emitted when the app and all of its child components have finished loading. You can listen for it on the `window` object.
+
+If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](/docs/config/testing#namespace) you've set in your Stencil config.
+
+```ts
+window.addEventListener('appload', (event) => {
+  console.log(event.detail.namespace);
+});
+```
+
 ## Other
 
 - [**Host**](host-element): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
