@@ -106,7 +106,7 @@ export const config: Config = {
 
 ```tsx
 // change to the version you get from `npm ls workbox-build`
-importScripts('workbox-v3.4.1/workbox-sw.js');
+importScripts('workbox-v4.3.1/workbox-sw.js');
 
 // your custom service worker code
 
@@ -154,7 +154,7 @@ async onServiceWorkerUpdate() {
 The `swUpdate` event is emitted by Stencil every time a new service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by the service worker; therefore we need to create a custome one (e. g. `src/sw.js`) and add a listener to call `skipWaiting()`.
 
 ```tsx
-importScripts("workbox-v3.4.1/workbox-sw.js");
+importScripts("workbox-v4.3.1/workbox-sw.js");
 
 self.addEventListener("message", ({ data }) => {
   if (data === "skipWaiting") {
