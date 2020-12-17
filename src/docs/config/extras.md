@@ -63,7 +63,6 @@ Dispatches component lifecycle events. By default these events are not dispatche
 
 | Event Name                     | Description                                                    |
 |--------------------------------|----------------------------------------------------------------|
-| `stencil_appload`              | The app and all of its child components have finished loading. |
 | `stencil_componentWillLoad`    | Dispatched for each component's `componentWillLoad`. |
 | `stencil_componentWillUpdate`  | Dispatched for each component's `componentWillUpdate`. |
 | `stencil_componentWillRender`  | Dispatched for each component's `componentWillRender`. |
