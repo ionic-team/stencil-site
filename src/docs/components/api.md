@@ -70,7 +70,7 @@ window.addEventListener('appload', (event) => {
 
 - **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not syncronous and might perform the DOM render in the next frame.
 
-- getAssetPath()
+- getAssetPath(): Gets the path to local assets. Refer to the [Local Assets](/docs/local-assets#component-s-assetsdirs) page for usage info.
 - setMode()
 - getMode()
 - getElement()
