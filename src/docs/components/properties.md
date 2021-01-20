@@ -54,7 +54,7 @@ console.log(todoListElement.color); // blue
 
 ## Prop options
 
-The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain option, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
+The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain options, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
 
 ```tsx
 export interface PropOptions {
