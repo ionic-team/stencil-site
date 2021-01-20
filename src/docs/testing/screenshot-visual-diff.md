@@ -35,7 +35,7 @@ describe('stencil-avatar', () => {
   it('renders and responds to the size property', async () => {
     const page = await newE2EPage();
 
-    // In order to test against any global styles you may have, don't forget to set the link to the global css. You odn't have to do this if your stencil.config.ts file doesn't build a global css file with globalStyle.
+    // In order to test against any global styles you may have, don't forget to set the link to the global css. You don't have to do this if your stencil.config.ts file doesn't build a global css file with globalStyle.
     await page.setContent('<link href="http://localhost:3333/build/stellar-core.css" rel="stylesheet" /><stencil-avatar size="small"></stencil-avatar>');
     
     const element = await page.find('stencil-avatar');
