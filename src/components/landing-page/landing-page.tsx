@@ -28,8 +28,9 @@ export class LandingPage {
       <div>
         <ResponsiveContainer class="hero">
           <hgroup>
-            <h1>Build. Distribute. Adopt. </h1>
-            <p>Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.</p>
+            <announcement-bar></announcement-bar>
+            <h1>構築. 再利用性. 導入. </h1>
+            <p>Stencilは、再利用可能でスケーラブルなデザインシステムを構築するためのツールチェーンです。あらゆるブラウザで動作する、小型で高速かつ100%標準ベースのWebコンポーネントを生成します。</p>
             <stencil-route-link url="/docs/getting-started" class="hero-button" anchorClass="btn-get-started">Get started</stencil-route-link>
             <stencil-route-link url="/docs/introduction" class="hero-button" anchorClass="btn-why-stencil">Why Stencil?</stencil-route-link>
           </hgroup>
@@ -52,7 +53,7 @@ export class LandingPage {
 
         <div class="companies">
           <ResponsiveContainer>
-            <h3>Powering design systems and cross-framework components at</h3>
+            <h3>デザインシステムとフレームワーク共通で使えるコンポーネントの促進</h3>
             <ul>
               <li>
                 <svg width="31" height="37" viewBox="0 0 31 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,29 +124,29 @@ export class LandingPage {
           <ResponsiveContainer>
             <div class="two-col">
               <hgroup>
-                <h2><strong>The magical, reusable web component compiler.</strong> Start building in seconds.</h2>
+                <h2><strong>魔法のような再利用可能なWeb Componentsのコンパイラ。</strong> 数秒で構築を開始できます。</h2>
               </hgroup>
 
               <ul class="list--unstyled list--icon">
-                <li><app-icon name="checkmark"/> Web Component-based</li>
-                <li><app-icon name="checkmark"/> Asynchronous rendering pipeline</li>
-                <li><app-icon name="checkmark"/> TypeScript support</li>
-                <li><app-icon name="checkmark"/> One-way Data Binding</li>
-                <li><app-icon name="checkmark"/> Component prerendering</li>
-                <li><app-icon name="checkmark"/> Simple component lazy-loading</li>
-                <li><app-icon name="checkmark"/> JSX support</li>
-                <li><app-icon name="checkmark"/> Dependency-free components</li>
+                <li><app-icon name="checkmark"/> Web Componentsベース</li>
+                <li><app-icon name="checkmark"/> 非同期レンダリング</li>
+                <li><app-icon name="checkmark"/> TypeScriptサポート</li>
+                <li><app-icon name="checkmark"/> 一方向データバインディング</li>
+                <li><app-icon name="checkmark"/> コンポーネントのプリレンダリング</li>
+                <li><app-icon name="checkmark"/> シンプルなコンポーネントの遅延読み込み</li>
+                <li><app-icon name="checkmark"/> JSXサポート</li>
+                <li><app-icon name="checkmark"/> 依存関係のないコンポーネント</li>
               </ul>
             </div>
           </ResponsiveContainer>
 
           <div class="cta">
             <div class="cta__primary">
-              <h3>Getting started is simple:</h3>
+              <h3>はじめるのは簡単です：</h3>
               <code class={{'copied': this.copiedState > 0}} onClick={this.copyCommand}>{COPY_STATES[this.copiedState]}</code>
               <span>Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link></span>
             </div>
-            <p class="cta__secondary">Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide</p>
+            <p class="cta__secondary">より詳しく <stencil-route-link url="/docs/getting-started">はじめ方</stencil-route-link> を確認する</p>
           </div>
         </section>
 
@@ -158,7 +159,7 @@ export class LandingPage {
                   <path d="M16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32Z" fill="#141334"/>
                   <path d="M16 23C19.866 23 23 19.866 23 16C23 12.134 19.866 9 16 9C12.134 9 9 12.134 9 16C9 19.866 12.134 23 16 23Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <h3>Simple</h3>
+                <h3>シンプル</h3>
                 <p>With intentionally small tooling, a tiny API, and zero configuration, Stencil gets out of the way and lets you focus on your work.</p>
               </li>
               <li class="feature-list__item">
@@ -172,7 +173,7 @@ export class LandingPage {
                 <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 30C23.2843 30 30 23.2843 30 15C30 12.1808 29.2223 9.54324 27.8696 7.2902L31.5477 3.66785C32.1512 3.07346 32.1507 2.11024 31.5466 1.51645C30.9424 0.922648 29.9634 0.923129 29.3599 1.51752L26.0119 4.81476C23.2719 1.85374 19.3524 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM26.0119 4.81476L13.9602 16.6839L10.1062 12.8921C9.5024 12.298 8.52339 12.298 7.91955 12.8921C7.31572 13.4862 7.31572 14.4494 7.91955 15.0435L12.8675 19.9116C13.1575 20.1969 13.551 20.3572 13.9612 20.3571C14.3714 20.357 14.7648 20.1965 15.0547 19.911L27.8696 7.2902C27.3358 6.40101 26.7124 5.5717 26.0119 4.81476Z" fill="#141334"/>
                 </svg>
-                <h3>Future proof</h3>
+                <h3>将来への対応</h3>
                 <p>Build cross-framework components and design systems on open web standards, and break free of Framework Churn.</p>
               </li>
             </ul>

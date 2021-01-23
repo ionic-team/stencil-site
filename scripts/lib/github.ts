@@ -8,7 +8,7 @@ export async function getGithubData(filePath: string, parsedMarkdown: any) {
     const request = await fetch(url.format({
       protocol: 'https',
       hostname: 'api.github.com',
-      pathname: 'repos/ionic-team/stencil-site/commits',
+      pathname: 'repos/ionic-jp/stencil-docs/commits',
       query: {
         access_token: process.env.GITHUB_TOKEN,
         since: since,
