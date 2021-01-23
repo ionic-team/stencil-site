@@ -157,7 +157,7 @@ export const RESOURCES = {
     {
       title: 'RevoGrid',
       description: 'Excel like datagrid with amazing performance built with @stencil/core, @stencil/store',
-      imgPath: 'https://github.com/revolist/revogrid/blob/master/assets/material.jpg',
+      imgPath: 'https://raw.githubusercontent.com/revolist/revogrid/master/assets/material.jpg',
       demoUrl: 'https://revolist.github.io/revogrid/',
       sourceUrl: 'https://github.com/revolist/revogrid',
     }
