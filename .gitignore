@@ -1,7 +1,7 @@
 .stencil/
 dist/
 www/
-scripts/*.js
+scripts/**/*.js
 src/assets/docs/
 
 *~
@@ -25,4 +25,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
-.env
+
+.idea

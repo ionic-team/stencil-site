@@ -1,6 +1,6 @@
 ---
-title: Components without a Framework
-description: Components without a Framework
+title: フレームワークを使用しないコンポーネント
+description: フレームワークを使用しないコンポーネント
 url: /docs/javascript
 contributors:
   - mhartington
@@ -9,44 +9,41 @@ contributors:
   - BDav24
 ---
 
-# Components without a Framework
+# フレームワークを使用しないコンポーネント
 
-Integrating a component built with Stencil to a project without a JavaScript framework is straight forward. If you're using a simple HTML page, you can add your component via a script tag. For example, if we published a component to npm, we could load the component through unpkg like this:
+Stencilで作成されたコンポーネントをJavaScriptフレームワークのないプロジェクトで連携するのは簡単です。単純なHTMLページを使用している場合は、scriptタグを使用してコンポーネントを読み込むことができます。例えば、npmにコンポーネントを公開した場合は、次のようにunpkgを介してコンポーネント使用できます。
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script src="https://unpkg.com/test-components/latest/dist/test-components.js"></script>
-</head>
-<body>
-  <test-component></test-component>
-</body>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic.js"></script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
 </html>
 ```
 
-Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. Note that in this scenario `applyPolyfills` is needed if you are targeting Edge or IE11.
+また、ESモジュールを利用する場合はimport構文を使用してコンポーネントを読み込むことができます。EdgeまたはIE11を対象とする場合は、 `applyPolyfills`が必要であることに注意してください。
+_Note type="module"は最新のブラウザでのみ機能することに注意してください（IE11またはEdge 12-18では使用できません_
 
 ```markup
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <script type="module">
-    import { applyPolyfills, defineCustomElements } from 'https://unpkg.com/test-components/loader';
-    applyPolyfills().then(() => {
+<html>
+  <head>
+    <script type="module">
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@ionic/core/loader/index.es2017.mjs';
       defineCustomElements();
-    });
-  </script>
-</head>
-<body>
-  <test-component></test-component>
-</body>
+    </script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
 </html>
 ```
 
-## Passing object props from a non-JSX element
+## JSXではない要素からpropsオブジェクトを使う
 
-### Setting the prop manually
+### propsを手動で設定する
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -66,7 +63,7 @@ export class TodoList {
 </script>
 ```
 
-### Watching props changes
+### propsの変化を監視する
 
 ```tsx
 import { Prop, State, Watch } from '@stencil/core';

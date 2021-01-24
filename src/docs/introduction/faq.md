@@ -14,12 +14,12 @@ contributors:
 
 Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
 
-Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/master/LICENSE).
+Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
 
 
 ### What does Stencil do?
 
-Stencil helps developers and teams build and share custom components. Since Stencil generates standards-compliant Web Components, the components you build with Stencil will work with many popular frameworks right out of the box, and can even be used without a framework because they are just Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, pre-rendering, and objects-as-properties (instead of just strings).
+Stencil helps developers and teams build and share custom components. Since Stencil generates standards-compliant Web Components, the components you build with Stencil will work with many popular frameworks right out of the box, and can even be used without a framework because they are just Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
 
 
 ### Who is Stencil for?
@@ -186,7 +186,9 @@ Compared to using Web Components directly, Stencil provides extra APIs that make
 
 ### What browsers can support Stencil components?
 
-Stencil works on Internet Explorer 11 and above.
+Stencil works on modern browsers and Internet Explorer 11.
+
+[Learn more about browser support](/docs/browser-support).
 
 
 ### What polyfills does Stencil provide?

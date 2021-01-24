@@ -201,6 +201,8 @@ Each step through the `map` function creates a new JSX sub tree and adds it to t
 
 If your list is dynamic, i. e., it's possible to change, add, remove or reorder items, you should assign a unique `key` to each element to give it a stable identity. This enables Stencil to reuse DOM elements for better performance. The best way to pick a key is to use a string that uniquely identifies that list item among its siblings (often your data will already have IDs).
 
+> Do not use the `map`-function's index variable as a key. It does not represent a stable identity of an item as it can change if the order of the list changed or if you added an item to the beginning of the list. As such it is not suitable as a `key`.
+
 ```tsx
 render() {
   return (
@@ -228,48 +230,30 @@ Here's an example of handling a button click. Note the use of the [Arrow functio
 ```tsx
 ...
 export class MyComponent {
-  handleClick(event: UIEvent) {
+  private handleClick = () => {
     alert('Received the button click!');
   }
 
   render() {
     return (
-      <button onClick={ (event: UIEvent) => this.handleClick(event)}>Click Me!</button>
+      <button onClick={this.handleClick}>Click Me!</button>
     );
   }
 }
 ```
-
-An alternate syntax for this is to use the following:
-
-```tsx
-  handleClick(event: UIEvent) {
-    alert('Received the button click!');
-  }
-
-  render() {
-    return (
-      <button onClick={this.handleClick.bind(this)}>Click Me!</button>
-    );
-  }
-```
-
-Both options are valid.
-
-
 
 Here's another example of listening to input `change`. Note the use of the [Arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
 ```tsx
 ...
 export class MyComponent {
-  inputChanged(event) {
-    console.log('input changed: ', event.target.value);
+  private inputChanged = (event: Event) => {
+    console.log('input changed: ', (event.target as HTMLInputElement).value);
   }
 
   render() {
     return (
-      <input onChange={(event: UIEvent) => this.inputChanged(event)}>
+      <input onChange={this.inputChanged}/>
     );
   }
 }
@@ -321,8 +305,8 @@ export class AppHome {
 
   textInput!: HTMLInputElement;
 
-  handleSubmit = (ev: Event) => {
-    ev.preventDefault();
+  handleSubmit = (event: Event) => {
+    event.preventDefault();
     console.log(this.textInput.value);
   }
 

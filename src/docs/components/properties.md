@@ -8,7 +8,7 @@ contributors:
 
 # Prop Decorator
 
-Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently re-render.
+Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently rerender.
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -54,7 +54,7 @@ console.log(todoListElement.color); // blue
 
 ## Prop options
 
-The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain option, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
+The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain options, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
 
 ```tsx
 export interface PropOptions {
@@ -191,7 +191,7 @@ export class TodoList {
 
   @Watch('name')
   validateName(newValue: string, oldValue: string) {
-    const isBlank = typeof newValue == null;
+    const isBlank = typeof newValue !== 'string' || newValue === '';
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
     if (isBlank) { throw new Error('name: required') };
     if (!has2chars) { throw new Error('name: has2chars') };

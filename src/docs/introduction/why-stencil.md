@@ -6,35 +6,39 @@ contributors:
   - jthoms1
 ---
 
-# Stencil: A Compiler for Web Components
+# Stencil: Webコンポーネントと高機能Webアプリ用のコンパイラ
 
-Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
+Stencilは、Webコンポーネント（より正確に言うと、カスタムエレメント）を生成するコンパイラです。
+Stencilは、最も人気のあるフレームワークの最高の概念をシンプルなビルド時ツールに結合します。
 
-Stencil takes features such as
+Stencilは次のような機能を持ちます。
 
 - Virtual DOM
-- Async rendering (inspired by React Fiber)
-- Reactive data-binding
+- 非同期レンダリング(inspired by React Fiber)
+- リアクティブデータバインディング
 - TypeScript
 - JSX
+- 静的サイト生成(SSG)
 
-and then generates standards-based Web Components with these features baked in.
+そして、これらの機能を取り込んだWeb標準のWebコンポーネントを生成します。
 
-Since Stencil generates standards-compliant web components, they can work with many popular frameworks right out of the box, and can be used without a framework because they are just web components. Stencil also enables a number of key capabilities on top of Web Components, in particular, pre-rendering, and objects-as-properties (instead of just strings).
+StencilはWeb標準に準拠したWebコンポーネントを生成するため、多くの一般的なフレームワークですぐに使用できます。また、Webコンポーネントにすぎないため、フレームワークなしでも使用できます。 さらに、Stencilは、Webコンポーネントだけでなく、プリレンダリング、オブジェクトのプロパティを利用することもできます。
 
-Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
+カスタムエレメントを直接作成する場合と比較して、StencilはWebコンポーネントを簡単に記述するためのAPIを提供します。Virtual DOM、JSX、非同期レンダリングなどのAPIは、Webコンポーネントとの100％の互換性を維持しながら、高速で強力なコンポーネントを簡単に作成できるようにします。
 
-The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
+デベロッパーエクスペリエンス(DX)も考慮されており、Live Reloadとコンパイラに組み込まれた小さな開発サーバーが付属しています。
+
+また、Stencilを使用して高機能なWebアプリを構築することもでき、SSGやキャッシュなどの機能も提供しています。
 
 
-## Why Stencil?
+## なぜStencilか?
 
-Stencil was created by the [Ionic Framework](http://ionicframework.com/) team to help build faster, more capable components that worked across all major frameworks.
+Stencilは、[Ionic Framework](http://ionicframework.com/)チームによって作成されました。すべての主要なフレームワークで機能する、より高速で機能性の高いWebコンポーネントを支援します。
 
-While Ionic primarily targeted Cordova apps, the emergence of Progressive Web Apps as a rapidly growing target for web developers demanded a different approach to web app development performance. With Ionic's classic use of traditional frameworks and bundling techniques, the team was struggling to meet latency and code size demands for Progressive Web Apps that ran equally well on fast and slow networks, across a diversity of platforms and devices.
+Ionicは主にCordovaアプリを対象としていましたが、Web開発者にとって急速に成長するターゲットとしてのProgressive Web Appsの出現は、Webアプリ開発のパフォーマンスに対する異なるアプローチを要求していました。Ionicは従来のフレームワークとバンドルテクニックを古典的に使用していたため、チームはさまざまなプラットフォームとデバイスで高速ネットワークと低速ネットワークで同等に動作するProgressive Web Appsのレイテンシとコードサイズの要件を満たすのに苦労していました。
 
-Additionally, framework fragmentation had created a web development interoperability nightmare, where components built for one framework didn't work with another framework.
+さらに、フレームワークを複数使用する場合、あるフレームワーク用に構築されたコンポーネントが別のフレームワークと連動しないという、Web開発の相互運用性の悪夢が生まれました。
 
-Web Components offered a solution to both problems, pushing more work to the browser for better performance, and targeting a standards-based component model that all frameworks could use.
+Webコンポーネントは両方の問題の解決策を提供し、パフォーマンスを向上させるためにより多くの作業をブラウザーにプッシュし、すべてのフレームワークが使用できる標準ベースのコンポーネントモデルをターゲットにしました。
 
-However, Web Components by themselves weren't enough. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.
+ただし、Webコンポーネントだけでは十分ではありませんでした。 高速なWebアプリを構築するには、従来のWebフレームワークの内部に閉じ込められていた革新が必要でした。Stencilは、これらの機能を従来のフレームワークから引き出して、急速に出現するWebコンポーネント標準にそれらをもたらすために構築されました。

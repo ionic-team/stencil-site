@@ -8,7 +8,7 @@ contributors:
   - corysmc
   - bitflower
 ---
-Want to skip the tutorial and just check out the code? 
+Want to skip the tutorial and just check out the code?
 https://github.com/corysmc/ionic-pwa-stencil-redux
 ## What is Redux?
 
@@ -342,7 +342,7 @@ const user = (state = getInitialState(), action: ActionTypes): UserState => {
 export default user;
 ```
 
-With that you've create a store, set the default state, mapped that state to your view components, emitted an action, updated the redux store, which triggered a re-render!!! 
+With that you've create a store, set the default state, mapped that state to your view components, emitted an action, updated the redux store, which triggered a rerender!!!
 
 ### Other Resources
 

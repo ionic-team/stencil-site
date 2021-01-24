@@ -12,48 +12,47 @@ contributors:
 
 ## `stencil build`
 
-Builds a Stencil project. The flags below are the available options for the `build` command.
+Stencilプロジェクトをビルドします。以下のフラグは`build`コマンドで利用可能なオプションです。
 
 | Flag | Description | Alias |
 |------|-------------|-------|
-| `--ci` | Run a build using recommended settings for a Continuous Integration (CI) environment. Defaults the number of workers to 4, allows for extra time if taking screenshots via the tests and modifies the console logs. | |
-| `--config` | Path to the `stencil.config.ts` file. This flag is not needed in most cases since Stencil will find the config. Additionally, a Stencil config is not required. | `-c` |
-| `--debug` | Adds additional runtime code to help debug, and sets the log level for more verbose output. | |
-| `--dev` | Runs a development build. | |
-| `--docs` | Generate `readme.md` docs based on the component types, properties, methods, events, JSDocs, CSS Custom Properties, etc. | |
-| `--es5` | Creates an ES5 compatible build. By default ES5 builds are no created during development in order to improve build times. However, ES5 builds are always created during production builds. Use this flag to create ES5 builds during development. | |
-| `--log` | Write logs for the `stencil build` into `stencil-build.log`. The log file is written in the same location as the config. | |
-| `--prerender` | Prerender the application using the `www` output target after the build has completed. | |
-| `--prod` | Runs a production build which will optimize each file, improve bundling, remove unused code, minify, etc. A production build is the default, this flag is only used to override the `--dev` flag. | |
-| `--max-workers` | Max number of workers the compiler should use. Defaults to use the same number of CPUs the Operating System has available. | |
-| `--next` | Opt-in to test the "next" Stencil compiler features. | |
-| `--no-cache` | Disables using the cache. | |
-| `--no-open` | By default the `--serve` command will open a browser window. Using the `--no-open` command will no automatically open a browser window.. | |
-| `--port` | Port for the [Integrated Dev Server](/docs/dev-server). Defaults to `3333`. | `-p` |
-| `--serve` | Starts the [Integrated Dev Server](/docs/dev-server). | |
-| `--stats` | Write stats about the project to `stencil-stats.json`. The stats file is written in the same location as the config. | |
-| `--verbose` | Logs additional information about each step of the build. | |
-| `--watch` | Watches files during development and triggers a rebuild when files are updated. | |
+| `--ci` | 継続的インテグレーション（CI）環境の推奨設定を使用してビルドを実行します。ワーカーの数はデフォルトで4に設定されており、テストでスクリーンショットを取ると、コンソールのログを変更し追加で時間がかかります。 | |
+| `--config` | `stencil.config.ts`ファイルのパス。Stencilがconfigを見つけるので、このフラグはほとんどの場合必要ありません。さらに、Stencilのconfigは必須ではありません。 | `-c` |
+| `--debug` | デバッグに役立つランタイムコードを追加し、より詳細なログの出力レベルを設定します。 | |
+| `--dev` | 開発ビルドを実行します。 | |
+| `--docs-readme` | コンポーネントのタイプ、プロパティ、メソッド、イベント、JSDocs、CSSカスタムプロパティなどに基づいて、`readme.md`ドキュメントを生成します。 | |
+| `--es5` | ES5互換のビルドを作成します。デフォルトではビルド時間を短縮するため、開発中はES5ビルドを作成しません。ただし、プロダクションビルド中は常にES5ビルドを作成します。このフラグを使用すると、開発中にもES5ビルドを作成します。 | |
+| `--log` | `stencil build`のログを`stencil-build.log`に出力します。ログファイルはconfigと同じディレクトリに出力されます。 | |
+| `--prerender` | ビルド完了後、`www`出力ターゲットを使用してアプリケーションを事前にレンダリングします。 | |
+| `--prod` | バンドルの改善や未使用のコードを削除、最小化するなど、各ファイルを最適化して本番ビルドを実行します。本番ビルドはデフォルトであり、このフラグは`--dev`フラグを上書きする時のみに使用されます。 | |
+| `--max-workers` | コンパイラが使用するワーカーの最大数。デフォルトでは、OSで使用可能なCPUの数を使用します。 | |
+| `--next` | "次期の"Stencilコンパイラ機能をテストするためのオプトイン。 | |
+| `--no-cache` | キャッシュの使用を無効にします。 | |
+| `--no-open` | デフォルトでは `--serve`コマンドはブラウザウィンドウを開きます。`--no-open`を使用すると、ブラウザは自動的に開かなくなります。 | |
+| `--port` | [Integrated Dev Server](/docs/dev-server)のポート。 デフォルトは"3333"です。 | `-p` |
+| `--serve` | [Integrated Dev Server](/docs/dev-server)を起動します. | |
+| `--stats` | プロジェクトに関する統計を `stencil-stats.json`に出力します。統計ファイルは、configと同じ場所に出力されます。 | |
+| `--verbose` | ビルドの各ステップに関する追加情報をログに記録します。 | |
+| `--watch` | 開発中にファイルを監視し、ファイルが更新されると再ビルドします。 | |
 
 
 ## `stencil test`
 
-Tests a Stencil project. The flags below are the available options for the `test` command.
+Stencilプロジェクトをテストします。以下のフラグは`test`コマンドで利用可能なオプションです。
 
-| Flag | Description |
+| フラグ | 説明 |
 |------|-------------|
-| `--spec` | Tests `.spec.ts` files using [Jest](https://jestjs.io/). |
-| `--e2e` | Tests `.e2e.ts` files using [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Jest](https://jestjs.io/). |
-
+| `--spec` | [Jest](https://jestjs.io/)を使用して `.spec.ts`ファイルをテストします。 |
+| `--e2e` | [Puppeteer](https://developers.google.com/web/tools/puppeteer)と[Jest](https://jestjs.io/)を使用して`.e2e.ts`ファイルをテストします。 |
 
 ## `stencil`
 
-| Flag | Description |
+| フラグ | 説明 |
 |------|-------------|
-| `--help` | Display the help output explaining the different flags. | `-h` |
-| `--version` | Prints the current Stencil version. | `-v` |
+| `--help` | さまざまなフラグを説明するヘルプ情報を表示します。 | `-h` |
+| `--version` | 現在使用しているStencilのバージョンを表示します。 | `-v` |
 
 
 ## `stencil generate <sub-folder>`
 
-Starts the interactive component generator. You can specify one or more sub-folders to generate the component in.
+インタラクティブなコンポーネントジェネレータを起動します。コンポーネントを生成するサブフォルダーを1つ以上指定できます。

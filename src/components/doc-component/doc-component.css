@@ -57,11 +57,15 @@ doc-component .doc-content {
   flex: 1;
   justify-content: space-between;
   min-width: 0;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 48px;
+  padding-right: 48px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+doc-component .doc-content .heading-link {
+  z-index: -1;
 }
 
 doc-component .heading-link {

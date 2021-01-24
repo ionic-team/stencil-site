@@ -7,12 +7,12 @@ contributors:
   - simonhaenisch
 ---
 
-# My First Component
+# 初めてのコンポーネント
 
-Stencil components are created by adding a new file with a `.tsx` extension, such as `my-first-component.tsx`, and placing them in the `src/components` directory.
-The `.tsx` extension is required since Stencil components are built using [JSX](https://facebook.github.io/react/docs/introducing-jsx.html) and TypeScript.
+Stencilコンポーネントは `my-first-component.tsx` のような `.tsx` 拡張子を持つ新しいファイルを追加して `src/components` ディレクトリに配置することで作成されます。
+Stencilコンポーネントは、[JSX](https://facebook.github.io/react/docs/introducing-jsx.html)と、 TypeScriptを使ってビルドされるので、`.tsx` 拡張子は必須です。
 
-Here is an example of what a Stencil component looks like:
+以下に、Stencilコンポーネントのコード例を示します。
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
@@ -34,65 +34,65 @@ export class MyComponent {
   }
 }
 ```
-> Don't fully understand what's going on? Don't worry, we'll explain each piece in detail later on.
+> 謎が解けていませんか？後ほど、一つ一つ丁寧に説明しますので、ご安心ください。
 
 
-Once compiled, this component can be used in HTML just like any other tag.
-
-```markup
-<my-first-component name="Max"></my-first-component>
-```
-
-> Web Components must have a - in the tag. `firstComponent` would not be a valid tag name.
-
-When rendered, the browser will display `My name is Max`.
-
-## So what is really going on here?
-
-Let's dive in.
-
-The first piece we see is the `@Component` decorator.
-This decorator provides metadata about our component to the Stencil compiler.
-Information, such as the tag to use, and external styles, can be set here and picked up by the compiler.
-
-Below the `@Component()` decorator, we have a standard JavaScript class.
-This is where you'll write the bulk of your code to bring your Stencil component to life.
-Here is where you'd write functions or provide business logic.
-
-In order for the component to render something to the screen, we must declare a render function that returns JSX.
-If you're not sure what JSX is, don't worry, we'll go over it in detail in the <stencil-route-link url="/docs/templating">Templating Docs</stencil-route-link>.
-
-The quick idea is that our render function needs to return a representation of the HTML we want to push to the DOM.
-
-The `name` property on the class also has a decorator applied to it, `@Prop()`.
-This decorator tells the compiler that the property is public to the component, and the user should be setting it.
-We set this property like so:
+一度コンパイルすると、このコンポーネントは、他のタグと同じように、HTMLで使用することができます。
 
 ```markup
 <my-first-component name="Max"></my-first-component>
 ```
-Any property decorated with `@Prop()` is also automatically watched for changes.
-If a user of our component were to change the element's `name` property, our component would fire its `render` function again, updating the displayed content.
 
-## Component Generator
+> Webコンポーネントは、タグに「-」を付けなければなりません。`firstComponent`は、有効なタグ名ではありません。
 
-The Stencil CLI can generate new components for you. If you used one of the starters, you can simply run the `generate` npm script in your project, which will start the interactive generator.
+レンダリングされると、ブラウザは `My name is Max` と表示します。
+
+## このコードでは、何が起こっているのでしょうか？
+
+では、先ほどのコードを順に見ていきましょう。
+
+最初に記述してあるのは、`@Component` デコレータです。
+このデコレータは、コンポーネントに関するメタデータを、Stencilコンパイラに教えます。
+使用するタグや、外部スタイルなどの情報を、ここで設定し、コンパイラで取得できます。
+
+`@Component()` デコレータの下には、標準のJavaScriptクラスがあります。
+ここで、コードの大部分を記述して、Stencilコンポーネントを実現します。
+ここで、関数を記述したり、ビジネスロジックを提供したりします。
+
+コンポーネントが、画面に何かをレンダリングするためには、JSXを返すrender関数を、宣言しなければなりません。
+JSXが何かわからない場合は、<stencil-route-link url="/docs/templating">Templating Docs</stencil-route-link>で詳しく説明していますので、ご安心ください。
+
+簡単に説明すると、render関数は、DOMに追加したい、HTMLを返す必要があるということです。
+
+MyComponentクラスの `name` プロパティにはデコレータ `@Prop()` が適用されています。
+このデコレータは、このプロパティがコンポーネントに対してパブリックであり、ユーザーが設定する必要があることを、コンパイラに伝えています。
+このプロパティは、次のように設定します。
+
+```markup
+<my-first-component name="Max"></my-first-component>
+```
+`@Prop()` で装飾されたプロパティも、自動的に変更を監視します。
+このコンポーネントのユーザが、要素の `name` プロパティを変更した場合、コンポーネントは `render` 関数を再び実行し、表示された内容を更新します。
+
+## コンポーネント・ジェネレーター
+
+Stencil CLIは新しいコンポーネントを生成することができます。スターターを使用してプロジェクトを生成した場合は、 `generate` npm スクリプトを実行するだけで、インタラクティブなジェネレータが起動します。
 
 ```shell
 npm run generate
 ```
 
-Or you can invoke the Stencil CLI directly with the `generate` command (`g` for short). If you don't have `stencil` installed globally, prefix the command with `npx`.
+または、`generate` コマンド (略して `g`) を使って直接ステンシル CLI を起動することもできます。グローバルに `stencil` がインストールされていない場合は、コマンドの前に `npx` を付けてください。
 
 ```shell
 stencil generate
 ```
 
-You can optionally pass the component tag name directly to the command. Remember that the component tag name needs to be lowercase and contain at least one hyphen. In the second step, the generator will ask you which files to generate. This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
+オプションで、コンポーネントタグ名を直接コマンドに渡すことができます。コンポーネントタグ名は小文字で、少なくともハイフンを1つ含む必要があります。2番目のステップでは、ジェネレーターは生成するファイルを尋ねてきます。これにより、コンポーネントファイルと一緒に、スタイルシートと、specやe2eテストも一緒にブートストラップすることができます。
 
-All components will be generated within the `src/components` folder. Within that, a folder will be created with the same name as the component tag name you provided, and within that folder the files will be generated. It is also possible to specify one or multiple sub-folders to generate the component in.
+すべてのコンポーネントは、`src/components` フォルダ内に生成されます。その中に、指定したコンポーネントタグ名と同じ名前のフォルダが作成され、そのフォルダ内にファイルが生成されます。コンポーネントを生成するサブフォルダを1つまたは複数指定することも可能です。
 
-For example, if you specify `pages/page-home` as the component tag name, the files will be generated in `src/components/pages/page-home`.
+例えば、コンポーネントタグ名に`pages/page-home`を指定した場合、ファイルは`src/components/pages/page-home`に生成されます。
 
 ```shell
 stencil generate pages/page-home

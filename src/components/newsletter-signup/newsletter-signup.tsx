@@ -1,4 +1,5 @@
 import { Component, h, State } from '@stencil/core';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'newsletter-signup',
@@ -51,13 +52,16 @@ export class NewsletterSignup {
         this.isValid = false;
       }
     };
+    const hutkMatch = document.cookie.match && document.cookie.match(/hubspotutk=(.*?);/)
+    const hutk = hutkMatch ? hutkMatch[1] : undefined;
+
     xhr.send(JSON.stringify({
       fields: [{
         name: 'email',
         value: this.email
       }],
       context: {
-        hutk: document.cookie.match(/hubspotutk=(.*?);/)![1],
+        hutk,
         pageUri: window.location.href,
         pageName: document.title
       }
@@ -66,7 +70,7 @@ export class NewsletterSignup {
 
   render() {
     return (
-      <div class="container">
+      <ResponsiveContainer>
         <div class="header">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
@@ -126,7 +130,7 @@ export class NewsletterSignup {
               </form>
           }
         </div>
-      </div>
+      </ResponsiveContainer>
     );
   }
 

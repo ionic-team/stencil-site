@@ -1,14 +1,16 @@
 import '@stencil/router';
 import { LocationSegments, RouterHistory } from '@stencil/router';
-import { Component, Element, Listen, State, h } from '@stencil/core';
+import { Component, Element, Listen, State, h} from '@stencil/core';
 import SiteProviderConsumer, { SiteState } from '../../global/site-provider-consumer';
+import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css'
 })
 export class AppRoot {
-  history?: RouterHistory;
+  private scrollY = 0;
+  private history?: RouterHistory;
   elements = [
     'site-header',
     'site-menu',
@@ -52,12 +54,14 @@ export class AppRoot {
   }
 
   private toggleLeftSidebar = () => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth > 768) {
       return;
     }
     const elements = this.elements
       .map(el => this.el.querySelector(el))
       .filter(el => !!el) as Element[];
+
+    this.scrollY = window.scrollY;
 
     if (this.isLeftSidebarIn) {
       this.isLeftSidebarIn = false;
@@ -65,14 +69,16 @@ export class AppRoot {
       elements.forEach(el => {
         el.classList.remove('left-sidebar-in');
         el.classList.add('left-sidebar-out');
-      });
+      }); 
+      window.requestAnimationFrame(() => window.scrollTo(0, this.scrollY));
     } else {
       this.isLeftSidebarIn = true;
       document.body.classList.add('no-scroll');
       elements.forEach(el => {
         el.classList.add('left-sidebar-in');
         el.classList.remove('left-sidebar-out');
-      });
+      });    
+      window.requestAnimationFrame(() => window.scrollTo(0, this.scrollY)); 
     }
   }
 
@@ -83,13 +89,15 @@ export class AppRoot {
     };
 
     return (
-      <SiteProviderConsumer.Provider state={siteState}>
+    <SiteProviderConsumer.Provider state={siteState}>
+      <site-root>
+        <site-platform-bar productName='Stencil'/>
         <site-header />
         <main>
-          <stencil-router scrollTopOffset={0}>
+          <stencil-router scrollTopOffset={0}> 
             <stencil-route style={{ display: 'none' }} routeRender={this.setHistory}/>
             <stencil-route-switch>
-              <stencil-route url="/" component="landing-page" exact={true} />
+              <stencil-route url="/" component="landing-page" exact={true}/>
               <stencil-route url="/docs/:pageName" routeRender={({ match }) => (
                 <doc-component page={match!.url}></doc-component>
               )}/>
@@ -106,10 +114,10 @@ export class AppRoot {
             </stencil-route-switch>
           </stencil-router>
           <footer>
-            <div class="container">
+            <ResponsiveContainer>
               <div class="footer-col">
                 <app-icon name="logo"/>
-                <p>© 2019 StencilJS.  Released under MIT License</p>
+                <p>© 2020 StencilJS.  Released under MIT License</p>
                 <ul class="external-links list--unstyled">
                   <li>
                     <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
@@ -128,10 +136,11 @@ export class AppRoot {
                   </li>
                 </ul>
               </div>
-            </div>
+            </ResponsiveContainer>
           </footer>
         </main>
-      </SiteProviderConsumer.Provider>
+      </site-root>
+    </SiteProviderConsumer.Provider>
     );
   }
 }

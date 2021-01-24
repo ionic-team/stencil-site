@@ -24,24 +24,24 @@ This is a component style guide created and enforced internally by the core team
 Example from ionic-core:
 
 ```bash
-├── card
-│   ├── card.ios.css
-│   ├── card.md.css
-│   ├── card.css
-│   ├── card.tsx
+├── my-card
+│   ├── my-card.ios.css
+│   ├── my-card.md.css
+│   ├── my-card.css
+│   ├── my-card.tsx
 │   └── test
 │       └── basic
 │           ├── e2e.js
 │           └── index.html
-├── card-content
-│   ├── card-content.ios.css
-│   ├── card-content.md.css
-│   ├── card-content.css
-│   └── card-content.tsx
-├── card-title
-│   ├── card-title.ios.css
-│   ├── card-title.md.css
-│   ├── card-title.css
+├── my-card-content
+│   ├── my-card-content.ios.css
+│   ├── my-card-content.md.css
+│   ├── my-card-content.css
+│   └── my-card-content.tsx
+├── my-card-title
+│   ├── my-card-title.ios.css
+│   ├── my-card-title.md.css
+│   ├── my-card-title.css
 ```
 
 
@@ -205,11 +205,15 @@ export class Something {
    * Ordered by their natural call order, for example
    * WillLoad should go before DidLoad.
    */
+  connectedCallback() {}
+  disconnectedCallback() {}
   componentWillLoad() {}
   componentDidLoad() {}
   componentWillUpdate() {}
   componentDidUpdate() {}
-  componentDidUnload() {}
+  componentWillRender() {}
+  componentShouldRender(newVal: any, oldVal: any, propName: string) {}
+  componentDidRender() {}
 
   /**
    * 7. Listeners
@@ -256,7 +260,8 @@ export class Something {
 
   /**
    * 10. render() function
-   * Always the last one in the class.
+   * Always the last public method in the class.
+   * If private methods present, they are below public methods.
    */
   render() {
     return (

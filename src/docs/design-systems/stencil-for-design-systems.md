@@ -25,5 +25,3 @@ Learn more about why web components are ideal for design systems in [this blog p
 
 ## How to Get Started
 Stencil’s out-the-box features will help you build your own library of universal UI components that will work across platforms, devices, and front-end frameworks. Review the documentation on this site to get started.
-
-Additionally, the Ionic team (backers of Stencil) offers comprehensive assistance for enterprises who are embarking on their design systems journey. If this is your first time building a design system, or you’re new to Stencil, we encourage you to [get in touch with one of our Solutions Engineers](https://ionicframework.com/sales?product_of_interest=Design%20Systems) for a free consultation on how to meet your goals and get the most out of the platform.

@@ -9,9 +9,8 @@ import { SiteStructureItem } from '../src/global/definitions';
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const LANG_PREFIX = "_ja"
 const DESTINATION_FILE = './src/assets/docs-structure.json';
-const SOURCE_FILE = `./src/docs${LANG_PREFIX}/README.md`;
+const SOURCE_FILE = `./src/docs/README.md`;
 const ASSETS_DIR = '/assets/docs';
 
 const renderer = new marked.Renderer();

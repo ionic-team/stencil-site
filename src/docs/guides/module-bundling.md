@@ -12,13 +12,13 @@ contributors:
 
 # Module Bundling
 
-Stencil uses Rollup under the hood to bundle your components. This guide will explain and recommend certain workarounds for some of the most common bundling issues you might encounter.
+Stencil uses [Rollup](https://rollupjs.org/guide/en/) under the hood to bundle your components. This guide will explain and recommend certain workarounds for some of the most common bundling issues you might encounter.
 
 ## One Component Per Module
 
-Code-splitting in Rollup happens at the module level, which means that it's not possible to code-split logic within the same module (`.ts` file). For Stencil to bundle your components most efficiently, you must declare a single component (class decorated with `@Component`) per *TypeScript* file, and the component itself **must** be unique `export`.
+For Stencil to bundle your components most efficiently, you must declare a single component (class decorated with `@Component`) per *TypeScript* file, and the component itself **must** have a unique `export`. By doing so, Stencil is able to easily analyze the entire component graph within the app, and best understand how components should be bundled together. Under-the-hood it uses the Rollup bundler to efficiently bundled shared code together. Additionally, lazy-loading is a default feature of Stencil, so code-splitting is already happening automatically, and only dynamically importing components which are being used on the page.
 
-Modules that contain a component are entry-points, which means that no other module should import anything from them, ie. they cannot contain any shared logic imported by other components (modules).
+Modules that contain a component are entry-points, which means that no other module should import anything from them.
 
 The following example is **NOT** valid:
 
@@ -114,9 +114,32 @@ export const config = {
 }
 ```
 
-> We can set a map of `namedExports` for problematic dependencies, in this case, we are explicitally defining the named `hello` export in the `commonjs-dep` module.
+> We can set a map of `namedExports` for problematic dependencies, in this case, we are explicitly defining the named `hello` export in the `commonjs-dep` module.
 
 For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/rollup-plugin-commonjs).
+
+
+## Custom Rollup plugins
+
+Stencil provides an API to pass custom rollup plugins to the bundling process in `stencil.config.ts`. Under the hood, stencil ships with some built-in plugins including `node-resolve` and `commonjs`, since the execution order of some rollup plugins is important, stencil provides an API to inject custom plugin **before node-resolve** and after **commonjs transform**:
+
+```tsx
+export const config = {
+  rollupPlugins: {
+    before: [
+      // Plugins injected before rollupNodeResolve()
+      resolvePlugin()
+    ],
+    after: [
+      // Plugins injected after commonjs()
+      nodePolyfills()
+    ]
+  }
+}
+```
+
+As a rule of thumb, plugins that need to resolve modules, should be place in `before`, while code transform plugins like: `node-polyfills`, `replace`... should be placed in `after`. Follow the plugin's documentation to make sure it's executed in the right order.
+
 
 ## Node Polyfills
 
@@ -137,7 +160,7 @@ This is caused by some third-party dependencies that use [Node APIs](https://nod
 npm install rollup-plugin-node-polyfills --save-dev
 ```
 
-### 2. Update the  `  stencil.config.ts  `  file including the plugin:
+### 2. Update the `stencil.config.ts` file including the plugin:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -145,11 +168,15 @@ import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
   namespace: 'mycomponents',
-  plugins: [
-    nodePolyfills(),
-  ]
+  rollupPlugins: {
+    after: [
+      nodePolyfills(),
+    ]
+  }
 };
 ```
+
+>NOTE: `rollup-plugin-node-polyfills` is a code-transform plugin, so it needs to run AFTER the commonjs transform plugin, that's the reason it's placed in the "after" array of plugins.
 
 ## Strict Mode
 

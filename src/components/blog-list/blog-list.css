@@ -2,7 +2,7 @@ blog-list app-icon {
   margin-left: 4px;
 }
 
-blog-list .container {
+blog-list .ui-container {
   margin-bottom: 160px;
   position: relative;
 }
@@ -128,7 +128,7 @@ blog-list .share-links a + a {
 
 
 @media screen and (max-width: 840px) {
-  blog-list .container {
+  blog-list .ui-container {
     display: flex;
     flex-direction: column-reverse;
   }

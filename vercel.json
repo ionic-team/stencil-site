@@ -1,0 +1,99 @@
+{
+    "redirects": [
+        {
+            "source": "/docs",
+            "destination": "/docs/introduction",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/intro",
+            "destination": "/docs/introduction",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/building-components",
+            "destination": "/docs/my-first-component",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/stencil-config",
+            "destination": "/docs/config",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/testing",
+            "destination": "/docs/unit-testing",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/shadow-dom",
+            "destination": "/docs/styling",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/css-variables",
+            "destination": "/docs/styling",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/sass",
+            "destination": "/docs/plugins",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/add-ons",
+            "destination": "/docs/plugins",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/addons",
+            "destination": "/docs/plugins",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/templating",
+            "destination": "/docs/templating-jsx",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/router",
+            "destination": "https://github.com/ionic-team/stencil-router/wiki",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/stencil-router",
+            "destination": "https://github.com/ionic-team/stencil-router/wiki",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/routing",
+            "destination": "https://github.com/ionic-team/stencil-router/wiki",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/server-side-rendering",
+            "destination": "/docs/static-site-generation-server-side-rendering-ssr",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/prerendering",
+            "destination": "/docs/static-site-generation",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/build-variables",
+            "destination": "/docs/build-conditionals",
+            "statusCode": 301
+        },
+        {
+            "source": "/docs/docs-auto-generation",
+            "destination": "/docs/docs-readme",
+            "statusCode": 301
+        },
+        {
+            "source": "/design-systems",
+            "destination": "/docs/stencil-for-design-systems",
+            "statusCode": 301
+        }
+    ]
+}

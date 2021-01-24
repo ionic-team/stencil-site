@@ -1,14 +1,9 @@
 
 app-burger {
   display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 999;
 }
 
 app-burger > div {
-  padding: 18px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -33,7 +28,6 @@ app-burger app-icon {
 }
 
 app-burger.left-sidebar-in > div {
-  height: 100vh;
   padding-right: 50px;
 }
 

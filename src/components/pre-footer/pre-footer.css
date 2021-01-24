@@ -4,7 +4,7 @@ pre-footer {
   border-bottom: 1px solid #e9edf3;
 }
 
-pre-footer .container {
+pre-footer .ui-container {
   display: flex;
 }
 
@@ -64,18 +64,18 @@ pre-footer hgroup p {
 }
 
 @media screen and (max-width: 560px) {
-  pre-footer .container {
+  pre-footer .ui-container {
     flex-direction: column;
     padding: 0;
   }
 
-  pre-footer .container stencil-route-link a,
+  pre-footer .ui-container stencil-route-link a,
   pre-footer
-    .container
+    .ui-container
     stencil-route-link:first-child
     a
     pre-footer
-    .container
+    .ui-container
     stencil-route-link:last-child
     a {
     padding-left: 16px;

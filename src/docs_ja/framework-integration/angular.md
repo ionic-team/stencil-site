@@ -20,7 +20,7 @@ Stencilで構築されたWebコンポーネントコレクションをAngular CL
 
 ## Custom Elementsのスキーマを含める
 
-モジュールに`CUSTOM_ELEMENTS_SCHEMA`を含めると、コンパイラがエラーを出すことなくHTMLのマークアップでWebコンポーネントを使用できます。このコードは、`AppModule`とCustom Elementsを使用する他の全てのモジュールに追加する必要があります。  
+モジュールに`CUSTOM_ELEMENTS_SCHEMA`を含めると、コンパイラがエラーを出すことなくHTMLのマークアップでWebコンポーネントを使用できます。このコードは、`AppModule`とCustom Elementsを使用する他の全てのモジュールに追加する必要があります。
 次は`AppModule`に追加する例です。
 
 ```tsx

@@ -106,7 +106,7 @@ export const config: Config = {
 
 ```tsx
 // change to the version you get from `npm ls workbox-build`
-importScripts('workbox-v3.4.1/workbox-sw.js');
+importScripts('workbox-v4.3.1/workbox-sw.js');
 
 // your custom service worker code
 
@@ -120,43 +120,41 @@ This code imports the Workbox library, creates a new instance of the service wor
 
 When a new service worker is available, by default, it will be downloaded and then go into a state of waiting to be activated. The new service worker won't take over until all tabs of the site are closed and the site is visited again. This is to avoid unexpected behavior from conflicts with files being served from cache, and works well in many cases.
 
-If you want to give your users the option to immediately access the new site, a common way is to show them a toast, letting them know about the update and offering a "reload" button. The reload let's the new service worker take over, serving the fresh content, and triggers a page reload, to avoid cache issues.
+If you want to give your users the option to immediately access the new update, a common way is to show them a toast that lets them know about the update and offers a "reload" button. The reload let's the new service worker take over, serving the fresh content, and triggers a page reload, to avoid cache issues.
 
 The following example showcases this in combination with the Ionic framework, but the toast-related code should be easily adaptable to any UI. Add the following to your root component (commonly `app-root.tsx`).
 
 ```tsx
-@Prop({ connect: 'ion-toast-controller' })
-toastCtrl: HTMLIonToastControllerElement;
-
 @Listen("swUpdate", { target: 'window' })
-async onSWUpdate() {
+async onServiceWorkerUpdate() {
   const registration = await navigator.serviceWorker.getRegistration();
 
-  if (!registration || !registration.waiting) {
-    // If there is no registration, this is the first service
-    // worker to be installed. registration.waiting is the one
-    // waiting to be activiated.
+  if (!registration?.waiting) {
+    // If there is no waiting registration, this is the first service
+    // worker being installed.
     return;
   }
 
-  const toast = await this.toastCtrl.create({
-    message: "New version available",
-    showCloseButton: true,
-    closeButtonText: "Reload"
+  const toast = await toastController.create({
+    message: "New version available.",
+    buttons: [{ text: 'Reload', role: 'reload' }],
+    duration: 0
   });
 
   await toast.present();
-  await toast.onWillDismiss();
 
-  registration.waiting.postMessage("skipWaiting");
-  window.location.reload();
+  const { role } = await toast.onWillDismiss();
+
+  if (role === 'reload') {
+    registration.waiting.postMessage("skipWaiting");
+  }
 }
 ```
 
-The `swUpdate` event is emitted by Stencil every time a new service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by the service worker; therefore we need to create a custome one (e. g. `src/sw.js`) and call `skipWaiting()`.
+The `swUpdate` event is emitted by Stencil every time a new service worker is installed. When a service worker is waiting for registration, the toast is shown. After clicking the reload button, a message is posted to the waiting service worker, letting it know to take over. This message needs to be handled by the service worker; therefore we need to create a custome one (e. g. `src/sw.js`) and add a listener to call `skipWaiting()`.
 
 ```tsx
-importScripts("workbox-v3.4.1/workbox-sw.js");
+importScripts("workbox-v4.3.1/workbox-sw.js");
 
 self.addEventListener("message", ({ data }) => {
   if (data === "skipWaiting") {
@@ -168,6 +166,25 @@ self.workbox.precaching.precacheAndRoute([]);
 ```
 
 > Don't forget to set `swSrc` in your Stencil config.
+
+Finally, we want our app to reload when the new service worker has taken over, so that no outdated code is served from the cache anymore. We can use the service worker's `controllerchange` event for that, by attaching an event listener in our root component's `componentWillLoad` lifecycle hook.
+
+```tsx
+componentWillLoad() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .getRegistration()
+      .then(registration => {
+        if (registration?.active) {
+          navigator.serviceWorker.addEventListener(
+            'controllerchange',
+            () => window.location.reload()
+          );
+        }
+      })
+  }
+}
+```
 
 ### Handle push events
 

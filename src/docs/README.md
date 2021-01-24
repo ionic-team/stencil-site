@@ -7,7 +7,6 @@
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
   * [FAQ](introduction/faq.md)
-* Design Systems
   * [What is a Design System?](design-systems/what-is-design-system.md)
   * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
 * Components
@@ -25,11 +24,20 @@
   * [Functional Components](components/functional-components.md)
 * Framework Integrations
   * [Overview](framework-integration/overview.md)
+  * [Bindings](framework-integration/bindings.md)
   * [Angular](framework-integration/angular.md)
   * [React](framework-integration/react.md)
   * [Vue](framework-integration/vue.md)
   * [Ember](framework-integration/ember.md)
   * [JavaScript](framework-integration/javascript.md)
+* Static Site Generation
+  * [Overview](static-site-generation/overview.md)
+  * [Prerender Config](static-site-generation/prerender-config.md)
+  * [Basics](static-site-generation/basics.md)
+  * [Debugging](static-site-generation/debugging.md)
+  * [Meta tags](static-site-generation/meta.md)
+  * [Server Side Rendering](static-site-generation/server-side-rendering-ssr.md)
+  * [Deployment](static-site-generation/deployment.md)
 * Config
   * [Overview](config/overview.md)
   * [Dev Server](config/dev-server.md)
@@ -38,15 +46,15 @@
   * [CLI](config/cli.md)
 * Output Targets
   * [Overview](output-targets/overview.md)
-  * [www](output-targets/www.md)
+  * [dist-custom-elements-bundle](output-targets/custom-elements.md)
   * [dist](output-targets/dist.md)
+  * [www](output-targets/www.md)
   * [docs-readme](output-targets/docs-readme.md)
   * [docs-json](output-targets/docs-json.md)
   * [docs-custom](output-targets/docs-custom.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
 * Guides
   * [Web Workers](guides/workers.md)
-  * [Prerendering](guides/prerendering.md)
   * [Hydrate App](guides/hydrate-app.md)
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)
@@ -54,8 +62,9 @@
   * [Local Assets](guides/local-assets.md)
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
-  * [State Tunnel](guides/state-tunnel.md)
-  * [Redux](guides/redux.md)
+  * [Stencil Store](guides/store.md)
+  * [Publishing](guides/publishing.md)
+  * [Deno (experimental)](guides/deno.md)
 * Testing
   * [Overview](testing/overview.md)
   * [Config](testing/config.md)
@@ -63,7 +72,12 @@
   * [End-to-end Testing](testing/e2e-testing.md)
   * [Mocking](testing/mocking.md)
   * [Visual Screenshot Diff](testing/screenshot-visual-diff.md)
+  * [Screenshot Connector](testing/screenshot-connector.md)
+* Core Compiler API
+  * [Compiler API](core/compiler-api.md)
+  * [CLI API](core/cli-api.md)
+  * [Dev Server API](core/dev-server-api.md)
 * Community
-  * [Stencil on GitHub](https://github.com/ionic-team/stencil)
-  * [Stencil on Slack](https://stencil-worldwide.herokuapp.com/)
   * [Stencil on Twitter](https://twitter.com/stenciljs)
+  * [Stencil on Slack](https://stencil-worldwide.herokuapp.com/)
+  * [Stencil on GitHub](https://github.com/ionic-team/stencil)

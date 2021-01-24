@@ -1,0 +1,27 @@
+lifecycle-chart {
+  display: block;
+
+  --opacity: 1;
+}
+
+lifecycle-chart.highlight {
+  --opacity: .5;
+}
+
+lifecycle-chart rect,
+lifecycle-chart text,
+lifecycle-chart path {
+  opacity: var(--opacity);
+  transition: opacity .2s ease-in-out;
+}
+
+lifecycle-chart .trigger {
+  cursor: default;
+}
+
+lifecycle-chart.highlight-init .path-init,
+lifecycle-chart.highlight-attached .path-attached,
+lifecycle-chart.highlight-removed .path-removed,
+lifecycle-chart.highlight-update .path-update {
+  --opacity: 1;
+}

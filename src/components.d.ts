@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MarkdownHeading, SiteStructureItem, } from "./global/definitions";
+import { MarkdownHeading, SiteStructureItem } from "./global/definitions";
 export namespace Components {
     interface AnnouncementBar {
     }
@@ -47,6 +47,8 @@ export namespace Components {
     }
     interface LandingPage {
     }
+    interface LifecycleChart {
+    }
     interface LowerContentNav {
         "next"?: SiteStructureItem;
         "prev"?: SiteStructureItem;
@@ -60,6 +62,12 @@ export namespace Components {
     interface PwasPage {
     }
     interface ResourcesPage {
+    }
+    interface SearchBar {
+        "debounce"?: number;
+        "handleInput"?: (ev: any) => void;
+        "placeholder"?: string;
+        "searchTerm"?: string;
     }
     interface SiteHeader {
     }
@@ -149,6 +157,12 @@ declare global {
         prototype: HTMLLandingPageElement;
         new (): HTMLLandingPageElement;
     };
+    interface HTMLLifecycleChartElement extends Components.LifecycleChart, HTMLStencilElement {
+    }
+    var HTMLLifecycleChartElement: {
+        prototype: HTMLLifecycleChartElement;
+        new (): HTMLLifecycleChartElement;
+    };
     interface HTMLLowerContentNavElement extends Components.LowerContentNav, HTMLStencilElement {
     }
     var HTMLLowerContentNavElement: {
@@ -185,6 +199,12 @@ declare global {
         prototype: HTMLResourcesPageElement;
         new (): HTMLResourcesPageElement;
     };
+    interface HTMLSearchBarElement extends Components.SearchBar, HTMLStencilElement {
+    }
+    var HTMLSearchBarElement: {
+        prototype: HTMLSearchBarElement;
+        new (): HTMLSearchBarElement;
+    };
     interface HTMLSiteHeaderElement extends Components.SiteHeader, HTMLStencilElement {
     }
     var HTMLSiteHeaderElement: {
@@ -217,12 +237,14 @@ declare global {
         "highlight-code": HTMLHighlightCodeElement;
         "in-page-navigation": HTMLInPageNavigationElement;
         "landing-page": HTMLLandingPageElement;
+        "lifecycle-chart": HTMLLifecycleChartElement;
         "lower-content-nav": HTMLLowerContentNavElement;
         "newsletter-signup": HTMLNewsletterSignupElement;
         "notfound-page": HTMLNotfoundPageElement;
         "pre-footer": HTMLPreFooterElement;
         "pwas-page": HTMLPwasPageElement;
         "resources-page": HTMLResourcesPageElement;
+        "search-bar": HTMLSearchBarElement;
         "site-header": HTMLSiteHeaderElement;
         "site-menu": HTMLSiteMenuElement;
         "site-top-bar": HTMLSiteTopBarElement;
@@ -270,6 +292,8 @@ declare namespace LocalJSX {
     }
     interface LandingPage {
     }
+    interface LifecycleChart {
+    }
     interface LowerContentNav {
         "next"?: SiteStructureItem;
         "prev"?: SiteStructureItem;
@@ -283,6 +307,12 @@ declare namespace LocalJSX {
     interface PwasPage {
     }
     interface ResourcesPage {
+    }
+    interface SearchBar {
+        "debounce"?: number;
+        "handleInput"?: (ev: any) => void;
+        "placeholder"?: string;
+        "searchTerm"?: string;
     }
     interface SiteHeader {
     }
@@ -306,12 +336,14 @@ declare namespace LocalJSX {
         "highlight-code": HighlightCode;
         "in-page-navigation": InPageNavigation;
         "landing-page": LandingPage;
+        "lifecycle-chart": LifecycleChart;
         "lower-content-nav": LowerContentNav;
         "newsletter-signup": NewsletterSignup;
         "notfound-page": NotfoundPage;
         "pre-footer": PreFooter;
         "pwas-page": PwasPage;
         "resources-page": ResourcesPage;
+        "search-bar": SearchBar;
         "site-header": SiteHeader;
         "site-menu": SiteMenu;
         "site-top-bar": SiteTopBar;
@@ -334,12 +366,14 @@ declare module "@stencil/core" {
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
             "in-page-navigation": LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
             "landing-page": LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
+            "lifecycle-chart": LocalJSX.LifecycleChart & JSXBase.HTMLAttributes<HTMLLifecycleChartElement>;
             "lower-content-nav": LocalJSX.LowerContentNav & JSXBase.HTMLAttributes<HTMLLowerContentNavElement>;
             "newsletter-signup": LocalJSX.NewsletterSignup & JSXBase.HTMLAttributes<HTMLNewsletterSignupElement>;
             "notfound-page": LocalJSX.NotfoundPage & JSXBase.HTMLAttributes<HTMLNotfoundPageElement>;
             "pre-footer": LocalJSX.PreFooter & JSXBase.HTMLAttributes<HTMLPreFooterElement>;
             "pwas-page": LocalJSX.PwasPage & JSXBase.HTMLAttributes<HTMLPwasPageElement>;
             "resources-page": LocalJSX.ResourcesPage & JSXBase.HTMLAttributes<HTMLResourcesPageElement>;
+            "search-bar": LocalJSX.SearchBar & JSXBase.HTMLAttributes<HTMLSearchBarElement>;
             "site-header": LocalJSX.SiteHeader & JSXBase.HTMLAttributes<HTMLSiteHeaderElement>;
             "site-menu": LocalJSX.SiteMenu & JSXBase.HTMLAttributes<HTMLSiteMenuElement>;
             "site-top-bar": LocalJSX.SiteTopBar & JSXBase.HTMLAttributes<HTMLSiteTopBarElement>;

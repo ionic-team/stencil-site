@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.convertHtmlToHypertextData = void 0;
 const mock_doc_1 = require("@stencil/core/mock-doc");
 function convertHtmlToHypertextData(html) {
     const doc = mock_doc_1.createDocument();

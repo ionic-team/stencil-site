@@ -7,6 +7,7 @@ contributors:
   - mgalic
   - BDav24
   - mattcosta7
+  - noherczeg
 ---
 
 # Events
@@ -26,7 +27,7 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Event() todoCompleted: EventEmitter;
+  @Event() todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
     this.todoCompleted.emit(todo);
@@ -75,17 +76,20 @@ export class TodoList {
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) todoCompleted: EventEmitter;
+  }) todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
-    this.todoCompleted.emit(todo);
+    const event = this.todoCompleted.emit(todo);
+    if(!event.defaultPrevented) {
+      // if not prevented, do some default handling code
+    }
   }
 }
 ```
 
 ## Listen Decorator
 
-The `Listen()` decorator is for listening DOM events, including the ones dispatched from `@Events`.
+The `Listen()` decorator is for listening to DOM events, including the ones dispatched from `@Events`.
 
 In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
 
@@ -96,7 +100,7 @@ import { Listen } from '@stencil/core';
 export class TodoApp {
 
   @Listen('todoCompleted')
-  todoCompletedHandler(event: CustomEvent) {
+  todoCompletedHandler(event: CustomEvent<Todo>) {
     console.log('Received the custom todoCompleted event: ', event.detail);
   }
 }
@@ -108,7 +112,7 @@ The `@Listen(eventName, opts?: ListenOptions)` includes a second optional argume
 
 ```tsx
 export interface ListenOptions {
-  target?: 'parent' | 'body' | 'document' | 'window';
+  target?: 'body' | 'document' | 'window';
   capture?: boolean;
   passive?: boolean;
 }
@@ -179,7 +183,7 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
-  @Event() todoCompleted: EventEmitter;
+  @Event() todoCompleted: EventEmitter<Todo>;
 
   todoCompletedHandler(todo: Todo) {
     this.todoCompleted.emit(todo);
