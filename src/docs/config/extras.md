@@ -57,20 +57,22 @@ div {
 
 ### dynamicImportShim
 
-Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 67 and below. If you do not need to support Edge 18 and below (Edge before it moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`. Defaults to `false`.
+動的な `import（）`シム。これは、Edge18以下およびFirefox67以下でのみ必要です。 Edge 18以下（Chromiumに移行する前のEdge）をサポートする必要がない場合は、 `dynamicImportShim`を` false`に設定することをお勧めします。デフォルトは `false`です。
+
 
 ### lifecycleDOMEvents
 
-Dispatches component lifecycle events. By default these events are not dispatched, but by enabling this to `true` these events can be listened for on `window`. Mainly used for testing.
+コンポーネントのライフサイクルイベントをディスパッチします。デフォルトではこれらのイベントはディスパッチされませんが、`true`に設定するとこれらのイベントを`window`でリッスンできます。
+主にテストで使用されます。
 
 | Event Name                     | Description                                                    |
 |--------------------------------|----------------------------------------------------------------|
-| `stencil_componentWillLoad`    | Dispatched for each component's `componentWillLoad`. |
-| `stencil_componentWillUpdate`  | Dispatched for each component's `componentWillUpdate`. |
-| `stencil_componentWillRender`  | Dispatched for each component's `componentWillRender`. |
-| `stencil_componentDidLoad`     | Dispatched for each component's `componentDidLoad`. |
-| `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
-| `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
+| `stencil_componentWillLoad`    | 各コンポーネントの`componentWillLoad`に対してディスパッチされます。 |
+| `stencil_componentWillUpdate`  | 各コンポーネントの`componentWillUpdate`に対してディスパッチされます。 |
+| `stencil_componentWillRender`  | 各コンポーネントの`componentWillRender`に対してディスパッチされます。 |
+| `stencil_componentDidLoad`     | 各コンポーネントの`componentDidLoad`に対してディスパッチされます。 |
+| `stencil_componentDidUpdate`   | 各コンポーネントの`componentDidUpdate`に対してディスパッチされます。 |
+| `stencil_componentDidRender`   | 各コンポーネントの`componentDidRender`に対してディスパッチされます。 |
 
 ### safari10
 
