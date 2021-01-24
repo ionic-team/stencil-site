@@ -1,19 +1,20 @@
 ---
-title: Internal state
-description: Use the State() for component's internal state
+title: 内部状態
+description: コンポーネントの内部状態に State() を使用します。
 url: /docs/state
 contributors:
   - jthoms1
 ---
 
-# State Decorator
+# Stateデコレータ
 
-The `@State()` decorator can be used to manage internal data for a component. This means that a user cannot modify this data from outside the component, but the component can modify it however it sees fit. Any changes to a `@State()` property will cause the components `render` function to be called again.
+`@State()`デコレータは、コンポーネントの内部データを管理するために使用します。これは、ユーザーがコンポーネントの外部から、このデータを変更することはできませんが、コンポーネントは適切な方法でデータを変更することができることを意味します。`@State()` プロパティに変更を加えると、コンポーネントの `render` 関数が再度呼び出されます。
 
-## Example
 
-This example makes use of State and Listen decorators. We define a class property called `open` and decorate it with `@State`. With the use of `@Listen` we respond to click events
- toggling the value of `open`.
+## 例
+
+この例では、StateデコレータとListenデコレータを使用しています。`open`というクラスプロパティを定義し、`@State`で装飾します。`@Listener` を使用して、クリックイベントに応答します。
+ `open`の値を切り替えます。
 
 ```tsx
 import { Component, State, Listen, h } from '@stencil/core';
@@ -38,7 +39,7 @@ export class MyToggleButton {
 }
 ```
 
-For more advanced use cases state can be a complex Type. In the below example we maintain a list of `Todo` type values.
+より高度なユースケースでは、ステートは複雑な型になる可能性があります。以下の例では、`Todo` 型の値のリストを保持しています。
 
 ```tsx
 import { State } from '@stencil/core';
@@ -59,9 +60,9 @@ export class TodoList {
 }
 ```
 
-## When to use?
+## いつ使うべきか？
 
-Not all internal state might need to be decorated with `@State()`, in fact it's a good practice to avoid using it if you know for sure that the value will not change or that it does NOT need to trigger a re-rendering:
+すべての内部状態を `@State()`デコレーターで管理する必要はありません。実際には、値が変更されないことが確実にわかっている場合や、再レンダリングを行う必要がない場合には、これを使用しない方が良いでしょう。
 
 ```tsx
 class Component {

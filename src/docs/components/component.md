@@ -6,11 +6,11 @@ contributors:
   - jthoms1
 ---
 
-# Component Decorator
+# Componentデコレータ
 
-Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developers must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
+各ステンシルコンポーネントは、`@stencil/core` パッケージの `@Component()` デコレータを記述する必要があります。`@Component()` デコレータの単純な使用例では、HTMLの `tag` 名を指定することです。多くの場合、`styleUrl` や `styleUrls` も記述しますが、アプリケーションのモードやテーマに応じて、複数の異なるスタイルシートを提供することができます。
 
-Use a relative url to the `.css` file for the styleUrl(s).
+styleUrlには、`.css` ファイルへの相対的なURLを使用します。
 
 ```tsx
 import { Component } from '@stencil/core';
@@ -24,10 +24,10 @@ export class TodoList {
 }
 ```
 
-## Component Options
+## Componentオプション
 
-The `@Component(opts: ComponentOptions)` takes a required object containing all the component-level features.
-The `tag` name is the only required property, but there are plenty of them:
+`@Component(opts: ComponentOptions)` は、すべてのコンポーネントレベルの機能を含む必要なオブジェクトを取得します。
+`tag`名だけが唯一の必須プロパティですが、他にもたくさんのプロパティがあります。
 
 ```tsx
 export interface ComponentOptions {
@@ -83,14 +83,14 @@ export interface ComponentOptions {
 ```
 
 
-## Embedding or Nesting Components
+## コンポーネントの埋め込み、またはネスト
 
-Components can be composed easily by adding the HTML tag to the JSX code. Since the components are just HTML tags, nothing needs to be imported to use a Stencil component within another Stencil component.
+JSXコードにHTMLタグを追加することで、コンポーネントの中身を記述できます。これは、ただのHTMLタグなので、別のStencilコンポーネント内で、Stencilコンポーネントを使用するためには、何もインポートする必要はありません。
 
-Here's an example of using a component within another component:
+ここでは、別のコンポーネント内でコンポーネントを使用した例を紹介します。
 
 ```tsx
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'my-embedded-component'
@@ -124,4 +124,4 @@ export class MyParentComponent {
 }
 ```
 
-The `my-parent-component` includes a reference to the `my-embedded-component` in the `render()` function.
+`my-parent-component` は、関数 `render()` に `my-embedded-component` への参照を含みます。

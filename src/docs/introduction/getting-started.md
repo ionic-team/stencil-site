@@ -6,20 +6,20 @@ contributors:
   - jthoms1
 ---
 
-# Getting Started
+# はじめる
 
-## Starting a new project
+## 新しいプロジェクトを開始する
 
-Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. Make sure you've installed and/or updated Node before continuing.
+Stencilは最近のLTSバージョンの[NodeJS](https://nodejs.org/)とnpmが必要です。 続ける前にNodeのインストールおよびアップデート済みであることを確認してください。
 
-> Note that you will need to use npm 6 or higher.
+> npm 6以上を使用する必要があることに注意してください。
 
 ```bash
  npm init stencil
 ```
 
-Stencil can be used to create standalone components, or entire apps. After running init
-you will be provided with a prompt so that you can choose the type of project to start.
+Stencilを使用して、スタンドアロンなコンポーネントまたはアプリケーション全体を作成できます。
+initを実行すると、開始するプロジェクトの種類を選択できるプロンプトが表示されます。
 
 ```bash
 ? Pick a starter › - Use arrow-keys. Return to submit.
@@ -30,9 +30,9 @@ you will be provided with a prompt so that you can choose the type of project to
 ```
 
 
-## Updating Stencil
+## Stencilを更新する
 
-To get the latest version of @stencil/core you can run:
+@stencil/coreの最新バージョンを取得するためには、次のコマンドを実行します。
 
 ```bash
 npm install @stencil/core@latest --save-exact

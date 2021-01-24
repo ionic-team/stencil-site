@@ -12,7 +12,7 @@ contributors:
 
 ## Stencil plugins
 
-By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the `plugins` array.
+デフォルトでは、Stencilには `Sass`または`PostCss`のサポートは付属していません。ただし、どちらも `plugins`配列を使用して追加できます。
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -27,26 +27,26 @@ export const config: Config = {
 
 ## Rollup plugins
 
-The `rollupPlugins` config can be used to add your own [Rollup](https://rollupjs.org) plugins.
-Under the hood, stencil ships with some built-in plugins including `node-resolve` and `commonjs`, since the execution order of rollup plugins is important, stencil provides an API to inject custom plugin **before node-resolve** and after **commonjs transform**:
+`rollupPlugins`構成を使用して、独自の[Rollup](https://rollupjs.org)プラグインを追加できます。
+内部的には、ステンシルには `node-resolve`や`commonjs`などの組み込みプラグインが付属しています。ロールアッププラグインの実行順序が重要であるため、ステンシルは**ノード解決**の前と*commonjs変換**の後にカスタムプラグインを挿入するAPIを提供します。
 
 
 ```tsx
 export const config = {
   rollupPlugins: {
     before: [
-      // Plugins injected before rollupNodeResolve()
+      // rollupNodeResolve()の前に挿入されたプラグイン
       resolvePlugin()
     ],
     after: [
-      // Plugins injected after commonjs()
+      // commonjs()の後に挿入されたプラグイン
       nodePolyfills()
     ]
   }
 }
 ```
 
-### Related Plugins
+### 関連プラグイン
 
 - [@stencil/less](https://www.npmjs.com/package/@stencil/less)
 - [@stencil/postcss](https://www.npmjs.com/package/@stencil/postcss)
@@ -54,5 +54,6 @@ export const config = {
 - [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 
-## Node Polyfills
-See the [Node Polyfills in Module bundling](https://stenciljs.com/docs/module-bundling#node-polyfills) for other examples.
+## Nodeポリフィル
+
+他の例は、[モジュールバンドリングのNodeポリフィル](https://stenciljs.jp/docs/module-bundling/#node-polyfills)を参照してください。

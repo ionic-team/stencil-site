@@ -1,6 +1,6 @@
 ---
-title: Components without a Framework
-description: Components without a Framework
+title: フレームワークを使用しないコンポーネント
+description: フレームワークを使用しないコンポーネント
 url: /docs/javascript
 contributors:
   - mhartington
@@ -9,9 +9,9 @@ contributors:
   - BDav24
 ---
 
-# Components without a Framework
+# フレームワークを使用しないコンポーネント
 
-Integrating a component built with Stencil to a project without a JavaScript framework is straight forward. If you're using a simple HTML page, you can add your component via a script tag. For example, if we published a component to npm, we could load the component through a CDN like this:
+Stencilで作成されたコンポーネントをJavaScriptフレームワークのないプロジェクトで連携するのは簡単です。単純なHTMLページを使用している場合は、scriptタグを使用してコンポーネントを読み込むことができます。例えば、npmにコンポーネントを公開した場合は、次のようにunpkgを介してコンポーネント使用できます。
 
 ```markup
 <html>
@@ -24,7 +24,8 @@ Integrating a component built with Stencil to a project without a JavaScript fra
 </html>
 ```
 
-Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. _Note that type="module" only works in modern browsers (not available in IE11 or Edge 12-18)._
+また、ESモジュールを利用する場合はimport構文を使用してコンポーネントを読み込むことができます。EdgeまたはIE11を対象とする場合は、 `applyPolyfills`が必要であることに注意してください。
+_Note type="module"は最新のブラウザでのみ機能することに注意してください（IE11またはEdge 12-18では使用できません_
 
 ```markup
 <html>
@@ -40,9 +41,9 @@ Alternatively, if you wanted to take advantage of ES Modules, you could include 
 </html>
 ```
 
-## Passing object props from a non-JSX element
+## JSXではない要素からpropsオブジェクトを使う
 
-### Setting the prop manually
+### propsを手動で設定する
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -62,7 +63,7 @@ export class TodoList {
 </script>
 ```
 
-### Watching props changes
+### propsの変化を監視する
 
 ```tsx
 import { Prop, State, Watch } from '@stencil/core';

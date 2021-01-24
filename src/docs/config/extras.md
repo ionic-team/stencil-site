@@ -8,11 +8,13 @@ contributors:
 
 # Extras
 
-The `extras` config contains options to add and remove runtime for DOM features that require manipulations to polyfills. For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+`extras`には、ポリフィルの操作が必要なDOMのランタイムを追加するオプションが含まれています。
 
-By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
+例えば、Slotポリフィルを使用する場合、すべてのDOM APIが完全にポリフィルされるわけではありません。 全てのユーザーが追加のランタイムを必要とするわけではないため、これらのほとんどはオプトインです。
 
-Example `extras` config when __supporting__ legacy browsers:
+デフォルトでは、StencilはIE11、Edge 18以下（Chromiumに移行する前のEdge）およびSafari 10では機能しません。レガシーブラウザをサポートするには、ブラウザでポリフィルをダウンロードして実行する必要があります。 `extras`設定を使用することで、アプリはこれらの追加のランタイム設定をオプトインできます。
+
+例は  __supporting__ レガシーブラウザをサポートする`extras` 設定例です:
 
 ```tsx
 export const config: Config = {
@@ -30,26 +32,26 @@ export const config: Config = {
 };
 ```
 
-Note: `buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
+注：この例ではレガシーブラウザをサポートする必要があるため、 `buildEs5：'prod'`も設定で設定されています。詳細については、[buildEs5 config](/docs/config＃buildes5)を参照してください。
 
 ### appendChildSlotFix
 
-By default, the slot polyfill does not update `appendChild()` so that it appends new child nodes into the correct child slot like how shadow dom works. This is an opt-in polyfill for those who need it.
+Slotポリフィルは、デフォルトでは`appendChild()`を更新しないため、Shadow DOMのように新しい子ノードを正しい子スロットに追加します。これは、必要な人のためのオプトインポリフィルです。
 
 ### cloneNodeFix
 
-By default, the runtime does not polyfill `cloneNode()` when cloning a component that uses the slot polyfill. This is an opt-in polyfill for those who need it.
+ランタイムは、デフォルトではSlotポリフィルを使用するコンポーネントを複製するときに、`cloneNode()`をポリフィルしません。これは、必要な人のためのオプトインポリフィルです。
 
 ### cssVarsShim
 
-Include the CSS Custom Property polyfill/shim for legacy browsers.
+レガシーブラウザでCSSカスタムプロパティを使うためのpolyfillやshimを含めます。レガシービルドのみデフォルトは`true`です。ESMビルドにはcss vars shimは含まれません。これは、レガシービルドのオプトアウトポリフィルです。
 
-A result of this being set to `false` is that you will need to manually provide "fallback" properties to legacy builds. For example, in the css below, the css variable will not be polyfilled for IE11, so the developer will manually need to provide a fallback just before the css variable. If the app does not need to support IE11 it's recommended to leave `cssVarsShim` set to the default value of `false`.
+これを`false`に設定すると、レガシービルドに"フォールバック"プロパティを手動で提供する必要があります。例えば次のcssでは、IE11のcss variablesはポリフィルされないため、開発者はcss variablesの直前に手動でフォールバックを提供する必要があります。
 
 ```css
 div {
-  color: blue; /* Used by IE */
-  color: var(--color); /* Used by modern browsers */
+  color: blue; /* IEで使用される */
+  color: var(--color); /* モダンブラウザで使用される */
 }
 ```
 

@@ -12,9 +12,9 @@ contributors:
 
 # Stencil Config
 
-In most cases, the `stencil.config.ts` file does not require any customization since Stencil comes with great default values out-of-the-box. In general, it's preferred to keep the config as minimal as possible. In fact, you could even delete the `stencil.config.ts` file entirely and an app would compile just fine. But at the same time, the compiler can be configured at the lowest levels using this config. Below are the many *optional* config properties.
+Stencilでは、すぐに使えるデフォルトの値が設定されているため、多くの場合で`stencil.config.ts`ファイルをカスタマイズする必要はありません。基本的に、設定をできるだけ最小限に抑えることをお勧めします。実際に、`stencil.config.ts`ファイルを削除してもアプリは問題なくコンパイルされます。ですがそれと同時に、この設定を使用してコンパイラを最小限で構成できます。以降は、たくさんある*任意の*設定プロパティです。
 
-Example `stencil.config.ts`:
+`stencil.config.ts`の例:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -27,7 +27,8 @@ export const config: Config = {
 
 ## buildEs5
 
-Sets if the ES5 build should be generated or not. It defaults to `false`. Setting `true` will also create es5 builds for both dev and prod modes. Setting `buildEs5` to `prod` will only build ES5 in prod mode. Basically if the app does not need to run on legacy browsers (IE11 and Edge 18 and below), it's safe to use the default respectively, `buildEs5` set  to `false`, which will also speed up production build times. In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. See [config extras](/docs/config-extras) for more information.
+ES5ビルドを生成するかどうかを設定します。デフォルトは `false`です。 `true`を設定すると、devモードとprodモードの両方のes5ビルドも作成されます。 `buildEs5`を`prod`に設定すると、ES5はprodモードでのみビルドされます。基本的に、アプリをレガシーブラウザー（IE11およびEdge 18以下）で実行する必要がない場合は、デフォルトの `buildEs5`を`false`に設定して使用しても安全です。これにより、本番ビルドの時間も短縮されます。 es5ビルドの作成に加えて、アプリは__support__レガシーブラウザーのランタイムオプションを有効にすることにも関心がある場合があります。詳細については、 [config extras](/docs/config-extras) を参照してください。
+
 
 ```tsx
 buildEs5: boolean | 'prod'
@@ -35,9 +36,9 @@ buildEs5: boolean | 'prod'
 
 ## bundles
 
-By default, Stencil will statically analyze the application and generate a component graph of how all the components are interconnected. From the component graph it is able to best decide how components should be grouped depending on their usage with one another within the app. By doing so it's able to bundle components together in order to reduce network requests. However, bundles can be manually generated using the `bundles` config.
+Stencilはデフォルトでアプリケーションを静的に分析し、すべてのコンポーネントがどのように相互接続されているかを示すコンポーネントグラフを生成します。コンポーネントグラフから、アプリ内での相互の使用状況に応じて、コンポーネントをどのようにグループ化するかを最適に判断できます。そうすることで、ネットワークへのリクエストを減らすためにコンポーネントをバンドルすることができます。バンドルは`bundles`を使用して手動で生成することもできます。
 
-The `bundles` config is an array of objects that represent how components are grouped together in lazy-loaded bundles. This config is rarely needed as Stencil handles this automatically behind the scenes.
+`bundles`は、コンポーネントが遅延ロードされたバンドルにグループ化される方法を表すオブジェクトの配列です。Stencilがバックグラウンドで自動的に処理するため、この構成はほとんど必要ありません。
 
 ```tsx
 bundles: [
@@ -49,9 +50,9 @@ bundles: [
 
 ## enableCache
 
-*default: `true`*
+*デフォルト: `true`*
 
-Stencil will cache build results in order to speed up rebuilds. To disable this feature, set `enableCache` to `false`.
+Stencilは再ビルドを高速化するために、ビルド結果をキャッシュします。この機能を無効にするには、`enableCache`を`false`に設定します。
 
 ```tsx
 enableCache: true
@@ -60,27 +61,27 @@ enableCache: true
 
 ## globalScript
 
-The global script config option takes a file path as a string.
+global scriptは、ライブラリやアプリが読み込まれる前に1回実行されるため、外部サービスへの接続の設定や、使用しているライブラリのビルドなどを行うことができます。
 
-The global script runs once before your library/app loads, so you can do things like setting up a connection to an external service or configuring a library you are using.
+実行されるコードは、global scriptによってエクスポートされるデフォルトの関数内に配置する必要があります。global scriptのすべてのコードが、エクスポートされる関数でラップされていることを確認してください。
 
-The code to be executed should be placed within a default function that is exported by the global script. Ensure all of the code in the global script is wrapped in the function that is exported:
+global scriptのオプションは、ファイルパスを文字列として受け取ります。
 
 ```javascript
-export default function() { // or export default async function()
+export default function() { // または export default async function()
   initServerConnection();
 }
 ```
 
-> The exported function can also be `async`.
+> エクスポートされた関数は`async`にすることもできます。
 
 ## globalStyle
 
-Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](../components/styling).
+Stencilは、多くのコンポーネントをアプリにコンパイルするために伝統的に使用されており、各コンポーネントには独自のコンパートメント化されたスタイルが付属しています。ただし、すべてのコンポーネントとWebサイトで"グローバル"なスタイルを使用することは今でも一般的です。グローバルCSSファイルは、[CSS Variables](../components/styling)を定義するのに役立ちます。
 
-Additionally, the `globalStyle` config can be used to precompile styles with Sass, PostCss, etc.
+さらに、`globalStyle`はSassやPostCSSなどでスタイルをプリコンパイルできます。
 
-Below is an example folder structure containing a webapp's global css file, named `app.css`.
+次は、`app.css`という名前のグローバルcssファイルを含むフォルダー構造の例です。
 
 ```bash
 src/
@@ -89,20 +90,20 @@ src/
     app.css
 ```
 
-The global style config takes a file path as a string. The output from this build will go to the `buildDir`. In this example it would be saved to `www/build/app.css`.
+global styleは、ファイルパスを文字列で設定します。このビルドによる出力は、`buildDir`に送られます。次の例では、`www/build/app.css`に保存されます。
 
 ```tsx
 globalStyle: 'src/global/app.css'
 ```
 
-Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
+アプリでグローバルスタイルを使用する方法については、[styling docs](/docs/styling#global-styles)をご覧ください。
 
 
 ## hashFileNames
 
-*default: `true`*
+*デフォルト: `true`*
 
-During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn't updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can "forever-cache" the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.
+productionビルドでは、生成された各ファイルのコンテンツはハッシュ化され、ハッシュ化された値がファイル名として使用されます。コンテンツがビルド間で更新されない場合、同じファイル名を受け取ります。コンテンツが更新されると、ファイル名が異なります。これにより、デプロイされたアプリはビルドディレクトリを"永続的にキャッシュ"し、Content Delivery Network（CDN）を最大限に活用して大量のファイルをキャッシュすることで、高速なアプリを実現できます。
 
 ```tsx
 hashFileNames: true
@@ -111,9 +112,9 @@ hashFileNames: true
 
 ## hashedFileNameLength
 
-*default: `8`*
+*デフォルト: `8`*
 
-When the `hashFileNames` config is set to `true`, and it is a production build, the `hashedFileNameLength` config is used to determine how many characters the file name's hash should be.
+`hashedFileNameLength`はファイル名のハッシュが何文字であるべきかを指定します。`hashFileNames`が`true`に設定されていて、productionビルドの時のみ有効です。
 
 ```tsx
 hashedFileNameLength: 8
@@ -122,9 +123,9 @@ hashedFileNameLength: 8
 
 ## namespace
 
-*default: `App`*
+*デフォルト: `App`*
 
-The `namespace` config is a `string` representing a namespace for the app. For apps that are not meant to be a library of reusable components, the default of `App` is just fine. However, if the app is meant to be consumed as a third-party library, such as `Ionic`, a unique namespace is required.
+`namespace`はアプリの名前空間を表す`string`を指定します。再利用可能なコンポーネントのライブラリになることを意図していないアプリの場合、デフォルトの`App`で十分です。ただし、アプリが`Ionic`などのサードパーティライブラリとして使用される場合は、一意の名前空間が必要です。
 
 ```tsx
 namespace: "Ionic"
@@ -133,24 +134,24 @@ namespace: "Ionic"
 
 ## outputTargets
 
-Please see the [Output Target docs](/docs/output-targets).
+[Output Target docs](/docs/output-targets)をご覧ください。
 
 
 ## plugins
 
-Please see the [Plugin docs](/docs/plugins).
+[Plugin docs](/docs/plugins)をご覧ください。
 
 
 ## devServer
 
-Please see the [Dev-Server docs](/docs/dev-server).
+[Dev-Server docs](/docs/dev-server)をご覧ください。
 
 
 ## preamble
 
-*default: `undefined`*
+*デフォルト: `undefined`*
 
-The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
+`preamble`は、ビルドのメインファイルのプリアンブルを表す`string`を指定します。バナーを永続化したり、ビルド結果に関する情報を追加するのに役立ちます。
 
 ```tsx
 preamble: 'Built with Stencil'
@@ -159,9 +160,9 @@ preamble: 'Built with Stencil'
 
 ## srcDir
 
-*default: `src`*
+*デフォルト: `src`*
 
-The `srcDir` config specifies the directory which should contain the source typescript files for each component. The standard for Stencil apps is to use `src`, which is the default.
+`srcDir`は、各コンポーネントのソースとなるTypeScriptファイルを含むディレクトリを指定します。Stencilアプリのスタンダードは、デフォルトの`src`を使用することです。
 
 ```tsx
 srcDir: 'src'
@@ -170,33 +171,16 @@ srcDir: 'src'
 
 ## taskQueue
 
-*default: `congestionAsync`*
+*デフォルト: `congestionAsync`*
 
-Sets the task queue used by stencil's runtime. The task queue schedules DOM read and writes
-across the frames to efficiently render and reduce layout thrashing. By default, the
-`congestionAsync` is used. It's recommended to also try each setting to decide which works
-best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
-main thread to periodically lock-up, it's always recommended to try
-[Web Workers](https://stenciljs.com/docs/web-workers) for those tasks.
+ステンシルのランタイムが使用するタスクキューを設定します。タスクキューは、フレーム全体でDOMの読み取りと書き込みをスケジュールして、レイアウトのスラッシングを効率的にレンダリングおよび削減します。デフォルトでは、 `congestionAsync`が使用されます。また、各設定を試して、ユースケースに最適な設定を決定することをお勧めします。すべての場合において、アプリにCPUを集中的に使用するタスクが多数あり、メインスレッドが定期的にロックアップする場合は、常に試してみることをお勧めします。
+これらのタスクには[Web Workers](/docs/web-workers)。
 
-* `congestionAsync`: DOM reads and writes are scheduled in the next frame to prevent layout
-  thrashing. When the app is heavily tasked and the queue becomes congested it will then
-  split the work across multiple frames to prevent blocking the main thread. However, it can
-  also introduce unnecesary reflows in some cases, especially during startup. `congestionAsync`
-  is ideal for apps running animations while also simultaniously executing intesive tasks
-  which may lock-up the main thread.
+* `congestionAsync`: DOMの読み取りと書き込みは、レイアウトのスラッシングを防ぐために次のフレームでスケジュールされます。 アプリのタスクが多く、キューが混雑すると、メインスレッドがブロックされないように、作業が複数のフレームに分割されます。 ただし、場合によっては、特に起動時に不要なリフローが発生する可能性もあります。 `congestionAsync`は、アニメーションを実行しながら、メインスレッドをロックする可能性のある集中的なタスクを同時に実行するアプリに最適です。
 
-* `async`: DOM read and writes are scheduled in the next frame to prevent layout thrashing.
-  During intensive CPU tasks it will not reschedule rendering to happen in the next frame.
-  `async` is ideal for most apps, and if the app has many intensive tasks causing the main
-  thread to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers)
-  rather than the congestion async queue.
+* `async`: DOMの読み取りと書き込みは、レイアウトのスラッシングを防ぐために次のフレームでスケジュールされます。 集中的なCPUタスクの間、次のフレームで発生するようにレンダリングを再スケジュールしません。 `async`はほとんどのアプリに理想的であり、アプリに多くの集中的なタスクがあり、メインスレッドがロックアップする場合は、むしろ[Web Workers](https://stenciljs.com/docs/web-workers)を試すことをお勧めします。
 
-* `immediate`: Makes writeTask() and readTask() callbacks to be executed syncronously. Tasks
-  are not scheduled to run in the next frame, but do note there is at least one microtask.
-  The `immediate` setting is ideal for apps that do not provide long running and smooth
-  animations. Like the async setting, if the app has intensive tasks causing the main thread
-  to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers).
+* `immediate`: writeTask()コールバックとreadTask()コールバックを同期して実行します。 タスクは次のフレームで実行されるようにスケジュールされていませんが、少なくとも1つのマイクロタスクがあることに注意してください。「即時」設定は、長時間実行されてスムーズなアニメーションを提供しないアプリに最適です。 非同期設定と同様に、アプリに集中的なタスクがあり、メインスレッドがロックアップする場合は、[Web Workers](https://stenciljs.com/docs/web-workers)を試すことをお勧めします。
 
 ```tsx
 taskQueue: 'async'
@@ -204,9 +188,9 @@ taskQueue: 'async'
 
 ## testing
 
-Please see the [testing config docs](/docs/testing-config).
+[testing config docs](/docs/testing-config)をご覧ください。
 
 
 ## extras
 
-Please see the [Extras docs](/docs/config-extras).
+[Extras docs](/docs/config-extras)をご覧ください。
