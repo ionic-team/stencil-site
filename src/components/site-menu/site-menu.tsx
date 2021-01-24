@@ -16,13 +16,13 @@ export class SiteMenu implements ComponentInterface {
 
   index: any;
 
-  componentDidLoad(){
+  componentDidLoad() {
     if (Build.isBrowser) {
       docsearch({
         apiKey: '6399791d239c7e56a6b47685a64f8873',
         indexName: 'stenciljs',
         inputSelector: 'input[name="search"]',
-        debug: false // Set debug to true if you want to inspect the dropdown
+        debug: false, // Set debug to true if you want to inspect the dropdown
       });
     }
   }
@@ -40,7 +40,9 @@ export class SiteMenu implements ComponentInterface {
         <SiteProviderConsumer.Consumer>
           {({ toggleLeftSidebar }: SiteState) => (
             <div>
-              <search-bar class="site-search" debounce={500} searchTerm={this.searchTerm} placeholder={'Search Docs'}></search-bar>
+              {
+                // <search-bar class="site-search" debounce={500} searchTerm={this.searchTerm} placeholder={'Search Docs'}></search-bar>
+              }
               <ul class="menu-list">
                 {this.siteStructureList.map(item => (
                   <li>
@@ -55,10 +57,10 @@ export class SiteMenu implements ComponentInterface {
                               {childItem.text}
                             </stencil-route-link>
                           ) : (
-                              <a rel="noopener" class="link--external" target="_blank" href={childItem.filePath}>
-                                {childItem.text}
-                              </a>
-                            )}
+                            <a rel="noopener" class="link--external" target="_blank" href={childItem.filePath}>
+                              {childItem.text}
+                            </a>
+                          )}
                         </li>
                       ))}
                     </ul>
