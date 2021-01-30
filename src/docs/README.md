@@ -6,7 +6,7 @@
   * [ブラウザサポート](introduction/browser-support.md)
   * [はじめに](introduction/getting-started.md)
   * [最初のコンポーネント](introduction/my-first-component.md)
-  * [FAQ](introduction/faq.md)
+  * [よくある質問](introduction/faq.md)
   * [デザインシステムとは](design-systems/what-is-design-system.md)
   * [デザインシステム用StencilJS](design-systems/stencil-for-design-systems.md)
 * コンポーネント
