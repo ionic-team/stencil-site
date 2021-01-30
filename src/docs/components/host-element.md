@@ -6,17 +6,17 @@ contributors:
   - jthoms1
 ---
 
-# Working with host elements
+# ホスト要素の操作
 
-Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the times, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
+ステンシルコンポーネントは、[JSXを使用](templating-jsx)の `render`メソッドで子を宣言的にレンダリングします。 ほとんどの場合、 `render()`関数は、レンダリングされようとしている子要素を記述しますが、ホスト要素自体の属性をレンダリングするためにも使用できます。
 
 
 ## `<Host>`
 
-The `Host` functional component can be used at the root of the render function to set attributes and event listeners to the host element itself. This works just like any other JSX:
+`Host`関数コンポーネントをrender関数のルートで使用して、属性とイベントリスナーをホスト要素自体に設定できます。 これは他のJSXと同じように機能します。
 
 ```tsx
-// Host is imported from '@stencil/core'
+// ホストは「@stencil/core」からインポートされます
 import { Component, Host, h } from '@stencil/core';
 
 @Component({tag: 'todo-list'})
@@ -36,25 +36,25 @@ export class TodoList {
 }
 ```
 
-If `this.open === true`, it will render:
+もし `this.open === true`の場合、次のようにレンダリングされます。
 ```tsx
 <todo-list class="todo-list is-open" aria-hidden="false"></todo-list>
 ```
 
-similary, if `this.open === false`:
+同じ用に `this.open === false`:
 
 ```tsx
 <todo-list class="todo-list" aria-hidden="true"></todo-list>
 ```
 
-`<Host>` is a virtual component, a virtual API exposed by stencil to declaratively set the attributes of the host element, it will never be rendered in the DOM, i.e. you will never see `<Host>` in Chrome Dev Tools for instance.
+`<Host>`は仮想コンポーネントであり、ホスト要素の属性を宣言的に設定するためにステンシルによって公開される仮想APIであり、DOMにレンダリングされることはありません。つまり、Chrome DevToolsに `<Host>`が表示されることはありません。
 
 
-### `<Host>` can work as a `<Fragment>`
+### `<Host>`は `<Fragment>`として機能します
 
-`<Host>` can also be used when more than one component needs to be rendered at the root level for example:
+`<Host>`は、たとえば次のように、ルートレベルで複数のコンポーネントをレンダリングする必要がある場合にも使用できます。
 
-It could be achieved by a `render()` method like this:
+これは、次のような `render（）`メソッドによって実現できます。
 
 ```tsx
 @Component({tag: 'my-cmp'})
@@ -70,7 +70,7 @@ export class MyCmp {
 }
 ```
 
-This JSX would render the following HTML:
+このJSXは、次のHTMLをレンダリングします。
 
 ```markup
 <my-cmp>
@@ -79,11 +79,11 @@ This JSX would render the following HTML:
 </my-cmp>
 ```
 
-Even if we don't use `<Host>` to render any attribute in the host element, it's a useful API to render many elements at the root level.
+`<Host>`を使用してホスト要素の属性をレンダリングしない場合でも、ルートレベルで多くの要素をレンダリングするのに便利なAPIです。
 
-## Element Decorator
+## 要素デコレータ
 
-The `@Element()` decorator is how to get access to the host element within the class instance. This returns an instance of an `HTMLElement`, so standard DOM methods/events can be used here.
+`@Element()`デコレータは、クラスインスタンス内のホスト要素にアクセスする方法です。 これは `HTMLElement`のインスタンスを返すため、ここでは標準のDOMメソッド/イベントを使用できます。
 
 ```tsx
 import { Element } from '@stencil/core';
@@ -99,13 +99,13 @@ export class TodoList {
 }
 ```
 
-If you need to update the host element in response to prop or state changes, you should do so in the `render()` method using the `<Host>` element.
+propまたは状態の変更に応じてホスト要素を更新する必要がある場合は、 `<Host>`要素を使用して `render()`メソッドで更新する必要があります。
 
-## Styling
+## スタイリング
 
-See full information about styling on the [Styling page](https://stenciljs.com/docs/styling#shadow-dom-in-stencil).
+[スタイリングページ](https://stenciljs.com/docs/styling#shadow-dom-in-stencil)でスタイリングの詳細を確認してください。
 
-CSS can be applied to the `<Host>` element by using its component tag defined in the `@Component` decorator.
+CSSは、`@Component`デコレータで定義されたコンポーネントタグを使用して`<Host>`要素に適用できます。
 
 ```tsx
 @Component({
@@ -125,7 +125,7 @@ my-cmp {
 
 ### Shadow DOM
 
-Something to beware of is that Styling the `<Host>` element when using shadow DOM does not work quite the same. Instead of using the `my-cmp` element selector you must use `:host`.
+注意すべき点は、シャドウDOMを使用する場合の `<Host>`要素のスタイリングはまったく同じようには機能しないということです。 `my-cmp`要素セレクターを使用する代わりに、`:host`を使用する必要があります。
 
 ```tsx
 @Component({

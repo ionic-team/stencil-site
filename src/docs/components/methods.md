@@ -7,11 +7,11 @@ contributors:
   - manucorporat
 ---
 
-# Method Decorator
+# メソッドデコレータ
 
-The `@Method()` decorator is used to expose methods on the public API. Functions decorated with the `@Method()` decorator can be called directly from the element, ie. they are intended to be callable from the outside!
+`@Method()`デコレータは、パブリックAPIでメソッドを公開するために使用されます。 `@Method()`デコレータでデコレートされた関数は、要素から直接呼び出すことができます。 それらは外部から呼び出すことができるように意図されています！
 
-> Developers should try to rely on publicly exposed methods as little as possible, and instead default to using properties and events as much as possible. As an app scales, we've found it's easier to manage and pass data through @Prop rather than public methods.
+> 開発者は、公開されているメソッドにできるだけ依存しないようにし、代わりにデフォルトでプロパティとイベントをできるだけ使用するようにする必要があります。 アプリの規模が拡大するにつれて、パブリックメソッドよりも@Propを介してデータを管理および渡す方が簡単であることがわかりました。
 
 ```tsx
 import { Method } from '@stencil/core';
@@ -25,9 +25,9 @@ export class TodoList {
 }
 ```
 
-Call the method like this:
+次のようなメソッドを呼び出します。
 
-> Developers should ensure that the component is defined by using the whenDefined method of the custom element registry before attempting to call public methods.
+> 開発者は、パブリックメソッドを呼び出す前に、カスタム要素レジストリのwhenDefinedメソッドを使用してコンポーネントが定義されていることを確認する必要があります。
 
 ```tsx
 (async () => {
@@ -37,17 +37,17 @@ Call the method like this:
 })();
 ```
 
-## Public methods must be async
+## パブリックメソッドは非同期である必要があります
 
-Stencil's architecture is async at all levels which allows for many performance benefits and ease of use. By ensuring publicly exposed methods using the `@Method` decorator return a promise:
+ステンシルのアーキテクチャはすべてのレベルで非同期であるため、多くのパフォーマンス上の利点と使いやすさが可能になります。 `@Method`デコレータを使用して公開されたメソッドを確実に返すことにより、promiseが返されます。
 
-- Developers can call methods before the implementation was downloaded without componentOnReady(), which queues the method calls and resolves after the component has finished loading.
+- 開発者は、componentOnReady()を使用せずに、実装がダウンロードされる前にメソッドを呼び出すことができます。componentOnReady()は、メソッド呼び出しをキューに入れ、コンポーネントのロードが完了した後に解決します。
 
-- Interaction with the component is the same whether it still needs to be lazy-loaded, or is already fully hydrated.
+- コンポーネントとの相互作用は、遅延読み込みが必要な場合でも、すでに完全に水和されている場合でも同じです。
 
-- By keeping a component's public API async, apps could move the components transparently to [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) and the API would still be the same.
+- コンポーネントのパブリックAPIの非同期を維持することで、アプリはコンポーネントを透過的に[Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)に移動でき、APIは引き続き同じ。
 
-- Returning a promise is only required for publicly exposed methods which have the `@Method` decorator. All other component methods are private to the component and are not required to be async.
+- promiseを返す必要があるのは、 `@Method`デコレータを持つ公開されたメソッドの場合のみです。 他のすべてのコンポーネントメソッドはコンポーネント専用であり、非同期である必要はありません
 
 
 ```tsx
@@ -76,14 +76,14 @@ notOk() {
 }
 ```
 
-## Private methods
+## プライベートメソッド
 
-Non-public methods can still be used to organize the business logic of your component and they do NOT have to return a Promise.
+非公開メソッドは、コンポーネントのビジネスロジックを整理するために引き続き使用でき、Promiseを返す必要はありません。
 
 ```tsx
 class Component {
-  // Since `getData` is not a public method exposed with @Method
-  // it does not need to be async
+  // `getData`は@Methodで公開されているパブリックメソッドではないため
+  // 非同期である必要はありません
   getData() {
     return this.someData;
   }

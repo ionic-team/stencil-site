@@ -20,8 +20,8 @@
   * [イベント](components/events.md)
   * [メソッド](components/methods.md)
   * [ホスト要素](components/host-element.md)
-  * [スタリing](components/styling.md)
-  * [機能コンポーネント](components/functional-components.md)
+  * [スタイリングコンポーネント](components/styling.md)
+  * [関数型コンポーネント](components/functional-components.md)
 * フレームワークの統合
   * [概要](framework-integration/overview.md)
   * [バインディング](framework-integration/bindings.md)

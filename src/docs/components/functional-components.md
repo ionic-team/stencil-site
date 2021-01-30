@@ -6,21 +6,21 @@ contributors:
   - simonhaenisch
 ---
 
-# Working with Functional Components
+＃関数型コンポーネントの操作
 
-Functional components are quite different to normal Stencil web components because they are a part of Stencil's JSX compiler. A functional component is basically a function that takes an object of props and turns it into JSX.
+関数型コンポーネントは、StencilのJSXコンパイラの一部であるため、通常のStencilのWebコンポーネントとはまったく異なります。 関数型コンポーネントは、基本的に、Propのオブジェクトを取得してJSXに変換する関数です。
 
 ```tsx
 const Hello = props => <h1>Hello, {props.name}!</h1>;
 ```
 
-When the JSX transpiler encounters such a component, it will take its attributes, pass them into the function as the `props` object, and replace the component with the JSX that is returned by the function.
+JSXトランスパイラーがそのようなコンポーネントに遭遇すると、その属性を取得し、それらを `props`オブジェクトとして関数に渡し、コンポーネントを関数によって返されるJSXに置き換えます。
 
 ```tsx
 <Hello name="World" />
 ```
 
-Functional components also accept a second argument `children`.
+関数型コンポーネントは、2番目の引数 `children`も受け入れます。
 
 ```tsx
 const Hello = (props, children) => [
@@ -29,7 +29,7 @@ const Hello = (props, children) => [
 ];
 ```
 
-The JSX transpiler passes all child elements of the component as an array into the function's `children` argument.
+JSXトランスパイラーは、コンポーネントのすべての子要素を配列として関数の `children`引数に渡します。
 
 ```tsx
 <Hello name="World">
@@ -37,7 +37,7 @@ The JSX transpiler passes all child elements of the component as an array into t
 </Hello>
 ```
 
-Stencil provides a `FunctionalComponent` generic type that allows to specify an interface for the component's properties.
+Stencilは、コンポーネントのプロパティのインターフェイスを指定できる「関数型コンポーネント」ジェネリック型を提供します。
 
 ```tsx
 // Hello.tsx
@@ -53,9 +53,9 @@ export const Hello: FunctionalComponent<HelloProps> = ({ name }) => (
 );
 ```
 
-## Working with children
+## 子との協力
 
-The second argument of a functional component receives the passed children, but in order to work with them, the `FunctionalComponent` provides an utils object that exposes a `map()` method to transform the children, and `forEach()` to read them. Reading the `children` array is not recommended since the stencil compiler can rename the vNode properties in prod mode.
+関数型コンポーネントの2番目の引数は渡された子を受け取りますが、それらを操作するために、 `FunctionalComponent`は子を変換するための` map() `メソッドを公開するutilsオブジェクトを提供し、 それら。 StencilコンパイラはprodモードでvNodeプロパティの名前を変更できるため、 `children`配列を読み取ることはお勧めしません。
 
 ```tsx
 export interface FunctionalUtilities {
@@ -72,7 +72,7 @@ export interface ChildNode {
 }
 ```
 
-**Example:**
+**例:**
 
 ```tsx
 export const AddClass: FunctionalComponent = (_, children, utils) => (
@@ -87,17 +87,17 @@ export const AddClass: FunctionalComponent = (_, children, utils) => (
 );
 ```
 
-> When using a functional component in JSX, its name must start with a capital letter. Therefore it makes sense to export it as such.
+> JSXで関数型コンポーネントを使用する場合、その名前は大文字で始める必要があります。 したがって、そのようにエクスポートすることは理にかなっています。
 
 
-## Disclaimer
+## 免責事項
 
-There are a few major differences between functional components and class components. Since functional components are just syntactic sugar within JSX, they...
+関数型コンポーネントとクラスコンポーネントの間には、いくつかの大きな違いがあります。 関数型コンポーネントはJSX内の単なるシンタックスシュガーなので、
 
-* aren't compiled into web components,
-* don't create a DOM node,
-* don't have a Shadow DOM or scoped styles,
-* don't have lifecycle hooks,
-* are stateless.
+* Webコンポーネントにコンパイルされていません。
+* DOMノードを作成しないでください。
+* ShadowDOMまたはスコープスタイルはありません。
+* ライフサイクルフックはありません、
+* ステートレスです。
 
-When deciding whether to use functional components, one concept to keep in mind is that often the UI of your application can be a function of its state, i. e., given the same state, it always renders the same UI. If a component has to hold state, deal with events, etc, it should probably be a class component. If a component's purpose is to simply encapsulate some markup so it can be reused across your app, it can probably be a functional component (especially if you're using a component library and thus don't need to style it).
+関数型コンポーネントを使用するかどうかを決定する際に留意すべき1つの概念は、多くの場合、アプリケーションのUIはその状態の関数である可能性があるということです。 たとえば、同じ状態が与えられると、常に同じUIをレンダリングします。 コンポーネントが状態を保持したり、イベントを処理したりする必要がある場合は、おそらくクラスコンポーネントである必要があります。 コンポーネントの目的が単にマークアップをカプセル化してアプリ全体で再利用できるようにすることである場合、それはおそらく関数型コンポーネントである可能性があります（特に、コンポーネントライブラリを使用しているため、スタイルを設定する必要がない場合）。

@@ -10,16 +10,16 @@ contributors:
   - noherczeg
 ---
 
-# Events
+# イベント
 
-There is **NOT** such a thing as *stencil events*, instead, Stencil encourages the use of [DOM events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events).
-However, Stencil does provide an API to specify the events a component can emit, and the events a component listens to. It does so with the `Event()` and `Listen()` decorators.
+*stencil events*のようなものは**ありません**。代わりに、Stencilは[DOMイベント](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/)の使用を推奨しています。
+ただし、Stencilは、コンポーネントが発行できるイベントと、コンポーネントがリッスンするイベントを指定するためのAPIを提供します。 これは、 `Event()`および `Listen()`デコレータを使用して行われます。
 
-## Event Decorator
+## イベントデコレータ
 
-Components can emit data and events using the Event Emitter decorator.
+コンポーネントは、イベントエミッタデコレータを使用してデータとイベントを発行できます。
 
-To dispatch [Custom DOM events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events) for other components to handle, use the `@Event()` decorator.
+[カスタムDOMイベント](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events)をディスパッチして他のコンポーネントを処理するには、`@Event()`デコレータを使用します。
 
 ```tsx
 import { Event, EventEmitter } from '@stencil/core';
@@ -35,34 +35,34 @@ export class TodoList {
 }
 ```
 
-The code above will dispatch a custom DOM event called `todoCompleted`.
+上記のコードは、`todoCompleted`と呼ばれるカスタムDOMイベントをディスパッチします。
 
-The `Event(opts: EventOptions)` decorator optionally accepts an options object to shape the behavior of dispatched events. The options and defaults are described below.
+`Event(opts: EventOptions)`デコレータは、オプションでオプションオブジェクトを受け入れて、ディスパッチされたイベントの動作を形成します。 オプションとデフォルトについては、以下で説明します。
 
 ```tsx
 export interface EventOptions {
   /**
-   * A string custom event name to override the default.
+   * デフォルトをオーバーライドする文字列カスタムイベント名。
    */
   eventName?: string;
   /**
-   * A Boolean indicating whether the event bubbles up through the DOM or not.
+   * イベントがDOMを介してバブルアップするかどうかを示すブール値。
    */
   bubbles?: boolean;
 
   /**
-   * A Boolean indicating whether the event is cancelable.
+   * イベントがキャンセル可能かどうかを示すブール値。
    */
   cancelable?: boolean;
 
   /**
-   * A Boolean value indicating whether or not the event can bubble across the boundary between the shadow DOM and the regular DOM.
+   * イベントがShadowDOMと通常のDOMの境界を越えてバブルできるかどうかを示すブール値。
    */
   composed?: boolean;
 }
 ```
 
-Example:
+例:
 
 ```tsx
 import { Event, EventEmitter } from '@stencil/core';
@@ -70,7 +70,7 @@ import { Event, EventEmitter } from '@stencil/core';
 ...
 export class TodoList {
 
-  // Event called 'todoCompleted' that is "composed", "cancellable" and it will bubble up!
+  //「作成」、「キャンセル可能」の「todoCompleted」というイベントがバブルアップ！
   @Event({
     eventName: 'todoCompleted',
     composed: true,
@@ -81,17 +81,17 @@ export class TodoList {
   todoCompletedHandler(todo: Todo) {
     const event = this.todoCompleted.emit(todo);
     if(!event.defaultPrevented) {
-      // if not prevented, do some default handling code
+      // 防止されていない場合は、デフォルトの処理コードを実行します
     }
   }
 }
 ```
 
-## Listen Decorator
+## Listenデコレータ
 
-The `Listen()` decorator is for listening to DOM events, including the ones dispatched from `@Events`.
+`Listen()`デコレータは、 `@Events`からディスパッチされたものを含むDOMイベントをリッスンするためのものです。
 
-In the example below, assume that a child component, `TodoList`, emits a `todoCompleted` event using the `EventEmitter`.
+以下の例では、子コンポーネント `TodoList`が`EventEmitter`を使用して `todoCompleted`イベントを発行すると仮定します。
 
 ```tsx
 import { Listen } from '@stencil/core';
@@ -106,9 +106,9 @@ export class TodoApp {
 }
 ```
 
-### Listen's options
+### リッスンのオプション
 
-The `@Listen(eventName, opts?: ListenOptions)` includes a second optional argument that can be used to configure how the DOM event listener is attached.
+`@Listen(eventName,opts: ListenOptions)`には、DOMイベントリスナーのアタッチ方法を構成するために使用できる2番目のオプションの引数が含まれています。
 
 ```tsx
 export interface ListenOptions {
@@ -120,13 +120,15 @@ export interface ListenOptions {
 
 The available options are `target`, `capture` and `passive`:
 
+使用可能なオプションは、`target`,`capture`, `passive`です。
+
 
 #### target
 
-Handlers can also be registered for an event other than the host itself.
-The `target` option can be used to change where the event listener is attached, this is useful for listening to application-wide events.
+ハンドラーは、ホスト自体以外のイベントに登録することもできます。
+`target`オプションを使用して、イベントリスナーが接続されている場所を変更できます。これは、アプリケーション全体のイベントをリッスンする場合に役立ちます。
 
-In the example below, we're going to listen for the scroll event, emitted from `window`:
+以下の例では、 `window`から発行されたスクロールイベントをリッスンします。
 
 ```tsx
   @Listen('scroll', { target: 'window' })
@@ -137,16 +139,16 @@ In the example below, we're going to listen for the scroll event, emitted from `
 
 #### passive
 
-By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. The `passive` option can be used to change the default behaviour.
+デフォルトでは、Stencilはいくつかのヒューリスティックを使用して、`passive`イベントリスナーをアタッチする必要があるかどうかを判断します。 `passive`オプションを使用して、デフォルトの動作を変更できます。
 
-Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
+[https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners)をチェックしてください -詳細については、リスナー）を参照してください。
 
 
 #### capture
 
-Event listener attached with `@Listen` does not "capture" by default.
-When a event listener is set to "capture", it means the event will be dispatched during the "capture phase".
-Check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html) for further information.
+`@Listen`でアタッチされたイベントリスナーは、デフォルトでは`capture`しません。
+イベントリスナーが`capture`に設定されている場合、それは`capture phase`中にイベントがディスパッチされることを意味します。
+詳細については[https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html)を確認してください。
 
 
 ```tsx
@@ -156,9 +158,9 @@ Check out [https://www.quirksmode.org/js/events_order.html](https://www.quirksmo
   }
 ```
 
-## Keyboard events
+## キーボードイベント
 
-For keyboard events, you can use the standard `keydown` event in `@Listen()` and use `event.keyCode` or `event.which` to get the key code, or `event.key` for the string representation of the key.
+キーボードイベントの場合、 `@Listen()`で標準の `keydown`イベントを使用し、`event.keyCode`または `event.which`を使用してキーコードを取得するか、`event.key`を使用しての文字列表現を取得できます。
 
 ```tsx
 @Listen('keydown')
@@ -168,14 +170,14 @@ handleKeyDown(ev: KeyboardEvent){
   }
 }
 ```
-More info on event key strings can be found in the [w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+イベントキー文字列の詳細については[w3c spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values)を参照してください.
 
 
-## Using events in JSX
+## JSXでイベントを使用する
 
-Within a stencil compiled application or component you can also bind listeners to events directly in JSX. This works very similar to normal DOM events such as `onClick`.
+Stencilでコンパイルされたアプリケーションまたはコンポーネント内で、リスナーをJSXのイベントに直接バインドすることもできます。 これは、 `onClick`などの通常のDOMイベントと非常によく似ています。
 
-Let's use our TodoList component from above:
+上からTodoListコンポーネントを使用してみましょう
 
 ```tsx
 import { Event, EventEmitter } from '@stencil/core';
@@ -191,13 +193,13 @@ export class TodoList {
 }
 ```
 
-We can now listen to this event directly on the component in our JSX using the following syntax:
+これで、次の構文を使用して、JSXのコンポーネントでこのイベントを直接聞くことができます。
 
 ```tsx
 <todo-list onTodoCompleted={ev => this.someMethod(ev)} />
 ```
 
-## Listening to events from a non-JSX element
+## 非JSX要素からのイベントをリッスンする
 
 ```tsx
 <todo-list></todo-list>

@@ -6,9 +6,9 @@ contributors:
   - jthoms1
 ---
 
-# Prop Decorator
+# Propデコレータ
 
-Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently rerender.
+Propは、開発者が値を提供できる要素で公開されているカスタム属性/プロパティです。 子コンポーネントは親コンポーネントを認識または参照してはならないため、プロップを使用して親から子にデータを渡す必要があります。 コンポーネントは、 `@Prop()`デコレータを使用して、受け取る予定のPropを明示的に宣言する必要があります。 Propは、 `number`、`string`、 `boolean`、または`Object`や `Array`にすることができます。 デフォルトでは、 `@Prop()`デコレータでデコレートされたメンバーが設定されている場合、コンポーネントは効率的に再レンダリングされます。
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -22,7 +22,7 @@ export class TodoList {
 }
 ```
 
-Within the `TodoList` class, the Props are accessed via the `this` operator.
+`TodoList`クラス内では、Propは`this`演算子を介してアクセスされます。
 
 ```tsx
 logColor() {
@@ -30,21 +30,22 @@ logColor() {
 }
 ```
 
-Externally, Props are set on the element.
 
-> In HTML, you must set attributes using dash-case:
+外部的には、Propは要素に設定されます。
+
+> HTMLでは、ダッシュケースを使用して属性を設定する必要があります。
 
 ```markup
 <todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
 ```
 
-in JSX you set an attribute using camelCase:
+JSXでは、キャメルケースを使用して属性を設定します。
 
 ```markup
 <todo-list color="blue" favoriteNumber={24} isSelected="true"></todo-list>
 ```
 
-They can also be accessed via JS from the element.
+要素からJS経由でアクセスすることもできます。
 
 ```tsx
 const todoListElement = document.querySelector('todo-list');
@@ -52,9 +53,9 @@ console.log(todoListElement.myHttpService); // MyHttpService
 console.log(todoListElement.color); // blue
 ```
 
-## Prop options
+## Propオプション
 
-The `@Prop(opts?: PropOptions)` decorator accepts an optional argument to specify certain options, such as the `mutability`, the name of the DOM attribute or if the value of the property should or shouldn't be reflected into the DOM.
+`@Prop(opts?: PropOptions)`デコレータは、オプションの引数を受け入れて、 `mutability`、DOM属性の名前、またはプロパティの値をDOMに反映する必要があるかどうかなど、特定のオプションを指定します。
 
 ```tsx
 export interface PropOptions {
@@ -64,11 +65,11 @@ export interface PropOptions {
 }
 ```
 
-### Prop mutability
+### Propの可変性
 
-It's important to know, that a Prop is _by default_ immutable from inside the component logic. Once a value is set by a user, the component cannot update it internally.
+Propは、コンポーネントロジックの内部から _デフォルトで_ 不変であることを知っておくことが重要です。 ユーザーが値を設定すると、コンポーネントはその値を内部で更新できなくなります。
 
-However, it's possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as **mutable**, as in the example below:
+ただし、以下の例のように、Propを**可変**として宣言することにより、コンポーネント内からPropを明示的に変更できるようにすることができます。
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -84,13 +85,13 @@ export class NameElement {
 }
 ```
 
-### Attribute Name
+### 属性名
 
-Properties and component attributes are strongly connected but not necessarily the same thing. While attributes are a HTML concept, properties are a JS one inherent from Object-Oriented Programming.
+プロパティとコンポーネント属性は強く関連していますが、必ずしも同じものである必要はありません。 属性はHTMLの概念ですが、プロパティはオブジェクト指向プログラミングに固有のJSです。
 
-In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for changes in a DOM attribute.
+Stencilでは、**プロパティ**に適用された `@Prop()`デコレータは、DOM属性の変更もリッスンするようにStencilコンパイラに指示します。
 
-Usually the name of a property is the same as the attribute, but this is not always the case. Take the following component as example:
+通常、プロパティの名前は属性と同じですが、常にそうであるとは限りません。 次のコンポーネントを例として取り上げます。
 
 ```tsx
 import { Component, Prop } from '@stencil/core';
@@ -103,17 +104,17 @@ class Component {
 }
 ```
 
-This component has **3 properties**, but the compiler will create **only 2** attributes: `value` and `is-valid`.
+このコンポーネントには**3つのプロパティ**がありますが、コンパイラは`value`と `is-valid`の**2つの**属性のみを作成します。
 
 ```markup
 <my-cmp value="Hello" is-valid></my-cmp>
 ```
 
-Notice that the `controller` type is not a primitive, since DOM attributes can ONLY be strings, it does not make sense to have an associated DOM attribute called "controller".
+`controller`タイプはプリミティブではないことに注意してください。DOM属性は文字列のみであるため、「controller」と呼ばれる関連付けられたDOM属性を持つことは意味がありません。
 
-At the same time, the `isValid` property follows a _camelCase_ naming, but attributes are case-insensitive, so the attribute name will be `is-valid` by default.
+同時に、 `isValid`プロパティは _camelCase_ の命名に従いますが、属性では大文字と小文字が区別されないため、属性名はデフォルトで`is-valid`になります。
 
-Fortunately, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
+幸い、この「デフォルト」の動作は、`@Prop()`デコレータの `attribute`オプションを使用して変更できます。
 
 
 ```tsx
@@ -127,12 +128,12 @@ class Component {
 }
 ```
 
-By using this option, we are being explicit about which properties have an associated DOM attribute and the name of it.
+このオプションを使用することで、どのプロパティにDOM属性が関連付けられているかとその名前が明示されています。
 
 
-### Reflect Properties Values to Attributes
+### プロパティ値を属性に反映する
 
-In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can set the `reflect` option in the `@Prop()` decorator to `true`, since it defaults to `false`:
+場合によっては、プロップを属性と同期させておくと便利なことがあります。 この場合、デフォルトで `false`になっているため、`@Prop()`デコレータの`reflect`オプションを `true`に設定できます。
 
 ```tsx
 @Prop({
@@ -140,9 +141,9 @@ In some cases it may be useful to keep a Prop in sync with an attribute. In this
 })
 ```
 
-When a "prop" is set to "reflect", it means that their value will be rendered in the DOM as an HTML attribute:
+「prop」が「reflect」に設定されている場合、それらの値がHTML属性としてDOMにレンダリングされることを意味します。
 
-Take the following component as example:
+次のコンポーネントを例として取り上げます。
 
 ```tsx
 @Component({ tag: 'my-cmp' })
@@ -153,23 +154,23 @@ class Cmp {
 }
 ```
 
-When rendered in the DOM, it will look like:
+DOMでレンダリングすると、次のようになります。
 
 ```markup
 <my-cmp message="Hello" number="42"></my-cmp>
 ```
-Notice that properties set to "reflect" (true) render as attributes, and properties not set to "reflect" do not.
+「reflect」(true)に設定されたプロパティは属性としてレンダリングされ、「reflect」に設定されていないプロパティはレンダリングされないことに注意してください。
 
-While the properties not set to "reflect", such as 'value', are not rendered as attributes, it does not mean it's not there - the `value` property still contains the `The meaning of life...` value as assigned:
+「value」など、「reflect」に設定されていないプロパティは属性としてレンダリングされませんが、属性としてレンダリングされないわけではありません。「value」プロパティには、割り当てられた「人生の意味...」値が含まれています。
 
 ```tsx
 const cmp = document.querySelector('my-cmp');
 console.log(cmp.value); // it prints 'The meaning of life...'
 ```
 
-## Prop default values and validation
+## Propのデフォルト値と検証
 
-Setting a default value on a Prop:
+Propにデフォルト値を設定する。
 
 ```tsx
 import { Prop } from '@stencil/core';
@@ -180,7 +181,7 @@ export class NameElement {
 }
 ```
 
-To do validation of a Prop, you can use the [@Watch()](reactive-data/#watch-decorator) decorator:
+プロップの検証を行うには、[@Watch()](reactive-data/#watch-decorator)デコレータを使用できます。
 
 ```tsx
 import { Prop, Watch } from '@stencil/core';
