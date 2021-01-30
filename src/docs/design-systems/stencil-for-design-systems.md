@@ -6,22 +6,22 @@ contributors:
   - dotNetkow
 ---
 
-# Using Stencil to Build a Design System
+# Stencilを使用してデザインシステムを構築する
 
-There’s a lot that goes into creating amazing UI components. Performance, accessibility, cross-platform capabilities, and user experience (not only of the UI component itself but how it fits into the entire design system) all must be considered.
+すばらしいUIコンポーネントの作成には多くのことが関わっています。 パフォーマンス、アクセシビリティ、クロスプラットフォーム機能、およびユーザーエクスペリエンス（UIコンポーネント自体だけでなく、それがデザインシステム全体にどのように適合するか）をすべて考慮する必要があります。
 
-These aspects take real effort to do well.
+これらの側面は、うまくいくために真の努力を要します。
 
-Enter Stencil, a robust and highly extensible tool for building design systems. With its intentionally minimalistic tooling and API footprint, it’s simple to incorporate into your existing development workflows. It brings substantial performance out of the box by leveraging a tiny runtime. Most importantly, all UI components built with Stencil are based 100% on open web standards.
+デザインシステムを構築するための堅牢で拡張性の高いツールであるStencilをご利用ください。 意図的に最小限のツールとAPIフットプリントを備えているため、既存の開発ワークフローに簡単に組み込むことができます。 小さなランタイムを活用することで、箱から出してすぐにかなりのパフォーマンスを実現します。 最も重要なことは、Stencilで構築されたすべてのUIコンポーネントは、オープンWeb標準に100％基づいていることです。
 
-## The importance of open web standards
-By using the web components standard, supported in all modern browsers, Stencil-built UI components offer many distinct advantages for use in a design system, namely:
+## オープンWeb標準の重要性
+最新のすべてのブラウザーでサポートされているWebコンポーネント標準を使用することにより、Stencilで構築されたUIコンポーネントは、デザインシステムで使用するための多くの明確な利点を提供します。
 
-* They work on any platform or device
-* They work with any front-end framework, so they can easily be used across teams and projects using different tech stacks
-* They facilitate the creation of one company-wide code implementation instead of one per framework or platform
+* 任意のプラットフォームまたはデバイスで動作します
+* 任意のフロントエンドフレームワークで動作するため、さまざまな技術スタックを使用するチームやプロジェクト間で簡単に使用できます
+* フレームワークまたはプラットフォームごとに1つではなく、1つの全社的なコード実装の作成を容易にします
 
-Learn more about why web components are ideal for design systems in [this blog post](https://blog.ionicframework.com/5-reasons-web-components-are-perfect-for-design-systems/).
+[このブログ投稿](https://blog.ionicframework.com/5-reasons-web-components-are-perfect-for-design-systems/)で、Webコンポーネントがデザインシステムに理想的である理由の詳細をご覧ください。
 
-## How to Get Started
-Stencil’s out-the-box features will help you build your own library of universal UI components that will work across platforms, devices, and front-end frameworks. Review the documentation on this site to get started.
+## 始める方法
+Stencilのすぐに使える機能は、プラットフォーム、デバイス、フロントエンドフレームワーク間で機能するユニバーサルUIコンポーネントの独自のライブラリを構築するのに役立ちます。 開始するには、このサイトのドキュメントを確認してください。

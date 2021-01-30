@@ -6,25 +6,25 @@ contributors:
   - dotNetkow
 ---
 
-# What is a Design System?
+# デザインシステムとは？
 
-A Design System consists of UI components and a clearly defined visual style, released as both code implementations and design artifacts. When adopted by all product teams, a more cohesive customer experience emerges.
+デザインシステムは、UIコンポーネントと明確に定義された視覚スタイルで構成され、コード実装とデザインアーティファクトの両方としてリリースされます。 すべての製品チームに採用されると、よりまとまりのあるカスタマーエクスペリエンスが生まれます。
 
-There are several aspects that Design Systems consist of.
+デザインシステムはいくつかの側面で構成されています。
 
-## Components
-A component is a standalone UI element designed to be reusable across many projects. Its goal is to do one thing well while remaining abstract enough to allow for a variety of use cases. Developers can use them as building blocks to build new user experiences. A key benefit quickly becomes clear: not having to worry about the core design and functionality of each component every time they use them. Examples include buttons, links, forms, input fields, and modals.
+## コンポーネント
+コンポーネントは、多くのプロジェクトで再利用できるように設計されたスタンドアロンのUI要素です。 その目標は、さまざまなユースケースを可能にするのに十分な抽象性を保ちながら、1つのことをうまく行うことです。 開発者は、それらをビルディングブロックとして使用して、新しいユーザーエクスペリエンスを構築できます。 主な利点はすぐに明らかになります。各コンポーネントを使用するたびに、コアの設計と機能について心配する必要がないということです。 例には、ボタン、リンク、フォーム、入力フィールド、およびモーダルが含まれます。
 
-## Patterns
-A pattern is an opinionated use of components. Often, multiple components are combined together in order to create a standardized user experience (UX). Their key benefit is intertwined: UX as well as developer experience (DX). After implementing patterns, users will understand the application better and accomplish their tasks faster. When the development team understands the proper way to use components together, software applications become easier to use. Examples include saving data to the system, capturing data from forms, and filtering and analyzing data.
+## パターン
+パターンとは、コンポーネントの意見のある使用法です。多くの場合、標準化されたユーザーエクスペリエンス（UX）を作成するために、複数のコンポーネントが組み合わされます。それらの主な利点は絡み合っています：UXと開発者エクスペリエンス（DX）。パターンを実装した後、ユーザーはアプリケーションをよりよく理解し、タスクをより速く実行できるようになります。開発チームがコンポーネントを一緒に使用する適切な方法を理解すると、ソフトウェアアプリケーションが使いやすくなります。例としては、システムへのデータの保存、フォームからのデータのキャプチャ、データのフィルタリングと分析などがあります。
 
-## Visual Language
-A cohesive company brand strengthens its value in the minds of the customer. In the context of Design Systems, this means defining various aspects of the visual style, including colors, typography, and icons. Defining primary, secondary, and tertiary colors helps an application stand out and is more user-friendly. The right typography ensures users are not distracted while using an app. Finally, icons increase engagement in a product and make it “pop” visually.
+## ビジュアルランゲージ
+一体感のある企業ブランドは、顧客の心の中でその価値を強化します。デザインシステムのコンテキストでは、これは、色、タイポグラフィ、アイコンなど、視覚スタイルのさまざまな側面を定義することを意味します。一次色、二次色、三次色を定義すると、アプリケーションが目立ち、よりユーザーフレンドリーになります。適切なタイポグラフィにより、ユーザーがアプリの使用中に気を散らされることがなくなります。最後に、アイコンは製品へのエンゲージメントを高め、視覚的に「ポップ」にします。
 
-## Design Artifacts and Code Implementations
-By leveraging the components, patterns, and visual language of the Design System, designers can create design artifacts representing UI workflows. Developers refer to the artifacts as guidance for implementing the design with code.
+## デザインアーティファクトとコード実装
+デザインシステムのコンポーネント、パターン、視覚言語を活用することで、デザイナーはUIワークフローを表すデザインアーティファクトを作成できます。開発者は、アーティファクトをコードを使用して設計を実装するためのガイダンスと呼びます。
 
-## The Value of Design Systems
-With a design system in place, its true value is revealed. The entire product development team is freed up to focus on what matters most: solving customer problems and delivering value. Additionally, the avoidance of having teams working in parallel, recreating the same UI elements over and over,   has a real-world project impact in terms of increased time to market and cost savings.
+## デザインシステムの価値
+デザインシステムが整っていると、その真の価値が明らかになります。製品開発チーム全体が解放され、顧客の問題の解決と価値の提供という最も重要なことに集中できます。さらに、チームが並行して作業し、同じUI要素を何度も再作成することを回避することは、市場投入までの時間の増加とコストの節約という点で、実際のプロジェクトに影響を与えます。
 
-Design Systems allow project teams to work better together. Designers define a centralized “source of truth” for software application best practices, referenceable by anyone in a product organization. Developers no longer need to spend time rethinking how to build common app scenarios, such as application search or data table grids. When the business inevitably makes changes to the Design System, they can easily be applied to all projects. The end result is a better product for your users.
+デザインシステムにより、プロジェクトチームはより適切に連携できます。設計者は、ソフトウェアアプリケーションのベストプラクティスの一元化された「真実の源」を定義し、製品組織の誰もが参照できるようにします。開発者は、アプリケーション検索やデータテーブルグリッドなどの一般的なアプリシナリオを構築する方法を再考するために時間を費やす必要がなくなりました。ビジネスが必然的にデザインシステムに変更を加える場合、それらはすべてのプロジェクトに簡単に適用できます。最終結果は、ユーザーにとってより良い製品です。

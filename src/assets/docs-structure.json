@@ -1,6 +1,6 @@
 [
   {
-    "text": "Introduction",
+    "text": "前書き",
     "children": [
       {
         "text": "Why Stencil",
@@ -8,22 +8,22 @@
         "url": "/docs/introduction"
       },
       {
-        "text": "Goals and Objectives",
+        "text": "目標と目的",
         "filePath": "/assets/docs/introduction/goals-and-objectives.json",
         "url": "/docs/goals-and-objectives"
       },
       {
-        "text": "Browser Support",
+        "text": "ブラウザサポート",
         "filePath": "/assets/docs/introduction/browser-support.json",
         "url": "/docs/browser-support"
       },
       {
-        "text": "Getting Started",
+        "text": "はじめに",
         "filePath": "/assets/docs/introduction/getting-started.json",
         "url": "/docs/getting-started"
       },
       {
-        "text": "My First Component",
+        "text": "最初のコンポーネント",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
       },
@@ -33,19 +33,19 @@
         "url": "/docs/faq"
       },
       {
-        "text": "What is a Design System?",
+        "text": "デザインシステムとは",
         "filePath": "/assets/docs/design-systems/what-is-design-system.json",
         "url": "/docs/what-is-design-system"
       },
       {
-        "text": "Stencil for Design Systems",
+        "text": "デザインシステム用StencilJS",
         "filePath": "/assets/docs/design-systems/stencil-for-design-systems.json",
         "url": "/docs/stencil-for-design-systems"
       }
     ]
   },
   {
-    "text": "Components",
+    "text": "コンポーネント",
     "children": [
       {
         "text": "API",
@@ -53,72 +53,72 @@
         "url": "/docs/api"
       },
       {
-        "text": "Component",
+        "text": "コンポーネント",
         "filePath": "/assets/docs/components/component.json",
         "url": "/docs/component"
       },
       {
-        "text": "Lifecycle Methods",
+        "text": "ライフサイクルメソッド",
         "filePath": "/assets/docs/components/component-lifecycle.json",
         "url": "/docs/component-lifecycle"
       },
       {
-        "text": "Properties",
+        "text": "プロパティ",
         "filePath": "/assets/docs/components/properties.json",
         "url": "/docs/properties"
       },
       {
-        "text": "Internal State",
+        "text": "内部状態",
         "filePath": "/assets/docs/components/state.json",
         "url": "/docs/state"
       },
       {
-        "text": "Reactive Data",
+        "text": "リアクティブデータ",
         "filePath": "/assets/docs/components/reactive-data.json",
         "url": "/docs/reactive-data"
       },
       {
-        "text": "Using JSX",
+        "text": "JSXの使用",
         "filePath": "/assets/docs/components/templating-and-jsx.json",
         "url": "/docs/templating-jsx"
       },
       {
-        "text": "Events",
+        "text": "イベント",
         "filePath": "/assets/docs/components/events.json",
         "url": "/docs/events"
       },
       {
-        "text": "Methods",
+        "text": "メソッド",
         "filePath": "/assets/docs/components/methods.json",
         "url": "/docs/methods"
       },
       {
-        "text": "Host Element",
+        "text": "ホスト要素",
         "filePath": "/assets/docs/components/host-element.json",
         "url": "/docs/host-element"
       },
       {
-        "text": "Styling",
+        "text": "スタリing",
         "filePath": "/assets/docs/components/styling.json",
         "url": "/docs/styling"
       },
       {
-        "text": "Functional Components",
+        "text": "機能コンポーネント",
         "filePath": "/assets/docs/components/functional-components.json",
         "url": "/docs/functional-components"
       }
     ]
   },
   {
-    "text": "Framework Integrations",
+    "text": "フレームワークの統合",
     "children": [
       {
-        "text": "Overview",
+        "text": "概要",
         "filePath": "/assets/docs/framework-integration/overview.json",
         "url": "/docs/overview"
       },
       {
-        "text": "Bindings",
+        "text": "バインディング",
         "filePath": "/assets/docs/framework-integration/bindings.json",
         "url": "/docs/framework-bindings"
       },
@@ -150,10 +150,10 @@
     ]
   },
   {
-    "text": "Static Site Generation",
+    "text": "静的サイトの生成",
     "children": [
       {
-        "text": "Overview",
+        "text": "概要",
         "filePath": "/assets/docs/static-site-generation/overview.json",
         "url": "/docs/static-site-generation"
       },
@@ -163,27 +163,27 @@
         "url": "/docs/prerender-config"
       },
       {
-        "text": "Basics",
+        "text": "基本",
         "filePath": "/assets/docs/static-site-generation/basics.json",
         "url": "/docs/static-site-generation-basics"
       },
       {
-        "text": "Debugging",
+        "text": "デバッグ",
         "filePath": "/assets/docs/static-site-generation/debugging.json",
         "url": "/docs/static-site-generation-debugging"
       },
       {
-        "text": "Meta tags",
+        "text": "メタタグ",
         "filePath": "/assets/docs/static-site-generation/meta.json",
         "url": "/docs/static-site-generation-meta-tags"
       },
       {
-        "text": "Server Side Rendering",
+        "text": "サーバーサイドレンダリング",
         "filePath": "/assets/docs/static-site-generation/server-side-rendering-ssr.json",
         "url": "/docs/static-site-generation-server-side-rendering-ssr"
       },
       {
-        "text": "Deployment",
+        "text": "デプロイ",
         "filePath": "/assets/docs/static-site-generation/deployment.json",
         "url": "/docs/static-site-generation-deployment"
       }
@@ -193,17 +193,17 @@
     "text": "Config",
     "children": [
       {
-        "text": "Overview",
+        "text": "概要",
         "filePath": "/assets/docs/config/overview.json",
         "url": "/docs/config"
       },
       {
-        "text": "Dev Server",
+        "text": "開発サーバー",
         "filePath": "/assets/docs/config/dev-server.json",
         "url": "/docs/dev-server"
       },
       {
-        "text": "Plugins",
+        "text": "プラグイン",
         "filePath": "/assets/docs/config/plugins.json",
         "url": "/docs/plugins"
       },
@@ -220,10 +220,10 @@
     ]
   },
   {
-    "text": "Output Targets",
+    "text": "出力ターゲット",
     "children": [
       {
-        "text": "Overview",
+        "text": "概要",
         "filePath": "/assets/docs/output-targets/overview.json",
         "url": "/docs/output-targets"
       },
@@ -265,45 +265,45 @@
     ]
   },
   {
-    "text": "Guides",
+    "text": "ガイド",
     "children": [
       {
-        "text": "Web Workers",
+        "text": "Webワーカー",
         "filePath": "/assets/docs/guides/workers.json",
         "url": "/docs/web-workers"
       },
       {
-        "text": "Hydrate App",
+        "text": "ハイドレートアプリ",
         "filePath": "/assets/docs/guides/hydrate-app.json",
         "url": "/docs/hydrate-app"
       },
       {
-        "text": "Bundling",
+        "text": "バンドリング",
         "filePath": "/assets/docs/guides/module-bundling.json",
         "url": "/docs/module-bundling"
       },
       {
-        "text": "Typed Components",
+        "text": "型付きコンポーネント",
         "filePath": "/assets/docs/guides/typed-components.json",
         "url": "/docs/typed-components"
       },
       {
-        "text": "Forms",
+        "text": "フォーム",
         "filePath": "/assets/docs/guides/forms.json",
         "url": "/docs/forms"
       },
       {
-        "text": "Local Assets",
+        "text": "ローカルアセット",
         "filePath": "/assets/docs/guides/local-assets.json",
         "url": "/docs/local-assets"
       },
       {
-        "text": "Style Guide",
+        "text": "スタリグガイド",
         "filePath": "/assets/docs/guides/style-guide.json",
         "url": "/docs/style-guide"
       },
       {
-        "text": "Service Workers",
+        "text": "サービスワーカー",
         "filePath": "/assets/docs/guides/service-workers.json",
         "url": "/docs/service-workers"
       },
@@ -313,22 +313,22 @@
         "url": "/docs/stencil-store"
       },
       {
-        "text": "Publishing",
+        "text": "公開",
         "filePath": "/assets/docs/guides/publishing.json",
         "url": "/docs/publishing"
       },
       {
-        "text": "Deno (experimental)",
+        "text": "Deno (実験的)",
         "filePath": "/assets/docs/guides/deno.json",
         "url": "/docs/deno"
       }
     ]
   },
   {
-    "text": "Testing",
+    "text": "テスト",
     "children": [
       {
-        "text": "Overview",
+        "text": "概要",
         "filePath": "/assets/docs/testing/overview.json",
         "url": "/docs/testing-overview"
       },
@@ -338,37 +338,37 @@
         "url": "/docs/testing-config"
       },
       {
-        "text": "Unit Testing",
+        "text": "ユニットテスト",
         "filePath": "/assets/docs/testing/unit-testing.json",
         "url": "/docs/unit-testing"
       },
       {
-        "text": "End-to-end Testing",
+        "text": "E2Eテスト",
         "filePath": "/assets/docs/testing/e2e-testing.json",
         "url": "/docs/end-to-end-testing"
       },
       {
-        "text": "Mocking",
+        "text": "モック",
         "filePath": "/assets/docs/testing/mocking.json",
         "url": "/docs/mocking"
       },
       {
-        "text": "Visual Screenshot Diff",
+        "text": "スクリーンショット差分",
         "filePath": "/assets/docs/testing/screenshot-visual-diff.json",
         "url": "/docs/screenshot-visual-diff"
       },
       {
-        "text": "Screenshot Connector",
+        "text": "スクリーンショットコネクター",
         "filePath": "/assets/docs/testing/screenshot-connector.json",
         "url": "/docs/screenshot-connector"
       }
     ]
   },
   {
-    "text": "Core Compiler API",
+    "text": "コアコンパイラAPI",
     "children": [
       {
-        "text": "Compiler API",
+        "text": "コンパイラAPI",
         "filePath": "/assets/docs/core/compiler-api.json",
         "url": "/docs/compiler-api"
       },
@@ -378,25 +378,25 @@
         "url": "/docs/cli-api"
       },
       {
-        "text": "Dev Server API",
+        "text": "開発サーバーAPI",
         "filePath": "/assets/docs/core/dev-server-api.json",
         "url": "/docs/dev-server-api"
       }
     ]
   },
   {
-    "text": "Community",
+    "text": "コミュニティ",
     "children": [
       {
-        "text": "Stencil on Twitter",
+        "text": "StencilのTwitter",
         "filePath": "https://twitter.com/stenciljs"
       },
       {
-        "text": "Stencil on Slack",
+        "text": "StencilのSlack",
         "filePath": "https://stencil-worldwide.herokuapp.com/"
       },
       {
-        "text": "Stencil on GitHub",
+        "text": "StencilのGitHub",
         "filePath": "https://github.com/ionic-team/stencil"
       }
     ]
