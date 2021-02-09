@@ -38,7 +38,7 @@ export class AppRoot {
   private setHistory = ({ history }: { history: RouterHistory }) => {
     if (!this.history) {
       this.history = history;
-      this.history.listen((location: LocationSegments) => {
+      this.history.listen((_location: LocationSegments) => {
         // Hubspot
         // (window as any)._hsq.push(['setPath', location.pathname + location.search ]);
         // (window as any)._hsq.push(['trackPageView']);
