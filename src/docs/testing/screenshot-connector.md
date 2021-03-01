@@ -24,7 +24,7 @@ To write a connector, import the base `ScreenshotConnector` class from stencil a
 ```javascript
 const { ScreenshotConnector } = require('@stencil/core/screenshot');
 
-module.exports = class ScreenshotCustomConnector extends ScreenshotLocalConnector {
+module.exports = class ScreenshotCustomConnector extends ScreenshotConnector {
   ...
 };
 ```
