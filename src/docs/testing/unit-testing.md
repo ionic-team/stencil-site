@@ -46,6 +46,7 @@ The `newSpecPage(options)` method takes an options argument to help write tests:
 |--------|-------------|
 | `components` | An array of components to test. Component classes can be imported into the spec file, then their reference should be added to the `component` array in order to be used throughout the test. *Required* |
 | `html` | The initial HTML used to generate the test. This can be useful to construct a collection of components working together, and assign HTML attributes. This value sets the mocked `document.body.innerHTML`. |
+| `template` | The initial JSX used to generate the test. Use `template` when you want to initialize a component using their properties, instead of their HTML attributes. It will render the specified template (JSX) into `document.body`. |
 | `autoApplyChanges` | By default, any changes to component properties and attributes must call `page.waitForChanges()` in order to test the updates. As an option, `autoApplyChanges` continuously flushes the queue in the background. Defaults to  `false` |
 | `cookie` | Sets the mocked `document.cookie`. |
 | `direction` | Sets the mocked `dir` attribute on `<html>`. |
