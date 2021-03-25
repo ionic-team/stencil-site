@@ -170,7 +170,7 @@ srcDir: 'src'
 
 ## taskQueue
 
-*default: `congestionAsync`*
+*default: `async`*
 
 Sets the task queue used by stencil's runtime. The task queue schedules DOM read and writes
 across the frames to efficiently render and reduce layout thrashing. By default, the
