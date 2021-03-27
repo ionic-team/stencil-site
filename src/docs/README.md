@@ -72,6 +72,7 @@
   * [End-to-end Testing](testing/e2e-testing.md)
   * [Mocking](testing/mocking.md)
   * [Visual Screenshot Diff](testing/screenshot-visual-diff.md)
+  * [Screenshot Connector](testing/screenshot-connector.md)
 * Core Compiler API
   * [Compiler API](core/compiler-api.md)
   * [CLI API](core/cli-api.md)

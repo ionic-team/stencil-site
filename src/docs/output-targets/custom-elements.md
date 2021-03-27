@@ -106,7 +106,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes includes [local assets](/docs/local-assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/local-assets).
 
 ```javascript
 const path = require('path');
@@ -181,7 +181,7 @@ Luckily, both builds can be generated at the same time, using the same source co
 
 ## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/output-targets/dist) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](/docs/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
 Good news is that these are already widely supported for modern web develoment:
 

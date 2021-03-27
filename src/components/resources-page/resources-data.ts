@@ -24,7 +24,13 @@ export const RESOURCES = {
     { title: 'Step by step guide of using stencil component in React',url:'https://github.com/ranjeetsinghbnl/stenciljs-react' },
     { title: 'Step by step guide of using stencil component in Angular',url:'https://github.com/ranjeetsinghbnl/stenciljs-angular' },
     { title: 'Step by step guide of using stencil component in Html',url:'https://github.com/ranjeetsinghbnl/stenciljs-javascript' },
-    { title: 'A showcase of product list and cart components in Stencil js to demonstrate Framework-agnostic approach and implement as a Micro frontend.', url:'https://github.com/ranjeetsinghbnl/product-mgmt-stenciljs' }
+    { title: 'A showcase of product list and cart components in Stencil js to demonstrate Framework-agnostic approach and implement as a Micro frontend.', url:'https://github.com/ranjeetsinghbnl/product-mgmt-stenciljs' },
+    { title: 'RevoGrid "excel like" complex virtual grid with amazing performance', url: 'https://github.com/revolist/revogrid' },
+    { title: 'Alert Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/alert-component' },
+    { title: 'Badge Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/badge-component' },
+    { title: 'Progress Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/progress-component' },
+    { title: 'A small collection of Awesome Stencil UI components', url: 'https://github.com/dlucidone/awesome-ui' },
+    { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' }
   ],
   TOOLS: [
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
@@ -149,5 +155,12 @@ export const RESOURCES = {
       demoUrl: 'https://instamusic-c15fe.firebaseapp.com/',
       sourceUrl: 'https://github.com/jgw96/instamusic',
     },
+    {
+      title: 'RevoGrid',
+      description: 'Excel like complex virtual grid with amazing performance with @stencil/core, @stencil/store',
+      imgPath: 'https://revolist.github.io/revogrid/static/media/logo.1cfff539.svg',
+      demoUrl: 'https://revolist.github.io/revogrid/',
+      sourceUrl: 'https://github.com/revolist/revogrid',
+    }
   ],
 };

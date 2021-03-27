@@ -114,7 +114,7 @@ export const config = {
 }
 ```
 
-> We can set a map of `namedExports` for problematic dependencies, in this case, we are explicitally defining the named `hello` export in the `commonjs-dep` module.
+> We can set a map of `namedExports` for problematic dependencies, in this case, we are explicitly defining the named `hello` export in the `commonjs-dep` module.
 
 For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/rollup-plugin-commonjs).
 
