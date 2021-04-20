@@ -11,6 +11,7 @@ import { ResponsiveContainer } from '@ionic-internal/sites-shared';
 export class AppRoot {
   private scrollY = 0;
   private history?: RouterHistory;
+  private year = new Date().getFullYear();
   elements = [
     'site-header',
     'site-menu',
@@ -114,7 +115,7 @@ export class AppRoot {
             <ResponsiveContainer>
               <div class="footer-col">
                 <app-icon name="logo"/>
-                <p>© 2020 StencilJS.  Released under MIT License</p>
+                <p>© {this.year} StencilJS.  Released under MIT License</p>
                 <ul class="external-links list--unstyled">
                   <li>
                     <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
