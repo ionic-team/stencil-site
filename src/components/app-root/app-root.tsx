@@ -105,6 +105,7 @@ export class AppRoot {
                 <blog-component page={match!.url}></blog-component>
               )}/>
 
+              <stencil-route url="/design-systems" component="ds-page" />
               <stencil-route url="/pwa" component="pwas-page" />
               <stencil-route url="/resources" component="resources-page" />
               <stencil-route component='notfound-page'></stencil-route>
