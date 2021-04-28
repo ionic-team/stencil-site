@@ -40,7 +40,12 @@ export namespace Components {
     }
     interface DsPage {
     }
+    interface GuideCallout {
+    }
     interface HighlightCode {
+    }
+    interface HubspotModal {
+        "active": boolean;
     }
     interface InPageNavigation {
         "currentPageUrl": string;
@@ -155,11 +160,23 @@ declare global {
         prototype: HTMLDsPageElement;
         new (): HTMLDsPageElement;
     };
+    interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {
+    }
+    var HTMLGuideCalloutElement: {
+        prototype: HTMLGuideCalloutElement;
+        new (): HTMLGuideCalloutElement;
+    };
     interface HTMLHighlightCodeElement extends Components.HighlightCode, HTMLStencilElement {
     }
     var HTMLHighlightCodeElement: {
         prototype: HTMLHighlightCodeElement;
         new (): HTMLHighlightCodeElement;
+    };
+    interface HTMLHubspotModalElement extends Components.HubspotModal, HTMLStencilElement {
+    }
+    var HTMLHubspotModalElement: {
+        prototype: HTMLHubspotModalElement;
+        new (): HTMLHubspotModalElement;
     };
     interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {
     }
@@ -257,7 +274,9 @@ declare global {
         "demo-card": HTMLDemoCardElement;
         "doc-component": HTMLDocComponentElement;
         "ds-page": HTMLDsPageElement;
+        "guide-callout": HTMLGuideCalloutElement;
         "highlight-code": HTMLHighlightCodeElement;
+        "hubspot-modal": HTMLHubspotModalElement;
         "in-page-navigation": HTMLInPageNavigationElement;
         "landing-page": HTMLLandingPageElement;
         "lifecycle-chart": HTMLLifecycleChartElement;
@@ -309,7 +328,14 @@ declare namespace LocalJSX {
     }
     interface DsPage {
     }
+    interface GuideCallout {
+        "onToggleModal"?: (event: CustomEvent<any>) => void;
+    }
     interface HighlightCode {
+    }
+    interface HubspotModal {
+        "active"?: boolean;
+        "onToggleModal"?: (event: CustomEvent<any>) => void;
     }
     interface InPageNavigation {
         "currentPageUrl"?: string;
@@ -368,7 +394,9 @@ declare namespace LocalJSX {
         "demo-card": DemoCard;
         "doc-component": DocComponent;
         "ds-page": DsPage;
+        "guide-callout": GuideCallout;
         "highlight-code": HighlightCode;
+        "hubspot-modal": HubspotModal;
         "in-page-navigation": InPageNavigation;
         "landing-page": LandingPage;
         "lifecycle-chart": LifecycleChart;
@@ -400,7 +428,9 @@ declare module "@stencil/core" {
             "demo-card": LocalJSX.DemoCard & JSXBase.HTMLAttributes<HTMLDemoCardElement>;
             "doc-component": LocalJSX.DocComponent & JSXBase.HTMLAttributes<HTMLDocComponentElement>;
             "ds-page": LocalJSX.DsPage & JSXBase.HTMLAttributes<HTMLDsPageElement>;
+            "guide-callout": LocalJSX.GuideCallout & JSXBase.HTMLAttributes<HTMLGuideCalloutElement>;
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
+            "hubspot-modal": LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;
             "in-page-navigation": LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
             "landing-page": LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
             "lifecycle-chart": LocalJSX.LifecycleChart & JSXBase.HTMLAttributes<HTMLLifecycleChartElement>;
