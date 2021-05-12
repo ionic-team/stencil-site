@@ -17,6 +17,7 @@ export class AppRoot {
 
   @State() isLeftSidebarIn: boolean = false;
   @State() isModalOpen: boolean = false;
+  @State() key: number = 0;
 
   @Listen('resize', { target: 'window' })
   handleResize() {
@@ -49,6 +50,10 @@ export class AppRoot {
 
   componentDidLoad() {
     this.isLeftSidebarIn = false;
+  }
+
+  componentDidUpdate() {
+    this.key += 1;
   }
 
   private toggleLeftSidebar = () => {
@@ -88,7 +93,7 @@ export class AppRoot {
       <SiteProviderConsumer.Provider state={siteState}>
         <site-root>
           <platform-bar productName="Stencil" />
-          <announcement-bar />
+          <announcement-bar key={this.key} />
           <site-header />
           <main>
             <stencil-router scrollTopOffset={0}>
