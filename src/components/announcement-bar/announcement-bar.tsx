@@ -14,7 +14,7 @@ export class AnnouncementBar {
   @State() data: any;
 
   constructor() {
-    Build.isServer && this.getData();
+    Build.isBrowser && this.getData();
   }
 
   async getData() {
