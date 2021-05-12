@@ -1,4 +1,4 @@
-import { Component, State, h, Host } from '@stencil/core';
+import { Component, State, h, Build } from '@stencil/core';
 import Prismic from 'prismic-javascript';
 import PrismicDOM from 'prismic-dom';
 import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
@@ -12,16 +12,15 @@ export class AnnouncementBar {
   apiURL = 'https://ionicframeworkcom.prismic.io/api/v2';
 
   @State() data: any;
-  @State() key = 0;
 
-  async componentWillLoad() {
+  constructor() {
+    Build.isServer && this.getData();
+  }
+
+  async getData() {
     const api = await Prismic.getApi(this.apiURL);
     const single = await api.getSingle('announcement_bar');
     this.data = single.data;
-  }
-
-  componentWillUpdate() {
-    this.key += 1;
   }
 
   render() {
@@ -31,23 +30,21 @@ export class AnnouncementBar {
     const assetPath = `/assets/img/components/announcement-bar/bg-${theme}.png`;
 
     return (
-      <Host>
-        <a href={this.data.link.url} target="_blank" class="wrapper" key={this.key}>
-          <nav
-            style={{
-              '--asset-path': `url('${assetPath}')`,
-            }}
-            class={`announcement-bar announcement-bar--${theme}`}
-          >
-            <ResponsiveContainer>
-              <div innerHTML={PrismicDOM.RichText.asHtml(this.data.text)}></div>
-              <a href={this.data.link.url} target="_blank" class="button">
-                {this.data.button_text}
-              </a>
-            </ResponsiveContainer>
-          </nav>
-        </a>
-      </Host>
+      <a href={this.data.link.url} target="_blank" class="wrapper">
+        <nav
+          style={{
+            '--asset-path': `url('${assetPath}')`,
+          }}
+          class={`announcement-bar announcement-bar--${theme}`}
+        >
+          <ResponsiveContainer>
+            <div innerHTML={PrismicDOM.RichText.asHtml(this.data.text)}></div>
+            <a href={this.data.link.url} target="_blank" class="button">
+              {this.data.button_text}
+            </a>
+          </ResponsiveContainer>
+        </nav>
+      </a>
     );
   }
 }
