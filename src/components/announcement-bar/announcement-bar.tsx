@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, State, h, Build } from '@stencil/core';
 import Prismic from 'prismic-javascript';
 import PrismicDOM from 'prismic-dom';
 import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
@@ -14,7 +14,11 @@ export class AnnouncementBar {
 
   @State() data: any;
 
-  async componentWillLoad() {
+  constructor() {
+    Build.isBrowser && this.getAnnouncementBarData();
+  }
+
+  async getAnnouncementBarData() {
     const api = await Prismic.getApi(this.apiURL);
     const single = await api.getSingle('announcement_bar');
     this.data = single.data;
