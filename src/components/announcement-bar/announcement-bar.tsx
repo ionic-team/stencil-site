@@ -14,11 +14,7 @@ export class AnnouncementBar {
 
   @State() data: any;
 
-  constructor() {
-    this.getLatest();
-  }
-
-  async getLatest() {
+  async componentWillLoad() {
     const api = await Prismic.getApi(this.apiURL);
     const single = await api.getSingle('announcement_bar');
     this.data = single.data;
