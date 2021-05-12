@@ -1,6 +1,6 @@
 import { Component, h, State, Host } from '@stencil/core';
 import { RESOURCES } from './resources-data';
-import { ResponsiveContainer } from '@ionic-internal/sites-shared';
+import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
 
 @Component({
   tag: 'resources-page',

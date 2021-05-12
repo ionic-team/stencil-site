@@ -21,7 +21,7 @@ export const config: Config = {
       },
       copy: [
         { src: 'cli.ts.deno', dest: 'cli.ts' },
-        { src: '../node_modules/@ionic-internal/sites-shared/www/assets/fonts', dest: 'assets/fonts' },
+        { src: '../node_modules/@ionic-internal/ionic-ds/www/assets/fonts', dest: 'assets/fonts' },
       ],
     },
     {

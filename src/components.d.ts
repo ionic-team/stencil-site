@@ -295,7 +295,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnnouncementBar {
-        "onToggleModal"?: (event: CustomEvent<any>) => void;
     }
     interface AppBurger {
         "toggleLeftSidebar"?: () => void;
