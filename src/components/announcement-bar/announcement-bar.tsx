@@ -1,4 +1,4 @@
-import { Component, State, h, Build } from '@stencil/core';
+import { Component, State, h, Build, Host } from '@stencil/core';
 import Prismic from 'prismic-javascript';
 import PrismicDOM from 'prismic-dom';
 import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
@@ -7,7 +7,6 @@ import { slugify } from '../../global/common';
 @Component({
   tag: 'announcement-bar',
   styleUrl: 'announcement-bar.css',
-  assetsDirs: ['announcement-bar-assets'],
 })
 export class AnnouncementBar {
   apiURL = 'https://ionicframeworkcom.prismic.io/api/v2';
@@ -31,21 +30,24 @@ export class AnnouncementBar {
     const assetPath = `/assets/img/components/announcement-bar/bg-${theme}.png`;
 
     return (
-      <a href={this.data.link.url} target="_blank" class="wrapper">
-        <nav
-          style={{
-            '--asset-path': `url('${assetPath}')`,
-          }}
-          class={`announcement-bar announcement-bar--${theme}`}
-        >
-          <ResponsiveContainer>
-            <div innerHTML={PrismicDOM.RichText.asHtml(this.data.text)}></div>
-            <a href={this.data.link.url} target="_blank" class="button">
-              {this.data.button_text}
-            </a>
-          </ResponsiveContainer>
-        </nav>
-      </a>
+      <Host
+        style={{
+          '--asset-path': `url('${assetPath}')`,
+        }}
+      >
+        {this.data && (
+          <a href={this.data.link.url} target="_blank" class="wrapper">
+            <nav>
+              <ResponsiveContainer>
+                <div innerHTML={PrismicDOM.RichText.asHtml(this.data.text)}></div>
+                <a href={this.data.link.url} target="_blank" class="button">
+                  {this.data.button_text}
+                </a>
+              </ResponsiveContainer>
+            </nav>
+          </a>
+        )}
+      </Host>
     );
   }
 }
