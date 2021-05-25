@@ -1,22 +1,21 @@
-import { Component, Prop, h, Build } from '@stencil/core'
-import blogStructure from '../../assets/blog/list.json'
+import { Component, Prop, h, Build } from '@stencil/core';
+import blogStructure from '../../assets/blog/list.json';
 import { fileNotFound } from '../../global/site-structure-utils';
-import { MarkdownContent, BlogPostInterface } from '../../global/definitions'
-import { ResponsiveContainer } from '@ionic-internal/sites-shared';
+import { MarkdownContent, BlogPostInterface } from '../../global/definitions';
+import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
 
 @Component({
   tag: 'blog-component',
-  styleUrl: 'blog-component.css'
+  styleUrl: 'blog-component.css',
 })
 export class BlogIndex {
-
   @Prop() page?: string;
   data?: BlogPostInterface;
   content?: MarkdownContent;
 
   async componentWillRender() {
     if (this.page) {
-      const post = this.data = (blogStructure as BlogPostInterface[]).find(blog => blog.url === this.page);
+      const post = (this.data = (blogStructure as BlogPostInterface[]).find(blog => blog.url === this.page));
 
       if (!Build.isBrowser && !post) {
         fileNotFound();
@@ -42,19 +41,34 @@ export class BlogIndex {
       <ResponsiveContainer>
         <div class="share-links">
           <div class="sticky">
-            <a href={`http://twitter.com/home?status=${post.title}`} class="twitter" onClick={ function(this: HTMLAnchorElement, ev){
-              ev.preventDefault();
-              window.open(this.href, 'Share via Twitter', 'width=400, height=300');}}>
+            <a
+              href={`http://twitter.com/home?status=${post.title}`}
+              class="twitter"
+              onClick={function (this: HTMLAnchorElement, ev) {
+                ev.preventDefault();
+                window.open(this.href, 'Share via Twitter', 'width=400, height=300');
+              }}
+            >
               <app-icon name="twitter"></app-icon>
             </a>
-            <a href={`http://www.facebook.com/share.php?u=${window.location.href}&title=${post.title}`} class="facebook" onClick={ function(this: HTMLAnchorElement, ev){
-              ev.preventDefault();
-              window.open(this.href, 'Share via Facebook', 'width=555, height=656');}}>
+            <a
+              href={`http://www.facebook.com/share.php?u=${window.location.href}&title=${post.title}`}
+              class="facebook"
+              onClick={function (this: HTMLAnchorElement, ev) {
+                ev.preventDefault();
+                window.open(this.href, 'Share via Facebook', 'width=555, height=656');
+              }}
+            >
               <app-icon name="facebook"></app-icon>
             </a>
-            <a href={`http://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=${post.title}`} class="linkedin" onClick={ function(this: HTMLAnchorElement, ev){
-              ev.preventDefault();
-              window.open(this.href, 'Share via LinkedIn', 'width=500, height=600');}}>
+            <a
+              href={`http://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=${post.title}`}
+              class="linkedin"
+              onClick={function (this: HTMLAnchorElement, ev) {
+                ev.preventDefault();
+                window.open(this.href, 'Share via LinkedIn', 'width=500, height=600');
+              }}
+            >
               <app-icon name="linkedin"></app-icon>
             </a>
           </div>
@@ -64,9 +78,11 @@ export class BlogIndex {
           <h1>{post.title}</h1>
           <span class="post-meta">
             <a href={`http://twitter.com/${post.twitter}`}>
-              <img alt={`Author: ${post.author}`} class="post-author-image" src={`/assets/img/blog/authors/${post.twitter}.jpg`}/>
+              <img alt={`Author: ${post.author}`} class="post-author-image" src={`/assets/img/blog/authors/${post.twitter}.jpg`} />
             </a>
-            <a class="post-author-name" href={`http://twitter.com/${post.twitter}`}>{post.author}</a>
+            <a class="post-author-name" href={`http://twitter.com/${post.twitter}`}>
+              {post.author}
+            </a>
             <span class="post-date">{post.date}</span>
           </span>
           {toHypertext(content.hypertext)}
@@ -75,7 +91,6 @@ export class BlogIndex {
     );
   }
 }
-
 
 const insertMetaTags = (post: BlogPostInterface) => {
   createOgTag('og:title', `Stencil Blog - ${post.title}`);
@@ -90,7 +105,7 @@ const insertMetaTags = (post: BlogPostInterface) => {
   if (post.twitter) {
     createTwitterTag('twitter:creator', `@${post.twitter}`);
   }
-}
+};
 
 const createOgTag = (type: string, content: string) => {
   let el = document.head.querySelector(`meta[property="${type}"]`);
@@ -118,7 +133,6 @@ const createTwitterTag = (type: string, content: string) => {
   }
 };
 
-
 const localCache = new Map<string, Promise<MarkdownContent>>();
 
 const fetchContent = (path: string) => {
@@ -128,11 +142,11 @@ const fetchContent = (path: string) => {
     localCache.set(path, promise);
   }
   return promise;
-}
+};
 
 const toHypertext = (data: any) => {
   if (!Array.isArray(data)) {
-    console.error('content error, hypertext is undefined')
+    console.error('content error, hypertext is undefined');
     return null;
   }
   const args = [];
@@ -140,7 +154,6 @@ const toHypertext = (data: any) => {
     let arg = data[i];
     if (i === 0 && typeof arg === 'string' && tagBlacklist.includes(arg.toLowerCase().trim())) {
       arg = 'template';
-
     } else if (i === 1 && arg) {
       const attrs: any = {};
       Object.keys(arg).forEach(key => {
@@ -150,7 +163,6 @@ const toHypertext = (data: any) => {
         }
       });
       arg = attrs;
-
     } else if (i > 1) {
       if (Array.isArray(arg)) {
         arg = toHypertext(arg);

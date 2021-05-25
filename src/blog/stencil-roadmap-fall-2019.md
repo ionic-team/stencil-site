@@ -46,7 +46,7 @@ We’re also seeing many areas for improvement to ensure the compiler is easy to
 
 A common challenge with components is not only improving shareability among developers, but also easily sharing all of the static assets a component may use. For example, if a component is using a static image in a development environment, it’s relatively straightforward to point the url directly to the image. However, once you deploy the component(s) to a CDN, or <a href="https://www.npmjs.com/" rel="noopener noreferrer" target="_blank">npm</a>, or an internal network, etc., the direct URL path to that image becomes more of a challenge.
 
-With <a href="https://ionicons.com/" rel="noopener noreferrer" target="_blank">Ionicons</a>, we’re using Stencil’s `getAssetPath()` API, which is where we’ll put more time into documenting and detailing best practices for loading static assets within components.
+With <a href="https://ionic.io/ionicons" target="_blank">Ionicons</a>, we’re using Stencil’s `getAssetPath()` API, which is where we’ll put more time into documenting and detailing best practices for loading static assets within components.
 
 
 ## Web Workers

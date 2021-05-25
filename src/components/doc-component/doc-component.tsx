@@ -2,22 +2,20 @@ import { Component, Host, Prop, ComponentInterface, h, Build } from '@stencil/co
 import siteStructure from '../../assets/docs-structure.json';
 import { findItem, fileNotFound, ItemInfo } from '../../global/site-structure-utils';
 import { MarkdownContent, SiteStructureItem } from '../../global/definitions';
-import { ResponsiveContainer } from '@ionic-internal/sites-shared';
-
+import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
 
 @Component({
   tag: 'doc-component',
-  styleUrl: 'doc-component.css'
+  styleUrl: 'doc-component.css',
 })
 export class DocumentComponent implements ComponentInterface {
-
   @Prop() page?: string;
   data?: ItemInfo;
   content?: MarkdownContent;
 
   async componentWillRender() {
     if (this.page) {
-      const data = this.data = findItem(siteStructure as SiteStructureItem[], this.page);
+      const data = (this.data = findItem(siteStructure as SiteStructureItem[], this.page));
 
       if (!Build.isBrowser && !data.item) {
         fileNotFound();
@@ -47,11 +45,7 @@ export class DocumentComponent implements ComponentInterface {
               <lower-content-nav next={data.nextItem} prev={data.prevItem}></lower-content-nav>
               <contributor-list contributors={content.contributors}></contributor-list>
             </div>
-            <in-page-navigation
-              pageLinks={content.headings}
-              srcUrl={content.srcPath}
-              currentPageUrl={content.url}
-            ></in-page-navigation>
+            <in-page-navigation pageLinks={content.headings} srcUrl={content.srcPath} currentPageUrl={content.url}></in-page-navigation>
           </div>
         </ResponsiveContainer>
       </Host>
@@ -59,11 +53,9 @@ export class DocumentComponent implements ComponentInterface {
   }
 }
 
-
 const localCache = new Map<string, Promise<MarkdownContent>>();
 
 const fetchContent = (path: string) => {
-
   let promise = localCache.get(path);
   if (!promise) {
     console.log('fetchContent', path);
@@ -71,11 +63,11 @@ const fetchContent = (path: string) => {
     localCache.set(path, promise);
   }
   return promise;
-}
+};
 
 const toHypertext = (data: any) => {
   if (!Array.isArray(data)) {
-    console.error('content error, hypertext is undefined')
+    console.error('content error, hypertext is undefined');
     return null;
   }
   const args = [];
@@ -83,7 +75,6 @@ const toHypertext = (data: any) => {
     let arg = data[i];
     if (i === 0 && typeof arg === 'string' && tagBlacklist.includes(arg.toLowerCase().trim())) {
       arg = 'template';
-
     } else if (i === 1 && arg) {
       const attrs: any = {};
       Object.keys(arg).forEach(key => {
@@ -93,7 +84,6 @@ const toHypertext = (data: any) => {
         }
       });
       arg = attrs;
-
     } else if (i > 1) {
       if (Array.isArray(arg)) {
         arg = toHypertext(arg);

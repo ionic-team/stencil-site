@@ -38,7 +38,14 @@ export namespace Components {
     interface DocComponent {
         "page"?: string;
     }
+    interface DsPage {
+    }
+    interface GuideCallout {
+    }
     interface HighlightCode {
+    }
+    interface HubspotModal {
+        "active": boolean;
     }
     interface InPageNavigation {
         "currentPageUrl": string;
@@ -58,6 +65,14 @@ export namespace Components {
     interface NotfoundPage {
     }
     interface PreFooter {
+    }
+    interface ProGlshader {
+        "frag": string;
+        "media"?: string;
+        "ready": boolean;
+        "retina": boolean;
+        "uniforms": any;
+        "vert": string;
     }
     interface PwasPage {
     }
@@ -139,11 +154,29 @@ declare global {
         prototype: HTMLDocComponentElement;
         new (): HTMLDocComponentElement;
     };
+    interface HTMLDsPageElement extends Components.DsPage, HTMLStencilElement {
+    }
+    var HTMLDsPageElement: {
+        prototype: HTMLDsPageElement;
+        new (): HTMLDsPageElement;
+    };
+    interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {
+    }
+    var HTMLGuideCalloutElement: {
+        prototype: HTMLGuideCalloutElement;
+        new (): HTMLGuideCalloutElement;
+    };
     interface HTMLHighlightCodeElement extends Components.HighlightCode, HTMLStencilElement {
     }
     var HTMLHighlightCodeElement: {
         prototype: HTMLHighlightCodeElement;
         new (): HTMLHighlightCodeElement;
+    };
+    interface HTMLHubspotModalElement extends Components.HubspotModal, HTMLStencilElement {
+    }
+    var HTMLHubspotModalElement: {
+        prototype: HTMLHubspotModalElement;
+        new (): HTMLHubspotModalElement;
     };
     interface HTMLInPageNavigationElement extends Components.InPageNavigation, HTMLStencilElement {
     }
@@ -186,6 +219,12 @@ declare global {
     var HTMLPreFooterElement: {
         prototype: HTMLPreFooterElement;
         new (): HTMLPreFooterElement;
+    };
+    interface HTMLProGlshaderElement extends Components.ProGlshader, HTMLStencilElement {
+    }
+    var HTMLProGlshaderElement: {
+        prototype: HTMLProGlshaderElement;
+        new (): HTMLProGlshaderElement;
     };
     interface HTMLPwasPageElement extends Components.PwasPage, HTMLStencilElement {
     }
@@ -234,7 +273,10 @@ declare global {
         "custom-clock": HTMLCustomClockElement;
         "demo-card": HTMLDemoCardElement;
         "doc-component": HTMLDocComponentElement;
+        "ds-page": HTMLDsPageElement;
+        "guide-callout": HTMLGuideCalloutElement;
         "highlight-code": HTMLHighlightCodeElement;
+        "hubspot-modal": HTMLHubspotModalElement;
         "in-page-navigation": HTMLInPageNavigationElement;
         "landing-page": HTMLLandingPageElement;
         "lifecycle-chart": HTMLLifecycleChartElement;
@@ -242,6 +284,7 @@ declare global {
         "newsletter-signup": HTMLNewsletterSignupElement;
         "notfound-page": HTMLNotfoundPageElement;
         "pre-footer": HTMLPreFooterElement;
+        "pro-glshader": HTMLProGlshaderElement;
         "pwas-page": HTMLPwasPageElement;
         "resources-page": HTMLResourcesPageElement;
         "search-bar": HTMLSearchBarElement;
@@ -252,7 +295,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnnouncementBar {
-        "onToggleModal"?: (event: CustomEvent<any>) => void;
     }
     interface AppBurger {
         "toggleLeftSidebar"?: () => void;
@@ -283,7 +325,16 @@ declare namespace LocalJSX {
     interface DocComponent {
         "page"?: string;
     }
+    interface DsPage {
+    }
+    interface GuideCallout {
+        "onToggleModal"?: (event: CustomEvent<any>) => void;
+    }
     interface HighlightCode {
+    }
+    interface HubspotModal {
+        "active"?: boolean;
+        "onToggleModal"?: (event: CustomEvent<any>) => void;
     }
     interface InPageNavigation {
         "currentPageUrl"?: string;
@@ -303,6 +354,14 @@ declare namespace LocalJSX {
     interface NotfoundPage {
     }
     interface PreFooter {
+    }
+    interface ProGlshader {
+        "frag"?: string;
+        "media"?: string;
+        "ready"?: boolean;
+        "retina"?: boolean;
+        "uniforms"?: any;
+        "vert"?: string;
     }
     interface PwasPage {
     }
@@ -333,7 +392,10 @@ declare namespace LocalJSX {
         "custom-clock": CustomClock;
         "demo-card": DemoCard;
         "doc-component": DocComponent;
+        "ds-page": DsPage;
+        "guide-callout": GuideCallout;
         "highlight-code": HighlightCode;
+        "hubspot-modal": HubspotModal;
         "in-page-navigation": InPageNavigation;
         "landing-page": LandingPage;
         "lifecycle-chart": LifecycleChart;
@@ -341,6 +403,7 @@ declare namespace LocalJSX {
         "newsletter-signup": NewsletterSignup;
         "notfound-page": NotfoundPage;
         "pre-footer": PreFooter;
+        "pro-glshader": ProGlshader;
         "pwas-page": PwasPage;
         "resources-page": ResourcesPage;
         "search-bar": SearchBar;
@@ -363,7 +426,10 @@ declare module "@stencil/core" {
             "custom-clock": LocalJSX.CustomClock & JSXBase.HTMLAttributes<HTMLCustomClockElement>;
             "demo-card": LocalJSX.DemoCard & JSXBase.HTMLAttributes<HTMLDemoCardElement>;
             "doc-component": LocalJSX.DocComponent & JSXBase.HTMLAttributes<HTMLDocComponentElement>;
+            "ds-page": LocalJSX.DsPage & JSXBase.HTMLAttributes<HTMLDsPageElement>;
+            "guide-callout": LocalJSX.GuideCallout & JSXBase.HTMLAttributes<HTMLGuideCalloutElement>;
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
+            "hubspot-modal": LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;
             "in-page-navigation": LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
             "landing-page": LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
             "lifecycle-chart": LocalJSX.LifecycleChart & JSXBase.HTMLAttributes<HTMLLifecycleChartElement>;
@@ -371,6 +437,7 @@ declare module "@stencil/core" {
             "newsletter-signup": LocalJSX.NewsletterSignup & JSXBase.HTMLAttributes<HTMLNewsletterSignupElement>;
             "notfound-page": LocalJSX.NotfoundPage & JSXBase.HTMLAttributes<HTMLNotfoundPageElement>;
             "pre-footer": LocalJSX.PreFooter & JSXBase.HTMLAttributes<HTMLPreFooterElement>;
+            "pro-glshader": LocalJSX.ProGlshader & JSXBase.HTMLAttributes<HTMLProGlshaderElement>;
             "pwas-page": LocalJSX.PwasPage & JSXBase.HTMLAttributes<HTMLPwasPageElement>;
             "resources-page": LocalJSX.ResourcesPage & JSXBase.HTMLAttributes<HTMLResourcesPageElement>;
             "search-bar": LocalJSX.SearchBar & JSXBase.HTMLAttributes<HTMLSearchBarElement>;

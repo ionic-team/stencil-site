@@ -1,2 +1,2 @@
 export * from './components';
-import '@ionic-internal/sites-shared';
+import '@ionic-internal/ionic-ds';

@@ -174,7 +174,7 @@ srcDir: 'src'
 
 Sets the task queue used by stencil's runtime. The task queue schedules DOM read and writes
 across the frames to efficiently render and reduce layout thrashing. By default, the
-`congestionAsync` is used. It's recommended to also try each setting to decide which works
+`async` is used. It's recommended to also try each setting to decide which works
 best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
 main thread to periodically lock-up, it's always recommended to try
 [Web Workers](https://stenciljs.com/docs/web-workers) for those tasks.

@@ -1,0 +1,572 @@
+ds-page {
+  display: block;
+}
+
+
+ds-page .container {
+  overflow: hidden;
+}
+
+ds-page .hero {
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 240px;
+  color: #fff;
+}
+
+ds-page .hero .ds-logo {
+  margin: -40px 0 -40px -64px;
+}
+
+ds-page .hero hgroup {
+  text-align: center;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ds-page .shader {
+  background: #0A0A12;
+  position: absolute;
+  top: -150px;
+  left: 0;
+  bottom: 0;
+  height: auto;
+  z-index: -1;
+}
+
+ds-page .hero h1 {
+  color: #fff;
+  font-size: 64px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ds-page .hero p {
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #E1E1F2;
+  margin: 24px auto 30px;
+  max-width: 440px;
+}
+
+ds-page .hero a {
+  transition: color 0.2s;
+  color: #8583FF;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+ds-page .hero a:hover {
+  color: #9B99FD;
+}
+
+ds-page .hero a svg {
+  transition: transform 0.2s, fill 0.2s;
+  fill: #8583FF;
+  transform: translate(1px, 1px);
+}
+
+ds-page .hero a:hover svg {
+  transform: translate(1px, 3px);
+  fill: #9B99FD;
+}
+
+ds-page .measure-lg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ds-page .content {
+  padding: 200px 0;
+}
+
+ds-page .content--gradient-bg {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+}
+
+ds-page .content--border-top {
+  border-top: 1px solid #E9EDF3;
+}
+
+ds-page .content hgroup {
+  max-width: 612px;
+  margin-bottom: 36px;
+}
+
+ds-page h2 {
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+ds-page h3 {
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+ds-page h4 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+  text-transform: none;
+  color: #000;
+}
+
+ds-page .content hgroup p {
+  font-size: 24px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+ds-page .faq-grid {
+  columns: 2;
+  column-gap: 112px;
+}
+
+ds-page .faq-grid > div {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+ds-page .faq-grid p {
+  font-size: 16px;
+  line-height: 27px;
+  color: #626175;
+}
+
+ds-page table {
+  margin-top: 78px;
+}
+
+ds-page table,
+ds-page table tr,
+ds-page table tr:nth-child(2n) {
+  background-color: transparent
+}
+
+ds-page table td,
+ds-page table th {
+  padding: 14px 0;
+  border: 0;
+  width: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 27px;
+  text-align: left;
+}
+
+ds-page table th {
+  padding-bottom: 24px;
+  flex-direction: column;
+}
+
+ds-page table .icon-cell {
+  display: flex;
+}
+
+ds-page table td app-icon .icon-checkmark {
+  fill: #000;
+  margin-right: 8px;
+}
+
+ds-page table tr {
+  border-top: 0;
+}
+
+ds-page table tbody tr:not(:last-child) td:not(.empty) {
+  border-bottom: 1px solid #DEE3EA;
+}
+
+ds-page table th p {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  color: #2F3A48;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+ds-page tbody+tbody td {
+  padding-top: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  ds-page .hero {
+    padding-bottom: 132px;
+  }
+
+  ds-page .hero h1 {
+      font-size: 56px;
+  }
+
+  ds-page .content {
+    padding: 148px 0;
+  }
+
+  ds-page h2 {
+    font-size: 42px;
+  }
+
+  ds-page h3 {
+    font-size: 28px;
+  }
+
+  ds-page table {
+    min-width: 532px;
+  }
+
+  ds-page table th p {
+    font-size: 20px;
+  }
+
+  ds-page table td,
+  ds-page table th {
+    font-size: 15px;
+  }
+
+  ds-page .faq-grid {
+    columns: 1;
+    column-gap: 0;
+  }
+
+  ds-page .faq-grid > div {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  ds-page .features {
+    overflow-x: scroll;
+    margin-right: -24px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  ds-page .hero h1 {
+      font-size: 42px;
+  }
+
+  ds-page .hero p {
+    font-size: 22px;
+  }
+
+  ds-page .content {
+    padding: 100px 0;
+  }
+
+  ds-page h2 {
+    font-size: 34px;
+  }
+
+  ds-page .content hgroup p {
+    font-size: 20px;
+  }
+
+  ds-page table {
+    margin-top: 24px;
+  }
+}
+
+.hs-form .actions {
+  text-align: center;
+}
+
+.hs-form .hs-button {
+  cursor: pointer;
+}
+
+.hubspot-override .hs-form label {
+  font-weight: 600;
+  font-size: 14px;
+  display: block;
+  padding-bottom: 2px;
+}
+
+.hubspot-override .hs-form, .hs-form fieldset {
+  max-width: 100% !important;
+}
+
+.hubspot-override .hs-form .hs-form-field {
+  margin-top: 22px;
+}
+
+.hubspot-override .hs-form label {
+  margin-bottom: 3px;
+}
+
+.hubspot-override .hs-form .hs-form-required {
+  display: inline;
+  color: #f45454;
+  margin-left: 4px;
+}
+
+.hubspot-override .hs-form .hs-richtext {
+  margin-top: 8px;
+}
+
+.hubspot-override .hs-form .hs-input, .hubspot-override .hs-form input.hs-input {
+  transition: border 0.3s;
+  font-weight: 500;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ced6e3;
+  line-height: 1.39286;
+  border-radius: 4px;
+  padding: 11px 15px;
+  font-size: 15px;
+  margin-bottom: 0;
+  color: #505863;
+}
+
+.hubspot-override .hs-form input.hs-input[type="number"] {
+  float: none;
+}
+
+.hs-form .hs-input:hover, .hs-form .hs-input:focus, .hs-form .hs-input:active,
+.hs-form input.hs-input:hover,
+.hs-form input.hs-input:focus,
+.hs-form input.hs-input:active,
+.hs-form select.hs-input:hover,
+.hs-form select.hs-input:focus,
+.hs-form select.hs-input:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.hubspot-override .hs-form input.hs-input[type="text"], .hubspot-override .hs-form input.hs-input[type="email"], .hubspot-override .hs-form input.hs-input[type="tel"] {
+  height: auto;
+  width: 100%;
+  float: none;
+}
+
+.hubspot-override .hs-form input.hs-input[type="text"]:focus, .hubspot-override .hs-form input.hs-input[type="email"]:focus, .hubspot-override .hs-form input.hs-input[type="tel"]:focus, .hubspot-override .hs-form textarea:focus {
+  border-color: var(--color-dodger-blue);
+}
+
+.hubspot-override .hs-form input.hs-input[type="radio"], .hubspot-override .hs-form input.hs-input[type="checkbox"] {
+  height: auto;
+  margin-right: 8px;
+}
+
+.hubspot-override .hs-form .hs-form-booleancheckbox-display {
+  display: flex;
+}
+
+.hubspot-override .hs-form select.hs-input {
+  height: 44px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+.hubspot-override .hs-form fieldset.form-columns-1 .hs-input {
+  width: 100%;
+}
+
+.hubspot-override .hs-form form fieldset.form-columns-2 .input {
+  margin: 0;
+}
+
+.hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field {
+  padding: 0 10px;
+}
+
+.hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field:first-child {
+  padding-left: 0;
+}
+
+.hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field:last-child {
+  padding-right: 0;
+}
+
+.hubspot-override .hs-form .inputs-list, .hubspot-override .hs-form .hs-error-msgs {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hubspot-override .hs-form .inputs-list.multi-container {
+  overflow: hidden;
+}
+
+.hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child, .hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child~li {
+  width: 50%;
+  float: left;
+  padding-right: 11px;
+}
+
+.hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child~li:nth-child(even) {
+  padding-right: 0;
+  padding-left: 11px;
+}
+
+.hubspot-override .hs-form .hs-form-checkbox-display {
+  margin-top: 4px;
+  display: flex;
+}
+
+.hubspot-override .hs-form .hs-form-checkbox-display .hs-input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.hubspot-override .hs-form .hs-form-checkbox-display span {
+  font-size: 15px;
+  color: #505863;
+}
+
+.hubspot-override .hs-form .hs-error-msgs {
+  padding: 5px 0 0;
+  font-size: 11px;
+  color: #f45454;
+}
+
+.hubspot-override .hs-form .hs_submit {
+  margin-top: 30px;
+}
+
+.hubspot-override .hs-form .hs_submit input.hs-button {
+  transition: all .15s ease;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  box-shadow: var(--button-shadow);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  ;
+  background: var(--color-dodger-blue);
+  color: var(--color-white);
+}
+
+.hubspot-override .hs-form .hs_submit input.hs-button:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--button-shadow-hover);
+}
+
+@media (max-width: 768px) {
+  .hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field {
+    width: 100%;
+    float: none;
+    padding: 0 !important;
+  }
+
+  .hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field+.hs-form-field {
+    margin-top: 24px;
+  }
+
+  .hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child, .hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child~li {
+    width: 100%;
+    float: none;
+    padding-right: 0;
+  }
+
+  .hubspot-override .hs-form .inputs-list.multi-container li:nth-last-child(n+6):first-child~li:nth-child(even) {
+    padding-left: 0;
+  }
+
+  .hubspot-override .hs-form .hs_submit input.hs-button {
+    width: 100%;
+  }
+}
+
+.hubspot-override .submitted-message {
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-dodger-blue);
+  max-width: 410px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.hubspot-override .hs-form label:not(.hs-form-booleancheckbox-display) {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.hubspot-override .hs-form .hs-form-booleancheckbox-display {
+  font-size: 15px;
+}
+
+
+.hubspot-override .hs-form .hs-richtext p span,
+.hubspot-override .hs-form .hs-richtext p a {
+  font-size: 15px;
+}
+
+.hubspot-override .hs-form .hs-input,
+.hubspot-override .hs-form input.hs-input {
+  padding: 16px 20px 18px;
+  font-size: 18px;
+}
+
+.hubspot-override .hs-form select.hs-input {
+  text-indent: 10px;
+  height: 60px;
+}
+
+@-moz-document url-prefix() {
+  .hubspot-override .hs-form select.hs-input {
+    text-indent: 0;
+  }
+}
+
+.hubspot-override .hs-form .hs-error-msgs label {
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field {
+  padding: 0 20px;
+}
+
+.hubspot-override .hs-form .hs_submit {
+  text-align: center;
+  padding-top: 18px;
+}
+
+.hubspot-override .hs-form .hs_submit input.hs-button {
+  padding: 22px 27px 24px;
+  border-radius: 6px;
+}
+
+@media (max-width: $screen-sm) {
+  .hubspot-override .hs-form fieldset.form-columns-2 .hs-form-field {
+    padding: 0;
+  }
+}
