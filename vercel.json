@@ -89,6 +89,16 @@
             "source": "/docs/docs-auto-generation",
             "destination": "/docs/docs-readme",
             "statusCode": 301
+        },
+        {
+            "source": "/design-systems",
+            "destination": "http://ionic.io/products/stencil",
+            "statusCode": 301
+        },
+        {
+            "source": "/enterprise",
+            "destination": "http://ionic.io/products/stencil",
+            "statusCode": 301
         }
     ]
 }

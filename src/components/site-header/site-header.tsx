@@ -62,14 +62,9 @@ export class SiteHeader {
         </stencil-route-link>
 
         <div class="header-menu">
-          <stencil-route-link
-            url="/design-systems"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
-            DS
-          </stencil-route-link>
+          <a href="https://ionic.io/products/stencil">
+            Enterprise
+          </a>
           <stencil-route-link
             urlMatch="/docs"
             url="/docs/introduction"

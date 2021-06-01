@@ -16,12 +16,13 @@ site-header .ui-container .burger-menu {
   display:none;
 }
 
-site-header .ui-container stencil-route-link {
+site-header .ui-container stencil-route-link,
+site-header .ui-container .header-menu > a {
   display: flex;
   align-items: center;
 }
 
-site-header .ui-container stencil-route-link a app-icon{
+site-header .ui-container a app-icon {
   display: flex;
   align-items: center;
 }
@@ -47,7 +48,7 @@ body.dark site-header .icon-logo {
   }
 }
 
-.header-menu stencil-route-link a {
+.header-menu a {
   position:relative;
   font-size: 14px;
   vertical-align: top;
@@ -59,11 +60,12 @@ body.dark site-header .icon-logo {
 }
 
 .header-menu stencil-route-link + stencil-route-link,
+.header-menu a + stencil-route-link,
 .header-menu stencil-route-link + .external-links  {
   margin-left: 36px;
 }
 
-.header-menu stencil-route-link a::after {
+.header-menu a::after {
   content: '';
   transition: opacity .3s;
   position:absolute;
@@ -74,35 +76,35 @@ body.dark site-header .icon-logo {
   background: var(--color-whisper);
   opacity: 0;
 }
-.header-menu stencil-route-link a:hover::after {
+.header-menu a:hover::after {
   opacity: 1;
   transition: opacity .3s;
 }
-.header-menu stencil-route-link a.link-active::after {
+.header-menu a.link-active::after {
   opacity: 1;
   transition: opacity .3s;
 }
 
-.header-menu stencil-route-link a.link-active {
+.header-menu a.link-active {
   color: var(--color-dodger-blue);
   fill: var(--color-dodger-blue);
 }
 
 
 
-body.dark .header-menu stencil-route-link a {
+body.dark .header-menu a {
   color: #DCDCEE;
 }
 
-body.dark .header-menu stencil-route-link a:hover {
+body.dark .header-menu a:hover {
   color: #fff;
 }
 
-body.dark .header-menu stencil-route-link a.link-active:hover {
+body.dark .header-menu a.link-active:hover {
   border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
-body.dark .header-menu stencil-route-link a {
+body.dark .header-menu a {
   position: relative;
   color: #CDFCFF;
   text-shadow: 0px 0px 8px rgba(112, 127, 255, 0.75), 0px 0px 40px #8790FF, 0px 0px 16px #2637FF;
@@ -219,25 +221,27 @@ body.dark .header-menu .link--external:hover svg {
     display: none;
   }
   .header-menu stencil-route-link + stencil-route-link,
+  .header-menu a + stencil-route-link, 
   .header-menu stencil-route-link + a {
     margin-left: 0px;
     margin-top: 38px;
   }
-  .header-menu stencil-route-link a {
+  .header-menu a {
     font-size: 24px;
     color: rgba(235, 235, 247, 0.7);
     fill: rgba(235, 235, 247, 0.7);
   }
-  .header-menu stencil-route-link a:hover,
-  .header-menu stencil-route-link a.link-active {
+  .header-menu a:hover,
+  .header-menu a.link-active {
     border-bottom-color: rgba(235, 235, 247, 0.4);
   }
-  .header-menu stencil-route-link a.link-active,
-  .header-menu stencil-route-link a.link-active:hover {
+  .header-menu a.link-active,
+  .header-menu a.link-active:hover {
     color: var(--color-white);
     fill: var(--color-white);
   }
   .header-menu stencil-route-link,
+  .header-menu a,
   .header-menu .external-links {
     transition: transform 0.4s;
     transform: translateY(8px);
