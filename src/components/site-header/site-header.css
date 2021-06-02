@@ -61,7 +61,9 @@ body.dark site-header .icon-logo {
 
 .header-menu stencil-route-link + stencil-route-link,
 .header-menu a + stencil-route-link,
-.header-menu stencil-route-link + .external-links  {
+.header-menu stencil-route-link + a,
+.header-menu stencil-route-link + .external-links,
+.header-menu a + .external-links {
   margin-left: 36px;
 }
 
@@ -221,7 +223,7 @@ body.dark .header-menu .link--external:hover svg {
     display: none;
   }
   .header-menu stencil-route-link + stencil-route-link,
-  .header-menu a + stencil-route-link, 
+  .header-menu a + stencil-route-link,
   .header-menu stencil-route-link + a {
     margin-left: 0px;
     margin-top: 38px;
@@ -257,7 +259,8 @@ body.dark .header-menu .link--external:hover svg {
     height: 24px;
   }
 
-  .header-menu stencil-route-link + .external-links {
+  .header-menu stencil-route-link + .external-links,
+  .header-menu a + .external-links {
     margin-left: 0;
     margin-top: 48px;
   }
@@ -274,6 +277,7 @@ body.dark .header-menu .link--external:hover svg {
   }
 
   .show-mobile-menu .header-menu stencil-route-link,
+  .show-mobile-menu .header-menu a,
   .show-mobile-menu .header-menu .external-links {
     transform: translateY(0);
   }

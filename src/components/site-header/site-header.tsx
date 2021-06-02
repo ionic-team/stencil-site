@@ -62,9 +62,6 @@ export class SiteHeader {
         </stencil-route-link>
 
         <div class="header-menu">
-          <a href="https://ionic.io/products/stencil">
-            Enterprise
-          </a>
           <stencil-route-link
             urlMatch="/docs"
             url="/docs/introduction"
@@ -91,6 +88,9 @@ export class SiteHeader {
           >
             Blog
           </stencil-route-link>
+          <a href="https://ionic.io/products/stencil">
+            Enterprise
+          </a>
 
           <ul class="external-links list--unstyled">
             <li>
