@@ -27,6 +27,10 @@ export class LandingPage {
     return (
       <div>
         <ResponsiveContainer class="hero">
+          <feature-pill link="https://ionic.io/resources/webinars/stencil-enterprise-design-systems-at-scale">
+            <strong>Register now</strong> • 
+            Stencil Enterprise Webinar: Design Systems at Scale
+          </feature-pill>
           <hgroup>
             <h1>Build. Distribute. Adopt. </h1>
             <p>

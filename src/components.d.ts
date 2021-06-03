@@ -40,6 +40,9 @@ export namespace Components {
     }
     interface DsPage {
     }
+    interface FeaturePill {
+        "link": string;
+    }
     interface GuideCallout {
     }
     interface HighlightCode {
@@ -160,6 +163,12 @@ declare global {
         prototype: HTMLDsPageElement;
         new (): HTMLDsPageElement;
     };
+    interface HTMLFeaturePillElement extends Components.FeaturePill, HTMLStencilElement {
+    }
+    var HTMLFeaturePillElement: {
+        prototype: HTMLFeaturePillElement;
+        new (): HTMLFeaturePillElement;
+    };
     interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {
     }
     var HTMLGuideCalloutElement: {
@@ -274,6 +283,7 @@ declare global {
         "demo-card": HTMLDemoCardElement;
         "doc-component": HTMLDocComponentElement;
         "ds-page": HTMLDsPageElement;
+        "feature-pill": HTMLFeaturePillElement;
         "guide-callout": HTMLGuideCalloutElement;
         "highlight-code": HTMLHighlightCodeElement;
         "hubspot-modal": HTMLHubspotModalElement;
@@ -326,6 +336,9 @@ declare namespace LocalJSX {
         "page"?: string;
     }
     interface DsPage {
+    }
+    interface FeaturePill {
+        "link"?: string;
     }
     interface GuideCallout {
         "onToggleModal"?: (event: CustomEvent<any>) => void;
@@ -393,6 +406,7 @@ declare namespace LocalJSX {
         "demo-card": DemoCard;
         "doc-component": DocComponent;
         "ds-page": DsPage;
+        "feature-pill": FeaturePill;
         "guide-callout": GuideCallout;
         "highlight-code": HighlightCode;
         "hubspot-modal": HubspotModal;
@@ -427,6 +441,7 @@ declare module "@stencil/core" {
             "demo-card": LocalJSX.DemoCard & JSXBase.HTMLAttributes<HTMLDemoCardElement>;
             "doc-component": LocalJSX.DocComponent & JSXBase.HTMLAttributes<HTMLDocComponentElement>;
             "ds-page": LocalJSX.DsPage & JSXBase.HTMLAttributes<HTMLDsPageElement>;
+            "feature-pill": LocalJSX.FeaturePill & JSXBase.HTMLAttributes<HTMLFeaturePillElement>;
             "guide-callout": LocalJSX.GuideCallout & JSXBase.HTMLAttributes<HTMLGuideCalloutElement>;
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
             "hubspot-modal": LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;
