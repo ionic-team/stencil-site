@@ -87,7 +87,7 @@ export class AppRoot {
     return (
       <SiteProviderConsumer.Provider state={siteState}>
         <site-root>
-          <platform-bar productName="Stencil" />
+          {/* <platform-bar productName="Stencil" /> */}
           <announcement-bar />
           <site-header />
           <main>
