@@ -52,11 +52,11 @@ body.dark site-header .icon-logo {
   position:relative;
   font-size: 14px;
   vertical-align: top;
-  color: var(--color-gunpowder);
+  color: var(--color-gandalf);
   text-decoration: none;
   font-weight: 400;
   letter-spacing: -0.02em;
-  fill: var(--color-gunpowder);
+  fill: var(--color-gandalf);
 }
 
 .header-menu stencil-route-link + stencil-route-link,
@@ -128,14 +128,14 @@ body.dark .header-menu a {
 }
 .header-menu .link--external:hover {
   border-bottom: none;
-  color: var(--color-gunpowder);
+  color: var(--color-gandalf);
 }
 .header-menu .link--external svg {
   transition: fill 0.2s;
-  fill: #A3A3B0;
+  fill: var(--color-concrete);
 }
 .header-menu .link--external:hover svg {
-  fill: var(--color-gunpowder);
+  fill: var(--color-gandalf);
 }
 
 body.dark .header-menu .link--external:hover svg {

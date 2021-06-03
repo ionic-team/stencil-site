@@ -10,18 +10,18 @@ landing-page .hero {
 }
 
 landing-page .hero hgroup {
-  max-width: 620px;
+  max-width: 564px;
   position: relative;
   z-index: 2;
 }
 
 landing-page .hero hgroup h1 {
-  font-size: 56px;
-  line-height: 54px;
-  margin-bottom: 20px;
+  font-size: 64px;
+  line-height: 100%;
+  margin-bottom: 32px;
   margin-top: 64px;
-  letter-spacing: -0.018em;
-  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 landing-page .hero hgroup p {
@@ -29,7 +29,7 @@ landing-page .hero hgroup p {
   line-height: 1.6;
   font-weight: 400;
   color: var(--color-dolphin);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .btn-get-started,
@@ -39,14 +39,14 @@ landing-page .hero hgroup p {
   color: inherit;
   display: inline-block;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: 100px;
   color: white;
   background: rgb(76, 72, 255);
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.56px;
-  box-shadow: rgba(2, 8, 20, 0.1) 0px 2px 4px 0px, rgba(2, 8, 20, 0.08) 0px 1px 2px 0px;
+  /* box-shadow: rgba(2, 8, 20, 0.1) 0px 2px 4px 0px, rgba(2, 8, 20, 0.08) 0px 1px 2px 0px; */
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -66,7 +66,7 @@ landing-page .hero hgroup p {
 }
 
 .btn-why-stencil {
-  background: white;
+  background: var(--color-purplewinkle);
   color: rgb(76, 72, 255);
 }
 
@@ -79,7 +79,7 @@ landing-page .hero .landing-page__bg {
   z-index: 1;
   top: 50%;
   left: 50%;
-  transform: translate(-80px, -50%);
+  transform: translate(-64px, -43%);
   margin-top: 20px;
 }
 
