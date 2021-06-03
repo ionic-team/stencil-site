@@ -3,6 +3,7 @@ feature-pill a {
   background: linear-gradient(89.97deg, #5353FF 0.03%, #FF4A55 99.14%);
   border-radius: 200px;
   color: white;
+  font-size: 12px;
   padding: 6px 12px 8px;
   display: inline-block;
   cursor: pointer;
