@@ -87,6 +87,17 @@ body.dark site-header .icon-logo {
   transition: opacity .3s;
 }
 
+
+.header-menu docs-dropdown a::after {
+  content: none;
+}
+.header-menu docs-dropdown a:hover::after {
+  content: none;
+}
+.header-menu docs-dropdown a.link-active::after {
+  content: none;
+}
+
 .header-menu a.link-active {
   color: var(--color-dodger-blue);
   fill: var(--color-dodger-blue);
