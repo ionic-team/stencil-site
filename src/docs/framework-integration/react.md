@@ -73,7 +73,7 @@ Stencil's React bindings fix the main issues with React's web component support,
 
 ### Getting Started
 
-If you're going to compile your Stencil components into multiple framework libraries, it's recommended to create a monorepo project that contains the Stencil library alongside each framework library for easier maintainability.
+If you're going to compile your Stencil components into multiple framework libraries, it's recommended to create a monorepo project that contains the Stencil library alongside each framework library for easier maintainability. For a complete reference project, see [stencil-ds-plugins-demo](https://github.com/ionic-team/stencil-ds-plugins-demo).
 
 In this example, `component-library` is a Stencil library and `component-library-react` is the React library where Stencil-based React components will be generated.
 
