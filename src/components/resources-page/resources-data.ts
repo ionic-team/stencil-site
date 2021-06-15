@@ -4,6 +4,7 @@ export const RESOURCES = {
     { title: 'Official Stencil Component Starter Project', url: 'https://github.com/ionic-team/stencil-component-starter' },
     { title: 'Angular Stencil: use Stencil-built components in Angular', url: 'https://github.com/seveves/angular-stencil' },
     { title: 'Stencil + Firebase + Stencil Store Web App Starter Project', url: 'https://github.com/ranjeetsinghbnl/stencil-firebase' },
+    { title: 'Stencil CodePen Starter', url: 'https://codepen.io/john_jenkins/pen/PopXOyR?editors=1010' },
   ],
   COMPONENTS: [
     { title: 'Animatable components with Web Animations API', url: 'https://proyecto26.com/animatable-component/' },
