@@ -393,7 +393,6 @@ landing-page .video-thumbnail:hover svg circle {
 @media screen and (max-width: 768px) {
   landing-page .hero {
     text-align: center;
-    margin-top: 64px;
     margin-bottom: 140px;
   }
 
