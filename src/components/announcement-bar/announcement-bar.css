@@ -2,8 +2,10 @@ announcement-bar {
   display: block;
   margin-inline-start: auto;
   margin-inline-end: auto;
+}
 
-  @media (max-width: 48em) {
+@media (max-width: 48em) {
+  announcement-bar {
     display: none;
   }
 }
