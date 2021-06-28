@@ -87,8 +87,8 @@ export class AppRoot {
     return (
       <SiteProviderConsumer.Provider state={siteState}>
         <site-root>
-          {/* <platform-bar productName="Stencil" /> */}
-          <announcement-bar />
+          <platform-bar productName="Stencil" />
+          {/* <announcement-bar /> */}
           <site-header />
           <main>
             <stencil-router scrollTopOffset={0}>
