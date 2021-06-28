@@ -18,18 +18,24 @@ When a component updates because of a state change (props or state change), the 
 
 ## Watch Decorator
 
-When a user updates a property, `Watch` will fire the method it's attached to, and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props or handling side effects. The `Watch` decorator does not fire when a component initially loads.
+When a user updates a property, `Watch` will fire the method it's attached to, and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props, states or handling side effects. The `Watch` decorator does not fire when a component initially loads.
 
 
 ```tsx
-import { Prop, Watch } from '@stencil/core';
+import { Prop, State, Watch } from '@stencil/core';
 
 export class LoadingIndicator {
   @Prop() activated: boolean;
+  @State() busy: boolean;
 
   @Watch('activated')
-  watchHandler(newValue: boolean, oldValue: boolean) {
+  watchPropHandler(newValue: boolean, oldValue: boolean) {
     console.log('The new value of activated is: ', newValue);
+  }
+  
+  @Watch('busy')
+  watchStateHandler(newValue: boolean, oldValue: boolean) {
+    console.log('The new value of busy is: ', newValue);
   }
 }
 ```
