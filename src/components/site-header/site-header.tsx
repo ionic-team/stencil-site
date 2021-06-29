@@ -80,15 +80,11 @@ export class SiteHeader {
           >
             Resources
           </stencil-route-link>
-          <stencil-route-link
-            url="/blog"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
+          <a href="https://ionicframework.com/blog/tag/stencil/" aria-label="Blog" class="external-links">
             Blog
-          </stencil-route-link>
-          <a href="https://ionic.io/products/stencil">
+          </a>
+
+          <a href="https://ionic.io/products/stencil" class="external-links">
             Enterprise
           </a>
 
