@@ -111,7 +111,7 @@ export class AppRoot {
               <ResponsiveContainer>
                 <div class="footer-col">
                   <app-icon name="logo" />
-                  <p>© 2020 StencilJS. Released under MIT License</p>
+                  <p>© {(new Date().getFullYear())} StencilJS. Released under MIT License</p>
                   <ul class="external-links list--unstyled">
                     <li>
                       <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
