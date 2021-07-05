@@ -8,7 +8,7 @@ contributors:
 
 # Working with host elements
 
-Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the times, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
+Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
 
 ## `<Host>`
@@ -41,7 +41,7 @@ If `this.open === true`, it will render:
 <todo-list class="todo-list is-open" aria-hidden="false"></todo-list>
 ```
 
-similary, if `this.open === false`:
+similarly, if `this.open === false`:
 
 ```tsx
 <todo-list class="todo-list" aria-hidden="true"></todo-list>

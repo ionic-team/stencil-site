@@ -28,7 +28,7 @@ By default, prerendering will start by rendering the homepage, find links within
 
 Next, you can use the `entryUrls` config to provide an array of paths to prerender, rather than starting at the homepage.
 
-Additionally, console logs that are printed within the runtime are surpressed while prerendering (otherwise the terminal would be overloaded with logs). By setting `runtimeLogging: true`, the runtime console logs will be printed in the terminal. Below is an example setup for prerender debugging:
+Additionally, console logs that are printed within the runtime are suppressed while prerendering (otherwise the terminal would be overloaded with logs). By setting `runtimeLogging: true`, the runtime console logs will be printed in the terminal. Below is an example setup for prerender debugging:
 
 ```tsx
 // prerender.config.ts
