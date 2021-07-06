@@ -61,7 +61,7 @@ export const config: PrerenderConfig = {
 ## Individual Page Hydrate Options
 
 Beyond settings for the entire prerendering process with `prerender.config.ts`, you can also
-set individual hydrate options per each page. The `hydrateOptions(url)` hook can be used to futher configure each page. Below is an example of the prerender config with the `hydrateOptions()` hook, which returns options for each page.
+set individual hydrate options per each page. The `hydrateOptions(url)` hook can be used to further configure each page. Below is an example of the prerender config with the `hydrateOptions()` hook, which returns options for each page.
 
 ```tsx
 import { PrerenderConfig } from '@stencil/core';
@@ -79,7 +79,7 @@ export const config: PrerenderConfig = {
 | Option | Description | Default |
 |--------|-------------|---------|
 | `addModulePreloads` | Adds `<link rel="modulepreload">` for modules that will eventually be requested. | `true` |
-| `approximateLineWidth` | Sets an approximate line width the HTML should attempt to stay within. Note that this is "approximate", in that HTML may often not be able to be split at an exact line width. Additionally, new lines created is where HTML naturally already has whitespce, such as before an attribute or spaces between words. | `100` |
+| `approximateLineWidth` | Sets an approximate line width the HTML should attempt to stay within. Note that this is "approximate", in that HTML may often not be able to be split at an exact line width. Additionally, new lines created is where HTML naturally already has whitespace, such as before an attribute or spaces between words. | `100` |
 | `canonicalUrl` | Sets the `href` attribute on the `<link rel="canonical">` tag within the `<head>`. If the value is not defined it will ensure a canonical link tag is no included in the `<head>`. |  |
 | `clientHydrateAnnotations` | Include the HTML comments and attributes used by the clientside JavaScript to read the structure of the HTML and rebuild each component. | `true` |
 | `constrainTimeouts` | Constrain `setTimeout()` to 1ms, but still async. Also only allows `setInterval()` to fire once, also constrained to 1ms. | `true` |

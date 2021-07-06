@@ -35,7 +35,7 @@ Let's break this down a little further to explain what this command is doing:
 | `deno`                         | The Deno command already [installed](https://deno.land/#installation)     .      |
 | `install`                      | [Installer script](https://deno.land/manual/tools/script_installer) argument.    |
 | `-n`                           | The name you'll give the executable your installing.                             |
-| `stencil`                      | `stencil` is the name of the executable in this example, but can be customized to to whateve r you'd like.                         |
+| `stencil`                      | `stencil` is the name of the executable in this example, but can be customized to to whatever you'd like.                         |
 | `--allow-read`                 | The CLI will need to access files, so this option allows it to read local files. |
 | `--allow-write`                | The CLI will also need to write files. |
 | `--allow-net`                  | The CLI will need to access the net to install dependencies. |
