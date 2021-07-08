@@ -158,8 +158,8 @@ export const RESOURCES = {
     {
       title: 'RevoGrid',
       description: 'Excel like complex virtual grid with amazing performance with @stencil/core, @stencil/store',
-      imgPath: 'https://revolist.github.io/revogrid/static/media/logo.1cfff539.svg',
-      demoUrl: 'https://revolist.github.io/revogrid/',
+      imgPath: '/assets/img/demos/demo-revogrid',
+      demoUrl: 'https://revolist.github.io/revogrid',
       sourceUrl: 'https://github.com/revolist/revogrid',
     }
   ],
