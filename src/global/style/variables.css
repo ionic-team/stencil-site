@@ -16,6 +16,7 @@
 
   --color-dodger-blue-rgb: 76, 72, 255;
   --color-dodger-blue: rgb(76, 72, 255);
+  --color-dodger-blue-contrast: rgb(255, 255, 255);
   --color-dodger-blue-hover: rgba(76, 72, 255, 0.2);
 
   --color-purplewinkle: #F4F4FF;
