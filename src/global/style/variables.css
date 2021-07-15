@@ -1,10 +1,11 @@
 
 :root {
-  --color-woodsmoke: #16161D;
+  --color-woodsmoke: #03060B;
   --color-gandalf: #414155;
   --color-gunpowder: #505061;
-  --color-dolphin: #626177;
+  --color-dolphin: #2D4665;
   --color-manatee: #8888A2;
+  --color-concrete: #9F9EB2;
   --color-cadet-blue: #abb2bf;
   --color-whisper: #EBEBF7;
   --color-selago: #F4F4FD;
@@ -13,10 +14,12 @@
 
   --color-green-haze: #00AB47;
 
-  --color-dodger-blue-rgb: 88, 81, 255;
-  --color-dodger-blue: rgb(88, 81, 255);
+  --color-dodger-blue-rgb: 76, 72, 255;
+  --color-dodger-blue: rgb(76, 72, 255);
   --color-dodger-blue-contrast: rgb(255, 255, 255);
-  --color-dodger-blue-hover: rgba(88, 81, 255, 0.2);
+  --color-dodger-blue-hover: rgba(76, 72, 255, 0.2);
+
+  --color-purplewinkle: #F4F4FF;
 
   --color-old-lace: #fdf5e4;
   --color-wheatfield: #F1E3C5;

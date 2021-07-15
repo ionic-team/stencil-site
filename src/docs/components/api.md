@@ -68,7 +68,7 @@ window.addEventListener('appload', (event) => {
 
 - [**writeTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-write task. The provided callback will be executed in the best moment to perform DOM mutations without causing layout thrashing.
 
-- **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not syncronous and might perform the DOM render in the next frame.
+- **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not synchronous and might perform the DOM render in the next frame.
 
 - getAssetPath(): Gets the path to local assets. Refer to the [Local Assets](/docs/local-assets#component-s-assetsdirs) page for usage info.
 - setMode()

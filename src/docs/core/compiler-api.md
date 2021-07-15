@@ -153,7 +153,7 @@ will further apply minification optimizations beyond usual minification.
 path: PlatformPath
 ```
 
-Utility of the `path` API providied by NodeJS, but capable of running in any environment.
+Utility of the `path` API provided by NodeJS, but capable of running in any environment.
 This `path` API is only the POSIX version: https://nodejs.org/api/path.html
 
 

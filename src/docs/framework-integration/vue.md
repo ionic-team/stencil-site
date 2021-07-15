@@ -17,7 +17,7 @@ In order to use the custom element library within the Vue app, the application m
 Assuming you’ve run `npm install --save test-components` beforehand, and that `test-component` is the name of our made up Web Components that we have published to npm, you import the components into the 'main.js' file by
 
 - importing the node module
-- telling Vue to ignore the custom element tags (see `https://vuejs.org/v2/api/#ignoredElements`)
+- telling Vue to ignore the custom element tags (see [docs](https://vuejs.org/v2/api/#ignoredElements))
 - binding the Stenciljs component code to the window object
 
 ```tsx

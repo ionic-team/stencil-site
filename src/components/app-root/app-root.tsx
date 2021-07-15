@@ -88,7 +88,7 @@ export class AppRoot {
       <SiteProviderConsumer.Provider state={siteState}>
         <site-root>
           <platform-bar productName="Stencil" />
-          <announcement-bar />
+          {/* <announcement-bar /> */}
           <site-header />
           <main>
             <stencil-router scrollTopOffset={0}>
@@ -101,7 +101,7 @@ export class AppRoot {
 
                 <stencil-route url="/blog/:pageName" routeRender={({ match }) => <blog-component page={match!.url}></blog-component>} />
 
-                <stencil-route url="/design-systems" component="ds-page" />
+                {/* <stencil-route url="/design-systems" component="ds-page" /> */}
                 <stencil-route url="/pwa" component="pwas-page" />
                 <stencil-route url="/resources" component="resources-page" />
                 <stencil-route component="notfound-page"></stencil-route>
@@ -111,7 +111,7 @@ export class AppRoot {
               <ResponsiveContainer>
                 <div class="footer-col">
                   <app-icon name="logo" />
-                  <p>© 2020 StencilJS. Released under MIT License</p>
+                  <p>© {(new Date().getFullYear())} StencilJS. Released under MIT License</p>
                   <ul class="external-links list--unstyled">
                     <li>
                       <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">

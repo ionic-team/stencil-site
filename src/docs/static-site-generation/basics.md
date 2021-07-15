@@ -1,6 +1,6 @@
 ---
 title: Static Site Generation Basics in Stencil
-description: Quick introducgion to configuring and using Static Site Generation in Stencil
+description: Quick introduction to configuring and using Static Site Generation in Stencil
 url: /docs/static-site-generation-basics
 contributors:
   - mlynch

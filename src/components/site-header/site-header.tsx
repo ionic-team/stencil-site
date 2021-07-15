@@ -63,14 +63,6 @@ export class SiteHeader {
 
         <div class="header-menu">
           <stencil-route-link
-            url="/design-systems"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
-            DS
-          </stencil-route-link>
-          <stencil-route-link
             urlMatch="/docs"
             url="/docs/introduction"
             onClick={() => {
@@ -88,14 +80,13 @@ export class SiteHeader {
           >
             Resources
           </stencil-route-link>
-          <stencil-route-link
-            url="/blog"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
+          <a href="https://ionicframework.com/blog/tag/stencil/" aria-label="Blog" class="external-links">
             Blog
-          </stencil-route-link>
+          </a>
+
+          <a href="https://ionic.io/products/stencil" class="external-links">
+            Enterprise
+          </a>
 
           <ul class="external-links list--unstyled">
             <li>

@@ -27,11 +27,14 @@ export class LandingPage {
     return (
       <div>
         <ResponsiveContainer class="hero">
+          <feature-pill link="https://ionic.io/resources/webinars/stencil-enterprise-design-systems-at-scale">
+            <strong>Register now</strong> • 
+            Stencil Enterprise Webinar: Design Systems at Scale
+          </feature-pill>
           <hgroup>
-            <h1>Build. Distribute. Adopt. </h1>
+            <h1>Build. Customize. Distribute. Adopt.</h1>
             <p>
-              Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every
-              browser.
+              Stencil is a toolchain for building reusable, scalable Design Systems. Generate small, blazing fast, and 100% standards based Web Components that run in every browser.
             </p>
             <stencil-route-link url="/docs/getting-started" class="hero-button" anchorClass="btn-get-started">
               Get started

@@ -52,7 +52,7 @@ Some think Web Components should replace third-party app frameworks, while other
 
 With Stencil, our vision is somewhere in the middle. In the long term, we see app development teams continuing to use their framework of choice. We envision these frameworks continuing to get better, smaller, and more efficient, with increasingly good support for targeting and consuming Web Components -- and big teams will be consuming an increasing amount of Web Components as companies continue to embrace them for shared design systems.
 
-At the same time, we believe an indispensible feature for Web Components is solving those component distribution and design system problems. We also believe, however, that 90% of the market doesn’t have those problems to begin with, so the current debate about the merits of Web Components is somewhat unproductive.
+At the same time, we believe an indispensable feature for Web Components is solving those component distribution and design system problems. We also believe, however, that 90% of the market doesn’t have those problems to begin with, so the current debate about the merits of Web Components is somewhat unproductive.
 
 
 ### Why is Stencil considered framework agnostic?
