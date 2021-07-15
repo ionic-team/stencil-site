@@ -46,14 +46,13 @@ This `lifecycle` hook follows the same semantics as the one described by the [Cu
 
 ## componentWillLoad()
 
-Called once just after the component is first connected to the DOM. Since this method is only called once, it's a good place to load data asynchronously.
+Called once just after the component is first connected to the DOM. Since this method is only called once, it's a good place to load data asynchronously and to setup the state without triggering extra re-renders.
 
-A promise can be returned, that can be used to wait for the first render.
+A promise can be returned, that can be used to wait for the first `render()`.
 
 ## componentDidLoad()
 
-Called once just after the component fully loaded and the first `render()` occurs.
-
+Called once just after the component is fully loaded and the first `render()` occurs.
 
 ## componentShouldUpdate()
 
