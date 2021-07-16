@@ -40,7 +40,7 @@ it('should render my component', async () => {
 The example below uses the template option to test the component
 ```tsx
 // mycmp.spec.tsx
-// This is using jsx syntax and should be in a tsx file.
+// Since the 'template' argument to `newSpecPage` is using jsx syntax, this should be in a .tsx file.
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MyCmp } from '../my-cmp';
