@@ -38,7 +38,7 @@ it('should render my component', async () => {
 ```
 
 The example below uses the template option to test the component
-```
+```tsx
 // mycmp.spec.tsx
 // This is using jsx syntax and should be in a tsx file.
 import { h } from '@stencil/core';
