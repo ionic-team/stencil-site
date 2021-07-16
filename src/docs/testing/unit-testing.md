@@ -46,10 +46,10 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MyCmp } from '../my-cmp';
 
 it('should render my component', async () => {
-  const title = 'Hello World';
+  const greeting = 'Hello World';
   const page = await newSpecPage({
     components: [MyCmp],
-    template: () => (<my-cmp title={title}></my-cmp>),
+    template: () => (<my-cmp greeting={greeting}></my-cmp>),
   });
   expect(page.root).toEqualHtml(`
     <my-cmp>Hello World</my-cmp>
