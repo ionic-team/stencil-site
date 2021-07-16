@@ -37,6 +37,26 @@ it('should render my component', async () => {
 });
 ```
 
+The example below uses the template option to test the component
+```tsx
+// mycmp.spec.tsx
+// Since the 'template' argument to `newSpecPage` is using jsx syntax, this should be in a .tsx file.
+import { h } from '@stencil/core';
+import { newSpecPage } from '@stencil/core/testing';
+import { MyCmp } from '../my-cmp';
+
+it('should render my component', async () => {
+  const greeting = 'Hello World';
+  const page = await newSpecPage({
+    components: [MyCmp],
+    template: () => (<my-cmp greeting={greeting}></my-cmp>),
+  });
+  expect(page.root).toEqualHtml(`
+    <my-cmp>Hello World</my-cmp>
+  `);
+});
+
+```
 
 ### Spec Page Options
 
