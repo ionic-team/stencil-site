@@ -29,10 +29,10 @@ import { MyCmp } from '../my-cmp';
 it('should render my component', async () => {
   const page = await newSpecPage({
     components: [MyCmp],
-    html: `<my-cmp title="Hello World"></my-cmp>`,
+    html: `<my-cmp></my-cmp>`,
   });
   expect(page.root).toEqualHtml(`
-    <my-cmp>Hello World</my-cmp>
+    <my-cmp>Success!</my-cmp>
   `);
 });
 ```
