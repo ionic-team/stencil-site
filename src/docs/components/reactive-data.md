@@ -18,7 +18,7 @@ When a component updates because of a state change (props or state change), the 
 
 ## Watch Decorator
 
-When a user updates a property, `Watch` will fire the method it's attached to, and pass that method the new value of the prop along with the old value. `Watch` is useful for validating props, states or handling side effects. The `Watch` decorator does not fire when a component initially loads.
+`Watch` will fire the method it's attached to when a user updates a property, or when an internal state member changes. That method will receive the new value of the prop/state, along with the old value. `Watch` is useful for validation or the handling of side effects. The `Watch` decorator does not fire when a component initially loads.
 
 
 ```tsx
