@@ -22,6 +22,9 @@ export class SiteMenu implements ComponentInterface {
         apiKey: '6399791d239c7e56a6b47685a64f8873',
         indexName: 'stenciljs',
         inputSelector: 'input[name="search"]',
+        algoliaOptions: {
+          'facetFilters': ["tags:com"]
+        },
         debug: false // Set debug to true if you want to inspect the dropdown
       });
     }
