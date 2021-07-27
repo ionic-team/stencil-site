@@ -7,6 +7,7 @@ contributors:
   - jthoms1
   - adamdbradley
   - BDav24
+  - DaniAcu
 ---
 
 # Components without a Framework
@@ -53,7 +54,7 @@ export class TodoList {
 }
 ```
 
-```tsx
+```markup
 <todo-list></todo-list>
 <script>
   const todoListElement = document.querySelector('todo-list');
