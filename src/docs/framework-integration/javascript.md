@@ -7,6 +7,7 @@ contributors:
   - jthoms1
   - adamdbradley
   - BDav24
+  - DaniAcu
 ---
 
 # Components without a Framework
