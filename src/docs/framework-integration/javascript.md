@@ -53,7 +53,7 @@ export class TodoList {
 }
 ```
 
-```tsx
+```markup
 <todo-list></todo-list>
 <script>
   const todoListElement = document.querySelector('todo-list');
