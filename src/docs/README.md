@@ -81,3 +81,6 @@
   * [Stencil on Twitter](https://twitter.com/stenciljs)
   * [Stencil on Slack](https://stencil-worldwide.herokuapp.com/)
   * [Stencil on GitHub](https://github.com/ionic-team/stencil)
+* Legal
+  * [Telemetry](telemetry.md)
+  * [Privacy Policy](https://ionicframework.com/privacy)

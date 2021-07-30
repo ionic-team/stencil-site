@@ -403,12 +403,15 @@
   },
   {
     "text": "Legal",
-    "hideFromSidebar": true,
     "children": [
       {
         "text": "Telemetry",
         "filePath": "/assets/docs/telemetry.json",
         "url": "/telemetry"
+      },
+      {
+        "text": "Privacy Policy",
+        "filePath": "https://ionicframework.com/privacy"
       }
     ]
   }
