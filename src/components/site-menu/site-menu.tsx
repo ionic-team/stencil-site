@@ -42,7 +42,7 @@ export class SiteMenu implements ComponentInterface {
             <div>
               <search-bar class="site-search" debounce={500} searchTerm={this.searchTerm} placeholder={'Search Docs'}></search-bar>
               <ul class="menu-list">
-                {this.siteStructureList.map(item => !item.hideFromSidebar && (
+                {this.siteStructureList.map(item => (
                   <li>
                     <a href={item.children![0].url || '#'} onClick={this.toggleParent(item)}>
                       <span class="section-label">{item.text}</span>
