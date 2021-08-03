@@ -58,7 +58,7 @@ No. Data collected will be shared outside of Ionic. The data collected is anonym
 
 ### How Do I Opt-Out?
 
-You may opt out-by running the following command in the root of your project directory:
+You may opt-out by running the following command in the root of your project directory:
 
 `npx stencil telemetry off`
 
