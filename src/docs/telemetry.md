@@ -8,7 +8,7 @@ contributors:
 
 # Stencil CLI telemetry
 
-Stencil collects anonymous telemetry data about usage of our command line interface. Participation in this program is optional, and [you may opt-out](#how-do-i-opt-out) if you'd prefer not to share any information.
+As of version 2.7.0, Stencil collects anonymous telemetry data about usage of our command line interface. Participation in this program is optional, and [you may opt-out](#how-do-i-opt-out) if you'd prefer not to share any information.
 
 ### Why Is Telemetry Collected?
 
