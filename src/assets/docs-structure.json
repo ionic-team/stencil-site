@@ -400,5 +400,19 @@
         "filePath": "https://github.com/ionic-team/stencil"
       }
     ]
+  },
+  {
+    "text": "Legal",
+    "children": [
+      {
+        "text": "Telemetry",
+        "filePath": "/assets/docs/telemetry.json",
+        "url": "/telemetry"
+      },
+      {
+        "text": "Privacy Policy",
+        "filePath": "https://ionicframework.com/privacy"
+      }
+    ]
   }
 ]
