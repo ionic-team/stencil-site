@@ -9,6 +9,7 @@ contributors:
   - amwmedia
   - mrtnmgs
   - marcjulian
+  - seanwuapps
 ---
 
 # Docs Json Data
@@ -28,7 +29,10 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { type: 'docs-json' }
+    {
+      type: 'docs-json',
+      file: 'path/to/docs.json'
+    }
   ]
 };
 ```
