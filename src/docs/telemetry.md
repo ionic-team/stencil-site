@@ -54,7 +54,7 @@ We do not collect any metrics which may contain sensitive data. This includes, b
 
 ### Will This Data Be Shared?
 
-No. Data collected will not be shared outside of Ionic. The data collected is anonymous, not traceable to the source, and only meaningful in aggregate form. We take your privacy and our security very seriously. Stencil telemetry falls under the [Ionic Privacy Policy](https://ionicframework.com/privacy).
+No. Data collected will be shared outside of Ionic. The data collected is anonymous, not traceable to the source, and only meaningful in aggregate form. We take your privacy and our security very seriously. Stencil telemetry falls under the [Ionic Privacy Policy](https://ionicframework.com/privacy).
 
 ### How Do I Opt-Out?
 
