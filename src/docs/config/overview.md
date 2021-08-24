@@ -8,6 +8,7 @@ contributors:
   - flawyte
   - BDav24
   - simonhaenisch
+  - splitinfinities
 ---
 
 # Stencil Config
@@ -97,6 +98,13 @@ globalStyle: 'src/global/app.css'
 
 Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
 
+## invisiblePrehydration
+
+Sets if the build should add an automatically injected style tag to the document's head. It defaults to `true` and will use Ionic's opinion to visually hide components while they are not hydrated. Setting `false` will let you style your web components pre-hydration. Note that this will cause everything to be visible on load, and you will be able to style your fallback content how you would perfer. 
+
+```tsx
+invisiblePrehydration: boolean
+```
 
 ## hashFileNames
 
