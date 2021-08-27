@@ -102,7 +102,7 @@ Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) o
 
 *default: `true`*
 
-Sets if the build should add an automatically injected style tag to the document's head. It defaults to `true` and will use Ionic's opinion to visually hide components while they are not hydrated. Setting `false` will let you style your web components pre-hydration. Note that this will cause everything to be visible on load, and you will be able to style your fallback content how you would perfer. 
+When true, `invisiblePrehydration` will use Ionic's opinion to visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you style your web components pre-hydration. Please note that setting `invisiblePrehydration` to false will cause everything to be visible when your page is loaded, causing more prominent FOUC, however you can style your web component's fallback content to your preference.
 
 ```tsx
 invisiblePrehydration: boolean
