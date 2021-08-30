@@ -318,7 +318,7 @@
         "url": "/docs/publishing"
       },
       {
-        "text": "Deno (experimental)",
+        "text": "Deno (end-of-life)",
         "filePath": "/assets/docs/guides/deno.json",
         "url": "/docs/deno"
       }
