@@ -114,7 +114,7 @@ At the same time, components built with Stencil can still be imported and consum
 
 A consumer of a component library may use one component, a few of them, or all of them. In any of these scenarios a component library is used by just adding a script tag, lazy loading ensures fast startup with a low bandwidth footprint.
 
-You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
+You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](https://web.archive.org/web/20201108000809/https://stenciljs.com/blog/how-lazy-loading-web-components-work).
 
 
 ### Why doesn’t Stencil extend HTMLElement?
@@ -208,7 +208,7 @@ If this is your first time building a design system, or you’re new to Stencil,
 
 ### How do I get involved?
 
-Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/ionic/blob/master/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
+Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/stencil/blob/master/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
 
 
 ### Is Stencil open source?
@@ -218,7 +218,7 @@ Yes, Stencil is open source and its source code can be [found on GitHub](https:/
 
 ### Which software license does Stencil use?
 
-Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE).
+Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
 
 
 ### Who works on Stencil?
