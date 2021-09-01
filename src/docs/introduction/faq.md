@@ -218,7 +218,7 @@ Yes, Stencil is open source and its source code can be [found on GitHub](https:/
 
 ### Which software license does Stencil use?
 
-Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE).
+Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
 
 
 ### Who works on Stencil?
