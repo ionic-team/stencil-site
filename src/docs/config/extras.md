@@ -76,7 +76,7 @@ Safari 10 supports ES modules with `<script type="module">`, however, it did not
 
 ### scopedSlotTextContentFix
 
-An experimental flag that when set to `true`, aligns the behavior of invoking the `textContent` getter/setter on a scoped component to act more like a component that uses the shadow DOM. Specifically, invoking `textContent` on a component will adhere to the return values described in the [DOM Spec](https://dom.spec.whatwg.org/#dom-node-textcontent). Defaults to `false`.
+An experimental flag that when set to `true`, aligns the behavior of invoking the `textContent` getter/setter on a scoped component to act more like a component that uses the shadow DOM. Specifically, invoking `textContent` on a component will adhere to the return values described in [MDN's article on textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#description). Defaults to `false`.
 
 ### scriptDataOpts
 
