@@ -91,10 +91,7 @@ export class SiteHeader {
 
           <ul class="external-links list--unstyled">
             <li>
-              <docs-dropdown
-                icon={Translation}
-                align="right"
-              >
+              <docs-dropdown class="link--external" icon={Translation} align="right">
                 <section>
                   <a href="https://stenciljs.com/" class="link-active">
                     English
