@@ -51,7 +51,7 @@ dynamically set the path at build time, such as `setAssetPath(process.env.ASSET_
 
 
 ```tsx
-import { setAssetPath } from 'my-library/dist/custom-elements';
+import { setAssetPath } from 'my-library/dist/components';
 
 setAssetPath(document.currentScript.src);
 ```
