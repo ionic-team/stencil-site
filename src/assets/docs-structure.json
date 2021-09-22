@@ -228,19 +228,29 @@
         "url": "/docs/output-targets"
       },
       {
-        "text": "dist-custom-elements-bundle",
-        "filePath": "/assets/docs/output-targets/custom-elements.json",
-        "url": "/docs/custom-elements"
-      },
-      {
         "text": "dist",
         "filePath": "/assets/docs/output-targets/dist.json",
         "url": "/docs/distribution"
       },
       {
+        "text": "dist-custom-elements",
+        "filePath": "/assets/docs/output-targets/custom-elements.json",
+        "url": "/docs/custom-elements"
+      },
+      {
+        "text": "dist-custom-elements-bundle",
+        "filePath": "/assets/docs/output-targets/custom-elements-bundle.json",
+        "url": "/docs/custom-elements-bundle"
+      },
+      {
         "text": "www",
         "filePath": "/assets/docs/output-targets/www.json",
         "url": "/docs/www"
+      },
+      {
+        "text": "stats",
+        "filePath": "/assets/docs/output-targets/docs-stats.json",
+        "url": "/docs/stats"
       },
       {
         "text": "docs-readme",
