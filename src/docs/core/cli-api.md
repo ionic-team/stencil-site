@@ -57,7 +57,7 @@ but can be used externally too.
 ## runTask()
 
 ```tsx
-runTask(process: any, config: Config, task: TaskCommand): Promise<void>
+runTask(process: any, config: Config, sys: CompilerSystem, task: TaskCommand): Promise<void>
 ```
 
 Runs individual tasks giving a NodeJS `process`, Stencil `config`, and task command.
