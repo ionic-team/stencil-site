@@ -60,4 +60,4 @@ but can be used externally too.
 runTask(process: any, config: Config, task: TaskCommand,  sys?: CompilerSystem): Promise<void>
 ```
 
-Runs individual tasks giving a NodeJS `process`, Stencil `config`, and task command. You can optionally pass in the `system` that's used by the compiler. 
+Runs individual tasks giving a NodeJS `process`, Stencil `config`, and task command. You can optionally pass in the `sys` that's used by the compiler. See [createNodeSystem()](#createnodesystem) for more details. 
