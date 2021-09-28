@@ -161,10 +161,20 @@ Please see the [Dev-Server docs](/docs/dev-server).
 
 *default: `undefined`*
 
-The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
+Used to help to persist a banner or add relevant information about the resulting build, the `preamble` configuration 
+field is a `string` that will be converted into a pinned comment and placed at the top of all emitted JavaScript files.
+Escaped newlines may be placed in the provided value for this field and will be honored by Stencil.
 
+Example:
 ```tsx
-preamble: 'Built with Stencil'
+preamble: 'Built with Stencil\nCopyright (c) SomeCompanyInc.'
+```
+Will generate the following comment:
+```tsx
+/*!
+ * Built with Stencil
+ * Copyright (c) SomeCompanyInc.
+ */
 ```
 
 ## sourceMap
