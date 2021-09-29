@@ -4,6 +4,7 @@ description: Custom Elements with Stencil
 url: /docs/custom-elements
 contributors:
   - adamdbradley
+  - rwaskiewicz
   - splitinfinities
 ---
 
@@ -32,6 +33,21 @@ customElements.define('hello-world', HelloWorld);
 ```
 
 The generated files will export each component class and will already have the styles bundled. However, it does not define the custom elements or apply any polyfills. Any dependencies of your imported component will need to be loaded as well. 
+
+## Config
+
+### autoDefineCustomElements
+
+By default, consumers of the `custom-elements` output target need to either register each Stencil component in the 
+bundle manually, or call a convenience method, `defineCustomElements()`, that is exported as a part of the bundle to
+define every component in the bundle. This behavior can be cumbersome, especially when only a handful of components are 
+needed and/or those components have several child components (and their children have children, etc.).
+
+Setting this flag to `true` will recursively define all children components for a Stencil component when it is
+registered. Users of this flag should note that this may increase their bundle size by automatically defining &
+registering child components.
+
+This flag defaults to `false` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 

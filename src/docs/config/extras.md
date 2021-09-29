@@ -39,20 +39,6 @@ Note: `buildEs5: 'prod'` was also set in the config since this example needs to 
 
 By default, the slot polyfill does not update `appendChild()` so that it appends new child nodes into the correct child slot like how shadow dom works. This is an opt-in polyfill for those who need it.
 
-### autoDefineCustomElements
-
-By default, consumers of the `custom-elements` and `custom-elements-bundle` output targets need to either register each
-Stencil component in the bundle manually, or call a convenience method, `defineCustomElements()`, that is exported as a
-part of the bundle to define every component in the bundle. This behavior can be cumbersome, especially when only a 
-handful of components are needed and/or those components have several child components (and their children have 
-children, etc.).
-
-Setting this flag to `true` will recursively define all children components for a Stencil component when it is
-registered. Users of this flag should note that this may increase their bundle size by automatically defining & 
-registering child components.
-
-This flag defaults to `false` when omitted from a Stencil configuration file.
-
 ### cloneNodeFix
 
 By default, the runtime does not polyfill `cloneNode()` when cloning a component that uses the slot polyfill. This is an opt-in polyfill for those who need it.
