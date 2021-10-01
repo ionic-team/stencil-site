@@ -166,6 +166,17 @@ The `preamble` configuration is a `string` that represents a preamble in the mai
 preamble: 'Built with Stencil'
 ```
 
+## sourceMap
+
+*default: `false`*
+
+When set to `true`, sourcemaps will be generated for a project.
+
+```tsx
+sourceMap: true
+```
+
+When omitted or set to `false`, sourcemaps will not be generated.
 
 ## srcDir
 
