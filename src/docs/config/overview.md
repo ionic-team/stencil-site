@@ -180,14 +180,14 @@ sourceMap: true
 Sourcemaps create a translation between Stencil components that are written in TypeScript & JSX and JavaScript that is
 output by Stencil. They allow for a better debugging experience for Stencil components, in that they allow external
 tools (such as an Integrated Development Environment) to add breakpoints directly in the original source code. This
-allows an individual to 'step through' their code line-by-line, inspect the values held in variables, observe logic
-flow, etc.
+allows you to 'step through' your code line-by-line, to inspect the values held in variables, to observe logic
+flow, and more.
 
-Stencil will always attempt to minify a component's source code as much as possible. When `sourceMap` is enabled, it is
-possible that a slightly different minified result will be produced by Stencil than the minified result produced when 
-the `sourceMap` is not enabled. 
+Please note: Stencil will always attempt to minify a component's source code as much as possible during compilation. When `sourceMap` is enabled, it is
+possible that a slightly different minified result will be produced by Stencil when compared to the minified result produced when 
+`sourceMap` is not enabled. 
 
-Developers are responsible for determining whether they choose to serve sourcemaps or not in each environment their
+Developers are responsible for determining whether or not they choose to serve sourcemaps in each environment their
 components are served and implementing their decision accordingly.
 
 When omitted or set to `false`, sourcemaps will not be generated.
