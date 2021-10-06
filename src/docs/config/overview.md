@@ -177,8 +177,8 @@ When set to `true`, sourcemaps will be generated for a project.
 sourceMap: true
 ```
 
-Sourcemaps create a translation between Stencil components that are written in TypeScript & JSX and JavaScript that is
-output by Stencil. They allow for a better debugging experience for Stencil components, in that they allow external
+Sourcemaps create a translation between Stencil components that are written in TypeScript/JSX and the resulting JavaScript that is
+output by Stencil. Enabling source maps in your project allows for an improved debugging experience for Stencil components. For example, they allow external
 tools (such as an Integrated Development Environment) to add breakpoints directly in the original source code. This
 allows you to 'step through' your code line-by-line, to inspect the values held in variables, to observe logic
 flow, and more.
