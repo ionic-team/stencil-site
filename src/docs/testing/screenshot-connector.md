@@ -29,7 +29,7 @@ module.exports = class ScreenshotCustomConnector extends ScreenshotConnector {
 };
 ```
 
-> For a good reference on how this can be done, have a look at the default `StencilLocalConnector` [here](https://github.com/ionic-team/stencil/blob/master/src/screenshot/connector-local.ts)
+> For a good reference on how this can be done, have a look at the default `StencilLocalConnector` [here](https://github.com/ionic-team/stencil/blob/main/src/screenshot/connector-local.ts)
 
 ## Methods
 The base connector which can be imported and extended from stencil has the following methods which can be overwritten:

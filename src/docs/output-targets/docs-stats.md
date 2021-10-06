@@ -35,7 +35,7 @@ export const config: Config = {
 
 If you don't pass a file name to the `--stats` flag or the output target's `file` key, the file will be output to the root directory of your project as `stencil-stats.json`
 
-Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/stencil-public-docs.ts
+Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/main/src/declarations/stencil-public-docs.ts
 
 
 ## Data Model
