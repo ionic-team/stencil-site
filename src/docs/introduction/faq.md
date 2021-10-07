@@ -14,7 +14,7 @@ contributors:
 
 Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
 
-Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
+Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/main/LICENSE.md).
 
 
 ### What does Stencil do?
@@ -208,7 +208,7 @@ If this is your first time building a design system, or you’re new to Stencil,
 
 ### How do I get involved?
 
-Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/stencil/blob/master/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
+Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/stencil/blob/main/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
 
 
 ### Is Stencil open source?
@@ -218,7 +218,7 @@ Yes, Stencil is open source and its source code can be [found on GitHub](https:/
 
 ### Which software license does Stencil use?
 
-Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
+Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/main/LICENSE.md).
 
 
 ### Who works on Stencil?
