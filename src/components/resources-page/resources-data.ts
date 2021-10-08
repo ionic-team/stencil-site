@@ -32,6 +32,7 @@ export const RESOURCES = {
     { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' }
   ],
   TOOLS: [
+    { title: '@stencil/eslint-plugin: ESLint rules for Stencil components', url: 'https://www.npmjs.com/package/@stencil/eslint-plugin' },
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
     {
       title: 'Enhance your Stencil Web Components in Storybook with Knobs, Actions and JSX',
@@ -40,7 +41,6 @@ export const RESOURCES = {
     { title: 'xLayers Lite', url: 'https://github.com/xlayers/xlayers-lite' },
     { title: 'yo Stencil: A yeoman generator for Stencil', url: 'https://github.com/AkashGutha/generator-stencil' },
     { title: 'Stencil Snippets: A Stencil snippets package for VS Code', url: 'https://marketplace.visualstudio.com/items?itemName=fdom.stencil-snippets' },
-    { title: 'tslint-stencil: TSLint rules for Stencil components', url: 'https://www.npmjs.com/package/tslint-stencil' },
     { title: 'stencil-lerna: lerna based Stencil monorepo starter project', url: 'https://github.com/bitflower/stencil-lerna' },
     { title: 'WebComponents.dev: Online Component IDE - Try Stencil right away', url: 'https://webcomponents.dev/edit/collection/JFDS0nXQUi7cNRMrxHkI/1fjZJBjdBc73coC5F1iz?sv=1&pm=1' },
     { title: '@nxext/stencil: Use stencil projects in Nx', url: 'https://github.com/nxext/nx-extensions/' },
