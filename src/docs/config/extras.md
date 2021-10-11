@@ -4,11 +4,14 @@ description: Extras Config
 url: /docs/config-extras
 contributors:
   - mattdsteele
+  - rwaskiewicz
 ---
 
 # Extras
 
-The `extras` config contains options to add and remove runtime for DOM features that require manipulations to polyfills. For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM 
+features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when 
+using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
 
 By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
 
