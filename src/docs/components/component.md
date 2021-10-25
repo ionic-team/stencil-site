@@ -51,11 +51,11 @@ export interface ComponentOptions {
    * does not support shadow-dom natively. Defaults to `false`.
    * 
    * If an object literal containing `delegatesFocus` is provided, the component will use native shadow-dom
-   * encapsulation. When `delegatesFocus` is set to `true`, components will have `delegatesFocus: true` added to their
-   * shadow DOM. When a non-focusable part of the component is clicked:
+   * encapsulation. When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its
+   * shadow DOM. When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
    * - the first focusable part of the component is given focus
    * - the component receives any available `focus` styling
-   * Setting `delegatesFocus` to `false` is equivalent to setting this property to `true`.
+   * Setting `delegatesFocus` to `false` is equivalent to setting this property (`shadow`) to `true`.
    */
   shadow?: boolean | { delegatesFocus: boolean };
 
