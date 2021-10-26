@@ -55,7 +55,8 @@ export interface ComponentOptions {
    * shadow DOM. When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
    * - the first focusable part of the component is given focus
    * - the component receives any available `focus` styling
-   * Setting `delegatesFocus` to `false` is equivalent to setting this property (`shadow`) to `true`.
+   * Setting `delegatesFocus` to `false` will not add the `delegatesFocus` property to the shadow DOM and therefore
+   * will have the focusing behavior described for `delegatesFocus: true`.
    */
   shadow?: boolean | { delegatesFocus: boolean };
 
