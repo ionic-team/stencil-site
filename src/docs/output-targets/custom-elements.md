@@ -49,6 +49,8 @@ registering child components.
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
+> Note: At this time, components created not using JSX may not be automatically defined. This is a known limitation of the API and users should be aware of it
+
 ## Making Assets Available
 
 For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) built within the JavaScript output, 
