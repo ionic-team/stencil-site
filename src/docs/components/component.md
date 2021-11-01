@@ -56,7 +56,7 @@ export interface ComponentOptions {
    * - the first focusable part of the component is given focus
    * - the component receives any available `focus` styling
    * Setting `delegatesFocus` to `false` will not add the `delegatesFocus` property to the shadow DOM and therefore
-   * will have the focusing behavior described for `delegatesFocus: true`.
+   * will have the focusing behavior described for `shadow: true`.
    */
   shadow?: boolean | { delegatesFocus: boolean };
 
