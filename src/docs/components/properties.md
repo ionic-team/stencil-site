@@ -25,8 +25,7 @@ export class TodoList {
 ```
 
 When using user-defined types like `MyHttpService`, the type must be exported using the `export` keyword. Above,
-`MyHttpService` is imported from `'../some/local/directory/MyHttpService'`, and must be exported from that file 
-(otherwise we'd have no way to use it).
+`MyHttpService` is imported from `'../some/local/directory/MyHttpService'`, and must be exported from that file.
 
 If `MyHttpService` were defined in `TodoList.tsx`, the `export` keyword would still be required, as Stencil needs to
 know what type `myHttpService` is when passing an instance of `MyHttpService` to `TodoList` from a parent component.
