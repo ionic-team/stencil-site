@@ -7,13 +7,16 @@ contributors:
   - natemoo-re
   - larionov
   - joestrouth1
+  - rwaskiewicz
 ---
 
 # Stencil Style Guide
 
-This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing [Ionic Core](https://ionicframework.com/) components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team's own preference.
+This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing Stencil components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team's own preference.
 
-> In order to enforce this (or your team's) style guide, we recommend leveraging a static analysis tool like [TSLint](https://palantir.github.io/tslint/). Ionic follows [tslint-ionic-rules](https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js). Optionally, the _community maintained_ package [tslint-stencil](https://www.npmjs.com/package/tslint-stencil) provides rules specifically for writing Stencil components.
+> In order to enforce this (or your team's) style guide, we recommend leveraging a static analysis tool like [ESLint](https://eslint.org/). [@stencil/eslint-plugin](https://www.npmjs.com/package/@stencil/eslint-plugin) provides rules specifically for writing Stencil components.
+
+> This guide once recommended TSLint as a static analysis tool. TSLint has been deprecated by its maintaining organization in favor of ESLint and is no longer recommended by the Stencil team.
 
 ## File structure
 
@@ -49,7 +52,7 @@ Example from ionic-core:
 ### HTML tag
 
 #### Prefix
-The prefix has a major role when you are creating a collection of components intended to be used across different projects, like [@ionic/core](https://www.npmjs.com/package/@ionic/core). Web Components are not scoped because they are globally declared within the webpage, which means an "unique" prefix is needed to prevent collisions. The prefix is also able help to quickly identify the collection of an component. Additionally, web components are required to contain a "-" dash within the tag name, so using the first section to namespace your components is a natural fit.
+The prefix has a major role when you are creating a collection of components intended to be used across different projects, like [@ionic/core](https://www.npmjs.com/package/@ionic/core). Web Components are not scoped because they are globally declared within the webpage, which means a "unique" prefix is needed to prevent collisions. The prefix also helps to quickly identify the collection a component is part of. Additionally, web components are required to contain a "-" dash within the tag name, so using the first section to namespace your components is a natural fit.
 
 We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.
 
@@ -100,16 +103,14 @@ export class Menu { ... }
 
 ## TypeScript
 
-1. **Follow** [tslint-ionic-rules](https://github.com/ionic-team/tslint-ionic-rules/blob/master/tslint.js)
-
-2. **Variable decorators should be inlined.**
+1. **Variable decorators should be inlined.**
 
 ```tsx
 @Prop() name: string;
 @Element() el: HTMLElement;
 ```
 
-3. **Method decorator should be multi-line**
+2. **Method decorator should be multi-line**
 
 ```tsx
 @Listen('click')
@@ -118,9 +119,9 @@ onClick() {
 }
 ```
 
-4. **Use private variables and methods as much possible:** They are useful to detect dead code and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using `private`, `public` or `protected` does not make a difference in the actual JavaScript output.
+3. **Use private variables and methods as much possible:** They are useful to detect dead code and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using `private`, `public` or `protected` does not make a difference in the actual JavaScript output.
 
-5. **Code with Method/Prop/Event/Component decorators should have JSDocs:** This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense
+4. **Code with Method/Prop/Event/Component decorators should have JSDocs:** This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense
 
 ## Code organization
 
