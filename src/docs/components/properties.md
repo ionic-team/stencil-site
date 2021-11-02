@@ -4,6 +4,7 @@ description: Properties
 url: /docs/properties
 contributors:
   - jthoms1
+  - rwaskiewicz
 ---
 
 # Prop Decorator
@@ -11,8 +12,32 @@ contributors:
 Props are custom attribute/properties exposed publicly on the element that developers can provide values for. Children components should not know about or reference parent components, so Props should be used to pass data down from the parent to the child. Components need to explicitly declare the Props they expect to receive using the `@Prop()` decorator. Props can be a `number`, `string`, `boolean`, or even an `Object` or `Array`. By default, when a member decorated with a `@Prop()` decorator is set, the component will efficiently rerender.
 
 ```tsx
+// TodoList.tsx
 import { Prop } from '@stencil/core';
+import { MyHttpService } from '../some/local/directory/MyHttpService';
+...
+export class TodoList {
+  @Prop() color: string;
+  @Prop() favoriteNumber: number;
+  @Prop() isSelected: boolean;
+  @Prop() myHttpService: MyHttpService;
+}
+```
 
+When using user-defined types like `MyHttpService`, the type must be exported using the `export` keyword. Above,
+`MyHttpService` is imported from `'../some/local/directory/MyHttpService'`, and must be exported from that file.
+
+If `MyHttpService` were defined in `TodoList.tsx`, the `export` keyword would still be required, as Stencil needs to
+know what type `myHttpService` is when passing an instance of `MyHttpService` to `TodoList` from a parent component.
+
+```tsx
+// TodoList.tsx
+import { Prop } from '@stencil/core';
+...
+// the export keyword is still required here, so that a parent component knows what a `MyHttpService` is
+export type MyHttpService = {
+  // type definition goes here  
+};
 ...
 export class TodoList {
   @Prop() color: string;
