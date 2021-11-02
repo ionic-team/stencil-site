@@ -218,7 +218,7 @@ npm ls @stencil/core
 
 To view the latest version of Stencil, please see the project's [releases page](https://github.com/ionic-team/stencil/releases).
 
-At this time, versions 0 and 1 of Stencil are not actively supported.
+> At this time, versions 0 and 1 of Stencil are not actively supported.
 
 ### How do I get involved?
 
