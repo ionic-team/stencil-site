@@ -209,7 +209,7 @@ If this is your first time building a design system, or you’re new to Stencil,
 
 Currently, Stencil is on version 2. 
 
-Stencil follows [semantic versioning](https://semver.org/), meaning that the team at Ionic strives to avoid any type of breaking change to Stencil without changing the 'major version number' of the library. Therefore, versions 2.7.0 and 2.8.0 are designed to be backward compatible with one another. However, there may be breaking changes between v2.7.0 and v3.0.0. Breaking changes to the library can be found [here](https://github.com/ionic-team/stencil/blob/master/BREAKING_CHANGES.md).
+Stencil follows [semantic versioning](https://semver.org/), meaning that the team at Ionic strives to avoid any type of breaking change to Stencil without changing the 'major version number' of the library. Therefore, versions 2.7.0 and 2.8.0 are designed to be backwards compatible with one another. However, there may be breaking changes between v2.7.0 and v3.0.0. Breaking changes to the library can be found [here](https://github.com/ionic-team/stencil/blob/master/BREAKING_CHANGES.md).
 
 To determine the version of Stencil your project has installed, run:
 ```shell
