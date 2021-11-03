@@ -63,6 +63,8 @@ export namespace Components {
         "pageLinks": MarkdownHeading[];
         "srcUrl": string;
     }
+    interface IntegrationsPage {
+    }
     interface LandingPage {
     }
     interface LifecycleChart {
@@ -207,6 +209,12 @@ declare global {
         prototype: HTMLInPageNavigationElement;
         new (): HTMLInPageNavigationElement;
     };
+    interface HTMLIntegrationsPageElement extends Components.IntegrationsPage, HTMLStencilElement {
+    }
+    var HTMLIntegrationsPageElement: {
+        prototype: HTMLIntegrationsPageElement;
+        new (): HTMLIntegrationsPageElement;
+    };
     interface HTMLLandingPageElement extends Components.LandingPage, HTMLStencilElement {
     }
     var HTMLLandingPageElement: {
@@ -303,6 +311,7 @@ declare global {
         "highlight-code": HTMLHighlightCodeElement;
         "hubspot-modal": HTMLHubspotModalElement;
         "in-page-navigation": HTMLInPageNavigationElement;
+        "integrations-page": HTMLIntegrationsPageElement;
         "landing-page": HTMLLandingPageElement;
         "lifecycle-chart": HTMLLifecycleChartElement;
         "lower-content-nav": HTMLLowerContentNavElement;
@@ -373,6 +382,8 @@ declare namespace LocalJSX {
         "pageLinks"?: MarkdownHeading[];
         "srcUrl"?: string;
     }
+    interface IntegrationsPage {
+    }
     interface LandingPage {
     }
     interface LifecycleChart {
@@ -431,6 +442,7 @@ declare namespace LocalJSX {
         "highlight-code": HighlightCode;
         "hubspot-modal": HubspotModal;
         "in-page-navigation": InPageNavigation;
+        "integrations-page": IntegrationsPage;
         "landing-page": LandingPage;
         "lifecycle-chart": LifecycleChart;
         "lower-content-nav": LowerContentNav;
@@ -467,6 +479,7 @@ declare module "@stencil/core" {
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
             "hubspot-modal": LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;
             "in-page-navigation": LocalJSX.InPageNavigation & JSXBase.HTMLAttributes<HTMLInPageNavigationElement>;
+            "integrations-page": LocalJSX.IntegrationsPage & JSXBase.HTMLAttributes<HTMLIntegrationsPageElement>;
             "landing-page": LocalJSX.LandingPage & JSXBase.HTMLAttributes<HTMLLandingPageElement>;
             "lifecycle-chart": LocalJSX.LifecycleChart & JSXBase.HTMLAttributes<HTMLLifecycleChartElement>;
             "lower-content-nav": LocalJSX.LowerContentNav & JSXBase.HTMLAttributes<HTMLLowerContentNavElement>;

@@ -4,17 +4,19 @@
   "version": "0.0.1",
   "description": "Stencil Site",
   "scripts": {
-    "build": "npm run site.structure && npm run docs && stencil build --prerender",
-    "build.ci": "npm run site.structure && npm run docs && stencil build --ci --prerender",
+    "build": "npm run site.structure && npm run site.external && npm run docs && stencil build --prerender",
+    "build.ci": "npm run site.structure && npm run site.external && npm run docs && stencil build --ci --prerender",
     "docs": "tsc --p ./scripts && node ./scripts/markdown-to-html && node ./scripts/blog-list",
     "prerender": "stencil build --prerender",
     "test": "echo Good",
     "prerender.dev": "stencil build --dev --prerender",
     "site.structure": "tsc --p ./scripts && node ./scripts/site-structure",
+    "site.external": "node ./scripts/site-external",
     "start": "stencil build --dev --watch --serve"
   },
   "devDependencies": {
     "@ionic-internal/ionic-ds": "4.1.4",
+    "@prismicio/client": "^5.1.0",
     "@stencil/core": "^2.5.2",
     "@stencil/router": "1.0.1",
     "@stencil/state-tunnel": "1.0.1",
