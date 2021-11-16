@@ -1,5 +1,5 @@
 ---
-title: Bundling Custom Elements with Stencil
+title: (Deprecated) Bundling Custom Elements with Stencil
 description: Bundling Custom Elements with Stencil
 url: /docs/custom-elements-bundle
 contributors:
@@ -7,7 +7,7 @@ contributors:
   - splitinfinities
 ---
 
-# Custom Elements Bundle
+# Custom Elements Bundle (Deprecated)
 
 The `dist-custom-elements-bundle` output target is used to generate custom elements as a single bundle. Even though the output ends up as a "single" bundle, it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
