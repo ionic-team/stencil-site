@@ -170,7 +170,7 @@ Which will automatically define and run your components!
 ### Usage in your templates
 
 ```
-<my-component first="Stencil" last="Compiler"></my-component>
+&lt;my-component first=&quot;Stencil&quot; last=&quot;Compiler&quot;&gt;&lt;/my-component&gt;
 ```
 
 ### Considerations
