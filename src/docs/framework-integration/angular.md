@@ -1,5 +1,5 @@
 ---
-title: Angular Integration • Stencil
+title: Angular Integration with Stencil
 description: Learn how to wrap your components so that people can use them natively in Angular.
 url: /docs/angular
 contributors:
