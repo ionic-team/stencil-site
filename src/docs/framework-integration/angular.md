@@ -117,7 +117,7 @@ export * from './lib/stencil-generated/components.ts';
 
 If you’re using a monorepo tool like Lerna or Nx, you can skip this step. Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
 
-**First, in your Stencil directory, run the following command:**
+#### First, in your Stencil directory, run the following command:
 
 `npm link`
 
@@ -125,7 +125,7 @@ Or
 
 `yarn link`
 
-**Next, in your Angular component library, run the following command:**
+#### Next, in your Angular component library, run the following command:
 
 `npm link {the name of your Stencil package}`
 
@@ -135,7 +135,7 @@ Or
 
 To determine your Stencil’s package name, you can visit your Stencil Component Libraries package.json file.
 
-**All done!**
+#### All done!
 
 At this point, once you build your Angular project and import this library into your app, you will have access to all of the wrapped Angular components.  You can visit the Angular package and run the following command to see the result.
 
@@ -145,15 +145,15 @@ Or
 
 `yarn build`
 
-## **Usage**
+## Usage
 
-You're now able to import your components into an Angular app and use them directly. 
+You're now able to import your components into an Angular app and use them directly. Here's how the consumers of your Angular Component Library will use this code. 
 
 ### Adding the components to a module
 
 Your component library consumers will be able to import your Angular components into your app's module by writing: 
 
-```jsx
+```tsx
 import { MyComponent } from 'angular-component-library';
 import { SomeComponent } from './some.component';
 
@@ -169,7 +169,7 @@ Which will automatically define and run your components!
 
 ### Usage in your templates
 
-```html
+```
 <my-component first="Stencil" last="Compiler"></my-component>
 ```
 
@@ -177,7 +177,7 @@ Which will automatically define and run your components!
 
 Please note, you can create your own NgModule that can export and define all of your components, and encourage your customers to use that module within the imports property of their NgModules. There is a [Github issue](https://github.com/ionic-team/stencil-ds-output-targets/issues/207) to expand on this feature to align to single component angular modules (or SCAM). 
 
-## **FAQs**
+## FAQs
 
 ### What is the best format to write event names in Stencil?
 
@@ -191,7 +191,7 @@ You can configure how your input events can map directly to a value accessor, al
 
 If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
 
-```jsx
+```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
 applyPolyfills().then(() => {
@@ -229,7 +229,7 @@ Usually when beginning this process, you may bump into a situation where you fin
 
 When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like: `"types": "dist/types/interfaces.d.ts"`
 
-## **API**
+## API
 
 The angularOutputTarget method accepts 5 parameters:
 
@@ -237,7 +237,9 @@ The angularOutputTarget method accepts 5 parameters:
 
 The title of the Stencil package where components are available for consumers. This is used during compilation to write the correct imports for components e.g.
 
-import { IonApp } from ‘@ionic/core/components/ion-app.js’
+```js
+import { IonApp } from '@ionic/core/components/ion-app.js'
+```
 
 ### directivesProxyFile
 
