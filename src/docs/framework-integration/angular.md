@@ -169,7 +169,7 @@ Which will automatically define and run your components!
 
 ### Usage in your templates
 
-```
+```html
 &lt;my-component first=&quot;Stencil&quot; last=&quot;Compiler&quot;&gt;&lt;/my-component&gt;
 ```
 
