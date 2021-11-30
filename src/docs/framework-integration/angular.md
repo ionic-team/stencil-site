@@ -1,6 +1,6 @@
 ---
-title: Angular Integration with Stencil
-description: Angular Integration with Stencil
+title: Angular Integration • Stencil
+description: Learn how to wrap your components so that people can use them natively in Angular.
 url: /docs/angular
 contributors:
   - jthoms1
@@ -9,82 +9,204 @@ contributors:
   - peterpeterparker
   - jeanbenitez
   - mburger81
+  - splitinfinities
 ---
 
-# Angular
+# Angular Integration
 
-Using a Stencil built web component collection within an Angular CLI project is a two-step process. We need to:
+Stencil provides a wrapper for your custom elements to be used as first-class Angular components. The goal of a wrapper is to smooth over how Stencil’s code works within a framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you author in a Stencil project.
 
-1. Include the `CUSTOM_ELEMENTS_SCHEMA` in the modules that use the components.
-2. Call `defineCustomElements()` from `main.ts` (or some other appropriate place).
+One benefit of the wrapper pattern includes improved maintainability since you are writing code once, and reusing it across frameworks. Another benefit of this pattern is that you can have first-class integration with your framework of choice. For example, with the Angular wrapper, you can bind input events directly to a value accessor for seamless integration in Angular’s bi-directional data flow. 
 
-## Including the Custom Elements Schema
+## Setup
 
-Including the `CUSTOM_ELEMENTS_SCHEMA` in the module allows the use of the web components in the HTML markup without the compiler producing errors. This code should be added into the `AppModule` and in every other modules that use your custom elements.
-Here is an example of adding it to `AppModule`:
+### Project Structure
+
+#### Create an Angular Component Library
+
+First, we’ll create an Angular component library next to your Stencil component library. If you already have an Angular component library prepared, you can skip this step.
+
+In your CLI tool of choice, install Angular’s CLI tools:
+
+```bash
+npm install -g @angular/cli
+```
+
+Next, you will create your Angular workspace and project. Ideally, this should be placed next to your Stencil project, so a monorepo structure is encouraged. 
+
+```bash
+ng new angular-workspace --no-create-application
+cd angular-workspace
+ng generate library component-library
+```
+
+#### Create a Stencil Component Library
+
+Your Stencil library will be the location that you write your web components. 
+
+```bash
+npm init stencil components stencil-library
+```
+
+#### Result
+
+At the end of the above steps, you should have a directory that looks something like this:
+
+```
+top-most-directory/
+├── stencil-library/
+│   ├── stencil.config.js
+│   └── src/components
+└── angular-workspace/
+    └── projects/
+        └── component-library/
+```
+
+### Install the wrapper function in your Stencil Library
+
+In your Stencil project directory, to install this package, run the following:
+
+`npm i @stencil/angular-output-target`
+
+or
+
+`yarn add @stencil/angular-output-target`
+
+The latest version (X.X.X) of this binding currently targets Angular 12+
+
+### Add the wrapper function to your Stencil library
+
+Within your Stencil’s config file, you can import the binding for use within the outputTargets array. If you copy and paste this, ensure you update the “my-workspace” and “my-lib” to coincide with what you named your component library, as well as to update the componentCorePackage to the name of your Stencil component library.
 
 ```tsx
-import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { angularOutputTarget } from '@stencil/angular-output-target';
+export const config: Config = {
+  namespace: 'component-library',
+  outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: `component-library`,
+      directivesProxyFile: `../my-workspace/projects/my-lib/src/lib/stencil-generated/components.ts`
+    }),
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader',
+    },  
+  ],
+};
+```
 
-import { AppComponent } from './app.component';
+Once you have added this and have directivesProxyFile pointing to the correct directory of your Angular component library, you can build Stencil. 
+
+`npm run build`
+
+Or
+
+`yarn build`
+
+Once the build is complete, you will see new files in your Angular component libraries directory!
+
+### Add the components to your Angular project’s entry file (public-api.ts)
+
+In order to make the generated files available to your Angular component library and it’s consumers, you’ll need to export everything from within your entry file - commonly the public-api.ts file. To do this, you’ll write:
+
+```tsx
+export * from './lib/stencil-generated/components.ts';
+```
+
+### Link your packages (optional)
+
+If you’re using a monorepo tool like Lerna or Nx, you can skip this step. Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
+
+**First, in your Stencil directory, run the following command:**
+
+`npm link`
+
+Or
+
+`yarn link`
+
+**Next, in your Angular component library, run the following command:**
+
+`npm link {the name of your Stencil package}`
+
+Or
+
+`yarn link {the name of your Stencil package}`
+
+To determine your Stencil’s package name, you can visit your Stencil Component Libraries package.json file.
+
+**All done!**
+
+At this point, once you build your Angular project and import this library into your app, you will have access to all of the wrapped Angular components.  You can visit the Angular package and run the following command to see the result.
+
+`npm run build`
+
+Or
+
+`yarn build`
+
+## **Usage**
+
+You're now able to import your components into an Angular app and use them directly. 
+
+### Adding the components to a module
+
+Your component library consumers will be able to import your Angular components into your app's module by writing: 
+
+```jsx
+import { MyComponent } from 'angular-component-library';
+import { SomeComponent } from './some.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [MyComponent],
+  declarations: [SomeViewComponent],
+  exports: [SomeComponent]
 })
-export class AppModule {}
+export class SomeViewModule {}
 ```
 
-The `CUSTOM_ELEMENTS_SCHEMA` needs to be included in any module that uses custom elements.
+Which will automatically define and run your components! 
 
-## Calling defineCustomElements
+### Usage in your templates
 
-A component collection built with Stencil includes a main function that is used to load the components in the collection. That function is called `defineCustomElements()` and it needs to be called once during the bootstrapping of your application. One convenient place to do this is in `main.ts` as such:
-
-```tsx
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-// Note: loader import location set using "esmLoaderPath" within the output target config
-import { defineCustomElements } from 'test-components/loader';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
-defineCustomElements();
+```html
+<my-component first="Stencil" last="Compiler"></my-component>
 ```
 
-## Edge and IE11 polyfills
+### Considerations
 
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+Please note, you can create your own NgModule that can export and define all of your components, and encourage your customers to use that module within the imports property of their NgModules. There is a [Github issue](https://github.com/ionic-team/stencil-ds-output-targets/issues/207) to expand on this feature to align to single component angular modules (or SCAM). 
 
-```tsx
+## **FAQs**
+
+### What is the best format to write event names in Stencil?
+
+Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability between frameworks. 
+
+### How do I bind input events directly to a value accessor?
+
+You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your components. Take a look at [valueAccessorConfig's option below](). 
+
+### How do I add IE11 or Edge support?
+
+If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+
+```jsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
 applyPolyfills().then(() => {
   defineCustomElements()
 })
-
 ```
 
-## Accessing components using ViewChild and ViewChildren
+### How do I access components with ViewChild or ViewChildren?
 
-Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
+Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```tsx
+```jsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
-import 'test-components';
+import { TestComponent } from 'test-components';
 
 @Component({
     selector: 'app-home',
@@ -93,76 +215,72 @@ import 'test-components';
 })
 export class HomeComponent {
 
-    @ViewChild('test') myTestComponent: ElementRef<HTMLTestComponentElement>;
+    @ViewChild(TestComponent) myTestComponent: ElementRef<TestComponent>;
 
     async onAction() {
         await this.myTestComponent.nativeElement.testComponentMethod();
     }
 }
-
 ```
 
-## Bindings
+### Why aren't my custom interfaces exported from within the index.d.ts file?
 
-Angular has a pretty good story for integration with web components but there are a few issues with the developer experience. With bindings, the web components get wrapped in an Angular component and then immediately become available as Angular Components. Some of the advantages of doing this are that you get types for your components and you also get the ability to use ngmodel on inputs. Your developers then consuming your web components from Angular applications import an actual Angular Library and to them it feels as though they are interacting with Angular components.
+Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
 
-### Install
+When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like: `"types": "dist/types/interfaces.d.ts"`
 
-```bash
-npm install @stencil/angular-output-target --save-dev
-```
+## **API**
 
+The angularOutputTarget method accepts 5 parameters:
 
-### Stencil Config setup
+### componentCorePackage
 
-To make use of the AngularOutputPlugin first import it into your stencil.config.ts file. Then add it as an OutputTarget.
+The title of the Stencil package where components are available for consumers. This is used during compilation to write the correct imports for components e.g.
 
-```tsx
-import { Config } from '@stencil/core';
-import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
+import { IonApp } from ‘@ionic/core/components/ion-app.js’
+
+### directivesProxyFile
+
+This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
+
+### directivesArrayFile
+
+Used to provide a list of type Proxies to the Angular Component Library. [See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt). 
+
+### directivesUtilsFile
+
+This is the file where helper functions for the component wrappers are defined. 
+
+### valueAccessorConfigs
+
+This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (I.e. `value`), which event will cause the target prop to change, and more. 
+
+```jsx
+const angularValueAccessorBindings: ValueAccessorConfig[] = [
+  {
+    elementSelectors: ['my-input[type=text]'],
+    event: 'myChange',
+    targetAttr: 'value',
+    type: 'text',
+  },
+]; 
 
 export const config: Config = {
-  namespace: 'demo',
+  namespace: 'component-library',
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'component-library',
-      directivesProxyFile: '../component-library-angular/src/directives/proxies.ts',
+      directivesProxyFile: '{path to your proxy file}',
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     {
       type: 'dist',
+      esmLoaderPath: '../loader',
     },
   ],
 };
 ```
 
-#### componentCorePackage
+### excludeComponents
 
-This is the NPM package name of your core stencil package. In the case of Ionic we chose ‘@ionic/core’. This is the package that gets published that contains just your web components. This package is then used by the Angular package as a dependency
-
-#### proxiesFile
-
-This is the output file that gets generated by the outputTarget. This file should be referencing a different package location. In the example case we are choosing a sibling directory’s src directory. We will then create an Angular package that exports all components defined in this file.
-
-#### valueAccessorConfigs
-
-In order for ngmodel to work on input components we need to define certain pieces of information about the input components. Unfortunately the Stencil compiler cannot infer the intent of components because this is a very conceptual idea.
-
-### Setup of Angular Component Library
-
-There is an example component library package available on Github so that you can get started. This repo will likely live as a sibling to your Stencil component library. https://github.com/ionic-team/stencil-ds-angular-template
-
-### Usage
-
-```tsx
-import { ComponentLibraryModule } from 'component-library-angular';
-
-@NgModule({
-  ...
-  imports: [
-    ComponentLibraryModule
-  ],
-  ...
-})
-export class AppModule { }
-```
+This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components - like tabs - so that Ionic Framework can integrate better with Angular's Router.
