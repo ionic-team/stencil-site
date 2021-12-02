@@ -19,12 +19,12 @@ applyPolyfills().then(() => {
   defineCustomElements()
 })
 ```
-
+<!-- 
 ### How do I access components with ViewChild or ViewChildren?
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```tsx
+```jsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 import { TestComponent } from 'test-components';
@@ -42,4 +42,4 @@ export class HomeComponent {
         await this.myTestComponent.nativeElement.testComponentMethod();
     }
 }
-```
+``` -->
