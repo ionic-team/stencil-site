@@ -59,7 +59,7 @@ cd stencil-ds-react-template
 npm i
 ```
 
-> NOTE: If you want to name your React component library something different, add the new name at the end of the clone command like so
+> **NOTE**: If you want to name your React component library something different, add the new name at the end of the clone command like so
 
 ```bash
 git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
