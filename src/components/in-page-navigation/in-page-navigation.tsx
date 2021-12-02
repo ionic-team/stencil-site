@@ -58,7 +58,7 @@ export class InPageNavigtion implements ComponentInterface {
 
   render() {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
-    console.log("pageLinks:", pageLinks);
+    console.log(this.pageLinks, pageLinks);
     const submitEditLink = (
       <a class="submit-edit-link" href={`https://github.com/ionic-team/stencil-site/edit/master/${this.srcUrl}`}>
         <app-icon name="github"></app-icon>
