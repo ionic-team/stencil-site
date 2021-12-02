@@ -227,7 +227,7 @@ applyPolyfills().then(() => {
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```jsx
+```tsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 import { TestComponent } from 'test-components';
