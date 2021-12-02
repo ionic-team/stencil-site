@@ -12,52 +12,6 @@ contributors:
   - splitinfinities
 ---
 
-## Usage
-
-You're now able to import your components into an Angular app and use them directly. Here's how the consumers of your Angular Component Library will use this code. 
-
-### Adding the components to a module
-
-Your component library consumers will be able to import your Angular components into your app's module by writing: 
-
-```tsx
-import { MyComponent } from 'angular-component-library';
-import { SomeComponent } from './some.component';
-
-@NgModule({
-  imports: [MyComponent],
-  declarations: [SomeViewComponent],
-  exports: [SomeComponent]
-})
-export class SomeViewModule {}
-```
-
-Which will automatically define and run your components! 
-
-### Usage in your templates
-
-```html
-&lt;my-component first=&quot;Stencil&quot; last=&quot;Compiler&quot;&gt;&lt;/my-component&gt;
-```
-
-### Considerations
-
-Please note, you can create your own NgModule that can export and define all of your components, and encourage your customers to use that module within the imports property of their NgModules. There is a [Github issue](https://github.com/ionic-team/stencil-ds-output-targets/issues/207) to expand on this feature to align to single component angular modules (or SCAM). 
-
-## FAQs
-
-### What is the best format to write event names?
-
-Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability between frameworks. 
-
-### How do I bind input events directly to a value accessor?
-
-You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your components. Take a look at [valueAccessorConfig's option below](). 
-
-### How do I add IE11 or Edge support?
-
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
-<!-- 
 ```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
@@ -90,7 +44,7 @@ export class HomeComponent {
 }
 ```
 
-### Why aren't my custom interfaces exported from within the index.d.ts file?
+<!-- ### Why aren't my custom interfaces exported from within the index.d.ts file? -->
 
 Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
 
@@ -106,4 +60,4 @@ The title of the Stencil package where components are available for consumers. T
 
 ```js
 import { IonApp } from '@ionic/core/components/ion-app.js'
-``` -->
+```
