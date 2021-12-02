@@ -247,7 +247,7 @@ export class HomeComponent {
 }
 ```
 
-### Why aren't my custom interfaces exported from within the index.d.ts file?
+### Why aren't my custom interfaces exported from within the definitions index file?
 
 Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
 
