@@ -152,6 +152,10 @@ Or
 
 To determine your Stencil’s package name, you can visit your Stencil Component Library's `package.json` file.
 
+And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run npm run build to propagate them through to the React component library.
+
+> **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+
 ### All done!
 
 At this point, once you build your Angular project and import this library into your app, you will have access to all of the wrapped Angular components.  You can visit the Angular package and run the following command to see the result.
