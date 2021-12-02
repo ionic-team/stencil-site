@@ -73,13 +73,10 @@ doc-component .heading-link {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.4em;
 }
 
-@supports not (gap: 1em) {
-  doc-component .heading-link > * {
-      margin: 0 0.4em;
-  }
+doc-component .heading-link > * {
+    margin: 0 0.4em;
 }
 
 doc-component .heading-link app-icon {
