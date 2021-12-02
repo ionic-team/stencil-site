@@ -14,7 +14,7 @@ contributors:
 
 # Angular Integration
 
-#### Support: __Angular 12+__
+#### Support: __Angular 12+__ • __TypeScript 4.0+__
 
 Stencil provides a wrapper for your custom elements to be used as first-class Angular components. The goal of a wrapper is to smooth over how Stencil’s code works within a framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you author in a Stencil project.
 
