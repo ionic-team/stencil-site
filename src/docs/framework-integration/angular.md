@@ -121,7 +121,7 @@ top-most-directory/
         └── component-library/
             └── src/
                 ├── lib/
-                │   └── **stencil-generated/components.ts**
+                │   └── stencil-generated/components.ts
                 └── public-api.ts
 ```
 
