@@ -107,6 +107,21 @@ Or
 
 Once the build is complete, you will see new files in your Angular component library's directory!
 
+
+```
+top-most-directory/
+├── stencil-library/
+│   ├── stencil.config.js
+│   └── src/components
+└── angular-workspace/
+    └── projects/
+        └── component-library/
+            └── src/
+                ├── lib/
+                │   └── **stencil-generated/components.ts**
+                └── public-api.ts
+```
+
 ### Add the components to your Angular project’s entry file (public-api.ts)
 
 In order to make the generated files available to your Angular component library and it’s consumers, you’ll need to export everything from within your entry file - commonly the `public-api.ts` file. To do this, you’ll write:
