@@ -9,6 +9,7 @@ contributors:
   - ErikSchierboom
   - brentertz
   - danawoodman
+  - a-giuliano
 ---
 
 # React Integration
