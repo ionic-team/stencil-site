@@ -1,6 +1,7 @@
 import marked from 'marked';
 import Prism from 'prismjs';
 import path from 'path';
+import slugify from 'slugify';
 import loadLanguages from 'prismjs/components/';
 import { SiteStructureItem, MarkdownContent } from '../src/global/definitions';
 
@@ -96,7 +97,7 @@ export function localizeMarkdownLink(renderer: marked.Renderer, filePath: string
 
 export function collectHeadingMetadata(renderer: marked.Renderer, metadata: MarkdownContent) {
   renderer.heading = function (text, level, raw) {
-    let id = raw.toLowerCase().replace(/[^\w]+/g, '-');
+    let id = slugify(raw, {lower: true});
 
     while (id.startsWith('-')) {
       id = id.substring(1);

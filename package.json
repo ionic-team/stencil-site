@@ -49,5 +49,8 @@
   "bugs": {
     "url": "https://github.com/ionic-team/stencil-site"
   },
-  "homepage": "https://stenciljs.com/"
+  "homepage": "https://stenciljs.com/",
+  "dependencies": {
+    "slugify": "^1.6.3"
+  }
 }
