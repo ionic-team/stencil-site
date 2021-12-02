@@ -203,7 +203,7 @@ Please note, you can create your own NgModule that can export and define all of 
 
 ## FAQs
 
-### What is the best format to write event names in Stencil?
+### What is the best format to write event names?
 
 Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability between frameworks. 
 
