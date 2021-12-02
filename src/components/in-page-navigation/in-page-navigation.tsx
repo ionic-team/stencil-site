@@ -51,6 +51,7 @@ export class InPageNavigtion implements ComponentInterface {
 
   @Watch('pageLinks')
   handlePageLinksChange(newLinks: MarkdownHeading[]) {
+    console.log('newlinks', newLinks);
     this.pageLinksFiltered = [...newLinks];
   }
 
