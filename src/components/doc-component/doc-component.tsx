@@ -34,6 +34,8 @@ export class DocumentComponent implements ComponentInterface {
   }
 
   render() {
+    console.log(this.page, this.content);
+
     const data = this.data;
     const content = this.content;
     if (!data || !content) {
