@@ -227,7 +227,7 @@ applyPolyfills().then(() => {
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
 
-```jsx
+```tsx
 import {Component, ElementRef, ViewChild} from '@angular/core';
 
 import { TestComponent } from 'test-components';
@@ -284,7 +284,7 @@ This is the file where helper functions for the component wrappers are defined.
 
 This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (I.e. `value`), which event will cause the target prop to change, and more. 
 
-```jsx
+```tsx
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: ['my-input[type=text]'],
