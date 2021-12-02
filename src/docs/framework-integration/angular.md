@@ -60,6 +60,9 @@ top-most-directory/
 └── angular-workspace/
     └── projects/
         └── component-library/
+            └── src/
+                ├── lib/
+                └── public-api.ts
 ```
 
 ### Install the wrapper function in your Stencil Library
@@ -76,7 +79,7 @@ The latest version (X.X.X) of this binding currently targets Angular 12+
 
 ### Add the wrapper function to your Stencil library
 
-Within your Stencil’s config file, you can import the binding for use within the outputTargets array. If you copy and paste this, ensure you update the “my-workspace” and “my-lib” to coincide with what you named your component library, as well as to update the componentCorePackage to the name of your Stencil component library.
+Within your Stencil’s config file, you can import the Angular wrapper function for use within the outputTargets array. If you copy and paste this, ensure you update the “my-workspace” and “my-lib” to coincide with what you named your component library, as well as to update the `componentCorePackage` to the name of your Stencil component library.
 
 ```tsx
 import { angularOutputTarget } from '@stencil/angular-output-target';
@@ -95,7 +98,7 @@ export const config: Config = {
 };
 ```
 
-Once you have added this and have directivesProxyFile pointing to the correct directory of your Angular component library, you can build Stencil. 
+Once you have added this and have `directivesProxyFile` pointing to the correct directory of your Angular component library, you can build Stencil. 
 
 `npm run build`
 
@@ -103,11 +106,11 @@ Or
 
 `yarn build`
 
-Once the build is complete, you will see new files in your Angular component libraries directory!
+Once the build is complete, you will see new files in your Angular component library's directory!
 
 ### Add the components to your Angular project’s entry file (public-api.ts)
 
-In order to make the generated files available to your Angular component library and it’s consumers, you’ll need to export everything from within your entry file - commonly the public-api.ts file. To do this, you’ll write:
+In order to make the generated files available to your Angular component library and it’s consumers, you’ll need to export everything from within your entry file - commonly the `public-api.ts` file. To do this, you’ll write:
 
 ```tsx
 export * from './lib/stencil-generated/components.ts';
@@ -117,7 +120,7 @@ export * from './lib/stencil-generated/components.ts';
 
 If you’re using a monorepo tool like Lerna or Nx, you can skip this step. Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
 
-#### First, in your Stencil directory, run the following command:
+**First, in your Stencil directory, run the following command:**
 
 `npm link`
 
@@ -125,7 +128,7 @@ Or
 
 `yarn link`
 
-#### Next, in your Angular component library, run the following command:
+**Next, in your Angular component library, run the following command:**
 
 `npm link {the name of your Stencil package}`
 
@@ -133,9 +136,9 @@ Or
 
 `yarn link {the name of your Stencil package}`
 
-To determine your Stencil’s package name, you can visit your Stencil Component Libraries package.json file.
+To determine your Stencil’s package name, you can visit your Stencil Component Library's `package.json` file.
 
-#### All done!
+**All done!**
 
 At this point, once you build your Angular project and import this library into your app, you will have access to all of the wrapped Angular components.  You can visit the Angular package and run the following command to see the result.
 
