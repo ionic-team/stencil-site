@@ -14,8 +14,14 @@ export class InPageNavigtion implements ComponentInterface {
   @Prop() pageLinks: MarkdownHeading[] = [];
   @Prop() srcUrl: string = '';
   @Prop() currentPageUrl: string = '';
+
   @State() itemOffsets: ItemOffset[] = [];
   @State() selectedId?: string;
+  @State() pageLinksFiltered: MarkdownHeading[] = [];
+
+  componentWillLoad() {
+    this.handlePageLinksChange(this.pageLinks);
+  }
 
   @Listen('scroll', { target: 'window' })
   function() {
@@ -43,6 +49,12 @@ export class InPageNavigtion implements ComponentInterface {
     });
   }
 
+  @Watch('pageLinks')
+  handlePageLinksChange(newLinks: MarkdownHeading[]) {
+    console.log('newlinks', newLinks);
+    this.pageLinksFiltered = [...newLinks];
+  }
+
   componentDidLoad() {
     this.updateItemOffsets();
   }
@@ -57,7 +69,8 @@ export class InPageNavigtion implements ComponentInterface {
   }
 
   render() {
-    const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
+    const pageLinksFiltered = this.pageLinksFiltered;
+
     const submitEditLink = (
       <a class="submit-edit-link" href={`https://github.com/ionic-team/stencil-site/edit/master/${this.srcUrl}`}>
         <app-icon name="github"></app-icon>
@@ -65,7 +78,7 @@ export class InPageNavigtion implements ComponentInterface {
       </a>
     );
 
-    if (pageLinks.length === 0) {
+    if (pageLinksFiltered.length === 0) {
       return <div>{submitEditLink}</div>;
     }
 
@@ -73,7 +86,7 @@ export class InPageNavigtion implements ComponentInterface {
       <div>
         <h5>Contents</h5>
         <ul class="heading-links">
-          {pageLinks.map(pl => (
+          {pageLinksFiltered.map(pl => (
             <li
               class={{
                 'heading-link': true,
