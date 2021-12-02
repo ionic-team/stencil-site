@@ -1,4 +1,4 @@
-import { Component, Host, Prop, ComponentInterface, h, Build } from '@stencil/core';
+import { Component, Host, Prop, ComponentInterface, h, Build, State } from '@stencil/core';
 import siteStructure from '../../assets/docs-structure.json';
 import { findItem, fileNotFound, ItemInfo } from '../../global/site-structure-utils';
 import { MarkdownContent, SiteStructureItem } from '../../global/definitions';
@@ -11,7 +11,7 @@ import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
 export class DocumentComponent implements ComponentInterface {
   @Prop() page?: string;
   data?: ItemInfo;
-  content?: MarkdownContent;
+  @State() content?: MarkdownContent;
 
   async componentWillRender() {
     if (this.page) {
