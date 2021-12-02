@@ -14,6 +14,8 @@ contributors:
 
 # Angular Integration
 
+#### Support: __Angular 12+__
+
 Stencil provides a wrapper for your custom elements to be used as first-class Angular components. The goal of a wrapper is to smooth over how Stencil’s code works within a framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you author in a Stencil project.
 
 One benefit of the wrapper pattern includes improved maintainability since you are writing code once, and reusing it across frameworks. Another benefit of this pattern is that you can have first-class integration with your framework of choice. For example, with the Angular wrapper, you can bind input events directly to a value accessor for seamless integration in Angular’s bi-directional data flow. 
@@ -22,7 +24,22 @@ One benefit of the wrapper pattern includes improved maintainability since you a
 
 ### Project Structure
 
-#### Create an Angular Component Library
+To organize the generated component libraries for different frameworks, we recommend using a monorepo structure. This monorepo will contain your Stencil component library as well as the component libraries for whatever frameworks you choose. The overall structure of a monorepo with Stencil and Angular component libraries might look something like this:
+
+```
+top-most-directory/
+├── stencil-library/
+│   ├── stencil.config.js
+│   └── src/components
+└── angular-workspace/
+    └── projects/
+        └── component-library/
+            └── src/
+                ├── lib/
+                └── public-api.ts
+```
+
+### Create an Angular Component Library
 
 First, we’ll create an Angular component library next to your Stencil component library. If you already have an Angular component library prepared, you can skip this step.
 
@@ -40,7 +57,7 @@ cd angular-workspace
 ng generate library component-library
 ```
 
-#### Create a Stencil Component Library
+### Create a Stencil Component Library
 
 Your Stencil library will be the location that you write your web components. 
 
@@ -48,26 +65,9 @@ Your Stencil library will be the location that you write your web components.
 npm init stencil components stencil-library
 ```
 
-#### Result
+### Install the Angular Output Target in your Stencil Component Library
 
-At the end of the above steps, you should have a directory that looks something like this:
-
-```
-top-most-directory/
-├── stencil-library/
-│   ├── stencil.config.js
-│   └── src/components
-└── angular-workspace/
-    └── projects/
-        └── component-library/
-            └── src/
-                ├── lib/
-                └── public-api.ts
-```
-
-### Install the wrapper function in your Stencil Library
-
-In your Stencil project directory, to install this package, run the following:
+Now that the project structure is set up, we can install the Angular Output Target package. This package contains the Angular wrapper function that we will use to generate our Angular wrapped components. To install the Angular Output Target package, run the following command in your Stencil project directory
 
 `npm i @stencil/angular-output-target`
 
@@ -75,20 +75,19 @@ or
 
 `yarn add @stencil/angular-output-target`
 
-The latest version (X.X.X) of this binding currently targets Angular 12+
-
-### Add the wrapper function to your Stencil library
+### Add the Angular Wrapper Function to your Stencil Component Library
+With the Angular Output Target package installed, we can now configure our Stencil Component Library to build our Angular wrapped components. In the `stencil.config.ts` file of your Stencil component library, add the Angular wrapper function. 
 
 Within your Stencil’s config file, you can import the Angular wrapper function for use within the outputTargets array. If you copy and paste this, ensure you update the “my-workspace” and “my-lib” to coincide with what you named your component library, as well as to update the `componentCorePackage` to the name of your Stencil component library.
 
 ```tsx
-import { angularOutputTarget } from '@stencil/angular-output-target';
+import { angularOutputTarget as angular } from '@stencil/angular-output-target';
 export const config: Config = {
-  namespace: 'component-library',
+  namespace: 'demo',
   outputTargets: [
-    angularOutputTarget({
-      componentCorePackage: `component-library`,
-      directivesProxyFile: `../my-workspace/projects/my-lib/src/lib/stencil-generated/components.ts`
+    angular({
+      componentCorePackage: `your-stencil-library-name`,
+      directivesProxyFile: `../your-angular-workspace-name/projects/your-angular-library-name/src/lib/stencil-generated/components.ts`
     }),
     {
       type: 'dist',
@@ -138,7 +137,7 @@ Or
 
 To determine your Stencil’s package name, you can visit your Stencil Component Library's `package.json` file.
 
-**All done!**
+### All done!
 
 At this point, once you build your Angular project and import this library into your app, you will have access to all of the wrapped Angular components.  You can visit the Angular package and run the following command to see the result.
 
@@ -247,6 +246,9 @@ import { IonApp } from '@ionic/core/components/ion-app.js'
 ### directivesProxyFile
 
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
+
+### includeDefineCustomElement
+If `true`, React components will import and define elements from the `dist-custom-elements` build, rather than `dist`. 
 
 ### directivesArrayFile
 
