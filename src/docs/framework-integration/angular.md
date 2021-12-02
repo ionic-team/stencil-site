@@ -57,7 +57,7 @@ You can configure how your input events can map directly to a value accessor, al
 ### How do I add IE11 or Edge support?
 
 If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
-
+<!-- 
 ```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
 ...
@@ -106,4 +106,4 @@ The title of the Stencil package where components are available for consumers. T
 
 ```js
 import { IonApp } from '@ionic/core/components/ion-app.js'
-```
+``` -->
