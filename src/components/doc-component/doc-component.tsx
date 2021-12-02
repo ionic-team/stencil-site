@@ -28,7 +28,7 @@ export class DocumentComponent implements ComponentInterface {
       }
 
       if (data.item && data.item.filePath) {
-        this.content = await fetchContent(data.item.filePath);
+        this.content = {...await fetchContent(data.item.filePath)};
       }
     }
   }
