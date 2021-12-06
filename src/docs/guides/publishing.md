@@ -24,12 +24,12 @@ An advantage to using the compiler is it is able to provide help on how to best 
 
 ```json
 {
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/interface.d.ts",
-  "unpkg": "dist/ionic/ionic.js",
+  "types": "dist/types/components.d.ts",
+  "unpkg": "dist/my-project-name/my-project-name.esm.js",
   "collection:main": "dist/collection/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
@@ -42,11 +42,11 @@ An advantage to using the compiler is it is able to provide help on how to best 
 
 | Property | Description                                                                                         | Recommended                       |
 |----------|-----------------------------------------------------------------------------------------------------|-----------------------------------|
-| `main`            | Entry file in the CommonJS module format.                                                  | `dist/index.js`                   |
-| `module`          | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.mjs`                  |
+| `main`            | Entry file in the CommonJS module format.                                                  | `dist/index.cjs.js`               |
+| `module`          | Entry file in the ES module format. ES modules is the standardized and recommended format. | `dist/index.js`                   |
 | `es2015`          | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
 | `es2017`          | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
-| `types`           | Entry file to the project's types.                                                         | `dist/types/index.d.ts`           |
+| `types`           | Entry file to the project's types.                                                         | `dist/types/components.d.ts`      |
 | `unpkg`           | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
 
 The `collection` properties are used to allow lazy loading in other Stencil applications.
