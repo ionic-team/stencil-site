@@ -133,6 +133,22 @@ In order to make the generated files available to your Angular component library
 export * from './lib/stencil-generated/components.ts';
 ```
 
+### Create NgModule(s) in your Angular Component Library
+In order to work with best Angular, it's reccomended that you create Modules either in one single format or in many. 
+
+**Solution one: Create one component module per component**
+
+In order to better support Ivy, you'll need to add a module for each component in your Angular library. Creating a module per-component aligns with Single Component Angular Module pattern (SCAM) and can also help you to mitigate challenges around Tree Shaking. 
+
+> Note: Take a look at how Material Design creates their Angular Modules! [Button](https://github.com/angular/components/blob/master/src/material/button/button-module.ts), [Input](https://github.com/angular/components/blob/master/src/material/input/input-module.ts)
+
+
+**Solution two: Create one module for your entire component library**
+Following Ionic Framework's lead, you can add one singular module which exports and provides each component generated from Angular's wrapper function. The challenge with this approach is that your component library consumers will lose the abiltiy to effectively tree-shake. 
+
+> Note: Take a look at how Ionic Framework creates their Angular Module: [IonicModule](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/ionic-module.ts)
+
+
 ### Link your packages (optional)
 
 If you’re using a monorepo tool like Lerna or Nx, you can skip this step. Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
