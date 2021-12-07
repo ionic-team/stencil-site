@@ -155,7 +155,7 @@ Or
 
 To determine your Stencil’s package name, you can visit your Stencil Component Library's `package.json` file.
 
-And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run npm run build to propagate them through to the React component library.
+And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run npm run build to propagate them through to the Angular component library.
 
 > **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
@@ -270,7 +270,7 @@ import { IonApp } from '@ionic/core/components/ion-app.js'
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
 
 ### includeDefineCustomElement
-If `true`, React components will import and define elements from the `dist-custom-elements` build, rather than `dist`. 
+If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. 
 
 ### directivesArrayFile
 
