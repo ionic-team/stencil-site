@@ -213,7 +213,7 @@ export class Something {
   componentWillUpdate() {}
   componentDidUpdate() {}
   componentWillRender() {}
-  componentShouldRender(newVal: any, oldVal: any, propName: string) {}
+  componentShouldUpdate(newVal: any, oldVal: any, propName: string) {}
   componentDidRender() {}
 
   /**
