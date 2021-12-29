@@ -269,7 +269,7 @@ import { IonApp } from '@ionic/core/components/ion-app.js'
 
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
 
-### includeDefineCustomElement
+### includeDefineCustomElements
 If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. 
 
 ### directivesArrayFile
