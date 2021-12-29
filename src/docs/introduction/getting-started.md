@@ -4,6 +4,7 @@ description: Getting Started
 url: /docs/getting-started
 contributors:
   - jthoms1
+  - rwaskiewicz
 ---
 
 # Getting Started
@@ -24,9 +25,8 @@ you will be provided with a prompt so that you can choose the type of project to
 ```bash
 ? Pick a starter › - Use arrow-keys. Return to submit.
 
-❯  ionic-pwa     Everything you need to build fast, production ready PWAs
+❯  component     Collection of web components that can be used anywhere
    app           Minimal starter for building a Stencil app or website
-   component     Collection of web components that can be used anywhere
 ```
 
 
