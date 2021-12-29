@@ -215,7 +215,7 @@ applyPolyfills().then(() => {
 
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
 
-### includeDefineCustomElement
+### includeDefineCustomElements
 
 If `true`, React components will import and define elements from the [`dist-custom-elements` build](https://stenciljs.com/docs/custom-elements), rather than [`dist`](https://stenciljs.com/docs/distribution).
 
