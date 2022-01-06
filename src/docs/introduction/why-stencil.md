@@ -18,7 +18,7 @@ Stencil uses TypeScript, JSX, and CSS to create standards-based Web Components t
 
 Stencil generates standards-compliant Web Components that can work with popular frameworks right out of the box. In addition, Stencil can be used to generate framework native components that can be used just like any other components in your framework of choice. Stencil accomplishes this by wrapping your Web Components via Stencil's Output Target feature.
 
-Compared to using Custom Elements directly, Stencil provides extra APIs that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
+Compared to using Custom Elements directly, Stencil provides [extra APIs](https://stenciljs.com/docs/api) that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
 
 The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
 
