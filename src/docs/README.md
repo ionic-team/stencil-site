@@ -1,7 +1,7 @@
 # Table of Contents
 
 * Introduction
-  * [Why Stencil](introduction/why-stencil.md)
+  * [Overview](introduction/overview.md)
   * [Goals and Objectives](introduction/goals-and-objectives.md)
   * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
