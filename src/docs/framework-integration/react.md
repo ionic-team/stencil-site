@@ -194,7 +194,8 @@ npm link {React component library}
 To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
 
 ```tsx
-import { MyComponent } from 'react-library';
+// if your React component library has another name, replace 'component-library-react' with that name
+import { MyComponent } from 'component-library-react';
 ```
 
 With that, your component is now available to be used like any other React component.
