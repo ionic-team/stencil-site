@@ -136,19 +136,27 @@ top-most-directory/
         └── index.ts
 ```
 
-### Add the Components to your React Project’s Entry File
+### Add the Components to your React Component Library's Entry File
 
 > **Note:** If you are using our React template, this should already be prepared for you, and this step can be safely skipped.
 
 In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
 
 ```tsx
-export * from './components/stencil-generated/index.ts';
+export * from './components';
 ```
 
 ### Link Your Packages (Optional)
 
-If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment. First, create a symlink for your Stencil component library by navigating to your **Stencil component library** and running
+If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment. 
+
+First, build your Stencil component library. In your **Stencil component library**, run
+
+```bash
+npm run build
+```
+
+Now you can create a symlink for your Stencil component library. From withing your **Stencil component library**, run
 
 ```bash
 npm link
@@ -160,25 +168,24 @@ With the symlink created, we next need to specify which packages will be consumi
 npm link {Stencil library name}
 ```
 
-Now you can build your Stencil component library. In your **Stencil component library**, run
-
-```bash
-npm run build
-```
-
 > **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
-And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library.
+And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library without having to relink.
 
 ## Usage
 
-If you are developing and testing your React wrapped components locally, you'll have to use `npm link` again to make your React wrapped components available in your React application. If your components are published to npm, you can skip this step. To link your React wrapped components, navigate to your **React component library** and run
+If you are developing and testing your React wrapped components locally, you'll have to use `npm link` again to make your React wrapped components available in your React application. If your components are published to npm, you can skip this step. 
+
+To link your React wrapped components, navigate to your **React component library** and run
 
 ```bash
+npm run build
 npm link
 ```
 
-Then, navigate to your **React application directory** and run
+To build your React wrapped components and create a symlink to the project. 
+
+Navigate to your **React application directory** and run
 
 ```bash
 npm link {React component library}
