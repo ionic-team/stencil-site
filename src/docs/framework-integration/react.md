@@ -10,6 +10,7 @@ contributors:
   - brentertz
   - danawoodman
   - a-giuliano
+  - rwaskiewicz
 ---
 
 # React Integration
@@ -51,7 +52,7 @@ mv {the path to your Stencil component library} {the path to your monorepo}
 
 ### Create a React Component Library
 
-Next, we will need to create the React component library. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
+Next, we will need to create the React component library that will wrap your Stencil components. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
 
 ```bash
 git clone https://github.com/ionic-team/stencil-ds-react-template
