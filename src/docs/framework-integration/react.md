@@ -168,9 +168,9 @@ With the symlink created, we next need to specify which packages will be consumi
 npm link {Stencil library name}
 ```
 
-> **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
-
 And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library without having to relink.
+
+> **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
 ## Usage
 
