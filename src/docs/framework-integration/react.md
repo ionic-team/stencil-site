@@ -93,7 +93,7 @@ import { Config } from '@stencil/core';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
 
 export const config: Config = {
-  namespace: 'demo',
+  ...
   outputTargets: [
     react({
       componentCorePackage: 'your-stencil-library-name',
@@ -107,7 +107,7 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
     },
-		...
+    ...
   ],
 };
 ```
