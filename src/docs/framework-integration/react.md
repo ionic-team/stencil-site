@@ -138,13 +138,13 @@ top-most-directory/
 
 ### Add the Components to your React Project’s Entry File
 
-In order to make the generated files available to your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
+> **Note:** If you are using our React template, this should already be prepared for you, and this step can be safely skipped.
+
+In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
 
 ```tsx
 export * from './components/stencil-generated/index.ts';
 ```
-
-> **Note:** If you are using our React template, this should already be prepared for you!
 
 ### Link Your Packages (Optional)
 
