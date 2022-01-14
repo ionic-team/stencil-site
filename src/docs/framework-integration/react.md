@@ -128,7 +128,7 @@ You’ll see the new generated file in your React component library at the locat
 top-most-directory/
 ├── stencil-library/
 │   ├── stencil.config.js
-│   └── src/components
+│   └── src/components/
 └── react-library/
     └── src/
         └── components/
