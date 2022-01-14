@@ -20,8 +20,8 @@ box. Stencil offers both unit testing and end-to-end testing capabilities.
 Testing within Stencil is broken up into two distinct types: Unit tests and End-to-end (e2e) tests.
 
 There are several philosophies on how testing should be done, and how to differentiate what should be considered a unit 
-test, end-to-end test. Stencil takes an opinionated stance so developers have a description of each to better choose
-when to use each type of testing:
+test versus an end-to-end test. Stencil takes an opinionated stance so developers have a description of each to better
+choose when to use each type of testing:
 
 **Unit tests** focus on testing a component's methods in isolation. For example, when a method is given the argument
 `X`, it should return `Y`.
