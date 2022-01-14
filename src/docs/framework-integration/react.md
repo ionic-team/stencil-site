@@ -30,7 +30,7 @@ To organize the generated component libraries for different frameworks, we recom
 top-most-directory/
 ├── stencil-library/
 │   ├── stencil.config.js
-│   └── src/components
+│   └── src/components/
 └── react-library/
     └── src/
         ├── components/
