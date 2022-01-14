@@ -72,7 +72,7 @@ If you do rename your React component library, be sure to change the `name` in t
 
 ### Install the React Output Target in your Stencil Component Library
 
-Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components. To install the React Output Target package, run the following command in your **Stencil project directory**
+Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
 
 ```bash
 npm install @stencil/react-output-target
@@ -86,7 +86,7 @@ yarn add @stencil/react-output-target
 
 ### Add the React Wrapper Function to your Stencil Component Library
 
-With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components. In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
+With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components (within our React component library). In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -174,16 +174,16 @@ And with that, your component libraries are linked together. Now, you can make c
 
 ## Usage
 
-If you are developing and testing your React wrapped components locally, you'll have to use `npm link` again to make your React wrapped components available in your React application. If your components are published to npm, you can skip this step. 
+If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step. 
 
-To link your React wrapped components, navigate to your **React component library** and run
+To link your React component library, navigate to your **React component library** and run
 
 ```bash
 npm run build
 npm link
 ```
 
-To build your React wrapped components and create a symlink to the project. 
+To build your React component library and create a symlink to the project. 
 
 Navigate to your **React application directory** and run
 
@@ -191,7 +191,7 @@ Navigate to your **React application directory** and run
 npm link {React component library}
 ```
 
-To make use of your React wrapped components in your React application, import your components from your React component library in the file where you want to use them.
+To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
 
 ```tsx
 import { MyComponent } from 'react-library';
