@@ -10,6 +10,7 @@ contributors:
   - brentertz
   - danawoodman
   - a-giuliano
+  - rwaskiewicz
 ---
 
 # React Integration
@@ -51,10 +52,10 @@ mv {the path to your Stencil component library} {the path to your monorepo}
 
 ### Create a React Component Library
 
-Next, we will need to create the React component library. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
+Next, we will need to create the React component library that will wrap your Stencil components. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
 
 ```bash
-git clone https://github.com/ionic-team/stencil-ds-react-template
+git clone https://github.com/ionic-team/stencil-ds-react-template component-library-react
 cd stencil-ds-react-template
 npm i
 ```
@@ -71,7 +72,7 @@ If you do rename your React component library, be sure to change the `name` in t
 
 ### Install the React Output Target in your Stencil Component Library
 
-Now that the project structure is set up, we can install the React Output Target package. This package contains the React wrapper function that we will use to generate our React wrapped components. To install the React Output Target package, run the following command in your **Stencil project directory**
+Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
 
 ```bash
 npm install @stencil/react-output-target
@@ -85,14 +86,14 @@ yarn add @stencil/react-output-target
 
 ### Add the React Wrapper Function to your Stencil Component Library
 
-With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components. In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
+With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components (within our React component library). In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
 
 ```tsx
 import { Config } from '@stencil/core';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
 
 export const config: Config = {
-  namespace: 'demo',
+  ...
   outputTargets: [
     react({
       componentCorePackage: 'your-stencil-library-name',
@@ -106,7 +107,7 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
     },
-		...
+    ...
   ],
 };
 ```
@@ -127,7 +128,7 @@ You’ll see the new generated file in your React component library at the locat
 top-most-directory/
 ├── stencil-library/
 │   ├── stencil.config.js
-│   └── src/components
+│   └── src/components/
 └── react-library/
     └── src/
         └── components/
@@ -135,19 +136,27 @@ top-most-directory/
         └── index.ts
 ```
 
-### Add the Components to your React Project’s Entry File
+### Add the Components to your React Component Library's Entry File
 
-In order to make the generated files available to your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
+> **Note:** If you are using our React template, this should already be prepared for you, and this step can be safely skipped.
+
+In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
 
 ```tsx
-export * from './components/stencil-generated/index.ts';
+export * from './components';
 ```
-
-> **Note:** If you are using our React template, this should already be prepared for you!
 
 ### Link Your Packages (Optional)
 
-If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment. First, create a symlink for your Stencil component library by navigating to your **Stencil component library** and running
+If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment. 
+
+First, build your Stencil component library. In your **Stencil component library**, run
+
+```bash
+npm run build
+```
+
+Now you can create a symlink for your Stencil component library. From within your **Stencil component library**, run
 
 ```bash
 npm link
@@ -159,34 +168,34 @@ With the symlink created, we next need to specify which packages will be consumi
 npm link {Stencil library name}
 ```
 
-Now you can build your Stencil component library. In your **Stencil component library**, run
-
-```bash
-npm run build
-```
+And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library without having to relink.
 
 > **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
-And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library.
-
 ## Usage
 
-If you are developing and testing your React wrapped components locally, you'll have to use `npm link` again to make your React wrapped components available in your React application. If your components are published to npm, you can skip this step. To link your React wrapped components, navigate to your **React component library** and run
+If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step. 
+
+To link your React component library, navigate to your **React component library** and run
 
 ```bash
+npm run build
 npm link
 ```
 
-Then, navigate to your **React application directory** and run
+To build your React component library and create a symlink to the project. 
+
+Navigate to your **React application directory** and run
 
 ```bash
 npm link {React component library}
 ```
 
-To make use of your React wrapped components in your React application, import your components from your React component library in the file where you want to use them.
+To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
 
 ```tsx
-import { MyComponent } from 'react-library';
+// if your React component library has another name, replace 'component-library-react' with that name
+import { MyComponent } from 'component-library-react';
 ```
 
 With that, your component is now available to be used like any other React component.
