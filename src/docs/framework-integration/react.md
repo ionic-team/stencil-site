@@ -156,7 +156,7 @@ First, build your Stencil component library. In your **Stencil component library
 npm run build
 ```
 
-Now you can create a symlink for your Stencil component library. From withing your **Stencil component library**, run
+Now you can create a symlink for your Stencil component library. From within your **Stencil component library**, run
 
 ```bash
 npm link
