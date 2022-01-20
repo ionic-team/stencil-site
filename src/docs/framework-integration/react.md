@@ -56,7 +56,7 @@ Next, we will need to create the React component library that will wrap your Ste
 
 ```bash
 git clone https://github.com/ionic-team/stencil-ds-react-template component-library-react
-cd stencil-ds-react-template
+cd component-library-react
 npm i
 ```
 
