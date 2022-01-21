@@ -20,7 +20,7 @@ The whole API provided by stencil can be condensed in a set of decorators, lifec
 ## Decorators
 
 Decorators are a pure compiler-time construction used by stencil to collect all the metadata about a component, the properties, attributes and methods it might expose, the events it might emit or even the associated stylesheets.
-Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur in any runtime overhead.
+Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur any runtime overhead.
 
 - [@Component()](component#component-decorator) declares a new web component
 - [@Prop()](properties#prop-decorator) declares an exposed property/attribute
