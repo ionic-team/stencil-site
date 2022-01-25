@@ -134,6 +134,7 @@ top-most-directory/
         └── components/
         │   └── stencil-generated/
         │       └── react-component-lib/
+        │       └── index.ts <-- the newly generated file 
         └── index.ts
 ```
 
