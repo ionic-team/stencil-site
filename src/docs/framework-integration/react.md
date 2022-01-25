@@ -102,7 +102,7 @@ export const config: Config = {
     }),
     {
       type: 'dist',
-			esmLoaderPath: '../loader',
+      esmLoaderPath: '../loader',
     },
     {
       type: 'dist-custom-elements',
