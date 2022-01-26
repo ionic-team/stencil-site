@@ -130,7 +130,7 @@ top-most-directory/
 In order to make the generated files available to your Angular component library and it’s consumers, you’ll need to export everything from within your entry file - commonly the `public-api.ts` file. To do this, you’ll write:
 
 ```tsx
-export * from './lib/stencil-generated/components.ts';
+export * from './lib/stencil-generated/components';
 ```
 
 ### Link your packages (optional)
