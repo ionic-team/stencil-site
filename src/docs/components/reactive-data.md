@@ -37,6 +37,12 @@ export class LoadingIndicator {
   watchStateHandler(newValue: boolean, oldValue: boolean) {
     console.log('The new value of busy is: ', newValue);
   }
+  
+  @Watch('activated')
+  @Watch('busy')
+  watchMultiple(newValue: boolean, oldValue: boolean, propName:string) {
+    console.log(`The new value of ${propName} is: `, newValue);
+  }
 }
 ```
 
