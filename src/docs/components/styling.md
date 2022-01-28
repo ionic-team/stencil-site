@@ -49,7 +49,7 @@ div {
 }
 ```
 
-> **NOTE**: The `:host` pseudo-class selector is used to select the `Host` element of the component
+> **NOTE**: The `:host` pseudo-class selector is used to select the [`Host` element](https://stenciljs.com/docs/host-element) of the component
 
 With the shadow DOM enabled, only these styles will be applied to the component. Even if a style in the light DOM uses a selector that matches an element in the component, those styles will not be applied.
 
