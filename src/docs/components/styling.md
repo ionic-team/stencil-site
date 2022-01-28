@@ -106,7 +106,7 @@ h1 {
 
 ### Customizing Components with Custom Properties
 
-CSS custom properties can allow users of a component to customize a component’s styles from the light DOM. Consider a `shadow-card` component that uses a custom property for the color of the card heading.
+CSS custom properties can allow the consumers of a component to customize a component’s styles from the light DOM. Consider a `shadow-card` component that uses a custom property for the color of the card heading.
 
 ```css
 :host {
