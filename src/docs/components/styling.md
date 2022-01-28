@@ -64,6 +64,7 @@ The shadow DOM is currently natively supported in the following browsers:
 - Chrome
 - Firefox
 - Safari
+- Edge (v79+)
 - Opera
 
 In browsers which do not support the shadow DOM we fall back to scoped CSS. This gives you the style encapsulation that comes along with the shadow DOM but without loading in a huge shadow DOM polyfill.
