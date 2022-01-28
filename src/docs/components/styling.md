@@ -133,6 +133,11 @@ shadow-card {
 CSS custom properties can be helpful for customizing components from the light DOM, but they are still a little limiting as they only allow a user to modify specific properties. For situations where users require a higher degree of flexibility, we recommend using the [CSS `::part()` pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/::part). You can define parts on elements of your component with the “part” attribute.
 
 ```tsx
+@Component({
+  tag: 'shadow-card',
+  styleUrl: 'shadow-card.css',
+  shadow: true,
+})
 export class ShadowCard {
   @Prop() heading: string;
 
