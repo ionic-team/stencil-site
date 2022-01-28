@@ -183,7 +183,7 @@ export default {
 
 The `dist-custom-elements` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
 
-The `dist-custom-elements-bundle` is nearly the same as `dist-custom-elements` - with the exception that `dist-custom-elements-bundle` will only create a single file. Which you use is up to you, but the React, Vue, and Angular output targets use the `dist-custom-elements` for improved tree-shaking features. You can also use this single file for low barrier-to-entry apps where you don't depend on IE11 or older Edge versions. 
+The `dist-custom-elements-bundle` is nearly the same as `dist-custom-elements`, but has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of `dist-custom-elements`. Stencil's React, Vue, and Angular output targets use the `dist-custom-elements` for improved tree-shaking features. You can also use this single file for low barrier-to-entry apps where you don't depend on IE11 or older Edge versions. 
 
 The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
 
