@@ -75,11 +75,11 @@ An alternative to using the shadow DOM is using scoped components. You can use s
 
 ```tsx
 @Component({
-  tag: 'shadow-component',
-  styleUrl: 'shadow-component.css',
+  tag: 'scoped-component',
+  styleUrl: 'scoped-component.css',
   scoped: true,
 })
-export class ShadowComponent {}
+export class ScopedComponent {}
 ```
 
 Scoped CSS is a proxy for style encapsulation. It works by appending a data attribute to your styles to make them unique and thereby scope them to your component. It does not, however, prevent styles from the light DOM from seeping into your component.
