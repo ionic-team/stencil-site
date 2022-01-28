@@ -86,8 +86,6 @@ export class ScopedComponent {}
 
 Scoped CSS is a proxy for style encapsulation. It works by appending a data attribute to your styles to make them unique and thereby scope them to your component. It does not, however, prevent styles from the light DOM from seeping into your component.
 
-In browsers that do not currently support Shadow DOM, web components built with Stencil will fall back to using scoped CSS instead of loading a large Shadow DOM polyfill.
-
 ## CSS Custom Properties
 
 CSS custom properties, also often referred to as CSS variables, are used to contain values that can then be used in multiple CSS declarations. For example, we can create a custom property called `--color-primary` and assign it a value of `blue`.
