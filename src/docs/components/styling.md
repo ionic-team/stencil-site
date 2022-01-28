@@ -33,7 +33,7 @@ To use the Shadow DOM in a Stencil component, you can set the `shadow` option to
 export class ShadowComponent {}
 ```
 
-If you'd like to learn more about enabling and configuring the shadow dom, see the [shadow field of the component api](https://stenciljs.com/docs/component#component-options).
+If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](https://stenciljs.com/docs/component#component-options).
 
 By default, components created with the [`stencil generate` command](https://stenciljs.com/docs/cli#stencil-generate-sub-folder) use the shadow DOM.
 
