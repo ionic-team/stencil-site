@@ -92,6 +92,16 @@ The second section describes a few commands to required to finish getting your p
 will change your current directory to `my-first-stencil-project` (or whatever you named your project), install your
 dependencies for you, and begin the development server.
 
+At this time, Stencil does not interact with any version control systems (VCS) when running `npm init stencil`. If you
+wish to place your project under version control, we recommend creating initializing your VCS now. If you wish to use
+git, run the following after changing your current directory to the root of your Stencil project:
+
+```bash
+$ git init
+$ git add -A
+$ git commit -m "initialize project using stencil cli" 
+```
+
 ## Updating Stencil
 
 To get the latest version of @stencil/core you can run:
