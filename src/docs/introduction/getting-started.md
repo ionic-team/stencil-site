@@ -89,7 +89,7 @@ The second section describes a few commands required to finish getting your proj
     $ npm start
 ```
 
-will change your current directory to `my-first-stencil-project` (or whatever you named your project), install your
+This will change your current directory to `my-first-stencil-project` (or whatever you named your project), install your
 dependencies for you, and begin the development server.
 
 At this time, Stencil does not interact with any version control systems (VCS) when running `npm init stencil`. If you
