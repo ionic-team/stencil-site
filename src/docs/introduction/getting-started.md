@@ -79,7 +79,7 @@ meant to be used in the local development server, but rather within a project th
 
 - `npm test` runs your project's tests. The Stencil CLI has created both end-to-end and unit tests when scaffolding your project.
 
-The second section describes a few commands to required to finish getting your project bootstrapped.
+The second section describes a few commands required to finish getting your project bootstrapped.
 
 > You will need to complete these steps in order to run any of the above commands
 
