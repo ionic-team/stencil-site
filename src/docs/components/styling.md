@@ -199,7 +199,7 @@ export class InnerComponent {
 }
 ```
 
-By specifying "inner-text" as the value of the `exportparts` attribute, elements of the `InnerComponent` with a `part` of "inner-text" can now be sty;ed in the light DOM. Even though the `InnerComponent` is not used directly, we can style its parts through the `OuterComponent`.
+By specifying "inner-text" as the value of the `exportparts` attribute, elements of the `InnerComponent` with a `part` of "inner-text" can now be styled in the light DOM. Even though the `InnerComponent` is not used directly, we can style its parts through the `OuterComponent`.
 
 ```html
 <style>
