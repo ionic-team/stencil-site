@@ -93,7 +93,7 @@ This will change your current directory to `my-first-stencil-project` (or whatev
 dependencies for you, and start the development server.
 
 At this time, Stencil does not interact with any version control systems (VCS) when running `npm init stencil`. If you
-wish to place your project under version control, we recommend creating initializing your VCS now. If you wish to use
+wish to place your project under version control, we recommend initializing your VCS now. If you wish to use
 git, run the following after changing your current directory to the root of your Stencil project:
 
 ```bash
