@@ -167,6 +167,11 @@ This allows for greater flexibility in styling as any styles can now be added to
 If you have a Stencil component nested within another component, any `part` specified on elements of the child component will not be exposed through the parent component. In order to expose the `part`s of the child component, you need to use the `exportparts` attribute. Consider this `OuterComponent` which contains the `InnerComponent`.
 
 ```tsx
+@Component({
+  tag: 'outer-component',
+  styleUrl: 'outer-component.css',
+  shadow: true,
+})
 export class OuterComponent {
   render() {
     return (
@@ -178,6 +183,11 @@ export class OuterComponent {
   }
 }
 
+@Component({
+  tag: 'inner-component',
+  styleUrl: 'inner-component.css',
+  shadow: true,
+})
 export class InnerComponent {
   render() {
     return (
