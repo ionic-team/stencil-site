@@ -162,6 +162,45 @@ shadow-card::part(heading) {
 
 This allows for greater flexibility in styling as any styles can now be added to this element.
 
+### Exportparts
+
+If you have a Stencil component nested within another component, any `part` specified on elements of the child component will not be exposed through the parent component. In order to expose the `part`s of the child component, you need to use the `exportparts` attribute. Consider this `OuterComponent` which contains the `InnerComponent`.
+
+```tsx
+export class OuterComponent {
+  render() {
+    return (
+      <Host>
+        <h1>Outer Component</h1>
+        <inner-component exportparts="inner-text" />
+      </Host>
+    );
+  }
+}
+
+export class InnerComponent {
+  render() {
+    return (
+      <Host>
+        <h1 part="inner-text">Inner Component</h1>
+      </Host>
+    );
+  }
+}
+```
+
+By specifying "inner-text" as the value of the `exportparts` attribute, elements of the `InnerComponent` with a `part` of "inner-text" can now be sty;ed in the light DOM. Even though the `InnerComponent` is not used directly, we can style its parts through the `OuterComponent`.
+
+```html
+<style>
+  outer-component::part(inner-text) {
+    color: blue;
+  }
+</style>
+
+<outer-component />
+```
+
 ## Global styles
 
 While most styles are usually scoped to each component, sometimes it's useful to have styles that are available to all the components in your design system. To create styles that are globally available, start by creating a global stylesheet. For example, you can create a folder in your `src` directory called `global` and create a file called `global.css` within that. Most commonly, this file is used to declare CSS custom properties on the root element via the `:root` pseudo-class. This is because styles provided via the `:root` pseudo-class can pass through the shadow boundary. For example, you can define a primary color that all your components can use.
