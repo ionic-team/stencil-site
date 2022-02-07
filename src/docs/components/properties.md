@@ -28,7 +28,7 @@ export class TodoList {
     @Prop() name: string;
     
     render() {
-        // Within the a component's class, its props are
+        // Within the component's class, its props are
         // accessed via `this`. This allows us to render
         // the value passed to `todo-list`
         return <div>To-Do List Name: {this.name}</div>
