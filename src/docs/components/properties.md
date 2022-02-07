@@ -96,7 +96,7 @@ Props should be used to pass data down from a parent component to its child comp
 The example below shows how a `todo-list` component uses three `todo-list-item` child components to render a ToDo list.
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'todo-list',
@@ -146,7 +146,7 @@ Props can be a `boolean`, `number`, `string`, or even an `Object` or `Array`.  T
 `todo-list-item` to add a few more props with different types.
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 // `MyHttpService` is an `Object` in this example
 import { MyHttpService } from '../some/local/directory/MyHttpService';
 
@@ -166,7 +166,7 @@ export class ToDoListItem {
 A property on a Stencil component that has a type of `boolean` may be declared as:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
@@ -223,7 +223,7 @@ the following applies:
 A property on a Stencil component that has a type of `number` may be declared as:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
@@ -254,7 +254,7 @@ To use this version of `todo-list-item` in TSX, a number surrounded by curly bra
 A property on a Stencil component that has a type of `string` may be declared as:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
@@ -289,7 +289,7 @@ A property on a Stencil component that has a type of `Object` may be declared as
 
 ```tsx
 // TodoList.tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { MyHttpService } from '../path/to/MyHttpService';
 
 @Component({
@@ -317,7 +317,7 @@ A property on a Stencil component that is an Array may be declared as:
 
 ```tsx
 // TodoList.tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
@@ -336,7 +336,7 @@ which allows you as the developer to combine two or more pre-existing types to c
 a `todo-list-item` who accepts a `isComplete` prop that can be either a string or boolean.
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
@@ -362,7 +362,7 @@ and TSX:
 Stencil props can be given a default value as a fallback in the event a prop is not provided:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'component-with-some-props',
@@ -394,7 +394,7 @@ overrides the default value, but the default value of `aString` remains the same
 When a default value is provided, Stencil is able to infer the type of the prop from the default value:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 @Component({
     tag: 'component-with-many-props',
 })
@@ -419,7 +419,7 @@ By placing a `!` after a prop name, Stencil mark that the attribute/property as 
 component is used in TSX, the property is used:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
    tag: 'todo-list-item',
@@ -435,7 +435,7 @@ export class ToDoListItem {
 To do validation of a Prop, you can use the [@Watch()](reactive-data/#watch-decorator) decorator:
 
 ```tsx
-import { h, Component, Prop, Watch } from '@stencil/core';
+import { Component, Prop, Watch, h } from '@stencil/core';
 
 @Component({
    tag: 'todo-list-item',
@@ -486,7 +486,7 @@ Usually, the name of a property is the same as the attribute, but this is not al
 component as example:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 // `MyHttpService` is an `Object` in this example
 import { MyHttpService } from '../some/local/directory/MyHttpService';
 
@@ -516,7 +516,7 @@ case-insensitive, so the attribute names will be `is-complete` & `thingToDo` by 
 Fortunately, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 // `MyHttpService` is an `Object` in this example
 import { MyHttpService } from '../some/local/directory/MyHttpService';
 
@@ -543,7 +543,7 @@ A Prop is by default immutable from inside the component logic. However, it's po
 mutated from inside the component, by declaring it as mutable, as in the example below:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
    tag: 'todo-list-item',
@@ -565,7 +565,7 @@ in the `@Prop()` decorator to `true`. When a prop is reflected, its will be rend
 Take the following component as example:
 
 ```tsx
-import { h, Component, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
     tag: 'todo-list-item',
