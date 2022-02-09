@@ -32,3 +32,10 @@ button.fill = 'outline';
 
 TODO: Put a redirect/link here for the links I just deleted
 
+## Properties
+
+This section has moved to [Property Types](/docs/properties#types)
+
+### Required Properties
+
+This section has moved to [Required Properties](/docs/properties#required-properties)
