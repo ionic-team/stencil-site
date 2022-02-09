@@ -97,12 +97,12 @@
     },
     {
       "source": "/docs/typed-components#properties",
-      "destination": "/docs/properties",
+      "destination": "/docs/properties#types",
       "statusCode": 301
     },
     {
       "source": "/docs/typed-components#required-properties",
-      "destination": "/docs/properties",
+      "destination": "/docs/properties#required-properties",
       "statusCode": 301
     },
     {
