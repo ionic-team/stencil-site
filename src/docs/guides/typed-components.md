@@ -30,8 +30,6 @@ button.fill = 'outline';
 
 **IMPORTANT**: always use the `HTML{}Element` interfaces in order to hold references to components.
 
-TODO: Put a redirect/link here for the links I just deleted
-
 ## Properties
 
 This section has moved to [Property Types](/docs/properties#types)
