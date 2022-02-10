@@ -55,4 +55,4 @@ export const config = {
 
 
 ## Node Polyfills
-See the [Node Polyfills in Module bundling](https://stenciljs.com/docs/module-bundling#node-polyfills) for other examples.
+See the [Node Polyfills in Module bundling](/docs/module-bundling#node-polyfills) for other examples.

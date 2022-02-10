@@ -97,7 +97,7 @@ The global style config takes a file path as a string. The output from this buil
 globalStyle: 'src/global/app.css'
 ```
 
-Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
+Check out the [styling docs](/docs/styling#global-styles) of how to use global styles in your app.
 
 ## invisiblePrehydration
 
@@ -223,7 +223,7 @@ across the frames to efficiently render and reduce layout thrashing. By default,
 `async` is used. It's recommended to also try each setting to decide which works
 best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
 main thread to periodically lock-up, it's always recommended to try
-[Web Workers](https://stenciljs.com/docs/web-workers) for those tasks.
+[Web Workers](/docs/web-workers) for those tasks.
 
 * `congestionAsync`: DOM reads and writes are scheduled in the next frame to prevent layout
   thrashing. When the app is heavily tasked and the queue becomes congested it will then
@@ -235,14 +235,14 @@ main thread to periodically lock-up, it's always recommended to try
 * `async`: DOM read and writes are scheduled in the next frame to prevent layout thrashing.
   During intensive CPU tasks it will not reschedule rendering to happen in the next frame.
   `async` is ideal for most apps, and if the app has many intensive tasks causing the main
-  thread to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers)
+  thread to lock-up, it's recommended to try [Web Workers](/docs/web-workers)
   rather than the congestion async queue.
 
 * `immediate`: Makes writeTask() and readTask() callbacks to be executed synchronously. Tasks
   are not scheduled to run in the next frame, but do note there is at least one microtask.
   The `immediate` setting is ideal for apps that do not provide long-running and smooth
   animations. Like the async setting, if the app has intensive tasks causing the main thread
-  to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers).
+  to lock-up, it's recommended to try [Web Workers](/docs/web-workers).
 
 ```tsx
 taskQueue: 'async'

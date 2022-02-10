@@ -33,9 +33,9 @@ To use the Shadow DOM in a Stencil component, you can set the `shadow` option to
 export class ShadowComponent {}
 ```
 
-If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](https://stenciljs.com/docs/component#component-options).
+If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](/docs/component#component-options).
 
-By default, components created with the [`stencil generate` command](https://stenciljs.com/docs/cli#stencil-generate-sub-folder) use the shadow DOM.
+By default, components created with the [`stencil generate` command](/docs/cli#stencil-generate-sub-folder) use the shadow DOM.
 
 ### Styling with the Shadow DOM
 
@@ -51,7 +51,7 @@ div {
 }
 ```
 
-> **NOTE**: The `:host` pseudo-class selector is used to select the [`Host` element](https://stenciljs.com/docs/host-element) of the component
+> **NOTE**: The `:host` pseudo-class selector is used to select the [`Host` element](/docs/host-element) of the component
 
 With the shadow DOM enabled, only these styles will be applied to the component. Even if a style in the light DOM uses a selector that matches an element in the component, those styles will not be applied.
 
@@ -242,7 +242,7 @@ export const config: Config = {
 };
 ```
 
-The compiler will run the same minification, autoprefixing, and plugins over `global.css` and generate an output file for the [`www`](https://stenciljs.com/docs/www) and [`dist`](https://stenciljs.com/docs/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
+The compiler will run the same minification, autoprefixing, and plugins over `global.css` and generate an output file for the [`www`](/docs/www) and [`dist`](/docs/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
 
 In the example above, since the namespace is `app`, the generated global styles file will be located at: `./www/build/app.css`.
 
