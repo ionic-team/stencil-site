@@ -210,10 +210,10 @@ export class Something {
   disconnectedCallback() {}
   componentWillLoad() {}
   componentDidLoad() {}
+  componentShouldUpdate(newVal: any, oldVal: any, propName: string) {}
   componentWillUpdate() {}
   componentDidUpdate() {}
   componentWillRender() {}
-  componentShouldUpdate(newVal: any, oldVal: any, propName: string) {}
   componentDidRender() {}
 
   /**
