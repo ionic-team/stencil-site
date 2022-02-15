@@ -279,7 +279,7 @@ required when providing string values to props in TSX, but are permitted:
 // Set thingToDo to 'Learn about Stencil Props'
 <todo-list-item thingToDo="Learn about Stencil Props"></todo-list-item>
 // Set thingToDo to 'Write some Stencil Code with Props'
-<todo-list-item thingToDo="Learn about Stencil Props"></todo-list-item>
+<todo-list-item thingToDo="Write some Stencil Code with Props"></todo-list-item>
 // Set thingToDo to 'Write some Stencil Code with Props' with curly braces
 <todo-list-item thingToDo={"Learn about Stencil Props"}></todo-list-item>
 ```
