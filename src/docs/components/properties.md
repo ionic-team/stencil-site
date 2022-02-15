@@ -378,7 +378,7 @@ export class ComponentWithSomeProps {
 }
 ```
 Regardless of if we use this component in HTML or TSX, "The number is 42 and the string is defaultValue" is displayed
-when no values are passed to out component:
+when no values are passed to our component:
 ```html
 <component-with-some-props></component-with-some-props>
 ```
