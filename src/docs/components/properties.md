@@ -138,7 +138,8 @@ export class ToDoListItem {
 ## Mutability
 
 A Prop is by default immutable from inside the component logic. Once a value is set by a user, the component cannot
-update it internally.
+update it internally. For more advanced control over the mutability of a prop, please see the 
+[mutable option](properties#prop-mutability-mutable) section of this document.
 
 ## Types
 
