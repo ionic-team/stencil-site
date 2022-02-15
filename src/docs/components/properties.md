@@ -196,28 +196,28 @@ To use this version of `todo-list-item` in TSX, `true`/`false` is used, surround
 There are a few ways in which Stencil treats props that are of type `boolean` that are worth noting:
 
 1. The value of a boolean prop will be `false` if provided the string `"false"` in HTML
-    ```html
-    <!-- The 'todo-list-item' component will have an isComplete value of `false` -->
-    <todo-list-item is-complete="false"></todo-list-item>
-    ```
+```html
+<!-- The 'todo-list-item' component will have an isComplete value of `false` -->
+<todo-list-item is-complete="false"></todo-list-item>
+```
 2. The value of a boolean prop will be `true` if provided a string that is not `"false"` in HTML
-    ```html
-    <!-- The 'todo-list-item' component will have an isComplete value of -->
-    <!-- `true` for each of the following examples -->
-    <todo-list-item is-complete=""></todo-list-item>
-    <todo-list-item is-complete="0"></todo-list-item>
-    <todo-list-item is-complete="False"></todo-list-item>
-    ```
+```html
+<!-- The 'todo-list-item' component will have an isComplete value of -->
+<!-- `true` for each of the following examples -->
+<todo-list-item is-complete=""></todo-list-item>
+<todo-list-item is-complete="0"></todo-list-item>
+<todo-list-item is-complete="False"></todo-list-item>
+```
 3. The value of a boolean prop will be `undefined` if it has no [default value](properties#default-values) and one of
 the following applies:
    1. the prop is not included when using the component
    2. the prop is included when using the component, but is not given a value
-    ```html
-    <!-- Both examples using the 'todo-list-item' component will have an --> 
-    <!-- isComplete value of `undefined` -->
-    <todo-list-item></todo-list-item>
-    <todo-list-item is-complete></todo-list-item>
-    ```
+```html
+<!-- Both examples using the 'todo-list-item' component will have an --> 
+<!-- isComplete value of `undefined` -->
+<todo-list-item></todo-list-item>
+<todo-list-item is-complete></todo-list-item>
+```
 
 ### Number Props
 
