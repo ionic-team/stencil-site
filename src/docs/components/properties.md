@@ -50,7 +50,7 @@ is used:
 ```
 
 In the example above the `todo-list` component is used almost identically in TSX and HTML. The only difference between
-the two is that in JSX, the value assigned to a prop (in this case, `name`) is wrapped in curly braces. In some cases
+the two is that in TSX, the value assigned to a prop (in this case, `name`) is wrapped in curly braces. In some cases
 however, the way props are passed to a component differs slightly between HTML and TSX.
 
 ## Variable Casing
