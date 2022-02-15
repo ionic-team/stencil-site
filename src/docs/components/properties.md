@@ -195,7 +195,7 @@ To use this version of `todo-list-item` in TSX, `true`/`false` is used, surround
 
 There are a few ways in which Stencil treats props that are of type `boolean` that are worth noting:
 
-1. The value of a boolean prop will be `false` if provided the string "false" in HTML
+1. The value of a boolean prop will be `false` if provided the string `"false"` in HTML
     ```html
     <!-- The 'todo-list-item' component will have an isComplete value of `false` -->
     <todo-list-item is-complete="false"></todo-list-item>
