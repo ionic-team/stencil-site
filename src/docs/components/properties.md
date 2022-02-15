@@ -74,7 +74,7 @@ export class ToDoListItem {
 }
 ```
 
-Since `thingToDo` is a prop, so we can provide a value to it when we use our `todo-list-item` component. Providing a
+Since `thingToDo` is a prop, we can provide a value for it when we use our `todo-list-item` component. Providing a
 value to a camelCased prop like `thingToDo` is nearly identical in TSX and HTML.
 
 When we use our component in a TSX file, an attribute uses camelCase:
