@@ -564,7 +564,7 @@ export class ToDoListItem {
 ### Reflect Properties Values to Attributes (`reflect`)
 
 In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can set the `reflect` option
-in the `@Prop()` decorator to `true`. When a prop is reflected, its will be rendered in the DOM as an HTML attribute.
+in the `@Prop()` decorator to `true`. When a prop is reflected, it will be rendered in the DOM as an HTML attribute.
 
 Take the following component as example:
 
