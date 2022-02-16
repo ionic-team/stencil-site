@@ -30,36 +30,10 @@ button.fill = 'outline';
 
 **IMPORTANT**: always use the `HTML{}Element` interfaces in order to hold references to components.
 
-
 ## Properties
 
-Component properties and attributes are defined by annotating an instance variable with the
-`@Prop()` decorator:
+This section has moved to [Property Types](/docs/properties#types)
 
-```tsx
-@Prop() prop: number;
-```
+### Required Properties
 
-Stencil also **uses the type information** in order to generate the Web Component types and automatically cast the values to the specified type at runtime**:
-
-```tsx
-@Prop() str1: string; // string attribute
-@Prop() str2: 'md' | 'ios'; // string attribute
-@Prop() str3 = 'defaultValue'; // string attribute
-
-@Prop() number1: number; // numeric attribute
-@Prop() number2 = 42; // numeric attribute
-
-@Prop() boolean1: boolean; // boolean attribute
-@Prop() boolean2 = true; // boolean attribute
-```
-
-
-### Required properties
-
-Using `!` after the variable name, will mark this attribute/property as required, this way the JSX types will ensure
-the property is passed out.
-
-```tsx
-@Prop() value!: string;
-```
+This section has moved to [Required Properties](/docs/properties#required-properties)
