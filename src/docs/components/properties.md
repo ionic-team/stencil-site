@@ -481,7 +481,7 @@ export interface PropOptions {
 ### Attribute Name (`attribute`)
 
 Properties and component attributes are strongly connected but not necessarily the same thing. While attributes are an
-HTML concept, properties are a JavaScrip concept inherent to Object-Oriented Programming.
+HTML concept, properties are a JavaScript concept inherent to Object-Oriented Programming.
 
 In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for
 changes in a DOM attribute.
