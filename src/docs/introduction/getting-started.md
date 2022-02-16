@@ -45,6 +45,12 @@ Upon successfully creating our project, the CLI will print something similar to 
 ✔ Project name › my-first-stencil-project
 ✔ All setup  in 26 ms
 
+  We suggest that you begin by typing:
+
+  $ cd my-first-stencil-project
+  $ npm install
+  $ npm start
+
   $ npm start
     Starts the development server.
 
@@ -53,13 +59,6 @@ Upon successfully creating our project, the CLI will print something similar to 
 
   $ npm test
     Starts the test runner.
-
-
-  We suggest that you begin by typing:
-
-   $ cd my-first-stencil-project
-   $ npm install
-   $ npm start
 
   Further reading:
 
