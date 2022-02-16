@@ -481,7 +481,7 @@ export interface PropOptions {
 ### Attribute Name (`attribute`)
 
 Properties and component attributes are strongly connected but not necessarily the same thing. While attributes are an
-HTML concept, properties are a JavaScrip concept inherent to Object-Oriented Programming.
+HTML concept, properties are a JavaScript concept inherent to Object-Oriented Programming.
 
 In Stencil, the `@Prop()` decorator applied to a **property** will instruct the Stencil compiler to also listen for
 changes in a DOM attribute.
@@ -564,7 +564,7 @@ export class ToDoListItem {
 ### Reflect Properties Values to Attributes (`reflect`)
 
 In some cases it may be useful to keep a Prop in sync with an attribute. In this case you can set the `reflect` option
-in the `@Prop()` decorator to `true`. When a prop is reflected, its will be rendered in the DOM as an HTML attribute.
+in the `@Prop()` decorator to `true`. When a prop is reflected, it will be rendered in the DOM as an HTML attribute.
 
 Take the following component as example:
 
