@@ -287,6 +287,29 @@ render() {
 }
 ```
 
+Alternatively you can use the `Fragment` functional component, in which case you won't need to add commas:
+
+```tsx
+import { Fragment } from '@stencil/core';
+...
+render() {
+  return (<Fragment>
+    // first top level element
+    <div class="container">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+
+    <div class="another-container">
+      ... more html content ...
+    </div>
+  </Fragment>);
+}
+```
+
 It is also possible to use `innerHTML` to inline content straight into an element. This can be helpful when, for example, loading an svg dynamically and then wanting to render that inside of a `div`. This works just like it does in normal HTML:
 
 ```markup
