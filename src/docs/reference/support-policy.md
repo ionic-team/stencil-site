@@ -31,22 +31,26 @@ The current status of each Stencil version is:
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |    Aug 08, 2020   |
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
+
 **Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
 support options available. To learn more, see our 
 [Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
 
-Starting with Stencil v2, the Stencil team is adopting a revised maintenance policy.
+### Stencil Support Details
 
-When a new major version of Stencil is released, the previous major version release will enter maintenance mode. While
-during the maintenance period, only critical bug and security fixes will be applied, with no major feature improvements.
-The maintenance period shall last three months. Once the maintenance period has ended for version of Stencil, that 
-version enters the extended support period. During the extended support period, only critical bug and security fixes
-will be applied for teams and organizations using Stencil's Enterprise offerings. The extended support period lasts
-for X months.
+Starting with Stencil v2, the Stencil team is adopting a newly revised maintenance policy. When a new major version of
+Stencil is released, the previous major version release will enter maintenance mode. While during the maintenance
+period, only critical bug and security fixes will be applied. No major feature improvements added will be added to
+versions in maintenance mode. The maintenance period shall last three months. Once the maintenance period has ended for
+version of Stencil, that version enters the extended support period. During the extended support period, only critical 
+bug and security fixes will be applied for teams and organizations using Stencil's Enterprise offerings. The extended 
+support period lasts for X months.
+
+The table below describes the timeline of various versions of Stencil
 
 | Version |        Status         |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:---------------------:|:------------:| :--------------: |:-----------------:|
-|    D    |        Active         |     TBD      |       TBD        |        TBD        |
+|    D    |        Active         | Jan 01, 2022 |       TBD        |        TBD        |
 |    C    |      Maintenance      |     TBD      |       TBD        |        TBD        |
 |    B    | Extended Support Only | Aug 08, 2020 |       TBD        |        TBD        |
 |    A    |    End of Support     | Jun 03, 2019 |   Aug 08, 2020   |    Aug 08, 2020   |
