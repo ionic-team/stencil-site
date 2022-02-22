@@ -54,3 +54,36 @@ The table below describes the timeline of various versions of Stencil
 |    C    |      Maintenance      |     TBD      |       TBD        |        TBD        |
 |    B    | Extended Support Only | Aug 08, 2020 |       TBD        |        TBD        |
 |    A    |    End of Support     | Jun 03, 2019 |   Aug 08, 2020   |    Aug 08, 2020   |
+
+## Compatability Recommendations
+
+Stencil is in many regards an opinionated library, and includes much of the software necessary to get users building
+web components as quickly as possible. There are a few pieces of software that Stencil allows users to choose to best
+fit their team, organization structure, and existing technical stack. The Stencil team has compiled a series of
+compatability tables to describe the interoperability requirements of these pieces of software and Stencil.
+
+### Runtime
+
+| Stencil Version | Node v12 |   Node v14   | Node v16 | Node v18 | Deno |
+|:---------------:|:--------:|:------------:|:--------:|:--------:|:----:|
+|       V3        |    N     |      N       |    N     |    N     |  N   |
+|       V2        |    N     |      N       |    N     |    N     |  N   |
+|       V1        |    N     |      N       |    N     |    N     |  N   |
+
+### Testing Libraries
+
+#### Jest
+
+| Stencil Version | Jest v12 |   Jest v14   | Jest v16 | Jest v18 |
+|:---------------:|:--------:|:------------:|:--------:|:--------:|
+|       V3        |    N     |      N       |    N     |    N     |
+|       V2        |    N     |      N       |    N     |    N     |
+|       V1        |    N     |      N       |    N     |    N     |
+
+#### Puppeteer
+
+| Stencil Version | Puppeteer v12 | Puppeteer v14 | Puppeteer v16 | Puppeteer v18 |
+|:---------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|       V3        |       N       |       N       |       N       |       N       |
+|       V2        |       N       |       N       |       N       |       N       |
+|       V1        |       N       |       N       |       N       |       N       |
