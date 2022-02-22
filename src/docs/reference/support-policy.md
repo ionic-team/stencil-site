@@ -6,6 +6,14 @@ contributors:
 - rwaskiewicz
 ---
 
+# Support Policy
+
+## Community Maintenance
+
+The Stencil is a 100% open source (MIT) project. Developers can ensure Stencil is the right choice for building web 
+components through Ionic’s community maintenance strategy. The Stencil team regularly ships new releases, bug fixes, and 
+is welcoming to community pull requests.
+
 ### Where can I get support?
 
 If this is your first time building a design system, or you’re new to Stencil, [get in touch](https://ionicframework.com/sales?product_of_interest=Design%20Systems) with one of our Solutions Engineers for a consultation on how to meet your goals and get the most out of the platform.
