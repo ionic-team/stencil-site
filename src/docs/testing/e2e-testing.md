@@ -229,4 +229,4 @@ export const config: Config = {
 };
 ```
 
-Check [this part of the doc](https://stenciljs.com/docs/config#testing) to learn more about the possibilities on this matter. 
+Check [this part of the doc](/docs/config#testing) to learn more about the possibilities on this matter. 
