@@ -14,21 +14,39 @@ The Stencil is a 100% open source (MIT) project. Developers can ensure Stencil i
 components through Ionic’s community maintenance strategy. The Stencil team regularly ships new releases, bug fixes, and 
 is welcoming to community pull requests.
 
-### Where can I get support?
+## Stencil Maintenance and Support Status
 
-If this is your first time building a design system, or you’re new to Stencil, [get in touch](https://ionicframework.com/sales?product_of_interest=Design%20Systems) with one of our Solutions Engineers for a consultation on how to meet your goals and get the most out of the platform.
+Given the reality of time and resource restraints as well as the desire to keep innovating in the frontend development
+space, over time it becomes necessary for the Stencil team to shift focus to newer versions of the library. However,
+the Stencil team will do everything it can to make the transition to newer versions as smooth as possible. The Stencil
+team recommends updating to the newest version of the Stencil for the latest features, improvements and stability 
+updates.
 
-### What versions of Stencil are currently supported?
+The current status of each Stencil version is:
 
-Currently, Stencil is on version 2.
+| Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
+|:-------:|:--------------:|:------------:| :--------------: |:-----------------:|
+|   V3    |  **Upcoming**  |     TBD      |       TBD        |        TBD        |
+|   V2    |   **Active**   | Aug 08, 2020 |       TBD        |        TBD        |
+|   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |    Aug 08, 2020   |
 
-Stencil follows [semantic versioning](https://semver.org/), meaning that the team at Ionic strives to avoid any type of breaking change to Stencil without changing the 'major version number' of the library. Therefore, versions 2.7.0 and 2.8.0 are designed to be backwards compatible with one another. However, there may be breaking changes between v2.7.0 and v3.0.0. Breaking changes to the library can be found [here](https://github.com/ionic-team/stencil/blob/master/BREAKING_CHANGES.md).
+**Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
+**Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
+support options available. To learn more, see our 
+[Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
 
-To determine the version of Stencil your project has installed, run:
-```shell
-npm ls @stencil/core
-```
+Starting with Stencil v2, the Stencil team is adopting a revised maintenance policy.
 
-To view the latest version of Stencil, please see the project's [releases page](https://github.com/ionic-team/stencil/releases).
+When a new major version of Stencil is released, the previous major version release will enter maintenance mode. While
+during the maintenance period, only critical bug and security fixes will be applied, with no major feature improvements.
+The maintenance period shall last three months. Once the maintenance period has ended for version of Stencil, that 
+version enters the extended support period. During the extended support period, only critical bug and security fixes
+will be applied for teams and organizations using Stencil's Enterprise offerings. The extended support period lasts
+for X months.
 
-> At this time, versions 0 and 1 of Stencil are not actively supported.
+| Version |        Status         |   Released   | Maintenance Ends | Ext. Support Ends |
+|:-------:|:---------------------:|:------------:| :--------------: |:-----------------:|
+|    D    |        Active         |     TBD      |       TBD        |        TBD        |
+|    C    |      Maintenance      |     TBD      |       TBD        |        TBD        |
+|    B    | Extended Support Only | Aug 08, 2020 |       TBD        |        TBD        |
+|    A    |    End of Support     | Jun 03, 2019 |   Aug 08, 2020   |    Aug 08, 2020   |
