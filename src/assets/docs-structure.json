@@ -432,6 +432,11 @@
         "text": "Support Policy",
         "filePath": "/assets/docs/reference/support-policy.json",
         "url": "/docs/support-policy"
+      },
+      {
+        "text": "Versioning",
+        "filePath": "/assets/docs/reference/versioning.json",
+        "url": "/docs/versioning"
       }
     ]
   }

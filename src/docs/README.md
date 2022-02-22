@@ -88,3 +88,4 @@
   * [Privacy Policy](https://ionicframework.com/privacy)
 * Reference
   * [Support Policy](reference/support-policy.md)
+  * [Versioning](reference/versioning.md)
