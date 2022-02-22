@@ -424,5 +424,14 @@
         "filePath": "https://ionicframework.com/privacy"
       }
     ]
+  },
+  {
+    "text": "Reference",
+    "children": [
+      {
+        "text": "Support Policy",
+        "filePath": "/assets/docs/reference/support-policy.json"
+      }
+    ]
   }
 ]
