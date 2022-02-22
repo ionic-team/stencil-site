@@ -430,7 +430,8 @@
     "children": [
       {
         "text": "Support Policy",
-        "filePath": "/assets/docs/reference/support-policy.json"
+        "filePath": "/assets/docs/reference/support-policy.json",
+        "url": "/docs/support-policy"
       }
     ]
   }
