@@ -152,7 +152,7 @@ export class CurrentTime {
 
 ### Using `@State()` with `@Listen()`
 
-This example makes use of `@State` and [`#Listen`](/docs/events#listen-decorator) decorators. We define a class member
+This example makes use of `@State` and [`@Listen`](/docs/events#listen-decorator) decorators. We define a class member
 called `isOpen` and decorate it with `@State()`. With the use of `@Listen()`, we respond to click events toggling the
 value of `isOpen`.
 
