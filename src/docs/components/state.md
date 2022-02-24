@@ -9,25 +9,12 @@ contributors:
 
 # State
 
-'State' is a general term that refers to the values and objects that are stored on a class for use now or in the future.
-The TypeScript class `CurrentTime` below stores the time that it was created, and is able to print it back to the user:
-
-```ts
-class CurrentTime {
-    constructor(public creationTime: number) { }
-
-    whatTimeWasItCreated(): string {
-        return new Date(this.creationTime).toLocaleTimeString();
-    }
-}
-```
-
-Here, `creationTime` is a member of the `CurrentTime` class that stores the time an instance of the class was created.
-We say that `creationTime` is part of the _state_ of `CurrentTime`.
+'State' is a general term that refers to the values and objects that are stored on a class or an instance of a class for
+use now or in the future.
 
 Like a regular TypeScript class, a Stencil component may have one or more internal class members for holding value(s)
-that make up the component's state. Stencil allows developers to mark class members holding some part of the class's
-state with the `@State()` decorator to trigger a rerender when the state changes.
+that make up the component's state. Stencil allows developers to optionally mark class members holding some part of the
+class's state with the `@State()` decorator to trigger a rerender when the state changes.
 
 ## The State Decorator (`@State`)
 
