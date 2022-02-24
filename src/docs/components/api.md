@@ -24,7 +24,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 - [@Component()](component#component-decorator) declares a new web component
 - [@Prop()](properties#prop-decorator) declares an exposed property/attribute
-- [@State()](state#state-decorator) declares an internal state of the component
+- [@State()](state#the-state-decorator-state) declares an internal state of the component
 - [@Watch()](reactive-data#watch-decorator) declares a hook that runs when a property or state changes
 - [@Element()](host-element#element-decorator) declares a reference to the host element
 - [@Method()](methods#method-decorator) declares an exposed public method
