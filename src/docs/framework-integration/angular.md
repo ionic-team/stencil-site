@@ -16,7 +16,7 @@ contributors:
 
 **Supports: Angular 12+ • TypeScript 4.0+ • Stencil v2.9.0+**
 
-Stencil can generate Angular component wrappers for your web components. This allows your Stencil components to be used within an Angular application.  The benefits of using Stencil's component wrappers over the standard web components include:
+Stencil can generate Angular component wrappers for your web components. This allows your Stencil components to be used within an Angular application. The benefits of using Stencil's component wrappers over the standard web components include:
 
 - Angular component wrappers will be detached from change detection, preventing unnecessary repaints of your web component.
 - Web component events will be converted to RxJS observables to align with Angular's `@Output()` and will not emit across component boundaries.
@@ -101,7 +101,7 @@ npm run build
 
 If the build is successful, you will now have contents in the file specified in `directivesProxyFile`.
 
-You can now finally import and export the generated component wrappers for your component library. For example, in your main `AppModule` you may do the following:
+You can now finally import and export the generated component wrappers for your component library. For example, in your main Angular `AppModule` you may do the following:
 
 ```ts
 import { COMPONENTS } from './stencil-generated/components';
