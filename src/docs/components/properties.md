@@ -362,9 +362,9 @@ export class ToDoListItem {
     render() {
         return (
             <ul>
-                <li>isComplete has a value of "{this.isComplete}" and a typeof value of {typeof this.isComplete}</li>
-                <li>label has a value of "{this.label}" and a typeof value of {typeof this.label}</li>
-                <li>thingToDo has a value of "{this.thingToDo}" and a typeof value of {typeof this.thingToDo}</li>
+                <li>isComplete has a value of - {this.isComplete} - and a typeof value of "{typeof this.isComplete}"</li>
+                <li>label has a value of - {this.label} - and a typeof value of "{typeof this.label}"</li>
+                <li>thingToDo has a value of - {this.thingToDo} - and a typeof value of "{typeof this.thingToDo}"</li>
             </ul>
         );
     }
@@ -383,13 +383,13 @@ own type information. Neither Stencil nor TypeScript will try to change the type
 
 The following will rendered from the usage example above: 
 ```md
-- isComplete has a value of "42" and a typeof value of number 
-- label has a value of "" and a typeof value of object 
-- thingToDo has a value of "Learn about any-typed props" and a typeof value of string
+- isComplete has a value of - 42 - and a typeof value of "number" 
+- label has a value of -  - and a typeof value of "object"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
 
-- isComplete has a value of "42" and a typeof value of string
-- label has a value of "1" and a typeof value of number 
-- thingToDo has a value of "Learn about any-typed props" and a typeof value of string
+- isComplete has a value of - 42 - and a typeof value of "string"
+- label has a value of - 1 - and a typeof value of "number"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
 ```
 
 In the first usage of `todo-list-item`, `isComplete` is provided a number value of 42, whereas in the second usage it 
@@ -427,9 +427,9 @@ export class ToDoListItem {
     render() {
         return (
             <ul>
-                <li>completeMsg has a value of "{this.completeMsg}" and a typeof value of {typeof this.completeMsg}</li>
-                <li>label has a value of "{this.label}" and a typeof value of {typeof this.label}</li>
-                <li>thingToDo has a value of "{this.thingToDo}" and a typeof value of {typeof this.thingToDo}</li>
+                <li>completeMsg has a value of - {this.completeMsg} - and a typeof value of "{typeof this.completeMsg}"</li>
+                <li>label has a value of - {this.label} - and a typeof value of "{typeof this.label}"</li>
+                <li>thingToDo has a value of - {this.thingToDo} - and a typeof value of "{typeof this.thingToDo}"</li>
             </ul>
         );
     }
@@ -459,9 +459,9 @@ on HTML, where all values provided to attributes are of type string:
 ```
 renders:
 ```md
-- completeMsg has a value of "42" and a typeof value of string
-- label has a value of "null" and a typeof value of string
-- thingToDo has a value of "Learn about any-typed props" and a typeof value of string
+- completeMsg has a value of - 42 - and a typeof value of "string"
+- label has a value of - null - and a typeof value of "string"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
 ```
 
 #### Union Types
