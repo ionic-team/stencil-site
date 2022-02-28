@@ -20,7 +20,7 @@ Stencil can generate Angular component wrappers for your web components. The ben
 
 - Angular component wrappers will be detached from change detection, preventing unnecessary repaints of your web component.
 - Web component events will be converted to RxJS observables to align with Angular's `@Output()` and will not emit across component boundaries.
-- _Optionally_ form control web components can be used as control value accessors with Angular's reactive forms or `[ngModel]`.
+- Optionally, form control web components can be used as control value accessors with Angular's reactive forms or `[ngModel]`.
 
 ## Setup
 
