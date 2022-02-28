@@ -443,7 +443,7 @@ not explicitly given.  In the example above, Stencil is able to understand that:
 - `label` is of type string, because it has a [default value](properties#default-values) that is of type string
 - `thingToDo` [is of type `any`](properties#any-type), because it has no explicit type annotation, nor default value
 
-Because Stencil is able to infer the type of `label`, the following will fail to compile due to a type mismatch:
+Because Stencil can infer the type of `label`, the following will fail to compile due to a type mismatch:
 
 ```tsx
 {/* This fails to compile with the error "Type 'number' is not assignable to type 'string'" for the label prop. */}
