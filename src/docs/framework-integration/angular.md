@@ -87,7 +87,7 @@ In your project's `stencil.config.ts`, add the `angularOutputTarget` configurati
 import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
-  namespace: '',
+  namespace: 'component-library',
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name',
