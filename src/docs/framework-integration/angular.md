@@ -119,7 +119,7 @@ export { COMPONENTS } from './stencil-generated/components';
 
 ### Link your packages (optional)
 
-> If you are using a monorepo tool (Learn, Nx), skip this section.
+> If you are using a monorepo tool (Lerna, Nx), skip this section.
 
 Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
 
