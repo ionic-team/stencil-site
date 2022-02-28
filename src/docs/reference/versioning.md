@@ -33,12 +33,10 @@ team priorities.
 
 A patch release will be published when bug fixes were included, but the API has not changed and no breaking changes were
 introduced.  Patch releases are scheduled to occur at least **once a month**, although this cadence may vary according
-to team priorities. There may be times where patch releases need to released more often than scheduled.  To ensure patch
-releases can fix existing code without introducing new issues from the new features, patch releases will always be
-published prior to a minor release.
+to team priorities. There may be times where patch releases need to released more often than scheduled.
 
 ## Changelog
 
 To see a list of all notable changes to Stencil, please refer to the 
-<a href="https://github.com/ionic-team/stencil/releases" target="_blank" rel="noreferrer noopener">releases page</a>. This contains an ordered
-list of all bug fixes and new features under each release.
+<a href="https://github.com/ionic-team/stencil/releases" target="_blank" rel="noreferrer noopener">releases page</a>.
+This contains an ordered list of all bug fixes and new features under each release.
