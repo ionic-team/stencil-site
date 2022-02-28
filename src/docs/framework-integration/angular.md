@@ -16,7 +16,7 @@ contributors:
 
 **Supports: Angular 12+ • TypeScript 4.0+ • Stencil v2.9.0+**
 
-Stencil can generate Angular component wrappers for your web components. The benefits of the component wrappers over the standard web components are:
+Stencil can generate Angular component wrappers for your web components. This allows your Stencil components to be used within an Angular application.  The benefits of using Stencil's component wrappers over the standard web components include:
 
 - Angular component wrappers will be detached from change detection, preventing unnecessary repaints of your web component.
 - Web component events will be converted to RxJS observables to align with Angular's `@Output()` and will not emit across component boundaries.
