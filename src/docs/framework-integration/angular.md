@@ -132,7 +132,7 @@ npm link
 From your Angular component library's directory, run the following command:
 
 ```bash
-npm link name-of-your-stencil-package`
+npm link name-of-your-stencil-package
 ```
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
