@@ -413,9 +413,9 @@ import { Component, Prop, h } from '@stencil/core';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
-    // onComplete is optional, has an explicit type
+    // completeMsg is optional, has an explicit type
     // annotation of `string`, and no default value
-    @Prop() isComplete?: string;
+    @Prop() completeMsg?: string;
     // label is optional, has no explicit type
     // annotation, but does have a default value
     // of 'urgent'
@@ -427,7 +427,7 @@ export class ToDoListItem {
     render() {
         return (
             <ul>
-                <li>isComplete has a value of "{this.isComplete}" and a type of {typeof this.isComplete}</li>
+                <li>completeMsg has a value of "{this.completeMsg}" and a type of {typeof this.completeMsg}</li>
                 <li>label has a value of "{this.label}" and a type of {typeof this.label}</li>
                 <li>thingToDo has a value of "{this.thingToDo}" and a type of {typeof this.thingToDo}</li>
             </ul>
@@ -439,7 +439,7 @@ export class ToDoListItem {
 When using a Stencil prop that is marked as optional, Stencil will try to infer the type of the prop if a type is
 not explicitly given.  In the example above, Stencil is able to understand that:
 
-- `isComplete` is of type string, because it has an explicit type annotation
+- `completeMsg` is of type string, because it has an explicit type annotation
 - `label` is of type string, because it has a [default value](properties#default-values) that is of type string
 - `thingToDo` [is of type `any`](properties#any-type), because it has no explicit type annotation, nor default value
 
@@ -447,7 +447,7 @@ Because Stencil is able to infer the type of `label`, the following will fail to
 
 ```tsx
 {/* This fails to compile with the error "Type 'number' is not assignable to type 'string'" for the label prop. */}
-<todo-list-item isComplete={"true"} label={42} thingToDo={"Learn about any-typed props"}></todo-list-item>
+<todo-list-item completeMsg={"true"} label={42} thingToDo={"Learn about any-typed props"}></todo-list-item>
 ```
 
 It is worth noting that when using a component in an HTML file, such type checking is unavailable. This is a constraint
@@ -455,11 +455,11 @@ on HTML, where all values provided to attributes are of type string:
 
 ```html
 <!-- using todo-list-item in HTML -->
-<todo-list-item is-complete="42" label="null" thing-to-do="Learn about any-typed props"></todo-list-item>
+<todo-list-item complete-msg="42" label="null" thing-to-do="Learn about any-typed props"></todo-list-item>
 ```
 renders:
 ```md
-- isComplete has a value of "42" and a type of string
+- completeMsg has a value of "42" and a type of string
 - label has a value of "null" and a type of string
 - thingToDo has a value of "Learn about any-typed props" and a type of string
 ```
