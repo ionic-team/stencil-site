@@ -63,6 +63,8 @@ npx -p @angular/cli ng generate library component-library
 
 ```bash
 npm init stencil components stencil-library
+cd stencil-library
+npm install
 ```
 
 ### Adding Angular Output Target
