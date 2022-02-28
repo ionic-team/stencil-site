@@ -10,17 +10,16 @@ contributors:
 
 ## Community Maintenance
 
-The Stencil is a 100% open source (MIT) project. Developers can ensure Stencil is the right choice for building web 
-components through Ionic’s community maintenance strategy. The Stencil team regularly ships new releases, bug fixes, and 
+Stencil is a 100% open source (MIT) project. Developers can ensure Stencil is the right choice for building web
+components through Ionic’s community maintenance strategy. The Stencil team regularly ships new releases, bug fixes, and
 is welcoming to community pull requests.
 
 ## Stencil Maintenance and Support Status
 
 Given the reality of time and resource restraints as well as the desire to keep innovating in the frontend development
-space, over time it becomes necessary for the Stencil team to shift focus to newer versions of the library. However,
-the Stencil team will do everything it can to make the transition to newer versions as smooth as possible. The Stencil
-team recommends updating to the newest version of the Stencil for the latest features, improvements and stability 
-updates.
+space, over time it becomes necessary for the Stencil team to shift focus to newer versions of the library. However, the
+Stencil team will do everything it can to make the transition to newer versions as smooth as possible. The Stencil team
+recommends updating to the newest version of the Stencil for the latest features, improvements and stability updates.
 
 The current status of each Stencil version is:
 
@@ -32,20 +31,20 @@ The current status of each Stencil version is:
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
 
 **Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
-support options available. To learn more, see our 
+support options available. To learn more, see our
 [Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
 
 ### Stencil Support Details
 
 Starting with Stencil v2, the Stencil team is adopting a newly revised maintenance policy. When a new major version of
-Stencil is released, the previous major version release will enter maintenance mode. While a version of Stencil
-is in maintenance mode, only critical bug & security fixes will be applied to that version, and no major feature improvements will be 
-added. The maintenance period shall last three months from the release of the new major version. 
+Stencil is released, the previous major version release will enter maintenance mode. While a version of Stencil is in
+maintenance mode, only critical bug & security fixes will be applied to that version, and no major feature improvements
+will be added. The maintenance period shall last three months from the release of the new major version.
 
-Once the maintenance period has ended for a
-version of Stencil, that version enters the extended support period. During the extended support period, only critical 
-bug and security fixes will be applied for teams and organizations using Stencil's Enterprise offerings. The extended 
-support period lasts for six months from the release of the new major version.
+Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
+the extended support period, only critical bug and security fixes will be applied for teams and organizations using
+Stencil's Enterprise offerings. The extended  support period lasts for six months from the release of the new major 
+version.
 
 The table below describes a theoretical timeline of releases:
 
@@ -58,14 +57,14 @@ The table below describes a theoretical timeline of releases:
 
 In the example above, when Version D is released, Version C enters maintenance mode. Version D was released on January
 1st, 2022. Version C shall be in maintenance mode until April 1st, 2022, three months after the release of Version D.
-After April 1st 2022, Version C will be in extended support until July 1st, 2022, six months after the release of 
+After April 1st 2022, Version C will be in extended support until July 1st, 2022, six months after the release of
 Version D.
 
 ## Compatibility Recommendations
 
-Stencil is in many regards an opinionated library, and includes much of the software necessary to get users building
-web components as quickly as possible. There are a few pieces of software that Stencil allows users to choose to best
-fit their team, organizational structure, and existing technical stack. The Stencil team has compiled a series of
+Stencil is in many regards an opinionated library, and includes much of the software necessary to get users building web
+components as quickly as possible. There are a few pieces of software that Stencil allows users to choose to best fit
+their team, organizational structure, and existing technical stack. The Stencil team has compiled a series of
 compatibility tables to describe the interoperability requirements of these pieces of software and Stencil.
 
 ### JavaScript Runtime
