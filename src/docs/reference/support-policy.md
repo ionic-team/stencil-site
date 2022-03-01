@@ -16,7 +16,7 @@ is welcoming to community pull requests.
 
 ## Stencil Maintenance and Support Status
 
-Given the reality of time and resource restraints as well as the desire to keep innovating in the frontend development
+Given the reality of time and resource constraints as well as the desire to keep innovating in the frontend development
 space, over time it becomes necessary for the Stencil team to shift focus to newer versions of the library. However, the
 Stencil team will do everything it can to make the transition to newer versions as smooth as possible. The Stencil team
 recommends updating to the newest version of the Stencil for the latest features, improvements and stability updates.
