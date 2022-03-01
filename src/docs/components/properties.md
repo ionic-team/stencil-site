@@ -333,6 +333,137 @@ export class ToDoListItem {
 
 ### Advanced Prop Types
 
+#### `any` Type
+
+TypeScript's [`any` type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any) is a special type
+that may be used to prevent type checking of a specific value. Because `any` is a valid type in TypeScript, Stencil
+props can also be given a type of `any`. The example below demonstrates three different ways of using props with type
+`any`:
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+    tag: 'todo-list-item',
+})
+export class ToDoListItem {
+    // onComplete has an explicit type annotation
+    // of `any`, and no default value
+    @Prop() isComplete: any;
+    // label has an explicit type annotation of
+    // `any` with a default value of 'urgent',
+    // which is a string
+    @Prop() label: any = 'urgent';
+    // thingToDo has no type and no default value,
+    // and will be considered to be type `any` by
+    // TypeScript
+    @Prop() thingToDo;
+
+    render() {
+        return (
+            <ul>
+                <li>isComplete has a value of - {this.isComplete} - and a typeof value of "{typeof this.isComplete}"</li>
+                <li>label has a value of - {this.label} - and a typeof value of "{typeof this.label}"</li>
+                <li>thingToDo has a value of - {this.thingToDo} - and a typeof value of "{typeof this.thingToDo}"</li>
+            </ul>
+        );
+    }
+}
+```
+
+When using a Stencil prop typed as `any` (implicitly or explicitly), the value that is provided to a prop retains its
+own type information. Neither Stencil nor TypeScript will try to change the type of the prop. To demonstrate, let's use
+`todo-list-item` twice, each with different prop values:
+
+```tsx
+{/* Using todo-list-item in TSX using differnt values each time */}
+<todo-list-item isComplete={42} label={null} thingToDo={"Learn about any-typed props"}></todo-list-item>
+<todo-list-item isComplete={"42"} label={1} thingToDo={"Learn about any-typed props"}></todo-list-item>
+```
+
+The following will rendered from the usage example above: 
+```md
+- isComplete has a value of - 42 - and a typeof value of "number" 
+- label has a value of -  - and a typeof value of "object"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
+
+- isComplete has a value of - 42 - and a typeof value of "string"
+- label has a value of - 1 - and a typeof value of "number"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
+```
+
+In the first usage of `todo-list-item`, `isComplete` is provided a number value of 42, whereas in the second usage it 
+receives a string containing "42". The types on `isComplete` reflect the type of the value it was provided, 'number' and
+'string', respectively.
+
+Looking at `label`, it is worth noting that although the prop has a [default value](properties#default-values), it does
+not narrow the type of `label` to be of type 'string'. In the first usage of `todo-list-item`, `label` is provided a
+value of null, whereas in the second usage it receives a number value of 1. The types of the values stored in `label`
+are correctly reported as 'object' and 'number', respectively.
+
+#### Optional Types
+
+TypeScript allows members to be marked optional by appending a `?` at the end of the member's name. The example below
+demonstrates making each a component's props optional:
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+    tag: 'todo-list-item',
+})
+export class ToDoListItem {
+    // completeMsg is optional, has an explicit type
+    // annotation of `string`, and no default value
+    @Prop() completeMsg?: string;
+    // label is optional, has no explicit type
+    // annotation, but does have a default value
+    // of 'urgent'
+    @Prop() label? = 'urgent';
+    // thingToDo has no type annotation and no 
+    // default value
+    @Prop() thingToDo?;
+
+    render() {
+        return (
+            <ul>
+                <li>completeMsg has a value of - {this.completeMsg} - and a typeof value of "{typeof this.completeMsg}"</li>
+                <li>label has a value of - {this.label} - and a typeof value of "{typeof this.label}"</li>
+                <li>thingToDo has a value of - {this.thingToDo} - and a typeof value of "{typeof this.thingToDo}"</li>
+            </ul>
+        );
+    }
+}
+```
+
+When using a Stencil prop that is marked as optional, Stencil will try to infer the type of the prop if a type is
+not explicitly given.  In the example above, Stencil is able to understand that:
+
+- `completeMsg` is of type string, because it has an explicit type annotation
+- `label` is of type string, because it has a [default value](properties#default-values) that is of type string
+- `thingToDo` [is of type `any`](properties#any-type), because it has no explicit type annotation, nor default value
+
+Because Stencil can infer the type of `label`, the following will fail to compile due to a type mismatch:
+
+```tsx
+{/* This fails to compile with the error "Type 'number' is not assignable to type 'string'" for the label prop. */}
+<todo-list-item completeMsg={"true"} label={42} thingToDo={"Learn about any-typed props"}></todo-list-item>
+```
+
+It is worth noting that when using a component in an HTML file, such type checking is unavailable. This is a constraint
+on HTML, where all values provided to attributes are of type string:
+
+```html
+<!-- using todo-list-item in HTML -->
+<todo-list-item complete-msg="42" label="null" thing-to-do="Learn about any-typed props"></todo-list-item>
+```
+renders:
+```md
+- completeMsg has a value of - 42 - and a typeof value of "string"
+- label has a value of - null - and a typeof value of "string"
+- thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
+```
+
 #### Union Types
 
 Stencil allows props types be [union types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types),
