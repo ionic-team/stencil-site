@@ -26,8 +26,11 @@ the release candidates.
 
 A minor release will be published when a new feature is added or API changes that are non-breaking are introduced.
 We will heavily test any changes so that we are confident with the release, but with new code comes the potential for
-new issues. Minor releases are scheduled to occur at least **once a month**, although this cadence may vary according to
-team priorities.
+new issues*. Minor releases are scheduled to occur at least **once a month**, although this cadence may vary according 
+to team priorities.
+
+\* This statement applies to the Stencil team upgrading its version of TypeScript as well. For more information, please
+see the team's [support policy regarding TypeScript](/docs/support-policy#typescript-support)
 
 ### Patch Release
 
