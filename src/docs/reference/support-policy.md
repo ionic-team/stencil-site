@@ -60,6 +60,37 @@ In the example above, when Version D is released, Version C enters maintenance m
 After July 1st 2022, Version C will be in extended support until Jun 1st, 2023, twelve months after the release of
 Version D.
 
+## TypeScript Support
+
+Stencil acts as a compiler for a project's web components, and works closely with the TypeScript compiler to transform
+TSX to vanilla JavaScript. To ensure compatibility between the two, Stencil takes an opinionated stance on which version
+of the TypeScript compiler that must be used.
+
+Stencil includes a recent copy of the TypeScript compiler in its distributable* to guarantee this compatability. 
+The Stencil team is committed to keeping its version of TypeScript up to date, and as of Stencil v2.10.0 attempts to be
+within one minor version of the latest TypeScript release.
+
+The table below describes recent versions of Stencil and the version of TypeScript each version shipped with.
+
+| Stencil Version | TypeScript Version |
+|:---------------:|:------------------:|
+|     v2.14.0     |       v4.5.4       |
+|     v2.10.0     |       v4.3.5       |
+|     v2.5.0      |       v4.2.3       |
+|     v2.4.0      |       v4.1.3       |
+|     v2.2.0      |       v4.0.5       |
+
+The TypeScript team releases a new minor version of the TypeScript compiler approximately once every three months. To
+accomplish its goal of staying within one minor version of the latest release, Stencil will update its version of
+TypeScript once every three months as well. Updates to the version of TypeScript will often, but not always, occur in a
+[minor version release](/docs/versioning#minor-release) of Stencil.
+
+The Stencil team acknowledges that TypeScript minor version releases may contain breaking changes. The Stencil team will
+do everything in its power to avoid propagating breaking changes to its user base.
+
+\* The TypeScript compiler is never included in the output of your Stencil project, and is only used for compilation 
+and type checking purposes.
+
 ## Compatibility Recommendations
 
 Stencil is in many regards an opinionated library, and includes much of the software necessary to get users building web
