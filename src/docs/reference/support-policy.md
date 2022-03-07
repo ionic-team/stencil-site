@@ -39,11 +39,11 @@ support options available. To learn more, see our
 Starting with Stencil v2, the Stencil team is adopting a newly revised maintenance policy. When a new major version of
 Stencil is released, the previous major version release will enter maintenance mode. While a version of Stencil is in
 maintenance mode, only critical bug & security fixes will be applied to that version, and no major feature improvements
-will be added. The maintenance period shall last three months from the release of the new major version.
+will be added. The maintenance period shall last six months from the release of the new major version.
 
 Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
 the extended support period, only critical bug and security fixes will be applied for teams and organizations using
-Stencil's Enterprise offerings. The extended  support period lasts for six months from the release of the new major 
+Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major 
 version.
 
 The table below describes a theoretical timeline of releases:
@@ -51,13 +51,13 @@ The table below describes a theoretical timeline of releases:
 | Version |        Status         |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:---------------------:|:------------:|:----------------:|:-----------------:|
 |    D    |        Active         | Jan 01, 2022 |       TBD        |        TBD        |
-|    C    |      Maintenance      | Jul 07, 2021 |   Apr 01, 2022   |   Jul 01, 2022    |
-|    B    | Extended Support Only | Jan 01, 2021 |   Oct 07, 2021   |   Jan 07, 2022    |
-|    A    |    End of Support     | Jul 07, 2020 |   Apr 01, 2021   |   Jul 01, 2021    |
+|    C    |      Maintenance      | Jul 07, 2021 |   Jul 01, 2022   |   Jan 01, 2023    |
+|    B    | Extended Support Only | Jan 01, 2021 |   Jan 07, 2022   |   Jul 07, 2022    |
+|    A    |    End of Support     | Jul 07, 2020 |   Jul 01, 2021   |   Jan 01, 2021    |
 
 In the example above, when Version D is released, Version C enters maintenance mode. Version D was released on January
-1st, 2022. Version C shall be in maintenance mode until April 1st, 2022, three months after the release of Version D.
-After April 1st 2022, Version C will be in extended support until July 1st, 2022, six months after the release of
+1st, 2022. Version C shall be in maintenance mode until July 1st, 2022, three months after the release of Version D.
+After July 1st 2022, Version C will be in extended support until Jun 1st, 2023, twelve months after the release of
 Version D.
 
 ## Compatibility Recommendations
