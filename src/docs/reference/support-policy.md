@@ -66,7 +66,7 @@ Stencil acts as a compiler for a project's web components, and works closely wit
 TSX to vanilla JavaScript. To ensure compatibility between the two, Stencil takes an opinionated stance on which version
 of the TypeScript compiler that must be used.
 
-Stencil includes a recent copy of the TypeScript compiler in its distributable* to guarantee this compatability. 
+Stencil includes a recent copy of the TypeScript compiler in its distributable* to guarantee this compatibility. 
 The Stencil team is committed to keeping its version of TypeScript up to date, and as of Stencil v2.10.0 attempts to be
 within one minor version of the latest TypeScript release.
 
