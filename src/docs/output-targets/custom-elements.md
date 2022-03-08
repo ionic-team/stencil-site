@@ -51,6 +51,20 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 
 > Note: At this time, components created not using JSX may not be automatically defined. This is a known limitation of the API and users should be aware of it
 
+### generateTypeDeclarations
+
+By default, type declaration files (`.d.ts` files) are only generated for the `dist-custom-elements` output target when
+the [`dist` output target](/docs/distribution) is also declared in a Stencil project's configuration. This behavior
+isn't always desirable, as not all users have need for files emitted by the `dist` output target. To generate type
+declaration files for the `dist-custom-elements`, the experimental `generateTypeDeclarations` field can be set to 
+`true`.
+
+Setting this flag to `true` will generate type declaration files for the `dist-custom-elements` output target. Type
+declaration files will be placed in the `dist/types` directory in the root of a Stencil project. At this time, this
+output destination is not able to be configured.
+
+This flag defaults to `false` when omitted from a Stencil configuration file.
+
 ## Making Assets Available
 
 For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) built within the JavaScript output, 
