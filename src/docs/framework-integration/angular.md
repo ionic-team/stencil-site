@@ -92,12 +92,15 @@ export const config: Config = {
     angularOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
+      directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
   ],
 };
 ```
 
 > The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
+
+> The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This constant can be used to easily declare and export all the wrappers.
 
 You can now build your Stencil component library to generate the component wrappers.
 
@@ -108,12 +111,12 @@ npm run build
 yarn run build
 ```
 
-If the build is successful, you will now have contents in the file specified in `directivesProxyFile`.
+If the build is successful, you will now have contents in the file specified in `directivesProxyFile` and `directivesArrayFile`.
 
 You can now finally import and export the generated component wrappers for your component library. For example, in your library's main Angular module:
 
 ```ts
-import { DIRECTIVES } from './stencil-generated/components';
+import { DIRECTIVES } from './stencil-generated';
 
 @NgModule({
   declarations: [...DIRECTIVES],
@@ -125,7 +128,7 @@ export class ExampleLibraryModule {}
 Any components that are included in the `exports` array should additionally be exported in your main entry point (either `public-api.ts` or `index.ts`). Skipping this step will lead to Angular Ivy errors when building for production.
 
 ```ts
-export { DIRECTIVES } from './stencil-generated/components';
+export { DIRECTIVES } from './stencil-generated';
 ```
 
 ### Link your packages (optional)
