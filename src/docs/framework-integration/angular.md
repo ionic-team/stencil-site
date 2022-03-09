@@ -110,7 +110,7 @@ yarn run build
 
 If the build is successful, you will now have contents in the file specified in `directivesProxyFile`.
 
-You can now finally import and export the generated component wrappers for your component library. For example, in your main Angular `AppModule` you may do the following:
+You can now finally import and export the generated component wrappers for your component library. For example, in your library's main Angular module:
 
 ```ts
 import { DIRECTIVES } from './stencil-generated/components';
@@ -119,7 +119,7 @@ import { DIRECTIVES } from './stencil-generated/components';
   declarations: [...DIRECTIVES],
   exports: [...DIRECTIVES],
 })
-export class AppModule {}
+export class ExampleLibraryModule {}
 ```
 
 Any components that are included in the `exports` array should additionally be exported in your main entry point (either `public-api.ts` or `index.ts`). Skipping this step will lead to Angular Ivy errors when building for production.
