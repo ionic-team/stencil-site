@@ -3,7 +3,6 @@
 * Introduction
   * [Overview](introduction/overview.md)
   * [Goals and Objectives](introduction/goals-and-objectives.md)
-  * [Browser Support](introduction/browser-support.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
   * [FAQ](introduction/faq.md)
@@ -89,3 +88,4 @@
 * Reference
   * [Support Policy](reference/support-policy.md)
   * [Versioning](reference/versioning.md)
+  * [Browser Support](reference/browser-support.md)

@@ -13,11 +13,6 @@
         "url": "/docs/goals-and-objectives"
       },
       {
-        "text": "Browser Support",
-        "filePath": "/assets/docs/introduction/browser-support.json",
-        "url": "/docs/browser-support"
-      },
-      {
         "text": "Getting Started",
         "filePath": "/assets/docs/introduction/getting-started.json",
         "url": "/docs/getting-started"
@@ -437,6 +432,11 @@
         "text": "Versioning",
         "filePath": "/assets/docs/reference/versioning.json",
         "url": "/docs/versioning"
+      },
+      {
+        "text": "Browser Support",
+        "filePath": "/assets/docs/reference/browser-support.json",
+        "url": "/docs/browser-support"
       }
     ]
   }
