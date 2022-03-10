@@ -69,8 +69,6 @@ Upon successfully creating our project, the CLI will print something similar to 
 
 The first section describes a few commands required to finish getting your project bootstrapped.
 
-> You will need to complete these steps in order to run any of the above commands
-
 ```bash
     $ cd my-first-stencil-project
     $ npm install
