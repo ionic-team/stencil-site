@@ -67,18 +67,7 @@ Upon successfully creating our project, the CLI will print something similar to 
   Happy coding! 🎈
 ```
 
-The first section of the output describes a few useful commands available during the development process:
-
-- `npm start` starts a local development server. The development server will open a new browser tab containing your 
-project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
-them for a rapid feedback cycle.
-
-- `npm run build` creates a production-ready version of your components. The components generated in this step are not
-meant to be used in the local development server, but rather within a project that consumes your components.
-
-- `npm test` runs your project's tests. The Stencil CLI has created both end-to-end and unit tests when scaffolding your project.
-
-The second section describes a few commands required to finish getting your project bootstrapped.
+The first section describes a few commands required to finish getting your project bootstrapped.
 
 > You will need to complete these steps in order to run any of the above commands
 
@@ -90,6 +79,17 @@ The second section describes a few commands required to finish getting your proj
 
 This will change your current directory to `my-first-stencil-project` (or whatever you named your project), install your
 dependencies for you, and start the development server.
+
+The second section of the output describes a few useful commands available during the development process:
+
+- `npm start` starts a local development server. The development server will open a new browser tab containing your 
+project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
+them for a rapid feedback cycle.
+
+- `npm run build` creates a production-ready version of your components. The components generated in this step are not
+meant to be used in the local development server, but rather within a project that consumes your components.
+
+- `npm test` runs your project's tests. The Stencil CLI has created both end-to-end and unit tests when scaffolding your project.
 
 At this time, Stencil does not interact with any version control systems (VCS) when running `npm init stencil`. If you
 wish to place your project under version control, we recommend initializing your VCS now. If you wish to use
