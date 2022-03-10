@@ -64,6 +64,12 @@ export class InPageNavigtion implements ComponentInterface {
         <span>Submit an edit</span>
       </a>
     );
+    const ads = (
+      <div class="ads-container">
+        <img src="/assets/img/stencil-logo-new.svg" />
+        <p>Continuous app delivery made easy. Build, publish, and update from the cloud.</p>
+      </div>
+    );
 
     if (pageLinks.length === 0) {
       return <div>{submitEditLink}</div>;
@@ -86,6 +92,7 @@ export class InPageNavigtion implements ComponentInterface {
           ))}
         </ul>
         {submitEditLink}
+        {ads}
       </div>
     );
   }
