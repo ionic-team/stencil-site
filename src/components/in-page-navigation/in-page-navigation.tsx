@@ -66,13 +66,20 @@ export class InPageNavigtion implements ComponentInterface {
     );
     const ads = (
       <div class="ads-container">
-        <img src="/assets/img/stencil-logo-new.svg" />
+        <div class="ad-image-container">
+          <img src="/assets/img/appflow-ad.png" />
+        </div>
         <p>Continuous app delivery made easy. Build, publish, and update from the cloud.</p>
       </div>
     );
 
     if (pageLinks.length === 0) {
-      return <div>{submitEditLink}</div>;
+      return (
+        <div>
+          {submitEditLink}
+          <internal-ad />
+        </div>
+      );
     }
 
     return (
@@ -92,7 +99,7 @@ export class InPageNavigtion implements ComponentInterface {
           ))}
         </ul>
         {submitEditLink}
-        {ads}
+        <internal-ad />
       </div>
     );
   }
