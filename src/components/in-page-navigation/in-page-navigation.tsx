@@ -64,14 +64,6 @@ export class InPageNavigtion implements ComponentInterface {
         <span>Submit an edit</span>
       </a>
     );
-    const ads = (
-      <div class="ads-container">
-        <div class="ad-image-container">
-          <img src="/assets/img/appflow-ad.png" />
-        </div>
-        <p>Continuous app delivery made easy. Build, publish, and update from the cloud.</p>
-      </div>
-    );
 
     if (pageLinks.length === 0) {
       return (
