@@ -53,10 +53,10 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output, 
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
-One method to ensure [local assets](/docs/local-assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+One method to ensure [assets](/docs/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
 The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
@@ -114,7 +114,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/local-assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/assets).
 
 ```javascript
 const path = require('path');
@@ -149,7 +149,7 @@ module.exports = {
 
 ### rollup.config.js
 
-A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/docs/local-assets).
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/docs/assets).
 
 ```javascript
 import path from 'path';

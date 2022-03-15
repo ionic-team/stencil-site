@@ -298,9 +298,9 @@
         "url": "/docs/forms"
       },
       {
-        "text": "Local Assets",
-        "filePath": "/assets/docs/guides/local-assets.json",
-        "url": "/docs/local-assets"
+        "text": "Assets",
+        "filePath": "/assets/docs/guides/assets.json",
+        "url": "/docs/assets"
       },
       {
         "text": "Style Guide",

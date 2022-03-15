@@ -60,7 +60,7 @@
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)
   * [Forms](guides/forms.md)
-  * [Local Assets](guides/local-assets.md)
+  * [Assets](guides/assets.md)
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
   * [Stencil Store](guides/store.md)
