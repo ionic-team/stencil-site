@@ -67,7 +67,7 @@ TSX to vanilla JavaScript. To ensure compatibility between the two, Stencil take
 of the TypeScript compiler must be used.
 
 Stencil includes a recent copy of the TypeScript compiler in its distributable* to guarantee this compatibility. 
-The Stencil team is committed to keeping its version of TypeScript up to date, and as of Stencil v2.10.0 attempts to be
+The Stencil team is committed to keeping its version of TypeScript up to date and, as of Stencil v2.10.0, attempts to be
 within one minor version of the latest TypeScript release.
 
 The table below describes recent versions of Stencil and the version of TypeScript each version shipped with.
