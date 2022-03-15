@@ -55,7 +55,7 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 
 By default, type declaration files (`.d.ts` files) are only generated for the `dist-custom-elements` output target when
 the [`dist` output target](/docs/distribution) is also declared in a Stencil project's configuration. This behavior
-isn't always desirable, as not all users have need for files emitted by the `dist` output target. To generate type
+isn't always desirable, as not all users need the files emitted by the `dist` output target. To generate type
 declaration files for the `dist-custom-elements`, the experimental `generateTypeDeclarations` field can be set to 
 `true`.
 
