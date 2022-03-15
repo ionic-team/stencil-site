@@ -37,12 +37,13 @@ browser in order to provide more realistic results.
 ## Library Support
 
 Stencil uses [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/) as its testing libraries, and allows
-developers to install both libraries using their preferred package manager. Stencil currently supports:
-- Jest v24.9.0 through v27.Y.Z (inclusive)
-- Puppeteer v1.19.0 through v10.Y.Z (inclusive)
+developers to install both libraries using their preferred package manager.
 
 If you created a project using `npm init stencil`, these libraries were installed for you. Depending on when your
 project was created, you may or may not have the latest supported version installed.
+
+To view current version support for both Jest and Puppeteer, please see the 
+[Stencil support policy for testing libraries](/docs/support-policy#testing-libraries).
 
 ## Testing Commands
 
