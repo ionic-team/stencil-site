@@ -117,6 +117,22 @@ in-page-navigation .heading-links + .submit-edit-link {
   margin-top: 28px;
 }
 
+in-page-navigation .ads-container {
+  margin-block-start: 48px;
+  max-width: 200px;
+}
+in-page-navigation .ads-container .ad-image-container {
+  max-width: 200px;
+  object-fit: contain;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+}
+in-page-navigation .ads-container .ad-image-container img {
+  object-fit: contain;
+  width: inherit;
+}
 
 @media screen and (max-width: 1024px) {
   in-page-navigation {

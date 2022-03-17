@@ -66,7 +66,12 @@ export class InPageNavigtion implements ComponentInterface {
     );
 
     if (pageLinks.length === 0) {
-      return <div>{submitEditLink}</div>;
+      return (
+        <div>
+          {submitEditLink}
+          <internal-ad />
+        </div>
+      );
     }
 
     return (
@@ -86,6 +91,7 @@ export class InPageNavigtion implements ComponentInterface {
           ))}
         </ul>
         {submitEditLink}
+        <internal-ad />
       </div>
     );
   }
