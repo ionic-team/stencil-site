@@ -1,7 +1,7 @@
 ---
 title: Design Systems
 description: Design Systems in Stencil
-url: /docs/what-is-design-system
+url: /docs/design-systems
 contributors:
   - dotNetkow
   - rwaskiewicz
