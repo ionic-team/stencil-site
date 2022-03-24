@@ -101,6 +101,16 @@
       "statusCode": 301
     },
     {
+      "source": "/docs/what-is-a-design-system",
+      "destination": "/docs/design-systems",
+      "statusCode": 301
+    },
+    {
+      "source": "/docs/stencil-for-design-systems",
+      "destination": "/docs/design-systems",
+      "statusCode": 301
+    },
+    {
       "source": "/enterprise",
       "destination": "http://ionic.io/products/stencil",
       "statusCode": 301
