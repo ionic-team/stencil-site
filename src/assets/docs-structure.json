@@ -23,11 +23,6 @@
         "url": "/docs/my-first-component"
       },
       {
-        "text": "FAQ",
-        "filePath": "/assets/docs/introduction/faq.json",
-        "url": "/docs/faq"
-      },
-      {
         "text": "What is a Design System?",
         "filePath": "/assets/docs/design-systems/what-is-design-system.json",
         "url": "/docs/what-is-design-system"
@@ -437,6 +432,11 @@
         "text": "Browser Support",
         "filePath": "/assets/docs/reference/browser-support.json",
         "url": "/docs/browser-support"
+      },
+      {
+        "text": "FAQ",
+        "filePath": "/assets/docs/reference/faq.json",
+        "url": "/docs/faq"
       }
     ]
   }
