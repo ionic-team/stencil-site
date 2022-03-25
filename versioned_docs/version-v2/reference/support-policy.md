@@ -26,6 +26,7 @@ The current status of each Stencil version is:
 
 | Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:--------------:|:------------:|:----------------:|:-----------------:|
+|   V3    |    Upcoming    |     TBD      |       TBD        |        TBD        |
 |   V2    |   **Active**   | Aug 08, 2020 |       TBD        |        TBD        |
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
@@ -106,6 +107,7 @@ compatibility tables to describe the interoperability requirements of these piec
 
 | Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18 |  Deno*  |
 |:---------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:-------:|
+|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  | &#10060; | &#9888; |
 |       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 |       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 
