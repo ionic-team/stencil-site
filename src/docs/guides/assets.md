@@ -95,23 +95,23 @@ src/
     ├── assets/
     │   ├── beach.jpg
     │   └── sunset.jpg
-    └── stencil-asset.tsx
+    └── my-component.tsx
 ```
 
-Below, the `stencil-asset` component will correctly load the assets based on it's `image` prop.
+Below, the `my-component` component will correctly load the assets based on it's `image` prop.
 
 ```tsx
-// file: stencil-asset.tsx
+// file: my-component.tsx
 // 1. getAssetPath is imported from '@stencil/core'
 import { Component, Prop, getAssetPath, h } from '@stencil/core';
 
 @Component({
-  tag: 'stencil-asset',
+  tag: 'my-component',
   // 2. assetsDirs lists the 'assets' directory as a relative
   //    (sibling) directory
   assetsDirs: ['assets']
 })
-export class StencilAsset {
+export class MyComponent {
 
   @Prop() image = "sunset.jpg";
 
@@ -124,9 +124,9 @@ export class StencilAsset {
 }
 ```
 
-In the example above, the following allows `stencil-asset` to display the provided asset:
+In the example above, the following allows `my-component` to display the provided asset:
 1. [`getAssetPath()`](/docs/assets#getassetpath) is imported from `@stencil/core`
-2. The `stencil-asset`'s component decorator has the `assetsDirs` property, and lists the sibling directory, `assets`. This will copy `assets` over to the distribution directory.
+2. The `my-component`'s component decorator has the `assetsDirs` property, and lists the sibling directory, `assets`. This will copy `assets` over to the distribution directory.
 3. `getAssetPath` is used to retrieve the path to the image to be used in the `<img>` tag
 
 ### Manually Moving Assets
