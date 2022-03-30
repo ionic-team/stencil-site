@@ -39,7 +39,7 @@ The process of resolving an asset involves asking Stencil to build a path to the
 When an asset's path is built, the resolution is always done in a project's compiled output, not the directory containing the original source code.
 
 The example below uses the output of the [`www` output target](/docs/www) to demonstrate how assets are resolved.
-Although the example use the output of `www` builds, the general principle of how an asset is found holds for all output targets.
+Although the example uses the output of `www` builds, the general principle of how an asset is found holds for all output targets.
 
 When using the `www` output target, a `build/` directory is automatically created and set as the asset base path.
 An example `build/` directory and the assets it contains can be found below.
