@@ -104,6 +104,11 @@
       "source": "/enterprise",
       "destination": "http://ionic.io/products/stencil",
       "statusCode": 301
+    },
+    {
+      "source": "/docs/local-assets",
+      "destination": "/docs/assets",
+      "statusCode": 301
     }
   ]
 }
