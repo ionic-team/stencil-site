@@ -90,7 +90,7 @@ Lerna does not ship with a TypeScript configuration. At the root of the workspac
 
 Lerna does not create a `.gitignore` file, so we will manually create one:
 
-```
+```ts
 node_modules/
 lerna-debug.log
 npm-debug.log
