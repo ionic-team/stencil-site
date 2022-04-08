@@ -35,7 +35,7 @@ top-most-directory/
     ├── component-library/
     │   └── src/
     │       ├── lib/
-    │       └── public-api.ts
+    │       └── index.ts
     └── stencil-library/
         ├── stencil.config.js
         └── src/components
