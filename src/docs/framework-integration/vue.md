@@ -237,7 +237,7 @@ createApp(App).use(ComponentLibrary).mount('#app');
 
 In your page or component, you can now import and use your component wrappers:
 
-```vue
+```
 <!-- src/components/HelloWorld.vue -->
 <template>
   <my-component first="Your" last="Name"></my-component>
