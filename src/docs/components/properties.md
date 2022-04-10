@@ -347,7 +347,7 @@ import { Component, Prop, h } from '@stencil/core';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
-    // onComplete has an explicit type annotation
+    // isComplete has an explicit type annotation
     // of `any`, and no default value
     @Prop() isComplete: any;
     // label has an explicit type annotation of
