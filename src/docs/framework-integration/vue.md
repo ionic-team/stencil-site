@@ -32,13 +32,29 @@ An example project set-up may look similar to:
 ```
 top-most-directory/
 └── packages/
-    ├── component-library/
+    ├── vue-library/
     │   └── src/
     │       ├── lib/
     │       └── index.ts
     └── stencil-library/
         ├── stencil.config.js
         └── src/components
+```
+
+#### Creating a Stencil Component Library
+
+> If you already have a Stencil component library, skip this section.
+
+```bash
+cd packages/
+npm init stencil components stencil-library
+cd stencil-library
+# Install dependencies
+npm install
+# of if you are using yarn
+yarn install
+cd ..
+lerna bootstrap
 ```
 
 #### Creating a Vue Component Library
@@ -55,16 +71,16 @@ npm install typescript @types/node --save-dev
 # or if you are using yarn
 yarn add typescript @types/node --dev
 
-lerna create component-library
+lerna create vue-library
 # Follow the prompts and confirm
-cd packages/
+cd packages/vue-library
 # Install Vue dependency
 npm install vue@3 --save-dev
 # or if you are using yarn
 yarn add vue@3 --dev
 # Add the stencil-library dependency
 lerna add stencil-library
-cd ..
+cd ../../
 lerna bootstrap
 ```
 
@@ -97,7 +113,7 @@ npm-debug.log
 packages/*/lib
 ```
 
-In your `component-library` project, create a project specific `tsconfig.json` that will extend the root config:
+In your `vue-library` project, create a project specific `tsconfig.json` that will extend the root config:
 
 ```json
 {
@@ -131,22 +147,6 @@ Update your `package.json`, adding the following options to the existing config:
 }
 ```
 
-#### Creating a Stencil Component Library
-
-> If you already have a Stencil component library, skip this section.
-
-```bash
-cd packages/
-npm init stencil components stencil-library
-cd stencil-library
-# Install dependencies
-npm install
-# of if you are using yarn
-yarn install
-cd ..
-lerna bootstrap
-```
-
 ### Adding Vue Output Target
 
 Install the `@stencil/vue-output-target` dependency to your Stencil component library package.
@@ -168,7 +168,7 @@ export const config: Config = {
   outputTargets: [
     vueOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name', // i.e.: stencil-library
-      proxiesFile: '../component-library/src/components.ts',
+      proxiesFile: '../vue-library/src/components.ts',
     }),
   ],
 };
@@ -192,7 +192,7 @@ If the build is successful, you will not have contents in the file specifies in 
 To register your web components for the lazy-loaded (hydrated) bundle, you will need to create a new file for the Vue plugin:
 
 ```ts
-// packages/component-library/src/component-library.ts
+// packages/vue-library/src/plugin.ts
 
 import { Plugin } from 'vue';
 import { applyPolyfills, defineCustomElements } from 'stencil-library/loader';
@@ -209,7 +209,7 @@ export const ComponentLibrary: Plugin = {
 This plugin will be used by Vue applications as follows:
 
 ```ts
-import { ComponentLibrary } from 'component-library';
+import { ComponentLibrary } from 'vue-library';
 
 createApp(App).use(ComponentLibrary).mount('#app');
 ```
@@ -217,9 +217,9 @@ createApp(App).use(ComponentLibrary).mount('#app');
 You can now finally export the generated component wrappers and the Vue plugin for your component library to make them available to implementers:
 
 ```ts
-// packages/component-library/src/index.ts
+// packages/vue-library/src/index.ts
 export * from './components';
-export * from './component-library';
+export * from './plugin';
 ```
 
 ## Consumer Usage
@@ -230,7 +230,7 @@ In your `main.js` file, import your component library plugin and use it:
 
 ```js
 // src/main.js
-import { ComponentLibrary } from 'component-library';
+import { ComponentLibrary } from 'vue-library';
 
 createApp(App).use(ComponentLibrary).mount('#app');
 ```
@@ -243,7 +243,7 @@ In your page or component, you can now import and use your component wrappers:
 </template>
 
 <script>
-import { MyComponent } from 'component-library';
+import { MyComponent } from 'vue-library';
 
 export default {
   name: 'HelloWorld',
