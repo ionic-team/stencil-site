@@ -39,7 +39,7 @@ The right typography ensures users are not distracted while using an app.
 Finally, icons increase engagement in a product and make it “pop” visually.
 
 ### Design Artifacts and Code Implementations
-By leveraging the components, patterns, and visual language of the Design System, designers can create design artifacts representing UI workflows.
+By leveraging the components, patterns, and visual language of the design system, designers can create design artifacts representing UI workflows.
 Developers refer to the artifacts as guidance for implementing the design with code.
 
 ## The Value of Design Systems
