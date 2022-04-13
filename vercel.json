@@ -101,7 +101,7 @@
       "statusCode": 301
     },
     {
-      "source": "/docs/what-is-a-design-system",
+      "source": "/docs/what-is-design-system",
       "destination": "/docs/design-systems",
       "statusCode": 301
     },
