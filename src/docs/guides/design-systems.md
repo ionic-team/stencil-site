@@ -24,7 +24,7 @@ One of the key benefits of reusable components is that developers don't have to 
 Examples include buttons, links, forms, input fields, and modals.
 
 ### Patterns
-A pattern is an opinionated use of components. 
+A pattern is an opinionated use of components.
 Often, multiple components are combined in order to create a standardized user experience (UX).
 As a result, they improve both the user and developer experience.
 After implementing patterns, users will understand the application better and accomplish their tasks faster.
@@ -32,7 +32,7 @@ When the development team understands the proper way to use components together,
 Examples include saving data to the system, capturing data from forms, and filtering and analyzing data.
 
 ### Visual Language
-A cohesive company brand strengthens its value in the minds of the customer. 
+A cohesive company brand strengthens its value in the minds of the customer.
 In the context of design systems, this means defining various aspects of the visual style, including colors, typography, and icons.
 Defining primary, secondary, and tertiary colors helps an application stand out and is more user-friendly.
 The right typography ensures users are not distracted while using an app.
@@ -44,7 +44,7 @@ Developers refer to the artifacts as guidance for implementing the design with c
 
 ## The Value of Design Systems
 With a design system in place, its true value is revealed.
-The entire product development team is freed up to focus on what matters most: solving customer problems and delivering value. 
+The entire product development team is freed up to focus on what matters most: solving customer problems and delivering value.
 Additionally, the avoidance of having teams working in parallel, recreating the same UI elements over and over, has a real-world project impact in terms of reduced time to market and increased cost savings.
 
 Design systems allow project teams to work better together.
@@ -79,5 +79,5 @@ Stencil’s out-the-box features will help you build your own library of univers
 Review the documentation on this site to get started.
 
 __Need help building and scaling your company's design system?__
-With Ionic as your development partner, you can reduce design debt, connect disparate tech teams, and get assistance enforcing brand consistency at scale. 
+With Ionic as your development partner, you can reduce design debt, connect disparate tech teams, and get assistance enforcing brand consistency at scale.
 [Learn more about Stencil Enterprise](https://ionic.io/products/stencil).
