@@ -21,16 +21,6 @@
         "text": "My First Component",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
-      },
-      {
-        "text": "What is a Design System?",
-        "filePath": "/assets/docs/design-systems/what-is-design-system.json",
-        "url": "/docs/what-is-design-system"
-      },
-      {
-        "text": "Stencil for Design Systems",
-        "filePath": "/assets/docs/design-systems/stencil-for-design-systems.json",
-        "url": "/docs/stencil-for-design-systems"
       }
     ]
   },
@@ -316,6 +306,11 @@
         "text": "Publishing",
         "filePath": "/assets/docs/guides/publishing.json",
         "url": "/docs/publishing"
+      },
+      {
+        "text": "Design Systems",
+        "filePath": "/assets/docs/guides/design-systems.json",
+        "url": "/docs/what-is-design-system"
       },
       {
         "text": "Deno (end-of-life)",
