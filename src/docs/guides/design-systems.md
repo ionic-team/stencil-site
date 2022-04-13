@@ -20,7 +20,7 @@ There are several aspects that Design Systems consist of:
 A component is a standalone UI element designed to be reusable across many projects.
 Its goal is to do one thing well, while remaining abstract enough to allow for a variety of use cases.
 Developers can use them as building blocks to build new user experiences.
-A key benefit quickly becomes clear: not having to worry about the core design and functionality of each component every time they use them.
+One of the key benefits of reusable components is that developers don't have to worry about the core design and functionality of each component every time they use them.
 Examples include buttons, links, forms, input fields, and modals.
 
 ### Patterns
