@@ -50,7 +50,7 @@ Additionally, the avoidance of having teams working in parallel, recreating the 
 Design systems allow project teams to work better together.
 Designers define a centralized “source of truth” for software application best practices, referencable by anyone in a product organization.
 Developers no longer need to spend time rethinking how to build common app scenarios, such as application search or data table grids.
-When the business inevitably makes changes to the Design System, they can easily be applied to all projects.
+When the business inevitably makes changes to the design system, they can easily be applied to all projects.
 The end result is a better product for your users.
 
 ## Using Stencil to Build a Design System
