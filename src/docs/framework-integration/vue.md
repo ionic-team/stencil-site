@@ -138,7 +138,7 @@ Update your `package.json`, adding the following options to the existing config:
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "npm run tsc && npm run bundle",
+    "build": "npm run tsc",
     "tsc": "tsc -p ."
   },
   "publishConfig": {
@@ -257,6 +257,8 @@ export default {
 
 ### Vue warns "Failed to resolve component: my-component"
 
+#### Lazy loaded bundle
+
 If you are using Vue CLI, update your `vue.config.js` to match your custom element selector as a custom element:
 
 ```js
@@ -277,4 +279,107 @@ module.exports = defineConfig({
       });
   },
 });
+```
+
+#### Custom elements bundle
+
+If you see this warning, then it is likely you did not import your component from your Vue library: `vue-library`. By default, all Vue components are locally registered, meaning you need to import them each time you want to use them.
+
+Without importing the component, you will only get the underlying Web Component, and Vue-specific features such as `v-model` will not work.
+
+To resolve this issue, you need to import the component from `vue-library` (your package name) and provide it to your Vue component:
+
+```html
+<template>
+  <my-component first="Your" last="Name"></my-component>
+</template>
+
+<script lang="ts">
+  import { MyComponent } from 'vue-library';
+  import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    components: { MyComponent },
+  });
+</script>
+```
+
+### Vue warns: "slot attributes are deprecated vue/no-deprecated-slot-attribute"
+
+The slots that are used in Stencil are [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots) slots, which are different than the slots used in Vue 2. Unfortunately, the APIs for both are very similar, and your linter is likely getting the two confused.
+
+You will need to update your lint rules in `.eslintrc.js` to ignore this warning:
+
+```js
+module.exports = {
+  rules: {
+    'vue/no-deprecated-slot-attribute': 'off',
+  },
+};
+```
+
+If you are using VSCode and have the Vetur plugin installed, you are likely getting this warning because of Vetur, not ESLint. By default, Vetur loads the default Vue 3 linting rules and ignores any custom ESLint rules.
+
+To resolve this issue, you will need to turn off Vetur's template validation with `vetur.validation.template: false`. See the [Vetur Linting Guide](https://vuejs.github.io/vetur/guide/linting-error.html#linting) for more information.
+
+### Method on component is not a function
+
+In order to access a method on a Stencil component in Vue, you will need to access the underlying Web Component instance first:
+
+```ts
+// ✅ This is correct
+myComponentRef.value.$el.someMethod();
+
+// ❌ This is incorrect and will result in an error.
+myComponentRef.value.someMethod();
+```
+
+### Output commonjs bundle for Node environments
+
+First, install `rollup` and `rimraf` as dev dependencies:
+
+```bash
+npm i -D rollup rimraf
+# or if you are using yarn
+yarn add rollup rimraf --dev
+```
+
+Next, create a `rollup.config.js` in `/packages/vue-library/`:
+
+```js
+const external = ['vue', 'vue-router'];
+
+export default {
+  input: 'dist-transpiled/index.js',
+  output: [
+    {
+      dir: 'dist/',
+      entryFileNames: '[name].esm.js',
+      chunkFileNames: '[name]-[hash].esm.js',
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      dir: 'dist/',
+      format: 'commonjs',
+      preferConst: true,
+      sourcemap: true,
+    },
+  ],
+  external: id => external.includes(id) || id.startsWith('stencil-library'),
+};
+```
+
+> Update the `external` list for any external dependencies. Update the `stencil-library` to match your Stencil library's package name.
+
+Next, update your `package.json` to include the scripts for rollup:
+
+```json
+{
+  "scripts": {
+    "build": "npm run clean && npm run tsc && npm run bundle",
+    "bundle": "rollup --config rollup.config.js",
+    "clean": "rimraf dist dist-transpiled"
+  }
+}
 ```
