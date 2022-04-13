@@ -26,7 +26,7 @@ Examples include buttons, links, forms, input fields, and modals.
 ### Patterns
 A pattern is an opinionated use of components. 
 Often, multiple components are combined in order to create a standardized user experience (UX).
-Their key benefit is intertwined: UX as well as developer experience (DX).
+As a result, they improve both the user and developer experience.
 After implementing patterns, users will understand the application better and accomplish their tasks faster.
 When the development team understands the proper way to use components together, software applications become easier to use.
 Examples include saving data to the system, capturing data from forms, and filtering and analyzing data.
