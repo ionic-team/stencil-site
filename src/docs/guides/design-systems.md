@@ -33,7 +33,7 @@ Examples include saving data to the system, capturing data from forms, and filte
 
 ### Visual Language
 A cohesive company brand strengthens its value in the minds of the customer. 
-In the context of Design Systems, this means defining various aspects of the visual style, including colors, typography, and icons.
+In the context of design systems, this means defining various aspects of the visual style, including colors, typography, and icons.
 Defining primary, secondary, and tertiary colors helps an application stand out and is more user-friendly.
 The right typography ensures users are not distracted while using an app.
 Finally, icons increase engagement in a product and make it “pop” visually.
