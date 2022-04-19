@@ -362,7 +362,7 @@ export class LandingPage {
                   </li>
                 </ul>
                 <p>Interested in learning more about building design systems with Stencil?</p>
-                <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/stencil-for-design-systems">
+                <stencil-route-link anchorClass="btn btn--tertiary btn--small" url="/docs/design-systems">
                   Show me more
                 </stencil-route-link>
               </div>
