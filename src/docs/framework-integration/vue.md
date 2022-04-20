@@ -66,6 +66,7 @@ The first time you want to create the component wrappers, you will need to have 
 Using Lerna and Vue's CLI, generate a workspace and a library for your Vue component wrappers:
 
 ```bash
+# From your top-most-directory/
 lerna init
 npm install typescript @types/node --save-dev
 # or if you are using yarn
