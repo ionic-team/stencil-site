@@ -101,8 +101,10 @@ npm install vue@3 --save-dev
 yarn add vue@3 --dev
 # Add the stencil-library dependency
 lerna add stencil-library
+# of if you are using other monorepo tools, install your Stencil library as a dependency
 cd ../../
 lerna bootstrap
+# of if you are using other monorepo tools, initialize symlinks
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
@@ -127,7 +129,7 @@ Lerna does not ship with a TypeScript configuration. At the root of the workspac
 
 Lerna does not create a `.gitignore` file, so we will manually create one:
 
-```ts
+```bash
 node_modules/
 lerna-debug.log
 npm-debug.log
@@ -154,17 +156,19 @@ In your `vue-library` project, create a project specific `tsconfig.json` that wi
 
 Update your `package.json`, adding the following options to the existing config:
 
-```json
+```diff
 {
-  "types": "lib/index.d.ts",
++  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "npm run tsc",
-    "tsc": "tsc -p ."
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+-    "test": "echo \"Error: run tests from root\" && exit 1"
++    "test": "echo \"Error: run tests from root\" && exit 1",
++    "build": "npm run tsc",
++    "tsc": "tsc -p ."
+-  }
++  },
++  "publishConfig": {
++    "access": "public"
++  }
 }
 ```
 
@@ -227,20 +231,27 @@ export const ComponentLibrary: Plugin = {
 };
 ```
 
-This plugin will be used by Vue applications as follows:
-
-```ts
-import { ComponentLibrary } from 'vue-library';
-
-createApp(App).use(ComponentLibrary).mount('#app');
-```
-
 You can now finally export the generated component wrappers and the Vue plugin for your component library to make them available to implementers:
 
 ```ts
 // packages/vue-library/src/index.ts
 export * from './components';
 export * from './plugin';
+```
+
+### Building and Publishing
+
+```bash
+# Build the library (from packages/vue-library)
+npm run build
+# of if you are using yarn
+yarn build
+```
+
+Publish the output to NPM:
+
+```bash
+npm publish
 ```
 
 ## Consumer Usage
