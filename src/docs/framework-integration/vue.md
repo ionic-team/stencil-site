@@ -41,6 +41,29 @@ top-most-directory/
         └── src/components
 ```
 
+This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
+
+To use Lerna with this walk through, globally install Lerna:
+
+```bash
+npm install --global lerna
+# or if you are using yarn
+yarn global add lerna
+```
+
+#### Creating a Monorepo
+
+> If you already have a monorepo, skip this section.
+
+```bash
+# From your top-most-directory/
+lerna init
+# or if you are using other monorepo tools, initialize a workspace
+npm install typescript @types/node --save-dev
+# or if you are using yarn
+yarn add typescript @types/node --dev
+```
+
 #### Creating a Stencil Component Library
 
 > If you already have a Stencil component library, skip this section.
@@ -55,6 +78,7 @@ npm install
 yarn install
 cd ..
 lerna bootstrap
+# of if you are using other monorepo tools, initialize symlinks
 ```
 
 #### Creating a Vue Component Library
@@ -67,12 +91,8 @@ Using Lerna and Vue's CLI, generate a workspace and a library for your Vue compo
 
 ```bash
 # From your top-most-directory/
-lerna init
-npm install typescript @types/node --save-dev
-# or if you are using yarn
-yarn add typescript @types/node --dev
-
 lerna create vue-library
+# or if you are using other monorepo tools, create a new Vue library
 # Follow the prompts and confirm
 cd packages/vue-library
 # Install Vue dependency
