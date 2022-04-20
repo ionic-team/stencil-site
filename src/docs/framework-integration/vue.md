@@ -185,7 +185,7 @@ npm run build
 yarn run build
 ```
 
-If the build is successful, you will not have contents in the file specifies in `proxiesFile`.
+If the build is successful, you will now have contents in the file specified in `proxiesFile`.
 
 #### Vue Plugin
 
