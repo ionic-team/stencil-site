@@ -8,19 +8,19 @@ contributors:
 
 # Publishing A Component Library
 
-There are numerous strategies to publish and distribute your component library to be consumed by external projects. One of the benefits of Stencil is that is makes it easy to generate the various [output targets](/docs/output-targets) that's right for your use-case.
+There are numerous strategies to publish and distribute your component library to be consumed by external projects. One of the benefits of Stencil is that is makes it easy to generate the various [output targets](/docs/output-targets) that are right for your use-case.
 
 ## Publishing to Node Package Manager (NPM)
 
 The first step and highly recommended step is to
-[publish the component library NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages). Npm is an online software registry for sharing libraries, tools, utilities, packages, etc. Once the library is published to NPM, other projects are able to add your component library as a dependency and use the components within their own projects.
+[publish the component library to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages). NPM is an online software registry for sharing libraries, tools, utilities, packages, etc. Once the library is published to NPM, other projects are able to add your component library as a dependency and use the components within their own projects.
 
 
 ## `package.json`
 
 The purpose of the `package.json` file is to give other tools instructions on how to find the package's files, and to provide information about the package. For example, bundlers such as [Rollup](https://rollupjs.org/) and [Webpack](https://webpack.js.org/) use this configuration to locate the project's entry files.
 
-An advantage to using the compiler is it is able to provide help on how to best setup the project for distribution. Below is a common setup found within a project's `package.json` file:
+An advantage to using the compiler is that it is able to provide help on how to best set up the project for distribution. Below is a common setup found within a project's `package.json` file:
 
 ```json
 {
