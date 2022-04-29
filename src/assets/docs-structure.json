@@ -21,21 +21,6 @@
         "text": "My First Component",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
-      },
-      {
-        "text": "FAQ",
-        "filePath": "/assets/docs/introduction/faq.json",
-        "url": "/docs/faq"
-      },
-      {
-        "text": "What is a Design System?",
-        "filePath": "/assets/docs/design-systems/what-is-design-system.json",
-        "url": "/docs/what-is-design-system"
-      },
-      {
-        "text": "Stencil for Design Systems",
-        "filePath": "/assets/docs/design-systems/stencil-for-design-systems.json",
-        "url": "/docs/stencil-for-design-systems"
       }
     ]
   },
@@ -298,9 +283,9 @@
         "url": "/docs/forms"
       },
       {
-        "text": "Local Assets",
-        "filePath": "/assets/docs/guides/local-assets.json",
-        "url": "/docs/local-assets"
+        "text": "Assets",
+        "filePath": "/assets/docs/guides/assets.json",
+        "url": "/docs/assets"
       },
       {
         "text": "Style Guide",
@@ -321,6 +306,11 @@
         "text": "Publishing",
         "filePath": "/assets/docs/guides/publishing.json",
         "url": "/docs/publishing"
+      },
+      {
+        "text": "Design Systems",
+        "filePath": "/assets/docs/guides/design-systems.json",
+        "url": "/docs/design-systems"
       },
       {
         "text": "Deno (end-of-life)",
@@ -437,6 +427,11 @@
         "text": "Browser Support",
         "filePath": "/assets/docs/reference/browser-support.json",
         "url": "/docs/browser-support"
+      },
+      {
+        "text": "FAQ",
+        "filePath": "/assets/docs/reference/faq.json",
+        "url": "/docs/faq"
       }
     ]
   }

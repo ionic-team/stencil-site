@@ -347,7 +347,7 @@ import { Component, Prop, h } from '@stencil/core';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
-    // onComplete has an explicit type annotation
+    // isComplete has an explicit type annotation
     // of `any`, and no default value
     @Prop() isComplete: any;
     // label has an explicit type annotation of
@@ -646,7 +646,7 @@ Notice that the `myHttpService` type is not a primitive (e.g. not a `number`, `b
 attributes can only be strings, it does not make sense to have an associated DOM attribute called "my-http-service".
 
 At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are 
-case-insensitive, so the attribute names will be `is-complete` & `thingToDo` by default.
+case-insensitive, so the attribute names will be `is-complete` & `thing-to-do` by default.
 
 Fortunately, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
 

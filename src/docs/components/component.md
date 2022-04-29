@@ -67,7 +67,7 @@ export interface ComponentOptions {
   styleUrl?: string;
 
   /**
-   * Similar as `styleUrl` but allows to specify different stylesheets for different modes.
+   * Similar as `styleUrl` but allows one to specify different stylesheets for different modes.
    */
   styleUrls?: string[] | d.ModeStyles;
 

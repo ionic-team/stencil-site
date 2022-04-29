@@ -5,9 +5,6 @@
   * [Goals and Objectives](introduction/goals-and-objectives.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
-  * [FAQ](introduction/faq.md)
-  * [What is a Design System?](design-systems/what-is-design-system.md)
-  * [Stencil for Design Systems](design-systems/stencil-for-design-systems.md)
 * Components
   * [API](components/api.md)
   * [Component](components/component.md)
@@ -60,11 +57,12 @@
   * [Bundling](guides/module-bundling.md)
   * [Typed Components](guides/typed-components.md)
   * [Forms](guides/forms.md)
-  * [Local Assets](guides/local-assets.md)
+  * [Assets](guides/assets.md)
   * [Style Guide](guides/style-guide.md)
   * [Service Workers](guides/service-workers.md)
   * [Stencil Store](guides/store.md)
   * [Publishing](guides/publishing.md)
+  * [Design Systems](guides/design-systems.md)
   * [Deno (end-of-life)](guides/deno.md)
 * Testing
   * [Overview](testing/overview.md)
@@ -89,3 +87,4 @@
   * [Support Policy](reference/support-policy.md)
   * [Versioning](reference/versioning.md)
   * [Browser Support](reference/browser-support.md)
+  * [FAQ](reference/faq.md)

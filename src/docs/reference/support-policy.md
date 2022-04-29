@@ -117,10 +117,12 @@ please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/
 
 #### Jest
 
-| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|
-|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; |
+| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28* |
+|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|
+|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060;  |
+
+\* Support for Jest 28 will be released in an upcoming version of Stencil.
 
 #### Puppeteer
 
