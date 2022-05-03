@@ -55,13 +55,17 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
 
 ## Slots
 
-Slots can be documented by adding `@slot` tags to the doc comments above the component decorator.
+Slots can be documented by adding `@slot` tags to the doc comments above the `@Component` decorator.
 
 ```tsx
 /**
  * @slot slotName - slotDescription
  * @slot buttonContent - Slot for the content of the button
  */
+ 
+ @Component({
+  tag: '...'
+}) ...
 ```
 
 
@@ -90,6 +94,10 @@ In addition to reading the predefined JSDoc tags, users can provide their own cu
  * @myDocTag someName - some value
  * @myOtherDocTag someOtherName - some other name
  */
+ 
+@Component({
+  tag: '...'
+}) ...
 ```
 
 It would end up in the JSON data like this:
