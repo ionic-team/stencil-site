@@ -87,8 +87,8 @@ export class AppRoot {
     return (
       <SiteProviderConsumer.Provider state={siteState}>
         <site-root>
-          <platform-bar productName="Stencil" />
-          {/* <announcement-bar /> */}
+          {/* <platform-bar productName="Stencil" /> */}
+          <announcement-bar />
           <site-header />
           <main>
             <stencil-router scrollTopOffset={0}>
@@ -113,7 +113,7 @@ export class AppRoot {
               <ResponsiveContainer>
                 <div class="footer-col">
                   <app-icon name="logo" />
-                  <p>© {(new Date().getFullYear())} StencilJS. Released under MIT License</p>
+                  <p>© {new Date().getFullYear()} StencilJS. Released under MIT License</p>
                   <ul class="external-links list--unstyled">
                     <li>
                       <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
