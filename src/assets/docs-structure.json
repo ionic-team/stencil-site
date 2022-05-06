@@ -268,11 +268,6 @@
         "url": "/docs/module-bundling"
       },
       {
-        "text": "Deno (end-of-life)",
-        "filePath": "/assets/docs/guides/deno.json",
-        "url": "/docs/deno"
-      },
-      {
         "text": "Design Systems",
         "filePath": "/assets/docs/guides/design-systems.json",
         "url": "/docs/design-systems"
