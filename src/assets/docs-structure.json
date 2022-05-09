@@ -258,14 +258,9 @@
     "text": "Guides",
     "children": [
       {
-        "text": "Web Workers",
-        "filePath": "/assets/docs/guides/workers.json",
-        "url": "/docs/web-workers"
-      },
-      {
-        "text": "Hydrate App",
-        "filePath": "/assets/docs/guides/hydrate-app.json",
-        "url": "/docs/hydrate-app"
+        "text": "Assets",
+        "filePath": "/assets/docs/guides/assets.json",
+        "url": "/docs/assets"
       },
       {
         "text": "Bundling",
@@ -273,9 +268,14 @@
         "url": "/docs/module-bundling"
       },
       {
-        "text": "Typed Components",
-        "filePath": "/assets/docs/guides/typed-components.json",
-        "url": "/docs/typed-components"
+        "text": "Deno (end-of-life)",
+        "filePath": "/assets/docs/guides/deno.json",
+        "url": "/docs/deno"
+      },
+      {
+        "text": "Design Systems",
+        "filePath": "/assets/docs/guides/design-systems.json",
+        "url": "/docs/design-systems"
       },
       {
         "text": "Forms",
@@ -283,14 +283,14 @@
         "url": "/docs/forms"
       },
       {
-        "text": "Assets",
-        "filePath": "/assets/docs/guides/assets.json",
-        "url": "/docs/assets"
+        "text": "Hydrate App",
+        "filePath": "/assets/docs/guides/hydrate-app.json",
+        "url": "/docs/hydrate-app"
       },
       {
-        "text": "Style Guide",
-        "filePath": "/assets/docs/guides/style-guide.json",
-        "url": "/docs/style-guide"
+        "text": "Publishing",
+        "filePath": "/assets/docs/guides/publishing.json",
+        "url": "/docs/publishing"
       },
       {
         "text": "Service Workers",
@@ -303,19 +303,19 @@
         "url": "/docs/stencil-store"
       },
       {
-        "text": "Publishing",
-        "filePath": "/assets/docs/guides/publishing.json",
-        "url": "/docs/publishing"
+        "text": "Style Guide",
+        "filePath": "/assets/docs/guides/style-guide.json",
+        "url": "/docs/style-guide"
       },
       {
-        "text": "Design Systems",
-        "filePath": "/assets/docs/guides/design-systems.json",
-        "url": "/docs/design-systems"
+        "text": "Typed Components",
+        "filePath": "/assets/docs/guides/typed-components.json",
+        "url": "/docs/typed-components"
       },
       {
-        "text": "Deno (end-of-life)",
-        "filePath": "/assets/docs/guides/deno.json",
-        "url": "/docs/deno"
+        "text": "Web Workers",
+        "filePath": "/assets/docs/guides/workers.json",
+        "url": "/docs/web-workers"
       }
     ]
   },

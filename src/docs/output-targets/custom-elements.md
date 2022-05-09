@@ -22,7 +22,12 @@ outputTargets: [
 
 ## Defining Exported Custom Elements
 
-By default, the custom elements files will be written to `dist/components/index.js`. This directory can be configured using the output target's `dir` config. The generated `index.js` file contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements or apply any polyfills.
+By default, the custom elements files will be written to `dist/components/`.
+This directory can be configured using the output target's `dir` config. The
+generated files will each export a component class and will already have the
+styles bundled. However, this build does not define the custom elements or
+apply any polyfills. Any dependencies of your imported component will need to
+be loaded as well. 
 
 Below is an example of defining a custom element:
 
@@ -31,8 +36,6 @@ import { HelloWorld } from 'my-library/dist/components/hello-world';
 
 customElements.define('hello-world', HelloWorld);
 ```
-
-The generated files will export each component class and will already have the styles bundled. However, it does not define the custom elements or apply any polyfills. Any dependencies of your imported component will need to be loaded as well. 
 
 ## Config
 
