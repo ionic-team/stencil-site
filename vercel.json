@@ -119,6 +119,11 @@
       "source": "/docs/local-assets",
       "destination": "/docs/assets",
       "statusCode": 301
+    },
+    {
+      "source": "/docs/deno(/)?",
+      "destination": "/docs/support-policy",
+      "statusCode": 301
     }
   ]
 }
