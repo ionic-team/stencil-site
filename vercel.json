@@ -86,6 +86,11 @@
       "statusCode": 301
     },
     {
+      "source": "/docs/build-conditionals(/)?",
+      "destination": "/docs",
+      "statusCode": 302
+    },
+    {
       "source": "/docs/docs-auto-generation(/)?",
       "destination": "/docs/docs-readme",
       "statusCode": 301
