@@ -62,16 +62,18 @@ Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 
 
 ### experimentalImportInjection
 
-In some cases, it can be difficult to lazily load Stencil components when using a bundler such as Vite.
+In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
+Vite.
 
-This is an experimental flag that when set to `true`, will inject dynamic import statements for every lazily loadable
-component in a Stencil project.
-When a Stencil library is compiled with this flag set to `true`, downstream projects that use Vite and consume the
-Stencil library will be able to properly lazily load the Stencil library's components.
+This is an experimental flag that, when set to `true`, will allow downstream projects that consume a Stencil library
+and use a bundler such as Vite to lazily load the Stencil library's components.
 
-The Stencil library must expose lazy loadable components, such as those created with the 
-[`dist` output target](/docs/output-targets/dist) in order for this flag to work.
+In order for this flag to work:
+1. The Stencil library must expose lazy loadable components, such as those created with the
+[`dist` output target](/docs/output-targets/dist)
+2. The Stencil library must be recompiled with this flag set to `true`
 
+This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
 Users of this flag should note that they may see an increase in their bundle size.
 
 Defaults to `false`.
