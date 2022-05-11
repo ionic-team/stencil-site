@@ -70,7 +70,7 @@ and use a bundler such as Vite to lazily load the Stencil library's components.
 
 In order for this flag to work:
 1. The Stencil library must expose lazy loadable components, such as those created with the
-[`dist` output target](/docs/output-targets/dist)
+[`dist` output target](/docs/distribution)
 2. The Stencil library must be recompiled with this flag set to `true`
 
 This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
