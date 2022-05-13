@@ -63,7 +63,7 @@ Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 
 ### experimentalImportInjection
 
 In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
-Vite.
+[Vite](https://vitejs.dev/).
 
 This is an experimental flag that, when set to `true`, will allow downstream projects that consume a Stencil library
 and use a bundler such as Vite to lazily load the Stencil library's components.
