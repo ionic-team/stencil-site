@@ -26,11 +26,15 @@ provided with a prompt so that you can choose the type of project to start.
 ```text
 ? Select a starter project.
 
-Starters marked as [community] are developed by the Stencil Community,
-rather than Ionic. For more information on the Stencil Community, please see
-https://github.com/stencil-community › - Use arrow-keys. Return to submit.
-❯   component          Collection of web components that can be used anywhere
-    app [community]    Minimal starter for building a Stencil app or website
+Starters marked as [community] are developed by the Stencil
+Community, rather than Ionic. For more information on the 
+Stencil Community, please see https://github.com/stencil-community
+› - Use arrow-keys. Return to submit.
+
+❯   component          Collection of web components that can be
+                       used anywhere
+    app [community]    Minimal starter for building a Stencil 
+                       app or website
 ```
 
 Selecting the 'component' option will prompt you for the name of your project.
