@@ -78,7 +78,7 @@ npm install
 yarn install
 cd ..
 lerna bootstrap
-# of if you are using other monorepo tools, initialize symlinks
+# or if you are using other monorepo tools, initialize symlinks
 ```
 
 #### Creating a Vue Component Library
