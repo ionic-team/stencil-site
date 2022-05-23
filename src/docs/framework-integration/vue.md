@@ -101,7 +101,7 @@ npm install vue@3 --save-dev
 yarn add vue@3 --dev
 # Add the stencil-library dependency
 lerna add stencil-library
-# of if you are using other monorepo tools, install your Stencil library as a dependency
+# or if you are using other monorepo tools, install your Stencil library as a dependency
 cd ../../
 lerna bootstrap
 # of if you are using other monorepo tools, initialize symlinks
