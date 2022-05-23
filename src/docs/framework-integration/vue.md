@@ -104,7 +104,7 @@ lerna add stencil-library
 # or if you are using other monorepo tools, install your Stencil library as a dependency
 cd ../../
 lerna bootstrap
-# of if you are using other monorepo tools, initialize symlinks
+# or if you are using other monorepo tools, initialize symlinks
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
