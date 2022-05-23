@@ -37,6 +37,19 @@ import { HelloWorld } from 'my-library/dist/components/hello-world';
 customElements.define('hello-world', HelloWorld);
 ```
 
+The output directory will also contain an `index.js` file which imports and
+re-exports all of your components and their respective `defineCustomElement`
+helper functions, looking something like this:
+
+```tsx
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+export { MyComponent, defineCustomElement as defineCustomElementMyComponent } from './my-component.js';
+export {
+  MyOtherComponent,
+  defineCustomElement as defineCustomElementMyOtherComponent
+} from './my-other-component.js';
+```
+
 ## Config
 
 ### autoDefineCustomElements
