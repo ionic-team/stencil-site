@@ -37,9 +37,9 @@ import { HelloWorld } from 'my-library/dist/components/hello-world';
 customElements.define('hello-world', HelloWorld);
 ```
 
-The output directory will also contain an `index.js` file which imports and
-re-exports all of your components and their respective `defineCustomElement`
-helper functions, looking something like this:
+The output directory will also contain an `index.js` file which exports all of
+your components and their respective `defineCustomElement` helper functions,
+looking something like this:
 
 ```tsx
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
@@ -49,6 +49,9 @@ export {
   defineCustomElement as defineCustomElementMyOtherComponent
 } from './my-other-component.js';
 ```
+
+This file can be used as the root module when distributing your component
+library, see [below](#distributing-custom-elements) for more details.
 
 ## Config
 
@@ -109,9 +112,15 @@ The configs below provide examples of how to do this automatically with popular 
 
 ## Distributing Custom Elements
 
-Your component library can be easily distributed on NPM, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there, consumers of your library can decide how to import your library into their project. For the `dist-custom-elements`, the default import location would be `my-library/dist/components`, but this can get further configured within the `package.json` file.
+Your component library can be easily distributed on NPM, just like
+[`@ionic/core`](https://www.npmjs.com/package/@ionic/core). From there,
+consumers of your library can decide how to import your library into their
+project. For the `dist-custom-elements` output target, the default import
+location would be `my-library/dist/components`, but this can get further
+configured within the `package.json` file.
 
-To make the custom elements index the entry module for a package, set the `module` property in `package.json` to:
+To make the custom elements index the entry module for a package, set the
+`module` property in `package.json` to:
 
 ```tsx
 {
@@ -127,8 +136,29 @@ Be sure to set `@stencil/core` as a dependency of the package as well.
 
 > Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
 
+Note: If you are distributing the output of both the
+[`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
+it's up to you to choose which one of them should be available in the `module`
+entry.
 
-Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
+Consumers of your library can then either import components from their
+individual files, like so:
+
+```tsx
+import { MyComponent } from 'best-web-components/dist/components/my-component';
+```
+
+Or they can import directly from the index module (`dist/components/index.js`),
+like so:
+
+```tsx
+import { MyComponent } from 'best-web-components';
+```
+
+Now you can publish your library to [Node Package Manager
+(NPM)](https://www.npmjs.com/). For more information about setting up the
+`package.json` file, and publishing, see: [Publishing Component Library To
+NPM](/docs/publishing).
 
 ## Example Bundler Configs
 
