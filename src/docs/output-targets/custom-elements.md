@@ -111,9 +111,10 @@ To make the custom elements index the entry module for a package, set the `modul
 }
 ```
 
-Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
-
 Be sure to set `@stencil/core` as a dependency of the package as well.
+
+> Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
+
 
 Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
 
