@@ -43,9 +43,9 @@ customElements.define('hello-world', HelloWorld);
 
 By default, consumers of the `dist-custom-elements` output target need to
 register each Stencil component that they want to use in the bundle manually.
-Setting this flag to `true` will add a call to the `defineCustomElement` helper
-function for each function to it's module, which will be called when it is
-exported.
+Setting this flag to `true` will define a component automatically with the
+`CustomElementRegistry` when the component's module is imported. Note that this
+will also automatically recursively define any child components as well.
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
