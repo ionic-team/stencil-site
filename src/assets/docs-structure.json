@@ -248,6 +248,11 @@
         "url": "/docs/docs-custom"
       },
       {
+        "text": "docs-vscode",
+        "filePath": "/assets/docs/output-targets/docs-vscode.json",
+        "url": "/docs/docs-vscode"
+      },
+      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"
