@@ -30,7 +30,7 @@ choose when to use each type of testing:
 together. For example, when `my-component` has the `X` attribute, the child component then renders the text `Y`, and
 expects to receive the event `Z`.
 
-Both testng types use [Jest](https://jestjs.io/) as the JavaScript testing solution. End-to-end tests also use
+Both types of testing use [Jest](https://jestjs.io/) as the JavaScript testing solution. End-to-end tests also use
 [Puppeteer](https://pptr.dev/) instead of a Node environment. This allows end-to-end tests to run within an actual
 browser in order to provide more realistic results.
 

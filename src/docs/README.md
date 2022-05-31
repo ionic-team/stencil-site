@@ -54,7 +54,6 @@
 * Guides
   * [Assets](guides/assets.md)
   * [Bundling](guides/module-bundling.md)
-  * [Deno (end-of-life)](guides/deno.md)
   * [Design Systems](guides/design-systems.md)
   * [Forms](guides/forms.md)
   * [Hydrate App](guides/hydrate-app.md)

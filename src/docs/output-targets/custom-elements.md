@@ -41,18 +41,17 @@ customElements.define('hello-world', HelloWorld);
 
 ### autoDefineCustomElements
 
-By default, consumers of the `custom-elements` output target need to either register each Stencil component in the 
-bundle manually, or call a convenience method, `defineCustomElements()`, that is exported as a part of the bundle to
-define every component in the bundle. This behavior can be cumbersome, especially when only a handful of components are 
-needed and/or those components have several child components (and their children have children, etc.).
-
-Setting this flag to `true` will recursively define all children components for a Stencil component when it is
-registered. Users of this flag should note that this may increase their bundle size by automatically defining &
-registering child components.
+By default, consumers of the `dist-custom-elements` output target need to
+register each Stencil component that they want to use in the bundle manually.
+Setting this flag to `true` will define a component automatically with the
+`CustomElementRegistry` when the component's module is imported. Note that this
+will also automatically recursively define any child components as well.
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
-> Note: At this time, components created not using JSX may not be automatically defined. This is a known limitation of the API and users should be aware of it
+> Note: At this time, components created not using JSX may not be automatically
+  defined. This is a known limitation of the API and users should be aware of
+  it
 
 ### generateTypeDeclarations
 
@@ -101,8 +100,6 @@ Your component library can be easily distributed on NPM, similar to how [`@ionic
 
 To make the custom elements index the entry module for a package, set the `module` property in `package.json` to:
 
-Also be sure to set `@stencil/core` as a dependency of the package.
-
 ```tsx
 {
   "module": "dist/components/index.js",
@@ -113,7 +110,10 @@ Also be sure to set `@stencil/core` as a dependency of the package.
 }
 ```
 
-Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
+Be sure to set `@stencil/core` as a dependency of the package as well.
+
+> Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
+
 
 Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
 

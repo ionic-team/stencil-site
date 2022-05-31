@@ -210,23 +210,6 @@ export class ResourcesPage {
               </div>
             </div>
           </section>
-
-          <section class="measure-lg">
-            <h2>Present Stencil</h2>
-            <div class="slide-wrapper screenshot">
-              <iframe src="https://ionic-team.github.io/stencil-present/" title="Present Stencil" loading="lazy"></iframe>
-            </div>
-            <p>
-              A forkable presentation for your next meetup or conference talk on Stencil. Built with <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
-            </p>
-            <a target="_blank" rel="noopener" href="https://ionic-team.github.io/stencil-present/">
-              Stencil Presentation
-            </a>
-            <br />
-            <a target="_blank" rel="noopener" href="https://github.com/ionic-team/stencil-present/">
-              Source
-            </a>
-          </section>
         </ResponsiveContainer>
       </Host>
     );
