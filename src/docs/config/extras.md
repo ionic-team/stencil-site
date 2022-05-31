@@ -60,6 +60,24 @@ div {
 
 Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 67 and below. If you do not need to support Edge 18 and below (Edge before it moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`. Defaults to `false`.
 
+### experimentalImportInjection
+
+In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
+[Vite](https://vitejs.dev/).
+
+This is an experimental flag that, when set to `true`, will allow downstream projects that consume a Stencil library
+and use a bundler such as Vite to lazily load the Stencil library's components.
+
+In order for this flag to work:
+1. The Stencil library must expose lazy loadable components, such as those created with the
+[`dist` output target](/docs/distribution)
+2. The Stencil library must be recompiled with this flag set to `true`
+
+This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
+Users of this flag should note that they may see an increase in their bundle size.
+
+Defaults to `false`.
+
 ### lifecycleDOMEvents
 
 Dispatches component lifecycle events. By default these events are not dispatched, but by enabling this to `true` these events can be listened for on `window`. Mainly used for testing.
