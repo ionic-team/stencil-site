@@ -27,11 +27,15 @@ export const config: Config = {
 };
 ```
 
-Another option would be to add the flag `--docs-readme`, such as:
+Another option would be to use the `--docs` CLI flag, like so:
 
 ```bash
-stencil build --docs-readme
+stencil build --docs
 ```
+
+This will cause the Stencil compiler to automatically add a `docs-readme`
+output target to your configuration, without having to save it in
+`stencil.config.ts`.
 
 ## Adding Custom Markdown to Auto-Generated Files
 
