@@ -27,12 +27,14 @@ export const config: Config = {
 };
 ```
 
-Another option would be to add the flag `--docs-readme`, such as:
+Another option would be to use the `--docs` CLI flag, like so:
 
 ```bash
-stencil build --docs-readme
+stencil build --docs
 ```
 
+This will cause the Stencil compiler to perform a one-time generation of README
+files using the [`docs-readme`](https://stenciljs.com/docs/docs-readme) output target.
 ## Adding Custom Markdown to Auto-Generated Files
 
 Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
