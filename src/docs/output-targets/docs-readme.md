@@ -33,10 +33,8 @@ Another option would be to use the `--docs` CLI flag, like so:
 stencil build --docs
 ```
 
-This will cause the Stencil compiler to automatically add a `docs-readme`
-output target to your configuration, without having to save it in
-`stencil.config.ts`.
-
+This will cause the Stencil compiler to perform a one-time generation of README
+files using the [`docs-readme`](https://stenciljs.com/docs/docs-readme) output target.
 ## Adding Custom Markdown to Auto-Generated Files
 
 Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
