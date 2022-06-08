@@ -48,6 +48,7 @@ An advantage to using the compiler is that it is able to provide help on how to 
 | `es2017`          | Commonly used by framework bundling.                                                       | `dist/esm/index.mjs`              |
 | `types`           | Entry file to the project's types.                                                         | `dist/types/components.d.ts`      |
 | `unpkg`           | Entry file for requests to the projects [unpkg](https://unpkg.com/) CDN.                   | `dist/{NAMESPACE}/{NAMESPACE}.js` |
+| `files`           | Array of files that should be included in a npm relese.                                    | `["dist/", "loader/"]`            |
 
 The `collection` properties are used to allow lazy loading in other Stencil applications.
 
