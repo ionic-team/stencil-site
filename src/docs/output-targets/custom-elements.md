@@ -120,7 +120,7 @@ location would be `my-library/dist/components`, but this can get further
 configured within the `package.json` file.
 
 To make the custom elements index the entry module for a package, set the
-`module` property in `package.json` to:
+`module` property like so in your `package.json`:
 
 ```tsx
 {
@@ -134,12 +134,10 @@ To make the custom elements index the entry module for a package, set the
 
 Be sure to set `@stencil/core` as a dependency of the package as well.
 
-> Note: If you are distributing both the `dist` and `dist-custom-elements`, then it's up to you to choose which one of them should be available in the `module` entry.
-
-Note: If you are distributing the output of both the
-[`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
-it's up to you to choose which one of them should be available in the `module`
-entry.
+> Note: If you are distributing the output of both the
+  [`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
+  it's up to you to choose which one of them should be available in the
+  `module` entry.
 
 Consumers of your library can then either import components from their
 individual files, like so:
@@ -159,6 +157,35 @@ Now you can publish your library to [Node Package Manager
 (NPM)](https://www.npmjs.com/). For more information about setting up the
 `package.json` file, and publishing, see: [Publishing Component Library To
 NPM](/docs/publishing).
+
+### Usage in Typescript
+
+If you plan to support consuming your component library in Typescript you'll
+need to set `generateTypeDeclarations: true` on the your output target in
+`stencil.config.ts`, like so:
+
+```tsx
+outputTargets: [
+  {
+    type: 'dist-custom-elements',
+    generateTypeDeclarations: true,
+  },
+];
+```
+
+Then you can set the `types` property in `package.json` so that consumers of
+your package can find the type definitions, like so:
+
+```tsx
+{
+  "module": "dist/components/index.js",
+  "types": "dist/components/index.d.ts",
+  "dependencies": {
+    "@stencil/core": "latest"
+  },
+  ...
+}
+```
 
 ## Example Bundler Configs
 
