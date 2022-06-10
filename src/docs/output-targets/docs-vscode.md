@@ -1,12 +1,12 @@
 ---
-title: VSCode Documentation
-description: VSCode Documentation
+title: VS Code Documentation
+description: VS Code Documentation
 url: /docs/docs-vscode
 contributors:
   - rwaskiewicz
 ---
 
-# VSCode Documentation
+# VS Code Documentation
 
 One of the core features of web components is the ability to create [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements),
 which allow developers to reuse custom functionality defined in their components.
