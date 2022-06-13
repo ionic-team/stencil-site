@@ -23,11 +23,18 @@ updated Node before continuing.
 Stencil can be used to create standalone components, or entire apps. When running `npm init stencil`, you will be
 provided with a prompt so that you can choose the type of project to start.
 
-```bash
-? Pick a starter › - Use arrow-keys. Return to submit.
+```text
+? Select a starter project.
 
-❯  component     Collection of web components that can be used anywhere
-   app           Minimal starter for building a Stencil app or website
+Starters marked as [community] are developed by the Stencil
+Community, rather than Ionic. For more information on the 
+Stencil Community, please see github.com/stencil-community
+› - Use arrow-keys. Return to submit.
+
+❯   component          Collection of web components that can be
+                       used anywhere
+    app [community]    Minimal starter for building a Stencil 
+                       app or website
 ```
 
 Selecting the 'component' option will prompt you for the name of your project.
@@ -55,7 +62,7 @@ Upon successfully creating our project, the CLI will print something similar to 
     Starts the development server.
 
   $ npm run build
-    Builds your components/app in production mode.
+    Builds your project in production mode.
 
   $ npm test
     Starts the test runner.
