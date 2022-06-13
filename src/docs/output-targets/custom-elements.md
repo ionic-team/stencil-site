@@ -112,7 +112,7 @@ The configs below provide examples of how to do this automatically with popular 
 
 ## Distributing Custom Elements
 
-Your component library can be easily distributed on NPM, just like
+Your component library can be distributed on NPM, just like
 [`@ionic/core`](https://www.npmjs.com/package/@ionic/core). From there,
 consumers of your library can decide how to import your library into their
 project. For the `dist-custom-elements` output target, the default import
