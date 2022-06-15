@@ -96,11 +96,9 @@ lerna create vue-library
 # Follow the prompts and confirm
 cd packages/vue-library
 # Install Vue dependency
-npm install vue@3
-
+npm install vue@3 --save-dev
 # or if you are using yarn
 yarn add vue@3 --dev
-
 # Add the stencil-library dependency
 lerna add stencil-library
 # or if you are using other monorepo tools, install your Stencil library as a dependency
