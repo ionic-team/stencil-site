@@ -158,6 +158,8 @@ Update your `package.json`, adding the following options to the existing config:
 
 ```diff
 {
+-  "main": "lib/vue-library.js",
++  "main": "lib/index.js",
 +  "types": "lib/index.d.ts",
   "scripts": {
 -    "test": "echo \"Error: run tests from root\" && exit 1"
