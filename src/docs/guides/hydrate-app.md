@@ -23,7 +23,7 @@ _Note that Stencil does **NOT** use Puppeteer for SSR or prerendering._
 
 Server side rendering (SSR) can be accomplished in a similar way to
 prerendering. Instead of using the `--prerender` CLI flag, you can an output
-target of type `'dist-hydrate-script'` to your `stencil.config.js`, like so:
+target of type `'dist-hydrate-script'` to your `stencil.config.ts`, like so:
 
 ```ts
 outputTargets: [
