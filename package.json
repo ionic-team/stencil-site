@@ -32,7 +32,7 @@
     "glob": "^7.1.6",
     "jest": "^26.1.0",
     "marked": "^0.7.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "prismic-dom": "^2.2.3",
     "prismic-javascript": "^2.7.1",
     "prismjs": "1.24.0",
