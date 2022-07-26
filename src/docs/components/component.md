@@ -134,3 +134,23 @@ export class MyParentComponent {
 ```
 
 The `my-parent-component` includes a reference to the `my-embedded-component` in the `render()` function.
+
+## Using Type Parameters
+
+It is now also possible to use so-called type parameters for component classes. The following example shows how they are used:
+
+```tsx
+import { Component, h, Prop } from '@stencil/core';
+
+@Component({
+  tag: 'my-table'
+})
+export class MyTable<T> {
+
+  @Prop() public _data!: T;
+
+  ...
+}
+```
+
+> If you want to use nested type parameters, then simply substitute non-nested type parameters.
