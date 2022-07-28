@@ -31,7 +31,11 @@ const sidebars = {
       type: 'category',
       label: 'Legal',
       items: [
-        'telemetry',
+        { 
+          type: 'link',
+          label: 'Telemetry',
+          href: "/telemetry"
+        },
         {
           type: 'link',
           label: 'Privacy Policy',

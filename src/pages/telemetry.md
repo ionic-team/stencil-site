@@ -1,8 +1,6 @@
 ---
 title: Telemetry
-sidebar_label: Telemetry
 description: Stencil Telemetry usage information
-url: /telemetry
 contributors:
   - splitinfinities
 ---
