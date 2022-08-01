@@ -189,12 +189,13 @@ Will generate the following comment:
 
 ## sourceMap
 
-*default: `false`*
+*default: `true`*
 
-When set to `true`, sourcemaps will be generated for a project.
+When omitted or set to `true`, sourcemaps will be generated for a project.
+When set to `false`, sourcemaps will not be generated.
 
 ```tsx
-sourceMap: true
+sourceMap: true | false
 ```
 
 Sourcemaps create a translation between Stencil components that are written in TypeScript/JSX and the resulting 
@@ -209,8 +210,6 @@ compared to the minified result produced when `sourceMap` is not enabled.
 
 Developers are responsible for determining whether or not they choose to serve sourcemaps in each environment their
 components are served and implementing their decision accordingly.
-
-When omitted or set to `false`, sourcemaps will not be generated.
 
 ## srcDir
 
