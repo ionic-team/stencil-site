@@ -15,7 +15,7 @@ contributors:
 
 # React Integration
 
-**Support: React v17+ • TypeScript 3.7+ • Stencil v2.9.0+**
+**Supports: React v16.7+ • TypeScript 3.7+ • Stencil v2.9.0+**
 
 Stencil provides a wrapper for your custom elements to be used as first-class React components. The goal of a wrapper is to easily integrate your Stencil components into a specific framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you create in a Stencil project.
 

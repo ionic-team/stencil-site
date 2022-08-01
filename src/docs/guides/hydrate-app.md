@@ -10,23 +10,52 @@ contributors:
 
 # Hydrate App
 
-The hydrate app is a bundle of your same components, but compiled so they can be hydrated on a NodeJS server, and generate HTML. This is the same NodeJS app which prerendering uses internally, and the same one which Angular Universal SSR uses for Ionic. Like Stencil components, the hydrate app itself is not restricted to one framework.
+The hydrate app is a Stencil output target which generates a module that can be
+used on a NodeJS server to hydrate HTML and implement server side rendering (SSR).
+This functionality is used internally by the Stencil compiler for
+prerendering, as well as for the Angular Universal SSR for the Ionic
+framework. However, like Stencil components, the hydrate app itself is not
+restricted to one framework.
 
 _Note that Stencil does **NOT** use Puppeteer for SSR or prerendering._
 
 ## How to Use the Hydrate App
 
-Server side rendering (SSR) can be accomplished in a similar way to prerendering. Instead of using the `--prerender` CLI flag, you can add `{ type: 'dist-hydrate-script' }` to your `stencil.config.js`. This will generate a `hydrate` app in your root project directory that can be imported and used by your Node server.
+Server side rendering (SSR) can be accomplished in a similar way to
+prerendering. Instead of using the `--prerender` CLI flag, you can an output
+target of type `'dist-hydrate-script'` to your `stencil.config.ts`, like so:
 
-After publishing your component library, you can import the hydrate app into your server's code like this:
+```ts
+outputTargets: [
+  {
+    type: 'dist-hydrate-script',
+  },
+];
+```
+
+This will generate a `hydrate` app in your root project directory that can be
+imported and used by your Node server.
+
+After publishing your component library, you can import the hydrate app into
+your server's code like this:
 
 ```javascript
 import { hydrateDocument } from 'yourpackage/hydrate';
 ```
 
-The app comes with two functions, `hydrateDocument` and `renderToString`. An advantage to `hydrateDocument` is that it can take an existing [document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) which was already parsed. The `renderToString` function instead inputs a raw html string, and does the parsing to a document.
+The hydrate app module exports two functions, `hydrateDocument` and
+`renderToString`. `hydrateDocument` takes a
+[document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) as
+its input while `renderToString` takes a raw HTML string. Both functions return
+a Promise which wraps a result object.
 
-**hydrateDocument**: You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a [document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) and a config object. The function returns a promise with the hydrated results. The resulting html can be parsed from the `html` property in the returned results.
+### hydrateDocument
+
+You can use `hydrateDocument` as a part of your server's response logic before
+serving the web page. `hydrateDocument` takes two arguments, a
+[document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) and a
+config object. The function returns a promise with the hydrated results, with
+the hydrated HTML under the `html` property.
 
 *Example taken from Ionic Angular server*
 
@@ -44,6 +73,7 @@ export function hydrateComponents(doc) {
 ```
 
 #### hydrateDocument Options
+
   - `canonicalUrl` - string
   - `constrainTimeouts` - boolean
   - `clientHydrateAnnotations` - boolean
@@ -60,7 +90,12 @@ export function hydrateComponents(doc) {
   - `url` - string
   - `userAgent` - string
 
-**renderToString**: The hydrate app also has a `renderToString` function that allows you to pass in an html string that also returns a promise of `HydrateResults`. The second parameter is a config object that can alter the output of the markup. Like `hydrateDocument`, the resulting string can be parsed from the `html` property.
+### renderToString
+
+The hydrate app also has a `renderToString` function that takes an HTML string
+and returns a promise of `HydrateResults`. The optional second parameter is a
+config object that can alter the output of the markup. Like `hydrateDocument`,
+the hydrated HTML can be found under the `html` property.
 
 *Example taken from Ionic Core*
 
