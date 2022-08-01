@@ -67,8 +67,8 @@ will also automatically recursively define any child components as well.
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
 :::note
-At this time, components created not using JSX may not be automatically
-defined. This is a known limitation of the API and users should be aware of
+At this time, components that do not use JSX cannot be automatically
+defined. This is a known limitation of Stencil that users should be aware of.
 it
 :::
   
@@ -84,17 +84,11 @@ This flag defaults to `true` when omitted from a Stencil configuration file.
 
 ### generateTypeDeclarations
 
-By default, type declaration files (`.d.ts` files) are only generated for the `dist-custom-elements` output target when
-the [`dist` output target](/distribution) is also declared in a Stencil project's configuration. This behavior
-isn't always desirable, as not all users need the files emitted by the `dist` output target. To generate type
-declaration files for the `dist-custom-elements`, the experimental `generateTypeDeclarations` field can be set to 
-`true`.
+By default, Stencil will generate type declaration files (`.d.ts` files) as a part of the `dist-custom-elements` output target through the `generateTypeDeclarations` field on the target options. Type declaration files will be placed in the `dist/types` directory in the root of a Stencil project. At this time, this output destination is not able to be configured.
 
-Setting this flag to `true` will generate type declaration files for the `dist-custom-elements` output target. Type
-declaration files will be placed in the `dist/types` directory in the root of a Stencil project. At this time, this
-output destination is not able to be configured.
+Setting this flag to `false` will not generate type declaration files for the `dist-custom-elements` output target.
 
-This flag defaults to `false` when omitted from a Stencil configuration file.
+This flag defaults to `true` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 
