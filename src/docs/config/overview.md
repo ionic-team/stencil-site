@@ -182,10 +182,11 @@ Will generate the following comment:
 
 *default: `true`*
 
-When set to `false`, sourcemaps will not be generated for a project.
+When omitted or set to `true`, sourcemaps will be generated for a project.
+When set to `false`, sourcemaps will not be generated.
 
 ```tsx
-sourceMap: true
+sourceMap: true | false
 ```
 
 Sourcemaps create a translation between Stencil components that are written in TypeScript/JSX and the resulting 
