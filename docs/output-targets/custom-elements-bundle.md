@@ -12,7 +12,7 @@ contributors:
 
 The `dist-custom-elements-bundle` output target is used to generate custom elements as a single bundle. Even though the output ends up as a "single" bundle, it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
-```tsx
+```tsx title="stencil.config.ts"
 outputTargets: [
   {
     type: 'dist-custom-elements-bundle',
@@ -104,7 +104,7 @@ The following examples assume your component library is published to NPM as `my-
 
 Users will need to install your library before importing them.
 
-```bash
+```bash npm2yarn
 npm install my-library
 ```
 

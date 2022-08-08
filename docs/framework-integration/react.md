@@ -121,7 +121,7 @@ For details on the `includeDefineCustomElements` option, and all other options, 
 
 With the `reactOutputTarget` configured, we can now generate our React wrapped components. In your **Stencil component library** run
 
-```bash
+```bash npm2yarn
 npm run build
 ```
 
@@ -159,19 +159,19 @@ If you want to build and test your components locally, you will need to link the
 
 First, build your Stencil component library. In your **Stencil component library**, run
 
-```bash
+```bash npm2yarn
 npm run build
 ```
 
 Now you can create a symlink for your Stencil component library. From within your **Stencil component library**, run
 
-```bash
+```bash npm2yarn
 npm link
 ```
 
 With the symlink created, we next need to specify which packages will be consuming them. Your React component library will need to consume your Stencil component library. In the directory of your **React component library** run
 
-```bash
+```bash npm2yarn
 npm link {Stencil library name}
 ```
 
@@ -187,7 +187,7 @@ If you are developing and testing your React component library locally, you'll h
 
 To link your React component library, navigate to your **React component library** and run
 
-```bash
+```bash npm2yarn
 npm run build
 npm link
 ```
@@ -196,7 +196,7 @@ To build your React component library and create a symlink to the project.
 
 Navigate to your **React application directory** and run
 
-```bash
+```bash npm2yarn
 npm link {React component library}
 ```
 

@@ -210,7 +210,7 @@ The following examples assume your component library is published to NPM as `my-
 
 Users will need to install your library before importing them.
 
-```bash
+```bash npm2yarn
 npm install my-library
 ```
 

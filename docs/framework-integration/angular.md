@@ -66,24 +66,20 @@ npx -p @angular/cli ng generate library component-library
 If you already have a Stencil component library, skip this section.
 :::
 
-```bash
+```bash npm2yarn
 npm init stencil components stencil-library
 cd stencil-library
 # Install dependencies
 npm install
-# or if using yarn
-yarn install
 ```
 
 ### Adding Angular Output Target
 
 Install the `@stencil/angular-output-target` dependency to your Stencil component library package.
 
-```bash
+```bash npm2yarn
 # Install dependency
 npm install @stencil/angular-output-target --save-dev
-# or if using yarn
-yarn add @stencil/angular-output-target
 ```
 
 In your project's `stencil.config.ts`, add the `angularOutputTarget` configuration to the `outputTargets` array:
@@ -113,11 +109,9 @@ The `directivesArrayFile` is the relative path to the file that will be generate
 
 You can now build your Stencil component library to generate the component wrappers.
 
-```bash
+```bash npm2yarn
 # Build the library and wrappers
 npm run build
-# or if using yarn
-yarn run build
 ```
 
 If the build is successful, you will now have contents in the file specified in `directivesProxyFile` and `directivesArrayFile`.
@@ -150,20 +144,16 @@ Before you can successfully build a local version of your Angular component libr
 
 From your Stencil project's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the working directory
 npm link
-# or if using yarn
-yarn link
 ```
 
 From your Angular component library's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the package name
 npm link name-of-your-stencil-package
-# or if using yarn
-yarn link name-of-your-stencil-package
 ```
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.

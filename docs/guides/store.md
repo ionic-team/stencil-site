@@ -16,7 +16,7 @@ slug: /stencil-store
 
 ## Installation
 
-```bash
+```bash npm2yarn
 npm install @stencil/store --save-dev
 ```
 
