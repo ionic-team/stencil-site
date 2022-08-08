@@ -45,9 +45,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
+        hideOnScroll: true,
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Stencil Logo',
           src: 'img/logo.svg',
+          srcDark: "img/logo-white.svg",
         },
         items: [
           {
