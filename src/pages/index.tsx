@@ -32,7 +32,7 @@ export default function LandingPage(): JSX.Element {
   return (
     <Layout title="Stencil">
       <div className={styles.landingPage}>
-        <ResponsiveContainer className={styles.hero}>
+        <ResponsiveContainer className={styles.hero + " " + styles.uiContainer}>
           <FeaturePill link="https://ionic.io/resources/webinars/stencil-enterprise-design-systems-at-scale">
             <strong>Register now</strong> • 
             Stencil Enterprise Webinar: Design Systems at Scale
@@ -49,7 +49,7 @@ export default function LandingPage(): JSX.Element {
               Why Stencil?
             </Link>
           </hgroup>
-          <svg class="landing-page__bg" width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className={styles.landingPageBg} width="661" height="573" viewBox="0 0 661 573" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path opacity="0.5" d="M301.972 460.59H459.711L374.445 553H217.555L301.972 460.59Z" fill="#EFF1FF" />
             <path opacity="0.4" d="M585.269 95.2073H660.886L620.011 140.163H544.801L585.269 95.2073Z" fill="#EBEEFF" />
             <path opacity="0.5" d="M90.1233 373.915H177.864L130.436 426.012H43.1665L90.1233 373.915Z" fill="#F4F6FF" />
@@ -67,7 +67,7 @@ export default function LandingPage(): JSX.Element {
         </ResponsiveContainer>
 
         <div className={styles.companies}>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <h3>Powering design systems and cross-framework components at</h3>
             <ul>
               <li>
@@ -87,50 +87,50 @@ export default function LandingPage(): JSX.Element {
                 <svg width="86" height="26" viewBox="0 0 86 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <title>Amazon logo</title>
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M53.357 20.3333C48.3611 24.0329 41.1143 26 34.8774 26C26.1346 26 18.262 22.7584 12.3045 17.3612C11.8371 16.9381 12.2534 16.3588 12.8175 16.6875C19.245 20.4411 27.1955 22.6991 35.4039 22.6991C40.9424 22.6991 47.0315 21.5459 52.6318 19.1612C53.4752 18.8028 54.1816 19.7216 53.357 20.3333Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M55.436 17.9513C54.7967 17.1294 51.2109 17.5633 49.5993 17.7573C49.1105 17.8166 49.0353 17.3881 49.4758 17.0782C52.3363 15.0627 57.0234 15.6447 57.5686 16.3184C58.1166 17.0001 57.4236 21.7129 54.743 23.9629C54.3293 24.3078 53.9372 24.1246 54.1225 23.6665C54.7242 22.1575 56.0752 18.7731 55.436 17.9513Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M49.712 2.84011V0.881148C49.7147 0.58205 49.9376 0.385345 50.2062 0.385345H58.9571C59.2365 0.385345 59.4621 0.590133 59.4621 0.878453V2.55987C59.4594 2.8428 59.2231 3.20926 58.804 3.79399L54.2728 10.2852C55.9542 10.2448 57.735 10.4981 59.2634 11.3604C59.6072 11.5544 59.7012 11.8427 59.728 12.1256V14.2166C59.728 14.5049 59.4138 14.8364 59.0834 14.6639C56.3893 13.2493 52.817 13.093 49.8382 14.6828C49.5347 14.8445 49.2151 14.5157 49.2151 14.2274V12.2415C49.2151 11.9235 49.2205 11.3792 49.5401 10.8942L54.7912 3.33591H50.2196C49.9376 3.33321 49.7147 3.13382 49.712 2.84011Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M17.7971 15.0708H15.1353C14.8828 15.0547 14.6787 14.8633 14.6599 14.6181V0.916194C14.6599 0.641347 14.8882 0.423086 15.1729 0.423086H17.6521C17.9126 0.436558 18.1195 0.633263 18.1356 0.883859V2.67306H18.1866C18.8312 0.943139 20.0507 0.134766 21.6891 0.134766C23.3544 0.134766 24.3966 0.943139 25.1433 2.67306C25.7906 0.943139 27.2545 0.134766 28.8204 0.134766C29.9378 0.134766 31.1572 0.595539 31.9012 1.63565C32.7446 2.78893 32.5727 4.46226 32.5727 5.9335L32.57 14.5831C32.57 14.8553 32.3417 15.0762 32.057 15.0762H29.3979C29.1293 15.06 28.9198 14.8472 28.9198 14.5831V7.31582C28.9198 6.73918 28.9708 5.29758 28.8446 4.75058C28.6458 3.82634 28.0495 3.56766 27.2787 3.56766C26.6313 3.56766 25.9625 4.00149 25.6886 4.6913C25.4146 5.38381 25.4414 6.53709 25.4414 7.31582V14.5777C25.4414 14.8499 25.2131 15.0708 24.9284 15.0708H22.2693C22.0007 15.0547 21.7912 14.8418 21.7912 14.5777L21.7885 7.31043C21.7885 5.7826 22.0356 3.53263 20.1501 3.53263C18.2376 3.53263 18.3102 5.72332 18.3102 7.31043V14.575C18.3102 14.8526 18.0819 15.0708 17.7971 15.0708Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M66.9936 0.13205C70.9447 0.13205 73.0801 3.5353 73.0801 7.8628C73.0801 12.0448 70.7191 15.3618 66.9936 15.3618C63.1178 15.3618 61.0066 11.9586 61.0066 7.71998C61.0066 3.44908 63.1419 0.13205 66.9936 0.13205ZM67.0178 2.93172C65.0544 2.93172 64.9308 5.61282 64.9308 7.28616C64.9308 8.95949 64.9066 12.5352 66.9936 12.5352C69.0565 12.5352 69.1559 9.652 69.1559 7.89244C69.1559 6.73916 69.1075 5.35414 68.7583 4.25745C68.4602 3.30357 67.8639 2.93172 67.0178 2.93172Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M78.2053 15.0708H75.5543C75.2884 15.0547 75.0762 14.8418 75.0762 14.5777L75.0708 0.867709C75.0923 0.617113 75.3152 0.420409 75.5811 0.420409H78.0496C78.2832 0.433882 78.4739 0.590168 78.5223 0.803039V2.89942H78.5733C79.32 1.02399 80.3622 0.129395 82.1994 0.129395C83.392 0.129395 84.5604 0.560527 85.3044 1.74614C86.0001 2.84284 86.0001 4.68862 86.0001 6.01436V14.6397C85.9705 14.8822 85.7529 15.0708 85.4897 15.0708H82.8225C82.5754 15.0547 82.3767 14.8741 82.3498 14.6397V7.19997C82.3498 5.69909 82.5244 3.5084 80.6845 3.5084C80.0372 3.5084 79.4409 3.94222 79.1427 4.60509C78.7694 5.4431 78.721 6.27842 78.721 7.20266V14.5777C78.7184 14.8526 78.4901 15.0708 78.2053 15.0708Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M42.7396 8.52571C42.7396 9.56582 42.7637 10.4335 42.24 11.3577C41.8156 12.1095 41.1441 12.5703 40.3974 12.5703C39.3767 12.5703 38.7777 11.7888 38.7777 10.6329C38.7777 8.35865 40.811 7.94637 42.7369 7.94637V8.52571H42.7396ZM45.4228 15.0385C45.2483 15.1975 44.9931 15.2083 44.7943 15.1005C43.9106 14.3622 43.7522 14.0226 43.2687 13.3221C41.8075 14.8149 40.7734 15.2622 38.8798 15.2622C36.6397 15.2622 34.8965 13.8744 34.8965 11.099C34.8965 8.93259 36.0676 7.45596 37.7356 6.73381C39.1806 6.09789 41.1978 5.98203 42.7422 5.80957V5.46197C42.7422 4.82605 42.7906 4.07426 42.4172 3.52457C42.0922 3.03416 41.4718 2.82937 40.9238 2.82937C39.9085 2.82937 39.006 3.35212 38.7831 4.43264C38.7374 4.67246 38.5629 4.91228 38.3211 4.92306L35.7399 4.64282C35.5223 4.59432 35.2806 4.41917 35.3424 4.08504C35.936 0.948553 38.7616 6.10352e-05 41.2945 6.10352e-05C42.5891 6.10352e-05 44.284 0.347662 45.3047 1.32849C46.5993 2.54105 46.4758 4.16049 46.4758 5.92544V10.0859C46.4758 11.3389 46.9942 11.8858 47.4803 12.5595C47.6495 12.802 47.6898 13.0903 47.4723 13.2682C46.9297 13.7262 45.9627 14.567 45.4309 15.0412L45.4228 15.0385Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M7.84307 8.52565C7.84307 9.56576 7.86724 10.4334 7.34616 11.3577C6.92446 12.1094 6.25028 12.5702 5.50358 12.5702C4.4829 12.5702 3.88393 11.7888 3.88393 10.6328C3.88393 8.35858 5.91722 7.94631 7.84307 7.94631V8.52565ZM10.5264 15.0384C10.3518 15.1974 10.0966 15.2082 9.89784 15.1004C9.01416 14.3621 8.85568 14.0226 8.37221 13.322C6.91103 14.8148 5.87693 15.2621 3.98331 15.2621C1.7432 15.2621 0 13.8744 0 11.099C0 8.93253 1.17109 7.4559 2.83908 6.73375C4.28414 6.09783 6.30131 5.98197 7.84307 5.80951V5.46191C7.84307 4.82599 7.8941 4.0742 7.52075 3.52451C7.19575 3.0341 6.57528 2.82931 6.02734 2.82931C5.01204 2.82931 4.10955 3.35206 3.88662 4.43258C3.84095 4.6724 3.66637 4.91222 3.42463 4.923L0.846084 4.64276C0.62852 4.59426 0.386781 4.41911 0.448559 4.08498C1.03948 0.948492 3.86513 0 6.40069 0C7.69534 0 9.38751 0.347601 10.4109 1.32843C11.7055 2.54099 11.582 4.16043 11.582 5.92538V10.0858C11.582 11.3388 12.1003 11.8858 12.5865 12.5594C12.7557 12.8019 12.796 13.0903 12.5785 13.2681C12.0359 13.7262 11.0689 14.5669 10.5371 15.0411L10.5264 15.0384Z"
                     fill="black"
                   />
@@ -215,14 +215,14 @@ export default function LandingPage(): JSX.Element {
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M77.6822 9.10897C76.5861 8.6084 75.3404 8.5412 74.1596 8.69206C72.9193 8.84908 71.7118 9.43468 70.9246 10.4269C70.2057 11.3129 69.8559 12.4511 69.7889 13.5805C69.6898 14.9115 69.9112 16.3241 70.6902 17.4349C71.3537 18.3935 72.4013 19.0525 73.5329 19.2953C74.4787 19.4948 75.4682 19.4955 76.4139 19.298C77.5202 19.0697 78.5535 18.4553 79.2388 17.5487C79.9085 16.695 80.2447 15.6185 80.3206 14.5439C80.3978 13.4434 80.2871 12.3037 79.8313 11.2889C79.4042 10.3357 78.6334 9.5396 77.6822 9.10897ZM76.9517 11.3526C76.4201 10.813 75.6328 10.6031 74.8935 10.6518C74.3051 10.6847 73.7106 10.8843 73.2746 11.293C72.6733 11.8395 72.3986 12.6541 72.3241 13.4461C72.2421 14.317 72.3015 15.2351 72.6979 16.0292C73.0061 16.6457 73.5726 17.1298 74.2402 17.306C74.8962 17.4767 75.6103 17.4623 76.2458 17.2175C76.7891 17.005 77.2196 16.5565 77.4546 16.0258C77.81 15.2386 77.8448 14.3533 77.8011 13.5037C77.7403 12.7275 77.5202 11.9135 76.9517 11.3526Z"
                     fill="black"
                   />
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M97.4247 9.18649C96.304 8.61872 95.0002 8.53575 93.7722 8.68866C92.7821 8.81621 91.809 9.19335 91.0532 9.85918C90.1307 10.6567 89.5895 11.8292 89.4303 13.0286C89.2786 14.2279 89.3298 15.491 89.8171 16.6135C90.2845 17.7147 91.207 18.6089 92.3167 19.0471C93.4121 19.4798 94.6298 19.5284 95.7826 19.3412C96.9614 19.1458 98.078 18.5239 98.8078 17.5666C99.5875 16.5778 99.923 15.2983 99.921 14.0516C99.9381 13.2171 99.8342 12.3709 99.5383 11.5872C99.1597 10.5627 98.4019 9.67678 97.4247 9.18649ZM96.4079 11.2375C95.8735 10.7664 95.1314 10.6052 94.4364 10.6539C93.7558 10.6923 93.0807 10.9865 92.6406 11.5186C92.1582 12.0884 91.9511 12.8407 91.8951 13.5737C91.837 14.3307 91.8951 15.1145 92.1869 15.8222C92.4295 16.416 92.89 16.9323 93.4845 17.1847C94.0353 17.4226 94.6558 17.4651 95.2448 17.3767C95.7936 17.2958 96.3252 17.0324 96.6826 16.6004C97.0373 16.1705 97.2245 15.6288 97.3188 15.0857C97.4377 14.3568 97.4391 13.6059 97.2983 12.8804C97.1732 12.2619 96.9006 11.6475 96.4079 11.2375Z"
                     fill="black"
                   />
@@ -243,7 +243,7 @@ export default function LandingPage(): JSX.Element {
         </div>
 
         <section className={styles.overview}>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -253,28 +253,28 @@ export default function LandingPage(): JSX.Element {
 
               <ul className={clsx(styles.listUnstyled, styles.listIcon)}>
                 <li>
-                  <app-icon name="checkmark" /> Web Component-based
+                  <ion-icon name="checkmark" /> Web Component-based
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> Asynchronous rendering pipeline
+                  <ion-icon name="checkmark" /> Asynchronous rendering pipeline
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> TypeScript support
+                  <ion-icon name="checkmark" /> TypeScript support
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> One-way Data Binding
+                  <ion-icon name="checkmark" /> One-way Data Binding
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> Component prerendering
+                  <ion-icon name="checkmark" /> Component prerendering
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> Simple component lazy-loading
+                  <ion-icon name="checkmark" /> Simple component lazy-loading
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> JSX support
+                  <ion-icon name="checkmark" /> JSX support
                 </li>
                 <li>
-                  <app-icon name="checkmark" /> Dependency-free components
+                  <ion-icon name="checkmark" /> Dependency-free components
                 </li>
               </ul>
             </div>
@@ -297,7 +297,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section className={styles.gradientBg}>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <h2>
               <strong>Stencil doesn’t fight the web platform.</strong> It embraces it.
             </h2>
@@ -319,8 +319,8 @@ export default function LandingPage(): JSX.Element {
               <li className={styles.featureListItem}>
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M32 9.44131C32 11.9453 30.9989 14.3467 29.2168 16.1173L18.5481 26.7486H7.32378L12.8017 21.306H20.4702C21.2663 21.306 21.9116 20.6645 21.9116 19.8732C21.9116 19.0819 21.2663 18.4404 20.4702 18.4404H15.686L23.9875 10.1925C24.5505 9.63308 24.5507 8.72586 23.988 8.16617C23.4252 7.60647 22.5125 7.60625 21.9495 8.16566L5.09347 24.9129V13.3809L15.778 2.76529C17.5601 0.994706 19.9771 0 22.4974 0C25.0177 0 27.4347 0.994706 29.2168 2.76529C30.9989 4.53588 32 6.93732 32 9.44131ZM5.09347 24.9129V26.7486H7.32378L2.46041 31.5806C1.89736 32.14 0.9847 32.1398 0.421929 31.5801C-0.140841 31.0204 -0.140614 30.1132 0.422437 29.5537L5.09347 24.9129Z"
                     fill="#141334"
                   />
@@ -331,8 +331,8 @@ export default function LandingPage(): JSX.Element {
               <li className={styles.featureListItem}>
                 <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M15 30C23.2843 30 30 23.2843 30 15C30 12.1808 29.2223 9.54324 27.8696 7.2902L31.5477 3.66785C32.1512 3.07346 32.1507 2.11024 31.5466 1.51645C30.9424 0.922648 29.9634 0.923129 29.3599 1.51752L26.0119 4.81476C23.2719 1.85374 19.3524 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30ZM26.0119 4.81476L13.9602 16.6839L10.1062 12.8921C9.5024 12.298 8.52339 12.298 7.91955 12.8921C7.31572 13.4862 7.31572 14.4494 7.91955 15.0435L12.8675 19.9116C13.1575 20.1969 13.551 20.3572 13.9612 20.3571C14.3714 20.357 14.7648 20.1965 15.0547 19.911L27.8696 7.2902C27.3358 6.40101 26.7124 5.5717 26.0119 4.81476Z"
                     fill="#141334"
                   />
@@ -345,7 +345,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -355,15 +355,15 @@ export default function LandingPage(): JSX.Element {
               <div>
                 <ul className={clsx(styles.listIcon, styles.listUnstyled)}>
                   <li>
-                    <app-icon name="checkmark" />
+                    <ion-icon name="checkmark" />
                     Ensure consistent UX and brand experiences, at scale
                   </li>
                   <li>
-                    <app-icon name="checkmark" />
+                    <ion-icon name="checkmark" />
                     Web components run on any platform or device
                   </li>
                   <li>
-                    <app-icon name="checkmark" />
+                    <ion-icon name="checkmark" />
                     Build a custom UI library that works across teams and projects
                   </li>
                 </ul>
@@ -377,7 +377,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -387,13 +387,13 @@ export default function LandingPage(): JSX.Element {
               <div>
                 <ul className={clsx(styles.listIcon, styles.listUnstyled)}>
                   <li>
-                    <app-icon name="checkmark" /> Built-in dev-server for hot module reloading
+                    <ion-icon name="checkmark" /> Built-in dev-server for hot module reloading
                   </li>
                   <li>
-                    <app-icon name="checkmark" /> Screenshot visual UI diffs
+                    <ion-icon name="checkmark" /> Screenshot visual UI diffs
                   </li>
                   <li>
-                    <app-icon name="checkmark" /> Auto-generate component documentation <br />
+                    <ion-icon name="checkmark" /> Auto-generate component documentation <br />
                     <span className={styles.small}>(including css variables)</span>
                   </li>
                 </ul>
@@ -403,7 +403,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -445,22 +445,22 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section className={styles.stencilStory}>
-          <ResponsiveContainer>
+          <ResponsiveContainer className={styles.uiContainer}>
             <h2>
               <strong>The Stencil story</strong>
             </h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div className={styles.videos}>
               <a href="https://youtu.be/RZ6MLELGsD8" className={clsx(styles.videoThumbnail, styles.videoThumbnailArchitecting)}>
-                <app-icon name="play" />
+                <ion-icon name="play" />
                 <span>Architecting A Component Compiler</span>
               </a>
               <a href="https://youtu.be/M1F81V-NhP0" className={clsx(styles.videoThumbnail, styles.videoThumbnailAnnouncement)}>
-                <app-icon name="play" />
+                <ion-icon name="play" />
                 <span>See the v1 announcement</span>
               </a>
               <a href="https://youtu.be/UfD-k7aHkQE" className={clsx(styles.videoThumbnail, styles.videoThumbnailLaunch)}>
-                <app-icon name="play" />
+                <ion-icon name="play" />
                 <span>Watch launch video</span>
               </a>
             </div>
@@ -468,6 +468,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <newsletter-signup />
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>
     </Layout>
   );

@@ -1,6 +1,37 @@
 .landingPage {
-  display: block;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px);
+  padding-top: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .main-wrapper {
+    padding-top: 92px;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 768px){
+    .landingPage .uiContainer {
+        width: 768px;
+    }
+}
+@media (min-width: 1024px) {
+    .landingPage .uiContainer {
+        width: 1024px;
+    }
+}
+@media (min-width: 1216px) {
+    .landingPage .uiContainer {
+        width: 1152px;
+    }
+}
+
+
+
+.landingPage .uiContainer {
+    margin: auto;
 }
 
 .landingPage .hero {
@@ -401,7 +432,7 @@
     margin-right: auto;
   }
 
-  .landingPage .hero svg {
+  .landingPage .hero svg.landing-page__bg {
     transform: translate(-50%, -50%);
     margin-top: 66px;
   }
@@ -599,3 +630,5 @@ h2 + .featureList {
 .cardLinksItem .fwIcon {
   margin: 8px 0 6px;
 }
+
+

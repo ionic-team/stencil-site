@@ -41,7 +41,7 @@
   }
 
   .featurePill svg,
-  landing-page .hero .featurePill svg {
+  .hero .featurePill svg {
     transform: none;
     margin-top: 0;
   }
