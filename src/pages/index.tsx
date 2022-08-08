@@ -8,6 +8,7 @@ import Layout from '@theme/Layout';
 import FeaturePill from '@site/src/components/FeaturePill';
 
 import styles from './styles.module.css';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 function ResponsiveContainer({children, ...props}): JSX.Element {
   return (
@@ -287,11 +288,11 @@ export default function LandingPage(): JSX.Element {
                 {COPY_STATES[copiedState]}
               </code>
               <span>
-                Requires <stencil-route-link url="/docs/getting-started">NPM v6</stencil-route-link>
+                Requires <Link to="/docs/getting-started">NPM v6</Link>
               </span>
             </div>
             <p className={styles.ctaSecondary}>
-              Dive deeper with our <stencil-route-link url="/docs/getting-started">Getting Started</stencil-route-link> guide
+              Dive deeper with our <Link to="/docs/getting-started">Getting Started</Link> guide
             </p>
           </div>
         </section>
@@ -466,8 +467,7 @@ export default function LandingPage(): JSX.Element {
             </div>
           </ResponsiveContainer>
         </section>
-
-        <newsletter-signup />
+        <NewsletterSignup />
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>
     </Layout>

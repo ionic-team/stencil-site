@@ -1,57 +1,57 @@
-newsletter-signup {
+.newsletterSignup {
   display: block;
   padding: 64px 0;
 }
 
-newsletter-signup .ui-container,
-newsletter-signup .header {
+.newsletterSignup .uiContainer,
+.newsletterSignup .header {
   display: flex;
 }
 
-newsletter-signup .ui-container{
+.newsletterSignup .uiContainer{
   justify-content: space-between;
 }
 
-newsletter-signup .header svg {
+.newsletterSignup .header svg {
   flex: 0 0 auto;
 }
-newsletter-signup .header hgroup {
+.newsletterSignup .header hgroup {
   margin-left: 20px;
   margin-top: 8px;
 }
 
-newsletter-signup .header hgroup h3 {
+.newsletterSignup .header hgroup h3 {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
 }
-newsletter-signup .header hgroup p {
+.newsletterSignup .header hgroup p {
   margin: 4px 0 0;
   font-size: 16px;
 }
 
-newsletter-signup .form {
+.newsletterSignup .form {
   flex: 0 0 440px;
   margin-left: 40px;
   display: flex;
 }
 
-newsletter-signup form {
+.newsletterSignup form {
   width: 100%;
   margin-top: 10px;
 }
 
-newsletter-signup .form-group {
+.newsletterSignup .formGroup {
   display: flex;
 }
 
-newsletter-signup form input,
-newsletter-signup form button,
-newsletter-signup .form-message {
+.newsletterSignup form input,
+.newsletterSignup form button,
+.newsletterSignup .formMessage {
   min-height: 45px;
 }
 
-newsletter-signup form input {
+.newsletterSignup form input {
   transition: border 0.3s;
   margin-right: 8px;
   padding: 10px 16px;
@@ -63,35 +63,35 @@ newsletter-signup form input {
   -webkit-appearance: none;
 }
 
-newsletter-signup form input:invalid {
+.newsletterSignup form input:invalid {
   box-shadow: none;
 }
 
-newsletter-signup form input:focus {
+.newsletterSignup form input:focus {
   outline: none;
   border: 1px solid #786DF9;
 }
 
-newsletter-signup form input.error {
+.newsletterSignup form input.error {
   border: 1px solid #F88D8D;
 }
 
-newsletter-signup form input::placeholder {
+.newsletterSignup form input::placeholder {
   color: #6D6C82;
   opacity: 0.6;
 }
 
-newsletter-signup form button {
+.newsletterSignup form button {
   flex: 0 0 auto;
   text-align: center;
 }
 
-newsletter-signup .error-message {
+.newsletterSignup .error-message {
   font-size: 14px;
   color: #E13535;
 }
 
-newsletter-signup .form-message {
+.newsletterSignup .formMessage {
   padding: 8px 26px 8px 20px;
   display: flex;
   align-items: center;
@@ -101,55 +101,55 @@ newsletter-signup .form-message {
   font-weight: 500;
 }
 
-newsletter-signup .form-message p {
+.newsletterSignup .formMessage p {
   color: #5755F6;
 }
 
-newsletter-signup .form-message app-icon {
+.newsletterSignup .formMessage app-icon {
   height: 18px;
   margin-right: 12px;
 }
 
 @media screen and (max-width: 960px) {
-  newsletter-signup .form {
+  .newsletterSignup .form {
     flex: 0 0 360px;
   }
 }
 
 @media screen and (max-width: 860px) {
-  newsletter-signup .ui-container,
-  newsletter-signup .header {
+  .newsletterSignup .uiContainer,
+  .newsletterSignup .header {
     flex-direction: column;
     align-items: center;
   }
-  newsletter-signup .header hgroup {
+  .newsletterSignup .header hgroup {
     text-align: center;
     margin-bottom: 20px;
     margin-left: 0;
   }
-  newsletter-signup .form {
+  .newsletterSignup .form {
     flex: 0 0 auto;
     width: 100%;
     margin-left: 0;
   }
-  newsletter-signup .form-message {
+  .newsletterSignup .formMessage {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
 @media screen and (max-width: 460px) {
-  newsletter-signup .form-group {
+  .newsletterSignup .formGroup {
     flex-direction: column;
   }
 
-  newsletter-signup form input {
+  .newsletterSignup form input {
     margin-right: 0px;
     margin-bottom: 8px;
   }
 
-  newsletter-signup .form-group  input,
-  newsletter-signup .form-group  button {
+  .newsletterSignup .formGroup  input,
+  .newsletterSignup .formGroup  button {
     width: 100%;
     display: block;
   }

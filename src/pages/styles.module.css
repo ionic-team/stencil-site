@@ -32,6 +32,10 @@
 
 .landingPage .uiContainer {
     margin: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .landingPage .hero {
@@ -99,9 +103,6 @@
 .btnWhyStencil {
   background: var(--color-purplewinkle);
   color: rgb(76, 72, 255);
-}
-
-.landingPage .hero stencil-route-link + stencil-route-link {
   margin-left: 10px;
 }
 
@@ -227,6 +228,11 @@
 .landingPage section ul + p {
   margin-top: 16px;
 }
+
+.listUnstyled {
+    list-style-type: none;
+}
+
 
 .landingPage section p + stencil-route-link {
   display: inline-block;
