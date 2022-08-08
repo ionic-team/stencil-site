@@ -31,11 +31,6 @@ const config = {
           editUrl:
             'https://github.com/ionic-team/stencil-site/edit/master/',
         },
-        blog: {
-          showReadingTime: true,
-          editUrl:
-            'https://github.com/ionic-team/stencil-site/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

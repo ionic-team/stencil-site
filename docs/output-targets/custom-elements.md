@@ -13,7 +13,7 @@ contributors:
 
 The `dist-custom-elements` output target is used to generate custom elements in a more optimized way for tree shaking, and its the recommended approach when using any frontend framework integrations. For example, if a component library has 100 components, but an external project only imported one component from the directory, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
-```tsx
+```tsx title="stencil.config.ts"
 outputTargets: [
   {
     type: 'dist-custom-elements',
@@ -135,7 +135,7 @@ configured within the `package.json` file.
 To make the custom elements index the entry module for a package, set the
 `module` property like so in your `package.json`:
 
-```tsx
+```tsx title="package.json"
 {
   "module": "dist/components/index.js",
   "dependencies": {
@@ -179,7 +179,7 @@ If you plan to support consuming your component library in Typescript you'll
 need to set `generateTypeDeclarations: true` on the your output target in
 `stencil.config.ts`, like so:
 
-```tsx
+```tsx title="stencil.config.ts"
 outputTargets: [
   {
     type: 'dist-custom-elements',
@@ -191,7 +191,7 @@ outputTargets: [
 Then you can set the `types` property in `package.json` so that consumers of
 your package can find the type definitions, like so:
 
-```tsx
+```tsx title="package.json"
 {
   "module": "dist/components/index.js",
   "types": "dist/components/index.d.ts",
