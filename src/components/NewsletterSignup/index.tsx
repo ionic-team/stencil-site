@@ -1,4 +1,5 @@
 import React, {useCallback, useState} from 'react';
+import UiContainer from '../UiContainer';
 
 import styles from './styles.module.css'
 
@@ -67,7 +68,7 @@ export default function NewsletterSignup () {
 
   return (
     <div className={styles.newsletterSignup}>
-      <div className={styles.uiContainer}>
+      <UiContainer>
       <div className={styles.header}>
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
@@ -165,7 +166,7 @@ export default function NewsletterSignup () {
           </form>
         )}
       </div>
-    </div>
+    </UiContainer>
     </div>
   );
 }

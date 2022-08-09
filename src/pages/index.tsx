@@ -9,14 +9,8 @@ import FeaturePill from '@site/src/components/FeaturePill';
 
 import styles from './styles.module.css';
 import NewsletterSignup from '../components/NewsletterSignup';
-
-function ResponsiveContainer({children, ...props}): JSX.Element {
-  return (
-    <div {...props}>
-      {children}
-    </div>
-  );
-}
+import UiContainer from '../components/UiContainer';
+import AppIcon from '../components/app-icon';
 
 export default function LandingPage(): JSX.Element {
   let timer: any;
@@ -33,7 +27,7 @@ export default function LandingPage(): JSX.Element {
   return (
     <Layout title="Stencil">
       <div className={styles.landingPage}>
-        <ResponsiveContainer className={styles.hero + " " + styles.uiContainer}>
+        <UiContainer className={styles.hero}>
           <FeaturePill link="https://ionic.io/resources/webinars/stencil-enterprise-design-systems-at-scale">
             <strong>Register now</strong> • 
             Stencil Enterprise Webinar: Design Systems at Scale
@@ -65,10 +59,10 @@ export default function LandingPage(): JSX.Element {
             <path opacity="0.7" d="M293.465 53.9561H512.026L393.989 182.081H175.254L293.465 53.9561Z" fill="#E6EAFF" />
             <path opacity="0.43" d="M273.266 9H374.089L319.589 67.6927H219.309L273.266 9Z" fill="#F4F6FF" />
           </svg>
-        </ResponsiveContainer>
+        </UiContainer>
 
         <div className={styles.companies}>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <h3>Powering design systems and cross-framework components at</h3>
             <ul>
               <li>
@@ -240,11 +234,11 @@ export default function LandingPage(): JSX.Element {
                 </svg>
               </li>
             </ul>
-          </ResponsiveContainer>
+          </UiContainer>
         </div>
 
         <section className={styles.overview}>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -254,32 +248,32 @@ export default function LandingPage(): JSX.Element {
 
               <ul className={clsx(styles.listUnstyled, styles.listIcon)}>
                 <li>
-                  <ion-icon name="checkmark" /> Web Component-based
+                  <AppIcon name="checkmark" /> Web Component-based
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> Asynchronous rendering pipeline
+                  <AppIcon name="checkmark" /> Asynchronous rendering pipeline
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> TypeScript support
+                  <AppIcon name="checkmark" /> TypeScript support
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> One-way Data Binding
+                  <AppIcon name="checkmark" /> One-way Data Binding
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> Component prerendering
+                  <AppIcon name="checkmark" /> Component prerendering
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> Simple component lazy-loading
+                  <AppIcon name="checkmark" /> Simple component lazy-loading
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> JSX support
+                  <AppIcon name="checkmark" /> JSX support
                 </li>
                 <li>
-                  <ion-icon name="checkmark" /> Dependency-free components
+                  <AppIcon name="checkmark" /> Dependency-free components
                 </li>
               </ul>
             </div>
-          </ResponsiveContainer>
+          </UiContainer>
 
           <div className={styles.cta}>
             <div className={styles.ctaPrimary}>
@@ -298,7 +292,7 @@ export default function LandingPage(): JSX.Element {
         </section>
 
         <section className={styles.gradientBg}>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <h2>
               <strong>Stencil doesn’t fight the web platform.</strong> It embraces it.
             </h2>
@@ -342,11 +336,11 @@ export default function LandingPage(): JSX.Element {
                 <p>Build cross-framework components and design systems on open web standards, and break free of Framework Churn.</p>
               </li>
             </ul>
-          </ResponsiveContainer>
+          </UiContainer>
         </section>
 
         <section>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -356,15 +350,15 @@ export default function LandingPage(): JSX.Element {
               <div>
                 <ul className={clsx(styles.listIcon, styles.listUnstyled)}>
                   <li>
-                    <ion-icon name="checkmark" />
+                    <AppIcon name="checkmark" />
                     Ensure consistent UX and brand experiences, at scale
                   </li>
                   <li>
-                    <ion-icon name="checkmark" />
+                    <AppIcon name="checkmark" />
                     Web components run on any platform or device
                   </li>
                   <li>
-                    <ion-icon name="checkmark" />
+                    <AppIcon name="checkmark" />
                     Build a custom UI library that works across teams and projects
                   </li>
                 </ul>
@@ -374,11 +368,11 @@ export default function LandingPage(): JSX.Element {
                 </stencil-route-link>
               </div>
             </div>
-          </ResponsiveContainer>
+          </UiContainer>
         </section>
 
         <section>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -388,23 +382,23 @@ export default function LandingPage(): JSX.Element {
               <div>
                 <ul className={clsx(styles.listIcon, styles.listUnstyled)}>
                   <li>
-                    <ion-icon name="checkmark" /> Built-in dev-server for hot module reloading
+                    <AppIcon name="checkmark" /> Built-in dev-server for hot module reloading
                   </li>
                   <li>
-                    <ion-icon name="checkmark" /> Screenshot visual UI diffs
+                    <AppIcon name="checkmark" /> Screenshot visual UI diffs
                   </li>
                   <li>
-                    <ion-icon name="checkmark" /> Auto-generate component documentation <br />
+                    <AppIcon name="checkmark" /> Auto-generate component documentation <br />
                     <span className={styles.small}>(including css variables)</span>
                   </li>
                 </ul>
               </div>
             </div>
-          </ResponsiveContainer>
+          </UiContainer>
         </section>
 
         <section>
-          <ResponsiveContainer className={styles.uiContainer}>
+          <UiContainer>
             <div className={styles.twoCol}>
               <hgroup>
                 <h2>
@@ -442,33 +436,32 @@ export default function LandingPage(): JSX.Element {
                 </ul>
               </div>
             </div>
-          </ResponsiveContainer>
+          </UiContainer>
         </section>
 
-        <section className={styles.stencilStory}>
-          <ResponsiveContainer className={styles.uiContainer}>
+        <section >
+          <UiContainer className={styles.stencilStory}>
             <h2>
               <strong>The Stencil story</strong>
             </h2>
             <p>Stencil was created to power the components for Ionic Framework - a cross-platform mobile development technology stack used by more than 5M developers worldwide.</p>
             <div className={styles.videos}>
               <a href="https://youtu.be/RZ6MLELGsD8" className={clsx(styles.videoThumbnail, styles.videoThumbnailArchitecting)}>
-                <ion-icon name="play" />
+                <AppIcon name="play" />
                 <span>Architecting A Component Compiler</span>
               </a>
               <a href="https://youtu.be/M1F81V-NhP0" className={clsx(styles.videoThumbnail, styles.videoThumbnailAnnouncement)}>
-                <ion-icon name="play" />
+                <AppIcon name="play" />
                 <span>See the v1 announcement</span>
               </a>
               <a href="https://youtu.be/UfD-k7aHkQE" className={clsx(styles.videoThumbnail, styles.videoThumbnailLaunch)}>
-                <ion-icon name="play" />
+                <AppIcon name="play" />
                 <span>Watch launch video</span>
               </a>
             </div>
-          </ResponsiveContainer>
+          </UiContainer>
         </section>
         <NewsletterSignup />
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
       </div>
     </Layout>
   );

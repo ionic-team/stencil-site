@@ -21,6 +21,13 @@ const config = {
     locales: ['en'],
   },
 
+  scripts: [
+    {
+      src: "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js",
+      async: true,
+    }
+  ],
+
   presets: [
     [
       'classic',

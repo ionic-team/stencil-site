@@ -1,0 +1,29 @@
+.uiContainer {
+    margin: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .uiContainer {
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 768px){
+    .uiContainer {
+        width: 768px;
+    }
+}
+@media (min-width: 1024px) {
+    .uiContainer {
+        width: 1024px;
+    }
+}
+@media (min-width: 1216px) {
+    .uiContainer {
+        width: 1152px;
+    }
+}
