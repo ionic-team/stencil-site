@@ -149,7 +149,7 @@ Be sure to set `@stencil/core` as a dependency of the package as well.
 
 :::note
 If you are distributing the output of both the
-  [`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
+  [`dist`](/docs/distribution) and `dist-custom-elements` targets, then
   it's up to you to choose which one of them should be available in the
   `module` entry.
 :::

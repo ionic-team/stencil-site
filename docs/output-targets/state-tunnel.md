@@ -28,7 +28,7 @@ If you are building an application then you would be better served using [stenci
 
 ## 1. Create a tunnel.
 
-Define the structure of data to be passed through the tunnel. The first argument of [createProviderConsumer](createProviderConsumer) is a default value.
+Define the structure of data to be passed through the tunnel. The first argument of createProviderConsumer is a default value.
 The first argument is the default value and the second argument is how the consumer works.  Mostly you will just need
 to copy and paste this. 'context-consumer' is a component that is included in this package.
 
@@ -55,7 +55,7 @@ export default createProviderConsumer<State>({
 
 ## 2. Pass state to the tunnel Provider Component.
 Usually this will be at the top of your component tree. Think of this as a way to take state from the parent
-component and then make it available to components further down the tree. That is essentially what the [Provider Component](Provider-Component) does.
+component and then make it available to components further down the tree. That is essentially what the Provider Component does.
 
 ```tsx
 // Filename: './components/my-app.tsx'
@@ -102,7 +102,7 @@ export class MyApp {
 <br/>
 
 ## 3. Place your state consumption points.
-You can then create an exit point anywhere within your component tree that lives below the `Tunnel.Provider`. In this case we are accessing the state using a [Consumer Component](Consumer-Component). There are other approaches to consuming the information but in most cases within an application you will use a Consumer Component.
+You can then create an exit point anywhere within your component tree that lives below the `Tunnel.Provider`. In this case we are accessing the state using a Consumer Component. There are other approaches to consuming the information but in most cases within an application you will use a Consumer Component.
 
 ```tsx
 // Filename: './components/way-down-child.tsx'

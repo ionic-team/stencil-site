@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Layout from '@theme/Layout';
 
-import { RESOURCES } from './resources-data';
+import { RESOURCES } from '../../util/resources-data';
 import styles from './styles.module.css';
 
 function ResponsiveContainer({children}): JSX.Element {

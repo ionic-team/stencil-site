@@ -1,7 +1,7 @@
 ---
 title: VS Code Documentation
 description: VS Code Documentation
-url: /docs/docs-vscode
+slug: /docs-vscode
 contributors:
   - rwaskiewicz
 ---
