@@ -6,7 +6,7 @@
       "statusCode": 301
     },
     {
-      "source": "/blog/:path*",
+      "source": "/blog/:path*(/)?",
       "destination": "https://ionicframework.com/blog/tag/stencil/",
       "statusCode": 301
     },
