@@ -56,9 +56,10 @@ yarn global add lerna
 > If you already have a monorepo, skip this section.
 
 ```bash
-# From your top-most-directory/
+# From your top-most-directory/, initialize a workspace
 lerna init
-# or if you are using other monorepo tools, initialize a workspace
+
+# install typescript and node types
 npm install typescript @types/node --save-dev
 # or if you are using yarn
 yarn add typescript @types/node --dev
