@@ -44,6 +44,7 @@ Tests a Stencil project. The flags below are the available options for the `test
 |------|-------------|
 | `--spec` | Tests `.spec.ts` files using [Jest](https://jestjs.io/). |
 | `--e2e` | Tests `.e2e.ts` files using [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Jest](https://jestjs.io/). |
+| `--no-build` | Skips build process before running the tests. (You are expected to have built it beforehand). |
 
 
 ## `stencil`
