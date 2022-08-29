@@ -27,7 +27,7 @@ This directory can be configured using the output target's `dir` config. The
 generated files will each export a component class and will already have the
 styles bundled. However, this build does not define the custom elements or
 apply any polyfills. Any dependencies of your imported component will need to
-be loaded as well. 
+be loaded as well.
 
 Below is an example of defining a custom element:
 
@@ -37,23 +37,45 @@ import { HelloWorld } from 'my-library/dist/components/hello-world';
 customElements.define('hello-world', HelloWorld);
 ```
 
-The output directory will also contain an `index.js` file which exports all of
-your components and their respective `defineCustomElement` helper functions,
-looking something like this:
+The output directory will also contain an `index.js` file which exports some helper methods by default. The contents of the file
+will look something like (the contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified):
+
+```js
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+```
+
+## Config
+
+### customElementsExportBehavior
+
+This config option provides additional behaviors that will alter the default component export OR custom element definition behaviors
+for this target. The desired behavior can be set via the following in a project's Stencil config:
+
+```ts
+import { CustomElementsExportBehavior } from '@stencil/core';
+
+{
+  type: 'dist-custom-elements`,
+  customElementsExportBehavior: CustomElementsExportBehavior.<desired-option>
+}
+```
+
+#### `CustomElementsExportBehavior.BARREL`
+
+With this option, all component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose).
+
+When set, the contents of said `index.js` file will look similar to:
 
 ```tsx
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 export { MyComponent, defineCustomElement as defineCustomElementMyComponent } from './my-component.js';
-export {
-  MyOtherComponent,
-  defineCustomElement as defineCustomElementMyOtherComponent
-} from './my-other-component.js';
+export { MyOtherComponent, defineCustomElement as defineCustomElementMyOtherComponent } from './my-other-component.js';
 ```
 
 This file can be used as the root module when distributing your component
 library, see [below](#distributing-custom-elements) for more details.
 
-## Config
+<!-- TODO(STENCIL-457): Move this info to the appropriate option on `customElementsExportBehavior` -->
 
 ### autoDefineCustomElements
 
@@ -66,8 +88,8 @@ will also automatically recursively define any child components as well.
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
 > Note: At this time, components created not using JSX may not be automatically
-  defined. This is a known limitation of the API and users should be aware of
-  it
+> defined. This is a known limitation of the API and users should be aware of
+> it
 
 ### generateTypeDeclarations
 
@@ -79,12 +101,12 @@ This flag defaults to `true` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output,
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
-than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
+than either welding their content into the JS file, or adding many URLs for the bundler to add to the output.
 One method to ensure [assets](/docs/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
-The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
+The `setAssetPath()` function is used to manually set the base path where static assets can be found.
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
 build directory. However, for custom elements builds, the `setAssetPath(path)` should be
 used to customize the asset path depending on where they are found on the http server.
@@ -93,7 +115,6 @@ If the component's script is a `type="module"`, it's recommended to use `import.
 as `setAssetPath(import.meta.url)`. Other options include `setAssetPath(document.currentScript.src)`, or using a bundler's replace plugin to
 dynamically set the path at build time, such as `setAssetPath(process.env.ASSET_PATH)`.
 
-
 ```tsx
 import { setAssetPath } from 'my-library/dist/components';
 
@@ -101,7 +122,7 @@ setAssetPath(document.currentScript.src);
 ```
 
 Make sure to copy the assets over to a public directory in your app. This configuration depends on how your script is bundled, or lack of
-bundling, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling. 
+bundling, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling.
 The configs below provide examples of how to do this automatically with popular bundlers.
 
 ## Distributing Custom Elements
@@ -129,9 +150,9 @@ To make the custom elements index the entry module for a package, set the
 Be sure to set `@stencil/core` as a dependency of the package as well.
 
 > Note: If you are distributing the output of both the
-  [`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
-  it's up to you to choose which one of them should be available in the
-  `module` entry.
+> [`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
+> it's up to you to choose which one of them should be available in the
+> `module` entry.
 
 Consumers of your library can then either import components from their
 individual files, like so:
