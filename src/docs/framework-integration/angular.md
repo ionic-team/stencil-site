@@ -91,8 +91,8 @@ export const config: Config = {
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name',
-      directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
-      directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
+      directivesProxyFile: '../projects/component-library/src/lib/stencil-generated/components.ts',
+      directivesArrayFile: '../projects/component-library/src/lib/stencil-generated/index.ts',
     }),
   ],
 };
