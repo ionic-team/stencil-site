@@ -32,38 +32,37 @@ Luckily, both builds can be generated at the same time, and shipped in the same 
 
 ## Config
 
-| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `dir`    | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended that this directory not be committed to a repository. | `dist`  |
-| `empty`  | By default, before each build the `dir` directory will be emptied of all files. To prevent this directory from being emptied, change this value to `false`.                                                                                                                                                                                                                                                                                                                          | `true`  |
-
+| Property                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `dir`                                     | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended that this directory not be committed to a repository.                                                                                                                                                                                                                           | `dist`  |
+| `empty`                                   | By default, before each build the `dir` directory will be emptied of all files. To prevent this directory from being emptied, change this value to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `true`  |
+| `transformAliasedImportPathsInCollection` | This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the output code for the implicit `dist-collection` output target (i.e. something like `import * as utils from '@my-utils-path';` will become `import * as utils from '../path/to/utils';`). This does not affect imports for external packages. Currently, aliased paths are not transformed in the emitted code after running through the TS compiler.<br><br>If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config. | `false` |
 
 ## Publishing
 
 Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](/docs/publishing).
 
-
 ## Distribution Options
 
 Each output target's form of bundling and distribution has its own pros and cons. Luckily you can just worry about writing good source code for your component. Stencil will handle generating the various bundles and consumers of your library can decide how to apply your components to their external projects. Below are a few of the options.
 
-
 ### Script tag
+
 - Use a script tag linked to a CDN copy of your published NPM module, for example: `<script type="module" src='https://cdn.jsdelivr.net/npm/my-name@0.0.1/dist/myname.js'></script>`.
 - The initial script itself is extremely tiny and does not represent the entire library. It's only a small registry.
 - You can use any or all components within your library anywhere within that webpage.
 - It doesn't matter if the actual component was written within the HTML or created with vanilla JavaScript, jQuery, React, etc.
 - Only the components used on that page will be requested and lazy-loaded.
 
-
 ### Importing the `dist` library using a bundler
+
 - Run `npm install my-name --save`
 - Add an `import` within the root component: `import my-component`;
 - Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
 - Then you can use the element anywhere in your template, JSX, HTML etc.
 
-
 ### Importing the `dist` library into another Stencil app
+
 - Run `npm install my-name --save`
 - Add an `import` within the root component: `import my-component`;
 - Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
