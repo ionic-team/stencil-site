@@ -60,7 +60,13 @@ import { CustomElementsExportBehavior } from '@stencil/core';
 }
 ```
 
-#### `CustomElementsExportBehavior.BARREL`
+#### `CustomElementsExportBehavior.DEFAULT`
+
+With this option, no additional re-export or auto-definition behavior will be performed.
+
+This is the option that will be applied if no explicit value is set in the config, or if a given value is not a valid option on the exported enum.
+
+#### `CustomElementsExportBehavior.SINGLE_EXPORT_MODULE`
 
 With this option, all component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose).
 
