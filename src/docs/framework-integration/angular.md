@@ -91,14 +91,14 @@ export const config: Config = {
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name',
-      directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
+      proxyDeclarationFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
   ],
 };
 ```
 
-> The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
+> The `proxyDeclarationFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
 > The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This constant can be used to easily declare and export all the wrappers.
 
@@ -111,7 +111,7 @@ npm run build
 yarn run build
 ```
 
-If the build is successful, you will now have contents in the file specified in `directivesProxyFile` and `directivesArrayFile`.
+If the build is successful, you will now have contents in the file specified in `proxyDeclarationFile` and `directivesArrayFile`.
 
 You can now finally import and export the generated component wrappers for your component library. For example, in your library's main Angular module:
 
@@ -245,9 +245,37 @@ Usually when beginning this process, you may bump into a situation where you fin
 
 When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like: `"types": "dist/types/interfaces.d.ts"`
 
-## API
+### How do I generate single component angular modules (SCAM)?
 
-The angularOutputTarget method accepts 5 parameters:
+Single component Angular modules will be generated when enabling `createSingleComponentAngularModules` in your Stencil config for the Angular output target.
+
+```diff
+export const config: Config = {
+  namespace: 'stencil-library',
+  outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: 'your-stencil-library-package-name',
+      proxyDeclarationFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
+      directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
++     createSingleComponentAngularModules: true
+    }),
+  ],
+};
+```
+
+Both the Angular component definition and the Angular module wrapper will be generated in the file path specified by `proxyDeclarationFile`.
+
+Library maintainers should export the entire contents of the `proxyDeclarationFile` from the entry point of their library.
+
+For example with the configuration above, library maintainers should have the following in `/angular-workspace/projects/component-library/src/lib/index.ts`:
+
+```ts
+export * from './stencil-generated/components'.
+```
+
+This will export the single component Angular module definitions and component class definitions required by both the Angular compiler and consuming developers of the library.
+
+## API
 
 ### componentCorePackage
 
@@ -257,9 +285,13 @@ The title of the Stencil package where components are available for consumers. T
 import { IonApp } from '@ionic/core/components/ion-app.js';
 ```
 
-### directivesProxyFile
+### proxyDeclarationFile
 
-This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
+The relative or absolute path to the file that will contain all of the generated component wrapper definitions and optionally Angular modules during the compilation process. This file should be either exported to the consumers of your library or directly referenced in your entry point module of the library.
+
+### createSingleComponentAngularModules
+
+If `true`, Angular modules will be generated for each Stencil component included in the compilation process. When using this option, library maintainers should export the entire contents of the `proxyDeclarationFile` from the entry point of their library.
 
 ### includeImportCustomElements
 
@@ -268,6 +300,8 @@ If `true`, Angular components will import and define elements from the `dist-cus
 ### directivesArrayFile
 
 Used to provide a list of type Proxies to the Angular Component Library. [See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
+
+> You do not need to use this option when generating single component Angular modules with `createSingleComponentAngularModules`. Angular components should be declared on a single module. There is no reason to use the generated array of Angular component definition classes in your implementation when generating single component angular modules.
 
 ### directivesUtilsFile
 
@@ -292,7 +326,7 @@ export const config: Config = {
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'component-library',
-      directivesProxyFile: '{path to your proxy file}',
+      proxyDeclarationFile: '{path to your proxy file}',
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     {
