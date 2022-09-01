@@ -285,7 +285,7 @@ The title of the Stencil package where components are available for consumers. T
 import { IonApp } from '@ionic/core/components/ion-app.js';
 ```
 
-### proxyDeclarationFile (previously `directivesProxyFile`)
+### proxyDeclarationFile
 
 The relative or absolute path to the file that will contain all of the generated component wrapper definitions and optionally Angular modules during the compilation process. This file should be either exported to the consumers of your library or directly referenced in your entry point module of the library.
 
