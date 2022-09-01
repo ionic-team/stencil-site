@@ -52,34 +52,16 @@ This config option provides additional behaviors that will alter the default com
 for this target. The desired behavior can be set via the following in a project's Stencil config:
 
 ```ts
-import { CustomElementsExportBehavior } from '@stencil/core';
-
 {
-  type: 'dist-custom-elements`,
-  customElementsExportBehavior: CustomElementsExportBehavior.<desired-option>
+  type: 'dist-custom-elements',
+  customElementsExportBehavior: 'default' | 'single-export-module'
 }
 ```
 
-#### `CustomElementsExportBehavior.DEFAULT`
-
-With this option, no additional re-export or auto-definition behavior will be performed.
-
-This is the option that will be applied if no explicit value is set in the config, or if a given value is not a valid option on the exported enum.
-
-#### `CustomElementsExportBehavior.SINGLE_EXPORT_MODULE`
-
-With this option, all component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose).
-
-When set, the contents of said `index.js` file will look similar to:
-
-```tsx
-export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
-export { MyComponent, defineCustomElement as defineCustomElementMyComponent } from './my-component.js';
-export { MyOtherComponent, defineCustomElement as defineCustomElementMyOtherComponent } from './my-other-component.js';
-```
-
-This file can be used as the root module when distributing your component
-library, see [below](#distributing-custom-elements) for more details.
+| Option                 | Description                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `default`              | No additional re-export or auto-definition behavior will be performed.<br><br>This value will be used if no explicit value is set in the config, or if a given value is not a valid option.                                                                                                                                                                                                               |
+| `single-export-module` | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
 <!-- TODO(STENCIL-457): Move this info to the appropriate option on `customElementsExportBehavior` -->
 
