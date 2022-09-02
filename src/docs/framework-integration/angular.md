@@ -295,6 +295,8 @@ The relative or absolute path to the file that will contain all of the generated
 
 If `true`, Angular modules will be generated for each Stencil component included in the compilation process. When using this option, library maintainers should export the entire contents of the `proxyDeclarationFile` from the entry point of their library.
 
+Single component Angular modules (SCAM) are a convention in the Angular community of having a single component declared and exported on an Angular module. This allows Angular's treeshaking to eliminate unused components and modules from the bundle and leads to reduced coupling and bundle sizes.
+
 ### includeImportCustomElements
 
 If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`.
