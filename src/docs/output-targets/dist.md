@@ -44,9 +44,15 @@ By default, before each build the `dir` directory will be emptied of all files. 
 
 This flag defaults to `true` when omitted from a Stencil configuration file.
 
+### collectionDir
+
+The `collectionDir` config specifies the output directory within the [distribution directory](#dir) where the transpiled output of Stencil components will be written.
+
+This option defaults to `collection` when omitted from a Stencil configuration file.
+
 ### transformAliasedImportPathsInCollection
 
-This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the output code for the implicit `dist-collection` output target. This does not affect imports for external packages.
+This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the code output under the [collectionDir](#collectiondir) subdirectory for this output target. This does not affect imports for external packages.
 
 An example of path transformation could look something like:
 
