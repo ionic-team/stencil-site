@@ -32,11 +32,35 @@ Luckily, both builds can be generated at the same time, and shipped in the same 
 
 ## Config
 
-| Property                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `dir`                                     | The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended that this directory not be committed to a repository.                                                                                                                                                                                                                           | `dist`  |
-| `empty`                                   | By default, before each build the `dir` directory will be emptied of all files. To prevent this directory from being emptied, change this value to `false`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `true`  |
-| `transformAliasedImportPathsInCollection` | This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the output code for the implicit `dist-collection` output target (i.e. something like `import * as utils from '@my-utils-path';` will become `import * as utils from '../path/to/utils';`). This does not affect imports for external packages. Currently, aliased paths are not transformed in the emitted code after running through the TS compiler.<br><br>If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config. | `false` |
+### dir
+
+The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended that this directory not be committed to a repository.
+
+This option defaults to `dist` when omitted from a Stencil configuration file.
+
+### empty
+
+By default, before each build the `dir` directory will be emptied of all files. To prevent this directory from being emptied, change this value to `false`.
+
+This flag defaults to `true` when omitted from a Stencil configuration file.
+
+### transformAliasedImportPathsInCollection
+
+This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the output code for the implicit `dist-collection` output target. This does not affect imports for external packages.
+
+An example of path transformation could look something like:
+
+```ts
+// Source code
+import * as utils from '@utils';
+
+// Output code
+import * as utils from '../path/to/utils';
+```
+
+This flag defaults to `false` when omitted from a Stencil configuration file.
+
+> If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config.
 
 ## Publishing
 
