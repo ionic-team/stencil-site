@@ -38,11 +38,13 @@ customElements.define('hello-world', HelloWorld);
 ```
 
 The output directory will also contain an `index.js` file which exports some helper methods by default. The contents of the file
-will look something like (the contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified):
+will look something like:
 
 ```js
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 ```
+
+> Note: The contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified!
 
 ## Config
 
@@ -52,10 +54,19 @@ This config option provides additional behaviors that will alter the default com
 for this target. The desired behavior can be set via the following in a project's Stencil config:
 
 ```ts
-{
-  type: 'dist-custom-elements',
-  customElementsExportBehavior: 'default' | 'single-export-module'
-}
+// stencil.config.ts
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'dist-custom-elements',
+      customElementsExportBehavior: 'default' | 'single-export-module',
+    },
+    // ...
+  ],
+  // ...
+};
 ```
 
 | Option                 | Description                                                                                                                                                                                                                                                                                                                                                                                               |
