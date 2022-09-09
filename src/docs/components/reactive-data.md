@@ -4,78 +4,208 @@ description: Reactive Data, Handling arrays and objects
 url: /docs/reactive-data
 contributors:
   - jthoms1
+  - rwaskiewicz
 ---
 
 # Reactive Data
 
-Stencil components update when props or state on a component change. For performance and simplicity, Stencil only compares references for changes, and will not rerender when data inside of an array or object changes.
-
+Stencil components update when props or state on a component change.
 
 ## Rendering methods
 
-When a component updates because of a state change (props or state change), the [`render()`](templating-jsx) method is scheduled to run.
+When a props or state change on a component, the [`render()` method](templating-jsx) is scheduled to run.
 
+## The Watch Decorator (`@Watch()`)
 
-## Watch Decorator
-
-`Watch` will fire the method it's attached to when a user updates a property, or when an internal state member changes. That method will receive the new value of the prop/state, along with the old value. `Watch` is useful for validation or the handling of side effects. The `Watch` decorator does not fire when a component initially loads.
-
+`@Watch()` is a decorator that is applied to a method of a Stencil component.
+The decorator accepts a single argument, the name of a class member that is decorated with `@Prop()` or `@State()`.
+A method decorated with `@Watch()` will automatically run when its associated class member changes.
 
 ```tsx
-import { Prop, State, Watch } from '@stencil/core';
+// We import Prop & State to show how `@Watch()` can be used on
+// class members decorated with either `@Prop()` or `@State()`
+import { Component, Prop, State, Watch } from '@stencil/core';
 
+@Component({
+  tag: 'loading-indicator' 
+})
 export class LoadingIndicator {
+  // We decorate a class member with @Prop() so that we
+  // can apply @Watch()
   @Prop() activated: boolean;
+  // We decorate a class member with @State() so that we
+  // can apply @Watch()
   @State() busy: boolean;
 
+  // Apply @Watch() for the component's `activated` member.
+  // Whenever `activated` changes, this method will fire.
   @Watch('activated')
   watchPropHandler(newValue: boolean, oldValue: boolean) {
+    console.log('The old value of activated is: ', oldValue);
     console.log('The new value of activated is: ', newValue);
   }
-  
+
+  // Apply @Watch() for the component's `busy` member.
+  // Whenever `busy` changes, this method will fire.
   @Watch('busy')
   watchStateHandler(newValue: boolean, oldValue: boolean) {
+    console.log('The old value of busy is: ', oldValue);
     console.log('The new value of busy is: ', newValue);
   }
 }
 ```
+In the example above, there are two `@Watch()` decorators.
+One decorates `watchPropHandler`, which will fire when the class member `activated` changes.
+The other decorates `watchStateHandler`, which will fire when the class member `busy` changes.
 
+When fired, the `@Watch()`'ed method will receive the old and new values of the prop/state.
+This is useful for validation or the handling of side effects.
 
-## Handling arrays and objects
+> The `@Watch()` decorator does not fire when a component initially loads.
 
-To update array or object data, use the following techniques, which are fast-becoming a core part of the modern JavaScript  toolbox.
+## Handling Arrays and Objects
 
-### Updating arrays
+When Stencil checks if a class member decorated with `@Prop()` or `@State()` has changed, it checks if the reference to the class member has changed.
+When a class member is an object or array, and is marked with `@Prop()` or `@State`, in-place mutation of an existing entity will _not_ cause `@Watch()` to fire, as it does not change the _reference_ to the class member.
 
-For arrays, the standard mutable array operations such as `push()` and `unshift()` won't trigger a component update. Instead, non-mutable array operators should be used as they return a copy of a new array. These include `map()` and `filter()`, and the ES6 spread operator syntax.
+### Updating Arrays
+
+For arrays, the standard mutable array operations such as `push()` and `unshift()` won't trigger a component update.
+These functions will change the content of the array, but won't change the reference to the array itself.
+
+In order to make changes to an array, non-mutable array operators should be used.
+Non-mutable array operators return a copy of a new array that can be detected in a performant manner.
+These include `map()` and `filter()`, and the [spread operator syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 For example, to push a new item to an array, create a new array with the existing values and the new value at the end:
 
 ```tsx
-@State() items: string[];
+import { Component, State, Watch, h } from '@stencil/core';
 
-// our original array
-this.items = ['ionic', 'stencil', 'webcomponents'];
+@Component({
+  tag: 'rand-numbers'
+})
+export class RandomNumbers {
+  // We decorate a class member with @State() so that we
+  // can apply @Watch(). This will hold a list of randomly
+  // generated numbers
+  @State() randNumbers: number[] = [];
 
-// update the array
-this.items = [
-  ...this.items,
-  'awesomeness'
-]
+  private timer: NodeJS.Timer;
+
+  // Apply @Watch() for the component's `randNumbers` member.
+  // Whenever `randNumbers` changes, this method will fire.
+  @Watch('randNumbers')
+  watchStateHandler(newValue: number[], oldValue: number[]) {
+    console.log('The old value of randNumbers is: ', oldValue);
+    console.log('The new value of randNumbers is: ', newValue);
+  }
+
+  connectedCallback() {
+    this.timer = setInterval(() => {
+      // generate a random whole number
+      const newVal = Math.ceil(Math.random() * 100);
+
+      /**
+       * This does not create a new array. When stencil
+       * attempts to see if any Watched members have changed,
+       * it sees the reference to its `randNumbers` State is
+       * the same, and will not trigger `@Watch` or are-render
+       */
+      // this.randNumbers.push(newVal)
+
+      /**
+       * Using the spread operator, on the other hand, does
+       * create a new array. The reference to `randNumbers`
+       * has changed, which will trigger `@Watch` and a
+       * re-render
+       */
+      this.randNumbers = [...this.randNumbers, newVal]
+    }, 1000)
+  }
+
+  disconnectedCallback() {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        randNumbers contains:
+        <ol>
+          {this.randNumbers.map((num) => <li>{num}</li>)}
+        </ol>
+      </div>
+    )
+  }
+}
 ```
-
-The `...this.items` syntax is a relatively new feature of JavaScript that "expands" the given object in place. Read more about the Spread operator [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
 
 ### Updating an object
 
-The spread operator should also be used to update objects. As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will. Below is an example:
+The spread operator should be used to update objects.
+As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will.
+Below is an example:
 
 ```tsx
-@State() myCoolObject;
+import { Component, State, Watch, h } from '@stencil/core';
 
-// our original object
-this.myCoolObject = {first: '1', second: '2'}
+export type NumberContainer = {
+  val: number,
+}
 
-// update our object
-this.myCoolObject = { ...myCoolObject, third: '3' }
+@Component({
+  tag: 'rand-numbers'
+})
+export class RandomNumbers {
+  // We decorate a class member with @State() so that we
+  // can apply @Watch(). This will hold a randomly generated
+  // number.
+  @State() numberContainer: NumberContainer = { val: 0 };
+
+  private timer: NodeJS.Timer;
+
+  // Apply @Watch() for the component's `numberContainer` member.
+  // Whenever `numberContainer` changes, this method will fire.
+  @Watch('numberContainer')
+  watchStateHandler(newValue: NumberContainer, oldValue: NumberContainer) {
+    console.log('The old value of numberContainer is: ', oldValue);
+    console.log('The new value of numberContainer is: ', newValue);
+  }
+
+  connectedCallback() {
+    this.timer = setInterval(() => {
+      // generate a random whole number
+      const newVal = Math.ceil(Math.random() * 100);
+
+      /**
+       * This does not create a new object. When stencil
+       * attempts to see if any Watched members have changed,
+       * it sees the reference to its `numberContainer` State is
+       * the same, and will not trigger `@Watch` or are-render
+       */
+      // this.numberContainer.val = newVal;
+
+      /**
+       * Using the spread operator, on the other hand, does
+       * create a new object. The reference to `numberContainer`
+       * has changed, which will trigger `@Watch` and a
+       * re-render
+       */
+      this.numberContainer = {...this.numberContainer, val: newVal};
+    }, 1000)
+  }
+
+  disconnectedCallback() {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
+  }
+
+  render() {
+    return <div>numberContainer contains: {this.numberContainer.val}</div>;
+  }
+}
 ```
