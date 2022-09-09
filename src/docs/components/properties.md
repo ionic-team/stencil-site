@@ -674,8 +674,8 @@ when using the component in HTML.
 
 ### Prop Mutability (`mutable`)
 
-A Prop is by default immutable from inside the component logic. However, it's possible to explicitly allow a Prop to be
-mutated from inside the component, by declaring it as mutable, as in the example below:
+A Prop is by default immutable from inside the component logic.
+However, it's possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as mutable, as in the example below:
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
@@ -688,6 +688,97 @@ export class ToDoListItem {
 
    componentDidLoad() {
       this.thingToDo = 'Ah! A new value!';
+   }
+}
+```
+
+#### Mutable Arrays and Objects
+
+Stencil compares Props by reference in order to efficiently rerender components.
+Setting `mutable: true` from a Prop that is an object or array allows the _reference_ to the Prop to change inside the component and trigger a render.
+It does not allow a mutable change to an existing object or array to trigger a render. 
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+   tag: 'my-component',
+})
+export class MyComponent {
+   @Prop({mutable: true}) contents: string[] = [];
+   timer: NodeJS.Timer;
+
+   connectedCallback() {
+      this.timer = setTimeout(() => {
+         // this does not create a new array. when stencil
+         // attempts to see if any of its Props have changed,
+         // it sees the reference to its `contents` Prop is
+         // the same, and will not trigger a render
+         
+         // this.contents.push('Stencil')
+         
+         // this does create a new array, and therefore a
+         // new reference to the Prop. Stencil will pick up
+         // this change and rerender
+         this.contents = [...this.contents, 'Stencil'];
+         // after 3 seconds, the component will re-render due
+         // to the reference change in `this.contents`
+      }, 3000);
+   }
+
+   disconnectedCallback() {
+      if (this.timer) {
+         clearTimeout(this.timer);
+      }
+   }
+
+   render() {
+      return <div>Hello, World! I'm {this.contents[0]}</div>;
+   }
+}
+```
+
+The same holds for objects as well.
+Objects should be updated using the spread operator in order to create a new reference and trigger a render.
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+export type MyContents = {name: string};
+
+@Component({
+   tag: 'my-component',
+})
+export class MyComponent {
+   @Prop({mutable: true}) contents: MyContents;
+   timer: NodeJS.Timer;
+
+   connectedCallback() {
+      this.timer = setTimeout(() => {
+         // this does not create a new object. when stencil
+         // attempts to see if any of its Props have changed,
+         // it sees the reference to its `contents` Prop is
+         // the same, and will not trigger a render
+
+         // this.contents.name = 'Stencil';
+
+         // this does create a new object, and therefore a
+         // new reference to the Prop. Stencil will pick up
+         // this change and rerender
+         this.contents = {...this.contents, name: 'Stencil'};
+         // after 3 seconds, the component will re-render due
+         // to the reference change in `this.contents`
+      }, 3000);
+   }
+
+   disconnectedCallback() {
+      if (this.timer) {
+         clearTimeout(this.timer);
+      }
+   }
+
+   render() {
+      return <div>Hello, World! I'm {this.contents.name}</div>;
    }
 }
 ```
