@@ -695,8 +695,10 @@ export class ToDoListItem {
 #### Mutable Arrays and Objects
 
 Stencil compares Props by reference in order to efficiently rerender components.
-Setting `mutable: true` from a Prop that is an object or array allows the _reference_ to the Prop to change inside the component and trigger a render.
+Setting `mutable: true` on a Prop that is an object or array allows the _reference_ to the Prop to change inside the component and trigger a render.
 It does not allow a mutable change to an existing object or array to trigger a render. 
+
+For example, to update an array Prop:
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
@@ -738,8 +740,14 @@ export class MyComponent {
 }
 ```
 
+In the example above, updating the Prop in place using `this.contents.push('Stencil')` would have no effect.
+Stencil does not see the change to `this.contents`, since it looks at the _reference_ of the Prop, and sees that it has not changed.
+This is done for performance reasons.
+If Stencil had to walk every slot of the array to determine if it changed, it would incur a performance hit.
+Rather, it is considered better for performance and more idiomatic to re-assign the Prop (in the example above, we use the spread operator).
+
 The same holds for objects as well.
-Objects should be updated using the spread operator in order to create a new reference and trigger a render.
+Objects should be updated using the spread operator in order to create a new reference and trigger a render:
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
