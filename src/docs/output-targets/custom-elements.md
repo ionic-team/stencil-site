@@ -98,6 +98,8 @@ Setting this flag to `false` will not generate type declaration files for the `d
 
 This flag defaults to `true` when omitted from a Stencil configuration file.
 
+> When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of that file.
+
 ## Making Assets Available
 
 For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output,
