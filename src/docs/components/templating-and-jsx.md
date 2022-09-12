@@ -204,7 +204,7 @@ render() {
 }
 ```
 
-If this array of children is dynamic, i. e., if any nodes may be added,
+If this array of children is dynamic, i.e., if any nodes may be added,
 removed, or reordered, then it's a good idea to set a unique `key` attribute on
 each element like so:
 
