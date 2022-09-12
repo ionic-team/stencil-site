@@ -747,7 +747,8 @@ If Stencil had to walk every slot of the array to determine if it changed, it wo
 Rather, it is considered better for performance and more idiomatic to re-assign the Prop (in the example above, we use the spread operator).
 
 The same holds for objects as well.
-Objects should be updated using the spread operator in order to create a new reference and trigger a render:
+Rather than mutating an existing object in-place, a new object should be created using the spread operator. This object will be different-by-reference and therefore will trigger a re-render:  
+
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
