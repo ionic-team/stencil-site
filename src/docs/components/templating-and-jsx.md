@@ -176,32 +176,37 @@ render(){
 }
 ```
 
-## Loops
+## Dealing with Children
 
-Loops can be created in JSX using either traditional loops when creating JSX trees, or using array operators such as `map` when inlined in existing JSX.
+The children of a node in JSX correspond at runtime to an array of nodes,
+whether they are created by mapping across an array with
+[`Array.prototype.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+or simply declared as siblings directly in JSX. This means that at runtime the
+children of the two top-level divs below (`.todo-one` and `.todo-two`) will be
+represented the same way:
 
-In the example below, we're going to assume the component has a local property called `todos` which is a list of todo objects. We'll use the [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function on the array to loop over each item in the map, and to convert it to something else - in this case JSX.
 
 ```tsx
 render() {
   return (
-    <div>
-      {this.todos.map((todo) =>
-        <div>
-          <div>{todo.taskName}</div>
-          <div>{todo.isCompleted}</div>
-        </div>
-      )}
-    </div>
+    <>
+      <div class="todo-one">
+        {this.todos.map((todo) => (
+          <span>{ todo.taskName }</span>
+        )}
+      </div>
+      <div class="todo-two">
+        <span>{ todos[0].taskName }</span>
+        <span>{ todos[1].taskName }</span>
+      </div>
+    </>
   )
 }
 ```
 
-Each step through the `map` function creates a new JSX sub tree and adds it to the array returned from `map`, which is then drawn in the JSX tree above it.
-
-If your list is dynamic, i. e., it's possible to change, add, remove or reorder items, you should assign a unique `key` to each element to give it a stable identity. This enables Stencil to reuse DOM elements for better performance. The best way to pick a key is to use a string that uniquely identifies that list item among its siblings (often your data will already have IDs).
-
-> Do not use the `map`-function's index variable as a key. It does not represent a stable identity of an item as it can change if the order of the list changed or if you added an item to the beginning of the list. As such it is not suitable as a `key`.
+If this array of children is dynamic, i. e., if any nodes may be added,
+removed, or reordered, then it's a good idea to set a unique `key` attribute on
+each element like so:
 
 ```tsx
 render() {
@@ -210,8 +215,6 @@ render() {
       {this.todos.map((todo) =>
         <div key={todo.uid}>
           <div>{todo.taskName}</div>
-          <div>{todo.isCompleted}</div>
-          <button onClick={() => this.remove(todo)}>X</button>
         </div>
       )}
     </div>
@@ -219,7 +222,14 @@ render() {
 }
 ```
 
-Keys used within arrays should be unique among their siblings. However they don’t need to be globally unique.
+When nodes in a children array are rearranged Stencil makes an effort to
+preserve DOM nodes across renders but it isn't able to do so in all cases.
+Setting a `key` attribute lets Stencil ensure it can match up new and old
+children across renders and thereby avoid recreating DOM nodes unnecessarily.
+
+> Do not use an array index or some other non-unique value as a key. Try to
+  ensure that each child has a key which does not change and which is unique
+  among all its siblings.
 
 ## Handling User Input
 
