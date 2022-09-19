@@ -61,7 +61,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist-custom-elements',
-      customElementsExportBehavior: 'default' | 'single-export-module',
+      customElementsExportBehavior: 'default' | 'auto-define-custom-elements' | 'single-export-module',
     },
     // ...
   ],
