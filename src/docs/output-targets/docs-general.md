@@ -8,6 +8,9 @@ contributors:
 
 # Documentation Generation in Stencil
 
+When Stencil compiles a project, it learns a great deal of information about the Stencil components it contains.
+Stencil provides developers ways to generate documentation for this project based on this information.
+
 ## Slots
 
 Slots can be documented by adding `@slot` tags to the doc comments above the `@Component` decorator.
