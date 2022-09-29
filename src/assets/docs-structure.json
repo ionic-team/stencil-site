@@ -238,6 +238,11 @@
         "url": "/docs/stats"
       },
       {
+        "text": "Documentation (General)",
+        "filePath": "/assets/docs/output-targets/docs-general.json",
+        "url": "/docs/docs-general"
+      },
+      {
         "text": "docs-readme",
         "filePath": "/assets/docs/output-targets/docs-readme.json",
         "url": "/docs/docs-readme"
