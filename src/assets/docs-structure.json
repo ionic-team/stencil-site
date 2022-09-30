@@ -238,34 +238,39 @@
         "url": "/docs/stats"
       },
       {
-        "text": "Documentation (General)",
-        "filePath": "/assets/docs/output-targets/docs-general.json",
-        "url": "/docs/docs-general"
-      },
-      {
-        "text": "docs-readme",
-        "filePath": "/assets/docs/output-targets/docs-readme.json",
-        "url": "/docs/docs-readme"
-      },
-      {
-        "text": "docs-json",
-        "filePath": "/assets/docs/output-targets/docs-json.json",
-        "url": "/docs/docs-json"
-      },
-      {
-        "text": "docs-custom",
-        "filePath": "/assets/docs/output-targets/docs-custom.json",
-        "url": "/docs/docs-custom"
-      },
-      {
-        "text": "docs-vscode",
-        "filePath": "/assets/docs/output-targets/docs-vscode.json",
-        "url": "/docs/docs-vscode"
-      },
-      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"
+      }
+    ]
+  },
+  {
+    "text": "Documentation Generation",
+    "children": [
+      {
+        "text": "Documentation (General)",
+        "filePath": "/assets/docs/documentation-generation/docs-general.json",
+        "url": "/docs/docs-general"
+      },
+      {
+        "text": "Custom",
+        "filePath": "/assets/docs/documentation-generation/docs-custom.json",
+        "url": "/docs/docs-custom"
+      },
+      {
+        "text": "JSON",
+        "filePath": "/assets/docs/documentation-generation/docs-json.json",
+        "url": "/docs/docs-json"
+      },
+      {
+        "text": "Markdown",
+        "filePath": "/assets/docs/documentation-generation/docs-readme.json",
+        "url": "/docs/docs-readme"
+      },
+      {
+        "text": "VSCode",
+        "filePath": "/assets/docs/documentation-generation/docs-vscode.json",
+        "url": "/docs/docs-vscode"
       }
     ]
   },

@@ -48,12 +48,13 @@
   * [dist-custom-elements-bundle](output-targets/custom-elements-bundle.md)
   * [www](output-targets/www.md)
   * [stats](output-targets/docs-stats.md)
-  * [Documentation (General)](output-targets/docs-general.md)
-  * [docs-readme](output-targets/docs-readme.md)
-  * [docs-json](output-targets/docs-json.md)
-  * [docs-custom](output-targets/docs-custom.md)
-  * [docs-vscode](output-targets/docs-vscode.md)
   * [Copy Tasks](output-targets/copy-tasks.md)
+* Documentation Generation
+  * [Documentation (General)](documentation-generation/docs-general.md)
+  * [Custom](documentation-generation/docs-custom.md)
+  * [JSON](documentation-generation/docs-json.md)
+  * [Markdown](documentation-generation/docs-readme.md)
+  * [VSCode](documentation-generation/docs-vscode.md)
 * Guides
   * [Assets](guides/assets.md)
   * [Bundling](guides/module-bundling.md)
