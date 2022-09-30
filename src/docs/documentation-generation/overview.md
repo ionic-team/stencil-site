@@ -94,9 +94,9 @@ Stencil will also document CSS variables when you specify them via JSDoc-style c
  }
 ```
 
-## Documenting Usage Examples for a Component
+## Adding Usage Examples
 
-Documenting how a Stencil component is useful for the users of a project.
+Documenting how a Stencil component is used is useful for the users of a project.
 The content of `.md` files in a `usage` subdirectory of a component will be added to the `usage` property of the generated json.
 
 ```
