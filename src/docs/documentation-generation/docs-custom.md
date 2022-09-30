@@ -63,11 +63,11 @@ It contains metadata for each component in the project, as well as information u
 | `dirPath`         | The directory containing a Stencil component                                       |
 | `fileName`        | The name of the file containing the Stencil component, with no path                |
 | `filePath`        | The full path of the file containing the Stencil component                         |
-| `readmePath`      | The path to the component's `README.md` file                                       |
+| `readmePath`      | The path to the component's `readme.md` file                                       |
 | `usagesDir`       | The path to the component's `usage/` directory                                     |
 | `encapsulation`   | A component's `encapsulation` type. Possible values are `shadow`, `scoped`, `none` |
 | `tag`             | The component's tag, as set in the `@Component` decorator                          |
-| `readme`          | The contents of a component's `README.md` file that are user-generated             |
+| `readme`          | The contents of a component's `readme.md` file that are user-generated             |
 | `docs` | Description written in top of `@Component` e.g. /** Documentation Example */. If no JSDoc is present, default to any manually written text in the component's markdown file. Empty otherwise. || `docsTags`        | JSDoc tags found in the JSDoc written atop a component's `@Component` decorator    |
 | `overview`        | Description written in top of `@Component` e.g. /**  Documentation Example */      |
 | `usage`           | An object that maps the name of a markdown file in `usage` to its contents         |
