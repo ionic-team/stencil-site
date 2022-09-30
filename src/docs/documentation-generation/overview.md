@@ -1,7 +1,7 @@
 ---
 title: Documentation
 description: Documentation Generation in Stencil
-url: /docs/overview
+url: /docs/doc-overview
 contributors:
   - rwaskiewicz
 ---

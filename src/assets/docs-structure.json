@@ -249,8 +249,8 @@
     "children": [
       {
         "text": "Overview",
-        "filePath": "/assets/docs/documentation-generation/docs-general.json",
-        "url": "/docs/docs-general"
+        "filePath": "/assets/docs/documentation-generation/overview.json",
+        "url": "/docs/doc-overview"
       },
       {
         "text": "Custom",
