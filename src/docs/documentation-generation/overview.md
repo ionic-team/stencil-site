@@ -56,21 +56,51 @@ In the example above, Stencil understands that both sentences are a part of the 
 
 #### Parts
 
-TODO
+CSS Shadow Parts
+
+```tsx
+ /**
+  * @part separator - The separator element between each breadcrumb
+  */
+  @Component({
+    tag: 'sign-up-btn'
+  })
+  export class SignUpButton {
+    render() {
+      return (
+        <button
+          part="collapsed-indicator"
+          onClick={() => this.collapsedIndicatorClick()}
+        >
+          <ion-icon icon={ellipsisHorizontal} lazy={false}></ion-icon>
+        </button>
+      );
+    }
+}
+```
 
 #### Slots
 
-Slots can be documented by adding `@slot` tags to the JSDoc comments above the `@Component` decorator:
+Slots can be documented by adding `@slot` tags to the JSDoc comments above the `@Component` decorator.
+Slot documentation is expected to be of the format:
+```
+@slot slotName - slotDescription
+```
+where the first whole word is assumed to be the slot name, and the text following the '-' will be interpreted as the slot description.
 
 ```tsx
 /**
- * @slot slotName - slotDescription
  * @slot buttonContent - Slot for the content of the button
+ * @slot - content is placed between the named slots if provided without a slot.
  */
  @Component({
   tag: '...'
  }) ...
 ```
+
+Stencil will parse the `@slot` tags in the JSDoc as two slot instances.
+One slot with name 'buttonContent' and a description of 'Slot for the content of the button'.
+The other will have no name, and a description of 'content is placed between the named slots if provided without a slot.'.
 
 ### @Event
 
