@@ -6,20 +6,49 @@ contributors:
   - rwaskiewicz
 ---
 
+**ALL OF THIS NEEDS TO BE EDITED. CONSIDER IT A WRITER'S DRAFT TO GET SOMETHING ON THE PAGE**
+
 # Documentation Generation in Stencil
 
 As apps scale with more and more components, and a team's size continues to adjust over time, it's vital all components are well documented.
 When Stencil compiles a project, it learns a great deal of information about the Stencil components it contains.
 Stencil provides multiple ways to automatically generate documentation for a project based on this information.
 
-### Component Property Docs Example:
+## Documenting a Stencil Component
 
-To add a description to a `@Prop`, simply add a comment on the previous line:
+Stencil doesn't impose strict rules how much documentation a team adds to their components.
+They may choose to document everything, nothing, or something in-between.
+Below is a list of things Stencil can document.
+
+### `@Prop`
+
+To document a [`@Prop` class member](), add a JSDoc above it like so:
 
 ```tsx
-/** (optional) The icon to display */
+/**
+ * The icon to display
+ */
 @Prop() iconType = "";
 ```
+
+Stencil will take care of documenting the Prop's name & type, [any configuration options]() and JSDoc tags for you.  
+
+### `@Method`
+
+To document a [`@State` class member](), add a JSDoc above it like so:
+
+```tsx
+/**
+ * Opens the menu. If the menu is already open or it can't be
+ * opened, it returns `false`.
+ */
+@Method()
+async open(animated = true): Promise<boolean> {
+  return this.setOpen(animated);
+}
+```
+
+Stencil will take care of documenting the Method's name, function signature, and JSDoc tags for you.
 
 ### CSS Example:
 
