@@ -20,7 +20,7 @@ Stencil doesn't impose strict rules how much documentation a team adds to their 
 They may choose to document everything, nothing, or something in-between.
 Below is a list of things Stencil can document.
 
-### `@Component`
+### @Component
 
 Adding a JSDoc to a Stencil component section
 
@@ -38,7 +38,7 @@ Slots can be documented by adding `@slot` tags to the JSDoc comments above the `
  }) ...
 ```
 
-### `@Event`
+### @Event
 
 To document an [`@Event` class member](), add a JSDoc above it like so:
 
@@ -51,7 +51,7 @@ To document an [`@Event` class member](), add a JSDoc above it like so:
 
 Stencil will take care of documenting the Event's name, readonly properties like `bubbles` & `cancellable`, and JSDoc tags for you.
 
-### `@Method`
+### @Method
 
 To document a [`@Method` class member](), add a JSDoc above it like so:
 
@@ -68,7 +68,7 @@ async open(animated = true): Promise<boolean> {
 
 Stencil will take care of documenting the Method's name, function signature, and JSDoc tags for you.
 
-### `@Prop`
+### @Prop
 
 To document a [`@Prop` class member](), add a JSDoc above it like so:
 
