@@ -14,15 +14,16 @@ One of the more powerful features of the compiler is its ability to generate var
 
 
 ## Output Target Types:
+
+Stencil offers the following output targets:
  - [`dist`: Distribution](/docs/distribution)
  - [`www`: Website](/docs/www)
  - [`dist-custom-elements`: Custom Elements](/docs/custom-elements)
  - [`dist-custom-elements-bundle`: Custom Elements Bundle](/docs/custom-elements-bundle)
  - [`stats`: Stats about the compiled files](/docs/stats)
- - [`docs-readme`: Documentation readme files formatted in markdown](/docs/docs-readme)
- - [`docs-json`: Documentation data formatted in JSON](/docs/docs-json)
- - [`docs-custom`: Custom documentation generation](/docs/docs-custom)
- - [`docs-vscode`: Documentation generation for VS Code](/docs/docs-vscode)
+
+Users can also take advantage of special output targets to generate documentation for their components.
+For more information, please see the [`Documentation Generation section`](/docs/overview)
 
 ## Example:
 
