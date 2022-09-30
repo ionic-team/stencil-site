@@ -42,6 +42,10 @@ It tells the reader what the component is, and potentially what it's used for:
 
 In the example above, Stencil understands that both sentences are a part of the overview, even though they are separated by multiple newlines.
 
+#### Parts
+
+TODO
+
 #### Slots
 
 Slots can be documented by adding `@slot` tags to the JSDoc comments above the `@Component` decorator:
