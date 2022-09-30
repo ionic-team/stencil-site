@@ -71,14 +71,14 @@ It contains metadata for each component in the project, as well as information u
 | `docs` | Description written in top of `@Component` e.g. /** Documentation Example */. If no JSDoc is present, default to any manually written text in the component's markdown file. Empty otherwise. || `docsTags`        | JSDoc tags found in the JSDoc written atop a component's `@Component` decorator    |
 | `overview`        | Description written in top of `@Component` e.g. /**  Documentation Example */      |
 | `usage`           | An object that maps the name of a markdown file in `usage` to its contents         |
-| `props`           | Array of component properties information                                          |
-| `methods`         | Array of component methods information                                             |
-| `events`          | Array of component events information                                              |
-| `listeners`       | Array of component listeners information                                           |
-| `styles`          | Array of component CSS styling information                                         |
-| `slots`           | Array of component Slot information                                                |
-| `parts`           | Array of component Parts information                                               |
-| `dependents`      | Array of components where current component is used                                |
-| `dependencies`    | Array of components which is used in current component                             |
+| `props`           | Array of metadata for a component's `@Prop`s                                       |
+| `methods`         | Array of metadata for a component's `@Methods`s                                    |
+| `events`          | Array of metadata for a component's `@Events`s                                     |
+| `listeners`       | Array of metadata for a component's `@Listeners`s                                  |
+| `styles`          | Array of metadata for a component's CSS styling information                        |
+| `slots`           | Array of component Slot information, generated from `@slot` tags                   |
+| `parts`           | Array of component Parts information, generate from `@part` tags                   |
+| `dependents`      | Array of metadata describing where the current component is used                   |
+| `dependencies`    | Array of metadata listing the components which are used in current component       |
 | `dependencyGraph` | Describes a tree of components coupling                                            |
 
