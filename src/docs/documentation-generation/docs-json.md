@@ -12,7 +12,7 @@ contributors:
   - seanwuapps
 ---
 
-# Docs Json Data
+# JSON Docs Generation
 
 While auto-generated readme files formatted with markdown is convenient, there may be scenarios where it'd be better to get all of the docs in the form of json data. To build the docs as json, use the `--docs-json` flag, followed by a path on where to write the json file.
 

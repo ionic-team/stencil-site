@@ -6,7 +6,7 @@ contributors:
   - rwaskiewicz
 ---
 
-# VS Code Documentation
+# VS Code Docs Generation
 
 One of the core features of web components is the ability to create [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements),
 which allow developers to reuse custom functionality defined in their components.
