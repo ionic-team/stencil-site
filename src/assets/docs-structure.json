@@ -248,7 +248,7 @@
     "text": "Documentation Generation",
     "children": [
       {
-        "text": "Documentation (General)",
+        "text": "Overview",
         "filePath": "/assets/docs/documentation-generation/docs-general.json",
         "url": "/docs/docs-general"
       },
