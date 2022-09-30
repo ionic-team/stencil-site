@@ -81,9 +81,9 @@ To document a [`@Prop` class member](), add a JSDoc above it like so:
 
 Stencil will take care of documenting the Prop's name & type, [any configuration options]() and JSDoc tags for you.
 
-### CSS Example:
+### Styles
 
-Stencil will also document CSS variables when you specify them via jsdoc-style comments inside your css or scss files:
+Stencil will also document CSS variables when you specify them via JSDoc-style comments inside a component's css or scss files:
 
 ```css
  :root {
