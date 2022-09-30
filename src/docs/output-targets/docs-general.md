@@ -20,19 +20,6 @@ Stencil doesn't impose strict rules how much documentation a team adds to their 
 They may choose to document everything, nothing, or something in-between.
 Below is a list of things Stencil can document.
 
-### `@Prop`
-
-To document a [`@Prop` class member](), add a JSDoc above it like so:
-
-```tsx
-/**
- * The icon to display
- */
-@Prop() iconType = "";
-```
-
-Stencil will take care of documenting the Prop's name & type, [any configuration options]() and JSDoc tags for you.  
-
 ### `@Method`
 
 To document a [`@State` class member](), add a JSDoc above it like so:
@@ -49,6 +36,19 @@ async open(animated = true): Promise<boolean> {
 ```
 
 Stencil will take care of documenting the Method's name, function signature, and JSDoc tags for you.
+
+### `@Prop`
+
+To document a [`@Prop` class member](), add a JSDoc above it like so:
+
+```tsx
+/**
+ * The icon to display
+ */
+@Prop() iconType = "";
+```
+
+Stencil will take care of documenting the Prop's name & type, [any configuration options]() and JSDoc tags for you.
 
 ### CSS Example:
 
