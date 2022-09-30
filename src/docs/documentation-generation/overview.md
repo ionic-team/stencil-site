@@ -14,6 +14,18 @@ As apps scale with more and more components, and a team's size continues to adju
 When Stencil compiles a project, it learns a great deal of information about the Stencil components it contains.
 Stencil provides multiple ways to automatically generate documentation for a project based on this information.
 
+## Documentation Types
+
+Stencil offers several options for generating documentation for a project:
+
+- [Custom - Generate documentation with custom logic](/docs/docs-custom)
+- [JSON Docs - Generate a JSON file for an entire project](/docs/docs-json)
+- [Markdown Docs - Generate a markdown file for each component in a project](/docs/docs-readme)
+- [VS Code Docs - Generate documentation to improve VS Code Intellisense](/docs/docs-vscode)
+
+One or more of these documentation types can be specified in a project's `stencil.config.ts` at any time.
+See the documentation of each type above for how to configure that type.
+
 ## Documenting a Stencil Component
 
 Stencil doesn't impose strict rules how much documentation a team adds to their components.
