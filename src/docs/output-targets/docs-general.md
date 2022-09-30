@@ -20,9 +20,22 @@ Stencil doesn't impose strict rules how much documentation a team adds to their 
 They may choose to document everything, nothing, or something in-between.
 Below is a list of things Stencil can document.
 
+### `@Event`
+
+To document an [`@Event` class member](), add a JSDoc above it like so:
+
+```tsx
+/**
+ * Emitted before the alert has dismissed.
+ */
+@Event({ eventName: 'alertWillDismiss' }) willDismiss!: EventEmitter<OverlayEventDetail>;
+```
+
+Stencil will take care of documenting the Event's name, readonly properties like `bubbles` & `cancellable`, and JSDoc tags for you.
+
 ### `@Method`
 
-To document a [`@State` class member](), add a JSDoc above it like so:
+To document a [`@Method` class member](), add a JSDoc above it like so:
 
 ```tsx
 /**
