@@ -11,11 +11,16 @@ contributors:
   - marcjulian
 ---
 
-# README.md Docs Generation
+# Markdown Docs Generation
 
-Stencil is able to auto-generate `readme.md` files in markdown. This is an opt-in feature and will save the readme files as a sibling to the component within the same directory. When this feature is used it can be useful for others to easily find and read formatted docs about one component. In particular, when a `readme.md` file is placed within a directory on Github, it will default the readme markdown file as the primary content of the page.
+Stencil is able to auto-generate `readme.md` files in markdown.
+This is an opt-in feature and will save the readme files as a sibling to the component within the same directory.
+When this feature is used it can be useful for others to easily find and read formatted docs about one component.
+In particular, when a `readme.md` file is placed within a directory on GitHub, it will default the readme markdown file as the primary content of the page.
 
-To auto-generate readme files, add the `docs-readme` output target to your `stencil.config.ts`:
+## Enabling
+
+To generate readme files, add the `docs-readme` output target to your `stencil.config.ts`:
 
 ```tsx
 import { Config } from '@stencil/core';
@@ -33,13 +38,18 @@ Another option would be to use the `--docs` CLI flag, like so:
 stencil build --docs
 ```
 
-This will cause the Stencil compiler to perform a one-time generation of README
-files using the [`docs-readme`](https://stenciljs.com/docs/docs-readme) output target.
-## Adding Custom Markdown to Auto-Generated Files
+This will cause the Stencil compiler to perform a one-time generation of README files.
+
+
+## Customization
+
+### Adding Custom Markdown to Auto-Generated Files
 
 Once you've generated a `readme.md` file you can customize it with your own markdown content. Simply add your own markdown above the comment that reads: `<!-- Auto Generated Below -->`.
 
-## Custom Footer
+## Configuration
+
+### Custom Footer
 
 Removing or customizing the footer can be done by adding a `footer` property to the output target. Markdown can be used to enhance the footer if needed.
 
@@ -56,7 +66,7 @@ export const config: Config = {
 };
 ```
 
-## Generating to a Directory
+### Generating to a Directory
 
 By default, a readme file will be generated in its corresponding component directory. This behavior can be changed through the `dir` property of the output target configuration. Specifying a directory will create the structure `{dir}/{component}/readme.md`.
 
@@ -73,7 +83,7 @@ export const config: Config = {
 };
 ```
 
-## Strict Mode
+### Strict Mode
 
 Adding `strict: true` to the output target configuration will cause Stencil to output a warning whenever the project is built with missing documentation.
 
