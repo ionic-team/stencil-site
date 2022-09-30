@@ -22,7 +22,25 @@ Below is a list of things Stencil can document.
 
 ### @Component
 
-Adding a JSDoc to a Stencil component section
+When a JSDoc is added to a Stencil component's declaration, the compiler can pull several pieces of data from the JSDoc.
+The following subsections describes each type of data that Stencil's documentation generator can understand. 
+
+#### Overview
+
+An overview is one or more sentences that describes a Stencil component.
+It tells the reader what the component is, and potentially what it's used for:
+```tsx
+/**
+ * A sign up button for email notifications.
+ * 
+ * This button can be used for any marketing initiatives.
+ */
+ @Component({
+  tag: 'sign-up-btn'
+ }) ...
+```
+
+In the example above, Stencil understands that both sentences are a part of the overview, even though they are separated by multiple newlines.
 
 #### Slots
 
