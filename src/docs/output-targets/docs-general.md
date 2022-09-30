@@ -20,6 +20,24 @@ Stencil doesn't impose strict rules how much documentation a team adds to their 
 They may choose to document everything, nothing, or something in-between.
 Below is a list of things Stencil can document.
 
+### `@Component`
+
+Adding a JSDoc to a Stencil component section
+
+#### Slots
+
+Slots can be documented by adding `@slot` tags to the JSDoc comments above the `@Component` decorator:
+
+```tsx
+/**
+ * @slot slotName - slotDescription
+ * @slot buttonContent - Slot for the content of the button
+ */
+ @Component({
+  tag: '...'
+ }) ...
+```
+
 ### `@Event`
 
 To document an [`@Event` class member](), add a JSDoc above it like so:
@@ -75,20 +93,7 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
    --primary: blue;
  }
 ```
-## Slots
 
-Slots can be documented by adding `@slot` tags to the doc comments above the `@Component` decorator.
-
-```tsx
-/**
- * @slot slotName - slotDescription
- * @slot buttonContent - Slot for the content of the button
- */
- 
- @Component({
-  tag: '...'
-}) ...
-```
 
 
 ## Usage
