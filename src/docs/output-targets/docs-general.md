@@ -8,15 +8,9 @@ contributors:
 
 # Documentation Generation in Stencil
 
+As apps scale with more and more components, and a team's size continues to adjust over time, it's vital all components are well documented.
 When Stencil compiles a project, it learns a great deal of information about the Stencil components it contains.
-Stencil provides developers ways to generate documentation for this project based on this information.
-
-## Docs Auto-Generation
-
-As apps scale with more and more components, and team size and members continue to adjust over time, it's vital all components are well documented, and that the documentation itself is maintained. Maintaining documentation is right up there with some of the least interesting things developers must do, but that doesn't mean it can't be made easier.
-
-Throughout the build process, the compiler is able to extract documentation from each component, to include JSDocs comments, types of each member on the component (thanks TypeScript!) and CSS Variables (CSS Custom Properties).
-
+Stencil provides multiple ways to automatically generate documentation for a project based on this information.
 
 ### Component Property Docs Example:
 
