@@ -48,6 +48,9 @@ bundles: [
 ]
 ```
 
+## devServer
+
+Please see the [Dev-Server docs](/docs/dev-server).
 
 ## enableCache
 
@@ -59,6 +62,9 @@ Stencil will cache build results in order to speed up rebuilds. To disable this 
 enableCache: true
 ```
 
+## extras
+
+Please see the [Extras docs](/docs/config-extras).
 
 ## globalScript
 
@@ -99,14 +105,14 @@ globalStyle: 'src/global/app.css'
 
 Check out the [styling docs](/docs/styling#global-styles) of how to use global styles in your app.
 
-## invisiblePrehydration
+## hashedFileNameLength
 
-*default: `true`*
+*default: `8`*
 
-When true, `invisiblePrehydration` will use Ionic's opinion to visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. Please note that setting `invisiblePrehydration` to false will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC), however you can style your web component's fallback content to your preference.
+When the `hashFileNames` config is set to `true`, and it is a production build, the `hashedFileNameLength` config is used to determine how many characters the file name's hash should be.
 
 ```tsx
-invisiblePrehydration: true
+hashedFileNameLength: 8
 ```
 
 ## hashFileNames
@@ -119,17 +125,27 @@ During production builds, the content of each generated file is hashed to repres
 hashFileNames: true
 ```
 
+## invisiblePrehydration
 
-## hashedFileNameLength
+*default: `true`*
 
-*default: `8`*
-
-When the `hashFileNames` config is set to `true`, and it is a production build, the `hashedFileNameLength` config is used to determine how many characters the file name's hash should be.
+When true, `invisiblePrehydration` will use Ionic's opinion to visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. Please note that setting `invisiblePrehydration` to false will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC), however you can style your web component's fallback content to your preference.
 
 ```tsx
-hashedFileNameLength: 8
+invisiblePrehydration: true
 ```
 
+## minifyCss
+
+_default: `true` in production_
+
+When `true`, the browser CSS file will be minified.
+
+## minifyJs
+
+_default: `true` in production_
+
+When `true`, the browser JS files will be minified. Stencil uses [Terser](https://terser.org/) under-the-hood for file minification.
 
 ## namespace
 
@@ -140,22 +156,13 @@ The `namespace` config is a `string` representing a namespace for the app. For a
 ```tsx
 namespace: "Ionic"
 ```
-
-
 ## outputTargets
 
 Please see the [Output Target docs](/docs/output-targets).
 
-
 ## plugins
 
 Please see the [Plugin docs](/docs/plugins).
-
-
-## devServer
-
-Please see the [Dev-Server docs](/docs/dev-server).
-
 
 ## preamble
 
@@ -213,7 +220,6 @@ The `srcDir` config specifies the directory which should contain the source type
 srcDir: 'src'
 ```
 
-
 ## taskQueue
 
 *default: `async`*
@@ -251,8 +257,3 @@ taskQueue: 'async'
 ## testing
 
 Please see the [testing config docs](/docs/testing-config).
-
-
-## extras
-
-Please see the [Extras docs](/docs/config-extras).
