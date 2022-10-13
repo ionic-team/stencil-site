@@ -144,7 +144,7 @@ import { NameType, Todo } from '@my-lib/types';
 
 When using `dist-custom-elements`, these types can now be accessed from the custom element output:
 ```ts
-import { MyComponentCustomEvent, NameType } from '@my-custom-elements-output';
+import { NameType, Todo } from '@my-custom-elements-output';
 ```
 
 This _may_ clash with any manually created types in existing Stencil projects.
