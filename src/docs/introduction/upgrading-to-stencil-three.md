@@ -136,7 +136,7 @@ The following data will now be included automatically in `components.d.ts`:
  declare global {
      interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
 }
-
+```
 This allows those types to be easily accessed from the root of the type distribution:
 ```ts
 import { MyComponentCustomEvent, NameType } from '@my-lib/types';
