@@ -89,7 +89,7 @@ Please upgrade local development machines, continuous integration pipelines, etc
 
 ### Narrowed Typing for `autocapitalize` Attribute
 The [`autocaptialize` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize) has been narrowed from type `any` to type `string`.
-This changes brings Stencil into closer alignment with TypeScript's typings for the attribute.
+This change brings Stencil into closer alignment with TypeScript's typings for the attribute.
 No explicit changes are needed, unless a project was passing non-strings to the attribute.
 
 ### Custom Types for Props and Events are now Exported from `components.d.ts`
