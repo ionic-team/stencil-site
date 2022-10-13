@@ -139,7 +139,7 @@ The following data will now be included automatically in `components.d.ts`:
 ```
 This allows those types to be easily accessed from the root of the type distribution:
 ```ts
-import { MyComponentCustomEvent, NameType } from '@my-lib/types';
+import { NameType, Todo } from '@my-lib/types';
 ```
 
 When using `dist-custom-elements`, these types can now be accessed from the custom element output:
