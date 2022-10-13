@@ -121,21 +121,21 @@ export class MyComponent {
 
 The following data will now be included automatically in `components.d.ts`:
 ```diff
- import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
- import { NameType, Todo } from "./components/my-component/my-component";
+  import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+  import { NameType, Todo } from "./components/my-component/my-component";
 + export { NameType, Todo } from "./components/my-component/my-component";
- export namespace Components {
-     interface MyComponent {
+  export namespace Components {
+      interface MyComponent {
         "first": NameType;
-     }
- }
- export interface MyComponentCustomEvent<T> extends CustomEvent<T> {
-     detail: T;
-     target: HTMLMyComponentElement;
- }
- declare global {
-     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-}
+      }
+  }
+  export interface MyComponentCustomEvent<T> extends CustomEvent<T> {
+      detail: T;
+      target: HTMLMyComponentElement;
+  }
+  declare global {
+      interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+  }
 ```
 This allows those types to be easily accessed from the root of the type distribution:
 ```ts
