@@ -122,8 +122,8 @@ export class MyComponent {
 The following data will now be included automatically in `components.d.ts`:
 ```diff
  import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
- import { NameType } from "./components/my-component/my-component";
-+export { NameType } from "./components/my-component/my-component";
+ import { NameType, Todo } from "./components/my-component/my-component";
++ export { NameType, Todo } from "./components/my-component/my-component";
  export namespace Components {
      interface MyComponent {
         "first": NameType;
