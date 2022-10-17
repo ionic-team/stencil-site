@@ -75,7 +75,8 @@ These functions will change the content of the array, but won't change the refer
 
 In order to make changes to an array, non-mutable array operators should be used.
 Non-mutable array operators return a copy of a new array that can be detected in a performant manner.
-These include `map()` and `filter()`, and the [spread operator syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+These include `map()` and `filter()`, and the [spread operator syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
+The value returned by `map()`, `filter()`, etc., should be assigned to the `@Prop()` or `@State()` class member being watched.
 
 For example, to push a new item to an array, create a new array with the existing values and the new value at the end:
 
@@ -116,9 +117,10 @@ export class RandomNumbers {
 
       /**
        * Using the spread operator, on the other hand, does
-       * create a new array. The reference to `randNumbers`
-       * has changed, which will trigger `@Watch` and a
-       * re-render
+       * create a new array. `randNumbers` is resassigned
+       * using the value returned by the spread operator.
+       * The reference to `randNumbers` has changed, which
+       * will trigger `@Watch` and a re-render
        */
       this.randNumbers = [...this.randNumbers, newVal]
     }, 1000)
@@ -146,7 +148,8 @@ export class RandomNumbers {
 ### Updating an object
 
 The spread operator should be used to update objects.
-As with arrays, mutating an object will not trigger a view update in Stencil, but returning a new copy of the object will.
+As with arrays, mutating an object will not trigger a view update in Stencil.
+However, using the spread operator and assigning its return value to the `@Prop()` or `@State()` class member being watched will.
 Below is an example:
 
 ```tsx
@@ -187,12 +190,13 @@ export class RandomNumbers {
        * the same, and will not trigger `@Watch` or are-render
        */
       // this.numberContainer.val = newVal;
-
+      
       /**
        * Using the spread operator, on the other hand, does
-       * create a new object. The reference to `numberContainer`
-       * has changed, which will trigger `@Watch` and a
-       * re-render
+       * create a new object. `numberContainer` is resassigned
+       * using the value returned by the spread operator.
+       * The reference to `numberContainer` has changed, which
+       * will trigger `@Watch` and a re-render
        */
       this.numberContainer = {...this.numberContainer, val: newVal};
     }, 1000)
