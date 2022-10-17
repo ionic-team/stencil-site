@@ -190,7 +190,7 @@ export class RandomNumbers {
        * the same, and will not trigger `@Watch` or are-render
        */
       // this.numberContainer.val = newVal;
-      
+
       /**
        * Using the spread operator, on the other hand, does
        * create a new object. `numberContainer` is resassigned
