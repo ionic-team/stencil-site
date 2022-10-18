@@ -74,7 +74,7 @@ When `true`, this flag results in the following behaviors:
 
 1. Minification will follow what is specified in the [Stencil config](docs/config#minifyJs).
 2. Filenames will not be hashed
-3. When resolving all `@stencil/core/*` imports as a part of the rollup process all of these resolved modules will be marked as external and therefore not included in the bundle.
+3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
 This flag defaults to `true` when omitted from a Stencil configuration file.
 

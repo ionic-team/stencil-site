@@ -129,7 +129,9 @@ hashFileNames: true
 
 *default: `true`*
 
-When true, `invisiblePrehydration` will use Ionic's opinion to visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. Please note that setting `invisiblePrehydration` to false will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC), however you can style your web component's fallback content to your preference.
+When `true`, `invisiblePrehydration` will visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. 
+
+> Note: Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
 
 ```tsx
 invisiblePrehydration: true
