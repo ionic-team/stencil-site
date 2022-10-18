@@ -64,7 +64,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist-custom-elements',
-      customElementsExportBehavior: 'default' | 'auto-define-custom-elements' | 'single-export-module',
+      customElementsExportBehavior: 'default' | 'auto-define-custom-elements' | 'bundle' | 'single-export-module',
     },
     // ...
   ],
@@ -76,6 +76,7 @@ export const config: Config = {
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `default`                     | No additional re-export or auto-definition behavior will be performed.<br><br>This value will be used if no explicit value is set in the config, or if a given value is not a valid option.                                                                                                                                                                                                               |
 | `auto-define-custom-elements` | A component and its children will be automatically defined with the `CustomElementRegistry` when the component's module is imported.                                                                                                                                                                                                                                                                      |
+| `bundle`                      | A utility `defineCustomElements()` function is exported from the `index.js` file of the output directory. This function can be used to quickly define all Stencil components in a project on the custom elements registry.                                                                                                                                                                                 |
 | `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
 :::note
