@@ -162,7 +162,7 @@ By default, this output target will behave exactly as it did in Stencil v2.0.0.
 For more information on how to configure it, please see the [documentation for the field](/docs/custom-elements#customelementsexportbehavior).
 
 #### Move `autoDefineCustomElements` Configuration
-`autoDefineCustomElements` was a configuration option to define a component and its children automatically with the CustomElementRegistry when the component's module is imported.
+`autoDefineCustomElements` was a configuration option to define a component and its children automatically with the `CustomElementRegistry` when the component's module is imported.
 This behavior has been merged into the [`customElementsExportBehavior` configuration field](#add-customelementsexportbehavior-to-control-export-behavior).
 To continue to use this behavior, replace `autoDefineCustomElements` in your project's `stencil.config.ts` with the following:
 ```diff
