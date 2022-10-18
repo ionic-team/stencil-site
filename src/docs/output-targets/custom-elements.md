@@ -13,7 +13,9 @@ contributors:
 
 The `dist-custom-elements` output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations.
 
-This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired.
+This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired. For using lazily loaded Stencil components, please refer to the [www output target](/docs/www).
+
+To generate components using the `dist-custom-elements` output target, add it to a project's `stencil.config.ts` file like so:
 
 ```tsx
 // stencil.config.ts
@@ -42,6 +44,10 @@ An array of [copy tasks](/docs/copy-tasks) to be executed during the build proce
 ### customElementsExportBehavior
 
 _default: `'default'`_
+
+By default, the `dist-custom-elements` output target generates a single file per component, and exports each of those files individually.
+
+In some cases, library authors may want to change this behavior, either to automatically define component children, provide a single file containing all component exports, etc.
 
 This config option provides additional behaviors that will alter the default component export _OR_ custom element definition behaviors
 for this target. The desired behavior can be set via the following in a project's Stencil config:
@@ -80,7 +86,17 @@ This config option allows you to change the output directory where the compiled 
 
 _default: `true`_
 
-If `true`, this config option will remove the contents of the [output directory](#dir) before writing the new build output.
+If `true`, this config option will remove the contents of the [output directory](#dir) between builds.
+
+### externalRuntime
+
+_default: `true`_
+
+When `true`, this flag results in the following behaviors:
+
+1. Minification will follow what is specified in the [Stencil config](docs/config#minifyJs).
+2. Filenames will not be hashed
+3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
 ### generateTypeDeclarations
 
@@ -90,19 +106,49 @@ By default, Stencil will generate type declaration files (`.d.ts` files) as a pa
 
 Setting this flag to `false` will not generate type declaration files for the `dist-custom-elements` output target.
 
-> When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of that file.
+> When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of the generated `component.d.ts` file.
 
 ### inlineDynamicImports
 
 _default: `false`_
 
-Setting this flag to `true` will trigger inline dynamic imports for the under-the-hood Rollup bundle output. For more information, see [Rollup's documentation](https://rollupjs.org/guide/en/#outputinlinedynamicimports) for this option.
+Setting this flag to `true` will trigger [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) to essentially be "pulled into" the current bundle, rather than being created as separate chunks. For more information, see [Rollup's documentation](https://rollupjs.org/guide/en/#outputinlinedynamicimports) for this option.
 
 ### includeGlobalScripts
 
 _default: `false`_
 
-Setting this flag to `true` will include global scripts in the bundle and execute them once the bungle entry point in loaded.
+Setting this flag to `true` will include [global scripts](/docs/config#globalscript) in the bundle and execute them once the bundle entry point in loaded.
+
+### minify
+
+_default: `false`_
+
+Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](docs/config#minifyJs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
+
+## Consuming Custom Elements
+
+By default, the custom elements files will be written to `dist/components/`. This directory can be configured using the output target's [`dir`](#dir) config.
+
+The generated files will each export a component class and will already have the styles bundled. However, this build does not define the custom elements or apply any polyfills.
+Static assets referenced within components will need to be set using `setAssetPath` (see [Making Assets Available](#making-assets-available)).
+
+Below is an example of defining a custom element:
+
+```tsx
+import { defineCustomElement } from 'my-library/dist/components/hello-world';
+
+defineCustomElement(); // Same as manually calling: customElements.define('hello-world', HelloWorld);
+```
+
+The output directory will also contain an `index.js` file which exports some helper methods by default. The contents of the file
+will look something like:
+
+```js
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+```
+
+> Note: The contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified!
 
 ## Making Assets Available
 
@@ -129,29 +175,6 @@ setAssetPath(document.currentScript.src);
 Make sure to copy the assets over to a public directory in your app. This configuration depends on how your script is bundled, or lack of
 bundling, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling.
 The configs below provide examples of how to do this automatically with popular bundlers.
-
-## Consuming Custom Elements
-
-By default, the custom elements files will be written to `dist/components/`. This directory can be configured using the output target's `dir` config.
-
-The generated files will each export a component class and will already have the styles bundled. However, this build does not define the custom elements or apply any polyfills. Any dependencies of your imported component will need to be loaded as well.
-
-Below is an example of defining a custom element:
-
-```tsx
-import { defineCustomElement } from 'my-library/dist/components/hello-world';
-
-defineCustomElement(); // Same as manually calling: customElements.define('hello-world', HelloWorld);
-```
-
-The output directory will also contain an `index.js` file which exports some helper methods by default. The contents of the file
-will look something like:
-
-```js
-export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
-```
-
-> Note: The contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified!
 
 ## Distributing Custom Elements
 
@@ -301,6 +324,18 @@ export default {
   ],
 };
 ```
+
+<!-- TODO: remove once custom elements bundle is officially not supported -->
+
+## How is this different from the "dist" and the "dist-custom-element-bundle" output targets?
+
+The `dist-custom-elements` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
+
+The `dist-custom-elements-bundle` output target is nearly the same as `dist-custom-elements`, and has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of `dist-custom-elements` for its improved tree-shaking features. Stencil's React, Vue, and Angular output targets use the `dist-custom-elements` for this reason.
+
+The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
+
+Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
 
 <!-- TODO: remove once legacy browsers are no longer supported -->
 
