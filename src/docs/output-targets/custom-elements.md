@@ -65,15 +65,15 @@ will also automatically recursively define any child components as well.
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
-> Note: At this time, components created not using JSX may not be automatically
-  defined. This is a known limitation of the API and users should be aware of
-  it
+> Note: At this time, components that do not use JSX cannot be automatically
+  defined. This is a known limitation of Stencil that users should be aware of.
+  
 ### externalRuntime
 
 When `true`, this flag results in the following behaviors:
 
 1. Minification will follow what is specified in the [Stencil config](docs/config#minifyJs).
-2. Filenames will not be hashed
+2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
 This flag defaults to `true` when omitted from a Stencil configuration file.
