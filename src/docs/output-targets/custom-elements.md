@@ -65,9 +65,8 @@ will also automatically recursively define any child components as well.
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
-> Note: At this time, components created not using JSX may not be automatically
-  defined. This is a known limitation of the API and users should be aware of
-  it
+> Note: At this time, components that do not use JSX cannot be automatically
+  defined. This is a known limitation of Stencil that users should be aware of.
 
 ### generateTypeDeclarations
 
