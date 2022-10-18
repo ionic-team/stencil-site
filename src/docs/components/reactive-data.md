@@ -117,7 +117,7 @@ export class RandomNumbers {
 
       /**
        * Using the spread operator, on the other hand, does
-       * create a new array. `randNumbers` is resassigned
+       * create a new array. `randNumbers` is reassigned
        * using the value returned by the spread operator.
        * The reference to `randNumbers` has changed, which
        * will trigger `@Watch` and a re-render
@@ -193,7 +193,7 @@ export class RandomNumbers {
 
       /**
        * Using the spread operator, on the other hand, does
-       * create a new object. `numberContainer` is resassigned
+       * create a new object. `numberContainer` is reassigned
        * using the value returned by the spread operator.
        * The reference to `numberContainer` has changed, which
        * will trigger `@Watch` and a re-render
