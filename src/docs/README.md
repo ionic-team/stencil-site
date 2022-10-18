@@ -2,6 +2,7 @@
 
 * Introduction
   * [Overview](introduction/overview.md)
+  * [Upgrading to Stencil v3](introduction/upgrading-to-stencil-three.md)
   * [Goals and Objectives](introduction/goals-and-objectives.md)
   * [Getting Started](introduction/getting-started.md)
   * [My First Component](introduction/my-first-component.md)
