@@ -11,9 +11,9 @@ contributors:
 
 # Custom Elements
 
-The `dist-custom-elements` output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations.
+The `dist-custom-elements` output target is used to generate custom elements in a more optimized way for tree shaking, and it's the recommended approach when using any frontend framework integrations. This output target creates custom elements that directly extend `HTMLElement` and provides simple utility functions for easily defining these elements on the [Custom Element Registry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry). As stated, this output target excels in use in frontend frameworks and projects that will handle bundling, lazy-loading, and custom element registration themselves.
 
-This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired. For using lazily loaded Stencil components, please refer to the [www output target](/docs/www).
+This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired. For using lazily loaded Stencil components, please refer to the [dist output target](/docs/distribution).
 
 To generate components using the `dist-custom-elements` output target, add it to a project's `stencil.config.ts` file like so:
 
@@ -47,7 +47,7 @@ _default: `'default'`_
 
 By default, the `dist-custom-elements` output target generates a single file per component, and exports each of those files individually.
 
-In some cases, library authors may want to change this behavior, either to automatically define component children, provide a single file containing all component exports, etc.
+In some cases, library authors may want to change this behavior, for instance to automatically define component children, provide a single file containing all component exports, etc.
 
 This config option provides additional behaviors that will alter the default component export _OR_ custom element definition behaviors
 for this target. The desired behavior can be set via the following in a project's Stencil config:
@@ -86,13 +86,13 @@ This config option allows you to change the output directory where the compiled 
 
 _default: `true`_
 
-If `true`, this config option will remove the contents of the [output directory](#dir) between builds.
+Setting this flag to `true` will remove the contents of the [output directory](#dir) between builds.
 
 ### externalRuntime
 
 _default: `true`_
 
-When `true`, this flag results in the following behaviors:
+Setting this flag to `true` results in the following behaviors:
 
 1. Minification will follow what is specified in the [Stencil config](docs/config#minifyJs).
 2. Filenames will not be hashed
@@ -106,7 +106,7 @@ By default, Stencil will generate type declaration files (`.d.ts` files) as a pa
 
 Setting this flag to `false` will not generate type declaration files for the `dist-custom-elements` output target.
 
-> When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of the generated `component.d.ts` file.
+> When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of the generated [output directory's](#dir) `index.js` file.
 
 ### inlineDynamicImports
 
@@ -325,7 +325,7 @@ export default {
 };
 ```
 
-<!-- TODO: remove once custom elements bundle is officially not supported -->
+<!-- TODO(STENCIL-561): remove once custom elements bundle is officially not supported -->
 
 ## How is this different from the "dist" and the "dist-custom-element-bundle" output targets?
 
