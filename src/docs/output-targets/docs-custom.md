@@ -62,8 +62,9 @@ The generated docs JSON data will in the type of `JsonDocs` which consists of ma
 | `encapsulation`    | Component `encapsulation` type. Possible values are `shadow`, `scoped`, `none`  |
 | `tag`    | Component tag described in `.tsx` file  |
 | `readme`    | Component readme file first line content  |
-| `docs`    | Description written in top of `@Component` e.g. /**  Documentation Example */ |
+| `docs`    | Description written in top of `@Component` e.g. /**  Documentation Example */. If no JSDoc is present, default to any manually written text in the component's markdown file. Empty otherwise. |
 | `docsTags`    | Annotations (In the way of JSDoc ) written in `.tsx` file will be collected here   |
+| `overview`    | Description written in top of `@Component` e.g. /**  Documentation Example */ |
 | `usage`    |    |
 | `props`    | Array of component properties information   |
 | `methods`    | Array of component methods information   |
