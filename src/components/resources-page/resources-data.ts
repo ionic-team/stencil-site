@@ -29,7 +29,9 @@ export const RESOURCES = {
     { title: 'Badge Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/badge-component' },
     { title: 'Progress Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/progress-component' },
     { title: 'A small collection of Awesome Stencil UI components', url: 'https://github.com/dlucidone/awesome-ui' },
-    { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' }
+    { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' },
+    { title: 'Stedux: Redux for Stencil', url: 'https://github.com/randy-r/stedux' },
+    { title: 'Stenimator: Animation coordintor for elements leaving the DOM', url: 'https://github.com/randy-r/stenimator' }
   ],
   TOOLS: [
     { title: '@stencil/eslint-plugin: ESLint rules for Stencil components', url: 'https://www.npmjs.com/package/@stencil/eslint-plugin' },
@@ -160,6 +162,20 @@ export const RESOURCES = {
       imgPath: '/assets/img/demos/demo-revogrid',
       demoUrl: 'https://revolist.github.io/revogrid',
       sourceUrl: 'https://github.com/revolist/revogrid',
+    },
+    {
+      title: 'Stedux',
+      description: 'Example website for the using the Stedux library',
+      imgPath: '/assets/img/demos/demo-stedux',
+      demoUrl: 'https://randy-r.github.io/stedux',
+      sourceUrl: 'https://github.com/randy-r/stedux',
+    },
+    {
+      title: 'Stenimator',
+      description: 'Example website for the using the Stenimator library',
+      imgPath: '/assets/img/demos/demo-stenimator',
+      demoUrl: 'https://randy-r.github.io/stenimator',
+      sourceUrl: 'https://github.com/randy-r/stenimator',
     }
   ],
 };
