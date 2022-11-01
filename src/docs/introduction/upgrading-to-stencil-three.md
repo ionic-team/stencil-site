@@ -152,6 +152,21 @@ Projects that manually create type definitions from `components.d.ts` will eithe
 - remove the manually created type (if the types generated in `components.d.ts` suffice)
 - update their type creation logic to account for potential naming collisions with the newly generated types
 
+### Composition Event Handlers Renamed
+
+The names of Stencil's composition event handlers have been changed in order to
+correct a casing issue which prevented handlers from being called when events
+fired. The changes are as follows:
+
+| previous name                | new name                     |
+| ---------------------------- | ---------------------------- |
+| `onCompositionEnd`           | `onCompositionend`           |
+| `onCompositionEndCapture`    | `onCompositionendCapture`    |
+| `onCompositionStart`         | `onCompositionstart`         |
+| `onCompositionStartCapture`  | `onCompositionstartCapture`  |
+| `onCompositionUpdate`        | `onCompositionupdate`        |
+| `onCompositionUpdateCapture` | `onCompositionupdateCapture` |
+
 ## Output Targets
 
 ### `dist-custom-elements` Output Target
