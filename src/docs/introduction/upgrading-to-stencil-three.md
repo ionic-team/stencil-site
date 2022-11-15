@@ -257,14 +257,16 @@ Replace all instances of `addDestory` with `addDestroy` and all instances of `re
 The functionality of these methods remains the same.
 
 ## End-to-End Testing
-### Puppeteer v10 Required
+### Puppeteer v10+ Required
 Versions of Puppeteer prior to Puppeteer version 10 are no longer supported.
 In newer versions of Puppeteer, the library provides its own types, making `@types/puppeteer` no longer necessary.
-Ensure that Puppeteer v10 is installed, and that its typings are not:
+Ensure that Puppeteer v10 or higher is installed, and that its typings are not:
 ```bash
-$ npm install puppeteer@10
+$ npm install puppeteer
 $ npm uninstall @types/puppeteer
 ```
+
+To see which versions of Puppeteer are supported by Stencil, please see our [support matrix](/docs/support-policy#puppeteer)
 
 ## Need Help Upgrading?
 
