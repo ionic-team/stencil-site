@@ -16,6 +16,6 @@ Think of it as turning every URL in your app into a standalone web page that boo
 
 This means you can simply deploy the `www` output target's directory to any static host!
 
-## Layer0
+## Edgio
 
-See [Creating and Deploying a Stencil App with Layer0](https://docs.layer0.co/guides/stencil).
+See [Creating and Deploying a Stencil App with Edgio](https://docs.edgio.io/guides/stencil).
