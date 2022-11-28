@@ -8,6 +8,11 @@
         "url": "/docs/introduction"
       },
       {
+        "text": "Upgrading to Stencil v3",
+        "filePath": "/assets/docs/introduction/upgrading-to-stencil-three.json",
+        "url": "/docs/upgrading-to-stencil-3"
+      },
+      {
         "text": "Goals and Objectives",
         "filePath": "/assets/docs/introduction/goals-and-objectives.json",
         "url": "/docs/goals-and-objectives"
