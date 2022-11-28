@@ -292,4 +292,4 @@ $ npm uninstall @types/puppeteer
 
 Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/v3.0.0-dev/BREAKING_CHANGES.md#stencil-v300).
 
-If you need help upgrading, please post a thread on the [Stencil Forum](https://forum.ionicframework.com/).
+If you need help upgrading, please post a thread on the [Stencil Forum](https://forum.ionicframework.com/c/stencil/21).
