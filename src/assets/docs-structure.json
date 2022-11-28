@@ -21,6 +21,11 @@
         "text": "My First Component",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
+      },
+      {
+        "text": "Upgrading to Stencil v3.0.0",
+        "filePath": "/assets/docs/introduction/upgrading-to-stencil-three.json",
+        "url": "/docs/upgrading-to-stencil-3"
       }
     ]
   },
