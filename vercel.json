@@ -119,6 +119,16 @@
       "source": "/docs/deno(/)?",
       "destination": "/docs/support-policy",
       "statusCode": 301
+    },
+    {
+      "source": "/docs/stencil-state-tunnel(/)?",
+      "destination": "https://github.com/ionic-team/stencil-state-tunnel",
+      "statusCode": 301
+    },
+    {
+      "source": "/docs/state-tunnel(/)?",
+      "destination": "https://github.com/ionic-team/stencil-state-tunnel",
+      "statusCode": 301
     }
   ]
 }
