@@ -404,6 +404,8 @@ $ npm install puppeteer
 $ npm uninstall @types/puppeteer
 ```
 
+To see which versions of Puppeteer are supported by Stencil, please see our [support matrix](/docs/support-policy#puppeteer)
+
 ## Need Help Upgrading?
 
 Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/v3.0.0-dev/BREAKING_CHANGES.md#stencil-v300).
