@@ -20,7 +20,7 @@ For breaking changes introduced in previous major versions of the library, see:
 
 For projects that are on Stencil v2, install the latest version of Stencil v3:
 ```bash
-npm install @stencil/core@3
+npm install @stencil/core@v3-next
 ```
 
 ## Updating Your Code
