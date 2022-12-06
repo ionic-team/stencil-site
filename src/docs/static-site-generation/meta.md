@@ -15,7 +15,7 @@ Web Apps need to list detailed meta information about content in order to maximi
 One of the benefits to Stencil's prerendering is that most DOM apis are available in the NodeJS environment too.
 For example, to set the document title, simply run `document.title = "Page Title"`.
 Similarly, meta tags can be set using standard DOM APIs as found in the browser, such as `document.head` and `document.createElement('meta')`.
-This mean your components runtime may already be able to do much of the custom work throughout prerendering.
+For this reason, your component's runtime can take care of much of this custom work during prerendering.
 
 That said, the Prerender Config also comes with many options that allows individual pages to be modified.
 For example, the `afterHydrate(document, url)` hook can be used to update the parsed `document`, before it is serialized into an HTML string.
