@@ -17,7 +17,7 @@ For example, to set the document title, simply run `document.title = "Page Title
 Similarly, meta tags can be set using standard DOM APIs as found in the browser, such as `document.head` and `document.createElement('meta')`.
 For this reason, your component's runtime can take care of much of this custom work during prerendering.
 
-That said, the Prerender Config also comes with many options that allows individual pages to be modified.
+That said, the Prerender Config also includes options that allow individual pages to be modified arbitrarily during prerendering.
 For example, the `afterHydrate(document, url)` hook can be used to update the parsed `document`, before it is serialized into an HTML string.
 The `document` argument can be used no different from the `document` found in a webpage, and the `url` argument is a `URL` location of the page being rendered.
 
