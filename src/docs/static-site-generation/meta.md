@@ -19,7 +19,7 @@ For this reason, your component's runtime can take care of much of this custom w
 
 That said, the Prerender Config also includes options that allow individual pages to be modified arbitrarily during prerendering.
 For example, the `afterHydrate(document, url)` hook can be used to update the parsed `document` before it is serialized into an HTML string.
-The `document` argument can be used no different from the `document` found in a webpage, and the `url` argument is a `URL` location of the page being rendered.
+The `document` argument is a [standard `Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document), while the `url` argument is a [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) for the location of the page being rendered.
 
 In the example below, the `afterHydrate(document, url)` hook is setting the document title from url's pathname.
 
