@@ -107,6 +107,7 @@ export const RESOURCES = {
     { title: 'Stencil Bileşen Yaşam Döngüsü (in Turkish)', url: 'https://medium.com/@selcukkutuk/bilesen-yasam-dongusu-c53dc42c2384' },
     { title: 'Stencil Tricks - A collection of community-written articles on how to do awesome things in Stencil JS', url: 'https://medium.com/stencil-tricks' },
     { title: 'Stencil Testing Cheatsheet - A collection of useful code snippets and examples for writing End to End tests in a Stencil project.', url: 'https://paulcpederson.com/articles/stencil-tests/' },
+    { title: 'Stencil-Tutorial: Wie baue ich eine einfache Adressen-App', url: 'https://derkuba.de/content/posts/stenciljs/stencil-tutorial/' },
   ],
   VIDEOS: [
     { title: 'Stencil: a built-time approach to the web by Manu Martinez-Almeida | JSConf EU 2019', url: 'https://www.youtube.com/watch?v=M1F81V-NhP0' },
