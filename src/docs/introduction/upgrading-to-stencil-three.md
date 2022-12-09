@@ -224,6 +224,11 @@ export const config: Config = {
 };
 ```
 
+#### Remove `inlineDynamicImports` Configuration
+The `inlineDynamicImports` configuration option on `dist-custom-elements` has been removed. Previously, this option would throw an error at build
+time during the Rollup bundling process if the build contained multiple "inputs" (components). Based on the use cases for Stencil components libraries
+and how this Rollup option behaves, there is no reason to keep this option around.
+
 ### `dist-custom-elements-bundle` Output Target
 The `dist-custom-elements-bundle` has been removed starting with Stencil v3.0.0, following the [RFC process](https://github.com/ionic-team/stencil/issues/3136).
 Users of this output target should migrate to the `dist-custom-elements` output target.
