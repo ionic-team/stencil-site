@@ -62,6 +62,31 @@ export const config: Config = {
 };
 ```
 
+### Legacy Browser Support Fields Deprecated
+
+Several configuration options related to support for Safari <11, IE11, and Edge
+<19 have been marked as deprecated, and will be removed entirely in a future
+version of Stencil.
+
+#### `dynamicImportShim`
+
+The `extras.dynamicImportShim` option causes Stencil to include a polyfill for
+the [dynamic `import()`
+function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
+for use at runtime. The field is renamed to `__deprecated__dynamicImportShim`
+to indicate deprecation. To retain the previous behavior the new option can be
+set in your project's `stencil.config.ts`:
+
+```ts
+// stencil.config.ts
+import { Config } from '@stencil/core';
+export const config: Config = {
+  extras: {
+    __deprecated__dynamicImportShim: true
+  }
+};
+```
+
 ### Deprecated `assetsDir` Removed from `@Component()` decorator
 The `assetsDir` field was [deprecated in Stencil v2.0.0](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#componentassetsdir), but some backwards compatibility was retained with a warning message.
 It has been fully removed in Stencil v3.0.0 in favor of `assetsDirs`.
