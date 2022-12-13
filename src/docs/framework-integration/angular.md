@@ -202,63 +202,6 @@ Developers can now directly leverage your components in their template and take 
 <my-component first="Your" last="Name"></my-component>
 ```
 
-## FAQs
-
-### What is the best format to write event names?
-
-Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability
-between frameworks.
-
-### How do I bind input events directly to a value accessor?
-
-You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your
-components. Take a look at [valueAccessorConfig's option below]().
-
-### How do I add IE11 or Edge support?
-
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()`
-function.
-
-```ts
-import { applyPolyfills, defineCustomElements } from 'test-components/loader';
-...
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-```
-
-### How do I access components with ViewChild or ViewChildren?
-
-Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
-
-```tsx
-import { Component, ElementRef, ViewChild } from '@angular/core';
-
-import { TestComponent } from 'test-components';
-
-@Component({
-  selector: 'app-home',
-  template: `<test-components #test></test-components>`,
-  styleUrls: ['./home.component.scss'],
-})
-export class HomeComponent {
-  @ViewChild(TestComponent) myTestComponent: ElementRef<TestComponent>;
-
-  async onAction() {
-    await this.myTestComponent.nativeElement.testComponentMethod();
-  }
-}
-```
-
-### Why aren't my custom interfaces exported from within the index.d.ts file?
-
-Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component
-library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root
-of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
-
-When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like:
-`"types": "dist/types/interfaces.d.ts"`
-
 ## API
 
 The angularOutputTarget method accepts 5 parameters:
@@ -325,3 +268,60 @@ export const config: Config = {
 
 This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic
 Framework, this is used for routing components - like tabs - so that Ionic Framework can integrate better with Angular's Router.
+
+## FAQs
+
+### What is the best format to write event names?
+
+Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability
+between frameworks.
+
+### How do I bind input events directly to a value accessor?
+
+You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your
+components. Take a look at [valueAccessorConfig's option below]().
+
+### How do I add IE11 or Edge support?
+
+If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()`
+function.
+
+```ts
+import { applyPolyfills, defineCustomElements } from 'test-components/loader';
+...
+applyPolyfills().then(() => {
+  defineCustomElements();
+});
+```
+
+### How do I access components with ViewChild or ViewChildren?
+
+Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:
+
+```tsx
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import { TestComponent } from 'test-components';
+
+@Component({
+  selector: 'app-home',
+  template: `<test-components #test></test-components>`,
+  styleUrls: ['./home.component.scss'],
+})
+export class HomeComponent {
+  @ViewChild(TestComponent) myTestComponent: ElementRef<TestComponent>;
+
+  async onAction() {
+    await this.myTestComponent.nativeElement.testComponentMethod();
+  }
+}
+```
+
+### Why aren't my custom interfaces exported from within the index.d.ts file?
+
+Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component
+library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root
+of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
+
+When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like:
+`"types": "dist/types/interfaces.d.ts"`
