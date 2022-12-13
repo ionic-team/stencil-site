@@ -10,13 +10,15 @@ contributors:
   - jeanbenitez
   - mburger81
   - splitinfinities
+  - tanner-reits
 ---
 
 # Angular Integration
 
 **Supports: Angular 12+ • TypeScript 4.0+ • Stencil v2.9.0+**
 
-Stencil can generate Angular component wrappers for your web components. This allows your Stencil components to be used within an Angular application. The benefits of using Stencil's component wrappers over the standard web components include:
+Stencil can generate Angular component wrappers for your web components. This allows your Stencil components to be used within
+an Angular application. The benefits of using Stencil's component wrappers over the standard web components include:
 
 - Angular component wrappers will be detached from change detection, preventing unnecessary repaints of your web component.
 - Web component events will be converted to RxJS observables to align with Angular's `@Output()` and will not emit across component boundaries.
@@ -26,7 +28,8 @@ Stencil can generate Angular component wrappers for your web components. This al
 
 ### Project Structure
 
-We recommend using a monorepo structure for your component library with component wrappers. Your project workspace should contain your Stencil component library and the library for the generated Angular component wrappers.
+We recommend using a monorepo structure for your component library with component wrappers. Your project workspace should contain your
+Stencil component library and the library for the generated Angular component wrappers.
 
 An example project set-up may look similar to:
 
@@ -98,9 +101,11 @@ export const config: Config = {
 };
 ```
 
-> The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
+> The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. 
+> You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
-> The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This constant can be used to easily declare and export all the wrappers.
+> The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers.
+> This constant can be used to easily declare and export all the wrappers.
 
 You can now build your Stencil component library to generate the component wrappers.
 
@@ -125,7 +130,8 @@ import { DIRECTIVES } from './stencil-generated';
 export class ExampleLibraryModule {}
 ```
 
-Any components that are included in the `exports` array should additionally be exported in your main entry point (either `public-api.ts` or `index.ts`). Skipping this step will lead to Angular Ivy errors when building for production.
+Any components that are included in the `exports` array should additionally be exported in your main entry point (either `public-api.ts` or
+`index.ts`). Skipping this step will lead to Angular Ivy errors when building for production.
 
 ```ts
 export { DIRECTIVES } from './stencil-generated';
@@ -157,9 +163,11 @@ yarn link name-of-your-stencil-package
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
 
-Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the changes to the Angular component library.
+Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
+changes to the Angular component library.
 
-> **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+> **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy,
+however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
 ## Consumer Usage
 
@@ -198,15 +206,18 @@ Developers can now directly leverage your components in their template and take 
 
 ### What is the best format to write event names?
 
-Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability between frameworks.
+Event names shouldn’t include special characters when initially written in Stencil, try to lean on using camelCased event names for interoperability
+between frameworks.
 
 ### How do I bind input events directly to a value accessor?
 
-You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your components. Take a look at [valueAccessorConfig's option below]().
+You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your
+components. Take a look at [valueAccessorConfig's option below]().
 
 ### How do I add IE11 or Edge support?
 
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()`
+function.
 
 ```ts
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
@@ -241,9 +252,12 @@ export class HomeComponent {
 
 ### Why aren't my custom interfaces exported from within the index.d.ts file?
 
-Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
+Usually when beginning this process, you may bump into a situation where you find that some of the interfaces you've used in your Stencil component
+library aren't working in your Angular component library. You can resolve this issue by adding an `interfaces.d.ts` file located within the root
+of your Stencil component library's project folder, then manually exporting types from that file e.g. `export * from './components';`
 
-When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like: `"types": "dist/types/interfaces.d.ts"`
+When adding this file, it's also recommended to update your package.json's types property to be the distributed file, something like:
+`"types": "dist/types/interfaces.d.ts"`
 
 ## API
 
@@ -251,7 +265,8 @@ The angularOutputTarget method accepts 5 parameters:
 
 ### componentCorePackage
 
-The title of the Stencil package where components are available for consumers. This is used during compilation to write the correct imports for components e.g.
+The title of the Stencil package where components are available for consumers. This is used during compilation to write the correct imports
+for components e.g.
 
 ```js
 import { IonApp } from '@ionic/core/components/ion-app.js';
@@ -259,7 +274,8 @@ import { IonApp } from '@ionic/core/components/ion-app.js';
 
 ### directivesProxyFile
 
-This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your Angular project.
+This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the
+first file you should import in your Angular project.
 
 ### includeImportCustomElements
 
@@ -267,7 +283,8 @@ If `true`, Angular components will import and define elements from the `dist-cus
 
 ### directivesArrayFile
 
-Used to provide a list of type Proxies to the Angular Component Library. [See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
+Used to provide a list of type Proxies to the Angular Component Library.
+[See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
 
 ### directivesUtilsFile
 
@@ -275,7 +292,8 @@ This is the file where helper functions for the component wrappers are defined.
 
 ### valueAccessorConfigs
 
-This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (I.e. `value`), which event will cause the target prop to change, and more.
+This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (I.e. `value`),
+which event will cause the target prop to change, and more.
 
 ```tsx
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
@@ -305,4 +323,5 @@ export const config: Config = {
 
 ### excludeComponents
 
-This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components - like tabs - so that Ionic Framework can integrate better with Angular's Router.
+This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic
+Framework, this is used for routing components - like tabs - so that Ionic Framework can integrate better with Angular's Router.
