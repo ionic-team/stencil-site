@@ -5,6 +5,7 @@ url: /docs/config-extras
 contributors:
   - mattdsteele
   - rwaskiewicz
+  - alicewriteswrongs
 ---
 
 # Extras
@@ -71,8 +72,9 @@ Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox
 moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`.
 Defaults to `false`.
 
-Since Stencil v3.0.0. IE 11, Edge <= 18, and old Safari versions are no longer
-supported, and hence this field is deprecated.
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### experimentalImportInjection
 
