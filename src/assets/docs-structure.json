@@ -278,6 +278,10 @@
         "url": "/docs/module-bundling"
       },
       {
+        "text": "CSP Nonces",
+        "filePath": "/assets/docs/guides/csp-nonce.json"
+      },
+      {
         "text": "Design Systems",
         "filePath": "/assets/docs/guides/design-systems.json",
         "url": "/docs/design-systems"
