@@ -109,12 +109,6 @@ Setting this flag to `false` will not generate type declaration files for the `d
 
 > When set to generate type declarations, Stencil respects the export behavior selected via `customElementsExportBehavior` and generates type declarations specific to the content of the generated [output directory's](#dir) `index.js` file.
 
-### inlineDynamicImports
-
-_default: `false`_
-
-Setting this flag to `true` will trigger [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) to essentially be "pulled into" the current bundle, rather than being created as separate chunks. For more information, see [Rollup's documentation](https://rollupjs.org/guide/en/#outputinlinedynamicimports) for this option.
-
 ### includeGlobalScripts
 
 _default: `false`_
