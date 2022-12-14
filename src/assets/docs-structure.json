@@ -279,7 +279,8 @@
       },
       {
         "text": "CSP Nonces",
-        "filePath": "/assets/docs/guides/csp-nonce.json"
+        "filePath": "/assets/docs/guides/csp-nonce.json",
+        "url": "/docs/csp-nonce"
       },
       {
         "text": "Design Systems",
