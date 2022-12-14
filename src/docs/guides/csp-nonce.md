@@ -6,6 +6,8 @@ contributors:
   - tanner-reits
 ---
 
+# Using Content Security Policy Nonces in Stencil
+
 [Content Security Policies (CSPs)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) can help protect an application from Cross-Site Scripting (XSS)
 attacks by adding a security layer to help prevent unauthorized code from running in the browser.
 
