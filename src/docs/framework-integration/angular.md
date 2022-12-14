@@ -23,13 +23,14 @@ an Angular application. The benefits of using Stencil's component wrappers over 
 - Angular component wrappers will be detached from change detection, preventing unnecessary repaints of your web component.
 - Web component events will be converted to RxJS observables to align with Angular's `@Output()` and will not emit across component boundaries.
 - Optionally, form control web components can be used as control value accessors with Angular's reactive forms or `[ngModel]`.
+- It is not necessary to include the `CUSTOM_ELEMENTS_SCHEMA` in all modules consuming your Stencil components.
 
 ## Setup
 
 ### Project Structure
 
-We recommend using a monorepo structure for your component library with component wrappers. Your project workspace should contain your
-Stencil component library and the library for the generated Angular component wrappers.
+We recommend using a [monorepo](https://www.toptal.com/front-end/guide-to-monorepos) structure for your component library with component
+wrappers. Your project workspace should contain your Stencil component library and the library for the generated Angular component wrappers.
 
 An example project set-up may look similar to:
 
@@ -92,6 +93,13 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 export const config: Config = {
   namespace: 'stencil-library',
   outputTargets: [
+    // By default, the generated proxy components will
+    // leverage the output from the `dist` target, so we
+    // need to explicitly define that output alongside the
+    // Angular target
+    {
+      type: 'dist',
+    },
     angularOutputTarget({
       componentCorePackage: 'your-stencil-library-package-name',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
@@ -101,11 +109,7 @@ export const config: Config = {
 };
 ```
 
-> The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. 
-> You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
-
-> The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers.
-> This constant can be used to easily declare and export all the wrappers.
+See the [API section below](#api) for details on each of the output target's options.
 
 You can now build your Stencil component library to generate the component wrappers.
 
@@ -137,9 +141,12 @@ Any components that are included in the `exports` array should additionally be e
 export { DIRECTIVES } from './stencil-generated';
 ```
 
+> **NOTE:** The default behavior does not automatically define the Web Components needed by the proxy components. You can manually define the Web
+> Components following the [documentation for the dist output target](docs/custom-elements#defining-exported-custom-elements).
+
 ### Link your packages (optional)
 
-> If you are using a monorepo tool (Lerna, Nx), skip this section.
+> If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
 
 Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
 
@@ -167,7 +174,7 @@ Your component libraries are now linked together. You can make changes in the St
 changes to the Angular component library.
 
 > **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy,
-however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+> however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
 ## Consumer Usage
 
@@ -204,38 +211,84 @@ Developers can now directly leverage your components in their template and take 
 
 ## API
 
-The angularOutputTarget method accepts 5 parameters:
-
 ### componentCorePackage
 
-The title of the Stencil package where components are available for consumers. This is used during compilation to write the correct imports
-for components e.g.
+**Required**
+
+**Type: `string`**
+
+The title of the Stencil package where components are available for consumers (i.e. the `name` property value in your Stencil project's `package.json`).
+This is used during compilation to write the correct imports for components.
+
+For the Ionic Framework, a generated import would look like:
 
 ```js
 import { IonApp } from '@ionic/core/components/ion-app.js';
 ```
 
+In the generated statement, `@ionic/core` is the value supplied for `componentCorePackage`.
+
+### customElementsDir
+
+**Optional**
+
+**Default: 'dist/components'**
+
+If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
+custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
+the default directory.
+
+### excludeComponents
+
+**Optional**
+
+**Default: `[]`**
+
+**Type: `string[]`**
+
+This lets you specify component tag names for which you don't want to generate Angular wrapper components. This is useful if you need to write framework-specific versions of components. For instance, in Ionic Framework, this is used for routing components - like tabs - so that
+Ionic Framework can integrate better with Angular's Router.
+
+### directivesArrayFile
+
+**Optional**
+
+**Default: `null`**
+
+**Type: `string`**
+
+Used to provide a list of type Proxies to the Angular Component Library.
+[See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
+
 ### directivesProxyFile
+
+**Required**
+
+**Type: `string`**
 
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the
 first file you should import in your Angular project.
 
 ### includeImportCustomElements
 
-If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`.
+**Optional**
 
-### directivesArrayFile
+**Default: `false`**
 
-Used to provide a list of type Proxies to the Angular Component Library.
-[See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
+**Type: `boolean`**
 
-### directivesUtilsFile
-
-This is the file where helper functions for the component wrappers are defined.
+If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. For more information
+on using the `dist-custom-elements` output for the Angular proxies, see the [FAQ answer below](#do-i-have-to-use-the-dist-output-target).
 
 ### valueAccessorConfigs
 
-This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (I.e. `value`),
+**Optional**
+
+**Default: `[]`**
+
+**Type: `ValueAccessorConfig[]`**
+
+This lets you define which components should be integrated with ngModel (I.e. form components). It lets you set what the target prop is (i.e. `value`),
 which event will cause the target prop to change, and more.
 
 ```tsx
@@ -264,12 +317,40 @@ export const config: Config = {
 };
 ```
 
-### excludeComponents
-
-This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic
-Framework, this is used for routing components - like tabs - so that Ionic Framework can integrate better with Angular's Router.
-
 ## FAQs
+
+### Do I have to use the `dist` output target?
+
+No! By default, this output target will look to use the `dist` output, but the output from `dist-custom-elements` can be used alternatively.
+
+To do so, simply set the `includeImportCustomElements` option in the output target's config and ensure the
+[custom elements output target](docs/custom-elements) is added to the Stencil config's output target array:
+
+```ts
+// stencil.config.ts
+
+export const config: Config = {
+  ...,
+  outputTargets: [
+    // Needs to be included
+    {
+      type: 'dist-custom-elements'
+    },
+    angularOutputTarget({
+      componentCorePackage: 'component-library',
+      directivesProxyFile: '{path to your proxy file}',
+      // This is what tells the target to use the custom elements output
+      includeImportCustomElements: true
+    })
+  ]
+}
+```
+
+Now, all generated imports will point to the default directory for the custom elements output. If you specified a different directory
+using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the Angular output target. See
+[the API section](#customelementsdir) for more information.
+
+In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
 
 ### What is the best format to write event names?
 
