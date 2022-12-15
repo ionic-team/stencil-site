@@ -6,15 +6,24 @@ slug: /config-extras
 contributors:
   - mattdsteele
   - rwaskiewicz
+  - alicewriteswrongs
 ---
 
 # Extras
 
-The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM 
-features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when 
-using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+The `extras` config contains options to enable new/experimental features in
+Stencil, add & remove runtime for DOM features that require manipulations to
+polyfills, etc. For example, not all DOM APIs are fully polyfilled when using
+the Slot polyfill. Most of these are opt-in, since not all users require the
+additional runtime.
 
-By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
+By default, Stencil does not work on IE11, Edge 18 and below (Edge before it
+moved to Chromium) and Safari 10. In order to support legacy browsers, the
+browsers would need to download and run polyfills. By using the `extras`
+config, apps can opt-in these additional runtime settings.
+
+Note that as of Stencil v3 several of these fields are deprecated, and will be
+removed in a future version of Stencil. Deprecated fields are marked as such.
 
 Example `extras` config when __supporting__ legacy browsers:
 
@@ -23,7 +32,7 @@ export const config: Config = {
   buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
-    dynamicImportShim: true,
+    __deprecated__dynamicImportShim: true,
     shadowDomShim: true,
     safari10: true,
     scriptDataOpts: true,
@@ -59,9 +68,16 @@ div {
 }
 ```
 
-### dynamicImportShim
+### `__deprecated__dynamicImportShim`
 
-Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 67 and below. If you do not need to support Edge 18 and below (Edge before it moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`. Defaults to `false`.
+Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox
+67 and below. If you do not need to support Edge 18 and below (Edge before it
+moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`.
+Defaults to `false`.
+
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### experimentalImportInjection
 
