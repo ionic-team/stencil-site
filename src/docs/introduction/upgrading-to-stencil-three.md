@@ -87,6 +87,25 @@ export const config: Config = {
 };
 ```
 
+#### `shadowDomShim`
+
+If `extras.shadowDomShim` is set to `true` the Stencil runtime will check
+whether a shim for [shadow
+DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
+is needed in the current browser, and include one if so. For Stencil v3.0.0
+this field is renamed to `__deprecated__shadowDomShim`. To retain the previous
+behavior the new option can be set in your project's `stencil.config.ts`:
+
+```ts
+// stencil.config.ts
+import { Config } from '@stencil/core';
+export const config: Config = {
+  extras: {
+    __deprecated__shadowDomShim: true
+  }
+};
+```
+
 ### Deprecated `assetsDir` Removed from `@Component()` decorator
 The `assetsDir` field was [deprecated in Stencil v2.0.0](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#componentassetsdir), but some backwards compatibility was retained with a warning message.
 It has been fully removed in Stencil v3.0.0 in favor of `assetsDirs`.
