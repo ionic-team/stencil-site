@@ -124,6 +124,23 @@ export const config: Config = {
 };
 ```
 
+#### `safari10`
+
+If `extras.safari10` is set to `true` the Stencil runtime will patch ES module
+support for Safari 10. For Stencil v3.0.0 this field is renamed to
+`__deprecated__safari10`. To retain the previous behavior the new option can be
+set in your project's `stencil.config.ts`:
+
+```ts
+// stencil.config.ts
+import { Config } from '@stencil/core';
+export const config: Config = {
+  extras: {
+    __deprecated__safari10: true
+  }
+};
+```
+
 ### Deprecated `assetsDir` Removed from `@Component()` decorator
 The `assetsDir` field was [deprecated in Stencil v2.0.0](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#componentassetsdir), but some backwards compatibility was retained with a warning message.
 It has been fully removed in Stencil v3.0.0 in favor of `assetsDirs`.
