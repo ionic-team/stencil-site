@@ -119,9 +119,17 @@ Dispatches component lifecycle events. By default these events are not dispatche
 | `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
 | `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
 
-### safari10
+### `__deprecated__safari10`
 
-Safari 10 supports ES modules with `<script type="module">`, however, it did not implement `<script nomodule>`. When set `safari10` is set to `false`, the runtime will not patch support for Safari 10. If the app does not need to support Safari 10, it's recommended to set this to `false`. Defaults to `false`.
+Safari 10 supports ES modules with `<script type="module">`, however, it did
+not implement `<script nomodule>`. When `__deprecated__safari10` is set to
+`true`, the runtime will patch support for Safari 10. If your app does not need
+to support Safari 10, it's recommended to leave this set to its default value
+of `false`.
+
+As of Stencil v3.0.0, support Safari 10 has begun to reach end-of-life. While
+this flag and its supporting functionality is currently available, it will be
+removed in a future version of Stencil.
 
 ### scopedSlotTextContentFix
 
