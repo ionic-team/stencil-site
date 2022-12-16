@@ -55,11 +55,16 @@ By default, the slot polyfill does not update `appendChild()` so that it appends
 
 By default, the runtime does not polyfill `cloneNode()` when cloning a component that uses the slot polyfill. This is an opt-in polyfill for those who need it.
 
-### cssVarsShim
+### `__deprecated__cssVarsShim`
 
 Include the CSS Custom Property polyfill/shim for legacy browsers.
 
-A result of this being set to `false` is that you will need to manually provide "fallback" properties to legacy builds. For example, in the css below, the css variable will not be polyfilled for IE11, so the developer will manually need to provide a fallback just before the css variable. If the app does not need to support IE11 it's recommended to leave `cssVarsShim` set to the default value of `false`.
+A result of this being set to `false` is that you will need to manually provide
+"fallback" properties to legacy builds. For example, in the css below, the css
+variable will not be polyfilled for IE11, so the developer will manually need
+to provide a fallback just before the css variable. If the app does not need to
+support IE11 it's recommended to leave `__deprecated__cssVarsShim` set to the
+default value of `false`.
 
 ```css
 div {
@@ -67,6 +72,10 @@ div {
   color: var(--color); /* Used by modern browsers */
 }
 ```
+
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### `__deprecated__dynamicImportShim`
 
