@@ -131,9 +131,17 @@ An experimental flag that when set to `true`, aligns the behavior of invoking th
 
 It is possible to assign data to the actual `<script>` element's `data-opts` property, which then gets passed to Stencil's initial bootstrap. This feature is only required for very special cases and rarely needed. When set to `false` it will not read this data. Defaults to `false`.
 
-### shadowDomShim
+### `__deprecated__shadowDomShim`
 
-If enabled `true`, the runtime will check if the shadow dom shim is required. However, if it's determined that shadow dom is already natively supported by the browser then it does not request the shim. Setting to `false` will avoid all shadow dom tests. If the app does not need to support IE11 or Edge 18 and below, it's recommended to set `shadowDomShim` to `false`. Defaults to `false`.
+If enabled `true`, the runtime will check if the shadow dom shim is required.
+However, if it's determined that shadow dom is already natively supported by
+the browser then it does not request the shim. Setting to `false` will avoid
+all shadow dom tests. If the app does not need to support IE11 or Edge 18 and
+below, it's recommended to set `shadowDomShim` to `false`. Defaults to `false`.
+
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### slotChildNodesFix
 
