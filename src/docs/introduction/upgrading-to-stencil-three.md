@@ -103,9 +103,9 @@ export const config: Config = {
 };
 ```
 
-#### `cssVarShim`
+#### `cssVarsShim`
 
-`extras.cssVarShim` causes Stencil to include a polyfill for [CSS
+`extras.cssVarsShim` causes Stencil to include a polyfill for [CSS
 variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*). For Stencil
 v3.0.0 this field is renamed to `__deprecated__cssVarsShim`. To retain the
 previous behavior the new option can be set in your project's
