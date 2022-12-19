@@ -81,7 +81,7 @@ export class SiteHeader {
           >
             Resources
           </stencil-route-link>
-          <a href="https://ionicframework.com/blog/tag/stencil/" aria-label="Blog" class="external-links">
+          <a href="https://ionic.io/blog/category/stencil" aria-label="Blog" class="external-links">
             Blog
           </a>
 

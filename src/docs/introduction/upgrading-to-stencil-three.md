@@ -16,10 +16,7 @@ For breaking changes introduced in previous major versions of the library, see:
 - [Stencil v2 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-two)
 - [Stencil v1 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-one)
 
-For projects that are on Stencil v2, install the latest version of Stencil v3:
-```bash
-npm install @stencil/core@3
-```
+For projects that are on Stencil v2, install the latest version of Stencil v3: `npm install @stencil/core@3`
 
 ## Updating Your Code
 

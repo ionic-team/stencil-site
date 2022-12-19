@@ -674,8 +674,8 @@ when using the component in HTML.
 
 ### Prop Mutability (`mutable`)
 
-A Prop is by default immutable from inside the component logic. However, it's possible to explicitly allow a Prop to be
-mutated from inside the component, by declaring it as mutable, as in the example below:
+A Prop is by default immutable from inside the component logic.
+However, it's possible to explicitly allow a Prop to be mutated from inside the component, by declaring it as mutable, as in the example below:
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
@@ -688,6 +688,106 @@ export class ToDoListItem {
 
    componentDidLoad() {
       this.thingToDo = 'Ah! A new value!';
+   }
+}
+```
+
+#### Mutable Arrays and Objects
+
+Stencil compares Props by reference in order to efficiently rerender components.
+Setting `mutable: true` on a Prop that is an object or array allows the _reference_ to the Prop to change inside the component and trigger a render.
+It does not allow a mutable change to an existing object or array to trigger a render. 
+
+For example, to update an array Prop:
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+   tag: 'my-component',
+})
+export class MyComponent {
+   @Prop({mutable: true}) contents: string[] = [];
+   timer: NodeJS.Timer;
+
+   connectedCallback() {
+      this.timer = setTimeout(() => {
+         // this does not create a new array. when stencil
+         // attempts to see if any of its Props have changed,
+         // it sees the reference to its `contents` Prop is
+         // the same, and will not trigger a render
+         
+         // this.contents.push('Stencil')
+         
+         // this does create a new array, and therefore a
+         // new reference to the Prop. Stencil will pick up
+         // this change and rerender
+         this.contents = [...this.contents, 'Stencil'];
+         // after 3 seconds, the component will re-render due
+         // to the reference change in `this.contents`
+      }, 3000);
+   }
+
+   disconnectedCallback() {
+      if (this.timer) {
+         clearTimeout(this.timer);
+      }
+   }
+
+   render() {
+      return <div>Hello, World! I'm {this.contents[0]}</div>;
+   }
+}
+```
+
+In the example above, updating the Prop in place using `this.contents.push('Stencil')` would have no effect.
+Stencil does not see the change to `this.contents`, since it looks at the _reference_ of the Prop, and sees that it has not changed.
+This is done for performance reasons.
+If Stencil had to walk every slot of the array to determine if it changed, it would incur a performance hit.
+Rather, it is considered better for performance and more idiomatic to re-assign the Prop (in the example above, we use the spread operator).
+
+The same holds for objects as well.
+Rather than mutating an existing object in-place, a new object should be created using the spread operator. This object will be different-by-reference and therefore will trigger a re-render:  
+
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+export type MyContents = {name: string};
+
+@Component({
+   tag: 'my-component',
+})
+export class MyComponent {
+   @Prop({mutable: true}) contents: MyContents;
+   timer: NodeJS.Timer;
+
+   connectedCallback() {
+      this.timer = setTimeout(() => {
+         // this does not create a new object. when stencil
+         // attempts to see if any of its Props have changed,
+         // it sees the reference to its `contents` Prop is
+         // the same, and will not trigger a render
+
+         // this.contents.name = 'Stencil';
+
+         // this does create a new object, and therefore a
+         // new reference to the Prop. Stencil will pick up
+         // this change and rerender
+         this.contents = {...this.contents, name: 'Stencil'};
+         // after 3 seconds, the component will re-render due
+         // to the reference change in `this.contents`
+      }, 3000);
+   }
+
+   disconnectedCallback() {
+      if (this.timer) {
+         clearTimeout(this.timer);
+      }
+   }
+
+   render() {
+      return <div>Hello, World! I'm {this.contents.name}</div>;
    }
 }
 ```
