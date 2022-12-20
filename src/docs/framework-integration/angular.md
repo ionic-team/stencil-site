@@ -82,7 +82,7 @@ Install the `@stencil/angular-output-target` dependency to your Stencil componen
 # Install dependency
 npm install @stencil/angular-output-target --save-dev
 # or if using yarn
-yarn add @stencil/angular-output-target
+yarn add @stencil/angular-output-target --dev
 ```
 
 In your project's `stencil.config.ts`, add the `angularOutputTarget` configuration to the `outputTargets` array:
