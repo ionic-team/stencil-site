@@ -1,6 +1,6 @@
 ---
 title: React Integration with Stencil
-description: React Integration with Stencil
+description: Learn how to wrap your components so that people can use them natively in React
 url: /docs/react
 contributors:
   - jthoms1
@@ -11,6 +11,7 @@ contributors:
   - danawoodman
   - a-giuliano
   - rwaskiewicz
+  - tanner-reits
 ---
 
 # React Integration
@@ -25,7 +26,10 @@ One benefit of the wrapper pattern includes improved maintainability since you c
 
 ### Project Structure
 
-To organize the generated component libraries for different frameworks, we recommend using a monorepo structure. This monorepo will contain your Stencil component library as well as the component libraries for whatever frameworks you choose. The overall structure of a monorepo with Stencil and React component libraries might look something like this
+We recommend using a [monorepo](https://www.toptal.com/front-end/guide-to-monorepos) structure for your component library with component
+wrappers. Your project workspace should contain your Stencil component library and the library for the generated React component wrappers.
+
+An example project set-up may look similar to:
 
 ```
 top-most-directory/
@@ -38,21 +42,13 @@ top-most-directory/
         └── index.ts
 ```
 
-To do this, start by creating a monorepo
+### Creating a React Component Library
 
-```bash
-mkdir {the name of your monorepo}
-```
+> If you already have a React component library, skip this section.
 
-And then move your Stencil component library into your monorepo
+The first time you want to create the component wrappers, you will need to have a Rect library package to write to.
 
-```bash
-mv {the path to your Stencil component library} {the path to your monorepo}
-```
-
-### Create a React Component Library
-
-Next, we will need to create the React component library that will wrap your Stencil components. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
+You can create your own React project using a [recommended toolchain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains), or by using the [React component library template](https://github.com/ionic-team/stencil-ds-react-template). To use the template, run the following:
 
 ```bash
 git clone https://github.com/ionic-team/stencil-ds-react-template component-library-react
@@ -60,87 +56,86 @@ cd component-library-react
 npm i
 ```
 
-> **NOTE**: If you want to name your React component library something different, add the new name at the end of the clone command like so
+> **NOTE**: If you want to name your React component library something different, add the new name at the end of the clone command like so:
+
+> ```bash
+> git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
+> cd {the name of your React component library}
+> npm i # or yarn install
+> ```
+
+> If you do rename your React component library, be sure to change the `name` in the `package.json` to match your new name.
+
+#### Creating a Stencil Component Library
+
+> If you already have a Stencil component library, skip this section.
 
 ```bash
-git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
-cd {the name of your React component library}
-npm i
+npm init stencil components stencil-library
+cd stencil-library
+# Install dependencies
+npm install
+# or if using yarn
+yarn install
 ```
 
-If you do rename your React component library, be sure to change the `name` in the `package.json` to match your new name.
+### Adding the React Output Target
 
-### Install the React Output Target in your Stencil Component Library
-
-Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
+Install the `@stencil/react-output-target` dependency to your Stencil component library package.
 
 ```bash
-npm install @stencil/react-output-target --save-dev 
-```
-
-Or
-
-```bash
+# Install dependency
+npm install @stencil/react-output-target --save-dev
+# or if using yarn
 yarn add @stencil/react-output-target --dev
 ```
 
 ### Add the React Wrapper Function to your Stencil Component Library
 
-With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components (within our React component library). In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
+In your project's `stencil.config.ts`, add the `reactOutputTarget` configuration to the `outputTargets` array:
 
-```tsx
-import { Config } from '@stencil/core';
-import { reactOutputTarget as react } from '@stencil/react-output-target';
+```ts
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-  ...
+  namespace: 'stencil-library',
   outputTargets: [
-    react({
-      componentCorePackage: 'your-stencil-library-name',
-      proxiesFile: '../your-react-library-name/src/components/stencil-generated/index.ts',
-      includeDefineCustomElements: true,
-    }),
+    // By default, the generated proxy components will
+    // leverage the output from the `dist` target, so we
+    // need to explicitly define that output alongside the
+    // React target
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
     },
-    {
-      type: 'dist-custom-elements',
-    },
-    ...
+    reactOutputTarget({
+      componentCorePackage: 'your-stencil-library-package-name',
+      proxiesFile: '../react-library/src/components/stencil-generated/index.ts',
+    }),
   ],
 };
 ```
 
-First, make sure to import the `reactOutputTarget` function from `@stencil/react-output-target` at the top of the file. With that imported, we can now use it in the `outputTargets` array and specify the relevant parameters. The `componentCorePackage` should be the name of your Stencil component library. The `proxiesFile` is the file that gets generated by the React wrapper function and contains the definitions of all the React wrapper components. Be sure to change the path names to reflect the names of your packages.
+> The `proxiesFile` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
+> file path to match your project's structure and respective names. You can generate any file name instead of `index.ts`.
+
+See the [API section below](#api) for details on each of the output target's options.
 
 For details on the `includeDefineCustomElements` option, and all other options, visit the API documentation section below.
 
-With the `reactOutputTarget` configured, we can now generate our React wrapped components. In your **Stencil component library** run
+You can now build your Stencil component library to generate the component wrappers.
 
 ```bash
+# Build the library and wrappers
 npm run build
+# or if using yarn
+yarn run build
 ```
 
-You’ll see the new generated file in your React component library at the location specified by the `proxiesFile` .
-
-```
-top-most-directory/
-├── stencil-library/
-│   ├── stencil.config.js
-│   └── src/components/
-└── react-library/
-    └── src/
-        └── components/
-        │   └── stencil-generated/
-        │       └── react-component-lib/
-        │       └── index.ts <-- the newly generated file
-        └── index.ts
-```
+If the build is successful, you’ll see the new generated file in your React component library at the location specified by the `proxiesFile` argument.
 
 ### Add the Components to your React Component Library's Entry File
 
-> **Note:** If you are using our React template, this should already be prepared for you, and this step can be safely skipped.
+> If you are using Ionic's React template, skip this section.
 
 In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
 
@@ -150,31 +145,38 @@ export * from './components';
 
 ### Link Your Packages (Optional)
 
-If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment.
+> If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
 
-First, build your Stencil component library. In your **Stencil component library**, run
+Before you can successfully build a local version of your React component library, you will need to link the Stencil package to the React package.
 
-```bash
-npm run build
-```
-
-Now you can create a symlink for your Stencil component library. From within your **Stencil component library**, run
+From your Stencil project's directory, run the following command:
 
 ```bash
+# Link the working directory
 npm link
+# or if using yarn
+yarn link
 ```
 
-With the symlink created, we next need to specify which packages will be consuming them. Your React component library will need to consume your Stencil component library. In the directory of your **React component library** run
+From your React component library's directory, run the following command:
 
 ```bash
-npm link {Stencil library name}
+# Link the package name
+npm link name-of-your-stencil-package
+# or if using yarn
+yarn link name-of-your-stencil-package
 ```
 
-And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library without having to relink.
+The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
+
+Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
+changes to the React component library.
 
 > **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
 
-## Usage
+## Consumer Usage
+
+This section covers how developers consuming your React component wrappers will use your package and component wrappers.
 
 If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step.
 
@@ -204,19 +206,150 @@ With that, your component is now available to be used like any other React compo
 
 ## API
 
-### proxiesFile
+### componentCorePackage
 
-This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
+**Optional**
 
-### includeDefineCustomElements
+**Default: The `components.d.ts` file in the Stencil project's `package.json` types field**
 
-If `true`, React components will import and define elements from the [`dist-custom-elements` build](/docs/custom-elements), rather than [`dist`](/docs/distribution).
+**Type: `string`**
+
+The title of the Stencil package where components are available for consumers (i.e. the `name` property value in your Stencil project's `package.json`).
+This is used during compilation to write the correct imports for components.
+
+For a starter Stencil project generated by running:
+
+```bash
+npm init stencil component my-component-lib
+```
+
+The `componentCorePackage` would be set to:
+
+```ts
+// stencil.config.ts
+
+export const config: Config = {
+  ...,
+  outputTargets: [
+    reactOutputTarget({
+      componentCorePackage: 'my-component-lib',
+      // ... additional config options
+    })
+  ]
+}
+```
+
+Which would result in an import path like:
+
+```js
+import { defineCustomElement as defineMyComponent } from 'my-component-lib/components/my-component.js';
+```
+
+> **NOTE:** Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly when combining other API arguments.
+
+### customElementsDir
+
+**Optional**
+
+**Default: 'dist/components'**
+
+If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
+custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
+the default directory.
 
 ### excludeComponents
 
-This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components, like tabs, so that Ionic Framework can integrate better with React's Router.
+**Optional**
+
+**Default: `[]`**
+
+**Type: `string[]`**
+
+This lets you specify component tag names for which you don't want to generate React wrapper components. This is useful if you need to write framework-specific versions of components. For instance, in Ionic Framework, this is used for routing components - like tabs - so that
+Ionic Framework can integrate better with React's Router.
+
+### includeDefineCustomElements
+
+**Optional**
+
+**Default: `true`**
+
+**Type: `boolean`**
+
+If `true`, all Web Components will automatically be registered with the Custom Elements Registry. This can only be used when lazy loading Web Components and will not work when `includeImportCustomElements` is `true`.
+
+### includeImportCustomElements
+
+**Optional**
+
+**Default: `undefined`**
+
+**Type: `boolean`**
+
+If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements Bundle](/docs/custom-elements) and will not work with lazy loaded components.
+
+### includePolyfills
+
+**Optional**
+
+**Default: `true`**
+
+**Type: `boolean`**
+
+If `true`, polyfills will automatically be imported and the `applyPolyfills` function will be called in your proxies file. This can only be used when lazy loading Web Components and will not work when `includeImportCustomElements` is enabled.
+
+### loaderDir
+
+**Optional**
+
+**Default: `/dist/loader`**
+
+**Type: `string`**
+
+The path to where the `defineCustomElements` helper method exists within the built project. This option is only used when `includeDefineCustomElements` is enabled.
+
+### proxiesFile
+
+**Required**
+
+**Type: `string`**
+
+This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
 
 ## FAQ's
+
+### Do I have to use the `dist` output target?
+
+No! By default, this output target will look to use the `dist` output, but the output from `dist-custom-elements` can be used alternatively.
+
+To do so, simply set the `includeImportCustomElements` option in the output target's config and ensure the
+[custom elements output target](/docs/custom-elements) is added to the Stencil config's output target array:
+
+```ts
+// stencil.config.ts
+
+export const config: Config = {
+  ...,
+  outputTargets: [
+    // Needs to be included
+    {
+      type: 'dist-custom-elements'
+    },
+    reactOutputTarget({
+      componentCorePackage: 'component-library',
+      proxiesFile: '{path to your proxy file}',
+      // This is what tells the target to use the custom elements output
+      includeImportCustomElements: true
+    })
+  ]
+}
+```
+
+Now, all generated imports will point to the default directory for the custom elements output. If you specified a different directory
+using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the React output target. See
+[the API section](#customelementsdir) for more information.
+
+In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
 
 ### What is the best format to write event names?
 
