@@ -202,6 +202,20 @@ import { MyComponent } from 'component-library-react';
 
 With that, your component is now available to be used like any other React component.
 
+## API
+
+### proxiesFile
+
+This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
+
+### includeDefineCustomElements
+
+If `true`, React components will import and define elements from the [`dist-custom-elements` build](/docs/custom-elements), rather than [`dist`](/docs/distribution).
+
+### excludeComponents
+
+This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components, like tabs, so that Ionic Framework can integrate better with React's Router.
+
 ## FAQ's
 
 ### What is the best format to write event names?
@@ -219,17 +233,3 @@ applyPolyfills().then(() => {
   defineCustomElements();
 });
 ```
-
-## API
-
-### proxiesFile
-
-This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
-
-### includeDefineCustomElements
-
-If `true`, React components will import and define elements from the [`dist-custom-elements` build](/docs/custom-elements), rather than [`dist`](/docs/distribution).
-
-### excludeComponents
-
-This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components, like tabs, so that Ionic Framework can integrate better with React's Router.
