@@ -81,7 +81,7 @@ npm install @stencil/react-output-target --save-dev
 Or
 
 ```bash
-yarn add -D @stencil/react-output-target
+yarn add @stencil/react-output-target --dev
 ```
 
 ### Add the React Wrapper Function to your Stencil Component Library
