@@ -74,7 +74,7 @@ npm install
 yarn install
 ```
 
-### Adding Angular Output Target
+### Adding the Angular Output Target
 
 Install the `@stencil/angular-output-target` dependency to your Stencil component library package.
 
@@ -150,7 +150,7 @@ export { DIRECTIVES } from './stencil-generated';
 > **NOTE:** The default behavior does not automatically define the Web Components needed by the proxy components. You can manually define the Web
 > Components following the [documentation for the dist output target](/docs/custom-elements#defining-exported-custom-elements).
 
-### Link your packages (optional)
+### Link Your Packages (Optional)
 
 > If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
 
