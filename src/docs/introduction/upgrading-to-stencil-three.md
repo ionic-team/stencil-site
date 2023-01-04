@@ -101,9 +101,9 @@ export const config: Config = {
 };
 ```
 
-#### `cssVarShim`
+#### `cssVarsShim`
 
-`extras.cssVarShim` causes Stencil to include a polyfill for [CSS
+`extras.cssVarsShim` causes Stencil to include a polyfill for [CSS
 variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*). For Stencil
 v3.0.0 this field is renamed to `__deprecated__cssVarsShim`. To retain the
 previous behavior the new option can be set in your project's
@@ -250,7 +250,31 @@ fired. The changes are as follows:
 `customElementsExportBehavior` is a new configuration option for the output target.
 It allows users to configure the export behavior of components that are compiled using the output target.
 By default, this output target will behave exactly as it did in Stencil v2.0.0.
-For more information on how to configure it, please see the [documentation for the field](/docs/custom-elements#customelementsexportbehavior).
+
+This config option provides additional behaviors that will alter the default component export OR custom element definition behaviors
+for this target. The desired behavior can be set via the following in a project's Stencil config:
+
+```ts
+// stencil.config.ts
+import { Config } from '@stencil/core';
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'dist-custom-elements',
+      customElementsExportBehavior: 'default' | 'auto-define-custom-elements' | 'bundle' | 'single-export-module',
+    },
+    // ...
+  ],
+  // ...
+};
+```
+
+| Option                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `default`                     | No additional re-export or auto-definition behavior will be performed.<br><br>This value will be used if no explicit value is set in the config, or if a given value is not a valid option.                                                                                                                                                                                                               |
+| `auto-define-custom-elements` | A component and its children will be automatically defined with the `CustomElementRegistry` when the component's module is imported.                                                                                                                                                                                                                                                                      |
+| `bundle`                      | A utility `defineCustomElements()` function is exported from the `index.js` file of the output directory. This function can be used to quickly define all Stencil components in a project on the custom elements registry.                                                                                                                                                                                 |
+| `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
 #### Move `autoDefineCustomElements` Configuration
 `autoDefineCustomElements` was a configuration option to define a component and its children automatically with the `CustomElementRegistry` when the component's module is imported.
@@ -352,4 +376,4 @@ To see which versions of Puppeteer are supported by Stencil, please see our [sup
 
 Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-v300).
 
-If you need help upgrading, please post a thread on the [Stencil Forum](https://forum.ionicframework.com/).
+If you need help upgrading, please post a thread on the [Stencil Forum](https://forum.ionicframework.com/c/stencil/21).

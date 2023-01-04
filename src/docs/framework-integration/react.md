@@ -75,13 +75,13 @@ If you do rename your React component library, be sure to change the `name` in t
 Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
 
 ```bash
-npm install @stencil/react-output-target
+npm install @stencil/react-output-target --save-dev 
 ```
 
 Or
 
 ```bash
-yarn add @stencil/react-output-target
+yarn add @stencil/react-output-target --dev
 ```
 
 ### Add the React Wrapper Function to your Stencil Component Library
@@ -134,7 +134,7 @@ top-most-directory/
         └── components/
         │   └── stencil-generated/
         │       └── react-component-lib/
-        │       └── index.ts <-- the newly generated file 
+        │       └── index.ts <-- the newly generated file
         └── index.ts
 ```
 
@@ -150,7 +150,7 @@ export * from './components';
 
 ### Link Your Packages (Optional)
 
-If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment. 
+If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment.
 
 First, build your Stencil component library. In your **Stencil component library**, run
 
@@ -176,7 +176,7 @@ And with that, your component libraries are linked together. Now, you can make c
 
 ## Usage
 
-If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step. 
+If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step.
 
 To link your React component library, navigate to your **React component library** and run
 
@@ -185,7 +185,7 @@ npm run build
 npm link
 ```
 
-To build your React component library and create a symlink to the project. 
+To build your React component library and create a symlink to the project.
 
 Navigate to your **React application directory** and run
 
