@@ -74,6 +74,7 @@ The table below describes recent versions of Stencil and the version of TypeScri
 
 | Stencil Version | TypeScript Version |
 |:---------------:|:------------------:|
+|     v2.21.0     |       v4.9.3       |
 |     v2.20.0     |       v4.8.4       |
 |     v2.18.0     |       v4.7.4       |
 |     v2.14.0     |       v4.5.4       |
