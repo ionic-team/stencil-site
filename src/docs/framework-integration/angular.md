@@ -47,18 +47,28 @@ top-most-directory/
                 └── public-api.ts
 ```
 
-#### Creating an Angular Component Library
+This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
 
-> If you already have an Angular component library, skip this section.
-
-The first time you want to create the component wrappers, you will need to have an Angular library package to write to.
-
-Using Angular's CLI, generate a workspace and a library for your Angular component wrappers:
+To use Lerna with this walk through, globally install Lerna:
 
 ```bash
-npx -p @angular/cli ng new angular-workspace --no-create-application
-cd angular-workspace
-npx -p @angular/cli ng generate library component-library
+npm install --global lerna
+# or if you are using yarn
+yarn global add lerna
+```
+
+#### Creating a Monorepo
+
+> If you already have a monorepo, skip this section.
+
+```bash
+# From your top-most-directory/, initialize a workspace
+lerna init
+
+# install typescript and node types
+npm install typescript @types/node --save-dev
+# or if you are using yarn
+yarn add typescript @types/node --dev
 ```
 
 #### Creating a Stencil Component Library
@@ -72,6 +82,20 @@ cd stencil-library
 npm install
 # or if using yarn
 yarn install
+```
+
+#### Creating an Angular Component Library
+
+> If you already have an Angular component library, skip this section.
+
+The first time you want to create the component wrappers, you will need to have an Angular library package to write to.
+
+Using Angular's CLI, generate a workspace and a library for your Angular component wrappers:
+
+```bash
+npx -p @angular/cli ng new angular-workspace --no-create-application
+cd angular-workspace
+npx -p @angular/cli ng generate library component-library
 ```
 
 ### Adding the Angular Output Target
