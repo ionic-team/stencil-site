@@ -42,7 +42,44 @@ top-most-directory/
         └── index.ts
 ```
 
-### Creating a React Component Library
+This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
+
+To use Lerna with this walk through, globally install Lerna:
+
+```bash
+npm install --global lerna
+# or if you are using yarn
+yarn global add lerna
+```
+
+#### Creating a Monorepo
+
+> If you already have a monorepo, skip this section.
+
+```bash
+# From your top-most-directory/, initialize a workspace
+lerna init
+
+# install typescript and node types
+npm install typescript @types/node --save-dev
+# or if you are using yarn
+yarn add typescript @types/node --dev
+```
+
+#### Creating a Stencil Component Library
+
+> If you already have a Stencil component library, skip this section.
+
+```bash
+npm init stencil components stencil-library
+cd stencil-library
+# Install dependencies
+npm install
+# or if using yarn
+yarn install
+```
+
+#### Creating a React Component Library
 
 > If you already have a React component library, skip this section.
 
@@ -66,20 +103,7 @@ npm i
 
 > If you do rename your React component library, be sure to change the `name` in the `package.json` to match your new name.
 
-#### Creating a Stencil Component Library
-
-> If you already have a Stencil component library, skip this section.
-
-```bash
-npm init stencil components stencil-library
-cd stencil-library
-# Install dependencies
-npm install
-# or if using yarn
-yarn install
-```
-
-### Adding the React Output Target
+#### Adding the React Output Target
 
 Install the `@stencil/react-output-target` dependency to your Stencil component library package.
 
@@ -89,8 +113,6 @@ npm install @stencil/react-output-target --save-dev
 # or if using yarn
 yarn add @stencil/react-output-target --dev
 ```
-
-### Add the React Wrapper Function to your Stencil Component Library
 
 In your project's `stencil.config.ts`, add the `reactOutputTarget` configuration to the `outputTargets` array:
 
