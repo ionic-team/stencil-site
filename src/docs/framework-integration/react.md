@@ -88,20 +88,12 @@ The first time you want to create the component wrappers, you will need to have 
 You can create your own React project using a [recommended toolchain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains), or by using the [React component library template](https://github.com/ionic-team/stencil-ds-react-template). To use the template, run the following:
 
 ```bash
-git clone https://github.com/ionic-team/stencil-ds-react-template component-library-react
-cd component-library-react
-npm i
+git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
+cd {the name of your React component library}
+npm i # or yarn install
 ```
 
-> **NOTE**: If you want to name your React component library something different, add the new name at the end of the clone command like so:
-
-> ```bash
-> git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
-> cd {the name of your React component library}
-> npm i # or yarn install
-> ```
-
-> If you do rename your React component library, be sure to change the `name` in the `package.json` to match your new name.
+> **NOTE:** Be sure the name in the React project's `package.json` matches the name you used for the project.
 
 #### Adding the React Output Target
 
