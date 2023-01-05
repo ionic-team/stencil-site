@@ -101,12 +101,16 @@ to be unique per page view, it cannot be defined/set at build time. So, this res
 **SSR**
 
 Since there is not an easy way (or any way) of exposing and executing helper functions to manipulate the outcome of the runtime code, Stencil
-has fallback behavior for pulling the `nonce` off of the window object.
+has fallback behavior for pulling the `nonce` off of a `meta` tag in the DOM head.
 
-So, for SSR, your app can simply set the desired `nonce` value on `window.nonce` _on each page request_. Yes, this does involve some manual configuration
-for the code served by your server.
+So, for SSR, your app can simply inject a `meta` element into the header _on each page request_. Yes, this does involve some manual configuration
+for the code served by your server. To work correctly, the created tag must be generated as follows:
 
-This isn't a security risk because, for an attacker to execute a script to pull the nonce from the window object, they would have needed to know the
+```html
+<meta name="csp-nonce" content="{ your nonce value here }" />
+```
+
+This isn't a security risk because, for an attacker to execute a script to pull the nonce from the meta tag, they would have needed to know the
 nonce _ahead_ of the script's execution.
 
 **SSG**
