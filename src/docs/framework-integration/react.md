@@ -18,9 +18,11 @@ contributors:
 
 **Supports: React v16.7+ • TypeScript 3.7+ • Stencil v2.9.0+**
 
-Stencil provides a wrapper for your custom elements to be used as first-class React components. The goal of a wrapper is to easily integrate your Stencil components into a specific framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you create in a Stencil project.
+Stencil can generate React component wrappers for your web components. This allows your Stencil components to be used within
+a React application. The benefits of using Stencil's component wrappers over the standard web components include:
 
-One benefit of the wrapper pattern includes improved maintainability since you can write code once, and reuse it across different frameworks. Today, there are some challenges associated with using HTML Custom Elements in a React app. Custom events are not handled properly, as well as properties/attributes that are not a string or number. By using Stencil's component wrappers, you can solve these issues and receive first-class React components.
+- Custom events will be handled correctly and correctly propagate through the React render tree
+- Properties and attributes that are not a string or number will be correctly bound to the component
 
 ## Setup
 
@@ -33,13 +35,14 @@ An example project set-up may look similar to:
 
 ```
 top-most-directory/
-├── stencil-library/
-│   ├── stencil.config.js
-│   └── src/components/
-└── react-library/
-    └── src/
-        ├── components/
-        └── index.ts
+└── packages/
+    ├── stencil-library/
+    │   ├── stencil.config.js
+    │   └── src/components/
+    └── react-library/
+        └── src/
+            ├── components/
+            └── index.ts
 ```
 
 This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
@@ -70,8 +73,10 @@ yarn add typescript @types/node --dev
 
 > If you already have a Stencil component library, skip this section.
 
+From the `packages` directory, run the following commands to create a Stencil component library:
+
 ```bash
-npm init stencil components stencil-library
+npm init stencil component stencil-library
 cd stencil-library
 # Install dependencies
 npm install
@@ -83,17 +88,12 @@ yarn install
 
 > If you already have a React component library, skip this section.
 
-The first time you want to create the component wrappers, you will need to have a Rect library package to write to.
+The first time you want to create the component wrappers, you will need to have a React library package to write to.
 
-You can create your own React project using a [recommended toolchain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains), or by using the [React component library template](https://github.com/ionic-team/stencil-ds-react-template). To use the template, run the following:
+You can create your own React component library in the `packages` directory using a [toolchain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains) or from scratch ([this](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) guide walks through the entire process).
 
-```bash
-git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
-cd {the name of your React component library}
-npm i # or yarn install
-```
-
-> **NOTE:** Be sure the name in the React project's `package.json` matches the name you used for the project.
+If you are using Lerna (or another monorepo tool), you may also need to update your React library's dependencies to reference the generated Stencil
+library. See the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information. If you are not using a monorepo, you may want [link your packages](#link-your-packages-optional) for local development.
 
 #### Adding the React Output Target
 
@@ -134,8 +134,6 @@ export const config: Config = {
 
 See the [API section below](#api) for details on each of the output target's options.
 
-For details on the `includeDefineCustomElements` option, and all other options, visit the API documentation section below.
-
 You can now build your Stencil component library to generate the component wrappers.
 
 ```bash
@@ -148,8 +146,6 @@ yarn run build
 If the build is successful, you’ll see the new generated file in your React component library at the location specified by the `proxiesFile` argument.
 
 ### Add the Components to your React Component Library's Entry File
-
-> If you are using Ionic's React template, skip this section.
 
 In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
 
@@ -267,6 +263,8 @@ import { defineCustomElement as defineMyComponent } from 'my-component-lib/compo
 
 **Default: 'dist/components'**
 
+**Type: `string`**
+
 If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
 custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
 the default directory.
@@ -300,7 +298,7 @@ If `true`, all Web Components will automatically be registered with the Custom E
 
 **Type: `boolean`**
 
-If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements Bundle](/docs/custom-elements) and will not work with lazy loaded components.
+If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements](/docs/custom-elements) output and will not work with lazy loaded components.
 
 ### includePolyfills
 
