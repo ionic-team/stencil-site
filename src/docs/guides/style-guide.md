@@ -14,7 +14,7 @@ contributors:
 
 This is a component style guide created and enforced internally by the core team of Stencil, for the purpose of standardizing Stencil components. This should only be used as a reference for other teams in creating their own style guides. Feel free to modify to your team's own preference.
 
-> In order to enforce this (or your team's) style guide, we recommend leveraging a static analysis tool like [ESLint](https://eslint.org/). [@stencil/eslint-plugin](https://www.npmjs.com/package/@stencil/eslint-plugin) provides rules specifically for writing Stencil components.
+> In order to enforce this (or your team's) style guide, we recommend leveraging a static analysis tool like [ESLint](https://eslint.org/). [@stencil-community/eslint-plugin](https://www.npmjs.com/package/@stencil-community/eslint-plugin) provides rules specifically for writing Stencil components.
 
 > This guide once recommended TSLint as a static analysis tool. TSLint has been deprecated by its maintaining organization in favor of ESLint and is no longer recommended by the Stencil team.
 
