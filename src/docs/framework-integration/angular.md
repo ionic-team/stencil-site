@@ -36,15 +36,16 @@ An example project set-up may look similar to:
 
 ```
 top-most-directory/
-├── stencil-library/
-│   ├── stencil.config.js
-│   └── src/components
-└── angular-workspace/
-    └── projects/
-        └── component-library/
-            └── src/
-                ├── lib/
-                └── public-api.ts
+└── packages
+    ├── stencil-library/
+    │   ├── stencil.config.js
+    │   └── src/components
+    └── angular-workspace/
+        └── projects/
+            └── component-library/
+                └── src/
+                    ├── lib/
+                    └── public-api.ts
 ```
 
 This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
@@ -75,6 +76,8 @@ yarn add typescript @types/node --dev
 
 > If you already have a Stencil component library, skip this section.
 
+In the `packages/` directory, run the following commands to generate a Stencil component library:
+
 ```bash
 npm init stencil components stencil-library
 cd stencil-library
@@ -90,13 +93,27 @@ yarn install
 
 The first time you want to create the component wrappers, you will need to have an Angular library package to write to.
 
-Using Angular's CLI, generate a workspace and a library for your Angular component wrappers:
+In the `packages/` directory, use the Angular CLI to generate a workspace and a library for your Angular component wrappers:
 
 ```bash
 npx -p @angular/cli ng new angular-workspace --no-create-application
 cd angular-workspace
 npx -p @angular/cli ng generate library component-library
 ```
+
+You can delete the `component-library.component.ts`, `component-library.service.ts`, and `*.spec.ts` files.
+
+You will also need to add your generated Stencil library as a dependency so import references can be resolved correctly:
+
+```json
+// package.json
+
+"dependencies": {
+  "stencil-library": "*"
+}
+```
+
+For more information, see the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management).
 
 ### Adding the Angular Output Target
 
@@ -125,7 +142,7 @@ export const config: Config = {
       type: 'dist',
     },
     angularOutputTarget({
-      componentCorePackage: 'your-stencil-library-package-name',
+      componentCorePackage: 'stencil-library',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
@@ -138,6 +155,8 @@ export const config: Config = {
 
 > The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This
 > constant can be used to easily declare and export all the wrappers.
+
+> The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
 
 See the [API section below](#api) for details on each of the output target's options.
 
@@ -155,24 +174,52 @@ If the build is successful, you will now have contents in the file specified in 
 You can now finally import and export the generated component wrappers for your component library. For example, in your library's main Angular module:
 
 ```ts
+// component-library.module.ts
+
 import { DIRECTIVES } from './stencil-generated';
 
 @NgModule({
   declarations: [...DIRECTIVES],
   exports: [...DIRECTIVES],
 })
-export class ExampleLibraryModule {}
+export class ComponentLibraryModule {}
 ```
 
 Any components that are included in the `exports` array should additionally be exported in your main entry point (either `public-api.ts` or
-`index.ts`). Skipping this step will lead to Angular Ivy errors when building for production.
+`index.ts`). Skipping this step will lead to Angular Ivy errors when building for production. For this guide, simply add the following line to the
+automatically generated `public-api.ts` file:
 
 ```ts
-export { DIRECTIVES } from './stencil-generated';
+// public-api.ts
+
+export { DIRECTIVES } from './lib/stencil-generated';
+export * from './lib/stencil-generated/components';
 ```
 
-> **NOTE:** The default behavior does not automatically define the Web Components needed by the proxy components. You can manually define the Web
-> Components following the [documentation for the dist output target](/docs/custom-elements#defining-exported-custom-elements).
+The default behavior for this output target does not handle automatically defining/registering the custom elements. One strategy (and the approach
+the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/app-initialize.ts#L21-L34) takes) is to use the loader to define all custom elements during app initialization:
+
+```ts
+// component-library.module.ts
+
+import { defineCustomElements } from 'stencil-library/loader';
+
+@NgModule({
+  ...,
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        return defineCustomElements();
+      },
+    },
+  ]
+})
+export class ComponentLibraryModule {}
+```
+
+See the [documentation](/docs/distribution/#distribution-options) for more information on defining custom elements using the
+`dist` output target, or [update the Angular output target](#do-i-have-to-use-the-dist-output-target) to use `dist-custom-elements`.
 
 ### Link Your Packages (Optional)
 
@@ -208,36 +255,62 @@ changes to the Angular component library.
 
 ## Consumer Usage
 
+### Creating a Consumer Angular App
+
+> If you already have an Angular app, skip this section.
+
+From your Angular workspace (`/packages/angular-workspace`), run the following command to generate an Angular application:
+
+```bash
+npx -p @angular/cli ng generate app my-app
+```
+
+### Consuming the Angular Wrapper Components
+
 This section covers how developers consuming your Angular component wrappers will use your package and component wrappers.
 
-If you distributed your components through a primary `NgModule`, developers can simply import that module into their implementation to use your components.
+Before consuming the wrapper component, you'll first need to include the component library as a dependency to your Angular app. The easiest way
+to do this is by linking your packages.
+
+From your Angular component library, run `npm link`. Then, from your Angular application, run `npm link component-library`. This will create a symlink
+between your Angular component library and your Angular application.
+
+Now, your Angular app will be able to correctly resolve the imports from your component library. If you distributed your components through a primary `NgModule`, developers can simply import that module into their implementation to use your components.
 
 ```ts
-import { ExampleLibraryModule } from 'your-angular-library-package-name';
+// app.module.ts
+
+import { ComponentLibraryModule } from 'component-library';
 
 @NgModule({
-  imports: [ExampleLibraryModule],
+  imports: [ComponentLibraryModule],
 })
-export class FeatureModule {}
+export class AppModule {}
 ```
 
 Alternatively, developers can individually import the components and declare them on a module:
 
 ```ts
-import { MyComponent } from 'your-angular-library-package-name';
+// app.module.ts
+
+import { MyComponent } from 'component-library';
 
 @NgModule({
   declarations: [MyComponent],
-  exports: [MyComponent],
 })
-export class FeatureModule {}
+export class AppModule {}
 ```
 
 Developers can now directly leverage your components in their template and take advantage of Angular template binding syntax.
 
 ```html
+<!-- app.component.html -->
+
 <my-component first="Your" last="Name"></my-component>
 ```
+
+From your Angular workspace (`/packages/angular-workspace`), run `npm start` and navigate to `localhost:4200`. You should see the
+component rendered correctly.
 
 ## API
 
@@ -284,6 +357,8 @@ import { MyComponent } from 'my-component-lib/components/my-component.js';
 
 **Default: 'dist/components'**
 
+**Type: `string`**
+
 If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
 custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
 the default directory.
@@ -308,7 +383,7 @@ Ionic Framework can integrate better with Angular's Router.
 **Type: `string`**
 
 Used to provide a list of type Proxies to the Angular Component Library.
-[See Ionic Framework for a sample](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.txt).
+See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.ts) for a sample.
 
 ### directivesProxyFile
 
@@ -410,7 +485,7 @@ between frameworks.
 ### How do I bind input events directly to a value accessor?
 
 You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your
-components. Take a look at [valueAccessorConfig's option below]().
+components. Take a look at [valueAccessorConfig's option above](#valueaccessorconfigs).
 
 ### How do I add IE11 or Edge support?
 
