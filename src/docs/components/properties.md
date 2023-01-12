@@ -292,7 +292,7 @@ required when providing string values to props in TSX, but are permitted:
 A property on a Stencil component that has a type of `Object` may be declared as:
 
 ```tsx
-// TodoList.tsx
+// TodoListItem.tsx
 import { Component, Prop, h } from '@stencil/core';
 import { MyHttpService } from '../path/to/MyHttpService';
 
@@ -300,7 +300,7 @@ import { MyHttpService } from '../path/to/MyHttpService';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
-    @Prop() myHttpService: MyHttpService;
+    @Prop() httpService: MyHttpService;
 }
 ```
 ```tsx
@@ -312,8 +312,45 @@ export class MyHttpService {
 
 In TypeScript, `MyHttpService` is both an `Object` and a 'type'. When using user-defined types like `MyHttpService`, the
 type must always be exported using the `export` keyword where it is declared. The reason for this is Stencil needs to
-know what type the prop `myHttpService` is when passing an instance of `MyHttpService` to `TodoList` from a parent
+know what type the prop `httpService` is when passing an instance of `MyHttpService` to `TodoListItem` from a parent
 component.
+
+To set `httpService` in TSX, assign the prop name in the custom element's tag to the desired value like so:
+```tsx
+// TodoList.tsx
+import { Component, h } from '@stencil/core';
+import { MyHttpService } from '../MyHttpService';
+
+@Component({
+   tag: 'todo-list',
+   styleUrl: 'todo-list.css',
+   shadow: true,
+})
+export class ToDoList {
+   private httpService = new MyHttpService();
+
+   render() {
+      return <todo-list-item httpService={this.httpService}></todo-list-item>;
+   }
+}
+```
+Note that the prop name is using `camelCase`, and the value is surrounded by curly braces.
+
+It is not possible to set `Object` props via an HTML attribute like so:
+```html
+<!-- this will not work -->
+<todo-list-item http-service="{ /* implementation omitted */ }"></todo-list-item>
+```
+The reason for this is that Stencil will not attempt to serialize object-like strings written in HTML into a JavaScript object.
+Doing so can be expensive at runtime, and runs the risk of losing references to other nested JavaScript objects.
+
+Instead, properties may be set via `<script>` tags in a project's HTML:
+```html
+<script>
+   document.querySelector('todo-list-item').httpService = { /* implementation omitted */ };
+</script>
+```
+
 
 ### Array Props
 
@@ -631,7 +668,7 @@ import { MyHttpService } from '../some/local/directory/MyHttpService';
 export class ToDoListItem {
    @Prop() isComplete: boolean;
    @Prop() thingToDo: string;
-   @Prop() myHttpService: MyHttpService;
+   @Prop() httpService: MyHttpService;
 }
 ```
 
@@ -642,8 +679,10 @@ This component has **3 properties**, but the compiler will create **only 2 attri
 <todo-list-item is-complete="false" thing-to-do="Read Attribute Naming Section of Stencil Docs"></my-cmp>
 ```
 
-Notice that the `myHttpService` type is not a primitive (e.g. not a `number`, `boolean`, or `string`). Since DOM
-attributes can only be strings, it does not make sense to have an associated DOM attribute called "my-http-service".
+Notice that the `httpService` type is not a primitive (e.g. not a `number`, `boolean`, or `string`). Since DOM
+attributes can only be strings, it does not make sense to have an associated DOM attribute called `"http-service"`.
+Stencil will not attempt to serialize object-like strings written in HTML into a JavaScript object.
+See [Object Props](properties#object-props) for guidance as to how to configure `httpService`.
 
 At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are 
 case-insensitive, so the attribute names will be `is-complete` & `thing-to-do` by default.
@@ -661,7 +700,7 @@ import { MyHttpService } from '../some/local/directory/MyHttpService';
 export class ToDoListItem {
    @Prop({ attribute: 'complete' }) isComplete: boolean;
    @Prop({ attribute: 'thing' }) thingToDo: string;
-   @Prop({ attribute: 'my-service' }) myHttpService: MyHttpService;
+   @Prop({ attribute: 'my-service' }) httpService: MyHttpService;
 }
 ```
 
@@ -669,7 +708,7 @@ By using this option, we are being explicit about which properties have an assoc
 when using the component in HTML.
 
 ```html
-<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" my-service="{}"></my-cmp>
+<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" http-service="{}"></my-cmp>
 ```
 
 ### Prop Mutability (`mutable`)
