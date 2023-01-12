@@ -364,8 +364,44 @@ import { Component, Prop, h } from '@stencil/core';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
-    @Prop() labels: string[];
+    @Prop() itemLabels: string[];
 }
+```
+
+To set `itemLabels` in TSX, assign the prop name in the custom element's tag to the desired value like so:
+```tsx
+// TodoList.tsx
+import { Component, h } from '@stencil/core';
+import { MyHttpService } from '../MyHttpService';
+
+@Component({
+   tag: 'todo-list',
+   styleUrl: 'todo-list.css',
+   shadow: true,
+})
+export class ToDoList {
+   private labels = ['non-urgent', 'weekend-only'];
+
+   render() {
+      return <todo-list-item itemLabels={this.labels}></todo-list-item>;
+   }
+}
+```
+Note that the prop name is using `camelCase`, and the value is surrounded by curly braces.
+
+It is not possible to set `Array` props via an HTML attribute like so:
+```html
+<!-- this will not work -->
+<todo-list-item item-labels="['non-urgent', 'weekend-only']"></todo-list-item>
+```
+The reason for this is that Stencil will not attempt to serialize array-like strings written in HTML into a JavaScript object.
+Doing so can be expensive at runtime, and runs the risk of losing references to other nested JavaScript objects.
+
+Instead, properties may be set via `<script>` tags in a project's HTML:
+```html
+<script>
+   document.querySelector('todo-list-item').itemLabels = ['non-urgent', 'weekend-only'];
+</script>
 ```
 
 ### Advanced Prop Types
