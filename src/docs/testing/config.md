@@ -10,7 +10,7 @@ contributors:
 
 # Testing Config
 
-The `testing` config setting specifies an object that corresponds to the jest configuration that should be used in your tests. Stencil provides a default configuration, which you likely won't need to edit, however it can be extended with the same configuration options as Jest. See the [Configuring Jest Guide](https://jestjs.io/docs/en/configuration.html) for configuration details.
+The `testing` config setting in `stencil.config.ts` specifies an object that corresponds to the jest configuration that should be used in your tests. Stencil provides a default configuration, which you likely won't need to edit, however it can be extended with the same configuration options as Jest. See the [Configuring Jest Guide](https://jestjs.io/docs/en/configuration.html) for configuration details.
 
 > Keep in mind that the usual way of configuring Jest (`package.json` and `jest.config.js`) is not used with the `stencil testing` command. Jest can still be used, but configuring the presets, transpilation and setting up the correct commands must be done by the project.
 

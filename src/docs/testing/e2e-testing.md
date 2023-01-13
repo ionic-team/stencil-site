@@ -114,7 +114,7 @@ await page.waitForChanges();
 
 #### Set a @Prop() on a component using an external reference
 
-Because `page.$eval` has an isolated scope, you’ll have to explicity pass in outside references otherwise you’ll an encounter an `undefined` error. This is useful in case you’d like to import data from another file, or re-use mock data across multiple tests in the same file.
+Because `page.$eval` has an isolated scope, you’ll have to explicitly pass in outside references otherwise you’ll an encounter an `undefined` error. This is useful in case you’d like to import data from another file, or re-use mock data across multiple tests in the same file.
 
 ```typescript
 const props = {
@@ -206,7 +206,7 @@ For non-shadow content:
 
 ## Caveat about e2e tests automation on CD/CI
 
-As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Headless Chrome is actually used in your pipeline.
+As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continuous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Headless Chrome is actually used in your pipeline.
 
 Example of a config you might need in a Gitlab CI environment :
 
@@ -229,4 +229,4 @@ export const config: Config = {
 };
 ```
 
-Check [this part of the doc](https://stenciljs.com/docs/config#testing) to learn more about the possibilities on this matter. 
+Check [this part of the doc](/docs/config#testing) to learn more about the possibilities on this matter. 

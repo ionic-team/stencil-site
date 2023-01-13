@@ -4,11 +4,14 @@ description: Extras Config
 url: /docs/config-extras
 contributors:
   - mattdsteele
+  - rwaskiewicz
 ---
 
 # Extras
 
-The `extras` config contains options to add and remove runtime for DOM features that require manipulations to polyfills. For example, not all DOM APIs are fully polyfilled when using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM 
+features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when 
+using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
 
 By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
 
@@ -57,6 +60,24 @@ div {
 
 Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 67 and below. If you do not need to support Edge 18 and below (Edge before it moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`. Defaults to `false`.
 
+### experimentalImportInjection
+
+In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
+[Vite](https://vitejs.dev/).
+
+This is an experimental flag that, when set to `true`, will allow downstream projects that consume a Stencil library
+and use a bundler such as Vite to lazily load the Stencil library's components.
+
+In order for this flag to work:
+1. The Stencil library must expose lazy loadable components, such as those created with the
+[`dist` output target](/docs/distribution)
+2. The Stencil library must be recompiled with this flag set to `true`
+
+This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
+Users of this flag should note that they may see an increase in their bundle size.
+
+Defaults to `false`.
+
 ### lifecycleDOMEvents
 
 Dispatches component lifecycle events. By default these events are not dispatched, but by enabling this to `true` these events can be listened for on `window`. Mainly used for testing.
@@ -73,6 +94,10 @@ Dispatches component lifecycle events. By default these events are not dispatche
 ### safari10
 
 Safari 10 supports ES modules with `<script type="module">`, however, it did not implement `<script nomodule>`. When set `safari10` is set to `false`, the runtime will not patch support for Safari 10. If the app does not need to support Safari 10, it's recommended to set this to `false`. Defaults to `false`.
+
+### scopedSlotTextContentFix
+
+An experimental flag that when set to `true`, aligns the behavior of invoking the `textContent` getter/setter on a scoped component to act more like a component that uses the shadow DOM. Specifically, invoking `textContent` on a component will adhere to the return values described in [MDN's article on textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#description). Defaults to `false`.
 
 ### scriptDataOpts
 

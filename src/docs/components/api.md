@@ -20,11 +20,11 @@ The whole API provided by stencil can be condensed in a set of decorators, lifec
 ## Decorators
 
 Decorators are a pure compiler-time construction used by stencil to collect all the metadata about a component, the properties, attributes and methods it might expose, the events it might emit or even the associated stylesheets.
-Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur in any runtime overhead.
+Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur any runtime overhead.
 
 - [@Component()](component#component-decorator) declares a new web component
 - [@Prop()](properties#prop-decorator) declares an exposed property/attribute
-- [@State()](state#state-decorator) declares an internal state of the component
+- [@State()](state#the-state-decorator-state) declares an internal state of the component
 - [@Watch()](reactive-data#watch-decorator) declares a hook that runs when a property or state changes
 - [@Element()](host-element#element-decorator) declares a reference to the host element
 - [@Method()](methods#method-decorator) declares an exposed public method
@@ -68,9 +68,9 @@ window.addEventListener('appload', (event) => {
 
 - [**writeTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-write task. The provided callback will be executed in the best moment to perform DOM mutations without causing layout thrashing.
 
-- **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not syncronous and might perform the DOM render in the next frame.
+- **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not synchronous and might perform the DOM render in the next frame.
 
-- getAssetPath(): Gets the path to local assets. Refer to the [Local Assets](/docs/local-assets#component-s-assetsdirs) page for usage info.
+- getAssetPath(): Gets the path to local assets. Refer to the [Assets](/docs/assets#getassetpath) page for usage info.
 - setMode()
 - getMode()
 - getElement()

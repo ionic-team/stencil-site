@@ -75,6 +75,10 @@ doc-component .heading-link {
   align-items: center;
 }
 
+doc-component .heading-link > * {
+    margin: 0 0.4em;
+}
+
 doc-component .heading-link app-icon {
   transition: opacity 0.2s;
   position: absolute;

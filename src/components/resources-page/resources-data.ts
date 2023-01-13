@@ -13,7 +13,6 @@ export const RESOURCES = {
     { title: 'st-payment: Stencil Payment API Component', url: 'https://github.com/Fdom92/stencil-payment' },
     { title: 'st-fetch: A simple component for performing http fetch calls', url: 'https://github.com/Fdom92/stencil-fetch' },
     { title: 'web-photo-filter: Use webGL for amazing instagram like filters', url: 'https://github.com/peterpeterparker/web-photo-filter' },
-    { title: 'stencil-flip-images: Awesome animated image gallery', url: 'https://github.com/jepiqueau/stencil-flip-images' },
     { title: 'd3-stencil: Charts built with D3 and Stencil. Framework-agnostic, simple.', url: 'https://d3-stencil.dev' },
     { title: 'Animatable: Animate any HTML Element using Web Animations API in a declarative way! 💅', url: 'https://proyecto26.github.io/animatable-component' },
     { title: 'IonPhaser: A web component to integrate Phaser Framework with Angular, React, Vue, etc 🎮', url: 'https://github.com/proyecto26/ion-phaser' },
@@ -30,9 +29,12 @@ export const RESOURCES = {
     { title: 'Badge Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/badge-component' },
     { title: 'Progress Component', url: 'https://github.com/ftonato/stenciljs-components/tree/master/progress-component' },
     { title: 'A small collection of Awesome Stencil UI components', url: 'https://github.com/dlucidone/awesome-ui' },
-    { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' }
+    { title: 'Soft Components (Neumorphism design inspired web components)', url: 'https://soft.components.rocks' },
+    { title: 'Stedux: Redux for Stencil', url: 'https://github.com/randy-r/stedux' },
+    { title: 'Stenimator: Animation coordinator for elements leaving the DOM', url: 'https://github.com/randy-r/stenimator' }
   ],
   TOOLS: [
+    { title: '@stencil/eslint-plugin: ESLint rules for Stencil components', url: 'https://www.npmjs.com/package/@stencil/eslint-plugin' },
     { title: 'How Stencil and Storybook help build fast, accessible web apps with Web Components', url: 'https://www.d4l.io/blog/web-apps-with-stencil-storybook-web-components/' },
     {
       title: 'Enhance your Stencil Web Components in Storybook with Knobs, Actions and JSX',
@@ -41,7 +43,6 @@ export const RESOURCES = {
     { title: 'xLayers Lite', url: 'https://github.com/xlayers/xlayers-lite' },
     { title: 'yo Stencil: A yeoman generator for Stencil', url: 'https://github.com/AkashGutha/generator-stencil' },
     { title: 'Stencil Snippets: A Stencil snippets package for VS Code', url: 'https://marketplace.visualstudio.com/items?itemName=fdom.stencil-snippets' },
-    { title: 'tslint-stencil: TSLint rules for Stencil components', url: 'https://www.npmjs.com/package/tslint-stencil' },
     { title: 'stencil-lerna: lerna based Stencil monorepo starter project', url: 'https://github.com/bitflower/stencil-lerna' },
     { title: 'WebComponents.dev: Online Component IDE - Try Stencil right away', url: 'https://webcomponents.dev/edit/collection/JFDS0nXQUi7cNRMrxHkI/1fjZJBjdBc73coC5F1iz?sv=1&pm=1' },
     { title: '@nxext/stencil: Use stencil projects in Nx', url: 'https://github.com/nxext/nx-extensions/' },
@@ -158,9 +159,23 @@ export const RESOURCES = {
     {
       title: 'RevoGrid',
       description: 'Excel like complex virtual grid with amazing performance with @stencil/core, @stencil/store',
-      imgPath: 'https://revolist.github.io/revogrid/static/media/logo.1cfff539.svg',
-      demoUrl: 'https://revolist.github.io/revogrid/',
+      imgPath: '/assets/img/demos/demo-revogrid',
+      demoUrl: 'https://revolist.github.io/revogrid',
       sourceUrl: 'https://github.com/revolist/revogrid',
+    },
+    {
+      title: 'Stedux',
+      description: 'Example website for using the Stedux library',
+      imgPath: '/assets/img/demos/demo-stedux',
+      demoUrl: 'https://randy-r.github.io/stedux',
+      sourceUrl: 'https://github.com/randy-r/stedux',
+    },
+    {
+      title: 'Stenimator',
+      description: 'Example website for using the Stenimator library',
+      imgPath: '/assets/img/demos/demo-stenimator',
+      demoUrl: 'https://randy-r.github.io/stenimator',
+      sourceUrl: 'https://github.com/randy-r/stenimator',
     }
   ],
 };

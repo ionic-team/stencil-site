@@ -4,6 +4,7 @@ description: Stencil is a developer-focused toolchain for building reusable, sca
 url: /docs/faq
 contributors:
   - adamdbradley
+  - rwaskiewicz
 ---
 
 # FAQ
@@ -12,9 +13,9 @@ contributors:
 
 ### What is Stencil?
 
-Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
+Stencil is a developer-focused toolchain for building reusable, scalable component libraries and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
 
-Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/master/LICENSE.md).
+Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/main/LICENSE.md).
 
 
 ### What does Stencil do?
@@ -52,10 +53,10 @@ Some think Web Components should replace third-party app frameworks, while other
 
 With Stencil, our vision is somewhere in the middle. In the long term, we see app development teams continuing to use their framework of choice. We envision these frameworks continuing to get better, smaller, and more efficient, with increasingly good support for targeting and consuming Web Components -- and big teams will be consuming an increasing amount of Web Components as companies continue to embrace them for shared design systems.
 
-At the same time, we believe an indispensible feature for Web Components is solving those component distribution and design system problems. We also believe, however, that 90% of the market doesn’t have those problems to begin with, so the current debate about the merits of Web Components is somewhat unproductive.
+At the same time, we believe an indispensable feature for Web Components is solving those component distribution and design system problems. We also believe, however, that 90% of the market doesn’t have those problems to begin with, so the current debate about the merits of Web Components is somewhat unproductive.
 
 
-### Why is Stencil considered framework agnostic?
+### Why is Stencil considered framework-agnostic?
 
 Perhaps the most appealing benefit of Web Components is that they give your development teams the flexibility to choose the underlying tools and frameworks - and versions of those frameworks - and tools that they prefer. As pointed out earlier, one of the great challenges of implementing a universal design system is getting all of your development teams to standardize on just one set of technologies. With Web Components, each team can use what works best for them, giving them complete freedom to use the tools they love—today and tomorrow.
 
@@ -114,12 +115,12 @@ At the same time, components built with Stencil can still be imported and consum
 
 A consumer of a component library may use one component, a few of them, or all of them. In any of these scenarios a component library is used by just adding a script tag, lazy loading ensures fast startup with a low bandwidth footprint.
 
-You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](/blog/how-lazy-loading-web-components-work).
+You can also learn more about lazy loading in [How Lazy-Loading Web Components Work with Stencil](https://web.archive.org/web/20201108000809/https://stenciljs.com/blog/how-lazy-loading-web-components-work).
 
 
 ### Why doesn’t Stencil extend HTMLElement?
 
-Part of the Web Component spec is to extend HTMLElement, however, Stencil does not require this for a few reasons. Specifically, HTMLElement locks source code to only work in the browser, rather than keeping the logic free from any APIs. The Stencil compiler is able to optimize many different versions of components for various output targets, and one way to make that easier is by keeping HTMLElement out of it.
+Part of the Web Component spec is to extend HTMLElement, however, Stencil does not require this for a few reasons. Specifically, HTMLElement locks source code to only work in the browser, rather than keeping the logic free from any APIs. The Stencil compiler is able to optimize many versions of components for various output targets, and one way to make that easier is by keeping HTMLElement out of it.
 
 
 ### Why are Stencil components written with TypeScript?
@@ -141,7 +142,7 @@ TypeScript. That’s it.
 
 Just like any other DOM element in a webpage, any data in the form of arrays, objects, strings and numbers can be passed to element properties. Stencil is designed from the ground up to ensure this capability stays unlocked for application developers.
 
-One misconception that falsely claims only strings can be passed to custom elements comes from React’s version of VDom. Out of the box, React can only pass strings and numbers to components and it cannot listen to custom events. With Stencil, the components appear as though they are React components and all properties get passed correctly including functions, objects, and arrays. The bindings also account for custom events by creating a prop called “on<EventName>”. These allow React developers to interact with the Web Components as though they are React components.
+One misconception that falsely claims only strings can be passed to custom elements comes from React’s version of VDom. Out of the box, React can only pass strings and numbers to components, and it cannot listen to custom events. With Stencil, the components appear as though they are React components and all properties get passed correctly including functions, objects, and arrays. The bindings also account for custom events by creating a prop called “on<EventName>”. These allow React developers to interact with the Web Components as though they are React components.
 
 
 ### What technology is Stencil built with?
@@ -162,7 +163,7 @@ For example, using a hybrid mobile framework like Ionic, you can deploy Web Comp
 
 The [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) specs are purposely low-level, and on their own, they do not provide a framework quality developer experience. Web Components run on a fairly primitive set of standards, so you will need a little help to get them to meet your objectives.
 
-Some of the limitations include:
+Some limitations include:
 
 When you try to use pure vanilla Web Components in an application, functionality like server-side rendering and progressive enhancement is not supported by default, and
 some out-of-date clients don’t support the Web Components standard.
@@ -179,7 +180,7 @@ While Web Components can be paired with any JavaScript framework, Stencil has bu
 
 ### What features does Stencil add to Web Components?
 
-Web Components by themselves weren't enough to provide a quality development experience. Building fast web apps required innovations that were previously locked up inside of traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.
+Web Components by themselves weren't enough to provide a quality development experience. Building fast web apps required innovations that were previously locked up inside traditional web frameworks. Stencil was built to pull these features out of traditional frameworks and bring them to the fast emerging Web Component standard.
 
 Compared to using Web Components directly, Stencil provides extra APIs that make writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components.
 
@@ -201,24 +202,18 @@ Additionally, modern browsers are able to use the latest features natively, with
 
 ## Stencil Project
 
-### Where can I get support?
-
-If this is your first time building a design system, or you’re new to Stencil, [get in touch](https://ionicframework.com/sales?product_of_interest=Design%20Systems) with one of our Solutions Engineers for a consultation on how to meet your goals and get the most out of the platform.
-
-
 ### How do I get involved?
 
-Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/ionic/blob/master/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
+Stencil is an open source project, and we encourage you to contribute. You can start by creating issues on GitHub, submitting feature requests, and helping to replicate bugs. If you’re interested in contributing, please see our [Contributor Guide](https://github.com/ionic-team/stencil/blob/main/.github/CONTRIBUTING.md) and check out our [issue tracker](https://github.com/ionic-team/stencil/issues).
 
 
 ### Is Stencil open source?
 
 Yes, Stencil is open source and its source code can be [found on GitHub](https://github.com/ionic-team/stencil). Contributions are welcomed from the community.
 
-
 ### Which software license does Stencil use?
 
-Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/master/LICENSE).
+Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob/main/LICENSE.md).
 
 
 ### Who works on Stencil?

@@ -48,11 +48,11 @@ export const config = {
 
 ### Related Plugins
 
-- [@stencil/less](https://www.npmjs.com/package/@stencil/less)
-- [@stencil/postcss](https://www.npmjs.com/package/@stencil/postcss)
 - [@stencil/sass](https://www.npmjs.com/package/@stencil/sass)
-- [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
+- [@stencil-community/postcss](https://www.npmjs.com/package/@stencil-community/postcss)
+- (Deprecated) [@stencil/less](https://www.npmjs.com/package/@stencil/less)
+- (Deprecated) [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 
 ## Node Polyfills
-See the [Node Polyfills in Module bundling](https://stenciljs.com/docs/module-bundling#node-polyfills) for other examples.
+See the [Node Polyfills in Module bundling](/docs/module-bundling#node-polyfills) for other examples.

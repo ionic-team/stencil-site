@@ -1,5 +1,6 @@
 import { Component, Element, Listen, State, h } from '@stencil/core';
 import { ResponsiveContainer } from '@ionic-internal/ionic-ds';
+import { Translation } from '../../icons';
 
 @Component({
   tag: 'site-header',
@@ -63,14 +64,6 @@ export class SiteHeader {
 
         <div class="header-menu">
           <stencil-route-link
-            url="/design-systems"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
-            DS
-          </stencil-route-link>
-          <stencil-route-link
             urlMatch="/docs"
             url="/docs/introduction"
             onClick={() => {
@@ -88,16 +81,30 @@ export class SiteHeader {
           >
             Resources
           </stencil-route-link>
-          <stencil-route-link
-            url="/blog"
-            onClick={() => {
-              this.hideNav();
-            }}
-          >
+          <a href="https://ionic.io/blog/category/stencil" aria-label="Blog" class="external-links">
             Blog
-          </stencil-route-link>
+          </a>
+
+          <a href="https://ionic.io/products/stencil" class="external-links">
+            Enterprise
+          </a>
 
           <ul class="external-links list--unstyled">
+            <li>
+              <docs-dropdown class="link--external" icon={Translation} align="right">
+                <section>
+                  <a href="https://stenciljs.com/" class="link-active">
+                    English
+                    <svg viewBox="0 0 512 512" width="14">
+                      <path d="M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"></path>
+                    </svg>
+                  </a>
+                  <a href="https://stenciljs.jp/" target="_blank">
+                    日本語
+                  </a>
+                </section>
+              </docs-dropdown>
+            </li>
             <li>
               <a rel="noopener" class="link--external" target="_blank" href="https://twitter.com/stenciljs" aria-label="Twitter">
                 <app-icon name="twitter"></app-icon>

@@ -7,7 +7,9 @@ contributors:
   - jthoms1
   - flawyte
   - BDav24
+  - rwaskiewicz
   - simonhaenisch
+  - splitinfinities
 ---
 
 # Stencil Config
@@ -46,6 +48,9 @@ bundles: [
 ]
 ```
 
+## devServer
+
+Please see the [Dev-Server docs](/docs/dev-server).
 
 ## enableCache
 
@@ -57,6 +62,9 @@ Stencil will cache build results in order to speed up rebuilds. To disable this 
 enableCache: true
 ```
 
+## extras
+
+Please see the [Extras docs](/docs/config-extras).
 
 ## globalScript
 
@@ -95,19 +103,7 @@ The global style config takes a file path as a string. The output from this buil
 globalStyle: 'src/global/app.css'
 ```
 
-Check out the [styling docs](https://stenciljs.com/docs/styling#global-styles) of how to use global styles in your app.
-
-
-## hashFileNames
-
-*default: `true`*
-
-During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn't updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can "forever-cache" the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.
-
-```tsx
-hashFileNames: true
-```
-
+Check out the [styling docs](/docs/styling#global-styles) of how to use global styles in your app.
 
 ## hashedFileNameLength
 
@@ -119,6 +115,39 @@ When the `hashFileNames` config is set to `true`, and it is a production build, 
 hashedFileNameLength: 8
 ```
 
+## hashFileNames
+
+*default: `true`*
+
+During production builds, the content of each generated file is hashed to represent the content, and the hashed value is used as the filename. If the content isn't updated between builds, then it receives the same filename. When the content is updated, then the filename is different. By doing this, deployed apps can "forever-cache" the build directory and take full advantage of content delivery networks (CDNs) and heavily caching files for faster apps.
+
+```tsx
+hashFileNames: true
+```
+
+## invisiblePrehydration
+
+*default: `true`*
+
+When `true`, `invisiblePrehydration` will visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. 
+
+> Note: Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
+
+```tsx
+invisiblePrehydration: true
+```
+
+## minifyCss
+
+_default: `true` in production_
+
+When `true`, the browser CSS file will be minified.
+
+## minifyJs
+
+_default: `true` in production_
+
+When `true`, the browser JS files will be minified. Stencil uses [Terser](https://terser.org/) under-the-hood for file minification.
 
 ## namespace
 
@@ -129,33 +158,59 @@ The `namespace` config is a `string` representing a namespace for the app. For a
 ```tsx
 namespace: "Ionic"
 ```
-
-
 ## outputTargets
 
 Please see the [Output Target docs](/docs/output-targets).
-
 
 ## plugins
 
 Please see the [Plugin docs](/docs/plugins).
 
-
-## devServer
-
-Please see the [Dev-Server docs](/docs/dev-server).
-
-
 ## preamble
 
 *default: `undefined`*
 
-The `preamble` configuration is a `string` that represents a preamble in the main file of the build. Help to persist a banner or add relevant information about the resulting build.
+Used to help to persist a banner or add relevant information about the resulting build, the `preamble` configuration 
+field is a `string` that will be converted into a pinned comment and placed at the top of all emitted JavaScript files,
+with the exception of any emitted polyfills. Escaped newlines may be placed in the provided value for this field and 
+will be honored by Stencil.
 
+Example:
 ```tsx
-preamble: 'Built with Stencil'
+preamble: 'Built with Stencil\nCopyright (c) SomeCompanyInc.'
+```
+Will generate the following comment:
+```tsx
+/*!
+ * Built with Stencil
+ * Copyright (c) SomeCompanyInc.
+ */
 ```
 
+## sourceMap
+
+*default: `false`*
+
+When set to `true`, sourcemaps will be generated for a project.
+
+```tsx
+sourceMap: true
+```
+
+Sourcemaps create a translation between Stencil components that are written in TypeScript/JSX and the resulting 
+JavaScript that is output by Stencil. Enabling source maps in your project allows for an improved debugging experience
+for Stencil components. For example, they allow external tools (such as an Integrated Development Environment) to add
+breakpoints directly in the original source code, which allows you to 'step through' your code line-by-line, to inspect
+the values held in variables, to observe logic flow, and more.
+
+Please note: Stencil will always attempt to minify a component's source code as much as possible during compilation. 
+When `sourceMap` is enabled, it is possible that a slightly different minified result will be produced by Stencil when
+compared to the minified result produced when `sourceMap` is not enabled. 
+
+Developers are responsible for determining whether or not they choose to serve sourcemaps in each environment their
+components are served and implementing their decision accordingly.
+
+When omitted or set to `false`, sourcemaps will not be generated.
 
 ## srcDir
 
@@ -167,7 +222,6 @@ The `srcDir` config specifies the directory which should contain the source type
 srcDir: 'src'
 ```
 
-
 ## taskQueue
 
 *default: `async`*
@@ -177,26 +231,26 @@ across the frames to efficiently render and reduce layout thrashing. By default,
 `async` is used. It's recommended to also try each setting to decide which works
 best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
 main thread to periodically lock-up, it's always recommended to try
-[Web Workers](https://stenciljs.com/docs/web-workers) for those tasks.
+[Web Workers](/docs/web-workers) for those tasks.
 
 * `congestionAsync`: DOM reads and writes are scheduled in the next frame to prevent layout
   thrashing. When the app is heavily tasked and the queue becomes congested it will then
   split the work across multiple frames to prevent blocking the main thread. However, it can
-  also introduce unnecesary reflows in some cases, especially during startup. `congestionAsync`
-  is ideal for apps running animations while also simultaniously executing intesive tasks
+  also introduce unnecessary reflows in some cases, especially during startup. `congestionAsync`
+  is ideal for apps running animations while also simultaneously executing intensive tasks
   which may lock-up the main thread.
 
 * `async`: DOM read and writes are scheduled in the next frame to prevent layout thrashing.
   During intensive CPU tasks it will not reschedule rendering to happen in the next frame.
   `async` is ideal for most apps, and if the app has many intensive tasks causing the main
-  thread to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers)
+  thread to lock-up, it's recommended to try [Web Workers](/docs/web-workers)
   rather than the congestion async queue.
 
-* `immediate`: Makes writeTask() and readTask() callbacks to be executed syncronously. Tasks
+* `immediate`: Makes writeTask() and readTask() callbacks to be executed synchronously. Tasks
   are not scheduled to run in the next frame, but do note there is at least one microtask.
-  The `immediate` setting is ideal for apps that do not provide long running and smooth
+  The `immediate` setting is ideal for apps that do not provide long-running and smooth
   animations. Like the async setting, if the app has intensive tasks causing the main thread
-  to lock-up, it's recommended to try [Web Workers](https://stenciljs.com/docs/web-workers).
+  to lock-up, it's recommended to try [Web Workers](/docs/web-workers).
 
 ```tsx
 taskQueue: 'async'
@@ -205,8 +259,3 @@ taskQueue: 'async'
 ## testing
 
 Please see the [testing config docs](/docs/testing-config).
-
-
-## extras
-
-Please see the [Extras docs](/docs/config-extras).

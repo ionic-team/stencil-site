@@ -16,7 +16,12 @@
   box-sizing: border-box;
 }
 
-*::selection,
-*::-moz-selection {
-  background: var(--color-whisper);
+::selection {
+  background: var(--color-dodger-blue);
+  color: var(--color-dodger-blue-contrast);
+}
+
+::-moz-selection {
+  background: var(--color-dodger-blue);
+  color: var(--color-dodger-blue-contrast);
 }

@@ -78,11 +78,11 @@ should already be created using the `loadConfig({...})` method.
 Below is an example of a NodeJS environment running a full build.
 
 ```tsx
-import { createNodeLogger, createNodeSystem } from '@stencil/core/cli';
+import { createNodeLogger, createNodeSys } from '@stencil/core/sys/node';
 import { createCompiler, loadConfig } from '@stencil/core/compiler';
 
 const logger = createNodeLogger(process);
-const sys = createNodeSystem(process);
+const sys = createNodeSys(process);
 const validated = await loadConfig({
   logger,
   sys,
@@ -153,7 +153,7 @@ will further apply minification optimizations beyond usual minification.
 path: PlatformPath
 ```
 
-Utility of the `path` API providied by NodeJS, but capable of running in any environment.
+Utility of the `path` API provided by NodeJS, but capable of running in any environment.
 This `path` API is only the POSIX version: https://nodejs.org/api/path.html
 
 

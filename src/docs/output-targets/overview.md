@@ -5,6 +5,7 @@ url: /docs/output-targets
 contributors:
   - adamdbradley
   - manucorporat
+  - rwaskiewicz
 ---
 
 # Output Targets
@@ -13,12 +14,15 @@ One of the more powerful features of the compiler is its ability to generate var
 
 
 ## Output Target Types:
- - [`dist-custom-elements-bundle`: Custom Elements](/docs/custom-elements)
  - [`dist`: Distribution](/docs/distribution)
  - [`www`: Website](/docs/www)
+ - [`dist-custom-elements`: Custom Elements](/docs/custom-elements)
+ - [`dist-custom-elements-bundle`: Custom Elements Bundle](/docs/custom-elements-bundle)
+ - [`stats`: Stats about the compiled files](/docs/stats)
  - [`docs-readme`: Documentation readme files formatted in markdown](/docs/docs-readme)
  - [`docs-json`: Documentation data formatted in JSON](/docs/docs-json)
  - [`docs-custom`: Custom documentation generation](/docs/docs-custom)
+ - [`docs-vscode`: Documentation generation for VS Code](/docs/docs-vscode)
 
 ## Example:
 
@@ -44,7 +48,7 @@ It's also important to note that the compiler will automatically generate the nu
 
 In the example below there are two script tags, however, only one of them will be requested by the user. For IE11 users, they'll download the `app.js` file which is in the `ES5` syntax and has all the polyfills. For users on modern browsers, they will only download the `app.esm.js` file which uses up-to-date JavaScript features such as [ES modules](https://developers.google.com/web/fundamentals/primers/modules), [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import), [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await), [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), etc.
 
-Note: [buildEs5](https://stenciljs.com/docs/config#buildes5) must be set to true to generate the IE11 ES5 file 
+Note: [buildEs5](/docs/config#buildes5) must be set to true to generate the IE11 ES5 file 
 
 ```markup
 <script type="module" src="/build/app.esm.js"></script>

@@ -9,6 +9,7 @@ contributors:
   - amwmedia
   - mrtnmgs
   - marcjulian
+  - seanwuapps
 ---
 
 # Docs Json Data
@@ -28,12 +29,15 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { type: 'docs-json' }
+    {
+      type: 'docs-json',
+      file: 'path/to/docs.json'
+    }
   ]
 };
 ```
 
-Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/master/src/declarations/stencil-public-docs.ts
+Check out the typescript declarations for the JSON output: https://github.com/ionic-team/stencil/blob/main/src/declarations/stencil-public-docs.ts
 
 
 ## CSS Variables
@@ -51,13 +55,17 @@ Stencil will also document CSS variables when you specify them via jsdoc-style c
 
 ## Slots
 
-Slots can be documented by adding `@slot` tags to the doc comments above the component decorator.
+Slots can be documented by adding `@slot` tags to the doc comments above the `@Component` decorator.
 
 ```tsx
 /**
  * @slot slotName - slotDescription
  * @slot buttonContent - Slot for the content of the button
  */
+ 
+ @Component({
+  tag: '...'
+}) ...
 ```
 
 
@@ -86,6 +94,10 @@ In addition to reading the predefined JSDoc tags, users can provide their own cu
  * @myDocTag someName - some value
  * @myOtherDocTag someOtherName - some other name
  */
+ 
+@Component({
+  tag: '...'
+}) ...
 ```
 
 It would end up in the JSON data like this:

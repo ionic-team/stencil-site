@@ -20,7 +20,7 @@ Implement one of the following methods within a component class and Stencil will
 Called every time the component is connected to the DOM.
 When the component is first connected, this method is called before `componentWillLoad`.
 
-It's important to note that this method can be called more than once, everytime, the element is **attached** or **moved** in the DOM.
+It's important to note that this method can be called more than once, every time, the element is **attached** or **moved** in the DOM. For logic that needs to run every time the element is attached or moved in the DOM, it is considered a best practice to use this lifecycle method.
 
 ```tsx
 const el = document.createElement('my-cmp');
@@ -32,10 +32,8 @@ el.remove();
 // disconnectedCallback()
 
 document.body.appendChild(el);
-// connectedCallback() called again, but `componentWillLoad` is not.
+// connectedCallback() called again, but `componentWillLoad()` is not.
 ```
-
-It's a good practice to use this hook
 
 
 This `lifecycle` hook follows the same semantics as the one described by the [Custom Elements Spec](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
@@ -48,18 +46,17 @@ This `lifecycle` hook follows the same semantics as the one described by the [Cu
 
 ## componentWillLoad()
 
-Called once just after the component is first connected to the DOM. Since this method is only called once, it's a good place to load data asynchronously.
+Called once just after the component is first connected to the DOM. Since this method is only called once, it's a good place to load data asynchronously and to setup the state without triggering extra re-renders.
 
-A promise can be returned, that can be used to wait for the first render.
+A promise can be returned, that can be used to wait for the first `render()`.
 
 ## componentDidLoad()
 
-Called once just after the component fully loaded and the first `render()` occurs.
-
+Called once just after the component is fully loaded and the first `render()` occurs.
 
 ## componentShouldUpdate()
 
-This hook is called when a component's `Prop` or `State` property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
+This hook is called when a component's [`Prop`](/docs/properties) or [`State`](/docs/state) property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
 
 A couple of things to notice is that this method will not be executed before the initial render, that is, when the component is first attached to the dom, nor when a rerender is already scheduled in the next frame.
 

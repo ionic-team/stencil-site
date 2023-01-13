@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { JSX } from "@stencil/core";
 import { MarkdownHeading, SiteStructureItem } from "./global/definitions";
 export namespace Components {
     interface AnnouncementBar {
@@ -38,7 +39,17 @@ export namespace Components {
     interface DocComponent {
         "page"?: string;
     }
+    interface DocsDropdown {
+        "align": 'left' | 'right' | 'center';
+        "close": () => Promise<void>;
+        "icon"?: (props: any) => JSX.Element;
+        "open": () => Promise<void>;
+        "toggle": () => Promise<void>;
+    }
     interface DsPage {
+    }
+    interface FeaturePill {
+        "link": string;
     }
     interface GuideCallout {
     }
@@ -154,11 +165,23 @@ declare global {
         prototype: HTMLDocComponentElement;
         new (): HTMLDocComponentElement;
     };
+    interface HTMLDocsDropdownElement extends Components.DocsDropdown, HTMLStencilElement {
+    }
+    var HTMLDocsDropdownElement: {
+        prototype: HTMLDocsDropdownElement;
+        new (): HTMLDocsDropdownElement;
+    };
     interface HTMLDsPageElement extends Components.DsPage, HTMLStencilElement {
     }
     var HTMLDsPageElement: {
         prototype: HTMLDsPageElement;
         new (): HTMLDsPageElement;
+    };
+    interface HTMLFeaturePillElement extends Components.FeaturePill, HTMLStencilElement {
+    }
+    var HTMLFeaturePillElement: {
+        prototype: HTMLFeaturePillElement;
+        new (): HTMLFeaturePillElement;
     };
     interface HTMLGuideCalloutElement extends Components.GuideCallout, HTMLStencilElement {
     }
@@ -273,7 +296,9 @@ declare global {
         "custom-clock": HTMLCustomClockElement;
         "demo-card": HTMLDemoCardElement;
         "doc-component": HTMLDocComponentElement;
+        "docs-dropdown": HTMLDocsDropdownElement;
         "ds-page": HTMLDsPageElement;
+        "feature-pill": HTMLFeaturePillElement;
         "guide-callout": HTMLGuideCalloutElement;
         "highlight-code": HTMLHighlightCodeElement;
         "hubspot-modal": HTMLHubspotModalElement;
@@ -325,7 +350,14 @@ declare namespace LocalJSX {
     interface DocComponent {
         "page"?: string;
     }
+    interface DocsDropdown {
+        "align"?: 'left' | 'right' | 'center';
+        "icon"?: (props: any) => JSX.Element;
+    }
     interface DsPage {
+    }
+    interface FeaturePill {
+        "link"?: string;
     }
     interface GuideCallout {
         "onToggleModal"?: (event: CustomEvent<any>) => void;
@@ -392,7 +424,9 @@ declare namespace LocalJSX {
         "custom-clock": CustomClock;
         "demo-card": DemoCard;
         "doc-component": DocComponent;
+        "docs-dropdown": DocsDropdown;
         "ds-page": DsPage;
+        "feature-pill": FeaturePill;
         "guide-callout": GuideCallout;
         "highlight-code": HighlightCode;
         "hubspot-modal": HubspotModal;
@@ -426,7 +460,9 @@ declare module "@stencil/core" {
             "custom-clock": LocalJSX.CustomClock & JSXBase.HTMLAttributes<HTMLCustomClockElement>;
             "demo-card": LocalJSX.DemoCard & JSXBase.HTMLAttributes<HTMLDemoCardElement>;
             "doc-component": LocalJSX.DocComponent & JSXBase.HTMLAttributes<HTMLDocComponentElement>;
+            "docs-dropdown": LocalJSX.DocsDropdown & JSXBase.HTMLAttributes<HTMLDocsDropdownElement>;
             "ds-page": LocalJSX.DsPage & JSXBase.HTMLAttributes<HTMLDsPageElement>;
+            "feature-pill": LocalJSX.FeaturePill & JSXBase.HTMLAttributes<HTMLFeaturePillElement>;
             "guide-callout": LocalJSX.GuideCallout & JSXBase.HTMLAttributes<HTMLGuideCalloutElement>;
             "highlight-code": LocalJSX.HighlightCode & JSXBase.HTMLAttributes<HTMLHighlightCodeElement>;
             "hubspot-modal": LocalJSX.HubspotModal & JSXBase.HTMLAttributes<HTMLHubspotModalElement>;

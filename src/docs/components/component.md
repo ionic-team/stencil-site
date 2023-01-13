@@ -4,6 +4,7 @@ description: Decorators
 url: /docs/component
 contributors:
   - jthoms1
+  - rwaskiewicz
 ---
 
 # Component Decorator
@@ -48,8 +49,16 @@ export interface ComponentOptions {
   /**
    * If `true`, the component will use native shadow-dom encapsulation, it will fallback to `scoped` if the browser
    * does not support shadow-dom natively. Defaults to `false`.
+   * 
+   * If an object literal containing `delegatesFocus` is provided, the component will use native shadow-dom
+   * encapsulation. When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its
+   * shadow DOM. When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
+   * - the first focusable part of the component is given focus
+   * - the component receives any available `focus` styling
+   * Setting `delegatesFocus` to `false` will not add the `delegatesFocus` property to the shadow DOM and therefore
+   * will have the focusing behavior described for `shadow: true`.
    */
-  shadow?: boolean;
+  shadow?: boolean | { delegatesFocus: boolean };
 
   /**
    * Relative URL to some external stylesheet file. It should be a `.css` file unless some
@@ -58,7 +67,7 @@ export interface ComponentOptions {
   styleUrl?: string;
 
   /**
-   * Similar as `styleUrl` but allows to specify different stylesheets for different modes.
+   * Similar as `styleUrl` but allows one to specify different stylesheets for different modes.
    */
   styleUrls?: string[] | d.ModeStyles;
 

@@ -9,113 +9,227 @@ contributors:
   - ErikSchierboom
   - brentertz
   - danawoodman
+  - a-giuliano
+  - rwaskiewicz
 ---
-# React
 
-With an application built using the `create-react-app` script the easiest way to include the component library is to call `defineCustomElements()` from the `index.js` file.
-Note that in this scenario `applyPolyfills` is needed if you are targeting Edge or IE11.
+# React Integration
+
+**Supports: React v16.7+ • TypeScript 3.7+ • Stencil v2.9.0+**
+
+Stencil provides a wrapper for your custom elements to be used as first-class React components. The goal of a wrapper is to easily integrate your Stencil components into a specific framework. Wrappers provide a function that you can use within Stencil’s Output Targets to automatically create components for the targeted framework that wrap the web components you create in a Stencil project.
+
+One benefit of the wrapper pattern includes improved maintainability since you can write code once, and reuse it across different frameworks. Today, there are some challenges associated with using HTML Custom Elements in a React app. Custom events are not handled properly, as well as properties/attributes that are not a string or number. By using Stencil's component wrappers, you can solve these issues and receive first-class React components.
+
+## Setup
+
+### Project Structure
+
+To organize the generated component libraries for different frameworks, we recommend using a monorepo structure. This monorepo will contain your Stencil component library as well as the component libraries for whatever frameworks you choose. The overall structure of a monorepo with Stencil and React component libraries might look something like this
+
+```
+top-most-directory/
+├── stencil-library/
+│   ├── stencil.config.js
+│   └── src/components/
+└── react-library/
+    └── src/
+        ├── components/
+        └── index.ts
+```
+
+To do this, start by creating a monorepo
+
+```bash
+mkdir {the name of your monorepo}
+```
+
+And then move your Stencil component library into your monorepo
+
+```bash
+mv {the path to your Stencil component library} {the path to your monorepo}
+```
+
+### Create a React Component Library
+
+Next, we will need to create the React component library that will wrap your Stencil components. This library will be a sibling to your Stencil component library. Inside your monorepo, you can create your own React project, or you can use the [React component library template](https://github.com/ionic-team/stencil-ds-react-template) to bootstrap it. To do this, run the following command
+
+```bash
+git clone https://github.com/ionic-team/stencil-ds-react-template component-library-react
+cd component-library-react
+npm i
+```
+
+> **NOTE**: If you want to name your React component library something different, add the new name at the end of the clone command like so
+
+```bash
+git clone https://github.com/ionic-team/stencil-ds-react-template {the name of your React component library}
+cd {the name of your React component library}
+npm i
+```
+
+If you do rename your React component library, be sure to change the `name` in the `package.json` to match your new name.
+
+### Install the React Output Target in your Stencil Component Library
+
+Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
+
+```bash
+npm install @stencil/react-output-target --save-dev 
+```
+
+Or
+
+```bash
+yarn add @stencil/react-output-target --dev
+```
+
+### Add the React Wrapper Function to your Stencil Component Library
+
+With the React Output Target package installed, we can now configure our Stencil component library to build our React wrapped components (within our React component library). In the `stencil.config.ts` file of your Stencil component library, add the React wrapper function
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { Config } from '@stencil/core';
+import { reactOutputTarget as react } from '@stencil/react-output-target';
 
-// test-component is the name of our made up Web Component that we have
-// published to npm:
+export const config: Config = {
+  ...
+  outputTargets: [
+    react({
+      componentCorePackage: 'your-stencil-library-name',
+      proxiesFile: '../your-react-library-name/src/components/stencil-generated/index.ts',
+      includeDefineCustomElements: true,
+    }),
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader',
+    },
+    {
+      type: 'dist-custom-elements',
+    },
+    ...
+  ],
+};
+```
+
+First, make sure to import the `reactOutputTarget` function from `@stencil/react-output-target` at the top of the file. With that imported, we can now use it in the `outputTargets` array and specify the relevant parameters. The `componentCorePackage` should be the name of your Stencil component library. The `proxiesFile` is the file that gets generated by the React wrapper function and contains the definitions of all the React wrapper components. Be sure to change the path names to reflect the names of your packages.
+
+For details on the `includeDefineCustomElements` option, and all other options, visit the API documentation section below.
+
+With the `reactOutputTarget` configured, we can now generate our React wrapped components. In your **Stencil component library** run
+
+```bash
+npm run build
+```
+
+You’ll see the new generated file in your React component library at the location specified by the `proxiesFile` .
+
+```
+top-most-directory/
+├── stencil-library/
+│   ├── stencil.config.js
+│   └── src/components/
+└── react-library/
+    └── src/
+        └── components/
+        │   └── stencil-generated/
+        │       └── react-component-lib/
+        │       └── index.ts <-- the newly generated file
+        └── index.ts
+```
+
+### Add the Components to your React Component Library's Entry File
+
+> **Note:** If you are using our React template, this should already be prepared for you, and this step can be safely skipped.
+
+In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
+
+```tsx
+export * from './components';
+```
+
+### Link Your Packages (Optional)
+
+If you want to build and test your components locally, you will need to link the packages together. This is a replacement for publishing packages to npm that allows you to develop and test locally. To do this, we’ll use the `npm link` command. This command creates a global symlink for a given package and thereby allows it to be consumed by other packages in your environment.
+
+First, build your Stencil component library. In your **Stencil component library**, run
+
+```bash
+npm run build
+```
+
+Now you can create a symlink for your Stencil component library. From within your **Stencil component library**, run
+
+```bash
+npm link
+```
+
+With the symlink created, we next need to specify which packages will be consuming them. Your React component library will need to consume your Stencil component library. In the directory of your **React component library** run
+
+```bash
+npm link {Stencil library name}
+```
+
+And with that, your component libraries are linked together. Now, you can make changes in your Stencil component library and run `npm run build` to propagate them through to the React component library without having to relink.
+
+> **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+
+## Usage
+
+If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step.
+
+To link your React component library, navigate to your **React component library** and run
+
+```bash
+npm run build
+npm link
+```
+
+To build your React component library and create a symlink to the project.
+
+Navigate to your **React application directory** and run
+
+```bash
+npm link {React component library}
+```
+
+To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
+
+```tsx
+// if your React component library has another name, replace 'component-library-react' with that name
+import { MyComponent } from 'component-library-react';
+```
+
+With that, your component is now available to be used like any other React component.
+
+## FAQ's
+
+### What is the best format to write event names?
+
+Event names shouldn’t include special characters when initially written in Stencil. Try to lean on using camelCased event names for interoperability between frameworks.
+
+### How do I add IE11 or Edge support?
+
+If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+
+```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
 
 applyPolyfills().then(() => {
   defineCustomElements();
 });
 ```
 
-Following the steps above will enable your web components to be used in React, however there are some additional complexities that must also be considered.  https://custom-elements-everywhere.com/ contains a synopsis of the current issues.
+## API
 
-## Properties and Events
+### proxiesFile
 
-The largest deficiencies that React currently has when it comes to working with standard HTML Custom Elements is that properties that contain non-scalar data (that is, data that is not a string or number) are not passed properly and custom events are not handled properly. The solution to both of these problems is to wrap the Custom Element in a React component, obtain a `ref` to the Custom Element, and use the `ref` in order to set the non-scalar properties and add event listeners via `addEventListener`. Here is an example showing how this works for the property passing:
+This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
 
-```tsx
-import React, { useRef, useEffect } from 'react';
-import { Forecast } from '../models';
-import { iconPaths } from '../util';
+### includeDefineCustomElements
 
-const DailyForecast: React.FC<{ forecast: Forecast; scale: string }> = ({ forecast, scale }) => {
-  const elementRef = useRef(null);
+If `true`, React components will import and define elements from the [`dist-custom-elements` build](/docs/custom-elements), rather than [`dist`](/docs/distribution).
 
-  useEffect(() => {
-    (elementRef.current as any)!.iconPaths = iconPaths;
-    (elementRef.current as any)!.forecasts = forecast;
-  }, [forecast]);
+### excludeComponents
 
-  return <kws-daily-forecast scale={scale} ref={elementRef}></kws-daily-forecast>;
-};
-
-export default DailyForecast;
-```
-
-In this example, there are three properties: `forecast` is an array of objects, `iconPaths` is an object, and `scale` is a string. Since `scale` is a string it can be handled normally. However, the other two properties are non-scalar and must be set via the `ref` to the Custom Element. Wrapping the Custom Element as such prevents you from having to obtain a `ref` with every instance of `kws-daily-forecast` that you may need since you will instead be using the `DailyForecast` React component as such:
-
-```tsx
-<DailyForecast scale={scale} forecast={f}></DailyForecast>
-```
-
-## Bindings
-
-Manually wrapping all Custom Elements in a React Component is a good practice, but it gets tedious quickly.
-
-With bindings the web components get wrapped in a React component and then immediately become available as React Components. Some of the advantages of doing this are that you get types for your components. One of the main issues with React is that react does not properly pass properties to web components. Out of the box React can only pass strings and numbers to components and it cannot listen to custom events. With the bindings the components appear as though they are React components and all properties get passed correctly including functions, objects, and arrays. The bindings also account for custom events by creating a prop called ‘on<EventName>’. These allow React developers to interact with the web components as though they are React components.
-
-### Install
-
-```bash
-npm install @stencil/react-output-target --save-dev
-```
-
-### Stencil Config setup
-
-```tsx
-import { Config } from '@stencil/core';
-import { reactOutputTarget } from '@stencil/react-output-target';
-
-export const config: Config = {
-  namespace: 'demo',
-  outputTargets: [
-    reactOutputTarget({
-      componentCorePackage: 'component-library',
-      proxiesFile: '../component-library-react/src/components.ts',
-      includeDefineCustomElements: true,
-    }),
-    {
-      type: 'dist',
-    },
-  ],
-};
-```
-
-#### componentCorePackage
-
-This is the NPM package name of your core stencil package. In the case of Ionic we chose ‘@ionic/core’. This is the package that gets published that contains just your web components. This package is then used by the React package as a dependency
-
-#### proxiesFile
-
-This is the output file that gets generated by the outputTarget. This file should be referencing a different package location. In the example case we are choosing a sibling directory’s src directory. We will then create a React package that exports all components defined in this file.
-
-#### includeDefineCustomElements
-
-This means the consuming application doesn't have to manually import and call `defineCustomElements()`, and the components can be used as described below.
-
-### Setup of React Component Library
-
-There is an example component library package available on Github so that you can get started. This repo will likely live as a sibling to your Stencil component library. https://github.com/ionic-team/stencil-ds-react-template
-
-### Usage
-
-```tsx
-import { DemoComponent } from 'component-library-react';
-```
+This lets you exclude wrapping certain Web Components. This is useful if you need to write framework-specific versions of components. In Ionic Framework, this is used for routing components, like tabs, so that Ionic Framework can integrate better with React's Router.

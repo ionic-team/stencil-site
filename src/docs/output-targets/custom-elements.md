@@ -1,53 +1,103 @@
 ---
-title: Bundling Custom Elements with Stencil
-description: Bundling Custom Elements with Stencil
+title: Custom Elements with Stencil
+description: Custom Elements with Stencil
 url: /docs/custom-elements
 contributors:
   - adamdbradley
+  - rwaskiewicz
+  - splitinfinities
 ---
 
-# Custom Elements Bundle
+# Custom Elements
 
-The `dist-custom-elements-bundle` output target is used to generate custom elements as a single bundle. Even though the output ends up as a "single" bundle, it's generated to ensure components are tree-shakable. For example, if a component library has 100 components, but an external project only imported one component from the bundle, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
+The `dist-custom-elements` output target is used to generate custom elements in a more optimized way for tree shaking, and its the recommended approach when using any frontend framework integrations. For example, if a component library has 100 components, but an external project only imported one component from the directory, then only the code used by that one component would be pulled into the project. This is due to Stencil's use of ES Modules and the compiler generating friendly code for bundlers to parse and understand.
 
 ```tsx
 outputTargets: [
   {
-    type: 'dist-custom-elements-bundle',
+    type: 'dist-custom-elements',
   },
 ];
 ```
 
 ## Defining Exported Custom Elements
 
-By default, the custom elements bundle will be written to `dist/custom-elements/index.js`. This directory can be configured using the output target's `dir` config. The generated `index.js` file contains exports to each component class and will have their styles included within the bundle. However, this build does not automatically define the custom elements or apply any polyfills.
+By default, the custom elements files will be written to `dist/components/`.
+This directory can be configured using the output target's `dir` config. The
+generated files will each export a component class and will already have the
+styles bundled. However, this build does not define the custom elements or
+apply any polyfills. Any dependencies of your imported component will need to
+be loaded as well. 
 
-Below is an example of defining a custom element within the bundle:
+Below is an example of defining a custom element:
 
 ```tsx
-import { HelloWorld } from 'my-library/dist/custom-elements';
+import { HelloWorld } from 'my-library/dist/components/hello-world';
 
 customElements.define('hello-world', HelloWorld);
 ```
 
-If a component is dependent on other components, you'll need to register each one manually. This can be tedious so, for convenience, the bundle also exports a `defineCustomElements()` method.
-
-When `defineCustomElements()` is called, it will define every component in the bundle. However, it does not run automatically and it will not be called if it is not imported and executed. It can also result in a larger bundle size if there are unused components being imported.
+The output directory will also contain an `index.js` file which exports all of
+your components and their respective `defineCustomElement` helper functions,
+looking something like this:
 
 ```tsx
-import { defineCustomElements } from 'my-library/dist/custom-elements';
-
-defineCustomElements();
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+export { MyComponent, defineCustomElement as defineCustomElementMyComponent } from './my-component.js';
+export {
+  MyOtherComponent,
+  defineCustomElement as defineCustomElementMyOtherComponent
+} from './my-other-component.js';
 ```
 
-The generated bundle will export each component class and will already have the styles bundled. However, it does not define the custom elements or apply any polyfills.
+This file can be used as the root module when distributing your component
+library, see [below](#distributing-custom-elements) for more details.
+
+## Config
+
+### autoDefineCustomElements
+
+By default, consumers of the `dist-custom-elements` output target need to
+register each Stencil component that they want to use in the bundle manually.
+Setting this flag to `true` will define a component automatically with the
+`CustomElementRegistry` when the component's module is imported. Note that this
+will also automatically recursively define any child components as well.
+
+This flag defaults to `false` when omitted from a Stencil configuration file.
+
+> Note: At this time, components that do not use JSX cannot be automatically
+  defined. This is a known limitation of Stencil that users should be aware of.
+  
+### externalRuntime
+
+When `true`, this flag results in the following behaviors:
+
+1. Minification will follow what is specified in the [Stencil config](docs/config#minifyJs).
+2. Filenames will not be hashed.
+3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
+
+This flag defaults to `true` when omitted from a Stencil configuration file.
+
+### generateTypeDeclarations
+
+By default, type declaration files (`.d.ts` files) are only generated for the `dist-custom-elements` output target when
+the [`dist` output target](/docs/distribution) is also declared in a Stencil project's configuration. This behavior
+isn't always desirable, as not all users need the files emitted by the `dist` output target. To generate type
+declaration files for the `dist-custom-elements`, the experimental `generateTypeDeclarations` field can be set to 
+`true`.
+
+Setting this flag to `true` will generate type declaration files for the `dist-custom-elements` output target. Type
+declaration files will be placed in the `dist/types` directory in the root of a Stencil project. At this time, this
+output destination is not able to be configured.
+
+This flag defaults to `false` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/docs/local-assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output, 
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
-One method to ensure [local assets](/docs/local-assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+One method to ensure [assets](/docs/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
 The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
@@ -60,27 +110,30 @@ dynamically set the path at build time, such as `setAssetPath(process.env.ASSET_
 
 
 ```tsx
-import { defineCustomElements, setAssetPath } from 'my-library/dist/custom-elements';
+import { setAssetPath } from 'my-library/dist/components';
 
 setAssetPath(document.currentScript.src);
-defineCustomElements();
 ```
 
-Make sure to copy the assets over to a public directory in your app.  This configuration depends on how your script is bundled, or lack of
-bunding, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling. 
+Make sure to copy the assets over to a public directory in your app. This configuration depends on how your script is bundled, or lack of
+bundling, and where your assets can be loaded from. How the files are copied to the production build directory depends on the bundler or tooling. 
 The configs below provide examples of how to do this automatically with popular bundlers.
 
 ## Distributing Custom Elements
 
-Your component library can be easily distributed on NPM, similar to how [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) does it. From there, consumers of your library can decide how to import your library into their project. For the `dist-custom-elements-bundle`, the default import location would be `my-library/dist/custom-elements-bundle`, but this can get further configured within the `package.json` file.
+Your component library can be distributed on NPM, just like
+[`@ionic/core`](https://www.npmjs.com/package/@ionic/core). From there,
+consumers of your library can decide how to import your library into their
+project. For the `dist-custom-elements` output target, the default import
+location would be `my-library/dist/components`, but this can get further
+configured within the `package.json` file.
 
-To make the custom elements bundle the entry module for a package, set the `module` property in `package.json` to:
-
-Also be sure to set `@stencil/core` as a dependency of the package.
+To make the custom elements index the entry module for a package, set the
+`module` property like so in your `package.json`:
 
 ```tsx
 {
-  "module": "dist/custom-elements-bundle/index.js",
+  "module": "dist/components/index.js",
   "dependencies": {
     "@stencil/core": "latest"
   },
@@ -88,9 +141,60 @@ Also be sure to set `@stencil/core` as a dependency of the package.
 }
 ```
 
-Note: If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's up to you to choose which one of them should be available in the `module` entry.
+Be sure to set `@stencil/core` as a dependency of the package as well.
 
-Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
+> Note: If you are distributing the output of both the
+  [`dist`](/docs/output-targets/dist) and `dist-custom-elements` targets, then
+  it's up to you to choose which one of them should be available in the
+  `module` entry.
+
+Consumers of your library can then either import components from their
+individual files, like so:
+
+```tsx
+import { MyComponent } from 'best-web-components/dist/components/my-component';
+```
+
+Or they can import directly from the index module (`dist/components/index.js`),
+like so:
+
+```tsx
+import { MyComponent } from 'best-web-components';
+```
+
+Now you can publish your library to [Node Package Manager
+(NPM)](https://www.npmjs.com/). For more information about setting up the
+`package.json` file, and publishing, see: [Publishing Component Library To
+NPM](/docs/publishing).
+
+### Usage in Typescript
+
+If you plan to support consuming your component library in Typescript you'll
+need to set `generateTypeDeclarations: true` on the your output target in
+`stencil.config.ts`, like so:
+
+```tsx
+outputTargets: [
+  {
+    type: 'dist-custom-elements',
+    generateTypeDeclarations: true,
+  },
+];
+```
+
+Then you can set the `types` property in `package.json` so that consumers of
+your package can find the type definitions, like so:
+
+```tsx
+{
+  "module": "dist/components/index.js",
+  "types": "dist/components/index.d.ts",
+  "dependencies": {
+    "@stencil/core": "latest"
+  },
+  ...
+}
+```
 
 ## Example Bundler Configs
 
@@ -106,7 +210,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/local-assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/assets).
 
 ```javascript
 const path = require('path');
@@ -141,7 +245,7 @@ module.exports = {
 
 ### rollup.config.js
 
-A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/docs/local-assets).
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/docs/assets).
 
 ```javascript
 import path from 'path';
@@ -171,19 +275,21 @@ export default {
 };
 ```
 
-## How is this different from the "dist" output target?
+## How is this different from the "dist" and the "dist-custom-element-bundle" output targets?
 
-The `dist-custom-elements-bundle` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
+The `dist-custom-elements` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
+
+The `dist-custom-elements-bundle` output target is nearly the same as `dist-custom-elements`, and has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of `dist-custom-elements` for its improved tree-shaking features. Stencil's React, Vue, and Angular output targets use the `dist-custom-elements` for this reason.
 
 The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
 
-Luckily, both builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
+Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
 
 ## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/docs/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](/docs/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
-Good news is that these are already widely supported for modern web develoment:
+Good news is that these are already widely supported for modern web development:
 
 - [Custom Elements Support](https://caniuse.com/#feat=custom-elementsv1)
 - [Shadow DOM Support](https://caniuse.com/#feat=shadowdomv1)

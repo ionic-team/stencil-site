@@ -3,19 +3,19 @@
     "text": "Introduction",
     "children": [
       {
-        "text": "Why Stencil",
-        "filePath": "/assets/docs/introduction/why-stencil.json",
+        "text": "Overview",
+        "filePath": "/assets/docs/introduction/overview.json",
         "url": "/docs/introduction"
+      },
+      {
+        "text": "Upgrading to Stencil v3",
+        "filePath": "/assets/docs/introduction/upgrading-to-stencil-three.json",
+        "url": "/docs/upgrading-to-stencil-3"
       },
       {
         "text": "Goals and Objectives",
         "filePath": "/assets/docs/introduction/goals-and-objectives.json",
         "url": "/docs/goals-and-objectives"
-      },
-      {
-        "text": "Browser Support",
-        "filePath": "/assets/docs/introduction/browser-support.json",
-        "url": "/docs/browser-support"
       },
       {
         "text": "Getting Started",
@@ -26,21 +26,6 @@
         "text": "My First Component",
         "filePath": "/assets/docs/introduction/my-first-component.json",
         "url": "/docs/my-first-component"
-      },
-      {
-        "text": "FAQ",
-        "filePath": "/assets/docs/introduction/faq.json",
-        "url": "/docs/faq"
-      },
-      {
-        "text": "What is a Design System?",
-        "filePath": "/assets/docs/design-systems/what-is-design-system.json",
-        "url": "/docs/what-is-design-system"
-      },
-      {
-        "text": "Stencil for Design Systems",
-        "filePath": "/assets/docs/design-systems/stencil-for-design-systems.json",
-        "url": "/docs/stencil-for-design-systems"
       }
     ]
   },
@@ -228,19 +213,29 @@
         "url": "/docs/output-targets"
       },
       {
-        "text": "dist-custom-elements-bundle",
-        "filePath": "/assets/docs/output-targets/custom-elements.json",
-        "url": "/docs/custom-elements"
-      },
-      {
         "text": "dist",
         "filePath": "/assets/docs/output-targets/dist.json",
         "url": "/docs/distribution"
       },
       {
+        "text": "dist-custom-elements",
+        "filePath": "/assets/docs/output-targets/custom-elements.json",
+        "url": "/docs/custom-elements"
+      },
+      {
+        "text": "dist-custom-elements-bundle",
+        "filePath": "/assets/docs/output-targets/custom-elements-bundle.json",
+        "url": "/docs/custom-elements-bundle"
+      },
+      {
         "text": "www",
         "filePath": "/assets/docs/output-targets/www.json",
         "url": "/docs/www"
+      },
+      {
+        "text": "stats",
+        "filePath": "/assets/docs/output-targets/docs-stats.json",
+        "url": "/docs/stats"
       },
       {
         "text": "docs-readme",
@@ -258,6 +253,11 @@
         "url": "/docs/docs-custom"
       },
       {
+        "text": "docs-vscode",
+        "filePath": "/assets/docs/output-targets/docs-vscode.json",
+        "url": "/docs/docs-vscode"
+      },
+      {
         "text": "Copy Tasks",
         "filePath": "/assets/docs/output-targets/copy-tasks.json",
         "url": "/docs/copy-tasks"
@@ -268,14 +268,9 @@
     "text": "Guides",
     "children": [
       {
-        "text": "Web Workers",
-        "filePath": "/assets/docs/guides/workers.json",
-        "url": "/docs/web-workers"
-      },
-      {
-        "text": "Hydrate App",
-        "filePath": "/assets/docs/guides/hydrate-app.json",
-        "url": "/docs/hydrate-app"
+        "text": "Assets",
+        "filePath": "/assets/docs/guides/assets.json",
+        "url": "/docs/assets"
       },
       {
         "text": "Bundling",
@@ -283,9 +278,9 @@
         "url": "/docs/module-bundling"
       },
       {
-        "text": "Typed Components",
-        "filePath": "/assets/docs/guides/typed-components.json",
-        "url": "/docs/typed-components"
+        "text": "Design Systems",
+        "filePath": "/assets/docs/guides/design-systems.json",
+        "url": "/docs/design-systems"
       },
       {
         "text": "Forms",
@@ -293,14 +288,14 @@
         "url": "/docs/forms"
       },
       {
-        "text": "Local Assets",
-        "filePath": "/assets/docs/guides/local-assets.json",
-        "url": "/docs/local-assets"
+        "text": "Hydrate App",
+        "filePath": "/assets/docs/guides/hydrate-app.json",
+        "url": "/docs/hydrate-app"
       },
       {
-        "text": "Style Guide",
-        "filePath": "/assets/docs/guides/style-guide.json",
-        "url": "/docs/style-guide"
+        "text": "Publishing",
+        "filePath": "/assets/docs/guides/publishing.json",
+        "url": "/docs/publishing"
       },
       {
         "text": "Service Workers",
@@ -313,14 +308,19 @@
         "url": "/docs/stencil-store"
       },
       {
-        "text": "Publishing",
-        "filePath": "/assets/docs/guides/publishing.json",
-        "url": "/docs/publishing"
+        "text": "Style Guide",
+        "filePath": "/assets/docs/guides/style-guide.json",
+        "url": "/docs/style-guide"
       },
       {
-        "text": "Deno (experimental)",
-        "filePath": "/assets/docs/guides/deno.json",
-        "url": "/docs/deno"
+        "text": "Typed Components",
+        "filePath": "/assets/docs/guides/typed-components.json",
+        "url": "/docs/typed-components"
+      },
+      {
+        "text": "Web Workers",
+        "filePath": "/assets/docs/guides/workers.json",
+        "url": "/docs/web-workers"
       }
     ]
   },
@@ -398,6 +398,45 @@
       {
         "text": "Stencil on GitHub",
         "filePath": "https://github.com/ionic-team/stencil"
+      }
+    ]
+  },
+  {
+    "text": "Legal",
+    "children": [
+      {
+        "text": "Telemetry",
+        "filePath": "/assets/docs/telemetry.json",
+        "url": "/telemetry"
+      },
+      {
+        "text": "Privacy Policy",
+        "filePath": "https://ionicframework.com/privacy"
+      }
+    ]
+  },
+  {
+    "text": "Reference",
+    "children": [
+      {
+        "text": "Support Policy",
+        "filePath": "/assets/docs/reference/support-policy.json",
+        "url": "/docs/support-policy"
+      },
+      {
+        "text": "Versioning",
+        "filePath": "/assets/docs/reference/versioning.json",
+        "url": "/docs/versioning"
+      },
+      {
+        "text": "Browser Support",
+        "filePath": "/assets/docs/reference/browser-support.json",
+        "url": "/docs/browser-support"
+      },
+      {
+        "text": "FAQ",
+        "filePath": "/assets/docs/reference/faq.json",
+        "url": "/docs/faq"
       }
     ]
   }
