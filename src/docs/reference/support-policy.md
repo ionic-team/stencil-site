@@ -25,8 +25,8 @@ The current status of each Stencil version is:
 
 | Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:--------------:|:------------:|:----------------:|:-----------------:|
-|   V3    |    Upcoming    |     TBD      |       TBD        |        TBD        |
-|   V2    |   **Active**   | Aug 08, 2020 |       TBD        |        TBD        |
+|   V3    |   **Active**   | Jan 25, 2023 |       TBD        |        TBD        |
+|   V2    |  Maintenance   | Aug 08, 2020 |   Jul 25, 2023   |   Jan 25, 2024    |
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
@@ -120,12 +120,13 @@ please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/
 
 #### Jest
 
-| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28* |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|
-|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060;  |
+| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28+ * |
+|:---------------:|:--------:|:--------:|:--------:|:--------:|:-----------:|
+|       V3        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |  &#10060;   |
+|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |  &#10060;   |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; |  &#10060;   |
 
-\* Support for Jest 28 will be released in an upcoming version of Stencil.
+\* Support for Jest 28+ will be released in an upcoming version of Stencil v3.
 
 #### Puppeteer
 
