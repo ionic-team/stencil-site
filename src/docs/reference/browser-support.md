@@ -45,7 +45,7 @@ Stencil builds Web Components that run natively or near-natively in all widely u
       </div>
     </div>
     <div class="bs-chart__group-label">
-      Support with bundled polyfills
+      Deprecated in Stencil v3.
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@ Stencil uses a dynamic loader to load the custom elements polyfill only on brows
 }
 
 .bs-chart__group:last-child .bs-chart__card {
-  background: #96D01A;
+  background: #d0901a;
 }
 
 .bs-chart__card {
