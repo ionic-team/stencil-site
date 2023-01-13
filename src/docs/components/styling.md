@@ -57,7 +57,28 @@ With the shadow DOM enabled, only these styles will be applied to the component.
 
 ### Shadow DOM QuerySelector
 
-When you are using the shadow DOM and you want to query an element inside your web component, you must use `this.el.shadowRoot.querySelector()`. This is because all of the DOM inside your web component is in a shadowRoot that the shadow DOM creates.
+When using Shadow DOM and you want to query an element inside your web component, you must first use the [`@Element` decorator](/docs/host-element#element-decorator) to gain access to the host element, and then you can use the `shadowRoot` property to perform the query. This is because all of your DOM inside your web component is in a shadowRoot that Shadow DOM creates. For example:
+  
+```tsx
+import { Component, Element } from '@stencil/core';
+
+@Component({
+  tag: 'shadow-component',
+  styleUrl: 'shadow-component.css',
+  shadow: true
+})
+export class ShadowComponent {
+
+  @Element() el: HTMLElement;
+
+  componentDidLoad() {
+    const elementInShadowDom = this.el.shadowRoot.querySelector('.a-class-selector');
+
+    ...
+  }
+
+}
+```
 
 ### Shadow DOM Browser Support
 
