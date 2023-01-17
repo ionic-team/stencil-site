@@ -56,6 +56,7 @@
 * Guides
   * [Assets](guides/assets.md)
   * [Bundling](guides/module-bundling.md)
+  * [CSP Nonces](guides/csp-nonce.md)
   * [Design Systems](guides/design-systems.md)
   * [Forms](guides/forms.md)
   * [Hydrate App](guides/hydrate-app.md)
