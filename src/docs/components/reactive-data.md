@@ -52,6 +52,12 @@ export class LoadingIndicator {
     console.log('The old value of busy is: ', oldValue);
     console.log('The new value of busy is: ', newValue);
   }
+  
+  @Watch('activated')
+  @Watch('busy')
+  watchMultiple(newValue: boolean, oldValue: boolean, propName:string) {
+    console.log(`The new value of ${propName} is: `, newValue);
+  }
 }
 ```
 In the example above, there are two `@Watch()` decorators.
