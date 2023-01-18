@@ -300,6 +300,7 @@ import { MyHttpService } from '../path/to/MyHttpService';
     tag: 'todo-list-item',
 })
 export class ToDoListItem {
+    // Use `@Prop()` to declare the `httpService` class member
     @Prop() httpService: MyHttpService;
 }
 ```
@@ -315,7 +316,7 @@ type must always be exported using the `export` keyword where it is declared. Th
 know what type the prop `httpService` is when passing an instance of `MyHttpService` to `TodoListItem` from a parent
 component.
 
-To set `httpService` in TSX, assign the prop name in the custom element's tag to the desired value like so:
+To set `httpService` in TSX, assign the property name in the custom element's tag to the desired value like so:
 ```tsx
 // TodoList.tsx
 import { Component, h } from '@stencil/core';
