@@ -343,7 +343,8 @@ It is not possible to set `Object` props via an HTML attribute like so:
 <todo-list-item http-service="{ /* implementation omitted */ }"></todo-list-item>
 ```
 The reason for this is that Stencil will not attempt to serialize object-like strings written in HTML into a JavaScript object.
-Doing so can be expensive at runtime, and runs the risk of losing references to other nested JavaScript objects.
+Similarly, Stencil does not have any support for deserializing objects from JSON.
+Doing either can be expensive at runtime, and runs the risk of losing references to other nested JavaScript objects.
 
 Instead, properties may be set via `<script>` tags in a project's HTML:
 ```html
