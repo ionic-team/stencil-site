@@ -8,7 +8,7 @@ const config = {
   title: 'Stencil',
   tagline: 'A powerful toolchain for building Progressive Web Apps and Design Systems',
   url: 'https://stenciljs.com',
-  baseUrl: '/',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'icon/favicon.ico',
@@ -30,35 +30,52 @@ const config = {
 
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      '@ionic-internal/preset-classic',
+      /** @type {import('@ionic-internal/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/ionic-team/stencil-site/edit/master/',
+            'https://github.com/ionic-team/stencil-site/tree/master/src',
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
+          breadcrumbs: false,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
       }),
-    ],
+    ]
+  ],
+
+  plugins: [
+    ['docusaurus-plugin-module-alias',
+      {
+        alias: {
+          react: require.resolve('react'),
+          'react-dom': require.resolve('react-dom'),
+        },
+      }
+    ]
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @type {import('@ionic-internal/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        hideOnScroll: true,
+        hideOnScroll: false,
         logo: {
           alt: 'Stencil Logo',
-          src: 'img/logo.svg',
-          srcDark: "img/logo-white.svg",
+          src: 'img/logo-dark.svg',
+          srcDark: "img/logo-light.svg",
         },
         items: [
+          {
+            type: 'search',
+            position: 'right',
+          },
           {
             type: 'doc',
             docId: 'introduction/overview',
@@ -83,13 +100,22 @@ const config = {
           },
         ],
       },
-      footer: {
-        style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Ionic`,
-      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['jsx', 'tsx', 'bash', 'typescript', 'javascript', 'markup', 'css', 'json', 'diff']
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'BH4D9OD16A',
+  
+        // Public API key: it is safe to commit it
+        apiKey: '6399791d239c7e56a6b47685a64f8873',
+  
+        indexName: 'stenciljs',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
       },
     }),
 };

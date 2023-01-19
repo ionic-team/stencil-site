@@ -1,0 +1,20 @@
+@layer base, tokens, preset, site;
+
+@layer site {
+  /**
+  * Colors generated using the color range tool in the Docusaurus docs, here:
+  * https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima
+  */
+  :root {
+    --ifm-color-primary: #4c48ff;
+    --ifm-color-primary-dark: #1c17ff;
+    --ifm-color-primary-darker: #0500e5;
+    --ifm-color-primary-darkest: #0400c4;
+    --ifm-color-primary-light: #5c58ff;
+    --ifm-color-primary-lighter: #6c69ff;
+    --ifm-color-primary-lightest: #8c89ff;
+
+    --ifm-menu-color-background-active: var(--c-purple-0);
+  }
+}
+
