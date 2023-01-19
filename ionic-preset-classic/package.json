@@ -1,0 +1,47 @@
+{
+  "name": "@ionic-internal/preset-classic",
+  "version": "0.0.0",
+  "description": "Classic preset for Docusaurus.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "tsc --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/docusaurus.git",
+    "directory": "packages/docusaurus-preset-classic"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@csstools/postcss-cascade-layers": "^2.0.0",
+    "@docusaurus/core": "^2.2.0",
+    "@docusaurus/plugin-content-docs": "^2.2.0",
+    "@docusaurus/plugin-content-pages": "^2.2.0",
+    "@docusaurus/plugin-debug": "^2.2.0",
+    "@docusaurus/plugin-google-tag-manager": "^0.0.0-5434",
+    "@docusaurus/plugin-sitemap": "^2.2.0",
+    "@docusaurus/theme-classic": "^2.2.0",
+    "@docusaurus/theme-common": "^2.2.0",
+    "@docusaurus/theme-search-algolia": "^2.2.0",
+    "@docusaurus/types": "^2.2.0",
+    "@ionic-internal/design-system": "^0.0.0",
+    "docusaurus-plugin-sass": "^0.2.3",
+    "postcss-import": "^15.1.0",
+    "sass": "^1.57.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4 || ^17.0.0",
+    "react-dom": "^16.8.4 || ^17.0.0"
+  },
+  "engines": {
+    "node": ">=16.14"
+  },
+  "devDependencies": {
+    "@tsconfig/docusaurus": "^1.0.6"
+  }
+}

@@ -1,0 +1,117 @@
+@import '@ionic-internal/design-system/dist/tokens/index.css' layer(tokens);
+
+@layer preset {
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-weight: 100 900;
+    unicode-range: U+000-5FF;
+    src: url('https://code.ionicframework.com/assets/fonts/inter/Inter-variable-ASCII-subset.woff2') format('woff2-variations');
+  }
+
+  :root {
+    --ifm-font-family-base: 'Inter', sans-serif;
+
+    --ifm-container-width-xl: 100%;
+
+    --ifm-toc-border-color: var(--c-indigo-20);
+
+    --ifm-navbar-height: 4rem;
+
+    --ifm-menu-color-background-hover: transparent;
+    --ifm-menu-link-padding-vertical: .5rem;
+    --ifm-menu-link-padding-horizontal: 1.25rem;
+    --ifm-menu-link-sublist-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiBmaWxsPSJub25lIj48cGF0aCBzdHJva2U9IiMwMzA2MEIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik05IDUgNSAxIDEgNSIvPjwvc3ZnPg==");
+
+    --ifm-navbar-shadow: 0px 1px var(--ifm-toc-border-color);
+  }
+
+  [data-theme='dark'] {
+    --ifm-toc-border-color: var(--c-carbon-90);
+  }
+
+  [class*='docItemContainer'] {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  
+    max-width: 50rem;
+  }
+  
+  [class*='docMainContainer'] {
+    padding-block-start: 3rem;
+  }
+  
+  [class*='tocCollapsibleButton']::after {
+    background: var(--ifm-menu-link-sublist-icon) 50% 50% / 1rem 1rem no-repeat;
+  }
+
+  .table-of-contents__left-border {
+    border-left: none;
+  }
+  
+  .navbar {
+    font-size: .875rem;
+  
+    &__logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: auto;
+      }
+    }
+  }
+  
+  .menu__link--sublist {
+    justify-content: start;
+    flex-direction: row-reverse;
+
+    &::after {
+      margin-inline-start: 0;
+      margin-inline-end: .5rem;
+    
+      background: var(--ifm-menu-link-sublist-icon) 50% / .625rem .375rem;
+      background-repeat: no-repeat;
+    
+      transform: rotate(180deg);
+    }
+  }
+  
+  .menu__list-item--collapsed .menu__link--sublist::after {
+    transform: rotate(90deg);
+  }
+
+  .menu__list-item:not(:first-child) {
+    margin-block-start: .5rem;
+  }
+
+  .menu__list .menu__list {
+    padding-inline-start: 0;
+  }
+
+  .theme-doc-sidebar-menu {
+    --ifm-menu-color: var(--c-indigo-80);
+
+    font-size: 0.813rem;
+  }
+
+  .theme-doc-sidebar-item-category {
+    .menu__link--sublist {
+      font-weight: 600;
+      color: var(--c-carbon-100);
+    }
+
+    &-level-1 {
+      .menu__link--sublist {
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .markdown {
+    line-height: 200%;
+  }
+}
