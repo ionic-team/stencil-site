@@ -18,15 +18,15 @@ Stencil builds Web Components that run natively or near-natively in all widely u
     <div class="bs-chart__cards">
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Chrome 60+
+        Chrome 79+
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Safari 10.1+
+        Safari 14+  
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Firefox 63+
+        Firefox 70+
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
@@ -35,17 +35,6 @@ Stencil builds Web Components that run natively or near-natively in all widely u
     </div>
     <div class="bs-chart__group-label">
       Full native support
-    </div>
-  </div>
-  <div class="bs-chart__group">
-    <div class="bs-chart__cards">
-      <div class="bs-chart__card">
-        <app-icon name="checkmark"></app-icon>
-        IE 11, Edge 16-18
-      </div>
-    </div>
-    <div class="bs-chart__group-label">
-      Deprecated in Stencil v3.
     </div>
   </div>
 </div>
