@@ -37,6 +37,17 @@ Stencil builds Web Components that run natively or near-natively in all widely u
       Full native support
     </div>
   </div>
+  <div class="bs-chart__group">
+    <div class="bs-chart__cards">
+      <div class="bs-chart__card">
+        <app-icon name="checkmark"></app-icon>
+        IE 11, Edge 16-18
+      </div>
+    </div>
+    <div class="bs-chart__group-label">
+      Deprecated in Stencil v3.
+    </div>
+  </div>
 </div>
 
 Web Components are a set of standardized browser APIs centered around the Custom Elements v1 spec, a cross-browser way to define and create essentially new HTML tags, and is the successor to the now-defunct v0 spec.
