@@ -17,6 +17,6 @@
     "src/prism-include-languages.ts",
     "src/theme",
     "src/*.d.ts"
-  ],
+, "types.d.ts"  ],
   "exclude": ["**/__tests__/**"]
 }
