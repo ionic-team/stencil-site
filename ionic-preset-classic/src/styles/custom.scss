@@ -18,6 +18,8 @@
 
     --ifm-navbar-height: 4rem;
 
+    --ifm-link-hover-decoration: none;
+
     --ifm-menu-color-background-hover: transparent;
     --ifm-menu-link-padding-vertical: .5rem;
     --ifm-menu-link-padding-horizontal: 1.25rem;
@@ -28,6 +30,17 @@
 
   [data-theme='dark'] {
     --ifm-toc-border-color: var(--c-carbon-90);
+
+    .theme-edit-this-page {
+      --ifm-link-color: var(--c-carbon-10);
+      --ifm-link-hover-color: var(--c-carbon-10);
+    }
+
+    [class*='iconEdit'] {
+      path {
+        fill: var(--c-carbon-10);
+      }
+    }
   }
 
   [class*='docItemContainer'] {
@@ -45,8 +58,10 @@
     background: var(--ifm-menu-link-sublist-icon) 50% 50% / 1rem 1rem no-repeat;
   }
 
-  .table-of-contents__left-border {
-    border-left: none;
+  .table-of-contents {
+    &__left-border {
+      border-left: none;
+    }
   }
   
   .navbar {
@@ -109,6 +124,69 @@
         font-size: 1rem;
       }
     }
+  }
+
+  .pagination-nav {
+
+    &__sublabel {
+      color: var(--c-indigo-60);
+
+      margin-block-end: .5rem;
+    }
+
+    &__label {
+      font-weight: 500;
+    }
+
+    &__link {
+      border-color: transparent;
+
+      &--prev {
+        padding-inline-start: 0;
+
+        .pagination-nav__label {
+          &::before {
+            content: ' →';
+            display: inline-block;
+
+            margin-inline-end: .25rem;
+
+            transform: rotate(180deg) translateY(-.075em);
+          }
+        }
+      }
+
+      &--next {
+        padding-inline-end: 0;
+
+        .pagination-nav__label {
+          &::after {
+            content: '→';
+            display:inline-block;
+
+            margin-inline-start: .25rem;
+
+          }
+        }
+      }
+    }
+  }
+
+  .theme-back-to-top-button {
+    &::after {
+      mask-size: 1rem 1rem;
+    }
+  }
+
+  .theme-edit-this-page {
+    --ifm-link-hover-color: var(--c-carbon-90);
+    --ifm-link-color: var(--c-carbon-90);
+
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+
+    font-weight: 600;
   }
 
   .markdown {
