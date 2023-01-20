@@ -26,10 +26,19 @@
     --ifm-menu-link-sublist-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2IiBmaWxsPSJub25lIj48cGF0aCBzdHJva2U9IiMwMzA2MEIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik05IDUgNSAxIDEgNSIvPjwvc3ZnPg==");
 
     --ifm-navbar-shadow: 0px 1px var(--ifm-toc-border-color);
+
+    --docsearch-searchbox-background: var(--ifm-navbar-background-color);
+    --docsearch-key-gradient: none;
+    --docsearch-key-shadow: none;
   }
 
   [data-theme='dark'] {
     --ifm-toc-border-color: var(--c-carbon-90);
+
+    --ifm-background-surface-color: var(--c-carbon-100);
+    --ifm-background-color: var(--c-carbon-100);
+
+    --ifm-menu-color: var(--c-indigo-40);
 
     .theme-edit-this-page {
       --ifm-link-color: var(--c-carbon-10);
@@ -39,6 +48,23 @@
     [class*='iconEdit'] {
       path {
         fill: var(--c-carbon-10);
+      }
+    }
+
+    .theme-doc-sidebar-item-category {
+      .menu__link--sublist {
+        color: var(--c-carbon-0);
+      }
+    }
+
+    .navbar__icon:not(.translation) {
+      path {
+        fill: var(--ifm-navbar-link-color);
+      }
+    }
+    .navbar__icon.translation {
+      path {
+        stroke: var(--ifm-navbar-link-color);
       }
     }
   }
@@ -66,8 +92,44 @@
   }
 
   .table-of-contents {
+    padding-inline-start: 0;
+
     &__left-border {
       border-left: none;
+    }
+  }
+
+  .DocSearch-Search-Icon {
+    display: none;
+  }
+
+  .DocSearch-Button-Container {
+    &::before {
+      content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyQkVDRCIgZD0iTTE0LjI5IDEyLjYgMTEuMSA5LjQxYTUuOSA1LjkgMCAxIDAtMS4yIDEuMmwzLjE4IDMuMTdhLjg0Ljg0IDAgMCAwIDEuMi0xLjJaTTIuMTkgNS45YTQuMjEgNC4yMSAwIDEgMSA4LjQxIDAgNC4yMSA0LjIxIDAgMCAxLTguNDIgMFoiLz48L3N2Zz4=");
+    }
+  }
+  
+  .DocSearch-Button {
+    border-radius: 8px;
+
+    border: 1px solid var(--ifm-toc-border-color);
+
+    &-Placeholder {
+      font-weight: 400;
+      font-size: .875rem;
+    }
+
+    &-Key {
+      display: flex;
+      align-items: center;
+
+      padding: 0;
+
+      border: 1px solid var(--ifm-toc-border-color);
+
+      font-size: 100%;
+      
+      top: 0;
     }
   }
   
@@ -94,6 +156,19 @@
       a {
         display: flex;
         align-items: center;
+      }
+    }
+
+    &__items {
+      &--right {
+        > :last-child {
+          padding: var(--ifm-navbar-item-padding-vertical) var(--ifm-navbar-item-padding-horizontal);
+          padding-inline-end: 0;
+
+          button {
+            background: none;
+          }
+        }
       }
     }
   }
@@ -126,7 +201,7 @@
   }
 
   .theme-doc-sidebar-menu {
-    --ifm-menu-color: var(--c-indigo-80);
+    // --ifm-menu-color: var(--c-indigo-80);
 
     font-size: 0.813rem;
   }
