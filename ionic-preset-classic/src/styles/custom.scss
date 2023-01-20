@@ -58,6 +58,13 @@
     background: var(--ifm-menu-link-sublist-icon) 50% 50% / 1rem 1rem no-repeat;
   }
 
+  [class*='tableOfContents'] {
+    position: relative;
+    
+    max-height: unset;
+    top: unset; 
+  }
+
   .table-of-contents {
     &__left-border {
       border-left: none;
@@ -66,6 +73,13 @@
   
   .navbar {
     font-size: .875rem;
+
+    &__separator {
+      width: 1px;
+      height: 1.75rem;
+
+      background: var(--ifm-toc-border-color);
+    }
   
     &__logo {
       display: flex;
@@ -73,6 +87,13 @@
 
       img {
         height: auto;
+      }
+    }
+
+    &__item {
+      a {
+        display: flex;
+        align-items: center;
       }
     }
   }
