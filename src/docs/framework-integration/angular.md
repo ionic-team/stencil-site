@@ -66,10 +66,15 @@ yarn global add lerna
 # From your top-most-directory/, initialize a workspace
 lerna init
 
+# install dependencies
+npm install
+# or if you are using yarn
+yarn install
+
 # install typescript and node types
 npm install typescript @types/node --save-dev
 # or if you are using yarn
-yarn add typescript @types/node --dev
+yarn add typescript @types/node --dev -W
 ```
 
 #### Creating a Stencil Component Library
@@ -106,7 +111,7 @@ You can delete the `component-library.component.ts`, `component-library.service.
 You will also need to add your generated Stencil library as a dependency so import references can be resolved correctly:
 
 ```json
-// package.json
+// packages/angular-workspace/projects/component-library/package.json
 
 "dependencies": {
   "stencil-library": "*"
@@ -192,6 +197,7 @@ automatically generated `public-api.ts` file:
 ```ts
 // public-api.ts
 
+export * from './lib/component-library.module';
 export { DIRECTIVES } from './lib/stencil-generated';
 export * from './lib/stencil-generated/components';
 ```
@@ -269,13 +275,15 @@ npx -p @angular/cli ng generate app my-app
 
 This section covers how developers consuming your Angular component wrappers will use your package and component wrappers.
 
-Before consuming the wrapper component, you'll first need to include the component library as a dependency to your Angular app. The easiest way
-to do this is by linking your packages.
+In order to use the generated component wrappers in the Angular app, you'll first need to build your Angular component library. From the root
+of your Angular workspace (`/packages/angular-workspace`), run the following command:
 
-From your Angular component library, run `npm link`. Then, from your Angular application, run `npm link component-library`. This will create a symlink
-between your Angular component library and your Angular application.
+```bash
+npx -p @angular/cli ng build component-library
+```
 
-Now, your Angular app will be able to correctly resolve the imports from your component library. If you distributed your components through a primary `NgModule`, developers can simply import that module into their implementation to use your components.
+Now you can reference your component library as a standard import. If you distributed your components through a primary `NgModule`, you can
+simply import that module into their implementation to use your components.
 
 ```ts
 // app.module.ts
@@ -288,7 +296,7 @@ import { ComponentLibraryModule } from 'component-library';
 export class AppModule {}
 ```
 
-Alternatively, developers can individually import the components and declare them on a module:
+Alternatively, you can individually import the components and declare them on a module:
 
 ```ts
 // app.module.ts
@@ -301,7 +309,7 @@ import { MyComponent } from 'component-library';
 export class AppModule {}
 ```
 
-Developers can now directly leverage your components in their template and take advantage of Angular template binding syntax.
+You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
 
 ```html
 <!-- app.component.html -->
