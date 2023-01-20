@@ -298,7 +298,7 @@ resolve imports from your Vue library. This is easily done by modifying your Vue
 
 For more information, see the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management).
 
-### Consuming the Angular Wrapper Components
+### Consuming the Vue Wrapper Components
 
 This section covers how developers consuming your Vue component wrappers will use your package and component wrappers.
 
