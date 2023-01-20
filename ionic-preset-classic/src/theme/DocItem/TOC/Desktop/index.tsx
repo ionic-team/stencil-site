@@ -7,13 +7,18 @@ import { useDoc } from '@docusaurus/theme-common/internal';
 
 type Props = WrapperProps<typeof DesktopType>;
 
+import styles from './index.module.scss';
+
 export default function DesktopWrapper(props: Props): JSX.Element {
   const { metadata: { editUrl } } = useDoc();
 
   return (
-    <>
+    <div className={styles.tocWrapper}>
       <Desktop {...props} />
-      <EditThisPage editUrl={editUrl || ''} />
-    </>
+      <div className={styles.tocSeparator} />
+      <div className={styles.tocBottom}>
+        <EditThisPage editUrl={editUrl || ''} />
+      </div>
+    </div>
   );
 }
