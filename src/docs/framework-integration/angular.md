@@ -206,7 +206,7 @@ You can configure how your input events can map directly to a value accessor, al
 
 ### How do I add IE11 or Edge support?
 
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
 
 If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
 
