@@ -1,3 +1,5 @@
+@layer base, tokens, preset, site;
+
 @import '@ionic-internal/design-system/dist/tokens/index.css' layer(tokens);
 
 @layer preset {
