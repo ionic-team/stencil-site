@@ -254,7 +254,7 @@ In addition to CSS custom properties, other use cases for a global stylesheet in
 - App wide font-family
 - CSS resets
 
-To make the global styles available to all the components in your design system, the `stencil.config.ts` file comes with an optional [`globalStyle` setting](https://stenciljs.com/docs/config#globalstyle) that accepts the path to your global stylesheet.
+To make the global styles available to all the components in your design system, the `stencil.config.ts` file comes with an optional [`globalStyle` setting](/config#globalstyle) that accepts the path to your global stylesheet.
 
 ```tsx
 export const config: Config = {
