@@ -93,6 +93,8 @@ The state object is proxied, i. e. you can directly get and set properties and S
 
 Note: [`Proxy`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) objects are not supported by IE11 (not even with a polyfill), so you need to use the `store.get` and `store.set` methods of the API if you wish to support IE11.
 
+> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
+
 ### `store.on(event, listener)`
 
 Add a listener to the store for a certain action.
