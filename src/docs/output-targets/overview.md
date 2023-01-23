@@ -55,7 +55,7 @@ Note: [buildEs5](/docs/config#buildes5) must be set to true to generate the IE11
 <script nomodule src="/build/app.js"></script>
 ```
 
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
 
 
 ## Docs Auto-Generation
