@@ -45,6 +45,11 @@ const config = {
           ],
           breadcrumbs: false,
           exclude: ['**/README.md'],
+          versions: {
+            current: {
+              label: 'v2',
+            },
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
@@ -78,7 +83,6 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right',
-            dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
             dropdownActiveClassDisabled: true,
           },
           {
