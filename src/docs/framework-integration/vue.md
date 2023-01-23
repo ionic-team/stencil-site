@@ -130,7 +130,7 @@ In your `vue-library` project, create a project specific `tsconfig.json` that wi
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./lib",
+    "outDir": "./dist",
     "lib": ["dom", "es2020"],
     "module": "es2015",
     "moduleResolution": "node",
@@ -147,8 +147,8 @@ Update the generated `package.json` in your `vue-library`, adding the following 
 ```diff
 {
 -  "main": "lib/vue-library.js",
-+  "main": "lib/index.js",
-+  "types": "lib/index.d.ts",
++  "main": "dist/index.js",
++  "types": "dist/index.d.ts",
   "scripts": {
 -    "test": "echo \"Error: run tests from root\" && exit 1"
 +    "test": "echo \"Error: run tests from root\" && exit 1",
@@ -301,6 +301,12 @@ For more information, see the Lerna documentation on [package dependency managem
 ### Consuming the Vue Wrapper Components
 
 This section covers how developers consuming your Vue component wrappers will use your package and component wrappers.
+
+Before you can use your Vue proxy components, you'll need to build your Vue component library. From `packages/vue-library` simply run:
+
+```bash
+npm run build
+```
 
 In your `main.js` file, import your component library plugin and use it:
 
