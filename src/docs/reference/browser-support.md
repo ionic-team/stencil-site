@@ -18,15 +18,15 @@ Stencil builds Web Components that run natively or near-natively in all widely u
     <div class="bs-chart__cards">
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Chrome 60+
+        Chrome 79+
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Safari 10.1+
+        Safari 14+  
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
-        Firefox 63+
+        Firefox 70+
       </div>
       <div class="bs-chart__card">
         <app-icon name="checkmark"></app-icon>
@@ -45,7 +45,7 @@ Stencil builds Web Components that run natively or near-natively in all widely u
       </div>
     </div>
     <div class="bs-chart__group-label">
-      Support with bundled polyfills
+      Deprecated in Stencil v3.
     </div>
   </div>
 </div>
@@ -58,8 +58,8 @@ For browsers without native support, a small polyfill helps developers use Custo
 
 Stencil uses a dynamic loader to load the custom elements polyfill only on browsers that need it. With this polyfill Stencil's browser support is Chrome (and all chrome based browsers), Safari, Firefox, Edge, and IE11.
 
-|                                                                | Chrome 60+                             | Safari 10.1+                           | Firefox 63+                            | Edge 79+                               | Edge 16-18                             | IE 11                               |
-| -------------------------------------------------------------- | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :------------------------------------: | :---------------------------------: |
+|                                                                |               Chrome 79+               |               Safari 14+               |              Firefox 70+               |                Edge 79+                | Edge 16-18                             | IE 11                               |
+| -------------------------------------------------------------- |:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|:--------------------------------------:| :------------------------------------: | :---------------------------------: |
 | [CSS Variables](https://caniuse.com/#feat=css-variables)       | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon> |
 | [Custom Elements](https://caniuse.com/#feat=custom-elementsv1) | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon> |
 | [Shadow Dom](https://caniuse.com/#feat=shadowdomv1)            | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="checkmark"></app-icon> | <app-icon name="circle"></app-icon>    | <app-icon name="circle"></app-icon> |
@@ -92,7 +92,7 @@ Stencil uses a dynamic loader to load the custom elements polyfill only on brows
 }
 
 .bs-chart__group:last-child .bs-chart__card {
-  background: #96D01A;
+  background: #d0901a;
 }
 
 .bs-chart__card {
