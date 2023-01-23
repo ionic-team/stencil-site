@@ -338,10 +338,10 @@ For more information on configuring this output target, please see the [`dist-cu
 
 ### Using `includeImportCustomElements`
 
-The addition of [customElementsExportBehavior](#add-customelementsexportbehavior-to-control-export-behavior) option on `dist-custom-elements` can also have an impact on the
-[Stencil framework integrations output targets](/docs/overview) if they are configured to use the output from `dist-custom-elements` (i.e. setting
-`includeImportCustomElements: true`). If problems are noticed with the generated import statements in the component proxy files, setting
-`customElementsExportBehavior: 'single-export-module'` in the framework output target config should result in the same behavior as in Stencil V2. For example, a project using
+The addition of the [customElementsExportBehavior](#add-customelementsexportbehavior-to-control-export-behavior) option on `dist-custom-elements` can also have an impact on the
+[Stencil framework integration output targets](/docs/overview) if they are configured to use the output from `dist-custom-elements` (i.e. by setting
+`includeImportCustomElements: true`). If you encounter problems with the generated import statements in the component proxy files, setting
+`customElementsExportBehavior: 'single-export-module'` in the `dist-custom-elements` output target config should result in the same behavior as in Stencil V2. For example, a project using
 the Angular framework integration output target would have a config like:
 
 ```ts
