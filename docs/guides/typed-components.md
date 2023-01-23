@@ -41,8 +41,8 @@ button.fill = 'outline';
 
 ## Properties
 
-This section has moved to [Property Types](/docs/properties#types)
+This section has moved to [Property Types](/properties#types)
 
 ### Required Properties
 
-This section has moved to [Required Properties](/docs/properties#required-properties)
+This section has moved to [Required Properties](/properties#required-properties)

@@ -235,7 +235,7 @@ This parameter allows you to name the file that contains all the component wrapp
 
 ### includeDefineCustomElements
 
-If `true`, React components will import and define elements from the [`dist-custom-elements` build](/docs/custom-elements), rather than [`dist`](/docs/distribution).
+If `true`, React components will import and define elements from the [`dist-custom-elements` build](/custom-elements), rather than [`dist`](/distribution).
 
 ### excludeComponents
 

@@ -76,7 +76,7 @@ Stencil purposely does not strive to act as a stand-alone framework, but rather 
 
 ### Does Stencil come with a testing framework?
 
-Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. [Learn more about testing with Stencil](/docs/testing-overview).
+Yes, Stencil provides a rich set of APIs for unit and End-to-end tests. [Learn more about testing with Stencil](/testing-overview).
 
 
 
@@ -190,7 +190,7 @@ Compared to using Web Components directly, Stencil provides extra APIs that make
 
 Stencil works on modern browsers and Internet Explorer 11.
 
-[Learn more about browser support](/docs/browser-support).
+[Learn more about browser support](/browser-support).
 
 
 ### What polyfills does Stencil provide?

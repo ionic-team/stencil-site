@@ -30,8 +30,8 @@ Builds a Stencil project. The flags below are the available options for the `bui
 | `--next` | Opt-in to test the "next" Stencil compiler features. | |
 | `--no-cache` | Disables using the cache. | |
 | `--no-open` | By default the `--serve` command will open a browser window. Using the `--no-open` command will not automatically open a browser window. | |
-| `--port` | Port for the [Integrated Dev Server](/docs/dev-server). Defaults to `3333`. | `-p` |
-| `--serve` | Starts the [Integrated Dev Server](/docs/dev-server). | |
+| `--port` | Port for the [Integrated Dev Server](/dev-server). Defaults to `3333`. | `-p` |
+| `--serve` | Starts the [Integrated Dev Server](/dev-server). | |
 | `--stats` | Write stats about the project to `stencil-stats.json`. The stats file is written in the same location as the config. | |
 | `--verbose` | Logs additional information about each step of the build. | |
 | `--watch` | Watches files during development and triggers a rebuild when files are updated. | |

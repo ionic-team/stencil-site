@@ -35,7 +35,7 @@ export const config: Config = {
 ```
 
 :::note
-`buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/docs/config#buildes5) for more information.
+`buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](/config#buildes5) for more information.
 :::
 
 ### appendChildSlotFix
@@ -73,7 +73,7 @@ and use a bundler such as Vite to lazily load the Stencil library's components.
 
 In order for this flag to work:
 1. The Stencil library must expose lazy loadable components, such as those created with the
-[`dist` output target](/docs/distribution)
+[`dist` output target](/distribution)
 2. The Stencil library must be recompiled with this flag set to `true`
 
 This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.

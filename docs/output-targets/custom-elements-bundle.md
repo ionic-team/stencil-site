@@ -46,10 +46,10 @@ The generated bundle will export each component class and will already have the 
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/docs/assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](/assets) built within the JavaScript output, 
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
-One method to ensure [local assets](/docs/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+One method to ensure [local assets](/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
 The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
@@ -94,7 +94,7 @@ Also be sure to set `@stencil/core` as a dependency of the package.
 If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's up to you to choose which one of them should be available in the `module` entry.
 :::
 
-Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/docs/publishing).
+Now you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing Component Library To NPM](/publishing).
 
 ## Example Bundler Configs
 
@@ -110,7 +110,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/docs/assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/assets).
 
 ```javascript
 const path = require('path');
@@ -145,7 +145,7 @@ module.exports = {
 
 ### rollup.config.js
 
-A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [assets](/docs/assets).
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [assets](/assets).
 
 ```javascript
 import path from 'path';
@@ -185,7 +185,7 @@ Luckily, both builds can be generated at the same time, using the same source co
 
 ## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/docs/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements-bundle` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
 Good news is that these are already widely supported for modern web development:
 

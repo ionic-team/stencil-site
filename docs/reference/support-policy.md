@@ -87,7 +87,7 @@ The table below describes recent versions of Stencil and the version of TypeScri
 The TypeScript team releases a new minor version of the TypeScript compiler approximately once every three months. To
 accomplish its goal of staying within one minor version of the latest release, Stencil will update its version of
 TypeScript once every three months as well. Updates to the version of TypeScript will often, but not always, occur in a
-[minor version release](/docs/versioning#minor-release) of Stencil.
+[minor version release](/versioning#minor-release) of Stencil.
 
 The Stencil team acknowledges that TypeScript minor version releases may contain breaking changes. The Stencil team will
 do everything in its power to avoid propagating breaking changes to its user base.

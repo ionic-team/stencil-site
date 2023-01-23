@@ -9,7 +9,7 @@ contributors:
 
 # Publishing A Component Library
 
-There are numerous strategies to publish and distribute your component library to be consumed by external projects. One of the benefits of Stencil is that is makes it easy to generate the various [output targets](/docs/output-targets) that are right for your use-case.
+There are numerous strategies to publish and distribute your component library to be consumed by external projects. One of the benefits of Stencil is that is makes it easy to generate the various [output targets](/output-targets) that are right for your use-case.
 
 ## Publishing to Node Package Manager (NPM)
 

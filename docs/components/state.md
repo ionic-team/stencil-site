@@ -91,13 +91,13 @@ export class CurrentTime {
 }
 ```
 
-The example above makes use of the [connectedCallback() lifecycle method](/docs/component-lifecycle#connectedcallback)
+The example above makes use of the [connectedCallback() lifecycle method](/component-lifecycle#connectedcallback)
 to set `currentTime` to the value of `Date.now()` every 1000 milliseconds (or, every one second). Because the value of 
 `currentTime` changes every second, Stencil calls the `render` function on `current-time`, which pretty-prints the
 current time.
 
 The example above also makes use of the 
-[disconnectedCallback() lifecycle method](/docs/component-lifecycle#disconnectedcallback) to properly clean up the timer
+[disconnectedCallback() lifecycle method](/component-lifecycle#disconnectedcallback) to properly clean up the timer
 that was created using `setInterval` in `connectedCallback()`. This isn't necessary for using `@State`, but is a general
 good practice when using `setInterval`.
 
@@ -153,7 +153,7 @@ export class CurrentTime {
 
 ### Using `@State()` with `@Listen()`
 
-This example makes use of `@State` and [`@Listen`](/docs/events#listen-decorator) decorators. We define a class member
+This example makes use of `@State` and [`@Listen`](/events#listen-decorator) decorators. We define a class member
 called `isOpen` and decorate it with `@State()`. With the use of `@Listen()`, we respond to click events toggling the
 value of `isOpen`.
 
@@ -262,7 +262,7 @@ this.items[this.items.length - 1] = newTodo;
 ```
 
 Similar to the examples above, this code sample makes use of the
-[connectedCallback() lifecycle method](/docs/component-lifecycle#connectedcallback) to create a new `Item` and add
+[connectedCallback() lifecycle method](/component-lifecycle#connectedcallback) to create a new `Item` and add
 it to `items` every 2000 milliseconds (every two seconds). The example above also makes use of the
-[disconnectedCallback() lifecycle method](/docs/component-lifecycle#disconnectedcallback) to properly clean up the timer
+[disconnectedCallback() lifecycle method](/component-lifecycle#disconnectedcallback) to properly clean up the timer
 that was created using `setInterval` in `connectedCallback()`.

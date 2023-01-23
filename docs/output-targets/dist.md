@@ -71,7 +71,7 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 
 ## Publishing
 
-Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](/docs/publishing).
+Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](/publishing).
 
 ## Distribution Options
 

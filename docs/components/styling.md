@@ -34,9 +34,9 @@ To use the Shadow DOM in a Stencil component, you can set the `shadow` option to
 export class ShadowComponent {}
 ```
 
-If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](/docs/component#component-options).
+If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](/component#component-options).
 
-By default, components created with the [`stencil generate` command](/docs/cli#stencil-generate-sub-folder) use the shadow DOM.
+By default, components created with the [`stencil generate` command](/cli#stencil-generate-sub-folder) use the shadow DOM.
 
 ### Styling with the Shadow DOM
 
@@ -53,14 +53,14 @@ div {
 ```
 
 :::note
-The `:host` pseudo-class selector is used to select the [`Host` element](/docs/host-element) of the component
+The `:host` pseudo-class selector is used to select the [`Host` element](/host-element) of the component
 :::
 
 With the shadow DOM enabled, only these styles will be applied to the component. Even if a style in the light DOM uses a selector that matches an element in the component, those styles will not be applied.
 
 ### Shadow DOM QuerySelector
 
-When using Shadow DOM and you want to query an element inside your web component, you must first use the [`@Element` decorator](/docs/host-element#element-decorator) to gain access to the host element, and then you can use the `shadowRoot` property to perform the query. This is because all of your DOM inside your web component is in a shadowRoot that Shadow DOM creates. For example:
+When using Shadow DOM and you want to query an element inside your web component, you must first use the [`@Element` decorator](/host-element#element-decorator) to gain access to the host element, and then you can use the `shadowRoot` property to perform the query. This is because all of your DOM inside your web component is in a shadowRoot that Shadow DOM creates. For example:
   
 ```tsx
 import { Component, Element } from '@stencil/core';
@@ -268,7 +268,7 @@ export const config: Config = {
 };
 ```
 
-The compiler will run the same minification, autoprefixing, and plugins over `global.css` and generate an output file for the [`www`](/docs/www) and [`dist`](/docs/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
+The compiler will run the same minification, autoprefixing, and plugins over `global.css` and generate an output file for the [`www`](/www) and [`dist`](/distribution) output targets. The generated file will always have the `.css` extension and be named as the specified `namespace`.
 
 In the example above, since the namespace is `app`, the generated global styles file will be located at: `./www/build/app.css`.
 

@@ -230,4 +230,4 @@ export const config: Config = {
 };
 ```
 
-Check [this part of the doc](/docs/config#testing) to learn more about the possibilities on this matter. 
+Check [this part of the doc](/config#testing) to learn more about the possibilities on this matter. 
