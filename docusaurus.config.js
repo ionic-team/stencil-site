@@ -115,7 +115,7 @@ const config = {
           {
             type: 'html',
             position: 'right',
-            value: '<a href="https://stenciljs.jp" target="_blank" rel="noopener" class="navbar__icon translation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="none"><path stroke="#03060B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 3h12.12M7.56 1v2M10.92 17l4.04-9.33L19 17M12.16 14.33h5.6M11.31 3S10.3 6.92 7.85 9.88c-2.44 2.95-5 4.45-5 4.45"/><path stroke="#03060B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.25 12.33s-1.47-1.12-3.03-3.12c-1.56-2-2.35-3.54-2.35-3.54"/></svg></a>',
+            value: '<a href="https://stenciljs.jp/docs" target="_blank" rel="noopener" class="navbar__icon translation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="none"><path stroke="#03060B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 3h12.12M7.56 1v2M10.92 17l4.04-9.33L19 17M12.16 14.33h5.6M11.31 3S10.3 6.92 7.85 9.88c-2.44 2.95-5 4.45-5 4.45"/><path stroke="#03060B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.25 12.33s-1.47-1.12-3.03-3.12c-1.56-2-2.35-3.54-2.35-3.54"/></svg></a>',
           },
           {
             type: 'html',
