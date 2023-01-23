@@ -278,6 +278,8 @@ export const config: Config = {
 | `bundle`                      | A utility `defineCustomElements()` function is exported from the `index.js` file of the output directory. This function can be used to quickly define all Stencil components in a project on the custom elements registry.                                                                                                                                                                                 |
 | `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
+> **NOTE:** This option also has an impact when using the [Stencil framework integration output targets](/docs/overview). Please see the [framework integration migration](#framework-integration-output-targets) section below for more information.
+
 #### Move `autoDefineCustomElements` Configuration
 `autoDefineCustomElements` was a configuration option to define a component and its children automatically with the `CustomElementRegistry` when the component's module is imported.
 This behavior has been merged into the [`customElementsExportBehavior` configuration field](#add-customelementsexportbehavior-to-control-export-behavior).
@@ -333,6 +335,36 @@ export const config: Config = {
 ```
 However, it does not necessarily improve treeshaking/bundle size.
 For more information on configuring this output target, please see the [`dist-custom-elements` documentation](/docs/custom-elements)
+
+## Framework Integration Output Targets
+
+### Using `includeImportCustomElements`
+
+The addition of the [customElementsExportBehavior](#add-customelementsexportbehavior-to-control-export-behavior) option on `dist-custom-elements` can also have an impact on the
+[Stencil framework integration output targets](/docs/overview) if they are configured to use the output from `dist-custom-elements` (i.e. by setting
+`includeImportCustomElements: true`). If you encounter problems with the generated import statements in the component proxy files, setting
+`customElementsExportBehavior: 'single-export-module'` in the `dist-custom-elements` output target config should result in the same behavior as in Stencil V2. For example, a project using
+the Angular framework integration output target would have a config like:
+
+```ts
+// stencil.config.ts
+import { Config } from '@stencil/core';
+import { angularOutputTarget } from '@stencil/angular-output-target';
+
+export const config: Config = {
+  outputTargets: [
+    angularOutputTarget({
+      // Same config as V2
+      includeImportCustomElements: true
+    }),
+    {
+      type: 'dist-custom-elements',
+      // This will create the same behavior as Stencil V2
+      customElementsExportBehavior: 'single-export-module'
+    }
+  ]
+}
+```
 
 ## Legacy Angular Output Target
 Prior to the creation of the [`@stencil/angular-output-target`](https://github.com/ionic-team/stencil-ds-output-targets/blob/main/packages/angular-output-target/README.md), the `'angular'` output target was the original means of connecting a Stencil component to an Angular application.
