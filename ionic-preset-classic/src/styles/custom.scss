@@ -30,6 +30,7 @@
     --docsearch-searchbox-background: var(--ifm-navbar-background-color);
     --docsearch-key-gradient: none;
     --docsearch-key-shadow: none;
+    --docsearch-searchbox-shadow: none;
   }
 
   [data-theme='dark'] {
@@ -99,6 +100,10 @@
     }
   }
 
+  [class*='searchBox'] {
+    flex-basis: 14rem;
+  }
+
   .DocSearch-Search-Icon {
     display: none;
   }
@@ -110,13 +115,25 @@
   }
   
   .DocSearch-Button {
+    width: 100%;
+
     border-radius: 8px;
 
     border: 1px solid var(--ifm-toc-border-color);
 
+    &:hover, &:focus {
+      border-color: var(--c-indigo-50);
+    }
+
     &-Placeholder {
       font-weight: 400;
       font-size: .875rem;
+
+      color: var(--c-indigo-60);
+    }
+
+    &-Keys {
+      min-width: auto;
     }
 
     &-Key {
@@ -127,14 +144,34 @@
 
       border: 1px solid var(--ifm-toc-border-color);
 
-      font-size: 100%;
+      font-size: 120%;
       
       top: 0;
+
+      margin: 0;
+
+      &:first-of-type {
+        margin-inline-end: .25rem;
+      }
     }
   }
   
   .navbar {
     font-size: .875rem;
+
+    &-sidebar {
+      .navbar__separator {
+        display: none;
+      }
+
+      .navbar__icon {
+        padding-inline-start: calc(var(--ifm-navbar-item-padding-horizontal) + .75rem);
+      }
+    }
+
+    [class*='iconExternalLink'] {
+      display: none;
+    }    
 
     &__separator {
       width: 1px;
@@ -149,6 +186,17 @@
 
       img {
         height: auto;
+      }
+    }
+
+    &__icon {
+      margin-inline-start: -.25rem;
+      margin-inline-end: -.25rem;
+    }
+
+    &__items{
+      &--right {
+        flex: 1 0 auto;
       }
     }
 

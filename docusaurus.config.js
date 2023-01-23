@@ -3,11 +3,13 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const HOSTNAME = 'stenciljs.com';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Stencil',
   tagline: 'A powerful toolchain for building Progressive Web Apps and Design Systems',
-  url: 'https://stenciljs.com',
+  url: `https://${HOSTNAME}`,
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -88,7 +90,7 @@ const config = {
             position: 'right',
             label: 'Docs',
           },
-          {to: 'resources', label: 'Resources', position: 'right'},
+          {href: `https://${HOSTNAME}/resources`, label: 'Resources', position: 'right'},
           {
             type: 'html',
             position: 'right',
