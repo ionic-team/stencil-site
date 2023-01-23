@@ -44,6 +44,7 @@ const config = {
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
           breadcrumbs: false,
+          exclude: ['**/README.md'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
