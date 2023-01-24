@@ -32,14 +32,13 @@ const sidebars = {
       label: 'Legal',
       items: [
         { 
-          type: 'link',
-          label: 'Telemetry',
-          href: "/telemetry"
+          type: 'doc',
+          id: 'telemetry'
         },
         {
           type: 'link',
           label: 'Privacy Policy',
-          href: 'https://ionicframework.com/privacy',
+          href: 'https://ionic.io/privacy',
         },
       ],
     },
