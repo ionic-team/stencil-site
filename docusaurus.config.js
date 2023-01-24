@@ -46,7 +46,19 @@ const config = {
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
           breadcrumbs: false,
-          exclude: ['**/README.md'],
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            ...props
+          }) {
+            const defaultSidebar = await defaultSidebarItemsGenerator(props);
+
+            const EXCLUDE_TOP_LEVEL_IDS = ['build-variables', 'telemetry']
+
+            const filteredSidebar = defaultSidebar.filter(item => !EXCLUDE_TOP_LEVEL_IDS.includes(item.id));
+
+            return filteredSidebar;
+          },
+        exclude: ['**/README.md'],
           versions: {
             current: {
               label: 'v2',
