@@ -63,20 +63,25 @@ yarn global add lerna
 # From your top-most-directory/, initialize a workspace
 lerna init
 
+# install dependencies
+npm install
+# or if you are using yarn
+yarn install
+
 # install typescript and node types
 npm install typescript @types/node --save-dev
 # or if you are using yarn
-yarn add typescript @types/node --dev
+yarn add typescript @types/node --dev -W
 ```
 
 #### Creating a Stencil Component Library
 
 > If you already have a Stencil component library, skip this section.
 
-From the `packages` directory, run the following commands to create a Stencil component library:
+From the `packages/` directory, run the following commands to create a Stencil component library:
 
 ```bash
-npm init stencil component stencil-library
+npm init stencil components stencil-library
 cd stencil-library
 # Install dependencies
 npm install
@@ -90,10 +95,90 @@ yarn install
 
 The first time you want to create the component wrappers, you will need to have a React library package to write to.
 
-You can create your own React component library in the `packages` directory using a [toolchain](https://reactjs.org/docs/create-a-new-react-app.html#recommended-toolchains) or from scratch ([this](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe) guide walks through the entire process).
+Run the following commands from the root directory of your monorepo to create a React component library:
 
-If you are using Lerna (or another monorepo tool), you may also need to update your React library's dependencies to reference the generated Stencil
-library. See the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information. If you are not using a monorepo, you may want [link your packages](#link-your-packages-optional) for local development.
+```bash
+# Create a project
+lerna create react-library # fill out the prompts accordingly
+cd packages/react-library
+
+# Install core dependencies
+npm install react typescript @types/react --save-dev
+# of if using yarn
+yarn add react typescript @types/react --dev
+```
+
+Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "lib": ["es6"],
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "**/__tests__/**"]
+}
+```
+
+In your `react-library` project, create a project specific `tsconfig.json` that will extend the root config:
+
+```json
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "lib": ["dom", "es2015"],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "skipLibCheck": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": "./dist/types"
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
+}
+```
+
+Update the generated `package.json` in your `react-library`, adding the following options to the existing config:
+
+```diff
+{
+-  "main": "lib/react-library.js",
++  "main": "dist/index.js",
++  "module": "dist/index.js",
++  "types": "dist/types/index.d.ts",
+  "scripts": {
+-    "test": "test": "node ./__tests__/react-library.test.js"
++    "test": "test": "node ./__tests__/react-library.test.js",
++    "build": "npm run tsc",
++    "tsc": "tsc -p ."
+-  }
++  },
+   "files": [
+-    "lib"
++    "dist"
+   ]
++  "publishConfig": {
++    "access": "public"
++  },
++  "dependencies": {
++    "stencil-library": "*"  
++  }
+}
+```
+
+> **NOTE:** The `stencil-library` dependency is how Lerna knows to resolve the internal Stencil library dependency. See Lerna's documentation on
+> [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
 
 #### Adding the React Output Target
 
@@ -122,8 +207,8 @@ export const config: Config = {
       type: 'dist',
     },
     reactOutputTarget({
-      componentCorePackage: 'your-stencil-library-package-name',
-      proxiesFile: '../react-library/src/components/stencil-generated/index.ts',
+      componentCorePackage: 'stencil-library',
+      proxiesFile: '../react-library/lib/components/stencil-generated/index.ts',
     }),
   ],
 };
@@ -131,6 +216,8 @@ export const config: Config = {
 
 > The `proxiesFile` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
 > file path to match your project's structure and respective names. You can generate any file name instead of `index.ts`.
+>
+> The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
 
 See the [API section below](#api) for details on each of the output target's options.
 
@@ -147,10 +234,22 @@ If the build is successful, you’ll see the new generated file in your React co
 
 ### Add the Components to your React Component Library's Entry File
 
-In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file - commonly the `src/index.ts` file. To do this, you’ll write:
+In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file. First, rename `react-library.js` to `index.ts`. Then, modify the contents to match the following:
 
 ```tsx
-export * from './components';
+export * from './components/stencil-generated';
+```
+
+### Registering Custom Elements
+
+To register your web components for the lazy-loaded (hydrated) bundle, you'll need to expose a method for registering the underlying Stencil
+generated custom elements for the React proxy components to leverage. The easiest way to do this is to modify the React library's entry file
+to re-export the Stencil loader's `defineCustomElements()` method. In your React library's entry file (`packages/react-library/lib/index.ts`),
+add the follow:
+
+```diff
+export * from "./components/stencil-generated";
++ export { defineCustomElements } from "stencil-library/loader";
 ```
 
 ### Link Your Packages (Optional)
@@ -186,33 +285,57 @@ changes to the React component library.
 
 ## Consumer Usage
 
-This section covers how developers consuming your React component wrappers will use your package and component wrappers.
+### Creating a Consumer React App
 
-If you are developing and testing your React component library locally, you'll have to use `npm link` again to make your React component library available in your React application. If your components are published to npm, you can skip this step.
+> If you already have a React app, skip this section.
 
-To link your React component library, navigate to your **React component library** and run
+From the `packages/` directory, run the following command to create a starter React app:
 
 ```bash
-npm run build
-npm link
+# Create the React app
+npx create-react-app my-app --template typescript --use-npm
+# of if using yarn
+npx create-react-app my-app --template typescript
 ```
 
-To build your React component library and create a symlink to the project.
+You'll also need to link your React component library as a dependency. This step makes it so your React app will be able to correctly resolve imports from your React library. This
+is easily done by modifying your React app's `project.json` to include the following:
 
-Navigate to your **React application directory** and run
+```json
+"dependencies": {
+  "react-library": "*"
+}
+```
+
+### Consuming the React Wrapper Components
+
+This section covers how developers consuming your React component wrappers will use your package and component wrappers.
+
+Before you can consume your React proxy components, you'll need to build your React component library. From `packages/react-library` run:
 
 ```bash
-npm link {React component library}
+yarn run build
 ```
 
 To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
 
 ```tsx
-// if your React component library has another name, replace 'component-library-react' with that name
-import { MyComponent } from 'component-library-react';
-```
+// App.tsx
+import './App.css';
+import { MyComponent, defineCustomElements } from 'react-library';
 
-With that, your component is now available to be used like any other React component.
+defineCustomElements();
+
+function App() {
+  return (
+    <div className="App">
+      <MyComponent first="Your" last="Name" />
+    </div>
+  );
+}
+
+export default App;
+```
 
 ## API
 
