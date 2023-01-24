@@ -102,7 +102,7 @@ const config = {
           {
             type: 'html',
             position: 'right',
-            value: '<div class="navbar__separator" />',
+            value: '<div class="navbar__separator"></div>',
           },
           {
             href: 'https://ionicframework.com/blog/tag/stencil/',
@@ -117,7 +117,7 @@ const config = {
           {
             type: 'html',
             position: 'right',
-            value: '<div class="navbar__separator" />',
+            value: '<div class="navbar__separator"></div>',
           },
           {
             type: 'html',
