@@ -13,6 +13,7 @@
 
   :root {
     --ifm-font-family-base: 'Inter', sans-serif;
+    --ifm-font-color-base: #222D3A;
 
     --ifm-container-width-xl: 100%;
 
@@ -22,6 +23,8 @@
 
     --ifm-link-hover-decoration: none;
 
+    --ifm-heading-color: var(--c-carbon-100);
+
     --ifm-menu-color-background-hover: transparent;
     --ifm-menu-link-padding-vertical: .5rem;
     --ifm-menu-link-padding-horizontal: 1.25rem;
@@ -29,6 +32,7 @@
 
     --ifm-navbar-shadow: 0px 1px var(--ifm-toc-border-color);
     --ifm-navbar-padding-horizontal: 20px;
+    --ifm-navbar-link-hover-color: var(--ifm-link-color);
 
     --ifm-code-padding-vertical: .25rem;
     --ifm-code-padding-horizontal: .5rem;
@@ -40,12 +44,19 @@
   }
 
   [data-theme='dark'] {
+    --ifm-heading-color: #fff;
+
+    --ifm-font-color-base: var(--c-carbon-0);
+
     --ifm-toc-border-color: var(--c-carbon-90);
 
     --ifm-background-surface-color: var(--c-carbon-100);
     --ifm-background-color: var(--c-carbon-100);
 
     --ifm-menu-color: var(--c-indigo-40);
+
+    --ifm-link-color: var(--c-purple-50);
+    --ifm-link-hover-color: var(--c-purple-70);
 
     .theme-edit-this-page {
       --ifm-link-color: var(--c-carbon-10);
