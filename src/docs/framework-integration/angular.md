@@ -120,6 +120,10 @@ You will also need to add your generated Stencil library as a dependency so impo
 
 For more information, see the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management).
 
+> **NOTE:** The Angular CLI will install Jasmine as a dependency to your Angular workspace. However, Stencil uses Jest as it's unit testing solution. To avoid
+> type definition collisions when attempting to build your Stencil project, you can remove `jasmine` and `@types/jasmine` as dependencies in the Angular workspace
+> `package.json` file.
+
 ### Adding the Angular Output Target
 
 Install the `@stencil/angular-output-target` dependency to your Stencil component library package.
