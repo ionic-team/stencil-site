@@ -20,6 +20,8 @@
   [data-theme='dark'] {
     --ifm-menu-color-background-active: var(--c-purple-170);
     --ifm-menu-color-active: var(--c-indigo-0);
+
+    --search-border: var(--c-carbon-80);
   }
 
   [class*='colorModeToggle'] {
