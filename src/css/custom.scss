@@ -21,5 +21,9 @@
     --ifm-menu-color-background-active: var(--c-purple-170);
     --ifm-menu-color-active: var(--c-indigo-0);
   }
+
+  [class*='colorModeToggle'] {
+    margin-inline-start: -.25rem;
+  }
 }
 
