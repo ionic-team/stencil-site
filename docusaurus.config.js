@@ -58,12 +58,7 @@ const config = {
 
             return filteredSidebar;
           },
-        exclude: ['**/README.md'],
-          versions: {
-            current: {
-              label: 'v2',
-            },
-          },
+          exclude: ['**/README.md'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),
