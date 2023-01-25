@@ -13,6 +13,8 @@ contributors:
 
 ## Stencil: A Web Components Compiler
 
+Hello World
+
 Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
 
 Stencil uses TypeScript, JSX, and CSS to create standards-based Web Components that can be used to craft high quality component libraries, design systems, and applications.
