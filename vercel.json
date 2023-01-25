@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/docs(/)?",
+      "source": "/",
       "destination": "/docs/introduction",
       "statusCode": 301
     },
