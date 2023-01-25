@@ -54,7 +54,11 @@ const config = {
 
             const EXCLUDE_TOP_LEVEL_IDS = ['build-variables', 'telemetry']
 
-            const filteredSidebar = defaultSidebar.filter(item => !EXCLUDE_TOP_LEVEL_IDS.includes(item.id));
+            // remove the items in `EXCLUDE_TOP_LEVEL_IDS`, which may exist in 1+ subdirectories for versioned docs
+            // note: this removes any `EXCLUDE_TOP_LEVEL_IDS` entry for _all_ versioned docs and the top level `./docs`
+            const filteredSidebar = defaultSidebar.filter((item) =>
+               !EXCLUDE_TOP_LEVEL_IDS.find((toExclude) => item.id?.match(`.*${toExclude}$`))
+            );
 
             return filteredSidebar;
           },
