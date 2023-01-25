@@ -278,7 +278,9 @@ export const config: Config = {
 | `bundle`                      | A utility `defineCustomElements()` function is exported from the `index.js` file of the output directory. This function can be used to quickly define all Stencil components in a project on the custom elements registry.                                                                                                                                                                                 |
 | `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
-> **NOTE:** This option also has an impact when using the [Stencil framework integration output targets](/overview). Please see the [framework integration migration](#framework-integration-output-targets) section below for more information.
+:::note
+This option also has an impact when using the [Stencil framework integration output targets](/overview). Please see the [framework integration migration](#framework-integration-output-targets) section below for more information.
+:::
 
 #### Move `autoDefineCustomElements` Configuration
 `autoDefineCustomElements` was a configuration option to define a component and its children automatically with the `CustomElementRegistry` when the component's module is imported.
