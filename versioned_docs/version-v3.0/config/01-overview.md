@@ -38,7 +38,9 @@ If the app does not need to run on legacy browsers (IE11 and Edge 18 and below),
 In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. 
 See [config extras](/config-extras) for more information.
 
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+:::info
+As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+:::
 
 ```tsx
 buildEs5: boolean | 'prod'
@@ -142,7 +144,9 @@ hashFileNames: true
 
 When `true`, `invisiblePrehydration` will visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. 
 
-> Note: Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing a more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
+:::note
+Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing a more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
+:::
 
 ```tsx
 invisiblePrehydration: true
