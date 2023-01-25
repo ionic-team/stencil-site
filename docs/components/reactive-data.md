@@ -68,7 +68,9 @@ The other decorates `watchStateHandler`, which will fire when the class member `
 When fired, the `@Watch()`'ed method will receive the old and new values of the prop/state.
 This is useful for validation or the handling of side effects.
 
-> The `@Watch()` decorator does not fire when a component initially loads.
+:::info
+The `@Watch()` decorator does not fire when a component initially loads.
+:::
 
 ## Handling Arrays and Objects
 
