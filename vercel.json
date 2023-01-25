@@ -120,5 +120,9 @@
       "destination": "https://github.com/ionic-team/stencil-state-tunnel",
       "statusCode": 301
     }
+  ],
+  "rewrites": [
+    { "source": "/docs", "destination": "/" },
+    { "source": "/docs/:match*", "destination": "/:match*" }
   ]
 }
