@@ -25,7 +25,11 @@
   }
 
   [class*='colorModeToggle'] {
-    margin-inline-start: -.25rem;
+    margin-inline-start: -0.25rem;
+  }
+
+  .theme-doc-version-banner {
+    max-width: 50rem;
+    margin: auto;
   }
 }
-
