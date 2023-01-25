@@ -22,8 +22,10 @@ moved to Chromium) and Safari 10. In order to support legacy browsers, the
 browsers would need to download and run polyfills. By using the `extras`
 config, apps can opt-in these additional runtime settings.
 
-> As of Stencil v3, several of these fields are deprecated, and will be removed in a future major version of Stencil.
-> Deprecated fields are marked as such.
+:::info
+As of Stencil v3, several of these fields are deprecated, and will be removed in a future major version of Stencil.
+Deprecated fields are marked as such.
+:::
 
 Example `extras` config when __supporting__ legacy browsers:
 
