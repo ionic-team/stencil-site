@@ -6,15 +6,24 @@ slug: /config-extras
 contributors:
   - mattdsteele
   - rwaskiewicz
+  - alicewriteswrongs
 ---
 
 # Extras
 
-The `extras` config contains options to enable new/experimental features in Stencil, add & remove runtime for DOM 
-features that require manipulations to polyfills, etc. For example, not all DOM APIs are fully polyfilled when 
-using the Slot polyfill. Most of these are opt-in, since not all users require the additional runtime.
+The `extras` config contains options to enable new/experimental features in
+Stencil, add & remove runtime for DOM features that require manipulations to
+polyfills, etc. For example, not all DOM APIs are fully polyfilled when using
+the Slot polyfill. Most of these are opt-in, since not all users require the
+additional runtime.
 
-By default, Stencil does not work on IE11, Edge 18 and below (Edge before it moved to Chromium) and Safari 10. In order to support legacy browsers, the browsers would need to download and run polyfills. By using the `extras` config, apps can opt-in these additional runtime settings.
+By default, Stencil does not work on IE11, Edge 18 and below (Edge before it
+moved to Chromium) and Safari 10. In order to support legacy browsers, the
+browsers would need to download and run polyfills. By using the `extras`
+config, apps can opt-in these additional runtime settings.
+
+> As of Stencil v3, several of these fields are deprecated, and will be removed in a future major version of Stencil.
+> Deprecated fields are marked as such.
 
 Example `extras` config when __supporting__ legacy browsers:
 
@@ -23,7 +32,7 @@ export const config: Config = {
   buildEs5: 'prod',
   extras: {
     cssVarsShim: true,
-    dynamicImportShim: true,
+    __deprecated__dynamicImportShim: true,
     shadowDomShim: true,
     safari10: true,
     scriptDataOpts: true,
@@ -46,11 +55,16 @@ By default, the slot polyfill does not update `appendChild()` so that it appends
 
 By default, the runtime does not polyfill `cloneNode()` when cloning a component that uses the slot polyfill. This is an opt-in polyfill for those who need it.
 
-### cssVarsShim
+### `__deprecated__cssVarsShim`
 
 Include the CSS Custom Property polyfill/shim for legacy browsers.
 
-A result of this being set to `false` is that you will need to manually provide "fallback" properties to legacy builds. For example, in the css below, the css variable will not be polyfilled for IE11, so the developer will manually need to provide a fallback just before the css variable. If the app does not need to support IE11 it's recommended to leave `cssVarsShim` set to the default value of `false`.
+A result of this being set to `false` is that you will need to manually provide
+"fallback" properties to legacy builds. For example, in the css below, the css
+variable will not be polyfilled for IE11, so the developer will manually need
+to provide a fallback just before the css variable. If the app does not need to
+support IE11 it's recommended to leave `__deprecated__cssVarsShim` set to the
+default value of `false`.
 
 ```css
 div {
@@ -59,9 +73,20 @@ div {
 }
 ```
 
-### dynamicImportShim
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
-Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox 67 and below. If you do not need to support Edge 18 and below (Edge before it moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`. Defaults to `false`.
+### `__deprecated__dynamicImportShim`
+
+Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox
+67 and below. If you do not need to support Edge 18 and below (Edge before it
+moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`.
+Defaults to `false`.
+
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### experimentalImportInjection
 
@@ -94,9 +119,17 @@ Dispatches component lifecycle events. By default these events are not dispatche
 | `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
 | `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
 
-### safari10
+### `__deprecated__safari10`
 
-Safari 10 supports ES modules with `<script type="module">`, however, it did not implement `<script nomodule>`. When set `safari10` is set to `false`, the runtime will not patch support for Safari 10. If the app does not need to support Safari 10, it's recommended to set this to `false`. Defaults to `false`.
+Safari 10 supports ES modules with `<script type="module">`, however, it did
+not implement `<script nomodule>`. When `__deprecated__safari10` is set to
+`true`, the runtime will patch support for Safari 10. If your app does not need
+to support Safari 10, it's recommended to leave this set to its default value
+of `false`.
+
+As of Stencil v3.0.0, support Safari 10 has begun to reach end-of-life. While
+this flag and its supporting functionality is currently available, it will be
+removed in a future version of Stencil.
 
 ### scopedSlotTextContentFix
 
@@ -106,9 +139,17 @@ An experimental flag that when set to `true`, aligns the behavior of invoking th
 
 It is possible to assign data to the actual `<script>` element's `data-opts` property, which then gets passed to Stencil's initial bootstrap. This feature is only required for very special cases and rarely needed. When set to `false` it will not read this data. Defaults to `false`.
 
-### shadowDomShim
+### `__deprecated__shadowDomShim`
 
-If enabled `true`, the runtime will check if the shadow dom shim is required. However, if it's determined that shadow dom is already natively supported by the browser then it does not request the shim. Setting to `false` will avoid all shadow dom tests. If the app does not need to support IE11 or Edge 18 and below, it's recommended to set `shadowDomShim` to `false`. Defaults to `false`.
+If enabled `true`, the runtime will check if the shadow dom shim is required.
+However, if it's determined that shadow dom is already natively supported by
+the browser then it does not request the shim. Setting to `false` will avoid
+all shadow dom tests. If the app does not need to support IE11 or Edge 18 and
+below, it's recommended to set `shadowDomShim` to `false`. Defaults to `false`.
+
+As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
+reach end-of-life. While this flag and its supporting functionality is
+currently available, it will be removed in a future version of Stencil.
 
 ### slotChildNodesFix
 

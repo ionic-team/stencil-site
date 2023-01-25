@@ -217,8 +217,6 @@ Event names shouldn’t include special characters when initially written in Ste
 
 ### How do I add IE11 or Edge support?
 
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
-
 If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
 
 ```tsx

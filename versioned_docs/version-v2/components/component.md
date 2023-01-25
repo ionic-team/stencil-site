@@ -84,6 +84,11 @@ export interface ComponentOptions {
    * Array of relative links to folders of assets required by the component.
    */
   assetsDirs?: string[];
+
+  /**
+   * @deprecated Use `assetsDirs` instead
+   */
+  assetsDir?: string;
 }
 ```
 

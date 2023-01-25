@@ -26,8 +26,7 @@ The current status of each Stencil version is:
 
 | Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:--------------:|:------------:|:----------------:|:-----------------:|
-|   V3    |   **Active**   | Jan 25, 2023 |       TBD        |        TBD        |
-|   V2    |  Maintenance   | Aug 08, 2020 |   Jul 25, 2023   |   Jan 25, 2024    |
+|   V2    |   **Active**   | Aug 08, 2020 |       TBD        |        TBD        |
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
@@ -76,7 +75,6 @@ The table below describes recent versions of Stencil and the version of TypeScri
 
 | Stencil Version | TypeScript Version |
 |:---------------:|:------------------:|
-|     v3.0.0      |       v4.9.4       |
 |     v2.21.0     |       v4.9.3       |
 |     v2.20.0     |       v4.8.4       |
 |     v2.18.0     |       v4.7.4       |
@@ -108,7 +106,6 @@ compatibility tables to describe the interoperability requirements of these piec
 
 | Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18 |  Deno*  |
 |:---------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:-------:|
-|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  | &#10060; | &#9888; |
 |       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 |       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#9888; |
 
@@ -122,18 +119,16 @@ please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/
 
 #### Jest
 
-| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28+ * |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:-----------:|
-|       V3        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |  &#10060;   |
-|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  |  &#10060;   |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; |  &#10060;   |
+| Stencil Version | Jest v24 | Jest v25 | Jest v26 | Jest v27 | Jest v28* |
+|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|
+|       V2        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060;  |
 
-\* Support for Jest 28+ will be released in an upcoming version of Stencil v3.
+\* Support for Jest 28 will be released in an upcoming version of Stencil.
 
 #### Puppeteer
 
-| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v11-18 | Puppeteer v19 |
-|:---------------:|:--------------:|:-------------:|:----------------:|:-------------:|
-|       V3        |    &#10060;    |    &#9989;    |     &#9989;      |    &#9989;    |
-|       V2        |    &#9989;     |    &#9989;    |     &#10060;     |   &#10060;    |
-|       V1        |    &#9989;     |   &#10060;    |     &#10060;     |   &#10060;    |
+| Stencil Version | Puppeteer v5 | Puppeteer v6 | Puppeteer v7 | Puppeteer v8 | Puppeteer v9 | Puppeteer v10 |
+|:---------------:|:------------:|:------------:|:------------:|:------------:|:------------:|:-------------:|
+|       V2        |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |    &#9989;    |
+|       V1        |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#9989;    |   &#10060;    |
