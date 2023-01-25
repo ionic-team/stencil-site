@@ -15,7 +15,7 @@ const config = {
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'icon/favicon.ico',
+  favicon: `https://${HOSTNAME}/favicon-32x32.png`,
 
   organizationName: 'ionic-team',
   projectName: 'stencil-site',
