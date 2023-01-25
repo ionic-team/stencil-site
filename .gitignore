@@ -1,29 +1,22 @@
-.stencil/
-dist/
-www/
-scripts/**/*.js
-src/assets/docs/
+# Dependencies
+/node_modules
 
-*~
-*.sw[mnpcod]
-*.log
-*.lock
-*.tmp
-*.tmp.*
-log.txt
-*.sublime-project
-*.sublime-workspace
-tags
+# Production
+/build
 
-.firebase/
-.vscode/
-.sass-cache/
-.versions/
-node_modules/
-$RECYCLE.BIN/
+# Generated files
+.docusaurus
+.cache-loader
 
+# Misc
 .DS_Store
-Thumbs.db
-UserInterfaceState.xcuserstate
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-.idea
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+www
