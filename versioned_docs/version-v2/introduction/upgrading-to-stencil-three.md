@@ -399,7 +399,7 @@ The functionality of these methods remains the same.
 Versions of Puppeteer prior to Puppeteer version 10 are no longer supported.
 In newer versions of Puppeteer, the library provides its own types, making `@types/puppeteer` no longer necessary.
 Ensure that Puppeteer v10 or higher is installed, and that its typings are not:
-```bash
+```bash npm2yarn
 $ npm install puppeteer
 $ npm uninstall @types/puppeteer
 ```
