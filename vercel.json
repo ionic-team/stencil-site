@@ -11,7 +11,7 @@
       "statusCode": 301
     },
     {
-      "source": "/docs/intro(/)?",
+      "source": "/intro(/)?",
       "destination": "/docs/introduction",
       "statusCode": 301
     },
