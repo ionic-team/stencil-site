@@ -41,7 +41,7 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/ionic-team/stencil-site/tree/master/src',
+            'https://github.com/ionic-team/stencil-site/tree/master',
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
           ],
