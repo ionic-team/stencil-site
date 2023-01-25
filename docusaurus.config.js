@@ -168,6 +168,7 @@ const config = {
         // Optional: see doc section below
         contextualSearch: true,
       },
+      image: `https://${HOSTNAME}/stencil-og.png`,
     }),
 };
 
