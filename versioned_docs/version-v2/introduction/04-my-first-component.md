@@ -84,7 +84,7 @@ If a user of our component were to change the element's `name` property, our com
 
 The Stencil CLI can generate new components for you. If you used one of the starters, you can simply run the `generate` npm script in your project, which will start the interactive generator.
 
-```shell
+```shell npm2yarn
 npm run generate
 ```
 
