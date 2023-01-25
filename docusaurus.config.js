@@ -12,7 +12,7 @@ const config = {
   title: 'Stencil',
   tagline: 'A powerful toolchain for building Progressive Web Apps and Design Systems',
   url: `https://${HOSTNAME}`,
-  baseUrl: '/',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'icon/favicon.ico',
