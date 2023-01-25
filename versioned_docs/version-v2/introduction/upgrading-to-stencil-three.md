@@ -8,6 +8,8 @@ contributors:
 
 # Upgrading to Stencil v3.0.0
 
+> Stencil 3.0.0 is pre-release software. These instructions are for users looking to try an early version of the software
+
 ## Getting Started
 
 It's recommended that your projects start their upgrade from Stencil v2.
@@ -16,7 +18,7 @@ For breaking changes introduced in previous major versions of the library, see:
 - [Stencil v2 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-two)
 - [Stencil v1 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-one)
 
-For projects that are on Stencil v2, install the latest version of Stencil v3: `npm install @stencil/core@3`
+For projects that are on Stencil v2, install the latest version of Stencil v3: `npm install @stencil/core@v3-next`
 
 ## Updating Your Code
 
@@ -402,10 +404,8 @@ $ npm install puppeteer
 $ npm uninstall @types/puppeteer
 ```
 
-To see which versions of Puppeteer are supported by Stencil, please see our [support matrix](/docs/support-policy#puppeteer)
-
 ## Need Help Upgrading?
 
-Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-v300).
+Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/v3.0.0-dev/BREAKING_CHANGES.md#stencil-v300).
 
 If you need help upgrading, please post a thread on the [Stencil Forum](https://forum.ionicframework.com/c/stencil/21).

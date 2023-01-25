@@ -30,15 +30,7 @@ export const config: Config = {
 
 ## buildEs5
 
-Sets if the ES5 build should be generated or not.
-It defaults to `false`.
-Setting `buildEs5` to `true` will also create es5 builds for both dev and prod modes.
-Setting `buildEs5` to `prod` will only build ES5 in prod mode.
-If the app does not need to run on legacy browsers (IE11 and Edge 18 and below), `buildEs5` set  to `false`, which will also speed up production build times. 
-In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. 
-See [config extras](/config-extras) for more information.
-
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+Sets if the ES5 build should be generated or not. It defaults to `false`. Setting `true` will also create es5 builds for both dev and prod modes. Setting `buildEs5` to `prod` will only build ES5 in prod mode. Basically if the app does not need to run on legacy browsers (IE11 and Edge 18 and below), it's safe to use the default respectively, `buildEs5` set  to `false`, which will also speed up production build times. In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. See [config extras](/config-extras) for more information.
 
 ```tsx
 buildEs5: boolean | 'prod'
@@ -142,7 +134,7 @@ hashFileNames: true
 
 When `true`, `invisiblePrehydration` will visually hide components before they are hydrated by adding an automatically injected style tag to the document's head. Setting `invisiblePrehydration` to `false` will not inject the style tag into the head, allowing you to style your web components pre-hydration. 
 
-> Note: Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing a more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
+> Note: Setting `invisiblePrehydration` to `false` will cause everything to be visible when your page is loaded, causing more prominent Flash of Unstyled Content (FOUC). However, you can style your web component's fallback content to your preference.
 
 ```tsx
 invisiblePrehydration: true
@@ -200,13 +192,12 @@ Will generate the following comment:
 
 ## sourceMap
 
-*default: `true`*
+*default: `false`*
 
-When omitted or set to `true`, sourcemaps will be generated for a project.
-When set to `false`, sourcemaps will not be generated.
+When set to `true`, sourcemaps will be generated for a project.
 
 ```tsx
-sourceMap: true | false
+sourceMap: true
 ```
 
 Sourcemaps create a translation between Stencil components that are written in TypeScript/JSX and the resulting 
@@ -221,6 +212,8 @@ compared to the minified result produced when `sourceMap` is not enabled.
 
 Developers are responsible for determining whether or not they choose to serve sourcemaps in each environment their
 components are served and implementing their decision accordingly.
+
+When omitted or set to `false`, sourcemaps will not be generated.
 
 ## srcDir
 
