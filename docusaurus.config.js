@@ -10,7 +10,7 @@ const HOSTNAME = 'stenciljs.com';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Stencil',
-  tagline: 'A powerful toolchain for building Progressive Web Apps and Design Systems',
+  tagline: 'Build. Customize. Distribute. Adopt.',
   url: `https://${HOSTNAME}`,
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
