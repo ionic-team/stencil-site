@@ -19,7 +19,7 @@ updated Node before continuing.
 Note that you will need to use npm 6 or higher.
 :::
 
-```bash
+```bash npm2yarn
  npm init stencil
 ```
 
@@ -114,6 +114,6 @@ $ git commit -m "initialize project using stencil cli"
 
 To get the latest version of @stencil/core you can run:
 
-```bash
+```bash npm2yarn
 npm install @stencil/core@latest --save-exact
 ```

@@ -159,7 +159,7 @@ This is caused by some third-party dependencies that use [Node APIs](https://nod
 
 ### 1. Install `rollup-plugin-node-polyfills`:
 
-```bash
+```bash npm2yarn
 npm install rollup-plugin-node-polyfills --save-dev
 ```
 
