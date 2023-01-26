@@ -8,10 +8,6 @@ contributors:
 
 # Upgrading to Stencil v3.0.0
 
-:::caution
-Stencil 3.0.0 is pre-release software. These instructions are for users looking to try an early version of the software
-:::
-
 ## Getting Started
 
 It's recommended that your projects start their upgrade from Stencil v2.

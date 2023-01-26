@@ -39,7 +39,7 @@ In addition to creating es5 builds, apps may also be interested in enable runtim
 See [config extras](/config-extras) for more information.
 
 :::info
-As of Stencil v3, legacy browser support is deprecated, and will be removed in a future version major of Stencil.
+As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
 :::
 
 ```tsx
