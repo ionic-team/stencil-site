@@ -207,13 +207,9 @@ render() {
 }
 ```
 
-Each step through the `map` function creates a new JSX sub tree and adds it to the array returned from `map`, which is then drawn in the JSX tree above it.
-
-If your list is dynamic, i. e., it's possible to change, add, remove or reorder items, you should assign a unique `key` to each element to give it a stable identity. This enables Stencil to reuse DOM elements for better performance. The best way to pick a key is to use a string that uniquely identifies that list item among its siblings (often your data will already have IDs).
-
-:::note
-Do not use the `map`-function's index variable as a key. It does not represent a stable identity of an item as it can change if the order of the list changed or if you added an item to the beginning of the list. As such it is not suitable as a `key`.
-:::
+If this array of children is dynamic, i.e., if any nodes may be added,
+removed, or reordered, then it's a good idea to set a unique `key` attribute on
+each element like so:
 
 ```tsx
 render() {
@@ -234,9 +230,11 @@ preserve DOM nodes across renders but it isn't able to do so in all cases.
 Setting a `key` attribute lets Stencil ensure it can match up new and old
 children across renders and thereby avoid recreating DOM nodes unnecessarily.
 
-> Do not use an array index or some other non-unique value as a key. Try to
-  ensure that each child has a key which does not change and which is unique
-  among all its siblings.
+:::caution
+Do not use an array index or some other non-unique value as a key. Try to
+ensure that each child has a key which does not change and which is unique
+among all its siblings.
+:::
 
 ## Handling User Input
 
