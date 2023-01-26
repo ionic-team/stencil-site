@@ -49,63 +49,59 @@ This guide uses Lerna for the monorepo, but you can use other solutions such as 
 
 To use Lerna with this walk through, globally install Lerna:
 
-```bash
+```bash npm2yarn
 npm install --global lerna
-# or if you are using yarn
-yarn global add lerna
 ```
 
 #### Creating a Monorepo
 
-> If you already have a monorepo, skip this section.
+:::note
+If you already have a monorepo, skip this section.
+:::
 
-```bash
+```bash npm2yarn
 # From your top-most-directory/, initialize a workspace
 lerna init
 
 # install dependencies
 npm install
-# or if you are using yarn
-yarn install
 
 # install typescript and node types
 npm install typescript @types/node --save-dev
-# or if you are using yarn
-yarn add typescript @types/node --dev -W
 ```
 
 #### Creating a Stencil Component Library
 
-> If you already have a Stencil component library, skip this section.
+:::note
+If you already have a Stencil component library, skip this section.
+:::
 
 From the `packages/` directory, run the following commands to create a Stencil component library:
 
-```bash
+```bash npm2yarn
 npm init stencil components stencil-library
 cd stencil-library
 # Install dependencies
 npm install
-# or if using yarn
-yarn install
 ```
 
 #### Creating a React Component Library
 
-> If you already have a React component library, skip this section.
+:::note
+If you already have a React component library, skip this section.
+:::
 
 The first time you want to create the component wrappers, you will need to have a React library package to write to.
 
 Run the following commands from the root directory of your monorepo to create a React component library:
 
-```bash
+```bash npm2yarn
 # Create a project
 lerna create react-library # fill out the prompts accordingly
 cd packages/react-library
 
 # Install core dependencies
 npm install react typescript @types/react --save-dev
-# of if using yarn
-yarn add react typescript @types/react --dev
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
@@ -122,7 +118,7 @@ Lerna does not ship with a TypeScript configuration. At the root of the workspac
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "lib": ["es6"],
+    "lib": ["es6"]
   },
   "exclude": ["node_modules", "**/*.spec.ts", "**/__tests__/**"]
 }
@@ -172,23 +168,23 @@ Update the generated `package.json` in your `react-library`, adding the followin
 +    "access": "public"
 +  },
 +  "dependencies": {
-+    "stencil-library": "*"  
++    "stencil-library": "*"
 +  }
 }
 ```
 
-> **NOTE:** The `stencil-library` dependency is how Lerna knows to resolve the internal Stencil library dependency. See Lerna's documentation on
-> [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
+:::note
+The `stencil-library` dependency is how Lerna knows to resolve the internal Stencil library dependency. See Lerna's documentation on
+[package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
+:::
 
 #### Adding the React Output Target
 
 Install the `@stencil/react-output-target` dependency to your Stencil component library package.
 
-```bash
+```bash npm2yarn
 # Install dependency
 npm install @stencil/react-output-target --save-dev
-# or if using yarn
-yarn add @stencil/react-output-target --dev
 ```
 
 In your project's `stencil.config.ts`, add the `reactOutputTarget` configuration to the `outputTargets` array:
@@ -214,20 +210,20 @@ export const config: Config = {
 };
 ```
 
-> The `proxiesFile` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
-> file path to match your project's structure and respective names. You can generate any file name instead of `index.ts`.
->
-> The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
+:::tip
+The `proxiesFile` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
+file path to match your project's structure and respective names. You can generate any file name instead of `index.ts`.
+
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
+:::
 
 See the [API section below](#api) for details on each of the output target's options.
 
 You can now build your Stencil component library to generate the component wrappers.
 
-```bash
+```bash npm2yarn
 # Build the library and wrappers
 npm run build
-# or if using yarn
-yarn run build
 ```
 
 If the build is successful, you’ll see the new generated file in your React component library at the location specified by the `proxiesFile` argument.
@@ -254,26 +250,24 @@ export * from "./components/stencil-generated";
 
 ### Link Your Packages (Optional)
 
-> If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::note
+If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::
 
 Before you can successfully build a local version of your React component library, you will need to link the Stencil package to the React package.
 
 From your Stencil project's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the working directory
 npm link
-# or if using yarn
-yarn link
 ```
 
 From your React component library's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the package name
 npm link name-of-your-stencil-package
-# or if using yarn
-yarn link name-of-your-stencil-package
 ```
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
@@ -281,13 +275,18 @@ The name of your Stencil package should match the `name` property from the Stenc
 Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
 changes to the React component library.
 
-> **NOTE:** As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+:::note
+As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will
+modify your `package.json` so it is important to make sure you do not commit those changes.
+:::
 
 ## Consumer Usage
 
 ### Creating a Consumer React App
 
-> If you already have a React app, skip this section.
+:::note
+If you already have a React app, skip this section.
+:::
 
 From the `packages/` directory, run the following command to create a starter React app:
 
@@ -313,8 +312,8 @@ This section covers how developers consuming your React component wrappers will 
 
 Before you can consume your React proxy components, you'll need to build your React component library. From `packages/react-library` run:
 
-```bash
-yarn run build
+```bash npm2yarn
+npm run build
 ```
 
 To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
@@ -352,7 +351,7 @@ This is used during compilation to write the correct imports for components.
 
 For a starter Stencil project generated by running:
 
-```bash
+```bash npm2yarn
 npm init stencil component my-component-lib
 ```
 
@@ -378,7 +377,10 @@ Which would result in an import path like:
 import { defineCustomElement as defineMyComponent } from 'my-component-lib/components/my-component.js';
 ```
 
-> **NOTE:** Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly when combining other API arguments.
+:::note
+Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly
+when combining other API arguments.
+:::
 
 ### customElementsDir
 
