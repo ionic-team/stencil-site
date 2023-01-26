@@ -1,6 +1,7 @@
 @layer base, tokens, preset, site;
 
 @layer site {
+  @import "bs-chart";
   /**
   * Colors generated using the color range tool in the Docusaurus docs, here:
   * https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima
