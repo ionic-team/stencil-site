@@ -2,6 +2,7 @@
 .bs-chart__cards,
 .bs-chart__card {
   display: flex;
+  justify-content: center;
 }
 
 .bs-chart {
@@ -37,14 +38,6 @@
   padding: 8px;
   border-radius: 100px;
   margin: 6px 0 8px;
-}
-
-.bs-chart__card ion-icon svg {
-  // fill: #fff;
-}
-
-.bs-chart__card ion-icon[name="icon-checkmark"] {
-  color: var(--color-green-haze);
 }
 
 .bs-chart__group-label {
