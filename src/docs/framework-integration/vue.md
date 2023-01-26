@@ -46,62 +46,58 @@ This guide uses Lerna for the monorepo, but you can use other solutions such as 
 
 To use Lerna with this walk through, globally install Lerna:
 
-```bash
+```bash npm2yarn
 npm install --global lerna
-# or if you are using yarn
-yarn global add lerna
 ```
 
 #### Creating a Monorepo
 
-> If you already have a monorepo, skip this section.
+:::note
+If you already have a monorepo, skip this section.
+:::
 
-```bash
+```bash npm2yarn
 # From your top-most-directory/, initialize a workspace
 lerna init
 
 # install dependencies
 npm install
-# or if you are using yarn
-yarn install
 
 # install typescript and node types
 npm install typescript @types/node --save-dev
-# or if you are using yarn
-yarn add typescript @types/node --dev -W
 ```
 
 #### Creating a Stencil Component Library
 
-> If you already have a Stencil component library, skip this section.
+:::note
+If you already have a Stencil component library, skip this section.
+:::
 
-```bash
+```bash npm2yarn
 cd packages/
 npm init stencil components stencil-library
 cd stencil-library
 # Install dependencies
 npm install
-# of if you are using yarn
-yarn install
 ```
 
 #### Creating a Vue Component Library
 
-> If you already have a Vue component library, skip this section.
+:::note
+If you already have a Vue component library, skip this section.
+:::
 
 The first time you want to create the component wrappers, you will need to have a Vue library package to write to.
 
 Using Lerna and Vue's CLI, generate a workspace and a library for your Vue component wrappers:
 
-```bash
+```bash npm2yarn
 # From your top-most-directory/
 lerna create vue-library
 # Follow the prompts and confirm
 cd packages/vue-library
 # Install Vue dependency
 npm install vue@3 --save-dev
-# or if you are using yarn
-yarn add vue@3 --dev
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
@@ -165,18 +161,18 @@ Update the generated `package.json` in your `vue-library`, adding the following 
 }
 ```
 
-> **NOTE:** The `stencil-library` dependency is how Lerna knows to resolve the internal Stencil library dependency. See Lerna's documentation on
-> [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
+:::note
+The `stencil-library` dependency is how Lerna knows to resolve the internal Stencil library dependency. See Lerna's documentation on
+[package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
+:::
 
 ### Adding the Vue Output Target
 
 Install the `@stencil/vue-output-target` dependency to your Stencil component library package.
 
-```bash
+```bash npm2yarn
 # Install dependency (from `packages/stencil-library`)
 npm install @stencil/vue-output-target --save-dev
-# or if using yarn
-yarn add @stencil/vue-output-target --dev
 ```
 
 In your project's `stencil.config.ts`, add the `vueOutputTarget` configuration to the `outputTargets` array:
@@ -202,15 +198,18 @@ export const config: Config = {
 };
 ```
 
-> The `proxiesFile` is the relative path to the file that will be generated with all the Vue component wrappers. You will replace the file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
+:::tip
+The `proxiesFile` is the relative path to the file that will be generated with all the Vue component wrappers. You will replace the file path to match 
+your project's structure and respective names. You can generate any file name instead of `components.ts`.
+
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
+:::
 
 You can now build your Stencil component library to generate the component wrappers.
 
-```bash
+```bash npm2yarn
 # Build the library and wrappers (from `packages/stencil-library`)
 npm run build
-# or if using yarn
-yarn run build
 ```
 
 If the build is successful, you will now have contents in the file specified in `proxiesFile`.
@@ -245,26 +244,24 @@ export * from './plugin';
 
 ### Link Your Packages (Optional)
 
-> If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::note
+If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::
 
 Before you can successfully build a local version of your Vuu component library, you will need to link the Stencil package to the Vuu package.
 
 From your Stencil project's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the working directory
 npm link
-# or if using yarn
-yarn link
 ```
 
 From your Vue component library's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the package name
 npm link name-of-your-stencil-package
-# or if using yarn
-yarn link name-of-your-stencil-package
 ```
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
@@ -272,8 +269,10 @@ The name of your Stencil package should match the `name` property from the Stenc
 Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
 changes to the Vue component library.
 
-> **NOTE**: As an alternative to `npm link`, you can also run `npm install` with a relative path to your Stencil component library. This strategy,
-> however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+:::note
+As an alternative to `npm link`, you can also run `npm install` with a relative path to your Stencil component library. This strategy,
+however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+:::
 
 ## Consumer Usage
 
@@ -281,7 +280,7 @@ changes to the Vue component library.
 
 From the `packages/` directory, run the following command to generate a Vue app:
 
-```bash
+```bash npm2yarn
 npm init vue@3 my-app
 ```
 
@@ -304,7 +303,7 @@ This section covers how developers consuming your Vue component wrappers will us
 
 Before you can use your Vue proxy components, you'll need to build your Vue component library. From `packages/vue-library` simply run:
 
-```bash
+```bash npm2yarn
 npm run build
 ```
 
@@ -340,7 +339,7 @@ This is used during compilation to write the correct imports for components.
 
 For a starter Stencil project generated by running:
 
-```bash
+```bash npm2yarn
 npm init stencil component my-component-lib
 ```
 
@@ -366,7 +365,10 @@ Which would result in an import path like:
 import { defineCustomElement as defineMyComponent } from 'my-component-lib/components/my-component.js';
 ```
 
-> **NOTE:** Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly when combining other API arguments.
+:::note
+Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly 
+when combining other API arguments.
+:::
 
 ### componentModels
 
@@ -591,10 +593,8 @@ myComponentRef.value.someMethod();
 
 First, install `rollup` and `rimraf` as dev dependencies:
 
-```bash
+```bash npm2yarn
 npm i -D rollup rimraf
-# or if you are using yarn
-yarn add rollup rimraf --dev
 ```
 
 Next, create a `rollup.config.js` in `/packages/vue-library/`:
@@ -623,7 +623,9 @@ export default {
 };
 ```
 
-> Update the `external` list for any external dependencies. Update the `stencil-library` to match your Stencil library's package name.
+:::info
+Update the `external` list for any external dependencies. Update the `stencil-library` to match your Stencil library's package name.
+:::
 
 Next, update your `package.json` to include the scripts for rollup:
 
