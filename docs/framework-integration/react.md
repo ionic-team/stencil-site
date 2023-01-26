@@ -75,7 +75,7 @@ If you do rename your React component library, be sure to change the `name` in t
 
 ### Install the React Output Target in your Stencil Component Library
 
-Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**
+Now that the project structure is set up, we can install the React Output Target package in your Stencil component library. This package contains the React wrapper function that we will use to generate our React wrapped components inside a 'React component library'. To install the React Output Target package, run the following command in your **Stencil project directory**:
 
 ```bash npm2yarn
 npm install @stencil/react-output-target --save-dev 
