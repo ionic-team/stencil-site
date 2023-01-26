@@ -32,6 +32,7 @@
 
     --ifm-navbar-shadow: 0px 1px var(--ifm-toc-border-color);
     --ifm-navbar-padding-horizontal: 20px;
+    --ifm-navbar-link-color: var(--c-indigo-80);
     --ifm-navbar-link-hover-color: var(--ifm-link-color);
 
     --ifm-code-padding-vertical: .25rem;
@@ -58,6 +59,8 @@
     --ifm-link-color: var(--c-purple-50);
     --ifm-link-hover-color: var(--c-purple-70);
 
+    --ifm-navbar-link-color: var(--c-carbon-0);
+
     .theme-edit-this-page {
       --ifm-link-color: var(--c-carbon-10);
       --ifm-link-hover-color: var(--c-carbon-10);
@@ -72,6 +75,14 @@
     .theme-doc-sidebar-item-category {
       .menu__link--sublist {
         color: var(--c-carbon-0);
+      }
+    }
+
+    .navbar {
+      .dropdown > .navbar__link {
+        &::after {
+          background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjQiIGZpbGw9Im5vbmUiPjxnIGNsaXAtcGF0aD0idXJsKCNhKSI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0uNS43NSAzIDMuMjUgNS41Ljc1Ii8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGg2djRIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=");
+        }
       }
     }
 
@@ -107,6 +118,10 @@
     
     max-height: unset;
     top: unset; 
+  }
+
+  [class*='tocCollapsible_'] {
+    margin-block-end: 2rem;
   }
 
   .table-of-contents {
@@ -175,6 +190,25 @@
   
   .navbar {
     font-size: .875rem;
+
+    .dropdown > .navbar__link {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+    
+      &::after {
+        width: 6px;
+        height: 4px;
+
+        margin: unset;
+        margin-block-start: 2px;
+        border: unset;
+        transform: unset;
+        top: unset;
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjQiIGZpbGw9Im5vbmUiPjxwYXRoIHN0cm9rZT0iIzQ0NUI3OCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNLjUuNzUgMyAzLjI1IDUuNS43NSIvPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+      }
+    }
 
     &-sidebar {
       .navbar__separator {
@@ -375,6 +409,10 @@
     font-size: .875rem;
 
     font-weight: 600;
+  }
+
+  .theme-doc-version-badge {
+    margin-block-end: 1rem;
   }
 
   .markdown {
