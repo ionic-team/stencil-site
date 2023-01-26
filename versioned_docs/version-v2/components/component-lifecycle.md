@@ -13,8 +13,9 @@ Components have numerous lifecycle methods which can be used to know when the co
 
 Implement one of the following methods within a component class and Stencil will automatically call them in the right order:
 
-<lifecycle-chart></lifecycle-chart>
+import LifecycleMethodsChart from '@site/src/components/LifecycleMethodsChart';
 
+<LifecycleMethodsChart />
 
 ## connectedCallback()
 
