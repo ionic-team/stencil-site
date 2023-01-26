@@ -52,49 +52,47 @@ This guide uses Lerna for the monorepo, but you can use other solutions such as 
 
 To use Lerna with this walk through, globally install Lerna:
 
-```bash
+```bash npm2yarn
 npm install --global lerna
-# or if you are using yarn
-yarn global add lerna
 ```
 
 #### Creating a Monorepo
 
-> If you already have a monorepo, skip this section.
+:::note
+If you already have a monorepo, skip this section.
+:::
 
-```bash
+```bash npm2yarn
 # From your top-most-directory/, initialize a workspace
 lerna init
 
 # install dependencies
 npm install
-# or if you are using yarn
-yarn install
 
 # install typescript and node types
 npm install typescript @types/node --save-dev
-# or if you are using yarn
-yarn add typescript @types/node --dev -W
 ```
 
 #### Creating a Stencil Component Library
 
-> If you already have a Stencil component library, skip this section.
+:::note
+If you already have a Stencil component library, skip this section.
+:::
 
 In the `packages/` directory, run the following commands to generate a Stencil component library:
 
-```bash
+```bash npm2yarn
 npm init stencil components stencil-library
 cd stencil-library
 # Install dependencies
 npm install
-# or if using yarn
-yarn install
 ```
 
 #### Creating an Angular Component Library
 
-> If you already have an Angular component library, skip this section.
+:::note
+If you already have an Angular component library, skip this section.
+:::
 
 The first time you want to create the component wrappers, you will need to have an Angular library package to write to.
 
@@ -120,19 +118,19 @@ You will also need to add your generated Stencil library as a dependency so impo
 
 For more information, see the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management).
 
-> **NOTE:** The Angular CLI will install Jasmine as a dependency to your Angular workspace. However, Stencil uses Jest as it's unit testing solution. To avoid
-> type definition collisions when attempting to build your Stencil project, you can remove `jasmine` and `@types/jasmine` as dependencies in the Angular workspace
-> `package.json` file.
+:::note
+The Angular CLI will install Jasmine as a dependency to your Angular workspace. However, Stencil uses Jest as it's unit testing solution. To avoid
+type definition collisions when attempting to build your Stencil project, you can remove `jasmine` and `@types/jasmine` as dependencies in the Angular
+workspace `package.json` file.
+:::
 
 ### Adding the Angular Output Target
 
 Install the `@stencil/angular-output-target` dependency to your Stencil component library package.
 
-```bash
+```bash npm2yarn
 # Install dependency
 npm install @stencil/angular-output-target --save-dev
-# or if using yarn
-yarn add @stencil/angular-output-target --dev
 ```
 
 In your project's `stencil.config.ts`, add the `angularOutputTarget` configuration to the `outputTargets` array:
@@ -159,23 +157,23 @@ export const config: Config = {
 };
 ```
 
-> The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
-> file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
+:::tip
+The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
+file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
-> The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This
-> constant can be used to easily declare and export all the wrappers.
+The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This
+constant can be used to easily declare and export all the wrappers.
 
-> The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
+:::
 
 See the [API section below](#api) for details on each of the output target's options.
 
 You can now build your Stencil component library to generate the component wrappers.
 
-```bash
+```bash npm2yarn
 # Build the library and wrappers
 npm run build
-# or if using yarn
-yarn run build
 ```
 
 If the build is successful, you will now have contents in the file specified in `directivesProxyFile` and `directivesArrayFile`.
@@ -233,26 +231,24 @@ See the [documentation](/docs/distribution/#distribution-options) for more infor
 
 ### Link Your Packages (Optional)
 
-> If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::note
+If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
+:::
 
 Before you can successfully build a local version of your Angular component library, you will need to link the Stencil package to the Angular package.
 
 From your Stencil project's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the working directory
 npm link
-# or if using yarn
-yarn link
 ```
 
 From your Angular component library's directory, run the following command:
 
-```bash
+```bash npm2yarn
 # Link the package name
 npm link name-of-your-stencil-package
-# or if using yarn
-yarn link name-of-your-stencil-package
 ```
 
 The name of your Stencil package should match the `name` property from the Stencil component library's `package.json`.
@@ -260,14 +256,18 @@ The name of your Stencil package should match the `name` property from the Stenc
 Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
 changes to the Angular component library.
 
-> **NOTE**: As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy,
-> however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+:::note
+As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy,
+however, will modify your `package.json` so it is important to make sure you do not commit those changes.
+:::
 
 ## Consumer Usage
 
 ### Creating a Consumer Angular App
 
-> If you already have an Angular app, skip this section.
+:::note
+If you already have an Angular app, skip this section.
+:::
 
 From your Angular workspace (`/packages/angular-workspace`), run the following command to generate an Angular application:
 
@@ -337,7 +337,7 @@ This is used during compilation to write the correct imports for components.
 
 For a starter Stencil project generated by running:
 
-```bash
+```bash npm2yarn
 npm init stencil component my-component-lib
 ```
 
