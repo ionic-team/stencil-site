@@ -18,7 +18,6 @@ One of the more powerful features of the compiler is its ability to generate var
  - [`dist`: Distribution](/distribution)
  - [`www`: Website](/www)
  - [`dist-custom-elements`: Custom Elements](/custom-elements)
- - [`dist-custom-elements-bundle`: Custom Elements Bundle](/custom-elements-bundle)
  - [`stats`: Stats about the compiled files](/stats)
  - [`docs-readme`: Documentation readme files formatted in markdown](/docs-readme)
  - [`docs-json`: Documentation data formatted in JSON](/docs-json)

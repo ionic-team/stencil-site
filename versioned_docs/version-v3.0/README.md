@@ -45,7 +45,6 @@
   * [Overview](output-targets/overview.md)
   * [dist](output-targets/dist.md)
   * [dist-custom-elements](output-targets/custom-elements.md)
-  * [dist-custom-elements-bundle](output-targets/custom-elements-bundle.md)
   * [www](output-targets/www.md)
   * [stats](output-targets/docs-stats.md)
   * [docs-readme](output-targets/docs-readme.md)

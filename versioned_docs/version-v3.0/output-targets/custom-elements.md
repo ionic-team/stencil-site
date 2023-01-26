@@ -333,11 +333,9 @@ export default {
 };
 ```
 
-## How is this different from the "dist" and the "dist-custom-element-bundle" output targets?
+## How is this different from the "dist" output target?
 
 The `dist-custom-elements` builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
-
-The `dist-custom-elements-bundle` output target is nearly the same as `dist-custom-elements`, and has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of `dist-custom-elements` for its improved tree-shaking features. Stencil's React, Vue, and Angular output targets use the `dist-custom-elements` for this reason.
 
 The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
 
