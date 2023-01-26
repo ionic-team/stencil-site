@@ -109,7 +109,7 @@ const config = {
             position: 'right',
             label: 'Docs',
           },
-          {href: `https://${HOSTNAME}/resources`, target: '', label: 'Resources', position: 'right'},
+          {href: `https://${HOSTNAME}/resources`, target: '_self', label: 'Resources', position: 'right'},
           {
             type: 'html',
             position: 'right',
