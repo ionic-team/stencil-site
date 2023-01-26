@@ -61,12 +61,16 @@ Stencil uses a dynamic loader to load the custom elements polyfill only on brows
 
 |                                                                |               Chrome 79+               |               Safari 14+               |              Firefox 70+               |                Edge 79+                | Edge 16-18                             | IE 11                               |
 | -------------------------------------------------------------- |:--------------------------------------:|:--------------------------------------:|:--------------------------------------:|:--------------------------------------:| :------------------------------------: | :---------------------------------: |
-| [CSS Variables](https://caniuse.com/#feat=css-variables)       | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="circle"></ion-icon> |
-| [Custom Elements](https://caniuse.com/#feat=custom-elementsv1) | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="circle"></ion-icon>    | <ion-icon name="circle"></ion-icon> |
-| [Shadow Dom](https://caniuse.com/#feat=shadowdomv1)            | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="circle"></ion-icon>    | <ion-icon name="circle"></ion-icon> |
-| [es2017](https://caniuse.com/#feat=async-functions)            | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="circle"></ion-icon> |
-| [ES Modules](https://caniuse.com/#feat=es6-module)             | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="checkmark"></ion-icon> | <ion-icon name="circle"></ion-icon> |
+| [CSS Variables](https://caniuse.com/#feat=css-variables)       | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [Custom Elements](https://caniuse.com/#feat=custom-elementsv1) | ✅ | ✅ | ✅ | ✅ | ⚠️    | ⚠️ |
+| [Shadow Dom](https://caniuse.com/#feat=shadowdomv1)            | ✅ | ✅ | ✅ | ✅ | ⚠️    | ⚠️ |
+| [es2017](https://caniuse.com/#feat=async-functions)            | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
+| [ES Modules](https://caniuse.com/#feat=es6-module)             | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ |
 
-<div class="align-right">
-  <ion-icon name="circle"></ion-icon> <span class="caption">Stencil compiles with polyfills for features not supported natively</span>
+<div className="align-right">
+  ⚠️ <span className="caption">Stencil compiles with polyfills for features not supported natively</span>
 </div>
+
+:::info
+As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
+:::

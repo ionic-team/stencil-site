@@ -1,6 +1,7 @@
 @layer base, tokens, preset, site;
 
 @layer site {
+  @import "bs-chart";
   /**
   * Colors generated using the color range tool in the Docusaurus docs, here:
   * https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima
@@ -32,80 +33,4 @@
     max-width: 50rem;
     margin: auto;
   }
-
-  .bs-chart,
-.bs-chart__cards,
-.bs-chart__card {
-  display: flex;
-}
-
-.bs-chart {
-  margin: 40px 0;
-  justify-content: space-between;
-}
-
-.bs-chart__group + .bs-chart__group,
-.bs-chart__card + .bs-chart__card {
-  margin-left: 8px;
-}
-
-.bs-chart__group:first-child .bs-chart__card {
-  background: #39B54A;
-}
-
-.bs-chart__group:last-child .bs-chart__card {
-  background: #d0901a;
-}
-
-.bs-chart__card {
-  width: 110px;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  color: #fff;
-  padding: 8px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.bs-chart__card ion-icon {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 8px;
-  border-radius: 100px;
-  margin: 6px 0 8px;
-}
-
-.bs-chart__card ion-icon svg {
-  fill: #fff;
-}
-
-.bs-chart__group-label {
-  display: block;
-  text-align: center;
-  font-size: 11px;
-  color: #646464;
-  margin-top: 6px;
-}
-
-@media screen and (max-width: 872px) {
-  .bs-chart__card {
-    width: 100%;
-  }
-
-  .bs-chart,
-  .bs-chart__group,
-  .bs-chart__cards {
-    flex-direction: column;
-  }
-
-  .bs-chart__group + .bs-chart__group {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-
-  .bs-chart__card + .bs-chart__card {
-    margin-left: 0;
-    margin-top: 8px;
-  }
-}
 }
