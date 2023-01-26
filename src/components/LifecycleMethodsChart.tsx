@@ -1,5 +1,6 @@
 import React from 'react'
-
+import Link from '@docusaurus/Link';
+                      
 export default function LifecycleMethodsChart () {
   return <svg version="1.1" viewBox="0 0 642.5 922" xmlns="http://www.w3.org/2000/svg">
           <g fill-rule="evenodd">
@@ -16,12 +17,12 @@ export default function LifecycleMethodsChart () {
               <path d="m284.8 852.3-6.3 6.3-6.3-6.3" stroke="#575e7f" className="path-removed" />
               <g font-family="SFMono-Regular, 'SF Mono', 'Lucida Console', monospace" font-size="15px">
                 <g>
-                  <a href="#componentdidload" className="path-init">
+                  <Link to="#componentdidload" className="path-init">
                     <rect y="620" width="252" height="49" rx="24.5" ry="24.5" fill="#212431" />
                     <text x="2.2028809" y="166.83597" fill="#fff">
                       <tspan x="45.202881" y="648.83594">componentDidLoad()</tspan>
                     </text>
-                  </a>
+                  </Link>
                 </g>
                 <g>
                   <a href="#componentdidupdate" className="path-update">
@@ -32,20 +33,20 @@ export default function LifecycleMethodsChart () {
                   </a>
                 </g>
                 <g>
-                  <a href="#disconnectedcallback" className="path-removed">
+                  <Link href="#disconnectedcallback" className="path-removed">
                     <rect x="152.5" y="873" width="252" height="49" rx="24.5" ry="24.5" fill="#4b516e" />
                     <text x="-18.570755" y="148.19852" fill="#fff">
                       <tspan x="179.72925" y="902.19849">disconnectedCallback()</tspan>
                     </text>
-                  </a>
+                  </Link>
                 </g>
                 <g>
-                  <a href="/docs/reactive-data#watch-decorator" className="path-update">
+                  <Link to="reactive-data#watch-decorator" className="path-update">
                     <rect x="303" y="161" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
                     <text x="2.5288086" y="-8" fill="#fff">
                       <tspan x="348.52881" y="190">@Watch(‘propName’)</tspan>
                     </text>
-                  </a>
+                  </Link>
                 </g>
                 <g>
                   <a href="/docs/templating-jsx" className="path-init path-update">
