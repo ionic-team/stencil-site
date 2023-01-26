@@ -41,6 +41,6 @@ to team priorities. There may be times where patch releases need to released mor
 
 ## Changelog
 
-To see a list of all notable changes to Stencil, please refer to the 
-<a href="https://github.com/ionic-team/stencil/releases" target="_blank" rel="noreferrer noopener">releases page</a>.
-This contains an ordered list of all bug fixes and new features under each release.
+To see a list of all notable changes to Stencil, please refer to the [releases
+page](https://github.com/ionic-team/stencil/releases). This contains an ordered
+list of all bug fixes and new features under each release.
