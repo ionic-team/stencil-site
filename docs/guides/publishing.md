@@ -54,5 +54,5 @@ An advantage to using the compiler is that it is able to provide help on how to 
 The `collection` properties are used to allow lazy loading in other Stencil applications.
 
 :::note
-If you are distributing both the `dist` and `dist-custom-elements-bundle`, then it's best to pick one of them as the main entry, that's up to you.
+If you are distributing both the `dist` and `dist-custom-elements`, then it's best to pick one of them as the main entry.
 :::
