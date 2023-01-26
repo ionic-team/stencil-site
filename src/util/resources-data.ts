@@ -50,7 +50,6 @@ export const RESOURCES = {
   BLOGS: [
     { title: 'Creating and Integrating Design Systems with StencilJS', url: 'https://medium.com/swlh/creating-and-integrating-design-systems-with-stenciljs-598ecbc33af6' },
     { title: 'Future-Proof Your Design System with StencilJS', url: 'https://blog.bitsrc.io/future-proof-your-design-system-with-stenciljs-b09a48656512' },
-    { title: 'Develop A Konami Code For Any Apps With Stencil', url: 'https://dev.to/daviddalbusco/develop-a-konami-code-for-any-apps-with-stencil-3gda' },
     { title: 'Build powerful frameworkless web components', url: 'https://itnext.io/build-powerful-frameworkless-web-components-482bab0706b1' },
     { title: 'Meet Meridian, the 84.51° Design System', url: 'https://medium.com/8451/meet-meridian-the-84-51-design-system-2b8dcbd20bf4' },
     { title: 'Trying on different Design System: React vs. Stencil', url: 'https://medium.com/@jgatjens/trying-on-different-design-system-react-vs-stencil-3f37c1f860b8' },
@@ -60,8 +59,6 @@ export const RESOURCES = {
     },
     { title: 'Stencil: I Think I Found My Frontend Home', url: 'https://dev.to/deciduously/stencil-i-think-i-found-my-frontend-home-46bf' },
     { title: 'Storybook + StencilJS + Ionic 4 Angular under one roof?', url: 'https://medium.com/@neza.djukic/storybook-stenciljs-ionic-4-angular-under-one-roof-159cc8dab3a4' },
-    { title: 'Using Your StencilJS Design System', url: 'https://www.framer.com/learn/guide/using-stencil-components/?utm_source=referral&utm_campaign=using-stencil-components' },
-    { title: 'Create A React Custom Hooks For Your Web Components', url: 'https://dev.to/daviddalbusco/create-a-react-custom-hooks-for-your-web-components-3b3m' },
     {
       title: 'Creating a Progressive Web App with StencilJS and Workbox',
       url: 'https://julienrenaux.fr/2019/11/25/creating-progressive-web-app-pwa-serviceworker-stenciljs-workbox/',
@@ -98,7 +95,6 @@ export const RESOURCES = {
     { title: 'Using your StencilJS Design System in Framer X', url: 'https://medium.com/stencil-tricks/using-your-stenciljs-design-system-in-framer-x-2e7479fd22c4' },
     { title: 'Using a Stencil-built component in Angular', url: 'https://github.com/ospatil/ng-components-integration' },
     { title: 'Create your First Stencil Component', url: 'https://coryrylan.com/blog/create-your-first-web-component-with-stencil-js' },
-    { title: 'Getting Started with Stencil', url: 'https://alligator.io/stencil/getting-started/' },
     { title: "Stencil.js: It's finally time for vanilla web components!", url: 'https://medium.com/@sinedied/stencil-js-its-finally-time-for-vanilla-web-components-927d26b573e1' },
     { title: 'Stencil with MobX', url: 'https://github.com/aaronksaunders/stencil-mobx' },
     { title: 'Webkomponenten mit Stencil – Ein erster Überblick (in German)', url: 'https://www.datacodedesign.de/webkomponenten-mit-stencil-ein-erster-ueberblick/' },
