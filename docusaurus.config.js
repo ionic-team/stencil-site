@@ -90,7 +90,8 @@ const config = {
           alt: 'Stencil Logo',
           src: 'img/logo-dark.svg',
           srcDark: "img/logo-light.svg",
-          href: '/introduction'
+          href: `https://${HOSTNAME}`,
+          target: '_self',
         },
         items: [
           {
