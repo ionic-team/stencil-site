@@ -139,13 +139,6 @@ export const RESOURCES = {
       sourceUrl: 'https://github.com/ionic-team/stencil-fiber-demo',
     },
     {
-      title: 'IonicBeer',
-      description: 'Beer PWA built with @stencil/core and @ionic/core',
-      imgPath: '/assets/img/demos/demo-ionicbeer',
-      demoUrl: 'https://stencilbeer.firebaseapp.com/',
-      sourceUrl: 'https://github.com/jgw96/stencil-beer',
-    },
-    {
       title: 'InstaMusic',
       description: 'A full featured music player built with @stencil/core and @ionic/core',
       imgPath: '/assets/img/demos/demo-instamusic',
