@@ -17,8 +17,10 @@ This is often first detected in the browser's console, which reports an error st
 To resolve this issue, Stencil supports using [CSP nonces](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) in
 many of the output targets.
 
-> NOTE: CSPs and some CSP strategies are not supported by legacy browsers such as Internet Explorer. For a more detailed list, please see the [CSP browser
-> compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#browser_compatibility).
+:::caution
+NOTE: CSPs and some CSP strategies are not supported by legacy browsers such as Internet Explorer. For a more detailed list, please see the [CSP browser
+compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#browser_compatibility).
+:::
 
 ## How to Use a Nonce
 

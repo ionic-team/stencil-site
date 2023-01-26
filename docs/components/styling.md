@@ -280,7 +280,9 @@ This file must be manually imported in the `index.html` of your application.
 
 ## IE support
 
-> Starting with Stencil v3.0.0, support for IE 11 has been marked as deprecated and will be removed in the next major version of Stencil.
+:::info
+Starting with Stencil v3.0.0, support for IE 11 has been marked as deprecated and will be removed in the next major version of Stencil.
+:::
 
 IE11 does not support CSS variables natively, Stencil does however provide a best-effort polyfill since it's impossible to polyfill CSS features in the same way JS can be polyfilled.
 

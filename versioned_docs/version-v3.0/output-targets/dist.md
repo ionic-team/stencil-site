@@ -65,7 +65,9 @@ import * as utils from '../path/to/utils';
 
 This flag defaults to `false` when omitted from a Stencil configuration file.
 
-> If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config.
+:::tip
+If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config.
+:::
 
 ## Publishing
 

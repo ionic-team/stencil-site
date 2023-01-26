@@ -57,7 +57,9 @@ In the example below there are two script tags, however, only one of them will b
 <script nomodule src="/build/app.js"></script>
 ```
 
-> As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
+:::info
+As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
+:::
 
 
 ## Docs Auto-Generation
