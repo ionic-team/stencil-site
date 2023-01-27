@@ -106,13 +106,16 @@ npx -p @angular/cli ng generate library component-library
 
 You can delete the `component-library.component.ts`, `component-library.service.ts`, and `*.spec.ts` files.
 
-You will also need to add your generated Stencil library as a dependency so import references can be resolved correctly:
+You will also need to add your generated Stencil library as a peer-dependency so import references can be resolved correctly:
 
-```json
+```diff
 // packages/angular-workspace/projects/component-library/package.json
 
-"dependencies": {
-  "stencil-library": "*"
+"peerDependencies": {
+   "@angular/common": "^15.1.0",
+-  "@angular/core": "^15.1.0"
++  "@angular/core": "^15.1.0",
++  "stencil-library": "*"
 }
 ```
 
@@ -120,8 +123,13 @@ For more information, see the Lerna documentation on [package dependency managem
 
 :::note
 The Angular CLI will install Jasmine as a dependency to your Angular workspace. However, Stencil uses Jest as it's unit testing solution. To avoid
-type definition collisions when attempting to build your Stencil project, you can remove `jasmine` and `@types/jasmine` as dependencies in the Angular
-workspace `package.json` file.
+type definition collisions when attempting to build your Stencil project, you can remove `jasmine-core` and `@types/jasmine` as dependencies in the Angular
+workspace `package.json` file:
+
+```bash npm2yarn
+# from `/packages/angular-workspace`
+npm uninstall jasmine-core @types/jasmine
+```
 :::
 
 ### Adding the Angular Output Target
