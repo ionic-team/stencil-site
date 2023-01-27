@@ -182,8 +182,3 @@ export class CustomClock {
   }
 }
 ```
-
-:::note
-Here is the example running.  If you want to see it in action then just inspect it with dev tools.
-<custom-clock/>
-:::
