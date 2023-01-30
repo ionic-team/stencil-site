@@ -100,6 +100,21 @@ export class TodoList {
 }
 ```
 
+In order to reference the host element when initializing a class member you'll need to use TypeScript's definite assignment assertion modifier to avoid a 
+type error:
+
+```tsx
+import { Element } from '@stencil/core';
+
+...
+export class TodoList {
+
+  @Element() el!: HTMLElement;
+
+  private listHeight = this.el.getBoundingClientRect().height;
+}
+```
+
 If you need to update the host element in response to prop or state changes, you should do so in the `render()` method using the `<Host>` element.
 
 ## Styling
