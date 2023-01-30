@@ -31,21 +31,12 @@ The current status of each Stencil version is:
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
 
-**Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
-support options available. To learn more, see our
-[Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
-
 ### Stencil Support Details
 
 Starting with Stencil v2, the Stencil team is adopting a newly revised maintenance policy. When a new major version of
 Stencil is released, the previous major version release will enter maintenance mode. While a version of Stencil is in
 maintenance mode, only critical bug & security fixes will be applied to that version, and no major feature improvements
 will be added. The maintenance period shall last six months from the release of the new major version.
-
-Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
-the extended support period, only critical bug and security fixes will be applied for teams and organizations using
-Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major 
-version.
 
 The table below describes a theoretical timeline of releases:
 

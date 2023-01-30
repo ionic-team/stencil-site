@@ -32,9 +32,6 @@ The current status of each Stencil version is:
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
 
-**Extended Support Period**: For teams and organizations that require additional long term support, Ionic has extended 
-support options available. To learn more, see our
-[Enterprise offerings](https://ionicframework.com/sales?product_of_interest=Design%20Systems).
 
 ### Stencil Support Details
 
