@@ -100,7 +100,8 @@ export class TodoList {
 }
 ```
 
-You can also use the host element reference when initializing class members by using Typescript's definite assignment assertion modifiers:
+In order to reference the host element when initializing a class member you'll need to use TypeScript's definite assignment assertion modifier to avoid a 
+type error:
 
 ```tsx
 import { Element } from '@stencil/core';
