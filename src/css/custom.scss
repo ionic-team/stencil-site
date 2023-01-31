@@ -1,0 +1,42 @@
+@layer base, tokens, preset, site;
+
+@layer site {
+  @import "bs-chart";
+  /**
+  * Colors generated using the color range tool in the Docusaurus docs, here:
+  * https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima
+  */
+  :root {
+    --ifm-color-primary: #4c48ff;
+    --ifm-color-primary-dark: #1c17ff;
+    --ifm-color-primary-darker: #0500e5;
+    --ifm-color-primary-darkest: #0400c4;
+    --ifm-color-primary-light: #5c58ff;
+    --ifm-color-primary-lighter: #6c69ff;
+    --ifm-color-primary-lightest: #8c89ff;
+
+    --ifm-menu-color-background-active: var(--c-purple-0);
+
+    --ifm-dropdown-hover-background-color: var(--ifm-menu-color-background-active);
+  }
+
+  [data-theme='dark'] {
+    --ifm-menu-color-background-active: var(--c-purple-170);
+    --ifm-menu-color-active: var(--c-indigo-0);
+
+    --search-border: var(--c-carbon-80);
+  }
+
+  [class*='colorModeToggle'] {
+    margin-inline-start: -0.25rem;
+  }
+
+  .theme-doc-version-banner {
+    max-width: 50rem;
+    margin: auto;
+  }
+
+  .navbar__brand {
+    margin-right: 0;
+  }
+}
