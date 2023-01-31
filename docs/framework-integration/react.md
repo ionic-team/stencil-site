@@ -1,7 +1,8 @@
 ---
 title: React Integration with Stencil
+sidebar_label: React
 description: Learn how to wrap your components so that people can use them natively in React
-url: /docs/react
+slug: /react
 contributors:
   - jthoms1
   - adamdbradley
