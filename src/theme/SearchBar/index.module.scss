@@ -1,0 +1,41 @@
+.search {
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 540px) {
+    display: none;
+  }
+
+  :global(.algolia-autocomplete) {
+    width: 100%;
+  }
+
+  &::after {
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyQkVDRCIgZD0iTTE0LjI5IDEyLjYgMTEuMSA5LjQxYTUuOSA1LjkgMCAxIDAtMS4yIDEuMmwzLjE4IDMuMTdhLjg0Ljg0IDAgMCAwIDEuMi0xLjJaTTIuMTkgNS45YTQuMjEgNC4yMSAwIDEgMSA4LjQxIDAgNC4yMSA0LjIxIDAgMCAxLTguNDIgMFoiLz48L3N2Zz4=");
+    
+    position: absolute;
+    left: 11px;
+
+    transform: translateY(2px);
+  }
+
+  &Input {
+    padding: 8px 8px 8px 32px;
+
+    background-color: var(--ifm-navbar-background-color);
+
+    width: 100%;
+
+    border: 1px solid var(--search-border, var(--c-indigo-30));
+    border-radius: 8px;
+
+    height: 2.25rem;
+
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 17px;
+  }
+}
+
