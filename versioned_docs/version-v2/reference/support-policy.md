@@ -31,6 +31,8 @@ The current status of each Stencil version is:
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
 
+**Extended Support Period**: Available to Stencil Enterprise customers.
+
 ### Stencil Support Details
 
 Starting with Stencil v2, the Stencil team is adopting a newly revised maintenance policy. When a new major version of
