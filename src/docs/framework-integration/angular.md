@@ -295,7 +295,7 @@ npx -p @angular/cli ng build component-library
 ```
 
 Now you can reference your component library as a standard import. If you distributed your components through a primary `NgModule`, you can
-simply import that module into their implementation to use your components.
+simply import that module into an implementation to use your components.
 
 ```ts
 // app.module.ts
@@ -304,19 +304,6 @@ import { ComponentLibraryModule } from 'component-library';
 
 @NgModule({
   imports: [ComponentLibraryModule],
-})
-export class AppModule {}
-```
-
-Alternatively, you can individually import the components and declare them on a module:
-
-```ts
-// app.module.ts
-
-import { MyComponent } from 'component-library';
-
-@NgModule({
-  declarations: [MyComponent],
 })
 export class AppModule {}
 ```
@@ -495,7 +482,20 @@ Now, all generated imports will point to the default directory for the custom el
 using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the Angular output target. See
 [the API section](#customelementsdir) for more information.
 
-In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
+In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped. So, you do not need to implement
+the Stencil loader for lazy-loading the custom elements (i.e. you can remove the `APP_INITIALIZER` logic introduced [in this section](#adding-the-angular-output-target)).
+As such, the generated Angular components can now be directly imported and declared on any Angular module implementing them:
+
+```ts
+// app.module.ts
+
+import { MyComponent } from 'component-library';
+
+@NgModule({
+  declarations: [MyComponent],
+})
+export class AppModule {}
+```
 
 ### What is the best format to write event names?
 
