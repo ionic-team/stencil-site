@@ -218,6 +218,7 @@ the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/an
 ```ts
 // component-library.module.ts
 
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { defineCustomElements } from 'stencil-library/loader';
 
 @NgModule({
