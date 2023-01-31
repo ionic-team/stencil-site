@@ -36,11 +36,13 @@
     margin: auto;
   }
 
-  .navbar__brand {
-    margin-right: 0;
-  }
-
-  .navbar__logo {
-    min-width: 96px;
+  .navbar {
+    .navbar__brand {
+      margin-right: 0;
+    }
+  
+    .navbar__logo {
+      min-width: 96px;
+    }
   }
 }

@@ -212,11 +212,22 @@
 
     &-sidebar {
       .navbar__separator {
-        display: none;
+        height: 1px;
+        width: 25px;
+
+        margin-inline-start: var(--ifm-menu-link-padding-horizontal);
+        margin-inline-end: var(--ifm-menu-link-padding-horizontal);
+
+        margin-block-start: var(--ifm-menu-link-padding-vertical);
+        margin-block-end: var(--ifm-menu-link-padding-vertical);
       }
 
       .navbar__icon {
+        display: block;
+
         padding-inline-start: calc(var(--ifm-navbar-item-padding-horizontal) + .75rem);
+
+        padding-block-start: var(--ifm-menu-link-padding-vertical);
       }
     }
 
