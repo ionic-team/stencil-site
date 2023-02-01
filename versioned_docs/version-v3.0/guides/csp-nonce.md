@@ -80,7 +80,7 @@ This is an example of consuming the `dist-custom-elements` output in an Angular 
 // main.ts
 
 import { defineCustomElements, setNonce } from 'my-lib/dist/components';
-// Assume `autoDefineCustomElements` is enabled enabled
+// Assume `customElementsExportBehavior: 'auto-define-custom-elements'` is set
 import 'my-lib/dist/components/my-component';
 
 // Will set the `nonce` attribute for all scripts/style tags
