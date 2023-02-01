@@ -1,92 +1,320 @@
 ---
-title: Decorators
+title: Component Decorator
 sidebar_label: Component
-description: Decorators
+description: Documentation for the @Component decorator
 slug: /component
 contributors:
-  - jthoms1
-  - rwaskiewicz
+- jthoms1
+- rwaskiewicz
 ---
 
 # Component Decorator
 
-Each Stencil Component must be decorated with a `@Component()` decorator from the `@stencil/core` package. In the simplest case, developers must provide an HTML `tag` name for the component. Often times, a `styleUrl` is used as well, or even `styleUrls`, where multiple different style sheets can be provided for different application modes/themes.
-
-Use a relative url to the `.css` file for the styleUrl(s).
+`@Component()` is a decorator that designates a TypeScript class as a Stencil component.
+Every Stencil component gets transformed into a web component at build time.
 
 ```tsx
 import { Component } from '@stencil/core';
 
 @Component({
   tag: 'todo-list',
-  styleUrl: 'todo-list.css'
+  // additional options
 })
 export class TodoList {
-
+  // implementation omitted
 }
 ```
 
 ## Component Options
 
-The `@Component(opts: ComponentOptions)` takes a required object containing all the component-level features.
-The `tag` name is the only required property, but there are plenty of them:
+The `@Component()` decorator takes one argument, an object literal containing configuration options for the component.
+This allows each component to be individually configured to suit the unique needs of each project.
+
+Each option, its type, and whether it's required is described below.
+
+### tag
+
+**Required**
+
+**Type: `string`**
+
+**Details:**<br/>
+This value sets the name of the custom element that Stencil will generate.
+To adhere to the [HTML spec](https://html.spec.whatwg.org/#valid-custom-element-name), the tag name must contain a dash ('-').
+
+Ideally, the tag name is a globally unique value.
+Having a globally unique value helps prevent naming collisions with the global `CustomElementsRegistry`, where all custom elements are defined.
+It's recommended to choose a unique prefix for all your components within the same collection.
+
+**Example**:<br/>
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+After compilation, the component defined in `TodoList` can be used in HTML or another TSX file:
+```html
+<!-- Here we use the component in an HTML file -->
+<todo-list></todo-list>
+```
+```tsx
+{/* Here we use the component in a TSX file */}
+<todo-list></todo-list>
+```
+
+### assetsDirs
+
+**Optional**
+
+**Type: `string[]`**
+
+**Details:**<br/>
+`assetsDirs` is an array of relative paths from the component to a directory containing the static files (assets) the component requires.
+
+**Example**:<br/>
+Below is an example project's directory structure containing an example component and assets directory.
+
+```
+src/
+└── components/
+    ├── assets/
+    │   └── sunset.jpg
+    └── todo-list.tsx
+```
+
+Below, the `todo-list` component will correctly load the `sunset.jpg` image from the `assets/` directory, using Stencil's [`getAssetPath()`](/assets#getassetpath).
 
 ```tsx
-export interface ComponentOptions {
-  /**
-   * Tag name of the web component. Ideally, the tag name must be globally unique,
-   * so it's recommended to choose a unique prefix for all your components within the same collection.
-   *
-   * In addition, tag name must contain a '-'
-   */
-  tag: string;
+import { Component, Prop, getAssetPath, h } from '@stencil/core';
 
-  /**
-   * If `true`, the component will use scoped stylesheets. Similar to shadow-dom,
-   * but without native isolation. Defaults to `false`.
-   */
-  scoped?: boolean;
+@Component({
+  tag: 'todo-list',
+  // 1. assetsDirs lists the 'assets' directory as a relative (sibling)
+  // directory
+  assetsDirs: ['assets']
+})
+export class TodoList {
+  image = "sunset.jpg";
 
-  /**
-   * If `true`, the component will use native shadow-dom encapsulation, it will fallback to `scoped` if the browser
-   * does not support shadow-dom natively. Defaults to `false`.
-   * 
-   * If an object literal containing `delegatesFocus` is provided, the component will use native shadow-dom
-   * encapsulation. When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its
-   * shadow DOM. When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
-   * - the first focusable part of the component is given focus
-   * - the component receives any available `focus` styling
-   * Setting `delegatesFocus` to `false` will not add the `delegatesFocus` property to the shadow DOM and therefore
-   * will have the focusing behavior described for `shadow: true`.
-   */
-  shadow?: boolean | { delegatesFocus: boolean };
-
-  /**
-   * Relative URL to some external stylesheet file. It should be a `.css` file unless some
-   * external plugin is installed like `@stencil/sass`.
-   */
-  styleUrl?: string;
-
-  /**
-   * Similar as `styleUrl` but allows one to specify different stylesheets for different modes.
-   */
-  styleUrls?: string[] | d.ModeStyles;
-
-  /**
-   * String that contains inlined CSS instead of using an external stylesheet.
-   * The performance characteristics of this feature are the same as using an external stylesheet.
-   *
-   * Notice, you can't use sass, or less, only `css` is allowed using `styles`, use `styleUrl` if you need more advanced features.
-   */
-  styles?: string;
-
-  /**
-   * Array of relative links to folders of assets required by the component.
-   */
-  assetsDirs?: string[];
+  render() {
+    // 2. the asset path is retrieved relative to the asset base path to use in
+    // the <img> tag
+    const imageSrc = getAssetPath(`./assets/${this.image}`);
+    return <img src={imageSrc} />
+  }
 }
 ```
 
+In the example above, the following allows `todo-list` to display the provided asset:
+1. The `TodoList`'s `@Component()` decorator has the `assetsDirs` property, and lists the file's sibling directory, `assets/`.
+   This will copy the `assets` directory over to the distribution directory.
+2. Stencil's [`getAssetPath()`](/assets#getassetpath) is used to retrieve the path to the image to be used in the `<img>` tag
+
+For more information on configuring assets, please see Stencil's [Assets Guide](/docs/assets)
+
+### scoped
+
+**Optional**
+
+**Type: `boolean`**
+
+**Default: `false`**
+
+**Details:**<br/>
+If `true`, the component will use [scoped stylesheets](/docs/styling#scoped-css).
+
+Scoped CSS is an alternative to using the native [shadow DOM](/docs/styling#shadow-dom) style encapsulation.
+It appends a data attribute to your styles to make them unique and thereby scope them to your component.
+It does not, however, prevent styles from the light DOM from seeping into your component.
+
+To use the native [shadow DOM](/docs/styling#shadow-dom), see the configuration for [`shadow`](#shadow).
+
+This option cannot be set to `true` if `shadow` is enabled.
+
+**Example**:<br/>
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  scoped: true
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+### shadow
+
+**Optional**
+
+**Type: `boolean | { delegatesFocus: boolean }`**
+
+**Default: `false`**
+
+**Details:**<br/>
+If `true`, the component will use [native Shadow DOM encapsulation](/docs/styling#shadow-dom).
+It will fall back to `scoped` if the browser does not support shadow-dom natively.
+
+`delegatesFocus` is a property that [provides focus](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/delegatesFocus) to the first focusable entry in a component using Shadow DOM.
+If an object literal containing `delegatesFocus` is provided, the component will use [native Shadow DOM encapsulation](/docs/styling#shadow-dom), regardless of the value assigned to `delegatesFocus`.
+
+When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its shadow DOM.
+
+When `delegatesFocus` is `true` and a non-focusable part of the component is clicked:
+- the first focusable part of the component is given focus
+- the component receives any available `focus` styling
+
+If `shadow` is set to `false`, the component will not use native shadow DOM encapsulation.
+
+This option cannot be set to enabled if `scoped` is enabled.
+
+**Example 1**:<br/>
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  shadow: true
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+**Example 2**:<br/>
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  shadow: { 
+    delegatesFocus: true,
+  }
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+### styleUrl
+
+**Optional**
+
+**Type: `string`**
+
+**Details:**<br/>
+Relative URL to an external stylesheet containing styles to apply to your component.
+By out of the box, Stencil will only process CSS files (files ending with `.css`).
+Support for additional CSS variants, like Sass, can be added via [a plugin](https://stenciljs.com/docs/plugins#related-plugins).
+
+**Example**:<br/>
+Below is an example project's directory structure containing an example component and stylesheet.
+```
+src/
+└── components/
+    ├── todo-list.css
+    └── todo-list.tsx
+```
+
+By setting `styleUrl`, Stencil will apply the `todo-list.css` stylesheet to the `todo-list` component:
+
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  styleUrl: './todo-list.css',
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+### styleUrls
+
+**Optional**
+
+**Type: `string[] | { [modeName: string]: string | string[]; }`**
+
+**Details:**<br/>
+A list of relative URLs to external stylesheets containing styles to apply to your component.
+
+Alternatively, an object can be provided that maps a named "mode" to one or more stylesheets.
+This 
+
+By out of the box, Stencil will only process CSS files (ending with `.css`).
+Support for additional CSS variants, like Sass, can be added via [a plugin](https://stenciljs.com/docs/plugins#related-plugins).
+
+**Example**:<br/>
+Below is an example project's directory structure containing an example component and stylesheet.
+```
+src/
+└── components/
+    ├── todo-list-1.css
+    ├── todo-list-2.css
+    └── todo-list.tsx
+```
+
+By setting `styleUrls`, Stencil will apply both stylesheets to the `todo-list` component:
+
+```tsx title="Using an array of styles"
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  styleUrls: ['./todo-list-1.css', './todo-list-2.css']
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+```tsx title="Using modes"
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  styleUrls: {
+     ios: 'todo-list-1.ios.scss',
+     md: 'todo-list-2.md.scss',
+  }
+})
+export class TodoList {
+  // implementation omitted
+}
+```
+
+### styles
+
+**Optional**
+
+**Type: `string | { [modeName: string]: any }`**
+
+**Details:**<br/>
+A string that contains inlined CSS instead of using an external stylesheet.
+The performance characteristics of this feature are the same as using an external stylesheet.
+
+When using `styles`, only CSS is permitted.
+See [`styleUrl`](#styleurl) if you need more advanced features.
+
+**Example**:<br/>
+```tsx 
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'todo-list',
+  styles: 'div { background-color: #fff }'
+})
+export class TodoList {
+  // implementation omitted
+}
+```
 
 ## Embedding or Nesting Components
 
