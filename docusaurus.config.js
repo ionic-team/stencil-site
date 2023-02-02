@@ -125,7 +125,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://ionicframework.com/blog/tag/stencil/',
+            href: 'https://ionic.io/blog/tag/stencil',
             label: 'Blog',
             position: 'right',
           },
