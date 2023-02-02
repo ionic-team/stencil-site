@@ -1,11 +1,8 @@
 {
   "ignorePatterns": [
-    {
-      "pattern": "^/"
-    },
-    {
-      "pattern": "^./"
-    }
+    { "pattern": "^/" },
+    { "pattern": "^./" },
+    { "pattern": "^../" }
   ],
   "timeout": "20s"
 }

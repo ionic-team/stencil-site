@@ -35,15 +35,15 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 ## Lifecycle hooks
 
-- [connectedCallback()](component-lifecycle#connectedcallback-)
-- [disconnectedCallback()](component-lifecycle#disconnectedcallback-)
-- [componentWillLoad()](component-lifecycle#componentwillload-)
-- [componentDidLoad()](component-lifecycle#componentdidload-)
-- [componentShouldUpdate(newValue, oldValue, propName): boolean](component-lifecycle#componentshouldupdate)
-- [componentWillRender()](component-lifecycle#componentwillrender-)
-- [componentDidRender()](component-lifecycle#componentdidrender-)
-- [componentWillUpdate()](component-lifecycle#componentwillupdate-)
-- [componentDidUpdate()](component-lifecycle#componentdidupdate-)
+- [connectedCallback()](./component-lifecycle#connectedcallback-)
+- [disconnectedCallback()](./component-lifecycle#disconnectedcallback-)
+- [componentWillLoad()](./component-lifecycle#componentwillload-)
+- [componentDidLoad()](./component-lifecycle#componentdidload-)
+- [componentShouldUpdate(newValue, oldValue, propName): boolean](./component-lifecycle#componentshouldupdate)
+- [componentWillRender()](./component-lifecycle#componentwillrender-)
+- [componentDidRender()](./component-lifecycle#componentdidrender-)
+- [componentWillUpdate()](./component-lifecycle#componentwillupdate-)
+- [componentDidUpdate()](./component-lifecycle#componentdidupdate-)
 - **[render()](./templating-jsx)**
 
 
@@ -61,9 +61,9 @@ window.addEventListener('appload', (event) => {
 
 ## Other
 
-- [**Host**](host-element): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
+- [**Host**](./host-element): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
 
-- [**h()**](templating-jsx): It's used within the `render()` to turn the JSX into Virtual DOM elements.
+- [**h()**](./templating-jsx): It's used within the `render()` to turn the JSX into Virtual DOM elements.
 
 - [**readTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-read task. The provided callback will be executed in the best moment to perform DOM reads without causing layout thrashing.
 
