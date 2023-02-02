@@ -11,3 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        folder-path: "docs, versioned_docs"
+        file-path: "./readme.md, ./CONTRIBUTING.md"
