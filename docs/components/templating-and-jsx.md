@@ -34,7 +34,7 @@ In this example we're returning the JSX representation of a `div`, with two chil
 
 ### Host Element
 
-If you want to modify the host element itself, such as adding a class or an attribute to the component itself, use the `<Host>` functional component. Check for more details [here](host-element)
+If you want to modify the host element itself, such as adding a class or an attribute to the component itself, use the `<Host>` functional component. Check for more details [here](./host-element)
 
 
 ## Data Binding
