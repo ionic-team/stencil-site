@@ -15,11 +15,21 @@ contributors:
 
 Stencil is a compiler that generates Web Components (more specifically, Custom Elements). Stencil combines the best concepts of the most popular frameworks into a simple build-time tool.
 
-Stencil uses TypeScript, JSX, and CSS to create standards-based Web Components that can be used to craft high quality component libraries, design systems, and applications.
+Stencil uses TypeScript, JSX, and CSS to create standards-compliant Web Components that can be used to craft high quality component libraries, design systems, and applications.
 
-Stencil generates standards-compliant Web Components that can work with popular frameworks right out of the box. In addition, Stencil can be used to generate framework native components that can be used just like any other components in your framework of choice. Stencil accomplishes this by wrapping your Web Components via Stencil's Output Target feature.
+Web Components generated with Stencil can be used with popular frameworks right
+out of the box. In addition, Stencil can generate framework-specific wrappers that
+allow Stencil components to be used with a framework-specific developer experience.
 
-Compared to using Custom Elements directly, Stencil provides [extra APIs](/api) that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
+Compared with using the [Custom Elements
+APIs](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+directly, Stencil provides [convenient APIs](/api) which make writing fast
+components simpler. With a Virtual DOM, JSX, and async rendering, it is easy to
+create fast and powerful components which are still 100% compatible with Web
+Components standards. In addition to making it easier to author Custom
+Elements, Stencil also adds a number of key capabilities on top of Web
+Components, such as prerendering and objects-as-properties (instead of just
+strings).
 
 The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
 
