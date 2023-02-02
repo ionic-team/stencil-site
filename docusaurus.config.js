@@ -120,13 +120,13 @@ const config = {
             value: '<div class="navbar__separator"></div>',
           },
           {
-            href: 'https://ionicframework.com/blog/tag/stencil/',
-            label: 'Blog',
+            href: 'https://github.com/stencil-community',
+            label: 'Community',
             position: 'right',
           },
           {
-            href: 'https://ionic.io/products/stencil',
-            label: 'Enterprise',
+            href: 'https://ionicframework.com/blog/tag/stencil/',
+            label: 'Blog',
             position: 'right',
           },
           {
