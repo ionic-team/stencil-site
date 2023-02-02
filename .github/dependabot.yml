@@ -11,3 +11,8 @@ updates:
     # Disable rebasing for pull requests, as having several open pull requests all get simultaneously rebased gets
     # noisy from a notification standpoint
     rebase-strategy: 'disabled'
+    ignore:
+      - dependency-name: 'react'
+        versions: ['>=18']
+      - dependency-name: 'react-dom'
+        versions: ['>=18']
