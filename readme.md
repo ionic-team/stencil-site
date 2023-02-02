@@ -20,7 +20,6 @@ To build the site from the source, ensure you're using the most recent versions 
  - [Stencil Documentation](https://stenciljs.com/)
  - [Stencil Worldwide Slack](https://stencil-worldwide.herokuapp.com)
  - [Ionic](https://ionicframework.com/)
- - [Ionic Worldwide Slack](http://ionicworldwide.herokuapp.com/)
  - [Ionicons](http://ionicons.com/)
  - [Capacitor](https://capacitor.ionicframework.com/)
 
