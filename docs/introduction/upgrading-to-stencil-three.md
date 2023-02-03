@@ -406,6 +406,19 @@ $ npm uninstall @types/puppeteer
 
 To see which versions of Puppeteer are supported by Stencil, please see our [support matrix](/docs/support-policy#puppeteer)
 
+## Additional Packages
+
+In order to guarantee that other `@stencil/` packages will continue to function as expected,
+it's recommended that a project that uses any of the packages listed below updates to the listed minimum package version.
+
+| Package                          | Minimum Package Version | GitHub                                                            | Documentation                                               |
+|----------------------------------|-------------------------|-------------------------------------------------------------------|-------------------------------------------------------------|
+| `@stencil-angular-output-target` | 0.5.0                   | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](/docs/angular)                           |
+| `@stencil/sass`                  | 2.0.3                   | [GitHub](https://github.com/ionic-team/stencil-sass)              | [GitHub README](https://github.com/ionic-team/stencil-sass) |
+| `@stencil/store`                 | 2.0.0                   | [GitHub](https://github.com/ionic-team/stencil-store)             | [Stencil Doc Site](/docs/stencil-store)                     |
+| `@stencil-react-output-target`   | 0.4.0                   | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](/docs/react)                             |
+| `@stencil-vue-output-target`     | 0.7.0                   | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](/docs/vue)                               |
+
 ## Need Help Upgrading?
 
 Be sure to look at the Stencil [v3.0.0 Breaking Changes Guide](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-v300).
