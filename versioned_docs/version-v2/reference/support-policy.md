@@ -40,6 +40,11 @@ Stencil is released, the previous major version release will enter maintenance m
 maintenance mode, only critical bug & security fixes will be applied to that version, and no major feature improvements
 will be added. The maintenance period shall last six months from the release of the new major version.
 
+Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
+the extended support period, only critical bug and security fixes will be applied for teams and organizations using
+Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major 
+version.
+
 The table below describes a theoretical timeline of releases:
 
 | Version |        Status         |   Released   | Maintenance Ends | Ext. Support Ends |
