@@ -67,6 +67,18 @@ After compilation, the component defined in `TodoList` can be used in HTML or an
 <todo-list></todo-list>
 ```
 
+### assetsDir
+
+**Deprecated**
+
+**Type: `string`**
+
+**Details:**<br/>
+`assetsDir` is a relative path from the component to a directory containing the static files (assets) the component requires.
+
+This field has been deprecated and will be removed in Stencil v3.0.0.
+Please use [assetsDirs](#assetsdirs) as a replacement.
+
 ### assetsDirs
 
 **Optional**
