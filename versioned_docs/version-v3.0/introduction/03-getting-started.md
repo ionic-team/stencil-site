@@ -47,7 +47,7 @@ Selecting the 'component' option will prompt you for the name of your project.
 ? Project name › my-first-stencil-project
 ```
 
-Here, we've named our project 'my-first-stencil project'. After hitting `ENTER` to confirm your choices, the CLI will
+Here, we've named our project 'my-first-stencil-project'. After hitting `ENTER` to confirm your choices, the CLI will
 scaffold a Stencil project for us in a directory that matches the project name you provided.
 
 Upon successfully creating our project, the CLI will print something similar to the following to the console:
