@@ -16,3 +16,7 @@ updates:
         versions: ['>=18']
       - dependency-name: 'react-dom'
         versions: ['>=18']
+      # Docusaurus does not support v2 of mdx at the time of this writing.
+      # See: https://github.com/facebook/docusaurus/issues/4029
+      - dependency-name: '@mdx-js/react'
+        versions: ['>=2']
