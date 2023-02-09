@@ -9,7 +9,7 @@ contributors:
 
 # Working with host elements
 
-Stencil components render their children declaratively in their `render` method [using JSX](./templating-jsx). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
+Stencil components render their children declaratively in their `render` method [using JSX](./templating-and-jsx.md). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
 
 ## `<Host>`

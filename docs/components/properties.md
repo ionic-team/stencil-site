@@ -142,7 +142,7 @@ efficiently re-render your components. Passing a reference to a component as a p
 
 A Prop is by default immutable from inside the component logic. Once a value is set by a user, the component cannot
 update it internally. For more advanced control over the mutability of a prop, please see the 
-[mutable option](./properties#prop-mutability-mutable) section of this document.
+[mutable option](#prop-mutability-mutable) section of this document.
 
 ## Types
 
@@ -213,7 +213,7 @@ There are a few ways in which Stencil treats props that are of type `boolean` th
 <todo-list-item is-complete="0"></todo-list-item>
 <todo-list-item is-complete="False"></todo-list-item>
 ```
-3. The value of a boolean prop will be `undefined` if it has no [default value](./properties#default-values) and one of
+3. The value of a boolean prop will be `undefined` if it has no [default value](#default-values) and one of
 the following applies:
    1. the prop is not included when using the component
    2. the prop is included when using the component, but is not given a value
@@ -474,7 +474,7 @@ In the first usage of `todo-list-item`, `isComplete` is provided a number value 
 receives a string containing "42". The types on `isComplete` reflect the type of the value it was provided, 'number' and
 'string', respectively.
 
-Looking at `label`, it is worth noting that although the prop has a [default value](./properties#default-values), it does
+Looking at `label`, it is worth noting that although the prop has a [default value](#default-values), it does
 not narrow the type of `label` to be of type 'string'. In the first usage of `todo-list-item`, `label` is provided a
 value of null, whereas in the second usage it receives a number value of 1. The types of the values stored in `label`
 are correctly reported as 'object' and 'number', respectively.
@@ -518,8 +518,8 @@ When using a Stencil prop that is marked as optional, Stencil will try to infer 
 not explicitly given.  In the example above, Stencil is able to understand that:
 
 - `completeMsg` is of type string, because it has an explicit type annotation
-- `label` is of type string, because it has a [default value](./properties#default-values) that is of type string
-- `thingToDo` [is of type `any`](./properties#any-type), because it has no explicit type annotation, nor default value
+- `label` is of type string, because it has a [default value](#default-values) that is of type string
+- `thingToDo` [is of type `any`](#any-type), because it has no explicit type annotation, nor default value
 
 Because Stencil can infer the type of `label`, the following will fail to compile due to a type mismatch:
 
@@ -645,7 +645,7 @@ export class ToDoListItem {
 
 ## Prop Validation
 
-To do validation of a Prop, you can use the [@Watch()](./reactive-data/#watch-decorator) decorator:
+To do validation of a Prop, you can use the [@Watch()](./reactive-data.md#the-watch-decorator-watch) decorator:
 
 ```tsx
 import { Component, Prop, Watch, h } from '@stencil/core';
@@ -723,7 +723,7 @@ This component has **3 properties**, but the compiler will create **only 2 attri
 Notice that the `httpService` type is not a primitive (e.g. not a `number`, `boolean`, or `string`). Since DOM
 attributes can only be strings, it does not make sense to have an associated DOM attribute called `"http-service"`.
 Stencil will not attempt to serialize object-like strings written in HTML into a JavaScript object.
-See [Object Props](./properties#object-props) for guidance as to how to configure `httpService`.
+See [Object Props](#object-props) for guidance as to how to configure `httpService`.
 
 At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are 
 case-insensitive, so the attribute names will be `is-complete` & `thing-to-do` by default.
@@ -892,7 +892,7 @@ export class ToDoListItem {
 }
 ```
 
-The component in the example above uses [default values](./properties#default-values), and can be used in HTML like so:
+The component in the example above uses [default values](#default-values), and can be used in HTML like so:
 ```html
 <!-- Example of using todo-list-item in HTML -->
 <todo-list-item></todo-list-item>

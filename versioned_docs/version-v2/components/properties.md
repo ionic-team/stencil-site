@@ -645,7 +645,7 @@ export class ToDoListItem {
 
 ## Prop Validation
 
-To do validation of a Prop, you can use the [@Watch()](./reactive-data/#watch-decorator) decorator:
+To do validation of a Prop, you can use the [@Watch()](./reactive-data.md#the-watch-decorator-watch) decorator:
 
 ```tsx
 import { Component, Prop, Watch, h } from '@stencil/core';

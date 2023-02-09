@@ -23,7 +23,7 @@ outputTargets: [
 
 ## How is this different from "dist-custom-elements-bundle" output target?
 
-The `dist-custom-elements-bundle` output target has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of the [`dist-custom-elements` output target](./custom-elements). The information below is for historical purposes only. 
+The `dist-custom-elements-bundle` output target has been deprecated in [Stencil v2.12.0](https://github.com/ionic-team/stencil/releases/tag/v2.12.0) in favor of the [`dist-custom-elements` output target](./custom-elements.md). The information below is for historical purposes only. 
 
 To start, Stencil was designed to lazy-load itself only when the component was actually used on a page. There are many benefits to this approach, such as simply adding a script tag to any page and the entire library is available for use, yet only the components actually used are downloaded. For example, [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) comes with over 100 components, but a one webpage may only need `ion-toggle`. Instead of requesting the entire component library, or generating a custom bundle for just `ion-toggle`, the `dist` output target is able to generate a tiny entry build ready to load any of its components on-demand.
 

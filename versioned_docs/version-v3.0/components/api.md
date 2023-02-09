@@ -23,35 +23,35 @@ The whole API provided by stencil can be condensed in a set of decorators, lifec
 Decorators are a pure compiler-time construction used by stencil to collect all the metadata about a component, the properties, attributes and methods it might expose, the events it might emit or even the associated stylesheets.
 Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur any runtime overhead.
 
-- [@Component()](./component#component-decorator) declares a new web component
-- [@Prop()](./properties#prop-decorator) declares an exposed property/attribute
-- [@State()](./state#the-state-decorator-state) declares an internal state of the component
-- [@Watch()](./reactive-data#watch-decorator) declares a hook that runs when a property or state changes
-- [@Element()](./host-element#element-decorator) declares a reference to the host element
-- [@Method()](./methods#method-decorator) declares an exposed public method
-- [@Event()](./events#event-decorator) declares a DOM event the component might emit
-- [@Listen()](./events#listen-decorator) listens for DOM events
+- [@Component()](./component.md#component-decorator) declares a new web component
+- [@Prop()](./properties.md#the-prop-decorator-prop) declares an exposed property/attribute
+- [@State()](./state.md#the-state-decorator-state) declares an internal state of the component
+- [@Watch()](./reactive-data.md#the-watch-decorator-watch) declares a hook that runs when a property or state changes
+- [@Element()](./host-element.md#element-decorator) declares a reference to the host element
+- [@Method()](./methods.md#method-decorator) declares an exposed public method
+- [@Event()](./events.md#event-decorator) declares a DOM event the component might emit
+- [@Listen()](./events.md#listen-decorator) listens for DOM events
 
 
 ## Lifecycle hooks
 
-- [connectedCallback()](./component-lifecycle#connectedcallback-)
-- [disconnectedCallback()](./component-lifecycle#disconnectedcallback-)
-- [componentWillLoad()](./component-lifecycle#componentwillload-)
-- [componentDidLoad()](./component-lifecycle#componentdidload-)
-- [componentShouldUpdate(newValue, oldValue, propName): boolean](./component-lifecycle#componentshouldupdate)
-- [componentWillRender()](./component-lifecycle#componentwillrender-)
-- [componentDidRender()](./component-lifecycle#componentdidrender-)
-- [componentWillUpdate()](./component-lifecycle#componentwillupdate-)
-- [componentDidUpdate()](./component-lifecycle#componentdidupdate-)
-- **[render()](./templating-jsx)**
+- [connectedCallback()](./component-lifecycle.md#connectedcallback)
+- [disconnectedCallback()](./component-lifecycle.md#disconnectedcallback)
+- [componentWillLoad()](./component-lifecycle.md#componentwillload)
+- [componentDidLoad()](./component-lifecycle.md#componentdidload)
+- [componentShouldUpdate(newValue, oldValue, propName): boolean](./component-lifecycle.md#componentshouldupdate)
+- [componentWillRender()](./component-lifecycle.md#componentwillrender)
+- [componentDidRender()](./component-lifecycle.md#componentdidrender)
+- [componentWillUpdate()](./component-lifecycle.md#componentwillupdate)
+- [componentDidUpdate()](./component-lifecycle.md#componentdidupdate)
+- **[render()](./templating-and-jsx.md)**
 
 
 ## The appload event
 
 In addition to component-specific lifecycle hooks, a special event called `appload` will be emitted when the app and all of its child components have finished loading. You can listen for it on the `window` object.
 
-If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](./config#namespace) you've set in your Stencil config.
+If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](../config/01-overview.md#namespace) you've set in your Stencil config.
 
 ```tsx
 window.addEventListener('appload', (event) => {
@@ -61,9 +61,9 @@ window.addEventListener('appload', (event) => {
 
 ## Other
 
-- [**Host**](./host-element): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
+- [**Host**](./host-element.md): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
 
-- [**h()**](./templating-jsx): It's used within the `render()` to turn the JSX into Virtual DOM elements.
+- [**h()**](./templating-and-jsx.md): It's used within the `render()` to turn the JSX into Virtual DOM elements.
 
 - [**readTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-read task. The provided callback will be executed in the best moment to perform DOM reads without causing layout thrashing.
 
