@@ -87,7 +87,7 @@ src/
     └── todo-list.tsx
 ```
 
-Below, the `todo-list` component will correctly load the `sunset.jpg` image from the `assets/` directory, using Stencil's [`getAssetPath()`](../guides/assets#getassetpath).
+Below, the `todo-list` component will correctly load the `sunset.jpg` image from the `assets/` directory, using Stencil's [`getAssetPath()`](../guides/assets.md#getassetpath).
 
 ```tsx
 import { Component, Prop, getAssetPath, h } from '@stencil/core';

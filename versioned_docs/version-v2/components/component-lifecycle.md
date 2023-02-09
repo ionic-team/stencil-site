@@ -58,7 +58,7 @@ Called once just after the component is fully loaded and the first `render()` oc
 
 ## componentShouldUpdate()
 
-This hook is called when a component's [`Prop`](/properties) or [`State`](/state) property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
+This hook is called when a component's [`Prop`](./properties.md) or [`State`](./state.md) property changes and a rerender is about to be requested. This hook receives three arguments: the new value, the old value and the name of the changed state. It should return a boolean to indicate if the component should rerender (`true`) or not (`false`).
 
 A couple of things to notice is that this method will not be executed before the initial render, that is, when the component is first attached to the dom, nor when a rerender is already scheduled in the next frame.
 

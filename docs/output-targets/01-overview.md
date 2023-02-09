@@ -15,14 +15,14 @@ One of the more powerful features of the compiler is its ability to generate var
 
 
 ## Output Target Types:
- - [`dist`: Distribution](/distribution)
- - [`www`: Website](/www)
- - [`dist-custom-elements`: Custom Elements](/custom-elements)
- - [`stats`: Stats about the compiled files](/stats)
- - [`docs-readme`: Documentation readme files formatted in markdown](/docs-readme)
- - [`docs-json`: Documentation data formatted in JSON](/docs-json)
- - [`docs-custom`: Custom documentation generation](/docs-custom)
- - [`docs-vscode`: Documentation generation for VS Code](/docs-vscode)
+ - [`dist`: Distribution](./dist.md)
+ - [`www`: Website](./www.md)
+ - [`dist-custom-elements`: Custom Elements](./custom-elements.md)
+ - [`stats`: Stats about the compiled files](./docs-stats.md)
+ - [`docs-readme`: Documentation readme files formatted in markdown](./docs-readme.md)
+ - [`docs-json`: Documentation data formatted in JSON](./docs-json.md)
+ - [`docs-custom`: Custom documentation generation](./docs-custom.md)
+ - [`docs-vscode`: Documentation generation for VS Code](./docs-vscode.md)
 
 ## Example:
 
