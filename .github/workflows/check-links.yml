@@ -9,8 +9,9 @@ jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    - uses: gaurav-nelson/github-action-markdown-link-check@9710f0fec812ce0a3b98bef4c9d842fc1f39d976 # v1.0.13
       with:
         folder-path: "docs, versioned_docs"
         file-path: "./readme.md, ./CONTRIBUTING.md"
+        use-quiet-mode: 'yes' # only report errors
