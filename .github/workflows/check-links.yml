@@ -10,8 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+
     - uses: gaurav-nelson/github-action-markdown-link-check@9710f0fec812ce0a3b98bef4c9d842fc1f39d976 # v1.0.13
       with:
         folder-path: "docs, versioned_docs"
         file-path: "./readme.md, ./CONTRIBUTING.md"
         use-quiet-mode: 'yes' # only report errors
+
+    - name: setup node
+      uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # v3.5.1
+      with:
+        cache: 'npm'
+
+    - name: install dependencies
+      run: npm ci
+
+    - name: check markdown links
+      run: npm run check_links
