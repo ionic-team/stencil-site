@@ -30,7 +30,7 @@ The asset base path is automatically set for the following output targets:
 - [hydrate](/hydrate-app)
 - [www](/www)
 
-For all other output targets, assets must be [moved](/assets#manually-moving-assets) and the asset base path must be [manually set](/assets#setassetpath).
+For all other output targets, assets must be [moved](#manually-moving-assets) and the asset base path must be [manually set](#setassetpath).
 
 For each instance of the Stencil runtime that is loaded, there is a single asset base path.
 Oftentimes, this means there is only one asset base path per application using Stencil.
@@ -60,7 +60,7 @@ www/
 └── ...
 ```
 
-To resolve the path to an asset, Stencil's [`getAssetPath()` API](/assets#getassetpath) may be used.
+To resolve the path to an asset, Stencil's [`getAssetPath()` API](#getassetpath) may be used.
 When using `getAssetPath`, the assets in the directory structure above are resolved relative to `build/`.
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments.
@@ -128,7 +128,7 @@ export class MyComponent {
 ```
 
 In the example above, the following allows `my-component` to display the provided asset:
-1. [`getAssetPath()`](/assets#getassetpath) is imported from `@stencil/core`
+1. [`getAssetPath()`](#getassetpath) is imported from `@stencil/core`
 2. The `my-component`'s component decorator has the `assetsDirs` property, and lists the sibling directory, `assets`. This will copy `assets` over to the distribution directory.
 3. `getAssetPath` is used to retrieve the path to the image to be used in the `<img>` tag
 

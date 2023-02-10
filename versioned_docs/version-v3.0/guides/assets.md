@@ -17,7 +17,7 @@ These types of files are referred to as 'assets', and include images, fonts, etc
 In this guide, we describe different strategies for resolving assets on the filesystem.
 
 :::note
-CSS files are handled differently than assets; for more on using CSS, please see the [styling documentation](/styling).
+CSS files are handled differently than assets; for more on using CSS, please see the [styling documentation](../components/styling.md).
 :::
 
 ## Asset Base Path
@@ -26,11 +26,11 @@ The **asset base path** is the directory that Stencil will use to resolve assets
 When a component uses an asset, the asset's location is resolved relative to the asset base path.
 
 The asset base path is automatically set for the following output targets:
-- [dist](/distribution)
-- [hydrate](/hydrate-app)
-- [www](/www)
+- [dist](../output-targets/dist.md)
+- [hydrate](../guides/hydrate-app.md)
+- [www](../output-targets/www.md)
 
-For all other output targets, assets must be [moved](/assets#manually-moving-assets) and the asset base path must be [manually set](/assets#setassetpath).
+For all other output targets, assets must be [moved](#manually-moving-assets) and the asset base path must be [manually set](#setassetpath).
 
 For each instance of the Stencil runtime that is loaded, there is a single asset base path.
 Oftentimes, this means there is only one asset base path per application using Stencil.
@@ -41,7 +41,7 @@ The process of resolving an asset involves asking Stencil to build a path to the
 
 When an asset's path is built, the resolution is always done in a project's compiled output, not the directory containing the original source code.
 
-The example below uses the output of the [`www` output target](/www) to demonstrate how assets are resolved.
+The example below uses the output of the [`www` output target](../output-targets/www.md) to demonstrate how assets are resolved.
 Although the example uses the output of `www` builds, the general principle of how an asset is found holds for all output targets.
 
 When using the `www` output target, a `build/` directory is automatically created and set as the asset base path.
@@ -60,7 +60,7 @@ www/
 └── ...
 ```
 
-To resolve the path to an asset, Stencil's [`getAssetPath()` API](/assets#getassetpath) may be used.
+To resolve the path to an asset, Stencil's [`getAssetPath()` API](#getassetpath) may be used.
 When using `getAssetPath`, the assets in the directory structure above are resolved relative to `build/`.
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments.
@@ -84,7 +84,7 @@ This section describes how to make assets available under the asset base path.
 
 ### assetsDirs
 
-The `@Component` decorator can be [configured with the `assetsDirs` option](/component#component-options). 
+The `@Component` decorator can be [configured with the `assetsDirs` option](../components/component.md#component-options). 
 `assetsDirs` takes an array of strings, where each entry is a relative path from the component to a directory containing the assets the component requires.
 
 When using the `dist` or `www` output targets, setting `assetsDirs` instructs Stencil to copy that folder into the distribution folder.
@@ -128,19 +128,19 @@ export class MyComponent {
 ```
 
 In the example above, the following allows `my-component` to display the provided asset:
-1. [`getAssetPath()`](/assets#getassetpath) is imported from `@stencil/core`
+1. [`getAssetPath()`](#getassetpath) is imported from `@stencil/core`
 2. The `my-component`'s component decorator has the `assetsDirs` property, and lists the sibling directory, `assets`. This will copy `assets` over to the distribution directory.
 3. `getAssetPath` is used to retrieve the path to the image to be used in the `<img>` tag
 
 ### Manually Moving Assets
 
-For the [dist-custom-elements](/custom-elements) output target, options like `assetsDirs` do not copy assets to the distribution directory.
+For the [dist-custom-elements](../output-targets/custom-elements.md) output target, options like `assetsDirs` do not copy assets to the distribution directory.
 
 It's recommended that a bundler (such as rollup) or a Stencil `copy` task is used to ensure the static assets are copied to the distribution directory.
 
 #### Stencil Copy Task
 
-[Stencil `copy` task](/copy-tasks)'s can be used to define files and folders to be copied over to the distribution directory.
+[Stencil `copy` task](../output-targets/copy-tasks.md)s can be used to define files and folders to be copied over to the distribution directory.
 
 The example below shows how a copy task can be used to find all '.jpg' and '.png' files under a project's `src` directory and copy them to `dist/components/assets` at build time.
 
@@ -166,7 +166,7 @@ export const config: Config = {
 ```
 #### Rollup Configuration
 
-[Rollup Plugins](/plugins#rollup-plugins)'s can be used to define files and folders to be copied over to the distribution directory.
+[Rollup Plugins](../config/plugins.md#rollup-plugins)'s can be used to define files and folders to be copied over to the distribution directory.
 
 The example below shows how a the `rollup-plugin-copy` NPM module can be used to find all '.jpg' and '.png' files under a project's `src` directory and copy them to `dist/components/assets` at build time.
 
