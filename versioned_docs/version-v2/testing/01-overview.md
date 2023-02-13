@@ -101,8 +101,8 @@ Adding the following configurations to `.vscode/launch.json` will allow you to u
 To use the below configuration:
 1. Ensure the test file you want to run is open and in the current active window in VS Code.
 2. Select the debug configuration to run:
-  - 'E2E Test Current File' will run the end-to-end tests in the active test file
-  - 'Spec Test Current File' will run the spec tests in the active test file
+    1. 'E2E Test Current File' will run the end-to-end tests in the active test file
+    2. 'Spec Test Current File' will run the spec tests in the active test file
 3. Hit the play button to start the test.
 
 ```json title=".vscode/launch.json"
