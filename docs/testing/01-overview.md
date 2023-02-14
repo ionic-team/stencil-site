@@ -143,4 +143,4 @@ For more information regarding the values these variables resolve to, please see
 
 ## Other Resources
 
-- [The Basics of Unit Testing in StencilJS](https://www.joshmorony.com/the-basics-of-unit-testing-in-stencil-js/)
+- [The Basics of Unit Testing in StencilJS](https://eliteionic.com/tutorials/the-basics-of-unit-testing-in-stencil-js/)
