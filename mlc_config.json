@@ -5,7 +5,7 @@
     { "pattern": "^../" }
   ],
   "timeout": "20s",
-   "httpHeaders": [
+  "httpHeaders": [
     {
       "urls": ["https://github.com/"],
       "headers": {
