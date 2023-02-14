@@ -26,4 +26,4 @@ jobs:
       run: npm ci
 
     - name: check markdown links
-      run: npm run check_links
+      run: npm run check-links
