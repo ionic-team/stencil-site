@@ -44,7 +44,7 @@ If you created a project using `npm init stencil`, these libraries were installe
 project was created, you may or may not have the latest supported version installed.
 
 To view current version support for both Jest and Puppeteer, please see the 
-[Stencil support policy for testing libraries](/support-policy#testing-libraries).
+[Stencil support policy for testing libraries](../reference/support-policy.md#testing-libraries).
 
 ## Testing Commands
 
@@ -82,7 +82,7 @@ your tests should be run.
 
 ### Testing Configuration
 
-Stencil will apply defaults from data it has already gathered. For example, Stencil already knows what directories to look through, and what files are spec and e2e files. Jest can still be configured using the same config names, but now using the stencil config `testing` property. Please see the [Testing Config docs](/config#testing) for more info.
+Stencil will apply defaults from data it has already gathered. For example, Stencil already knows what directories to look through, and what files are spec and e2e files. Jest can still be configured using the same config names, but now using the stencil config `testing` property. Please see the [Testing Config docs](./config.md#testing-config) for more info.
 
 ```tsx
 import { Config } from '@stencil/core';
