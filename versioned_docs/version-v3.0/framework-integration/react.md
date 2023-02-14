@@ -102,7 +102,7 @@ lerna create react-library # fill out the prompts accordingly
 cd packages/react-library
 
 # Install core dependencies
-npm install react typescript @types/react --save-dev
+npm install react react-dom typescript @types/react --save-dev
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
@@ -202,6 +202,7 @@ export const config: Config = {
     // React target
     {
       type: 'dist',
+      esmLoaderPath: '../loader',
     },
     reactOutputTarget({
       componentCorePackage: 'stencil-library',
@@ -299,7 +300,7 @@ npx create-react-app my-app --template typescript
 ```
 
 You'll also need to link your React component library as a dependency. This step makes it so your React app will be able to correctly resolve imports from your React library. This
-is easily done by modifying your React app's `project.json` to include the following:
+is easily done by modifying your React app's `package.json` to include the following:
 
 ```json
 "dependencies": {
