@@ -290,13 +290,23 @@ modify your `package.json` so it is important to make sure you do not commit tho
 If you already have a React app, skip this section.
 :::
 
-From the `packages/` directory, run the following command to create a starter React app:
+From the `packages/` directory, run the following commands to create a starter React app:
+
+<!-- TODO: see if we can convert this to use `npm2yarn` once related issues are resolved -->
+<!-- See https://github.com/facebook/docusaurus/issues/5861 for more information -->
 
 ```bash
 # Create the React app
-npx create-react-app my-app --template typescript --use-npm
+npm create vite@latest my-app -- --template react-ts
 # of if using yarn
-npx create-react-app my-app --template typescript
+yarn create vite my-app --template react-ts
+
+cd ./my-app
+
+# install dependencies
+npm install
+# or if using yarn
+yarn install
 ```
 
 You'll also need to link your React component library as a dependency. This step makes it so your React app will be able to correctly resolve imports from your React library. This
