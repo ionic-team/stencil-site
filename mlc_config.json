@@ -4,5 +4,13 @@
     { "pattern": "^./" },
     { "pattern": "^../" }
   ],
-  "timeout": "20s"
+  "timeout": "20s",
+   "httpHeaders": [
+    {
+      "urls": ["https://github.com/"],
+      "headers": {
+        "Accept-Encoding": "zstd, br, gzip, deflate"
+      }
+    }
+  ]
 }
