@@ -96,9 +96,16 @@ export const config: Config = {
 
 ## Running and Debugging Tests in VS Code
 
-Adding the following configurations to `.vscode/launch.json` will allow you to use the VS Code Debugger to run the Stencil test runner for the currently active file in your editor. Just make sure you're in the test file you want to run, then select the debug configuration respectively (depending on whether it's a spec or e2e test), and hit the play button.
+Adding the following configurations to `.vscode/launch.json` will allow you to use the VS Code Debugger to run the Stencil test runner for the currently active file in your editor.
 
-```json
+To use the below configuration:
+1. Ensure the test file you want to run is open and in the current active window in VS Code.
+2. Select the debug configuration to run:
+    1. 'E2E Test Current File' will run the end-to-end tests in the active test file
+    2. 'Spec Test Current File' will run the spec tests in the active test file
+3. Hit the play button to start the test.
+
+```json title=".vscode/launch.json"
 {
   "configurations": [
     {
@@ -107,10 +114,9 @@ Adding the following configurations to `.vscode/launch.json` will allow you to u
       "name": "E2E Test Current File",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/node_modules/.bin/stencil",
-      "args": ["test", "--e2e", "${relativeFile}"],
+      "args": ["test", "--e2e", "--maxWorkers=0", "${fileBasename}"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "internalConsoleOptions": "neverOpen"
     },
     {
       "type": "node",
@@ -118,14 +124,22 @@ Adding the following configurations to `.vscode/launch.json` will allow you to u
       "name": "Spec Test Current File",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/node_modules/.bin/stencil",
-      "args": ["test", "--spec", "${relativeFile}"],
+      "args": ["test", "--spec", "${fileBasename}"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
 ```
+
+:::tip
+Windows users: The `program` value should be set to `"${workspaceFolder}/node_modules/bin/stencil"`.
+If that value does not work, please try`"${workspaceFolder}/node_modules/@stencil/core/bin/stencil"`.
+:::
+
+The configuration above makes use of special VS Code variables, such as `${workspaceFolder}`.
+These variables are substituted with actual values upon starting the tests.
+For more information regarding the values these variables resolve to, please see VS Code's [Variables Reference documentation](https://code.visualstudio.com/docs/editor/variables-reference).
 
 ## Other Resources
 
