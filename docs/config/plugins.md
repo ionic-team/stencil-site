@@ -56,4 +56,4 @@ export const config = {
 
 
 ## Node Polyfills
-See the [Node Polyfills in Module bundling](/module-bundling#node-polyfills) for other examples.
+See the [Node Polyfills in Module bundling](../guides/module-bundling.md#node-polyfills) for other examples.
