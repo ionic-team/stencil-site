@@ -51,7 +51,7 @@ Once all the metadata has been collected, all the decorators are removed from th
 
 In addition to component-specific lifecycle hooks, a special event called `appload` will be emitted when the app and all of its child components have finished loading. You can listen for it on the `window` object.
 
-If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](/config#namespace) you've set in your Stencil config.
+If you have multiple apps on the same page, you can determine which app emitted the event by checking `event.detail.namespace`. This will be the value of the [namespace config option](../config/01-overview.md#namespace) you've set in your Stencil config.
 
 ```tsx
 window.addEventListener('appload', (event) => {
@@ -71,7 +71,7 @@ window.addEventListener('appload', (event) => {
 
 - **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not synchronous and might perform the DOM render in the next frame.
 
-- getAssetPath(): Gets the path to local assets. Refer to the [Assets](/assets#getassetpath) page for usage info.
+- getAssetPath(): Gets the path to local assets. Refer to the [Assets](../guides/assets.md#getassetpath) page for usage info.
 - setMode()
 - getMode()
 - getElement()
