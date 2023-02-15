@@ -179,7 +179,7 @@ The `stencil-library` dependency is how Lerna knows to resolve the internal Sten
 [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management) for more information.
 :::
 
-#### Adding the React Output Target
+### Adding the React Output Target
 
 Install the `@stencil/react-output-target` dependency to your Stencil component library package.
 
