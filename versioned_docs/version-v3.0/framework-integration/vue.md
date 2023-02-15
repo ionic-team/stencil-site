@@ -157,7 +157,7 @@ Update the generated `package.json` in your `vue-library`, adding the following 
 +    "access": "public"
 +  },
 +  "dependencies": {
-+    "stencil-library": "*"  
++    "stencil-library": "*"
 +  }
 }
 ```
@@ -190,6 +190,7 @@ export const config: Config = {
     // Vue target
     {
       type: 'dist',
+      esmLoaderPath: '../loader',
     },
     vueOutputTarget({
       componentCorePackage: 'stencil-library',
@@ -200,7 +201,7 @@ export const config: Config = {
 ```
 
 :::tip
-The `proxiesFile` is the relative path to the file that will be generated with all the Vue component wrappers. You will replace the file path to match 
+The `proxiesFile` is the relative path to the file that will be generated with all the Vue component wrappers. You will replace the file path to match
 your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
 The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
@@ -367,7 +368,7 @@ import { defineCustomElement as defineMyComponent } from 'my-component-lib/compo
 ```
 
 :::note
-Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly 
+Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly
 when combining other API arguments.
 :::
 
@@ -388,7 +389,7 @@ const componentModels: ComponentModelConfig[] = [
     elements: ['my-input', 'my-textarea'],
     event: 'v-on-change',
     externalEvent: 'on-change',
-    targetAttr: 'value'
+    targetAttr: 'value',
   },
 ];
 
@@ -399,7 +400,7 @@ export const config: Config = {
       componentCorePackage: 'component-library',
       proxiesFile: '{path to your proxy file}',
       componentModels: componentModels,
-    })
+    }),
   ],
 };
 ```
@@ -510,7 +511,6 @@ using the `dir` property for `dist-custom-elements`, you need to also specify th
 
 In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
 
-
 ### Vue warns "Failed to resolve component: my-component"
 
 #### Lazy loaded bundle
@@ -521,15 +521,15 @@ If you are using Vue CLI, update your `vue.config.js` to match your custom eleme
 const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
   transpileDependencies: true,
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule('vue')
       .use('vue-loader')
-      .tap(options => {
+      .tap((options) => {
         options.compilerOptions = {
           ...options.compilerOptions,
           // The stencil-library components start with "my-"
-          isCustomElement: tag => tag.startsWith('my-'),
+          isCustomElement: (tag) => tag.startsWith('my-'),
         };
         return options;
       });
@@ -620,7 +620,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: id => external.includes(id) || id.startsWith('stencil-library'),
+  external: (id) => external.includes(id) || id.startsWith('stencil-library'),
 };
 ```
 
