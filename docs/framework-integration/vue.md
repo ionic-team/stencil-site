@@ -216,7 +216,7 @@ npm run build
 
 If the build is successful, you will now have contents in the file specified in `proxiesFile`.
 
-#### Vue Plugin
+### Registering Custom Elements
 
 To register your web components for the lazy-loaded (hydrated) bundle, you will need to create a new file for the Vue plugin:
 
