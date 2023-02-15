@@ -238,7 +238,7 @@ import { defineCustomElements } from 'stencil-library/loader';
 export class ComponentLibraryModule {}
 ```
 
-See the [documentation](/docs/distribution/#distribution-options) for more information on defining custom elements using the
+See the [documentation](../output-targets/dist.md#distribution-options) for more information on defining custom elements using the
 `dist` output target, or [update the Angular output target](#do-i-have-to-use-the-dist-output-target) to use `dist-custom-elements`.
 
 ### Link Your Packages (Optional)
@@ -460,7 +460,7 @@ export const config: Config = {
 No! By default, this output target will look to use the `dist` output, but the output from `dist-custom-elements` can be used alternatively.
 
 To do so, simply set the `includeImportCustomElements` option in the output target's config and ensure the
-[custom elements output target](/docs/custom-elements) is added to the Stencil config's output target array:
+[custom elements output target](../output-targets/custom-elements.md) is added to the Stencil config's output target array:
 
 ```ts
 // stencil.config.ts
