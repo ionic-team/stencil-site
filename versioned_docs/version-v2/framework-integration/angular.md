@@ -213,6 +213,8 @@ export { DIRECTIVES } from './lib/stencil-generated';
 export * from './lib/stencil-generated/components';
 ```
 
+### Registering Custom Elements
+
 The default behavior for this output target does not handle automatically defining/registering the custom elements. One strategy (and the approach
 the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/app-initialize.ts#L21-L34) takes) is to use the loader to define all custom elements during app initialization:
 
