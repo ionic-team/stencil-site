@@ -299,6 +299,32 @@ resolve imports from your Vue library. This is easily done by modifying your Vue
 
 For more information, see the Lerna documentation on [package dependency management](https://lerna.js.org/docs/getting-started#package-dependency-management).
 
+Lastly, you'll want to update the generated `vite.config.ts`:
+
+```diff
+export default defineConfig({
+-  plugins: [vue(), vueJsx()],
++  plugins: [
++    vue({
++      template: {
++        compilerOptions: {
++          // treat all tags with a dash as custom elements
++          isCustomElement: (tag) => tag.includes('-'),
++        },
++      },
++    }),
++    vueJsx(),
++  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
+})
+```
+
+This will prevent Vue from logging a warning about failing to resolve components (e.g. "Failed to resolve component: my-component").
+
 ### Consuming the Vue Wrapper Components
 
 This section covers how developers consuming your Vue component wrappers will use your package and component wrappers.
