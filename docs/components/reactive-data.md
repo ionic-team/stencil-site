@@ -120,7 +120,7 @@ export class RandomNumbers {
        * This does not create a new array. When stencil
        * attempts to see if any Watched members have changed,
        * it sees the reference to its `randNumbers` State is
-       * the same, and will not trigger `@Watch` or are-render
+       * the same, and will not trigger `@Watch` or a re-render
        */
       // this.randNumbers.push(newVal)
 
