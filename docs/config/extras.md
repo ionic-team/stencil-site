@@ -33,10 +33,10 @@ Example `extras` config when __supporting__ legacy browsers:
 export const config: Config = {
   buildEs5: 'prod',
   extras: {
-    cssVarsShim: true,
+    __deprecated__cssVarsShim: true,
     __deprecated__dynamicImportShim: true,
-    shadowDomShim: true,
-    safari10: true,
+    __deprecated__shadowDomShim: true,
+    __deprecated__safari10: true,
     scriptDataOpts: true,
     appendChildSlotFix: false,
     cloneNodeFix: false,
