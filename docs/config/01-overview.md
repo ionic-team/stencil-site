@@ -273,3 +273,57 @@ taskQueue: 'async'
 ## testing
 
 Please see the [testing config docs](../testing/config.md).
+
+## transformAliasedImportPaths
+
+*default: `false`*
+
+This sets whether or not Stencil should transform [path aliases](
+https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) set
+in a project's `tsconfig.json` from the assigned module aliases to resolved
+relative paths. This will not transform external imports (like `@stencil/core`) or
+relative imports (like `'../utils'`).
+
+This option applies globally and will affect all code processed by Stencil,
+including `.d.ts` files and spec tests.
+
+An example of path transformation could look something like the following.
+
+First, a set of `paths` aliases in `tsconfig.json`:
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "paths": {
+      "@utils": [
+        "../path/to/utils"
+      ]
+    }
+  }
+}
+```
+
+Then with the following input:
+
+```ts title="src/my-module.ts"
+import { utilFunc, UtilInterface } from '@utils'
+
+export function util(arg: UtilInterface) {
+    utilFunc(arg)
+}
+```
+
+if the `transformAliasedImportPaths` option is set to `true` Stencil will
+produce the following output:
+
+```js title="dist/my-module.js"
+import { utilFunc } from '../path/to/utils';
+export function util(arg) {
+    utilFunc(arg);
+}
+```
+
+```ts title="dist/my-module.d.ts"
+import { UtilInterface } from '../path/to/utils';
+export declare function util(arg: UtilInterface): void;
+```
