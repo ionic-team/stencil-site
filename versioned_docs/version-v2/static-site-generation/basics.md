@@ -50,7 +50,7 @@ By default, Stencil crawls your app starting at base URL of `/` and discovers al
 
 As each page is generated and new links are found, Stencil will continue to crawl and prerender pages.
 
-See the [prerender config](/prerender-config) docs to see how this can be customized further.
+See the [prerender config](./prerender-config) docs to see how this can be customized further.
 
 
 ## Things to Watch For

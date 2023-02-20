@@ -23,7 +23,7 @@ allow Stencil components to be used with a framework-specific developer experien
 
 Compared with using the [Custom Elements
 APIs](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
-directly, Stencil provides [convenient APIs](/api) which make writing fast
+directly, Stencil provides [convenient APIs](../components/api.md) which make writing fast
 components simpler. With a Virtual DOM, JSX, and async rendering, it is easy to
 create fast and powerful components which are still 100% compatible with Web
 Components standards. In addition to making it easier to author Custom
@@ -37,7 +37,7 @@ The developer experience is also tuned, and comes with live reload and a small d
 
 ### Design Systems & Component Libraries
 
-Stencil's primary objective is providing amazing tools for design systems and component libraries. Components as a concept provide similar language for engineers and designers to have productive conversations about design implementation. [Visit the Stencil for Design Systems page to learn more.](/design-systems)
+Stencil's primary objective is providing amazing tools for design systems and component libraries. Components as a concept provide similar language for engineers and designers to have productive conversations about design implementation. [Visit the Stencil for Design Systems page to learn more.](./design-systems)
 
 ## The History of Stencil
 
