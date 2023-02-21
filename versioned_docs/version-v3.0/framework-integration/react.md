@@ -243,7 +243,7 @@ export * from './components/stencil-generated';
 To register your web components for the lazy-loaded (hydrated) bundle, you'll need to expose a method for registering the underlying Stencil
 generated custom elements for the React proxy components to leverage. The easiest way to do this is to modify the React library's entry file
 to re-export the Stencil loader's `defineCustomElements()` method. In your React library's entry file (`packages/react-library/lib/index.ts`),
-add the follow:
+add the following:
 
 ```diff
 export * from "./components/stencil-generated";
@@ -277,7 +277,7 @@ The name of your Stencil package should match the `name` property from the Stenc
 Your component libraries are now linked together. You can make changes in the Stencil component library and run `npm run build` to propagate the
 changes to the React component library.
 
-:::note
+:::tip
 As an alternative to `npm link` , you can also run `npm install` with a relative path to your Stencil component library. This strategy, however, will
 modify your `package.json` so it is important to make sure you do not commit those changes.
 :::
@@ -415,7 +415,7 @@ the default directory.
 **Type: `string[]`**
 
 This lets you specify component tag names for which you don't want to generate React wrapper components. This is useful if you need to write framework-specific versions of components. For instance, in Ionic Framework, this is used for routing components - like tabs - so that
-Ionic Framework can integrate better with React's Router.
+Ionic Framework can integrate better with React Router.
 
 ### includeDefineCustomElements
 
@@ -498,7 +498,7 @@ Now, all generated imports will point to the default directory for the custom el
 using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the React output target. See
 [the API section](#customelementsdir) for more information.
 
-In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
+In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
 
 ### What is the best format to write event names?
 
@@ -506,7 +506,8 @@ Event names shouldn’t include special characters when initially written in Ste
 
 ### How do I add IE11 or Edge support?
 
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()` function.
+If you want your custom elements to work on older browsers, you should call the `applyPolyfills()` function before `defineCustomCustomElements()`.
+`applyPolyfills()` returns a `Promise`, so you could call it like this:
 
 ```tsx
 import { applyPolyfills, defineCustomElements } from 'test-components/loader';
