@@ -37,7 +37,7 @@ The developer experience is also tuned, and comes with live reload and a small d
 
 ### Design Systems & Component Libraries
 
-Stencil's primary objective is providing amazing tools for design systems and component libraries. Components as a concept provide similar language for engineers and designers to have productive conversations about design implementation. [Visit the Stencil for Design Systems page to learn more.](./design-systems)
+Stencil's primary objective is providing amazing tools for design systems and component libraries. Components as a concept provide similar language for engineers and designers to have productive conversations about design implementation. [Visit the Stencil for Design Systems page to learn more.](../guides/design-systems.md)
 
 ## The History of Stencil
 

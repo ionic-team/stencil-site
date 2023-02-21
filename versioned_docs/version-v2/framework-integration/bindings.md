@@ -17,7 +17,7 @@ By using stencil bindings, you can build your components once, and stencil will 
 
 Here is an example project repo using the plugins for reference: https://github.com/ionic-team/stencil-ds-plugins-demo
 
-- [Angular bindings](./angular#bindings)
-- [React bindings](./react#bindings)
+- [Angular bindings](./angular.md)
+- [React bindings](./react.md)
 
 

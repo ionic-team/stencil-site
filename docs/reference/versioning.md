@@ -31,7 +31,7 @@ new issues*. Minor releases are scheduled to occur at least **once a month**, al
 to team priorities.
 
 \* This statement applies to the Stencil team upgrading its version of TypeScript as well. For more information, please
-see the team's [support policy regarding TypeScript](./support-policy#typescript-support)
+see the team's [support policy regarding TypeScript](./support-policy.md#typescript-support)
 
 ### Patch Release
 
