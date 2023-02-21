@@ -250,7 +250,7 @@ export * from './plugin';
 If you are using a monorepo tool (Lerna, Nx, etc.), skip this section.
 :::
 
-Before you can successfully build a local version of your Vuu component library, you will need to link the Stencil package to the Vuu package.
+Before you can successfully build a local version of your Vue component library, you will need to link the Stencil package to the Vue package.
 
 From your Stencil project's directory, run the following command:
 
@@ -535,7 +535,7 @@ Now, all generated imports will point to the default directory for the custom el
 using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the Vue output target. See
 [the API section](#customelementsdir) for more information.
 
-In addition, all the Web Component will be automatically defined as the generated component modules are bootstrapped.
+In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
 
 ### Vue warns "Failed to resolve component: my-component"
 
