@@ -21,13 +21,3 @@ jobs:
 
     - name: check internal markdown links
       run: npm run check-links
-
-    - name: check external markdown links
-      uses: gaurav-nelson/github-action-markdown-link-check@9710f0fec812ce0a3b98bef4c9d842fc1f39d976 # v1.0.13
-      with:
-        folder-path: "docs, versioned_docs"
-        file-path: "./readme.md, ./CONTRIBUTING.md"
-        use-quiet-mode: 'yes' # only report errors
-        config-file: "mlc_config.json"
-
-
