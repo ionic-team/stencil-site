@@ -71,7 +71,7 @@ If using the `dist-collection` output target directly, the same result can be ac
 
 ## Publishing
 
-Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](/publishing).
+Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](../guides/publishing.md).
 
 ## Distribution Options
 

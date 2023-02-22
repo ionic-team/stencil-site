@@ -16,10 +16,7 @@ Stencil's integration with different frameworks is currently a work in progress.
 
 The following list contains the framework integrations that have been started. All of them are not yet completed.
 
-[Angular](angular)
-
-[React](react)
-
-[Vue](vue)
-
-[Ember](ember)
+- [Angular](./angular.md)
+- [React](./react.md)
+- [Vue](./vue.md)
+- [Ember](./ember.md)

@@ -87,7 +87,7 @@ src/
     └── todo-list.tsx
 ```
 
-Below, the `todo-list` component will correctly load the `sunset.jpg` image from the `assets/` directory, using Stencil's [`getAssetPath()`](/assets#getassetpath).
+Below, the `todo-list` component will correctly load the `sunset.jpg` image from the `assets/` directory, using Stencil's [`getAssetPath()`](../guides/assets.md#getassetpath).
 
 ```tsx
 import { Component, Prop, getAssetPath, h } from '@stencil/core';
@@ -113,9 +113,9 @@ export class TodoList {
 In the example above, the following allows `todo-list` to display the provided asset:
 1. The `TodoList`'s `@Component()` decorator has the `assetsDirs` property, and lists the file's sibling directory, `assets/`.
    This will copy the `assets` directory over to the distribution directory.
-2. Stencil's [`getAssetPath()`](/assets#getassetpath) is used to retrieve the path to the image to be used in the `<img>` tag
+2. Stencil's [`getAssetPath()`](../guides/assets.md#getassetpath) is used to retrieve the path to the image to be used in the `<img>` tag
 
-For more information on configuring assets, please see Stencil's [Assets Guide](/docs/assets)
+For more information on configuring assets, please see Stencil's [Assets Guide](../guides/assets.md)
 
 ### scoped
 
@@ -126,13 +126,13 @@ For more information on configuring assets, please see Stencil's [Assets Guide](
 **Default: `false`**
 
 **Details:**<br/>
-If `true`, the component will use [scoped stylesheets](/docs/styling#scoped-css).
+If `true`, the component will use [scoped stylesheets](./styling.md#scoped-css).
 
-Scoped CSS is an alternative to using the native [shadow DOM](/docs/styling#shadow-dom) style encapsulation.
+Scoped CSS is an alternative to using the native [shadow DOM](./styling.md#shadow-dom) style encapsulation.
 It appends a data attribute to your styles to make them unique and thereby scope them to your component.
 It does not, however, prevent styles from the light DOM from seeping into your component.
 
-To use the native [shadow DOM](/docs/styling#shadow-dom), see the configuration for [`shadow`](#shadow).
+To use the native [shadow DOM](./styling.md#shadow-dom), see the configuration for [`shadow`](#shadow).
 
 This option cannot be set to `true` if `shadow` is enabled.
 
@@ -158,11 +158,11 @@ export class TodoList {
 **Default: `false`**
 
 **Details:**<br/>
-If `true`, the component will use [native Shadow DOM encapsulation](/docs/styling#shadow-dom).
+If `true`, the component will use [native Shadow DOM encapsulation](./styling.md#shadow-dom).
 It will fall back to `scoped` if the browser does not support shadow-dom natively.
 
 `delegatesFocus` is a property that [provides focus](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/delegatesFocus) to the first focusable entry in a component using Shadow DOM.
-If an object literal containing `delegatesFocus` is provided, the component will use [native Shadow DOM encapsulation](/docs/styling#shadow-dom), regardless of the value assigned to `delegatesFocus`.
+If an object literal containing `delegatesFocus` is provided, the component will use [native Shadow DOM encapsulation](./styling.md#shadow-dom), regardless of the value assigned to `delegatesFocus`.
 
 When `delegatesFocus` is set to `true`, the component will have `delegatesFocus: true` added to its shadow DOM.
 

@@ -15,14 +15,14 @@ One of the more powerful features of the compiler is its ability to generate var
 
 
 ## Output Target Types:
- - [`dist`: Distribution](/distribution)
- - [`www`: Website](/www)
- - [`dist-custom-elements`: Custom Elements](/custom-elements)
- - [`stats`: Stats about the compiled files](/stats)
- - [`docs-readme`: Documentation readme files formatted in markdown](/docs-readme)
- - [`docs-json`: Documentation data formatted in JSON](/docs-json)
- - [`docs-custom`: Custom documentation generation](/docs-custom)
- - [`docs-vscode`: Documentation generation for VS Code](/docs-vscode)
+ - [`dist`: Distribution](./dist.md)
+ - [`www`: Website](./www.md)
+ - [`dist-custom-elements`: Custom Elements](./custom-elements.md)
+ - [`stats`: Stats about the compiled files](./docs-stats.md)
+ - [`docs-readme`: Documentation readme files formatted in markdown](./docs-readme.md)
+ - [`docs-json`: Documentation data formatted in JSON](./docs-json.md)
+ - [`docs-custom`: Custom documentation generation](./docs-custom.md)
+ - [`docs-vscode`: Documentation generation for VS Code](./docs-vscode.md)
 
 ## Example:
 
@@ -49,7 +49,7 @@ It's also important to note that the compiler will automatically generate the nu
 In the example below there are two script tags, however, only one of them will be requested by the user. For IE11 users, they'll download the `app.js` file which is in the `ES5` syntax and has all the polyfills. For users on modern browsers, they will only download the `app.esm.js` file which uses up-to-date JavaScript features such as [ES modules](https://developers.google.com/web/fundamentals/primers/modules), [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import), [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await), [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), etc.
 
 :::note
-[buildEs5](/config#buildes5) must be set to true to generate the IE11 ES5 file 
+[buildEs5](../config/01-overview.md#buildes5) must be set to true to generate the IE11 ES5 file 
 :::
 
 ```markup

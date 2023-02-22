@@ -14,7 +14,7 @@ contributors:
 
 The `dist-custom-elements` output target creates custom elements that directly extend `HTMLElement` and provides simple utility functions for easily defining these elements on the [Custom Element Registry](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry). This output target excels in use in frontend frameworks and projects that will handle bundling, lazy-loading, and custom element registration themselves.
 
-This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired. For using lazily loaded Stencil components, please refer to the [dist output target](/distribution).
+This target can be used outside of frameworks as well, if lazy-loading functionality is not required or desired. For using lazily loaded Stencil components, please refer to the [dist output target](../output-targets/dist.md).
 
 To generate components using the `dist-custom-elements` output target, add it to a project's `stencil.config.ts` file like so:
 
@@ -39,7 +39,7 @@ export const config: Config = {
 
 _default: `undefined`_
 
-An array of [copy tasks](/copy-tasks) to be executed during the build process.
+An array of [copy tasks](./copy-tasks.md) to be executed during the build process.
 
 ### customElementsExportBehavior
 
@@ -73,7 +73,7 @@ export const config: Config = {
 | `default`                     | No additional re-export or auto-definition behavior will be performed.<br/><br/>This value will be used if no explicit value is set in the config, or if a given value is not a valid option.                                                                                                                                                                                                             |
 | `auto-define-custom-elements` | A component and its children will be automatically defined with the `CustomElementRegistry` when the component's module is imported.                                                                                                                                                                                                                                                                      |
 | `bundle`                      | A utility `defineCustomElements()` function is exported from the `index.js` file of the output directory. This function can be used to quickly define all Stencil components in a project on the custom elements registry.                                                                                                                                                                                |
-| `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory (see [Defining Exported Custom Elements](#defining-exported-custom-elements) for more information on this file's purpose). This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
+| `single-export-module`        | All component and custom element definition helper functions will be exported from the `index.js` file in the output directory. This file can be used as the root module when distributing your component library, see [below](#distributing-custom-elements) for more details. |
 
 :::note
 At this time, components that do not use JSX cannot be automatically
@@ -98,7 +98,7 @@ _default: `true`_
 
 Setting this flag to `true` results in the following behaviors:
 
-1. Minification will follow what is specified in the [Stencil config](/config#minifyJs).
+1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs).
 2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
@@ -118,13 +118,13 @@ When set to generate type declarations, Stencil respects the export behavior sel
 
 _default: `false`_
 
-Setting this flag to `true` will include [global scripts](/config#globalscript) in the bundle and execute them once the bundle entry point in loaded.
+Setting this flag to `true` will include [global scripts](../config/01-overview.md#globalscript) in the bundle and execute them once the bundle entry point in loaded.
 
 ### minify
 
 _default: `false`_
 
-Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](/config#minifyJs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
+Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
 
 ## Consuming Custom Elements
 
@@ -154,10 +154,10 @@ The contents may look different if [`customElementsExportBehavior`](#customeleme
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](../guides/assets.md) built within the JavaScript output, 
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output.
-One method to ensure [assets](/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+One method to ensure [assets](../guides/assets.md) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
 The `setAssetPath()` function is used to manually set the base path where static assets can be found.
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
@@ -180,7 +180,7 @@ The configs below provide examples of how to do this automatically with popular 
 
 ## Distributing Custom Elements
 
-See our docs on [publishing a component library](/publishing) for information on setting up the library's `package.json` file and publishing to a package manager.
+See our docs on [publishing a component library](../guides/publishing.md) for information on setting up the library's `package.json` file and publishing to a package manager.
 
 By default, custom elements will need to be imported from the [output directory](#dir) specified on the output target config:
 
@@ -212,7 +212,7 @@ import { MyComponent } from 'best-web-components';
 
 :::note
 If you are distributing the output of both the
-[`dist`](/distribution) and `dist-custom-elements` targets, then
+[`dist`](../output-targets/dist.md) and [`dist-custom-elements`](../output-targets/custom-elements.md) targets, then
 it's up to you to choose which one of them should be available in the
 `module` entry.
 :::
@@ -270,7 +270,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](../guides/assets.md).
 
 ```js
 const path = require('path');
@@ -305,7 +305,7 @@ module.exports = {
 
 ### rollup.config.js
 
-A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/assets).
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](../guides/assets.md).
 
 ```js
 import path from 'path';
@@ -345,7 +345,7 @@ Luckily, all builds can be generated at the same time, using the same source cod
 
 ## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](../output-targets/dist.md) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
 :::info
 As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.

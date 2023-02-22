@@ -472,7 +472,7 @@ If `true`, all Web Components will automatically be registered with the Custom E
 
 **Type: `boolean`**
 
-If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements Bundle](/docs/custom-elements) and will not work with lazy loaded components.
+If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements Bundle](../output-targets/custom-elements.md) and will not work with lazy loaded components.
 
 ### includePolyfills
 
@@ -509,7 +509,7 @@ This parameter allows you to name the file that contains all the component wrapp
 No! By default, this output target will look to use the `dist` output, but the output from `dist-custom-elements` can be used alternatively.
 
 To do so, simply set the `includeImportCustomElements` option in the output target's config and ensure the
-[custom elements output target](/docs/custom-elements) is added to the Stencil config's output target array:
+[custom elements output target](../output-targets/custom-elements.md) is added to the Stencil config's output target array:
 
 ```ts
 // stencil.config.ts

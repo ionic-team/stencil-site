@@ -36,7 +36,7 @@ Setting `buildEs5` to `true` will also create es5 builds for both dev and prod m
 Setting `buildEs5` to `prod` will only build ES5 in prod mode.
 If the app does not need to run on legacy browsers (IE11 and Edge 18 and below), `buildEs5` set  to `false`, which will also speed up production build times. 
 In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. 
-See [config extras](/config-extras) for more information.
+See [config extras](./extras.md) for more information.
 
 :::info
 As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
@@ -61,7 +61,7 @@ bundles: [
 
 ## devServer
 
-Please see the [Dev-Server docs](/dev-server).
+Please see the [Dev-Server docs](./dev-server.md).
 
 ## enableCache
 
@@ -75,7 +75,7 @@ enableCache: true
 
 ## extras
 
-Please see the [Extras docs](/config-extras).
+Please see the [Extras docs](./extras.md).
 
 ## globalScript
 
@@ -97,7 +97,7 @@ The exported function can also be `async`.
 
 ## globalStyle
 
-Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](/styling).
+Stencil is traditionally used to compile many components into an app, and each component comes with its own compartmentalized styles. However, it's still common to have styles which should be "global" across all components and the website. A global CSS file is often useful to set [CSS Variables](../components/styling.md).
 
 Additionally, the `globalStyle` config can be used to precompile styles with Sass, PostCss, etc.
 
@@ -116,7 +116,7 @@ The global style config takes a file path as a string. The output from this buil
 globalStyle: 'src/global/app.css'
 ```
 
-Check out the [styling docs](/styling#global-styles) of how to use global styles in your app.
+Check out the [styling docs](../components/styling.md#global-styles) of how to use global styles in your app.
 
 ## hashedFileNameLength
 
@@ -175,11 +175,11 @@ namespace: "Ionic"
 ```
 ## outputTargets
 
-Please see the [Output Target docs](/output-targets).
+Please see the [Output Target docs](../output-targets/01-overview.md).
 
 ## plugins
 
-Please see the [Plugin docs](/plugins).
+Please see the [Plugin docs](./plugins.md).
 
 ## preamble
 
@@ -245,7 +245,7 @@ across the frames to efficiently render and reduce layout thrashing. By default,
 `async` is used. It's recommended to also try each setting to decide which works
 best for your use-case. In all cases, if your app has many CPU intensive tasks causing the
 main thread to periodically lock-up, it's always recommended to try
-[Web Workers](/web-workers) for those tasks.
+[Web Workers](../guides/workers.md) for those tasks.
 
 * `congestionAsync`: DOM reads and writes are scheduled in the next frame to prevent layout
   thrashing. When the app is heavily tasked and the queue becomes congested it will then
@@ -257,14 +257,14 @@ main thread to periodically lock-up, it's always recommended to try
 * `async`: DOM read and writes are scheduled in the next frame to prevent layout thrashing.
   During intensive CPU tasks it will not reschedule rendering to happen in the next frame.
   `async` is ideal for most apps, and if the app has many intensive tasks causing the main
-  thread to lock-up, it's recommended to try [Web Workers](/web-workers)
+  thread to lock-up, it's recommended to try [Web Workers](../guides/workers.md)
   rather than the congestion async queue.
 
 * `immediate`: Makes writeTask() and readTask() callbacks to be executed synchronously. Tasks
   are not scheduled to run in the next frame, but do note there is at least one microtask.
   The `immediate` setting is ideal for apps that do not provide long-running and smooth
   animations. Like the async setting, if the app has intensive tasks causing the main thread
-  to lock-up, it's recommended to try [Web Workers](/web-workers).
+  to lock-up, it's recommended to try [Web Workers](../guides/workers.md).
 
 ```tsx
 taskQueue: 'async'
@@ -272,4 +272,4 @@ taskQueue: 'async'
 
 ## testing
 
-Please see the [testing config docs](/testing-config).
+Please see the [testing config docs](../testing/config.md).

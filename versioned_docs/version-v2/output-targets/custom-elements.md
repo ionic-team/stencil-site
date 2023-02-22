@@ -76,7 +76,7 @@ it
 
 When `true`, this flag results in the following behaviors:
 
-1. Minification will follow what is specified in the [Stencil config](/config#minifyJs).
+1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs).
 2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
@@ -85,7 +85,7 @@ This flag defaults to `true` when omitted from a Stencil configuration file.
 ### generateTypeDeclarations
 
 By default, type declaration files (`.d.ts` files) are only generated for the `dist-custom-elements` output target when
-the [`dist` output target](/distribution) is also declared in a Stencil project's configuration. This behavior
+the [`dist` output target](./dist.md) is also declared in a Stencil project's configuration. This behavior
 isn't always desirable, as not all users need the files emitted by the `dist` output target. To generate type
 declaration files for the `dist-custom-elements`, the experimental `generateTypeDeclarations` field can be set to 
 `true`.
@@ -98,10 +98,10 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 
 ## Making Assets Available
 
-For performance reasons, the generated bundle does not include [local assets](/assets) built within the JavaScript output, 
+For performance reasons, the generated bundle does not include [local assets](../guides/assets.md) built within the JavaScript output, 
 but instead it's recommended to keep static assets as external files. By keeping them external this ensures they can be requested on-demand, rather
 than either welding their content into the JS file, or adding many URLs for the bundler to add to the output. 
-One method to ensure [assets](/assets) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
+One method to ensure [assets](../guides/assets.md) are available to external builds and http servers is to set the asset path using `setAssetPath()`.
 
 The `setAssetPath()` function is used to manually set the base path where static assets can be found. 
 For the lazy-loaded output target the asset path is automatically set and assets copied to the correct
@@ -149,7 +149,7 @@ Be sure to set `@stencil/core` as a dependency of the package as well.
 
 :::note
 If you are distributing the output of both the
-  [`dist`](/distribution) and `dist-custom-elements` targets, then
+  [`dist`](./dist.md) and `dist-custom-elements` targets, then
   it's up to you to choose which one of them should be available in the
   `module` entry.
 :::
@@ -171,7 +171,7 @@ import { MyComponent } from 'best-web-components';
 Now you can publish your library to [Node Package Manager
 (NPM)](https://www.npmjs.com/). For more information about setting up the
 `package.json` file, and publishing, see: [Publishing Component Library To
-NPM](/publishing).
+NPM](../guides/publishing.md).
 
 ### Usage in Typescript
 
@@ -216,7 +216,7 @@ npm install my-library
 
 ### webpack.config.js
 
-A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](/assets).
+A webpack config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `CopyPlugin` utility. This is important if your library includes [local assets](../guides/assets.md).
 
 ```javascript
 const path = require('path');
@@ -251,7 +251,7 @@ module.exports = {
 
 ### rollup.config.js
 
-A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](/assets).
+A Rollup config will look something like the one below. Note how assets are copied from the library's `node_module` folder to `dist/assets` via the `rollup-copy-plugin` utility. This is important if your library includes [local assets](../guides/assets.md).
 
 ```javascript
 import path from 'path';
@@ -293,7 +293,7 @@ Luckily, all builds can be generated at the same time, using the same source cod
 
 ## Browser Support
 
-If the library is to be used on IE11 we recommend using the [`dist` output target](/distribution) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
+If the library is to be used on IE11 we recommend using the [`dist` output target](./dist.md) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
 
 Good news is that these are already widely supported for modern web development:
 

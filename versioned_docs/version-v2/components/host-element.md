@@ -9,7 +9,7 @@ contributors:
 
 # Working with host elements
 
-Stencil components render their children declaratively in their `render` method [using JSX](templating-jsx). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
+Stencil components render their children declaratively in their `render` method [using JSX](./templating-and-jsx.md). Most of the time, the `render()` function describes the children elements that are about to be rendered, but it can also be used to render attributes of the host element itself.
 
 
 ## `<Host>`
@@ -119,7 +119,7 @@ If you need to update the host element in response to prop or state changes, you
 
 ## Styling
 
-See full information about styling on the [Styling page](/styling#shadow-dom-in-stencil).
+See full information about styling on the [Styling page](./styling.md#shadow-dom-in-stencil).
 
 CSS can be applied to the `<Host>` element by using its component tag defined in the `@Component` decorator.
 
