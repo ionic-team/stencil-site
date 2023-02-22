@@ -98,7 +98,7 @@ _default: `true`_
 
 Setting this flag to `true` results in the following behaviors:
 
-1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyJs).
+1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs).
 2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
@@ -124,7 +124,7 @@ Setting this flag to `true` will include [global scripts](../config/01-overview.
 
 _default: `false`_
 
-Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](../config/01-overview.md#minifyJs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
+Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
 
 ## Consuming Custom Elements
 

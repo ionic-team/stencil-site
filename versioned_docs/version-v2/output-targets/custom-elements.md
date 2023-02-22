@@ -76,7 +76,7 @@ it
 
 When `true`, this flag results in the following behaviors:
 
-1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyJs).
+1. Minification will follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs).
 2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
