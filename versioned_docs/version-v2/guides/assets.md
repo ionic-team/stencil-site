@@ -140,7 +140,7 @@ It's recommended that a bundler (such as rollup) or a Stencil `copy` task is use
 
 #### Stencil Copy Task
 
-[Stencil `copy` task](../output-targets/copy-tasks.md)'s can be used to define files and folders to be copied over to the distribution directory.
+[Stencil `copy` task](../output-targets/copy-tasks.md)s can be used to define files and folders to be copied over to the distribution directory.
 
 The example below shows how a copy task can be used to find all '.jpg' and '.png' files under a project's `src` directory and copy them to `dist/components/assets` at build time.
 
