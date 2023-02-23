@@ -10,21 +10,21 @@ contributors:
 
 # Getting Started
 
-## Starting a new project
+## Starting a New Project
 
-Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. Make sure you've installed and/or 
-updated Node before continuing.
+Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm. 
+Make sure you've installed and/or updated Node before continuing.
 
 :::note
-Note that you will need to use npm 6 or higher.
+npm 6 or higher is required to proceed
 :::
 
 ```bash npm2yarn
  npm init stencil
 ```
 
-Stencil can be used to create standalone components, or entire apps. When running `npm init stencil`, you will be
-provided with a prompt so that you can choose the type of project to start.
+Stencil can be used to create standalone components, or entire apps. 
+`npm init stencil`, will provide a prompt so that you can choose the type of project to start:
 
 ```text
 ? Select a starter project.
@@ -34,10 +34,11 @@ Community, rather than Ionic. For more information on the
 Stencil Community, please see github.com/stencil-community
 › - Use arrow-keys. Return to submit.
 
-❯   component          Collection of web components that can be
-                       used anywhere
-    app [community]    Minimal starter for building a Stencil 
-                       app or website
+❯   component                Collection of web components that can be
+                             used anywhere
+    app [community]          Minimal starter for building a Stencil 
+                             app or website
+    ionic-pwa [community]    Ionic PWA starter with tabs layout and routes
 ```
 
 Selecting the 'component' option will prompt you for the name of your project.
@@ -47,8 +48,8 @@ Selecting the 'component' option will prompt you for the name of your project.
 ? Project name › my-first-stencil-project
 ```
 
-Here, we've named our project 'my-first-stencil-project'. After hitting `ENTER` to confirm your choices, the CLI will
-scaffold a Stencil project for us in a directory that matches the project name you provided.
+Here, we've named our project 'my-first-stencil-project'.
+After hitting `ENTER` to confirm your choices, the CLI will scaffold a Stencil project for us in a directory that matches the project name you provided.
 
 Upon successfully creating our project, the CLI will print something similar to the following to the console:
 
@@ -86,8 +87,7 @@ The first section describes a few commands required to finish getting your proje
     $ npm start
 ```
 
-This will change your current directory to `my-first-stencil-project` (or whatever you named your project), install your
-dependencies for you, and start the development server.
+This will change your current directory to `my-first-stencil-project`, install your dependencies for you, and start the development server.
 
 The second section of the output describes a few useful commands available during the development process:
 
