@@ -10,8 +10,8 @@ contributors:
 
 # Properties
 
-Props are custom attributes/properties exposed publicly on an HTML element. They allow developers to pass data to a
-component to render or otherwise use.
+Props help define the public API of a component.
+They allow developers to pass data to a component to render or otherwise use.
 
 ## The Prop Decorator (`@Prop()`)
 
@@ -29,7 +29,7 @@ export class TodoList {
     @Prop() name: string;
     
     render() {
-        // Within the component's class, its props are
+        // Within the component's class, its class members are
         // accessed via `this`. This allows us to render
         // the value passed to `todo-list`
         return <div>To-Do List Name: {this.name}</div>
@@ -38,26 +38,29 @@ export class TodoList {
 ```
 
 In the example above, `@Prop()` is placed before (decorates) the `name` class member, which is a string. By adding
-`@Prop()` to `name`, Stencil will expose `name` as an attribute on the element, which can be set wherever the component
-is used:
+`@Prop()` to `name`, Stencil will expose `name` as a part of `todo-list`'s public API as:
 
-```tsx
-{/* Here we use the component in a TSX file */}
-<todo-list name={"Tuesday's To-Do List"}></todo-list>
-```
-```html
-<!-- Here we use the component in an HTML file -->
-<todo-list name="Tuesday's To-Do List"></todo-list>
-```
+1. An _attribute_ on the element, which can be set wherever the component is used in an HTML file:
+   ```html
+   <!-- Here we use the component in an HTML file -->
+   <todo-list name="Tuesday's To-Do List"></todo-list>
+   ```
+2. A _prop_ on the component, which can be set wherever the component is used in a TSX file:
+   ```tsx
+   {/* Here we use the component in a TSX file */}
+   <todo-list name={"Tuesday's To-Do List"}></todo-list>
+   ```
 
-In the example above the `todo-list` component is used almost identically in TSX and HTML. The only difference between
+In the example above the `todo-list` component is used almost identically in TSX and HTML.
+
+The only difference between
 the two is that in TSX, the value assigned to a prop (in this case, `name`) is wrapped in curly braces. In some cases
 however, the way props are passed to a component differs slightly between HTML and TSX.
 
 ## Variable Casing
 
-In the JavaScript ecosystem, it's common to use 'camelCase' when naming variables. The example component below has a
-class member, `thingToDo` that is camelCased.
+In the JavaScript ecosystem, it's common to use 'camelCase' when naming variable class members.
+The example component below has a class member, `thingToDo` that is camelCased.
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';
@@ -75,10 +78,10 @@ export class ToDoListItem {
 }
 ```
 
-Since `thingToDo` is a prop, we can provide a value for it when we use our `todo-list-item` component. Providing a
-value to a camelCased prop like `thingToDo` is nearly identical in TSX and HTML.
+Since `thingToDo` is a class member decorated with `@Prop()`, we can provide a value for it when we use our `todo-list-item` component.
+Providing a value for `thingToDo` is nearly identical in TSX and HTML.
 
-When we use our component in a TSX file, an attribute uses camelCase:
+When we use our component in a TSX file, a prop uses camelCase:
 
 ```tsx
 <todo-list-item thingToDo={"Learn about Stencil Props"}></todo-list-item>
