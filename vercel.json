@@ -12,7 +12,12 @@
     },
     {
       "source": "/building-components(/)?",
-      "destination": "/docs/my-first-component",
+      "destination": "/docs/getting-started",
+      "statusCode": 301
+    },
+    {
+      "source": "/docs/my-first-component(/)?",
+      "destination": "/docs/getting-started",
       "statusCode": 301
     },
     {
