@@ -13,6 +13,7 @@ const config = {
   tagline: 'Build. Customize. Distribute. Adopt.',
   url: `https://${HOSTNAME}`,
   baseUrl: '/docs/',
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: `https://${HOSTNAME}/favicon-32x32.png`,
