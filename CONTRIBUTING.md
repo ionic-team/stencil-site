@@ -88,7 +88,8 @@ We have very precise rules over how our git commit messages should be formatted.
 Should be `docs`
 
 #### Scope
-The scope can be anything specifying the place of the commit change. For example `props`, `angular`, etc. If you make multiple commits for the same doc, please keep the naming of this doc consistent. For example, if you make a change to the `@Prop` docs and the first commit is `docs(prop)`, you should continue to use `prop` for any more commits related to navigation.
+The scope can be anything specifying the place of the commit change.
+For example `@Prop`, `angular`, etc.
 
 #### Subject
 The subject contains a succinct description of the change:
