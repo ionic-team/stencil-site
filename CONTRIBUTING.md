@@ -29,8 +29,12 @@ Thanks for your interest in contributing to the Stencil Docs! :tada:
 2. Clone your fork.
 3. Make a branch for your change.
 4. Run `npm install` (make sure you have [node](https://nodejs.org/en/) and [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm) installed first).
-5. Run `npm run build` to build the documentation files.
-6. Run `npm run serve` to serve the built site.
+5. Run `npm start` to serve the doc site
+
+Note: When running `npm start`, anchor links may not work.
+If your pull request includes anchor links, you can test them by:
+1. Run `npm run build` to build the documentation files.
+2. Run `npm run serve` to serve the built site.
 
 #### Directory Structure
 
@@ -57,7 +61,12 @@ When it comes time to release a new minor version of Stencil, the contents of `.
    2. Depending on the nature of the documentation, the Stencil team may wish to "port" this change to other versions of the Stencil documentation. During a review of your PR, the team will be able to give guidance how to propagate this change.
 2. Write your documentation following the style in the other docs markdown files. Try to aim for being as clear and concise as possible. We recommend checking out the [vue.js docs](https://vuejs.org/) for examples of good docs.
 3. Make sure the page header contains title, description, url and contributors. See other docs files for examples.
-4. Run `npm run build` then start the app with `npm run serve`. You should see your new page in the table of contents and be able to access it.
+4. Run `npm start` to start the app. You should see your new page in the table of contents and be able to access it.
+
+Note: When running `npm start`, anchor links may not work.
+If your pull request includes anchor links, you can test them by:
+1. Run `npm run build` to build the documentation files.
+2. Run `npm run serve` to serve the built site.
 
 #### Modifying documentation
 
