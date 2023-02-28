@@ -119,6 +119,16 @@
       "source": "/state-tunnel(/)?",
       "destination": "https://github.com/ionic-team/stencil-state-tunnel",
       "statusCode": 301
+    },
+    {
+      "source": "*/redux(/)?",
+      "destination": "https://github.com/ionic-team/stencil-redux",
+      "statusCode": 301
+    },
+    {
+      "source": "/stencil-redux(/)?",
+      "destination": "https://github.com/ionic-team/stencil-redux",
+      "statusCode": 301
     }
   ],
   "rewrites": [
