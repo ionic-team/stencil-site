@@ -126,7 +126,7 @@
       "statusCode": 301
     },
     {
-      "source": "((^(/v(\\d+)(.\\d+){0,2})$)|(^$))/stencil-redux(/)?",
+      "source": "((^(/v(\\d+)(.\\d+){0,2})$)|(^$))/stencil-redux(/)?",  
       "destination": "https://github.com/ionic-team/stencil-redux",
       "statusCode": 301
     }
