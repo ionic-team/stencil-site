@@ -177,7 +177,7 @@ export class MyComponent {
 Within this class is where you'll write the bulk of your code to bring your Stencil component to life.
 
 Next, the component contains three class members, `first`, `middle` and `last`.
-Each of these class members have the [`@Prop()` decorator](../properties#the-prop-decorator-prop) applied to them:
+Each of these class members have the [`@Prop()` decorator](../components/properties.md#the-prop-decorator-prop) applied to them:
 ```ts
   @Prop() first: string;
   @Prop() middle: string;
