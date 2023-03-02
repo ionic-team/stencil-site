@@ -243,13 +243,13 @@ stencil generate pages/page-home
 
 ```plain
 src
- |- components
-     |- pages
-         |- page-home
-             |- page-home.css
-             |- page-home.e2e.ts
-             |- page-home.spec.ts
-             |- page-home.tsx
+└── components
+    └── pages
+        └── page-home
+            ├── page-home.css
+            ├── page-home.e2e.ts
+            ├── page-home.spec.ts
+            └── page-home.tsx
 ```
 
 
