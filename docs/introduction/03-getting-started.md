@@ -115,7 +115,7 @@ $ git commit -m "initialize project using stencil cli"
 Stencil components are created by adding a new file with a `.tsx` extension, such as `my-component.tsx`.
 The `.tsx` extension is required since Stencil components are built using [JSX](../components/templating-and-jsx.md) and TypeScript.
 
-`create-stencil` generated a component, `my-component.tsx` that can be found in the `src/components/my-component` directory.
+When we ran `create-stencil` above, it generated a component, `my-component.tsx`, that can be found in the `src/components/my-component` directory:
 
 ```tsx title="my-component.tsx"
 import { Component, Prop, h } from '@stencil/core';
