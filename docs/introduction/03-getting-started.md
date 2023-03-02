@@ -153,7 +153,7 @@ When rendered, the browser will display `Hello World! I'm Stencil 'Don't call me
 
 Let's dive in and describe what's happening in `my-component`, line-by-line.
 
-After import statements, first piece we see is the [`@Component` decorator](../components/component.md):
+After the import statements, the first piece we see is the [`@Component` decorator](../components/component.md):
 ```tsx
 @Component({
   tag: 'my-component',
