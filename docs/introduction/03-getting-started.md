@@ -223,6 +223,8 @@ If you don't have `stencil` installed globally, prefix the command with `npx`.
 
 ```shell
 stencil generate
+# or
+stencil g
 ```
 
 You can optionally pass the component tag name directly to the command.
