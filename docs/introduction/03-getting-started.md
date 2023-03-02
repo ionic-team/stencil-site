@@ -228,6 +228,10 @@ stencil generate
 You can optionally pass the component tag name directly to the command.
 The component tag name needs to be lowercase and contain at least one dash ('-').
 
+```sh npm2yarn
+stencil generate my-new-component
+```
+
 The generator will ask you which files to generate. 
 This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
 
