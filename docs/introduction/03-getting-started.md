@@ -183,7 +183,7 @@ Each of these class members have the [`@Prop()` decorator](../properties#the-pro
   @Prop() middle: string;
   @Prop() last: string;
 ```
-`@Prop()` tells Stencil that the property is public to the component, and allows Stencil to update what's rendered when any of these public properties change.
+`@Prop()` tells Stencil that the property is public to the component, and allows Stencil to rerender when any of these public properties change.
 We'll see how this works after discussing the `render()` function.
 
 In order for the component to render something to the screen, we must declare a [`render()` function](../components/templating-and-jsx.md#basics) that returns JSX.
