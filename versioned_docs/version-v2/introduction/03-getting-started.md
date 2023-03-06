@@ -4,8 +4,8 @@ sidebar_label: Getting Started
 description: Getting Started
 slug: /getting-started
 contributors:
-  - jthoms1
-  - rwaskiewicz
+- jthoms1
+- rwaskiewicz
 ---
 
 # Getting Started
@@ -13,7 +13,7 @@ contributors:
 ## Starting a New Project
 
 ### Prerequisites
-Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm/yarn. 
+Stencil requires a recent LTS version of [NodeJS](https://nodejs.org/) and npm/yarn.
 Make sure you've installed and/or updated Node before continuing.
 
 ### Running the `create-stencil` CLI
@@ -91,12 +91,12 @@ This will change your current directory to `my-first-stencil-project`, install y
 
 The second section of the `create-stencil` output describes a few useful commands available during the development process:
 
-- `npm start` starts a local development server. The development server will open a new browser tab containing your 
-project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
-them for a rapid feedback cycle.
+- `npm start` starts a local development server. The development server will open a new browser tab containing your
+  project's components. The dev-server uses hot-module reloading to update your components in the browser as you modify
+  them for a rapid feedback cycle.
 
 - `npm run build` creates a production-ready version of your components. The components generated in this step are not
-meant to be used in the local development server, but rather within a project that consumes your components.
+  meant to be used in the local development server, but rather within a project that consumes your components.
 
 - `npm test` runs your project's tests. The `create-stencil` CLI has created both end-to-end and unit tests when scaffolding your project.
 
@@ -115,7 +115,7 @@ $ git commit -m "initialize project using stencil cli"
 Stencil components are created by adding a new file with a `.tsx` extension, such as `my-component.tsx`.
 The `.tsx` extension is required since Stencil components are built using [JSX](../components/templating-and-jsx.md) and TypeScript.
 
-`create-stencil` generated a component, `my-component.tsx` that can be found in the `src/components/my-component` directory.
+When we ran `create-stencil` above, it generated a component, `my-component.tsx`, that can be found in the `src/components/my-component` directory:
 
 ```tsx title="my-component.tsx"
 import { Component, Prop, h } from '@stencil/core';
@@ -153,7 +153,7 @@ When rendered, the browser will display `Hello World! I'm Stencil 'Don't call me
 
 Let's dive in and describe what's happening in `my-component`, line-by-line.
 
-After import statements, first piece we see is the [`@Component` decorator](../components/component.md):
+After the import statements, the first piece we see is the [`@Component` decorator](../components/component.md):
 ```tsx
 @Component({
   tag: 'my-component',
@@ -183,7 +183,7 @@ Each of these class members have the [`@Prop()` decorator](../components/propert
   @Prop() middle: string;
   @Prop() last: string;
 ```
-`@Prop()` tells Stencil that the property is public to the component, and allows Stencil to update what's rendered when any of these public properties change.
+`@Prop()` tells Stencil that the property is public to the component, and allows Stencil to rerender when any of these public properties change.
 We'll see how this works after discussing the `render()` function.
 
 In order for the component to render something to the screen, we must declare a [`render()` function](../components/templating-and-jsx.md#basics) that returns JSX.
@@ -223,12 +223,18 @@ If you don't have `stencil` installed globally, prefix the command with `npx`.
 
 ```shell
 stencil generate
+# or
+stencil g
 ```
 
 You can optionally pass the component tag name directly to the command.
 The component tag name needs to be lowercase and contain at least one dash ('-').
 
-The generator will ask you which files to generate. 
+```sh npm2yarn
+stencil generate my-new-component
+```
+
+The generator will ask you which files to generate.
 This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
 
 All components will be generated within the `src/components` folder.
@@ -243,13 +249,13 @@ stencil generate pages/page-home
 
 ```plain
 src
- |- components
-     |- pages
-         |- page-home
-             |- page-home.css
-             |- page-home.e2e.ts
-             |- page-home.spec.ts
-             |- page-home.tsx
+└── components
+    └── pages
+        └── page-home
+            ├── page-home.css
+            ├── page-home.e2e.ts
+            ├── page-home.spec.ts
+            └── page-home.tsx
 ```
 
 
