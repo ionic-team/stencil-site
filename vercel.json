@@ -126,6 +126,11 @@
       "statusCode": 301
     },
     {
+      "source": "/framework-bindings",
+      "destination": "/docs/overview",
+      "statusCode": 301
+    },
+    {
       "source": "/redux(/)?",
       "destination": "https://github.com/ionic-team/stencil-redux",
       "statusCode": 301
