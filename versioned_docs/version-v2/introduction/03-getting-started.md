@@ -218,14 +218,16 @@ If you used one of the starters, you can simply run the `generate` npm script in
 npm run generate
 ```
 
-Or, you can invoke the Stencil CLI directly with the `generate` command (`g` for short).
-If you don't have `stencil` installed globally, prefix the command with `npx`.
+Alternatively, you can invoke the Stencil CLI directly with the `generate` command (`g` for short).
 
 ```shell
 stencil generate
 # or
 stencil g
 ```
+
+If you don't have `stencil` installed globally, prefix the command with [`npx`](https://docs.npmjs.com/cli/v9/commands/npx).
+Running a command prefixed with `npx` will fetch the package for you automatically and prompt you to install it.
 
 You can optionally pass the component tag name directly to the command.
 The component tag name needs to be lowercase and contain at least one dash ('-').
