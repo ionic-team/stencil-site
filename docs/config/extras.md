@@ -27,7 +27,7 @@ As of Stencil v3, several of these fields are deprecated, and will be removed in
 Deprecated fields are marked as such.
 :::
 
-Example `extras` config when __supporting__ legacy browsers:
+Example `extras` config when **supporting** legacy browsers:
 
 ```tsx
 export const config: Config = {
@@ -41,7 +41,7 @@ export const config: Config = {
     appendChildSlotFix: false,
     cloneNodeFix: false,
     slotChildNodesFix: true,
-  }
+  },
 };
 ```
 
@@ -90,7 +90,12 @@ As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
 reach end-of-life. While this flag and its supporting functionality is
 currently available, it will be removed in a future version of Stencil.
 
-### experimentalImportInjection
+### experimentalImportInjection (deprecated)
+
+:::caution
+This flag has been deprecated in favor of [`enableImportInjection`](#enableimportinjection), which provides the same
+functionality. `experimentalImportInjection` will be removed in a future major version of Stencil.
+:::
 
 In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
 [Vite](https://vitejs.dev/).
@@ -99,8 +104,27 @@ This is an experimental flag that, when set to `true`, will allow downstream pro
 and use a bundler such as Vite to lazily load the Stencil library's components.
 
 In order for this flag to work:
+
 1. The Stencil library must expose lazy loadable components, such as those created with the
-[`dist` output target](../output-targets/dist.md)
+   [`dist` output target](../output-targets/dist.md)
+2. The Stencil library must be recompiled with this flag set to `true`
+
+This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
+Users of this flag should note that they may see an increase in their bundle size.
+
+Defaults to `false`.
+
+### enableImportInjection
+
+In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
+[Vite](https://vitejs.dev/).
+
+Will allow downstream projects that consume a Stencil library and use a bundler such as Vite to lazily load the Stencil library's components.
+
+In order for this flag to work:
+
+1. The Stencil library must expose lazy loadable components, such as those created with the
+   [`dist` output target](../output-targets/dist.md)
 2. The Stencil library must be recompiled with this flag set to `true`
 
 This flag works by creating dynamic import statements for every lazily loadable component in a Stencil project.
@@ -112,14 +136,14 @@ Defaults to `false`.
 
 Dispatches component lifecycle events. By default these events are not dispatched, but by enabling this to `true` these events can be listened for on `window`. Mainly used for testing.
 
-| Event Name                     | Description                                                    |
-|--------------------------------|----------------------------------------------------------------|
-| `stencil_componentWillLoad`    | Dispatched for each component's `componentWillLoad`. |
-| `stencil_componentWillUpdate`  | Dispatched for each component's `componentWillUpdate`. |
-| `stencil_componentWillRender`  | Dispatched for each component's `componentWillRender`. |
-| `stencil_componentDidLoad`     | Dispatched for each component's `componentDidLoad`. |
-| `stencil_componentDidUpdate`   | Dispatched for each component's `componentDidUpdate`. |
-| `stencil_componentDidRender`   | Dispatched for each component's `componentDidRender`. |
+| Event Name                    | Description                                            |
+| ----------------------------- | ------------------------------------------------------ |
+| `stencil_componentWillLoad`   | Dispatched for each component's `componentWillLoad`.   |
+| `stencil_componentWillUpdate` | Dispatched for each component's `componentWillUpdate`. |
+| `stencil_componentWillRender` | Dispatched for each component's `componentWillRender`. |
+| `stencil_componentDidLoad`    | Dispatched for each component's `componentDidLoad`.    |
+| `stencil_componentDidUpdate`  | Dispatched for each component's `componentDidUpdate`.  |
+| `stencil_componentDidRender`  | Dispatched for each component's `componentDidRender`.  |
 
 ### `__deprecated__safari10`
 
