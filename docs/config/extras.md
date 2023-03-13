@@ -119,7 +119,7 @@ Defaults to `false`.
 In some cases, it can be difficult to lazily load Stencil components in a separate project that uses a bundler such as
 [Vite](https://vitejs.dev/).
 
-Will allow downstream projects that consume a Stencil library and use a bundler such as Vite to lazily load the Stencil library's components.
+Enabling this flag will allow downstream projects that consume a Stencil library and use a bundler such as Vite to lazily load the Stencil library's components.
 
 In order for this flag to work:
 
