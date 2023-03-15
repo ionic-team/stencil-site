@@ -88,13 +88,13 @@ Each output target's form of bundling and distribution has its own pros and cons
 ### Importing the `dist` library using a bundler
 
 - Run `npm install my-name --save`
-- Add an `import` within the root component: `import { MyComponent } from 'my-lib'`;
+- Add an `import` within the root component: `import { MyComponent } from 'my-lib';`
 - Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
 - Then you can use the element anywhere in your template, JSX, HTML etc.
 
 ### Importing the `dist` library into another Stencil app
 
 - Run `npm install my-name --save`
-- Add an `import` within the root component: `import { MyComponent } from 'my-lib'`;
+- Add an `import` within the root component: `import { MyComponent } from 'my-lib';`
 - Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
 - Then you can use the element anywhere in your template, JSX, HTML etc.
