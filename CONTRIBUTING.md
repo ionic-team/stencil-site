@@ -60,7 +60,7 @@ When it comes time to release a new minor version of Stencil, the contents of `.
    1. For example, if your doc is a guide for Stencil v3.0, you would put it in `./versioned_docs/version-v3.0/guides`.
    2. Depending on the nature of the documentation, the Stencil team may wish to "port" this change to other versions of the Stencil documentation. During a review of your PR, the team will be able to give guidance how to propagate this change.
 2. Write your documentation following the style in the other docs markdown files. Try to aim for being as clear and concise as possible. We recommend checking out the [vue.js docs](https://vuejs.org/) for examples of good docs.
-3. Make sure the page header contains title, description, url and contributors. See other docs files for examples.
+3. Make sure the page header contains title, description, and url. See other docs files for examples.
 4. Run `npm start` to start the app. You should see your new page in the table of contents and be able to access it.
 
 Note: When running `npm start`, anchor links may not work.
