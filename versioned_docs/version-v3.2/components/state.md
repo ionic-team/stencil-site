@@ -3,9 +3,6 @@ title: Internal state
 sidebar_label: Internal State
 description: Use the State() for component's internal state
 slug: /state
-contributors:
-  - jthoms1
-  - rwaskiewicz
 ---
 
 # State

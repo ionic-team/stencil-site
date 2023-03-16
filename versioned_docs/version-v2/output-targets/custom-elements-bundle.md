@@ -3,9 +3,6 @@ title: (Deprecated) Bundling Custom Elements with Stencil
 sidebar_label: dist-custom-elements-bundle
 description: Bundling Custom Elements with Stencil
 slug: /custom-elements-bundle
-contributors:
-  - adamdbradley
-  - splitinfinities
 ---
 
 # Custom Elements Bundle (Deprecated)

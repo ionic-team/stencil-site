@@ -3,9 +3,6 @@ title: Design Systems
 sidebar_label: Design Systems
 description: Design Systems in Stencil
 slug: /design-systems
-contributors:
-  - dotNetkow
-  - rwaskiewicz
 ---
 
 # Design Systems

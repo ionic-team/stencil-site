@@ -3,10 +3,6 @@ title: Assets
 sidebar_label: Assets
 description: Learn how to reference assets in your components
 slug: /assets
-contributors:
-  - splitinfinities
-  - simonhaenisch
-  - rwaskiewicz
 ---
 
 # Assets

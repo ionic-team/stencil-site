@@ -3,9 +3,6 @@ title: Distributing Web Components Built with Stencil
 sidebar_label: dist
 description: Distributing Web Components Built with Stencil
 slug: /distribution
-contributors:
-  - adamdbradley
-  - jthoms1
 ---
 
 # Distribution Output Target

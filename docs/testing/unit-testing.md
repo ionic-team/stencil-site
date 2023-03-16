@@ -3,10 +3,6 @@ title: Unit Testing
 sidebar_label: Unit Testing
 description: Unit Testing
 slug: /unit-testing
-contributors:
-  - adamdbradley
-  - mattdsteele
-  - bassettsj
 ---
 
 # Unit Testing

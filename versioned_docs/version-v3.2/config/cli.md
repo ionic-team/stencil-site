@@ -3,9 +3,6 @@ title: Stencil CLI
 sidebar_label: CLI
 description: Stencil CLI
 slug: /cli
-contributors:
-  - miguelyoobic95
-  - adamdbradley
 ---
 
 # Command Line Interface (CLI)

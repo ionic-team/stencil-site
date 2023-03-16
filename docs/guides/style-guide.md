@@ -3,12 +3,6 @@ title: Stencil Style Guide
 sidebar_label: Style Guide
 description: Stencil Style Guide
 slug: /style-guide
-contributors:
-  - jthoms1
-  - natemoo-re
-  - larionov
-  - joestrouth1
-  - rwaskiewicz
 ---
 
 # Stencil Style Guide

@@ -3,12 +3,6 @@ title: Testing
 sidebar_label: Overview
 description: Testing overview.
 slug: /testing-overview
-contributors:
-  - adamdbradley
-  - brandyscarney
-  - camwiegert
-  - kensodemann
-  - rwaskiewicz
 ---
 
 # Testing

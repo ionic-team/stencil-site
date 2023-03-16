@@ -3,9 +3,6 @@ title: Framework Integration
 sidebar_label: Overview
 description: Framework Integration
 slug: /overview
-contributors:
-  - adamdbradley
-  - brandyscarney
 ---
 
 # Framework Integration

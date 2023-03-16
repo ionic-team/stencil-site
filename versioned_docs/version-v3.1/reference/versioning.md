@@ -3,8 +3,6 @@ title: Versioning
 sidebar_label: Versioning
 description: Versioning
 slug: /versioning
-contributors:
-- rwaskiewicz
 ---
 
 # Versioning

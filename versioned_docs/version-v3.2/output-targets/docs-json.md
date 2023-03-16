@@ -3,14 +3,6 @@ title: Docs JSON Data Output Target
 sidebar_label: docs-json
 description: Docs JSON Output Target
 slug: /docs-json
-contributors:
-  - adamdbradley
-  - snaptopixel
-  - manucorporat
-  - amwmedia
-  - mrtnmgs
-  - marcjulian
-  - seanwuapps
 ---
 
 # Docs Json Data

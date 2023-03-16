@@ -3,10 +3,6 @@ title: End-to-end Testing
 sidebar_label: End-to-end Testing
 description: End-to-end Testing
 slug: /end-to-end-testing
-contributors:
-  - adamdbradley
-  - mattdsteele
-  - simonhaenisch
 ---
 
 # End-to-end Testing

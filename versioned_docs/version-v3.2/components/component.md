@@ -3,9 +3,6 @@ title: Component Decorator
 sidebar_label: Component
 description: Documentation for the @Component decorator
 slug: /component
-contributors:
-- jthoms1
-- rwaskiewicz
 ---
 
 # Component Decorator

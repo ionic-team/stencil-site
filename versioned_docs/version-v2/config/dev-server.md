@@ -3,11 +3,6 @@ title: Integrated Dev Server Config
 sidebar_label: Dev Server
 description: Integrated Dev Server Config
 slug: /dev-server
-contributors:
-  - adamdbradley
-  - BDav24
-  - feerglas
-  - simonhaenisch
 ---
 
 # Integrated Dev Server

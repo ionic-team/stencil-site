@@ -2,8 +2,6 @@
 title: VS Code Documentation
 description: VS Code Documentation
 slug: /docs-vscode
-contributors:
-  - rwaskiewicz
 ---
 
 # VS Code Documentation
