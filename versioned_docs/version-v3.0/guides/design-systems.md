@@ -58,7 +58,7 @@ Performance, accessibility, cross-platform capabilities, and user experience (no
 
 These aspects take real effort to do well.
 
-Enter Stencil, a robust and highly extensible tool for building design systems.
+Enter Stencil, a robust and highly extensible tool for building components and patterns, the building blocks of a design system.
 With its intentionally minimalistic tooling and API footprint, it’s simple to incorporate into your existing development workflows.
 It brings substantial performance out of the box by leveraging a tiny runtime.
 Most importantly, all UI components built with Stencil are based 100% on open web standards.

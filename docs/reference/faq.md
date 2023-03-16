@@ -1,7 +1,7 @@
 ---
 title: Stencil Frequently Asked Questions
 sidebar_label: FAQ
-description: Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems.
+description: Stencil is a developer-focused toolchain for building reusable, scalable component libraries.
 slug: /faq
 ---
 
@@ -11,7 +11,7 @@ slug: /faq
 
 ### What is Stencil?
 
-Stencil is a developer-focused toolchain for building reusable, scalable component libraries and design systems. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
+Stencil is a developer-focused toolchain for building reusable, scalable component libraries. It provides a compiler that generates highly optimized Web Components, and combines the best concepts of the most popular frameworks into a simple build-time tool.
 
 Stencil focuses on building components with web standards. It’s used by developers and organizations around the world, and is [100% free and MIT open source](https://github.com/ionic-team/stencil/blob/main/LICENSE.md).
 
@@ -23,7 +23,7 @@ Stencil helps developers and teams build and share custom components. Since Sten
 
 ### Who is Stencil for?
 
-Stencil is for developers and teams that want to build custom component libraries and design systems that can be shared across teams, frameworks and large organizations.
+Stencil is for developers and teams that want to build custom component libraries that can be shared across teams, frameworks and large organizations.
 
 Stencil can also be used by designers who want their original design visions delivered consistently, with high fidelity, to all users.
 
@@ -40,7 +40,7 @@ Stencil was created by the Ionic Framework team to make our own component librar
 
 ### Who uses Stencil?
 
-Stencil was initially developed for Ionic Framework and has been a very successful Web Component-based design system/UI framework. Web Components are now in thousands of app store apps, and nearly 4 million new Ionic Framework projects are being created every year.
+Stencil was initially developed for Ionic Framework and has been a very successful Web Component-based library & UI framework. Web Components are now in thousands of app store apps, and nearly 4 million new Ionic Framework projects are being created every year.
 
 
 ### How does Stencil compare to traditional frameworks?
@@ -49,14 +49,14 @@ The Web Component ecosystem has a diverse set of players, each with a different 
 
 Some think Web Components should replace third-party app frameworks, while others think that Web Components are more suited for leaf/style/design nodes and shouldn’t get in the business of your app’s component system. There are also many framework developers that don’t see the point of Web Components, or consider them to be an affront to front-end innovation.
 
-With Stencil, our vision is somewhere in the middle. In the long term, we see app development teams continuing to use their framework of choice. We envision these frameworks continuing to get better, smaller, and more efficient, with increasingly good support for targeting and consuming Web Components -- and big teams will be consuming an increasing amount of Web Components as companies continue to embrace them for shared design systems.
+With Stencil, our vision is somewhere in the middle. In the long term, we see app development teams continuing to use their framework of choice. We envision these frameworks continuing to get better, smaller, and more efficient, with increasingly good support for targeting and consuming Web Components -- and big teams will be consuming an increasing amount of Web Components as companies continue to embrace them for shared component libraries.
 
 At the same time, we believe an indispensable feature for Web Components is solving those component distribution and design system problems. We also believe, however, that 90% of the market doesn’t have those problems to begin with, so the current debate about the merits of Web Components is somewhat unproductive.
 
 
 ### Why is Stencil considered framework-agnostic?
 
-Perhaps the most appealing benefit of Web Components is that they give your development teams the flexibility to choose the underlying tools and frameworks - and versions of those frameworks - and tools that they prefer. As pointed out earlier, one of the great challenges of implementing a universal design system is getting all of your development teams to standardize on just one set of technologies. With Web Components, each team can use what works best for them, giving them complete freedom to use the tools they love—today and tomorrow.
+Perhaps the most appealing benefit of Web Components is that they give your development teams the flexibility to choose the underlying tools and frameworks - and versions of those frameworks - and tools that they prefer. As pointed out earlier, one of the great challenges of implementing a universal set of components is getting all of your development teams to standardize on just one set of technologies. With Web Components, each team can use what works best for them, giving them complete freedom to use the tools they love—today and tomorrow.
 
 
 ## What does Stencil provide?
