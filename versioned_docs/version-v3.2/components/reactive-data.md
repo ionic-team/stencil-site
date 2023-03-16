@@ -3,6 +3,9 @@ title: Reactive Data, Handling arrays and objects
 sidebar_label: Reactive Data
 description: Reactive Data, Handling arrays and objects
 slug: /reactive-data
+contributors:
+  - jthoms1
+  - rwaskiewicz
 ---
 
 # Reactive Data

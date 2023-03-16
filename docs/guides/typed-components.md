@@ -3,6 +3,10 @@ title: Typed Components
 sidebar_label: Typed Components
 description: Typed Components
 slug: /typed-components
+contributors:
+  - adamdbradley
+  - manucorporat
+  - rwaskiewicz
 ---
 
 # Typed Components

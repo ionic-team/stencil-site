@@ -3,6 +3,14 @@ title: Config
 sidebar_label: Overview
 description: Config
 slug: /config
+contributors:
+  - adamdbradley
+  - jthoms1
+  - flawyte
+  - BDav24
+  - rwaskiewicz
+  - simonhaenisch
+  - splitinfinities
 ---
 
 # Stencil Config

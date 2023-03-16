@@ -3,6 +3,10 @@ title: Using JSX
 sidebar_label: Using JSX
 description: Using JSX
 slug: /templating-jsx
+contributors:
+  - jthoms1
+  - simonhaenisch
+  - arjunyel
 ---
 
 # Using JSX

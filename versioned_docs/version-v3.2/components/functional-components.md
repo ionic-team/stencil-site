@@ -3,6 +3,8 @@ title: Functional Components
 sidebar_label: Functional Components
 description: Functional Components
 slug: /functional-components
+contributors:
+  - simonhaenisch
 ---
 
 # Working with Functional Components

@@ -3,6 +3,10 @@ title: Stencil - A Compiler for Web Components
 sidebar_label: Overview
 description: Stencil has a number of add-ons that you can use with the build process.
 slug: /introduction
+contributors:
+  - jthoms1
+  - splitinfinities
+  - a-giuliano
 ---
 
 # Overview

@@ -2,6 +2,10 @@
 title: Static Site Generation
 sidebar_label: Overview
 slug: /static-site-generation
+contributors:
+  - mlynch
+  - adamdbradley
+  - bitflower
 ---
 
 # Static Site Generation with Stencil

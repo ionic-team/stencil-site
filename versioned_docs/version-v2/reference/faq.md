@@ -3,6 +3,9 @@ title: Stencil Frequently Asked Questions
 sidebar_label: FAQ
 description: Stencil is a developer-focused toolchain for building reusable, scalable component libraries, applications and design systems.
 slug: /faq
+contributors:
+  - adamdbradley
+  - rwaskiewicz
 ---
 
 # FAQ

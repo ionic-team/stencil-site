@@ -3,6 +3,8 @@ title: Combining Server Side Rendering and Static Site Generation
 sidebar_label: Server Side Rendering
 description: How to combine both Server Side Rendering and Static Site Generation approaches
 slug: /static-site-generation-server-side-rendering-ssr
+contributors:
+  - mlynch
 ---
 
 # Combining Server Side Rendering and Static Site Generation

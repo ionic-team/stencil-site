@@ -3,6 +3,9 @@ title: Static Site Generation Basics in Stencil
 sidebar_label: Basics
 description: Quick introduction to configuring and using Static Site Generation in Stencil
 slug: /static-site-generation-basics
+contributors:
+  - mlynch
+  - adamdbradley
 ---
 
 # Static Site Generation Basics

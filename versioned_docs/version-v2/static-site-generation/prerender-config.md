@@ -3,6 +3,10 @@ title: Prerender Config
 sidebar_label: Prerender Config
 description: Prerender Config
 slug: /prerender-config
+contributors:
+  - adamdbradley
+  - ryan3E0
+  - dgautsch
 ---
 
 

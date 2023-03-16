@@ -3,6 +3,8 @@ title: Stencil Core Compiler API
 sidebar_label: Compiler API
 description:  Stencil Core Compiler API
 slug: /compiler-api
+contributors:
+  - adamdbradley
 ---
 
 # Stencil Core Compiler API

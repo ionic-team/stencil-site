@@ -3,6 +3,14 @@ title: VueJS Integration with Stencil
 sidebar_label: Vue
 description: Learn how to wrap your components so that people can use them natively in Vue
 slug: /vue
+contributors:
+  - jthoms1
+  - adamdbradley
+  - kensodemann
+  - brysalazar12
+  - iskanderbroere
+  - sean-perkins
+  - tanner-reits
 ---
 
 # Vue Integration

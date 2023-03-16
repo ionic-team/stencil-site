@@ -3,6 +3,14 @@ title: Component API
 sidebar_label: API
 description: Component API
 slug: /api
+contributors:
+  - manucorporat
+  - Mawulijo
+  - hashcrof
+  - ZenPylon
+  - danjohnson95
+  - rezaabedian
+  - CookieCookson
 ---
 
 # Component API

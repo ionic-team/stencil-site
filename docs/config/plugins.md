@@ -3,6 +3,10 @@ title: Plugin Config
 sidebar_label: Plugins
 description: Plugin Config
 slug: /plugins
+contributors:
+  - adamdbradley
+  - jthoms1
+  - mgalic
 ---
 
 # Plugins

@@ -2,6 +2,8 @@
 title: Build Constants
 description: Stencil has a number of add-ons that you can use with the build process.
 slug: /build-variables
+contributors:
+  - jthoms1
 ---
 
 # Build Constants

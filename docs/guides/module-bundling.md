@@ -3,6 +3,12 @@ title: Module Bundling
 sidebar_label: Bundling
 description: Module Bundling
 slug: /module-bundling
+contributors:
+  - jthoms1
+  - adamdbradley
+  - kensodemann
+  - manucorporat
+  - ryan3E0
 ---
 
 # Module Bundling

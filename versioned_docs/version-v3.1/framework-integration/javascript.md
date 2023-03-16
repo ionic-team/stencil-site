@@ -3,6 +3,12 @@ title: Components without a Framework
 sidebar_label: JavaScript
 description: Components without a Framework
 slug: /javascript
+contributors:
+  - mhartington
+  - jthoms1
+  - adamdbradley
+  - BDav24
+  - DaniAcu
 ---
 
 # Components without a Framework

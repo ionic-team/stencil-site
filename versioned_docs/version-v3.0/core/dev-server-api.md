@@ -3,6 +3,9 @@ title: Stencil Core Dev Server API
 sidebar_label: Dev Server API
 description:  Stencil Core Dev Server API
 slug: /dev-server-api
+contributors:
+  - adamdbradley
+  - dominikpieper
 ---
 
 # Stencil Core Dev Server API

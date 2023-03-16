@@ -3,6 +3,8 @@ title: Working with host elements
 sidebar_label: Host Element
 description: Working with host elements
 slug: /host-element
+contributors:
+  - jthoms1
 ---
 
 # Working with host elements

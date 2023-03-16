@@ -3,6 +3,12 @@ title: Events
 sidebar_label: Events
 description: Events
 slug: /events
+contributors:
+  - jthoms1
+  - mgalic
+  - BDav24
+  - mattcosta7
+  - noherczeg
 ---
 
 # Events

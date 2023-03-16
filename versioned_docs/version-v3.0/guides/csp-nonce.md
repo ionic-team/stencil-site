@@ -2,6 +2,8 @@
 title: Content Security Policy Nonces
 description: How to leverage CSP nonces in Stencil projects.
 slug: /csp-nonce
+contributors:
+  - tanner-reits
 ---
 
 # Using Content Security Policy Nonces in Stencil

@@ -3,6 +3,8 @@ title: Deploying a Static Site
 sidebar_label: Deployment
 description: Deploying a Static Site
 slug: /static-site-generation-deployment
+contributors:
+  - mlynch
 ---
 
 # Deploying a Stencil Static Site

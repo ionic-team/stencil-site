@@ -3,6 +3,10 @@ title: Hydrate App
 sidebar_label: Hydrate App
 description: Hydrate App
 slug: /hydrate-app
+contributors:
+  - adamdbradley
+  - dgautsch
+  - bitflower
 ---
 
 # Hydrate App

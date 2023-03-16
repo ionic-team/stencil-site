@@ -3,6 +3,9 @@ title: Debugging Static Site Generation in Stencil
 sidebar_label: Debugging
 description: How to debug a prerendering or Static Site Generation step in Stencil
 slug: /static-site-generation-debugging
+contributors:
+  - mlynch
+  - adamdbradley
 ---
 
 # Debugging Static Site Generation

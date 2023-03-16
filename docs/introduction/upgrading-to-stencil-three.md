@@ -2,6 +2,8 @@
 title: Upgrading to Stencil v3.0.0
 description: Upgrading to Stencil v3.0.0
 url: /docs/upgrading-to-stencil-3
+contributors:
+  - rwaskiewicz
 ---
 
 # Upgrading to Stencil v3.0.0

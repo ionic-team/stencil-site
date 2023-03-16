@@ -3,6 +3,9 @@ title: Getting Started
 sidebar_label: Getting Started
 description: Getting Started
 slug: /getting-started
+contributors:
+  - jthoms1
+  - rwaskiewicz
 ---
 
 # Getting Started
