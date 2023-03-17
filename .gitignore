@@ -24,8 +24,8 @@ www
 # IDEs
 .idea/
 .vscode/
-.vercel
 
 # vercel
+.vercel
 auth.json
 config.json
