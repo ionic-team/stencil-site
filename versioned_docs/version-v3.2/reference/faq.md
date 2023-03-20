@@ -40,7 +40,7 @@ Stencil was created by the Ionic Framework team to make our own component librar
 
 ### Who uses Stencil?
 
-Stencil was initially developed for Ionic Framework and has been a very successful Web Component-based library & UI framework. Web Components are now in thousands of app store apps, and nearly 4 million new Ionic Framework projects are being created every year.
+Stencil was initially developed for Ionic Framework which is a very successful Web Component-based library & UI framework. Web Components are now in thousands of app store apps, and nearly 4 million new Ionic Framework projects are being created every year.
 
 
 ### How does Stencil compare to traditional frameworks?
