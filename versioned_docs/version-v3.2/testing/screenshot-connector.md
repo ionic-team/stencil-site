@@ -3,8 +3,6 @@ title: Screenshot Connector
 sidebar_label: Screenshot Connector
 description: Screenshot Connector
 slug: /screenshot-connector
-contributors:
-  - SheepFromHeaven
 ---
 
 # Screenshot connector

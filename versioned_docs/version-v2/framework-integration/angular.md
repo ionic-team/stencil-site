@@ -3,15 +3,6 @@ title: Angular Integration with Stencil
 sidebar_label: Angular
 description: Learn how to wrap your components so that people can use them natively in Angular
 slug: /angular
-contributors:
-  - jthoms1
-  - adamdbradley
-  - kensodemann
-  - peterpeterparker
-  - jeanbenitez
-  - mburger81
-  - splitinfinities
-  - tanner-reits
 ---
 
 # Angular Integration

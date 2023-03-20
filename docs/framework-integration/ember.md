@@ -3,9 +3,6 @@ title: Ember Integration with Stencil
 sidebar_label: Ember
 description: Ember Integration with Stencil
 slug: /ember
-contributors:
-  - jthoms1
-  - adamdbradley
 ---
 
 # Ember

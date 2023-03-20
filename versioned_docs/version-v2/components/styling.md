@@ -3,10 +3,6 @@ title: Styling Components
 sidebar_label: Styling
 description: Styling Components
 slug: /styling
-contributors:
-  - jthoms1
-  - shreeshbhat
-  - a-giuliano
 ---
 
 # Styling Components

@@ -3,9 +3,6 @@ title: Methods
 sidebar_label: Methods
 description: methods
 slug: /methods
-contributors:
-  - jthoms1
-  - manucorporat
 ---
 
 # Method Decorator

@@ -3,10 +3,6 @@ title: Custom Docs Generation
 sidebar_label: docs-custom
 description: Custom Docs Generation
 slug: /docs-custom
-contributors:
-  - adamdbradley
-  - manucorporat
-  - arayik-yervandyan
 ---
 
 # Custom Docs Generation

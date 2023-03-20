@@ -3,11 +3,6 @@ title: Stencil Web Component Browser Support
 sidebar_label: Browser Support
 description: Out-of-the-box browser support provided by Stencil web components.
 slug: /browser-support
-contributors:
-  - adamdbradley
-  - kevinports
-  - jthoms1
-  - arjunyel
 ---
 
 # Browser Support

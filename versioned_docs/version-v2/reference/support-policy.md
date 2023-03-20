@@ -3,8 +3,6 @@ title: Support Policy
 sidebar_label: Support Policy
 description: Support Policy
 slug: /support-policy
-contributors:
-- rwaskiewicz
 ---
 
 # Support Policy

@@ -3,10 +3,6 @@ title: Stencil Copy Tasks
 sidebar_label: Copy Tasks
 description: Stencil Copy Tasks
 slug: /copy-tasks
-contributors:
-  - adamdbradley
-  - manucorporat
-  - jeanbenitez
 ---
 
 

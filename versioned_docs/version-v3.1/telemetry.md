@@ -1,8 +1,6 @@
 ---
 title: Telemetry
 description: Stencil Telemetry usage information
-contributors:
-  - splitinfinities
 ---
 
 # Stencil CLI telemetry

@@ -3,13 +3,6 @@ title: Docs Readme Auto-Generation
 sidebar_label: docs-readme
 description: Docs Readme Auto-Generation
 slug: /docs-readme
-contributors:
-  - adamdbradley
-  - snaptopixel
-  - manucorporat
-  - amwmedia
-  - mrtnmgs
-  - marcjulian
 ---
 
 # Docs Readme Markdown File Auto-Generation

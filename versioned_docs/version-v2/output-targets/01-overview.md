@@ -3,10 +3,6 @@ title: Stencil Output Targets
 sidebar_label: Overview
 description: Stencil Output Targets
 slug: /output-targets
-contributors:
-  - adamdbradley
-  - manucorporat
-  - rwaskiewicz
 ---
 
 # Output Targets

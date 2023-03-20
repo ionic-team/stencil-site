@@ -3,8 +3,6 @@ title: Mocking
 sidebar_label: Mocking
 description: Mocking
 slug: /mocking
-contributors:
-  - simonhaenisch
 ---
 
 # Mocking

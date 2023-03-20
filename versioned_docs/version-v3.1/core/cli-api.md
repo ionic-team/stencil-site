@@ -3,8 +3,6 @@ title: Stencil Core CLI API
 sidebar_label: CLI API
 description:  Stencil Core CLI API
 slug: /cli-api
-contributors:
-  - adamdbradley
 ---
 
 # Stencil Core CLI API

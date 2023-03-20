@@ -3,9 +3,6 @@ title: Properties
 sidebar_label: Properties
 description: Properties
 slug: /properties
-contributors:
-  - jthoms1
-  - rwaskiewicz
 ---
 
 # Properties

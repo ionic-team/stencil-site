@@ -3,10 +3,6 @@ title: Testing Config
 sidebar_label: Config
 description: Testing Config
 slug: /testing-config
-contributors:
-  - adamdbradley
-  - mattcosta7
-  - viernullvier
 ---
 
 # Testing Config

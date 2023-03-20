@@ -3,9 +3,6 @@ title: Docs Stats Auto-Generation
 sidebar_label: stats
 description: Docs Stats Auto-Generation
 slug: /stats
-contributors:
-  - adamdbradley
-  - splitinfinities
 ---
 
 # Stats

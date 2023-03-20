@@ -3,8 +3,6 @@ title: Component Lifecycle Methods
 sidebar_label: Lifecycle Methods
 description: Component Lifecycle Methods
 slug: /component-lifecycle
-contributors:
-  - jthoms1
 ---
 
 # Component Lifecycle Methods

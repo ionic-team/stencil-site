@@ -3,10 +3,6 @@ title: Service Workers
 sidebar_label: Service Workers
 description: Service Workers
 slug: /service-workers
-contributors:
-  - jthoms1
-  - simonhaenisch
-  - DavidFrahm
 ---
 
 # Service Workers

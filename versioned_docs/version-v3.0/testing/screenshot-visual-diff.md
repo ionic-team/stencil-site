@@ -3,8 +3,6 @@ title: Screenshot Visual Diff
 sidebar_label: Visual Screenshot Diff
 description: Screenshot Visual Diff
 slug: /screenshot-visual-diff
-contributors:
-  - adamdbradley
 ---
 
 # Screenshot Visual Diff

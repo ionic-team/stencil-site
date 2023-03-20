@@ -3,8 +3,6 @@ title: Publishing A Component Library
 sidebar_label: Publishing
 description: Publishing A Component Library
 slug: /publishing
-contributors:
-  - adamdbradley
 ---
 
 # Publishing A Component Library

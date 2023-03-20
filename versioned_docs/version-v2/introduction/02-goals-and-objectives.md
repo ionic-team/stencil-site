@@ -3,9 +3,6 @@ title: Stencil Goals and Objectives
 sidebar_label: Goals and Objectives
 description: Stencil aims to combine the best concepts of the most popular frontend frameworks into a compile-time tool rather than run-time tool.
 slug: /goals-and-objectives
-contributors:
-  - adamdbradley
-  - sri-ni
 ---
 
 # Stencil Goals And Objectives

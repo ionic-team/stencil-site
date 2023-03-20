@@ -3,10 +3,6 @@ title: Webapp Output Target
 sidebar_label: www
 description: Webapp Output Target
 slug: /www
-contributors:
-  - jthoms1
-  - simonhaenisch
-  - DavidFrahm
 ---
 
 # Webapp Output Target: `www`
