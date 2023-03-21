@@ -235,7 +235,7 @@ By specifying "inner-text" as the value of the `exportparts` attribute, elements
 
 ## Global styles
 
-While most styles are usually scoped to each component, sometimes it's useful to have styles that are available to all the components in your design system. To create styles that are globally available, start by creating a global stylesheet. For example, you can create a folder in your `src` directory called `global` and create a file called `global.css` within that. Most commonly, this file is used to declare CSS custom properties on the root element via the `:root` pseudo-class. This is because styles provided via the `:root` pseudo-class can pass through the shadow boundary. For example, you can define a primary color that all your components can use.
+While most styles are usually scoped to each component, sometimes it's useful to have styles that are available to all the components in your project. To create styles that are globally available, start by creating a global stylesheet. For example, you can create a folder in your `src` directory called `global` and create a file called `global.css` within that. Most commonly, this file is used to declare CSS custom properties on the root element via the `:root` pseudo-class. This is because styles provided via the `:root` pseudo-class can pass through the shadow boundary. For example, you can define a primary color that all your components can use.
 
 ```css
 :root {
@@ -250,7 +250,7 @@ In addition to CSS custom properties, other use cases for a global stylesheet in
 - App wide font-family
 - CSS resets
 
-To make the global styles available to all the components in your design system, the `stencil.config.ts` file comes with an optional [`globalStyle` setting](../config/01-overview.md#globalstyle) that accepts the path to your global stylesheet.
+To make the global styles available to all the components in your project, the `stencil.config.ts` file comes with an optional [`globalStyle` setting](../config/01-overview.md#globalstyle) that accepts the path to your global stylesheet.
 
 ```tsx
 export const config: Config = {
