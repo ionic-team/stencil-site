@@ -38,6 +38,34 @@ Once all the metadata has been collected, all the decorators are removed from th
 - [componentDidUpdate()](./component-lifecycle.md#componentdidupdate)
 - **[render()](./templating-and-jsx.md)**
 
+## componentOnReady()
+
+This isn't a true "lifecycle" method that would be declared on the component class definition, but instead is a utility method that
+can be used by an implementation consuming your Stencil component to detect when a component has finished its first render cycle.
+
+This method resolves after `componentDidRender()` on the _first_ render cycle.
+
+:::note
+`componentOnReady()` only resolves once per component instance. If you need to hook into subsequent render cycle, use
+`componentDidRender()` or `componentDidUpdate()`.
+:::
+
+Executing code after `componentOnReady()` resolves could look something like this:
+
+```ts
+// Get a reference to the element
+const el = documents.querySelector('my-component');
+
+el.componentOnReady().then(() => {
+  // Place any code in here you want to execute when the component is ready
+  console.log('my-component is ready');
+});
+```
+
+The availability of `componentOnReady()` depends on the component's compiled output type. This method is only available for lazy-loaded
+distribution types and, as such, is not available for [`dist-custom-elements`](../output-targets/custom-elements.md) output. If you want to
+simulate the behavior of `componentOnReady()` for non-lazy builds, you can implement a helper method to wrap the functionality similar to what
+the Ionic Framework does [here](https://github.com/ionic-team/ionic-framework/blob/main/core/src/utils/helpers.ts#L60-L79).
 
 ## The appload event
 
