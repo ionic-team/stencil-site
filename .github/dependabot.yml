@@ -20,3 +20,7 @@ updates:
       # See: https://github.com/facebook/docusaurus/issues/4029
       - dependency-name: '@mdx-js/react'
         versions: ['>=2']
+  - package-ecosystem: 'github-actions' # See documentation for possible values
+    directory: '/.github/workflows/'
+    schedule:
+      interval: 'daily'
