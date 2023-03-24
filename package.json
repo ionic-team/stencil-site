@@ -30,7 +30,7 @@
     "sass": "^1.59.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.3.1",
+    "@docusaurus/module-type-aliases": "^2.4.0",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.0"
   },
