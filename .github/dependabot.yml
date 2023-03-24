@@ -21,6 +21,6 @@ updates:
       - dependency-name: '@mdx-js/react'
         versions: ['>=2']
   - package-ecosystem: 'github-actions' # See documentation for possible values
-    directory: '/.github/workflows/'
+    directory: '/'
     schedule:
       interval: 'daily'
