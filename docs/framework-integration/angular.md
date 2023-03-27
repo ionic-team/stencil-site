@@ -122,6 +122,7 @@ workspace `package.json` file:
 # from `/packages/angular-workspace`
 npm uninstall jasmine-core @types/jasmine
 ```
+
 :::
 
 ### Adding the Angular Output Target
@@ -406,6 +407,16 @@ first file you should import in your Angular project.
 
 If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. For more information
 on using the `dist-custom-elements` output for the Angular proxies, see the [FAQ answer below](#do-i-have-to-use-the-dist-output-target).
+
+### includeSingleComponentAngularModules
+
+**Optional**
+
+**Default: `false`**
+
+**Type: `boolean`**
+
+If `true`, an Angular module will be generated for each component. This option requires that `includeImportCustomElements` is set to `true`.
 
 ### valueAccessorConfigs
 
