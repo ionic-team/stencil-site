@@ -415,6 +415,8 @@ on using the `dist-custom-elements` output for the Angular proxies, see the [FAQ
 
 **Type: `boolean`**
 
+**Available Since: `@stencil/angular-output-target@v0.6.0`**
+
 If `true`, an Angular module will be generated for each component. This option requires that `includeImportCustomElements` is set to `true`.
 
 ### valueAccessorConfigs
