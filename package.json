@@ -15,8 +15,8 @@
     "check-links": "remark --use remark-validate-links ."
   },
   "dependencies": {
-    "@docusaurus/core": "^2.3.1",
-    "@docusaurus/remark-plugin-npm2yarn": "^2.3.1",
+    "@docusaurus/core": "^2.4.0",
+    "@docusaurus/remark-plugin-npm2yarn": "^2.4.0",
     "@ionic-internal/preset-classic": "file:./ionic-preset-classic",
     "@ionic/prettier-config": "^2.0.0",
     "@mdx-js/react": "^1.6.22",
@@ -30,7 +30,7 @@
     "sass": "^1.60.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.3.1",
+    "@docusaurus/module-type-aliases": "^2.4.0",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.0"
   },
