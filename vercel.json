@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/",
@@ -6,137 +7,142 @@
       "statusCode": 301
     },
     {
-      "source": "/intro(/)?",
-      "destination": "/docs/introduction",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?",
+      "destination": "/docs/:version/introduction",
       "statusCode": 301
     },
     {
-      "source": "/building-components(/)?",
-      "destination": "/docs/getting-started",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/intro",
+      "destination": "/docs/:version/introduction",
       "statusCode": 301
     },
     {
-      "source": "/docs/my-first-component(/)?",
-      "destination": "/docs/getting-started",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/building-components",
+      "destination": "/docs/:version/getting-started",
       "statusCode": 301
     },
     {
-      "source": "/stencil-config(/)?",
-      "destination": "/docs/config",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/my-first-component",
+      "destination": "/docs/:version/getting-started",
       "statusCode": 301
     },
     {
-      "source": "/testing(/)?",
-      "destination": "/docs/unit-testing",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-config",
+      "destination": "/docs/:version/config",
       "statusCode": 301
     },
     {
-      "source": "/shadow-dom(/)?",
-      "destination": "/docs/styling",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/testing",
+      "destination": "/docs/:version/unit-testing",
       "statusCode": 301
     },
     {
-      "source": "/css-variables(/)?",
-      "destination": "/docs/styling",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/shadow-dom",
+      "destination": "/docs/:version/styling",
       "statusCode": 301
     },
     {
-      "source": "/sass(/)?",
-      "destination": "/docs/plugins",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/css-variables",
+      "destination": "/docs/:version/styling",
       "statusCode": 301
     },
     {
-      "source": "/add-ons(/)?",
-      "destination": "/docs/plugins",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/sass",
+      "destination": "/docs/:version/plugins",
       "statusCode": 301
     },
     {
-      "source": "/addons(/)?",
-      "destination": "/docs/plugins",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/add-ons",
+      "destination": "/docs/:version/plugins",
       "statusCode": 301
     },
     {
-      "source": "/templating(/)?",
-      "destination": "/docs/templating-jsx",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/addons",
+      "destination": "/docs/:version/plugins",
       "statusCode": 301
     },
     {
-      "source": "/router(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/templating",
+      "destination": "/docs/:version/templating-jsx",
+      "statusCode": 301
+    },
+    {
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/router",
       "destination": "https://github.com/ionic-team/stencil-router/wiki",
       "statusCode": 301
     },
     {
-      "source": "/stencil-router(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-router",
       "destination": "https://github.com/ionic-team/stencil-router/wiki",
       "statusCode": 301
     },
     {
-      "source": "/routing(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/routing",
       "destination": "https://github.com/ionic-team/stencil-router/wiki",
       "statusCode": 301
     },
     {
-      "source": "/server-side-rendering(/)?",
-      "destination": "/docs/static-site-generation-server-side-rendering-ssr",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/server-side-rendering",
+      "destination": "/docs/:version/static-site-generation-server-side-rendering-ssr",
       "statusCode": 301
     },
     {
-      "source": "/prerendering(/)?",
-      "destination": "/docs/static-site-generation",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/prerendering",
+      "destination": "/docs/:version/static-site-generation",
       "statusCode": 301
     },
     {
-      "source": "/build-conditionals(/)?",
-      "destination": "/docs",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/build-conditionals",
+      "destination": "/docs/:version",
       "statusCode": 302
     },
     {
-      "source": "/docs-auto-generation(/)?",
-      "destination": "/docs/docs-readme",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/docs-auto-generation",
+      "destination": "/docs/:version/docs-readme",
       "statusCode": 301
     },
     {
-      "source": "/what-is-design-system(/)?",
-      "destination": "/docs/design-systems",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/what-is-design-system",
+      "destination": "/docs/:version/design-systems",
       "statusCode": 301
     },
     {
-      "source": "/stencil-for-design-systems(/)?",
-      "destination": "/docs/design-systems",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-for-design-systems",
+      "destination": "/docs/:version/design-systems",
       "statusCode": 301
     },
     {
-      "source": "/local-assets(/)?",
-      "destination": "/docs/assets",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/local-assets",
+      "destination": "/docs/:version/assets",
       "statusCode": 301
     },
     {
-      "source": "/deno(/)?",
-      "destination": "/docs/support-policy",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/deno",
+      "destination": "/docs/:version/support-policy",
       "statusCode": 301
     },
     {
-      "source": "/stencil-state-tunnel(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-state-tunnel",
       "destination": "https://github.com/ionic-team/stencil-state-tunnel",
       "statusCode": 301
     },
     {
-      "source": "/state-tunnel(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/state-tunnel",
       "destination": "https://github.com/ionic-team/stencil-state-tunnel",
       "statusCode": 301
     },
     {
-      "source": "/framework-bindings",
-      "destination": "/docs/overview",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/framework-bindings",
+      "destination": "/docs/:version/overview",
       "statusCode": 301
     },
     {
-      "source": "/redux(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/redux",
       "destination": "https://github.com/ionic-team/stencil-redux",
       "statusCode": 301
     },
     {
-      "source": "/stencil-redux(/)?",
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-redux",
       "destination": "https://github.com/ionic-team/stencil-redux",
       "statusCode": 301
     }
