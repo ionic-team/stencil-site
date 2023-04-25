@@ -46,25 +46,22 @@ Example from ionic-core:
 │   ├── my-card-title.css
 ```
 
-## Naming
 
+## Naming
 ### HTML tag
 
 #### Prefix
-
 The prefix has a major role when you are creating a collection of components intended to be used across different projects, like [@ionic/core](https://www.npmjs.com/package/@ionic/core). Web Components are not scoped because they are globally declared within the webpage, which means a "unique" prefix is needed to prevent collisions. The prefix also helps to quickly identify the collection a component is part of. Additionally, web components are required to contain a "-" dash within the tag name, so using the first section to namespace your components is a natural fit.
 
 We do not recommend using "stencil" as prefix, since Stencil DOES NOT emit stencil components, but rather the output is standards compliant web components.
 
 DO NOT do this:
-
 ```markup
 <stencil-component>
 <stnl-component>
 ```
 
 Instead, use your own naming or brand. For example, [Ionic](https://ionicframework.com/) components are all prefixed with `ion-`.
-
 ```markup
 <ion-button>
 <ion-header>
@@ -73,6 +70,7 @@ Instead, use your own naming or brand. For example, [Ionic](https://ionicframewo
 #### Name
 
 Components are not actions, they are conceptually "things". It is better to use nouns instead of verbs, such as "animation" instead of "animating". "input", "tab", "nav", "menu" are some examples.
+
 
 #### Modifiers
 
@@ -83,6 +81,7 @@ When several components are related and/or coupled, it is a good idea to share t
 <ion-card-header>
 <ion-card-content>
 ```
+
 
 ### Component (TS class)
 
@@ -99,6 +98,7 @@ export class Button { ... }
 })
 export class Menu { ... }
 ```
+
 
 ## TypeScript
 
@@ -122,10 +122,11 @@ The source file should be organized like a newspaper article, with the highest l
   styleUrls: {
     ios: 'something.ios.css',
     md: 'something.md.css',
-    wp: 'something.wp.css',
-  },
+    wp: 'something.wp.css'
+  }
 })
 export class Something {
+
   /**
    * 1. Own Properties
    * Always set the type if a default value has not
@@ -209,7 +210,7 @@ export class Something {
    */
   @Listen('click', { enabled: false })
   onClick(ev: UIEvent) {
-    console.log('hi!');
+    console.log('hi!')
   }
 
   /**
@@ -255,10 +256,10 @@ export class Something {
         side={this.isRightSide ? 'right' : 'left'}
         type={this.type}
         class={{
-          'something-is-animating': this.isAnimating,
+          'something-is-animating': this.isAnimating
         }}
       >
-        <div class="menu-inner page-inner">
+        <div class='menu-inner page-inner'>
           <slot></slot>
         </div>
       </Host>
