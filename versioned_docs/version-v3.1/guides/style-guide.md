@@ -102,25 +102,9 @@ export class Menu { ... }
 
 ## TypeScript
 
-1. **Variable decorators should be inlined.**
+1. **Use private variables and methods as much possible:** They are useful to detect dead code and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using `private`, `public` or `protected` does not make a difference in the actual JavaScript output.
 
-```tsx
-@Prop() name: string;
-@Element() el: HTMLElement;
-```
-
-2. **Method decorator should be multi-line**
-
-```tsx
-@Listen('click')
-onClick() {
-  ...
-}
-```
-
-3. **Use private variables and methods as much possible:** They are useful to detect dead code and enforce encapsulation. Note that this is a feature which TypeScript provides to help harden your code, but using `private`, `public` or `protected` does not make a difference in the actual JavaScript output.
-
-4. **Code with Method/Prop/Event/Component decorators should have JSDocs:** This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense
+2. **Code with Method/Prop/Event/Component decorators should have JSDocs:** This allows for documentation generation and for better user experience in an editor that has TypeScript intellisense
 
 ## Code organization
 
