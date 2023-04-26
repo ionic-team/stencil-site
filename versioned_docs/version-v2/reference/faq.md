@@ -216,5 +216,5 @@ Stencil’s software [license is MIT](https://github.com/ionic-team/stencil/blob
 
 ### Who works on Stencil?
 
-The majority of the development is done by engineers at [Ionic](https://github.com/ionic-team/ionic). If you’re excited about Stencil, we encourage you to join the community and contribute! Best place to start is on the [Stencil Slack Channel](https://stencil-worldwide.herokuapp.com/).
+The majority of the development is done by engineers at [Ionic](https://github.com/ionic-team/ionic). If you’re excited about Stencil, we encourage you to join the community and contribute! Best place to start is on the [Stencil Slack Channel](https://stencil-worldwide.slack.com/).
 

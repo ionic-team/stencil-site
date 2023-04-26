@@ -18,7 +18,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Stencil on Slack',
-          href: 'https://stencil-worldwide.herokuapp.com/',
+          href: 'https://stencil-worldwide.slack.com/',
         },
         {
           type: 'link',
@@ -31,7 +31,7 @@ const sidebars = {
       type: 'category',
       label: 'Legal',
       items: [
-        { 
+        {
           type: 'doc',
           id: 'telemetry'
         },
