@@ -2,8 +2,7 @@
 
 const path = require('path');
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
 
 const HOSTNAME = 'stenciljs.com';
 
@@ -151,19 +150,19 @@ const config = {
         ],
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: themes.github,
+        darkTheme: themes.dracula,
         additionalLanguages: ['jsx', 'tsx', 'bash', 'typescript', 'javascript', 'markup', 'css', 'json', 'diff']
       },
       algolia: {
         // The application ID provided by Algolia
         appId: 'BH4D9OD16A',
-  
+
         // Public API key: it is safe to commit it
         apiKey: '6399791d239c7e56a6b47685a64f8873',
-  
+
         indexName: 'stenciljs',
-  
+
         // Optional: see doc section below
         contextualSearch: true,
       },
