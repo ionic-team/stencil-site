@@ -1,7 +1,7 @@
 ---
 title: Custom Docs Generation
-sidebar_label: docs-custom
-description: Custom Docs Generation
+sidebar_label: Custom Docs (docs-custom)
+description: Custom Docs
 slug: /docs-custom
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Docs Stats Auto-Generation
-sidebar_label: stats
-description: Docs Stats Auto-Generation
+sidebar_label: Stats (stats)
+description: Stats Generation
 slug: /stats
 ---
 

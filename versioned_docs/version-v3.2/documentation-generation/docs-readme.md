@@ -1,7 +1,7 @@
 ---
 title: Docs Readme Auto-Generation
-sidebar_label: docs-readme
-description: Docs Readme Auto-Generation
+sidebar_label: README Docs (docs-readme)
+description: README Docs
 slug: /docs-readme
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: VS Code Documentation
+sidebar_label: VS Code (docs-vscode)
 description: VS Code Documentation
 slug: /docs-vscode
 ---

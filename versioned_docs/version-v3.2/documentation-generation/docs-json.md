@@ -1,7 +1,7 @@
 ---
 title: Docs JSON Data Output Target
-sidebar_label: docs-json
-description: Docs JSON Output Target
+sidebar_label: JSON Docs (docs-json)
+description: JSON Docs
 slug: /docs-json
 ---
 
