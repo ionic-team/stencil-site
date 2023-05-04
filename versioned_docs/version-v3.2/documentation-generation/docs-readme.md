@@ -33,8 +33,7 @@ stencil build --docs
 ```
 
 This will cause the Stencil compiler to perform a one-time generation of README
-files using the [`docs-readme`](https://stenciljs.com/docs/docs-readme) output
-target.
+files.
 
 :::note
 If you use the `--docs` flag and don't add the `docs-readme` output target to
