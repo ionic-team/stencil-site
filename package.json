@@ -18,7 +18,7 @@
     "@docusaurus/core": "^2.4.0",
     "@docusaurus/remark-plugin-npm2yarn": "^2.4.0",
     "@ionic-internal/preset-classic": "^0.0.0",
-    "@ionic/prettier-config": "^2.1.2",
+    "@ionic/prettier-config": "^3.0.0",
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.2.1",
     "docusaurus-plugin-module-alias": "^0.0.2",
