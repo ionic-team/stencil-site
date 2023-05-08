@@ -32,7 +32,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.0",
     "remark-cli": "^11.0.0",
-    "remark-validate-links": "^12.1.0"
+    "remark-validate-links": "^12.1.1"
   },
   "browserslist": {
     "production": [
