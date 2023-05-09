@@ -12,8 +12,6 @@ Static Site Generation (SSG) means building and rendering components and routes 
 
 Static Site Generation doesn't mean your pages have to be and/or _stay_ static! Stencil utilizes hydration to efficiently load client-side components at runtime to get the best of both worlds.
 
-For an example of what this looks like, right-click on this very page and hit the View Page Source option. You'll notice this page does not require any external JavaScript or CSS files for the first paint.
-
 Since Static Site Generation prerenders components, there are some tradeoffs and things to keep in mind, but most components can be easily prerendered without much modification.
 
 Stencil makes SSG easy, so read on to see how to incorporate it into your apps.
