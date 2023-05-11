@@ -19,7 +19,7 @@ There are countless optimizations and tweaks developers must do to improve perfo
 As the world of software development continues to evolve, so too can the compiler. Instead of requiring complete rewrites of components, the compiler can continue to make optimizations using the standard component model as the common input. The compiler allows developers to create future-friendly components, while still staying up-to-date on the latest optimizations without starting over again and again. Additionally, if something changes about any API, the compiler is able to make automatic adjustments and notify the developer exactly what needs to be updated.
 
 ## Run-time Performance
-Instead of writing custom client-side JavaScript which every user needs to download and parse for the app to work, Stencil instead prefers to use the already amazing APIs built directly within the browser. These APIs include Custom Elements
+Instead of writing custom client-side JavaScript which every user needs to download and parse for the app to work, Stencil instead prefers to use the already amazing APIs built directly within the browser. These APIs include Custom Elements.
 
 ## Tiny API
 Stencil purposely does not come with a large custom API which needs to be learned and re-learned, but rather heavily relies on, you guessed it, web-standards. Again, our goal is to not create yet-another-framework, but rather provide tooling for developers to generate future-friendly components using APIs already baked within the browser. The smaller the API, the easier to learn, and the less that can be broken.
