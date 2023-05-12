@@ -746,7 +746,7 @@ By using this option, we are being explicit about which properties have an assoc
 when using the component in HTML.
 
 ```html
-<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" http-service="{}"></my-cmp>
+<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" my-service="{}"></my-cmp>
 ```
 
 ### Prop Mutability (`mutable`)
