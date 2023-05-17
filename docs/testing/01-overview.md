@@ -108,7 +108,7 @@ To use the below configuration:
       "name": "E2E Test Current File",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/node_modules/.bin/stencil",
-      "args": ["test", "--e2e", "--maxWorkers=0", "${fileBasename}"],
+      "args": ["test", "--e2e", "--", "--maxWorkers=0", "${fileBasename}"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     },
@@ -118,7 +118,7 @@ To use the below configuration:
       "name": "Spec Test Current File",
       "cwd": "${workspaceFolder}",
       "program": "${workspaceFolder}/node_modules/.bin/stencil",
-      "args": ["test", "--spec", "${fileBasename}"],
+      "args": ["test", "--spec", "--", "${fileBasename}"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }
