@@ -145,8 +145,8 @@ Update the generated `package.json` in your `react-library`, adding the followin
 +  "module": "dist/index.js",
 +  "types": "dist/types/index.d.ts",
   "scripts": {
--    "test": "test": "node ./__tests__/react-library.test.js"
-+    "test": "test": "node ./__tests__/react-library.test.js",
+-    "test": "node ./__tests__/react-library.test.js"
++    "test": "node ./__tests__/react-library.test.js",
 +    "build": "npm run tsc",
 +    "tsc": "tsc -p ."
 -  }
