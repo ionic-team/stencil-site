@@ -81,7 +81,13 @@ export interface TestingConfig extends JestConfig {
    * {@see https://developer.chrome.com/articles/new-headless/}
    */
   browserHeadless?: boolean;
-
+  
+  /**
+   * Whether to auto-open a DevTools panel for each tab.
+   * If this option is true, the headless option will be set false
+   */
+  browserDevtools?: boolean;
+  
   /**
    * Slows down e2e browser operations by the specified amount of milliseconds.
    * Useful so that you can see what is going on.
