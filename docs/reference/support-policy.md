@@ -103,11 +103,11 @@ compatibility tables to describe the interoperability requirements of these piec
 
 ### JavaScript Runtime
 
-| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18  |  Deno*  |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|:-------:|
-|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  |  &#9989;  | &#9888; |
-|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;** | &#9888; |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  | &#9888; |
+| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18  |  Node v20 |  Deno*  |
+|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|:---------:|:-------:|
+|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  |  &#9989;  | &#9989;   | &#9888; |
+|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;** | &#10060;  | &#9888; |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  | &#10060;  | &#9888; |
 
 \* Experimental Deno support was available in Stencil
 [v1.16.0](https://github.com/ionic-team/stencil/releases/tag/v1.16.0) through
