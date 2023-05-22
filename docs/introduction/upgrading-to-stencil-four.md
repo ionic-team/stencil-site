@@ -8,13 +8,15 @@ url: /docs/upgrading-to-stencil-4
 
 ## Getting Started
 
-It's recommended that your projects start their upgrade from Stencil v2.
-Projects using Stencil v0 or Stencil v1 should upgrade to Stencil v2 before proceeding with this guide.
+It's recommended that your projects start their upgrade from Stencil v3.
+Projects using Stencil v0 or Stencil v1 should upgrade to Stencil v2 before proceeding with upgrading to Stencil v3.
+Projects using Stencil v2 should upgrade to Stencil v3 before proceeding with this guide.
 For breaking changes introduced in previous major versions of the library, see:
+- [Stencil v3 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-v300)
 - [Stencil v2 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-two)
 - [Stencil v1 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-one)
 
-For projects that are on Stencil v2, install the latest version of Stencil v4: `npm install @stencil/core@4`
+For projects that are on Stencil v4, install the latest version of Stencil v4: `npm install @stencil/core@v4-next`
 
 ## Updating Your Code
 
