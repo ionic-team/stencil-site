@@ -6,6 +6,9 @@ url: /docs/upgrading-to-stencil-4
 
 # Upgrading to Stencil v4.0.0
 
+> Stencil 4.0.0 is pre-release software.
+> These instructions are for users looking to try an early version of the software
+
 ## Getting Started
 
 It's recommended that your projects start their upgrade from Stencil v3.
