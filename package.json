@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "^2.4.0",
-    "@docusaurus/remark-plugin-npm2yarn": "^2.4.0",
+    "@docusaurus/remark-plugin-npm2yarn": "^2.4.1",
     "@ionic-internal/preset-classic": "^0.0.0",
     "@ionic/prettier-config": "^3.0.0",
     "@mdx-js/react": "^1.6.22",
