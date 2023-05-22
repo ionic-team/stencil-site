@@ -15,7 +15,7 @@
     "check-links": "remark --use remark-validate-links ."
   },
   "dependencies": {
-    "@docusaurus/core": "^2.4.0",
+    "@docusaurus/core": "^2.4.1",
     "@docusaurus/remark-plugin-npm2yarn": "^2.4.1",
     "@ionic-internal/preset-classic": "^0.0.0",
     "@ionic/prettier-config": "^3.0.0",
