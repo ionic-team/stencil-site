@@ -55,6 +55,8 @@ for more information.
 
 ### transformAliasedImportPathsInCollection
 
+*default: `true`*
+
 This option will allow [path aliases](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) defined in a project's `tsconfig.json` to be transformed into relative paths in the code output under the [collectionDir](#collectiondir) subdirectory for this output target. This does not affect imports for external packages.
 
 An example of path transformation could look something like:
@@ -67,10 +69,8 @@ import * as utils from '@utils';
 import * as utils from '../path/to/utils';
 ```
 
-This flag defaults to `false` when omitted from a Stencil configuration file.
-
 :::tip
-If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config.
+If using the `dist-collection` output target directly, the same result can be achieved using the [`transformAliasedImportPaths`](../config/01-overview.md#transformaliasedimportpaths) flag on the target's config.
 :::
 
 ## Publishing
