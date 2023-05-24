@@ -61,33 +61,33 @@ export interface TestingConfig extends JestConfig {
   browserExecutablePath?: string;
 
   /**
-   * Whether to run browser e2e tests in headless mode. 
-   * 
+   * Whether to run browser e2e tests in headless mode.
+   *
    * `headless` is an argument passed through to Puppeteer (which is passed to Chrome) for
    * end-to-end testing. Prior to Chrome v112, `headless` was treated like a boolean flag.
    * Starting with Chrome v112, 'new' is an accepted option to support Chrome's new
    * headless mode.
-   * 
+   *
    * The following values are accepted:
    * - "new" - enables the "new" headless mode, starting with Chrome 112
    * - `true` - enables the "old" headless mode, prior to Chrome 112
    * - `false` - enables the "headful" mode
-   * 
+   *
    * Stencil will default to `true` (the old headless mode) if no value is provided.
-   * 
+   *
    * In the future, Chrome will enable the new headless mode by default, even when `true`
    * is provided.
    *
    * {@see https://developer.chrome.com/articles/new-headless/}
    */
   browserHeadless?: boolean;
-  
+
   /**
    * Whether to auto-open a DevTools panel for each tab.
    * If this option is true, the headless option will be set false
    */
   browserDevtools?: boolean;
-  
+
   /**
    * Slows down e2e browser operations by the specified amount of milliseconds.
    * Useful so that you can see what is going on.
