@@ -29,10 +29,7 @@ Example `extras` config when **supporting** legacy browsers:
 export const config: Config = {
   buildEs5: 'prod',
   extras: {
-    __deprecated__cssVarsShim: true,
-    __deprecated__dynamicImportShim: true,
     __deprecated__shadowDomShim: true,
-    __deprecated__safari10: true,
     scriptDataOpts: true,
     appendChildSlotFix: false,
     cloneNodeFix: false,
@@ -52,39 +49,6 @@ By default, the slot polyfill does not update `appendChild()` so that it appends
 ### cloneNodeFix
 
 By default, the runtime does not polyfill `cloneNode()` when cloning a component that uses the slot polyfill. This is an opt-in polyfill for those who need it.
-
-### `__deprecated__cssVarsShim`
-
-Include the CSS Custom Property polyfill/shim for legacy browsers.
-
-A result of this being set to `false` is that you will need to manually provide
-"fallback" properties to legacy builds. For example, in the css below, the css
-variable will not be polyfilled for IE11, so the developer will manually need
-to provide a fallback just before the css variable. If the app does not need to
-support IE11 it's recommended to leave `__deprecated__cssVarsShim` set to the
-default value of `false`.
-
-```css
-div {
-  color: blue; /* Used by IE */
-  color: var(--color); /* Used by modern browsers */
-}
-```
-
-As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
-reach end-of-life. While this flag and its supporting functionality is
-currently available, it will be removed in a future version of Stencil.
-
-### `__deprecated__dynamicImportShim`
-
-Dynamic `import()` shim. This is only needed for Edge 18 and below, and Firefox
-67 and below. If you do not need to support Edge 18 and below (Edge before it
-moved to Chromium) then it's recommended to set `dynamicImportShim` to `false`.
-Defaults to `false`.
-
-As of Stencil v3.0.0, support for IE 11, Edge <= 18, and Safari 10 has begun to
-reach end-of-life. While this flag and its supporting functionality is
-currently available, it will be removed in a future version of Stencil.
 
 ### experimentalImportInjection
 
@@ -140,18 +104,6 @@ Dispatches component lifecycle events. By default these events are not dispatche
 | `stencil_componentDidLoad`    | Dispatched for each component's `componentDidLoad`.    |
 | `stencil_componentDidUpdate`  | Dispatched for each component's `componentDidUpdate`.  |
 | `stencil_componentDidRender`  | Dispatched for each component's `componentDidRender`.  |
-
-### `__deprecated__safari10`
-
-Safari 10 supports ES modules with `<script type="module">`, however, it did
-not implement `<script nomodule>`. When `__deprecated__safari10` is set to
-`true`, the runtime will patch support for Safari 10. If your app does not need
-to support Safari 10, it's recommended to leave this set to its default value
-of `false`.
-
-As of Stencil v3.0.0, support Safari 10 has begun to reach end-of-life. While
-this flag and its supporting functionality is currently available, it will be
-removed in a future version of Stencil.
 
 ### scopedSlotTextContentFix
 
