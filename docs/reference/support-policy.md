@@ -108,10 +108,8 @@ compatibility tables to describe the interoperability requirements of these piec
 |:---------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 |       V4        | &#10060; | &#10060; | &#10060; | &#9989;  | &#9989;  | &#9989;  |
 |       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9989;  |
-|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;* | &#10060; |
+|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;  | &#10060; |
 |       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060; |
-
-\* Node 18 is likely to work with Stencil v2, although it was never formally supported
 
 :::note
 Experimental Deno support was available in Stencil
