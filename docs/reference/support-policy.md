@@ -104,20 +104,12 @@ compatibility tables to describe the interoperability requirements of these piec
 
 ### JavaScript Runtime
 
-| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18  | Node v20 |  Deno*  |
-|:---------------:|:--------:|:--------:|:--------:|:--------:|:---------:|:--------:|:-------:|
-|       V4        | &#10060; | &#10060; | &#10060; | &#9989;  |  &#9989;  | &#9989;  | &#9888; |
-|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  |  &#9989;  | &#9989;  | &#9888; |
-|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;** | &#10060; | &#9888; |
-|       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060;  | &#10060; | &#9888; |
-
-\* Experimental Deno support was available in Stencil
-[v1.16.0](https://github.com/ionic-team/stencil/releases/tag/v1.16.0) through
-[v2.8.1](https://github.com/ionic-team/stencil/releases/tag/v2.8.1). This experimental support was removed in
-[v2.9.0](https://github.com/ionic-team/stencil/releases/tag/v2.9.0). For additional reasoning behind this decision,
-please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/adr/0013-deno-removal.md).
-
-\** Node 18 is likely to work with Stencil v2, although it was never formally supported
+| Stencil Version | Node v10 | Node v12 | Node v14 | Node v16 | Node v18 | Node v20 |
+|:---------------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|       V4        | &#10060; | &#10060; | &#10060; | &#9989;  | &#9989;  | &#9989;  |
+|       V3        | &#10060; | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9989;  |
+|       V2        | &#10060; | &#9989;  | &#9989;  | &#9989;  | &#9888;  | &#10060; |
+|       V1        | &#9989;  | &#9989;  | &#9989;  | &#9989;  | &#10060; | &#10060; |
 
 ### Testing Libraries
 
