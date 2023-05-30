@@ -13,9 +13,11 @@ These instructions are for users looking to try an early version of the software
 
 ## Getting Started
 
-It's recommended that your projects start their upgrade from Stencil v3.
-Projects using Stencil v0 or Stencil v1 should upgrade to Stencil v2 before proceeding with upgrading to Stencil v3.
-Projects using Stencil v2 should upgrade to Stencil v3 before proceeding with this guide.
+We recommend that you only upgrade to Stencil v4 from Stencil v3.
+If you're currently using an earlier version of Stencil we recommend that you first upgrade to v3 before attempting the v4 upgrade.
+If you're a few versions behind, we recommend going one major version at a time (from v1 to v2, then v2 to v3, finally v3 to v4).
+This will minimize the number of breaking changes you have to deal with at the same time.
+
 For breaking changes introduced in previous major versions of the library, see:
 - [Stencil v3 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-v300)
 - [Stencil v2 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-two)
