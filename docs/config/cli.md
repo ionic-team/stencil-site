@@ -43,6 +43,7 @@ Tests a Stencil project. The flags below are the available options for the `test
 | `--spec` | Tests `.spec.ts` files using [Jest](https://jestjs.io/). |
 | `--e2e` | Tests `.e2e.ts` files using [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Jest](https://jestjs.io/). |
 | `--no-build` | Skips build process before running the tests. (You are expected to have built it beforehand). |
+| `--devtools` | Opens the dev tools panel in Chrome for end-to-end tests. Setting this flag will disable `--headless` |
 | `--headless` | Sets the headless mode to use in Chrome for end-to-end tests. `--headless` and `--headless=true` will enable the "old" headless mode in Chrome, that was used by default prior to Chrome v112. `--headless=new` will enable the new headless mode introduced in Chrome v112. See [this article](https://developer.chrome.com/articles/new-headless/) for more information on Chrome's new headless mode. |
 
 
