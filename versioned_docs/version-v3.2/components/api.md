@@ -54,7 +54,7 @@ Executing code after `componentOnReady()` resolves could look something like thi
 
 ```ts
 // Get a reference to the element
-const el = documents.querySelector('my-component');
+const el = document.querySelector('my-component');
 
 el.componentOnReady().then(() => {
   // Place any code in here you want to execute when the component is ready
