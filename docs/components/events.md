@@ -192,6 +192,12 @@ We can now listen to this event directly on the component in our JSX using the f
 <todo-list onTodoCompleted={ev => this.someMethod(ev)} />
 ```
 
+This property is generated automatically and is prefixed with "on". For example, if the event emitted is called `todoDeleted` the property will be called `onTodoDeleted`:
+
+```tsx
+<todo-list onTodoDeleted={ev => this.someOtherMethod(ev)} />
+```
+
 ## Listening to events from a non-JSX element
 
 ```tsx
