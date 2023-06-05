@@ -115,6 +115,13 @@ _default: `false`_
 
 Setting this flag to `true` will include [global scripts](../config/01-overview.md#globalscript) in the bundle and execute them once the bundle entry point in loaded.
 
+### isPrimaryPackageOutputTarget
+
+_default: `false`_
+
+If `true`, this output target will be used to validate `package.json` fields for your project's distribution. See the overview of [primary package output target validation](./01-overview.md#primary-package-output-target-validation)
+for more information.
+
 ### minify
 
 _default: `false`_

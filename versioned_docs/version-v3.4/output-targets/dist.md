@@ -28,6 +28,12 @@ Luckily, both builds can be generated at the same time, and shipped in the same 
 
 ## Config
 
+### collectionDir
+
+The `collectionDir` config specifies the output directory within the [distribution directory](#dir) where the transpiled output of Stencil components will be written.
+
+This option defaults to `collection` when omitted from a Stencil configuration file.
+
 ### dir
 
 The `dir` config specifies the public distribution directory. This directory is commonly the `dist` directory found within [npm packages](https://docs.npmjs.com/getting-started/packages). This directory is built and rebuilt directly from the source files. Additionally, since this is a build target, all files will be deleted and rebuilt after each build, so it's best to always copy source files into this directory. It's recommended that this directory not be committed to a repository.
@@ -40,11 +46,12 @@ By default, before each build the `dir` directory will be emptied of all files. 
 
 This flag defaults to `true` when omitted from a Stencil configuration file.
 
-### collectionDir
+### isPrimaryPackageOutputTarget
 
-The `collectionDir` config specifies the output directory within the [distribution directory](#dir) where the transpiled output of Stencil components will be written.
+_default: `false`_
 
-This option defaults to `collection` when omitted from a Stencil configuration file.
+If `true`, this output target will be used to validate `package.json` fields for your project's distribution. See the overview of [primary package output target validation](./01-overview.md#primary-package-output-target-validation)
+for more information.
 
 ### transformAliasedImportPathsInCollection
 

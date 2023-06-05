@@ -319,3 +319,10 @@ export function util(arg) {
 import { UtilInterface } from '../path/to/utils';
 export declare function util(arg: UtilInterface): void;
 ```
+
+## validatePrimaryPackageOutputTarget
+
+*default: `false`*
+
+When `true`, validation for common `package.json` fields will occur based on setting an output target's `isPrimaryPackageOutputTarget` flag.
+For more information on package validation, please see the [output target docs](../output-targets/01-overview.md#primary-package-output-target-validation).
