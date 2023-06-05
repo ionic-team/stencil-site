@@ -52,3 +52,36 @@ In the example below there are two script tags, however, only one of them will b
 As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
 :::
 
+## Primary Package Output Target Validation
+
+If `validatePrimaryPackageOutputTarget: true` is set in your project's [Stencil config](../config/01-overview.md#validateprimarypackageoutputtarget) Stencil will
+attempt to validate certain fields in your `package.json` that correspond with the generated distribution code. Because Stencil can output many different formats
+from a single project, it can only validate that the `package.json` has field values that align with one of the specified output targets in your project's config.
+So, Stencil allows you to designate which output target should be used for this validation and thus which will be the default distribution when bundling you
+project. 
+
+This behavior only affects a small subset of output targets so a flag exists on the following targets that are eligible for this level of validation: `dist`, `dist-types`,
+`dist-collection`, and `dist-custom-elements`. For any of these output targets, you can configure the target to be validated as follows:
+
+```ts title='stencil.config.ts'
+import { Config } from '@stencil/core';
+export const config: Config = {
+  ...,
+  outputTargets: [
+    {
+      type: 'dist',
+      // This flag is what tells Stencil to use this target for validation
+      isPrimaryPackageOutputTarget: true,
+      ...
+    },
+    ...
+  ],
+  // If this is not set, Stencil will not validate any targets
+  validatePrimaryPackageOutputTarget: true,
+};
+```
+
+:::note
+Stencil can only validate one of these output targets for your build. If multiple output targets are marked for validation, Stencil will use
+the first designated target in the array and ignore all others.
+:::
