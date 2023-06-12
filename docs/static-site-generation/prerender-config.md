@@ -51,7 +51,7 @@ export const config: PrerenderConfig = {
 | `hydrateOptions(url)` | Returns the hydrate options to use for each individual prerendered page. |  |
 | `loadTemplate(filePath)` | Returns the template file's content. The template is the base HTML used for all prerendered pages. |  |
 | `normalizeUrl(href, base)` | Used to normalize the page's URL from a given a string and the current page's base URL. Largely used when reading an anchor's `href` attribute value and normalizing it into a `URL`. |  |
-| `staticSite` | Static Site Generated (SSG). Does not include Stencil's clientside JavaScript, custom elements or preload modules. | `false` |
+| `staticSite` | Static Site Generated (SSG). Does not include Stencil's client-side JavaScript, custom elements or preload modules. | `false` |
 | `trailingSlash` | If the prerenndered URLs should have a trailing "/"" or not | `false` |
 
 
@@ -78,11 +78,11 @@ export const config: PrerenderConfig = {
 | `addModulePreloads` | Adds `<link rel="modulepreload">` for modules that will eventually be requested. | `true` |
 | `approximateLineWidth` | Sets an approximate line width the HTML should attempt to stay within. Note that this is "approximate", in that HTML may often not be able to be split at an exact line width. Additionally, new lines created is where HTML naturally already has whitespace, such as before an attribute or spaces between words. | `100` |
 | `canonicalUrl` | Sets the `href` attribute on the `<link rel="canonical">` tag within the `<head>`. If the value is not defined it will ensure a canonical link tag is no included in the `<head>`. |  |
-| `clientHydrateAnnotations` | Include the HTML comments and attributes used by the clientside JavaScript to read the structure of the HTML and rebuild each component. | `true` |
+| `clientHydrateAnnotations` | Include the HTML comments and attributes used by the client-side JavaScript to read the structure of the HTML and rebuild each component. | `true` |
 | `constrainTimeouts` | Constrain `setTimeout()` to 1ms, but still async. Also only allows `setInterval()` to fire once, also constrained to 1ms. | `true` |
 | `cookie` | Sets `document.cookie`. |  |
 | `direction` | Sets the `dir` attribute on the top level `<html>`. |  |
-| `excludeComponents` | Component tag names listed here will not be prerendered, nor will hydrated on the clientside. Components listed here will be ignored as custom elements and treated no differently than a `<div>`. |  |
+| `excludeComponents` | Component tag names listed here will not be prerendered, nor will hydrated on the client-side. Components listed here will be ignored as custom elements and treated no differently than a `<div>`. |  |
 | `inlineExternalStyleSheets` | External stylesheets from `<link rel="stylesheet">` are instead inlined into `<style>` elements. | `true` |
 | `language` | Sets the `lang` attribute on the top level `<html>`. |  |
 | `maxHydrateCount` | Maximum number of components to hydrate on one page. | `300` |
@@ -98,7 +98,7 @@ export const config: PrerenderConfig = {
 | `removeUnusedStyles` | Removes CSS not used by elements within the `document`. | `true` |
 | `resourcesUrl` | The url the runtime uses for the resources, such as the assets directory. |  |
 | `runtimeLogging` | Prints out runtime console logs to the NodeJS process. | `false` |
-| `staticComponents` | Component tags listed here will only be prerendered or serverside-rendered and will not be clientside hydrated. This is useful for components that are not dynamic and do not need to be defined as a custom element within the browser. For example, a header or footer component would be a good example that may not require any clientside JavaScript. |  |
+| `staticComponents` | Component tags listed here will only be prerendered or server-side rendered and will not be client-side hydrated. This is useful for components that are not dynamic and do not need to be defined as a custom element within the browser. For example, a header or footer component would be a good example that may not require any client-side JavaScript. |  |
 | `staticDocument` | Entire `document` should be static. This is useful for specific pages that should be static, rather than the entire site. If the whole site should be static, use the `staticSite` property on the prerender config instead. If only certain components should be static then use `staticComponents` instead. | `false` |
 | `timeout` | The amount of milliseconds to wait for a page to finish rendering until a timeout error is thrown. | `15000` |
 | `title` | Sets `document.title`. |  |
