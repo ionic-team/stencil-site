@@ -20,7 +20,7 @@ Integrating a component built with Stencil to a project without a JavaScript fra
 </html>
 ```
 
-Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement. _Note that type="module" only works in modern browsers (not available in IE11 or Edge 12-18)._
+Alternatively, if you wanted to take advantage of ES Modules, you could include the components using an import statement.
 
 ```markup
 <html>

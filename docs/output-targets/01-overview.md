@@ -32,26 +32,6 @@ export const config: Config = {
 };
 ```
 
-
-## Differential Bundling
-
-It's also important to note that the compiler will automatically generate the numerous bundles in order to support "differential bundling". What this means is that during production builds, Stencil will generate code for both modern browsers, and legacy browsers (IE11) from the same source code. The advantage of differential bundling is that modern browsers can avoid all the polyfills and bloated legacy JavaScript, and use the modern APIs already baked into the browser.
-
-In the example below there are two script tags, however, only one of them will be requested by the user. For IE11 users, they'll download the `app.js` file which is in the `ES5` syntax and has all the polyfills. For users on modern browsers, they will only download the `app.esm.js` file which uses up-to-date JavaScript features such as [ES modules](https://developers.google.com/web/fundamentals/primers/modules), [dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Import), [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await), [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), etc.
-
-:::note
-[buildEs5](../config/01-overview.md#buildes5) must be set to true to generate the IE11 ES5 file 
-:::
-
-```markup
-<script type="module" src="/build/app.esm.js"></script>
-<script nomodule src="/build/app.js"></script>
-```
-
-:::info
-As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
-:::
-
 ## Primary Package Output Target Validation
 
 If `validatePrimaryPackageOutputTarget: true` is set in your project's [Stencil config](../config/01-overview.md#validateprimarypackageoutputtarget) Stencil will

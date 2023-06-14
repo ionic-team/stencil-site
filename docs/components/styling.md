@@ -273,37 +273,3 @@ This file must be manually imported in the `index.html` of your application.
 ```html
 <link rel="stylesheet" href="/build/app.css" />
 ```
-
-## IE support
-
-:::info
-Starting with Stencil v3.0.0, support for IE 11 has been marked as deprecated and will be removed in the next major version of Stencil.
-:::
-
-IE11 does not support CSS variables natively, Stencil does however provide a best-effort polyfill since it's impossible to polyfill CSS features in the same way JS can be polyfilled.
-
-The stencil polyfill for CSS variables has plenty of limitations with respect to a browser supporting it natively, and incurs a heavy performance overhead.
-
-- Global CSS variables can only be declared in `:root` or `html`, they can't be dynamic.
-- Only the stylesheets of `shadow` or `scoped` components can have dynamic CSS variables.
-- CSS variables within a component can be consumed (`var(--thing)`) in any selector.
-- CSS variables within a component can ONLY be defined within a `:host(...)` selector.
-
-```css
-:host() {
-  /* This works */
-  --color: black;
-}
-:host(.white) {
-  /* This works */
-  --color: white;
-}
-.selector {
-  /* This DOES NOT work in IE11 */
-  --color: red;
-}
-```
-
-The performance overhead of using CSS variables in IE11 is elevated in terms of CPU time and memory. This is because in order to "simulate" the dynamic nature of CSS variables, the polyfill needs to dynamically generate a different stylesheet PER instance. For example, if you have 200 `my-cmp` elements in the DOM, the polyfill will attach 200 analogous `<style>` tags to style each element.
-
-The total amount of stylesheets to be handled by IE11 can quickly grow, consuming a lot of memory and requiring a lot of CPU for each Style Invalidation.
