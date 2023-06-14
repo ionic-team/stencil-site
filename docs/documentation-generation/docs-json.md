@@ -40,6 +40,44 @@ The JSON file output by Stencil conforms to the [`JsonDocs` interface in
 Stencil's public TypeScript
 declarations](https://github.com/ionic-team/stencil/blob/main/src/declarations/stencil-public-docs.ts).
 
+## `supplementalPublicTypes`
+
+As of Stencil v4 the JSON documentation generation functionality in Stencil
+supports a new configuration option, `supplementalPublicTypes`.
+
+This functionality makes it easy to automatically document types and interfaces
+which otherwise wouldn't be included in the documentation that Stencil
+generates. By default, Stencil includes extensive information about the types
+used in the public APIs of all your components, meaning the properties on your
+components decorated with `@Watch`, `@Event`, `@Prop` and so on. This makes it
+easy to document your components' APIs; however, if your project uses other
+types which aren't found in the public API of a component then those types
+won't be included.
+
+The new `supplementalPublicTypes` option fills in this gap by allowing you to
+designate a file of types which should be included in the output of the
+`docs-json` output target.
+
+This information will be found in a top-level property called `typeLibrary` on
+the JSON output and will conform to the [`JsonDocsTypeLibrary` interface in
+Stencil's public TypeScript
+declarations](https://github.com/ionic-team/stencil/blob/main/src/declarations/stencil-public-docs.ts).
+
+Using this option could look something like this:
+
+```ts title="stencil.config.ts"
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'docs-json',
+      file: 'path/to/docs.json',
+      supplementalPublicTypes: 'src/public-interfaces.ts',
+    }
+  ]
+};
+```
 
 ## CSS Variables
 
