@@ -65,7 +65,6 @@ This behavior only affects a small subset of output targets so a flag exists on 
 
 ```ts title='stencil.config.ts'
 import { Config } from '@stencil/core';
-
 export const config: Config = {
   ...,
   outputTargets: [
