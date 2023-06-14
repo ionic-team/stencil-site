@@ -29,8 +29,7 @@ For projects that are on Stencil v3, install the latest version of Stencil v4: `
 
 ## Additional Packages
 
-In order to guarantee that other `@stencil/` packages will continue to function as expected,
-it's recommended that a project that uses any of the packages listed below updates to the listed minimum package version.
+To ensure the proper functioning of other `@stencil/` packages, it is advisable for projects utilizing any of the packages mentioned below to upgrade to the minimum package version specified.
 
 | Package                          | Minimum Package Version                                                                                                  | GitHub                                                            | Documentation                                               |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------|
