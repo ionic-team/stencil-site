@@ -14,8 +14,7 @@ These instructions are for users looking to try an early version of the software
 ## Getting Started
 
 We recommend that you only upgrade to Stencil v4 from Stencil v3.
-If you're currently using an earlier version of Stencil we recommend that you first upgrade to v3 before attempting the v4 upgrade.
-If you're a few versions behind, we recommend going one major version at a time (from v1 to v2, then v2 to v3, finally v3 to v4).
+If you're a few versions behind, we recommend upgrading one major version at a time (from v1 to v2, then v2 to v3, finally v3 to v4).
 This will minimize the number of breaking changes you have to deal with at the same time.
 
 For breaking changes introduced in previous major versions of the library, see:
