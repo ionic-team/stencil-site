@@ -14,23 +14,29 @@
   margin-left: 8px;
 }
 
-.bs-chart__group:first-child .bs-chart__card {
-  background: #39B54A;
-}
+//.bs-chart__group:first-child .bs-chart__card {
+//  background: #39B54A;
+//}
 
-.bs-chart__group:last-child .bs-chart__card {
-  background: #d0901a;
-}
+//.bs-chart__group:last-child .bs-chart__card {
+//  background: #d0901a;
+//}
 
 .bs-chart__card {
   width: 110px;
   flex-direction: column;
   align-items: center;
+  background: #39B54A;
   border-radius: 8px;
   color: #fff;
   padding: 8px;
   font-size: 11px;
   font-weight: 600;
+
+  &--deprecated {
+    @extend .bs-chart__card;
+    background: #d0901a;
+  }
 }
 
 .bs-chart__card ion-icon {

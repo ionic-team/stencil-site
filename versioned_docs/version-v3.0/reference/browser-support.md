@@ -35,7 +35,7 @@ Stencil builds Web Components that run natively or near-natively in all widely u
   </div>
   <div class="bs-chart__group">
     <div class="bs-chart__cards">
-      <div class="bs-chart__card">
+      <div class="bs-chart__card--deprecated">
         <ion-icon name="checkmark"></ion-icon>
         IE 11, Edge 16-18
       </div>
