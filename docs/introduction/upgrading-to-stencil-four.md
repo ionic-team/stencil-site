@@ -26,6 +26,21 @@ For projects that are on Stencil v3, install the latest version of Stencil v4: `
 
 ## Updating Your Code
 
+### Legacy Context and Connect APIs Removed
+
+Previously, Stencil supported `context` and `connect` as options within the `@Prop` decorator.
+Both of these APIs were deprecated in Stencil v1 and are now removed.
+
+```ts
+@Prop({ context: 'config' }) config: Config;
+@Prop({ connect: 'ion-menu-controller' }) lazyMenuCtrl: Lazy<MenuController>;
+```
+To migrate away from usages of `context`, please see [the original deprecation announcement](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#propcontext)
+To migrate away from usages of `connect`, please see [the original deprecation announcement](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#propconnect)
+
+Stencil no longer supports Node 14.
+Please upgrade local development machines, continuous integration pipelines, etc. to use Node v16 or higher.
+For the full list of supported runtimes, please see [our Support Policy](../reference/support-policy.md#javascript-runtime).
 
 ## Additional Packages
 
