@@ -26,6 +26,13 @@ For projects that are on Stencil v3, install the latest version of Stencil v4: `
 
 ## Updating Your Code
 
+### In Browser Compilation Support Removed
+
+Prior to Stencil v4.0.0, components could be compiled from TSX to JS in the browser.
+This feature was seldom used, and has been removed from Stencil.
+At this time, there is no replacement functionality.
+For additional details, please see the [request-for-comment](https://github.com/ionic-team/stencil/discussions/4134) on the Stencil GitHub Discussions page.
+
 ### Legacy Context and Connect APIs Removed
 
 Previously, Stencil supported `context` and `connect` as options within the `@Prop` decorator.
