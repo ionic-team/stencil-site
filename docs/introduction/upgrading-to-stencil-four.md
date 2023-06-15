@@ -14,8 +14,7 @@ These instructions are for users looking to try an early version of the software
 ## Getting Started
 
 We recommend that you only upgrade to Stencil v4 from Stencil v3.
-If you're currently using an earlier version of Stencil we recommend that you first upgrade to v3 before attempting the v4 upgrade.
-If you're a few versions behind, we recommend going one major version at a time (from v1 to v2, then v2 to v3, finally v3 to v4).
+If you're a few versions behind, we recommend upgrading one major version at a time (from v1 to v2, then v2 to v3, finally v3 to v4).
 This will minimize the number of breaking changes you have to deal with at the same time.
 
 For breaking changes introduced in previous major versions of the library, see:
@@ -23,15 +22,69 @@ For breaking changes introduced in previous major versions of the library, see:
 - [Stencil v2 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-two)
 - [Stencil v1 Breaking Changes](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#stencil-one)
 
-For projects that are on Stencil v4, install the latest version of Stencil v4: `npm install @stencil/core@v4-next`
+For projects that are on Stencil v3, install the latest version of Stencil v4: `npm install @stencil/core@v4-next`
 
 ## Updating Your Code
 
+### In Browser Compilation Support Removed
+
+Prior to Stencil v4.0.0, components could be compiled from TSX to JS in the browser.
+This feature was seldom used, and has been removed from Stencil.
+At this time, there is no replacement functionality.
+For additional details, please see the [request-for-comment](https://github.com/ionic-team/stencil/discussions/4134) on the Stencil GitHub Discussions page.
+
+### Legacy Context and Connect APIs Removed
+
+Previously, Stencil supported `context` and `connect` as options within the `@Prop` decorator.
+Both of these APIs were deprecated in Stencil v1 and are now removed.
+
+```ts
+@Prop({ context: 'config' }) config: Config;
+@Prop({ connect: 'ion-menu-controller' }) lazyMenuCtrl: Lazy<MenuController>;
+```
+To migrate away from usages of `context`, please see [the original deprecation announcement](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#propcontext).
+To migrate away from usages of `connect`, please see [the original deprecation announcement](https://github.com/ionic-team/stencil/blob/main/BREAKING_CHANGES.md#propconnect).
+
+### Legacy Browser Support Removed
+
+In Stencil v3.0.0, we announced [the deprecation of IE 11, pre-Chromium Edge, and Safari 10 support](#legacy-browser-support-fields-deprecated).
+In Stencil v4.0.0, support for these browsers has been dropped (for a full list of supported browsers, please see our [Browser Support page](../reference/browser-support.md)).
+
+By dropping these browsers, a few configuration options are no longer valid in a Stencil configuration file:
+
+##### `__deprecated__cssVarsShim`
+
+The `extras.__deprecated__cssVarsShim` option caused Stencil to include a polyfill for [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
+This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
+
+##### `__deprecated__dynamicImportShim`
+
+The `extras.__deprecated__dynamicImportShim` option caused Stencil to include a polyfill for
+the [dynamic `import()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
+for use at runtime.
+This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
+
+##### `__deprecated__safari10`
+
+The `extras.__deprecated__safari10` option would patch ES module support for Safari 10.
+This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
+
+##### `__deprecated__shadowDomShim`
+
+The `extras.__deprecated__shadowDomShim` option would check whether a shim for [shadow
+DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
+was needed in the current browser, and include one if so.
+This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
+
+### Drop Node 14 Support
+
+Stencil no longer supports Node 14.
+Please upgrade local development machines, continuous integration pipelines, etc. to use Node v16 or higher.
+For the full list of supported runtimes, please see [our Support Policy](../reference/support-policy.md#javascript-runtime).
 
 ## Additional Packages
 
-In order to guarantee that other `@stencil/` packages will continue to function as expected,
-it's recommended that a project that uses any of the packages listed below updates to the listed minimum package version.
+To ensure the proper functioning of other `@stencil/` packages, it is advisable for projects utilizing any of the packages mentioned below to upgrade to the minimum package version specified.
 
 | Package                          | Minimum Package Version                                                                                                  | GitHub                                                            | Documentation                                               |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------|
