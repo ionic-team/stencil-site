@@ -48,7 +48,7 @@ To migrate away from usages of `connect`, please see [the original deprecation a
 ### Legacy Browser Support Removed
 
 In Stencil v3.0.0, we announced [the deprecation of IE 11, pre-Chromium Edge, and Safari 10 support](#legacy-browser-support-fields-deprecated).
-In Stencil v4.0.0, support for these browsers has been dropped (for a full list of supported browsers, please see our [Browser Support page](../reference/browser-support.md))
+In Stencil v4.0.0, support for these browsers has been dropped (for a full list of supported browsers, please see our [Browser Support page](../reference/browser-support.md)).
 
 By dropping these browsers, a few configuration options are no longer valid in a Stencil configuration file:
 
