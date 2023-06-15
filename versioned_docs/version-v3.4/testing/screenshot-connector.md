@@ -6,7 +6,7 @@ slug: /screenshot-connector
 ---
 
 # Screenshot connector
-You can configure a screenshot connector module to be used by the screenshot testing process, to modify the default behaviour of the caching, comparing and publishing of your tests.
+You can configure a screenshot connector module to be used by the screenshot testing process, to modify the default behavior of the caching, comparing and publishing of your tests.
 Just create a file which defines a connector class and point to it in your stencil testing config:
 
 ```tsx
@@ -46,7 +46,6 @@ export interface ScreenshotConnector {
   getScreenshotCache(): Promise<ScreenshotCache>;
 
   completeBuild(masterBuild: ScreenshotBuild): Promise<ScreenshotBuildResults>;
-  
   publishBuild(buildResults: ScreenshotBuildResults): Promise<ScreenshotBuildResults>;
 
   updateScreenshotCache(screenshotCache: ScreenshotCache, buildResults: ScreenshotBuildResults): Promise<ScreenshotCache>;

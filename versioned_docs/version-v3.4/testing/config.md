@@ -71,7 +71,7 @@ export interface TestingConfig extends JestConfig {
    * The following values are accepted:
    * - "new" - enables the "new" headless mode, starting with Chrome 112
    * - `true` - enables the "old" headless mode, prior to Chrome 112
-   * - `false` - enables the "headful" mode
+   * - `false` - enables the "headed" mode
    *
    * Stencil will default to `true` (the old headless mode) if no value is provided.
    *

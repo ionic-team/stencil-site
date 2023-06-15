@@ -220,8 +220,9 @@ import { defineCustomElements } from 'stencil-library/loader';
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: () => defineCustomElements,
-      multi: true
+      useFactory: () => {
+        return defineCustomElements();
+      },
     },
   ]
 })
