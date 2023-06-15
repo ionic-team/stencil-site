@@ -46,7 +46,6 @@ export interface ScreenshotConnector {
   getScreenshotCache(): Promise<ScreenshotCache>;
 
   completeBuild(masterBuild: ScreenshotBuild): Promise<ScreenshotBuildResults>;
-
   publishBuild(buildResults: ScreenshotBuildResults): Promise<ScreenshotBuildResults>;
 
   updateScreenshotCache(screenshotCache: ScreenshotCache, buildResults: ScreenshotBuildResults): Promise<ScreenshotCache>;

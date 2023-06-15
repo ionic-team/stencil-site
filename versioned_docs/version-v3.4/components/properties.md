@@ -24,7 +24,6 @@ import { Component, Prop, h } from '@stencil/core';
 export class TodoList {
     // Second, we decorate a class member with @Prop()
     @Prop() name: string;
-
     render() {
         // Within the component's class, its props are
         // accessed via `this`. This allows us to render
@@ -123,7 +122,6 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class ToDoListItem {
   @Prop() thingToDo: string;
-
   render() {
     return <li>{this.thingToDo}</li>;
   }
@@ -616,7 +614,6 @@ export class ComponentWithManyProps {
     // both props below are of type 'number'
     @Prop() number1: number;
     @Prop() number2 = 42;
-
     // both props below are of type 'string'
     @Prop() string1: string;
     @Prop() string2 = 'defaultValue';
