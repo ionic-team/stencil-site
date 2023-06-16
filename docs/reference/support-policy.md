@@ -59,6 +59,19 @@ In the example above, when Version D is released, Version C enters maintenance m
 After July 1st 2022, Version C will be in extended support until Jun 1st, 2023, twelve months after the release of
 Version D.
 
+## Browser Support
+
+Stencil builds Web Components that run natively in all widely used desktop and mobile browsers.
+Custom Elements are natively supported in Chrome, Edge, Firefox, and Safari (including iOS)!
+
+Stencil supports the following browsers:
+
+| Stencil Version | Chrome | Edge | Firefox | Safari | Internet Explorer | Pre-Chromium Edge |
+|:---------------:|:------:|:----:|:-------:|:------:|:-----------------:|:-----------------:|
+|       V4        |  v79+  | v79+ |  v70+   |  v14+  |     &#10060;      |     &#10060;      |
+|       V3        |  v79+  | v79+ |  v70+   |  v14+  |      &#9989;      |      &#9989;      |
+|       V2        |  v60+  | v79+ |  v63+   | v10.1+ |      &#9989;      |      &#9989;      |
+
 ## TypeScript Support
 
 Stencil acts as a compiler for a project's web components, and works closely with the TypeScript compiler to transform
