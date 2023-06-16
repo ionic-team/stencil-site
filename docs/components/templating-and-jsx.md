@@ -211,11 +211,11 @@ each element like so:
 render() {
   return (
     <div>
-      {this.todos.map((todo) =>
+      {this.todos.map((todo) => (
         <div key={todo.uid}>
           <div>{todo.taskName}</div>
         </div>
-      )}
+      ))}
     </div>
   )
 }
