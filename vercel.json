@@ -145,6 +145,11 @@
       "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/stencil-redux",
       "destination": "https://github.com/ionic-team/stencil-redux",
       "statusCode": 301
+    },
+    {
+      "source": "/:version(next|(?:v[4-9]+(?:\\.[\\dx]+)?))?/browser-support",
+      "destination": "/docs/:version/support-policy",
+      "statusCode": 301
     }
   ],
   "rewrites": [
