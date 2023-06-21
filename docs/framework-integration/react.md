@@ -493,16 +493,3 @@ In addition, all the Web Components will be automatically defined as the generat
 ### What is the best format to write event names?
 
 Event names shouldn’t include special characters when initially written in Stencil. Try to lean on using camelCased event names for interoperability between frameworks.
-
-### How do I add IE11 or Edge support?
-
-If you want your custom elements to work on older browsers, you should call the `applyPolyfills()` function before `defineCustomCustomElements()`.
-`applyPolyfills()` returns a `Promise`, so you could call it like this:
-
-```tsx
-import { applyPolyfills, defineCustomElements } from 'test-components/loader';
-
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-```

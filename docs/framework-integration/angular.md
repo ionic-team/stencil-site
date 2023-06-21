@@ -515,19 +515,6 @@ between frameworks.
 You can configure how your input events can map directly to a value accessor, allowing two-way data-binding to be a built in feature of any of your
 components. Take a look at [valueAccessorConfig's option above](#valueaccessorconfigs).
 
-### How do I add IE11 or Edge support?
-
-If you want your custom elements to be able to work on older browsers, you should add the `applyPolyfills()` that surround the `defineCustomElements()`
-function.
-
-```ts
-import { applyPolyfills, defineCustomElements } from 'test-components/loader';
-...
-applyPolyfills().then(() => {
-  defineCustomElements();
-});
-```
-
 ### How do I access components with ViewChild or ViewChildren?
 
 Once included, components could be referenced in your code using `ViewChild` and `ViewChildren` as in the following example:

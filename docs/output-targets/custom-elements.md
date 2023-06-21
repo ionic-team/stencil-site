@@ -344,19 +344,3 @@ The `dist-custom-elements` builds each component as a stand-alone class that ext
 The `dist` output target, on the other hand, is more for projects that want to allow components to lazy-load themselves, without having to setup bundling configurations to do so.
 
 Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
-
-## Browser Support
-
-If the library is to be used on IE11 we recommend using the [`dist` output target](./dist.md) instead since it will only load the required polyfills on-demand. The `dist-custom-elements` is only recommended for modern browsers that already support Custom Elements, Shadow DOM, and CSS Variables (basically not IE11 or Edge 12-18). If this build is going to be used within legacy browsers then the project consuming these components will have to provide its own polyfills, and correctly downlevel the output to ES5.
-
-:::info
-As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
-:::
-
-Good news is that these are already widely supported for modern web development:
-
-- [Custom Elements Support](https://caniuse.com/#feat=custom-elementsv1)
-- [Shadow DOM Support](https://caniuse.com/#feat=shadowdomv1)
-- [CSS Variables Support](https://caniuse.com/#feat=css-variables)
-- [ES Modules](https://caniuse.com/#feat=es6-module)
-- [async/await](https://caniuse.com/#feat=async-functions)

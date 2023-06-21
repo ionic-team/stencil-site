@@ -16,8 +16,7 @@ To resolve this issue, Stencil supports using [CSP nonces](https://developer.moz
 many of the output targets.
 
 :::caution
-NOTE: CSPs and some CSP strategies are not supported by legacy browsers such as Internet Explorer. For a more detailed list, please see the [CSP browser
-compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#browser_compatibility).
+NOTE: CSPs and some CSP strategies are not supported by certain browsers. For a more detailed list, please see the [CSP browser compatibility table](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#browser_compatibility).
 :::
 
 ## How to Use a Nonce

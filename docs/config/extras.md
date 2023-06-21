@@ -13,34 +13,6 @@ polyfills, etc. For example, not all DOM APIs are fully polyfilled when using
 the Slot polyfill. Most of these are opt-in, since not all users require the
 additional runtime.
 
-By default, Stencil does not work on IE11, Edge 18 and below (Edge before it
-moved to Chromium) and Safari 10. In order to support legacy browsers, the
-browsers would need to download and run polyfills. By using the `extras`
-config, apps can opt-in these additional runtime settings.
-
-:::info
-As of Stencil v3, several of these fields are deprecated, and will be removed in a future major version of Stencil.
-Deprecated fields are marked as such.
-:::
-
-Example `extras` config when **supporting** legacy browsers:
-
-```tsx
-export const config: Config = {
-  buildEs5: 'prod',
-  extras: {
-    scriptDataOpts: true,
-    appendChildSlotFix: false,
-    cloneNodeFix: false,
-    slotChildNodesFix: true,
-  },
-};
-```
-
-:::note
-`buildEs5: 'prod'` was also set in the config since this example needs to support legacy browsers. See the [buildEs5 config](./01-overview.md#buildes5) for more information.
-:::
-
 ### appendChildSlotFix
 
 By default, the slot polyfill does not update `appendChild()` so that it appends new child nodes into the correct child slot like how shadow dom works. This is an opt-in polyfill for those who need it.

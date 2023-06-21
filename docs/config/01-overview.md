@@ -24,15 +24,8 @@ export const config: Config = {
 
 Sets if the ES5 build should be generated or not.
 It defaults to `false`.
-Setting `buildEs5` to `true` will also create es5 builds for both dev and prod modes.
+Setting `buildEs5` to `true` will also create ES5 builds for both dev and prod modes.
 Setting `buildEs5` to `prod` will only build ES5 in prod mode.
-If the app does not need to run on legacy browsers (IE11 and Edge 18 and below), `buildEs5` set  to `false`, which will also speed up production build times. 
-In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. 
-See [config extras](./extras.md) for more information.
-
-:::info
-As of Stencil v3, legacy browser support is deprecated, and will be removed in a future major version of Stencil.
-:::
 
 ```tsx
 buildEs5: boolean | 'prod'
