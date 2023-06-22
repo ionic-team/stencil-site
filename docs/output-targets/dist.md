@@ -70,7 +70,7 @@ import * as utils from '../path/to/utils';
 ```
 
 :::tip
-If using the `dist-collection` output target directly, the same result can be achieved using the [`transformAliasedImportPaths`](../config/01-overview.md#transformaliasedimportpaths) flag on the target's config.
+If using the `dist-collection` output target directly, the same result can be achieved using the [`transformAliasedImportPaths`](../output-targets/dist.md#transformaliasedimportpathsincollection) flag on the target's config.
 :::
 
 ## Publishing
