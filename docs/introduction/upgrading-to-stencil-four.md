@@ -76,6 +76,11 @@ DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DO
 was needed in the current browser, and include one if so.
 This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
 
+### Legacy Cache Stats Config Flag Removed
+
+The `enableCacheStats` flag was used in legacy behavior for caching, but has not been used for some time. This
+flag has been removed from Stencil's API and should be removed from a project's Stencil configuration file (`stencil.config.ts`).
+
 ### Drop Node 14 Support
 
 Stencil no longer supports Node 14.
