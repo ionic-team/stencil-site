@@ -5,7 +5,7 @@ Thanks for your interest in contributing to the Stencil Docs! :tada:
 
 ## Creating an Issue
 
-* If you have a question about using Stencil, please ask in the [Stencil Worldwide Slack](https://join.slack.com/t/stencil-worldwide/shared_invite/enQtMjQ2MzkyMTY0MTk0LTQ4ODgzYjFjNjdkNDY3YWVhMmNlMTljMWQxNTM3Yjg0ZTIyZTM1MmU2YWE5YzNjNzE1MmQ3ZTk2NjQ1YzM5ZDM) group.
+* If you have a question about using Stencil, please ask in the [discord channel](https://chat.stenciljs.com/).
 
 * It is required that you clearly describe the steps necessary to reproduce the issue you are running into. Although we would love to help our users as much as possible, diagnosing issues without clear reproduction steps is extremely time-consuming and simply not sustainable.
 
