@@ -17,8 +17,8 @@ const sidebars = {
         },
         {
           type: 'link',
-          label: 'Stencil on Slack',
-          href: 'https://stencil-worldwide.slack.com/',
+          label: 'Stencil on Discord',
+          href: 'https://chat.stenciljs.com/',
         },
         {
           type: 'link',
