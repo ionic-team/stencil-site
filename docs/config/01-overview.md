@@ -293,7 +293,7 @@ Please see the [testing config docs](../testing/config.md).
 
 ## transformAliasedImportPaths
 
-*default: `false`*
+*default: `true`*
 
 This sets whether or not Stencil should transform [path aliases](
 https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) set
@@ -330,8 +330,7 @@ export function util(arg: UtilInterface) {
 }
 ```
 
-if the `transformAliasedImportPaths` option is set to `true` Stencil will
-produce the following output:
+Stencil will produce the following output:
 
 ```js title="dist/my-module.js"
 import { utilFunc } from '../path/to/utils';
