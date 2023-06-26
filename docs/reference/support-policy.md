@@ -24,8 +24,8 @@ The current status of each Stencil version is:
 
 | Version |     Status     |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:--------------:|:------------:|:----------------:|:-----------------:|
-|   V4    |  **Upcoming**  |     TBD      |       TBD        |        TBD        |
-|   V3    |   **Active**   | Jan 25, 2023 |       TBD        |        TBD        |
+|   V4    |   **Active**   | Jun 26, 2023 |       TBD        |        TBD        |
+|   V3    |  Maintenance   | Jan 25, 2023 |   Dec 26, 2023   |   Jun 26, 2024    |
 |   V2    |  Maintenance   | Aug 08, 2020 |   Jul 25, 2023   |   Jan 25, 2024    |
 |   V1    | End of Support | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
@@ -42,7 +42,7 @@ will be added. The maintenance period shall last six months from the release of 
 
 Once the maintenance period has ended for a version of Stencil, that version enters the extended support period. During
 the extended support period, only critical bug and security fixes will be applied for teams and organizations using
-Stencil's Enterprise offerings. The extended support period lasts for six months from the release of the new major 
+Stencil's Enterprise offerings. The extended support period lasts for twelve months from the release of the new major 
 version.
 
 The table below describes a theoretical timeline of releases:
