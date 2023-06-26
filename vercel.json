@@ -7,6 +7,11 @@
       "statusCode": 301
     },
     {
+      "source": "/docs/:version(v3\\.[0-4])/:path*",
+      "destination": "/docs/:path*",
+      "statusCode": 301
+    },
+    {
       "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?",
       "destination": "/docs/:version/introduction",
       "statusCode": 301
