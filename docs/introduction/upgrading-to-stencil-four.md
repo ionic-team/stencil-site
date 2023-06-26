@@ -73,7 +73,7 @@ For more information on this flag, please see the [configuration documentation](
 #### `transformAliasedImportPathsInCollection`
 
 Introduced in [Stencil v2.18.0](https://github.com/ionic-team/stencil/releases/tag/v2.18.0), `transformAliasedImportPathsInCollection` is a configuration flag on the [`dist` output target](../output-targets/dist.md#transformaliasedimportpathsincollection).
-`transformAliasedImportPathsInCollection` transforms import paths, similar to [`transformAliasedImportPaths`](#transformaliasedimportpathsincollection).
+`transformAliasedImportPathsInCollection` transforms import paths, similar to [`transformAliasedImportPaths`](#transformaliasedimportpaths).
 This flag however, only enables the functionality of `transformAliasedImportPaths` for collection output targets.
 
 Starting with Stencil v4.0.0, this flag is enabled by default.
@@ -97,6 +97,7 @@ export const config: Config = {
 ```
 
 For more information on this flag, please see the [`dist` output target's documentation](../output-targets/dist.md#transformaliasedimportpathsincollection).
+
 ### In Browser Compilation Support Removed
 
 Prior to Stencil v4.0.0, components could be compiled from TSX to JS in the browser.
@@ -123,24 +124,24 @@ In Stencil v4.0.0, support for these browsers has been dropped (for a full list 
 
 By dropping these browsers, a few configuration options are no longer valid in a Stencil configuration file:
 
-##### `__deprecated__cssVarsShim`
+#### `__deprecated__cssVarsShim`
 
 The `extras.__deprecated__cssVarsShim` option caused Stencil to include a polyfill for [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*).
 This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
 
-##### `__deprecated__dynamicImportShim`
+#### `__deprecated__dynamicImportShim`
 
 The `extras.__deprecated__dynamicImportShim` option caused Stencil to include a polyfill for
 the [dynamic `import()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
 for use at runtime.
 This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
 
-##### `__deprecated__safari10`
+#### `__deprecated__safari10`
 
 The `extras.__deprecated__safari10` option would patch ES module support for Safari 10.
 This field should be removed from a project's Stencil configuration file (`stencil.config.ts`).
 
-##### `__deprecated__shadowDomShim`
+#### `__deprecated__shadowDomShim`
 
 The `extras.__deprecated__shadowDomShim` option would check whether a shim for [shadow
 DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
@@ -157,6 +158,86 @@ flag has been removed from Stencil's API and should be removed from a project's 
 Stencil no longer supports Node 14.
 Please upgrade local development machines, continuous integration pipelines, etc. to use Node v16 or higher.
 For the full list of supported runtimes, please see [our Support Policy](../reference/support-policy.md#javascript-runtime).
+
+## Information Included in `docs-json` Expanded
+
+For Stencil v4 the information included in the output of the `docs-json` output
+target was expanded to include more information about the types of properties
+and methods on Stencil components.
+
+For more context on this change, see the [documentation for the new
+`supplementalPublicTypes`](../documentation-generation/docs-json.md#supplementalpublictypes)
+option for the JSON documentation output target.
+
+### `JsonDocsEvent`
+
+The JSON-formatted documentation for an `@Event` now includes a field called
+`complexType` which includes more information about the types referenced in the
+type declarations for that property.
+
+Here's an example of what this looks like for the [ionBreakpointDidChange
+event](https://github.com/ionic-team/ionic-framework/blob/1f0c8049a339e3a77c468ddba243041d08ead0be/core/src/components/modal/modal.tsx#L289-L292)
+on the `Modal` component in Ionic Framework:
+
+```json
+{
+  "complexType": {
+    "original": "ModalBreakpointChangeEventDetail",
+    "resolved": "ModalBreakpointChangeEventDetail",
+    "references": {
+      "ModalBreakpointChangeEventDetail": {
+        "location": "import",
+        "path": "./modal-interface",
+        "id": "src/components/modal/modal.tsx::ModalBreakpointChangeEventDetail"
+      }
+    }
+  }
+}
+```
+
+### `JsonDocsMethod`
+
+The JSON-formatted documentation for a `@Method` now includes a field called
+`complexType` which includes more information about the types referenced in
+the type declarations for that property.
+
+Here's an example of what this looks like for the [open
+method](https://github.com/ionic-team/ionic-framework/blob/1f0c8049a339e3a77c468ddba243041d08ead0be/core/src/components/select/select.tsx#L261-L313)
+on the `Select` component in Ionic Framework:
+
+```json
+{
+  "complexType": {
+    "signature": "(event?: UIEvent) => Promise<any>",
+    "parameters": [
+      {
+        "tags": [
+          {
+            "name": "param",
+            "text": "event The user interface event that called the open."
+          }
+        ],
+        "text": "The user interface event that called the open."
+      }
+    ],
+    "references": {
+      "Promise": {
+        "location": "global",
+        "id": "global::Promise"
+      },
+      "UIEvent": {
+        "location": "global",
+        "id": "global::UIEvent"
+      },
+      "HTMLElement": {
+        "location": "global",
+        "id": "global::HTMLElement"
+      }
+    },
+    "return": "Promise<any>"
+  }
+}
+```
 
 ## Additional Packages
 
