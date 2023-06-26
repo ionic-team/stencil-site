@@ -8,7 +8,7 @@
     },
     {
       "source": "/:version(v3\\.[0-4])/:path*",
-      "destination": "/docs/:path*",
+      "destination": "/docs/v3/:path*",
       "statusCode": 301
     },
     {
