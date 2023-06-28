@@ -54,7 +54,7 @@ export const Hello: FunctionalComponent<HelloProps> = ({ name }) => (
 
 ## Working with children
 
-The second argument of a functional component receives the passed children, but in order to work with them, the `FunctionalComponent` provides an utils object that exposes a `map()` method to transform the children, and `forEach()` to read them. Reading the `children` array is not recommended since the stencil compiler can rename the vNode properties in prod mode.
+The second argument of a functional component receives the passed children, but in order to work with them, `FunctionalComponent` provides a utils object that exposes a `map()` method to transform the children, and a `forEach()` method to read them. Reading the `children` array is not recommended since the stencil compiler can rename the vNode properties in prod mode.
 
 ```tsx
 export interface FunctionalUtilities {
