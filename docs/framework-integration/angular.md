@@ -384,7 +384,7 @@ Ionic Framework can integrate better with Angular's Router.
 **Type: `string`**
 
 Used to provide a list of type Proxies to the Angular Component Library.
-See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.ts) for a sample.
+See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/packages/angular/src/directives/proxies-list.ts) for a sample.
 
 ### directivesProxyFile
 
