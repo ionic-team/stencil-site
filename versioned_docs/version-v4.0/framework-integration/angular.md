@@ -207,7 +207,7 @@ export * from './lib/stencil-generated/components';
 ### Registering Custom Elements
 
 The default behavior for this output target does not handle automatically defining/registering the custom elements. One strategy (and the approach
-the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/app-initialize.ts#L21-L34) takes) is to use the loader to define all custom elements during app initialization:
+the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/packages/angular/src/app-initialize.ts#L21-L34) takes) is to use the loader to define all custom elements during app initialization:
 
 ```ts
 // component-library.module.ts
@@ -384,7 +384,7 @@ Ionic Framework can integrate better with Angular's Router.
 **Type: `string`**
 
 Used to provide a list of type Proxies to the Angular Component Library.
-See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/angular/src/directives/proxies-list.ts) for a sample.
+See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/packages/angular/src/directives/proxies-list.ts) for a sample.
 
 ### directivesProxyFile
 
