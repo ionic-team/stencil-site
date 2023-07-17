@@ -155,6 +155,11 @@
       "source": "/:version(next|(?:v[4-9]+(?:\\.[\\dx]+)?))?/browser-support",
       "destination": "/docs/:version/support-policy",
       "statusCode": 301
+    },
+    {
+      "source": "/:version(next|(?:v[\\d]+(?:\\.[\\dx]+)?))?/static-site-generation-debugging",
+      "destination": "/docs/:version/vs-code-debugging",
+      "statusCode": 301
     }
   ],
   "rewrites": [
