@@ -356,13 +356,10 @@ import { MyComponent } from 'my-component-lib/components/my-component.js';
 
 **Optional**
 
-**Default: 'dist/components'**
-
 **Type: `string`**
 
-If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
-custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
-the default directory.
+This option can be used to specify the directory where the generated
+custom elements live.
 
 ### excludeComponents
 
@@ -395,30 +392,19 @@ See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/pa
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the
 first file you should import in your Angular project.
 
-### includeImportCustomElements
+### outputType
 
-**Optional**
+**Required**
 
-**Default: `false`**
+**Type: `'component' | 'scam' | 'standalone`**
 
-**Type: `boolean`**
+This parameter allows you to choose the type of Angular component wrapper to generate. 
 
-If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. For more information
-on using the `dist-custom-elements` output for the Angular proxies, see the [FAQ answer below](#do-i-have-to-use-the-dist-output-target).
+`component` - Generates an individual component wrapper for each Stencil component. Recommended for the lazy/hydrated output of Stencil.
 
-### includeSingleComponentAngularModules
+`scam` - Generates a single component angular module and component for each Stencil component. Recommended for the custom elements output of Stencil.
 
-**Optional**
-
-**Default: `false`**
-
-**Type: `boolean`**
-
-**Available Since: `@stencil/angular-output-target@v0.6.0`**
-
-**Experimental:** This flag and its behaviors are subject to change at any time.
-
-If `true`, an Angular module will be generated for each component. This option requires that `includeImportCustomElements` is set to `true`.
+`standalone` - Generates a standalone component wrapper for each Stencil component. Recommended for the custom elements output of Stencil.
 
 ### valueAccessorConfigs
 
