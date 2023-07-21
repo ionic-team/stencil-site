@@ -27,8 +27,8 @@ An example project set-up may look similar to:
 top-most-directory/
 └── packages/
     ├── vue-library/
-    │   └── src/
-    │       ├── lib/
+    │   └── lib/
+    │       ├── plugin.ts
     │       └── index.ts
     └── stencil-library/
         ├── stencil.config.js
