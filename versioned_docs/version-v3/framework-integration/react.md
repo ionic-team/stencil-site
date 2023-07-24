@@ -490,6 +490,16 @@ using the `dir` property for `dist-custom-elements`, you need to also specify th
 
 In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
 
+### TypeError: Cannot read propertied of undefined (reading 'isProxied')
+
+If you encounter this error when running the React application consuming your proxy components, you can set the [`enableImportInjection`](../config/extras.md#enableimportinjection)
+flag on the Stencil config's `extras` object. Once set, this will require you to rebuild the Stencil component library and the React component library.
+
+:::note
+The `enableImportInjection` flag was introduced in Stencil v3.2.0. If you are running a previous version of Stencil, you can use the
+[`experimentalImportInjection`](../config/extras.md#experimentalimportinjection) flag.
+:::
+
 ### What is the best format to write event names?
 
 Event names shouldn’t include special characters when initially written in Stencil. Try to lean on using camelCased event names for interoperability between frameworks.
