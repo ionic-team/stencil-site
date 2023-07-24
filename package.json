@@ -49,6 +49,6 @@
   "prettier": "@ionic/prettier-config",
   "volta": {
     "node": "20.5.0",
-    "npm": "9.8.0"
+    "npm": "9.8.1"
   }
 }
