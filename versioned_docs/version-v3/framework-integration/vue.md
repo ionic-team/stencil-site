@@ -138,11 +138,15 @@ Update the generated `package.json` in your `vue-library`, adding the following 
 -  "main": "lib/vue-library.js",
 +  "main": "dist/index.js",
 +  "types": "dist/index.d.ts",
+  "files": [
+-    'lib'
++    'dist'
+  ],
   "scripts": {
 -    "test": "echo \"Error: run tests from root\" && exit 1"
 +    "test": "echo \"Error: run tests from root\" && exit 1",
 +    "build": "npm run tsc",
-+    "tsc": "tsc -p ."
++    "tsc": "tsc -p . --outDir ./dist"
 -  }
 +  },
 +  "publishConfig": {
