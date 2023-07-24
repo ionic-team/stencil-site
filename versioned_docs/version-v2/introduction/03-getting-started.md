@@ -50,6 +50,7 @@ Upon successfully creating our project, the CLI will print something similar to 
 
 ```bash
 ✔ Project name › my-first-stencil-project
+✔ A new git repo was initialized
 ✔ All setup  in 26 ms
 
   We suggest that you begin by typing:
@@ -97,7 +98,13 @@ The second section of the `create-stencil` output describes a few useful command
 
 - `npm test` runs your project's tests. The `create-stencil` CLI has created both end-to-end and unit tests when scaffolding your project.
 
-At this time, Stencil does not interact with any version control systems (VCS) when running the `create-stencil` CLI.
+### Source Control
+
+As of create-stencil v3.3.0, a new git repository will be automatically created for you when you initialize a project if:
+1. git is installed
+2. Your project is not created under another git work tree (e.g. if you create a new project in a monorepo, a new git repo will not be created)
+
+Versions of create-stencil prior to v3.3.0 do not interact with any version control systems (VCS).
 If you wish to place your project under version control, we recommend initializing your VCS now.
 If you wish to use git, run the following after changing your current directory to the root of your Stencil project:
 
