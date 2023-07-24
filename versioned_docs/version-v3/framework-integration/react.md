@@ -148,7 +148,7 @@ Update the generated `package.json` in your `react-library`, adding the followin
 -    "test": "node ./__tests__/react-library.test.js"
 +    "test": "node ./__tests__/react-library.test.js",
 +    "build": "npm run tsc",
-+    "tsc": "tsc -p ."
++    "tsc": "tsc -p . --outDir ./dist"
 -  }
 +  },
    "files": [
