@@ -82,6 +82,13 @@ export class TodoList {
 }
 ```
 
+:::note
+In the case where the Stencil `Event` type conflicts with the native web `Event` type, it is suggested that the native web `Event` type be prefixed with `globalThis`:
+```ts title="Preventing Event Type Collisions"
+@Event() myEvent: EventEmitter<{value: string, ev: globalThis.Event}>;
+```
+:::
+
 ## Listen Decorator
 
 The `Listen()` decorator is for listening to DOM events, including the ones dispatched from `@Events`. The event listeners are automatically added and removed when the component gets added or removed from the DOM.
