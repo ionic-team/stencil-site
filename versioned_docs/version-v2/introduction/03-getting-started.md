@@ -104,7 +104,8 @@ As of create-stencil v3.3.0, a new git repository will be automatically created 
 1. git is installed
 2. Your project is not created under another git work tree (e.g. if you create a new project in a monorepo, a new git repo will not be created)
 
-Versions of create-stencil prior to v3.3.0 do not interact with any version control systems (VCS).If you wish to place your project under version control, we recommend initializing your VCS now.
+Versions of create-stencil prior to v3.3.0 do not interact with any version control systems (VCS).
+If you wish to place your project under version control, we recommend initializing your VCS now.
 If you wish to use git, run the following after changing your current directory to the root of your Stencil project:
 
 ```bash
