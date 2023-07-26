@@ -154,7 +154,7 @@ Update the generated `package.json` in your `react-library`, adding the followin
    "files": [
 -    "lib"
 +    "dist"
-   ]
+   ],
 +  "publishConfig": {
 +    "access": "public"
 +  },
@@ -490,7 +490,7 @@ using the `dir` property for `dist-custom-elements`, you need to also specify th
 
 In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
 
-### TypeError: Cannot read propertied of undefined (reading 'isProxied')
+### TypeError: Cannot read properties of undefined (reading 'isProxied')
 
 If you encounter this error when running the React application consuming your proxy components, you can set the [`enableImportInjection`](../config/extras.md#enableimportinjection)
 flag on the Stencil config's `extras` object. Once set, this will require you to rebuild the Stencil component library and the React component library.
