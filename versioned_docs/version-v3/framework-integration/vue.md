@@ -285,7 +285,7 @@ npm init vue@3 my-app
 Follow the prompts and choose the options best for your project.
 
 You'll also need to link your Vue component library as a dependency. This step makes it so your Vue app will be able to correctly
-resolve imports from your Vue library. This is easily done by modifying your Vue app's `project.json` to include the following:
+resolve imports from your Vue library. This is easily done by modifying your Vue app's `package.json` to include the following:
 
 ```json
 "dependencies": {
