@@ -22,9 +22,9 @@ Most methods are async and return Promises. Use `async` and `await` to declutter
 
 `E2EPage` is a wrapper utility to Puppeteer to simplify writing tests. Some helpful methods on `E2EPage` include:
 
-- `emulate(device: Device)`: Updates the page to emulate a device. This is helpful for testing a component's behavior in different orientations and viewport sizes.
 - `find(selector: string)`: Find an element that matches the selector. Similar to `document.querySelector`.
 - `setContent(html: string)`: Sets the content of a page. This is where you would include the markup of the component under test.
+- `setViewport(viewport: Viewport)`: Updates the page to emulate a device display. This is helpful for testing a component's behavior in different orientations and viewport sizes.
 - `waitForChanges()`: Both Stencil and Puppeteer have an asynchronous architecture, which is a good thing for performance. Since all calls are async, it's required that `await page.waitForChanges()` is called when changes are made to components.
 
 An example E2E test might have the following boilerplate:
@@ -202,17 +202,14 @@ For non-shadow content:
     });
 ```
 
-### Emulate a device
+### Emulate a display
 
 ```ts
 const page = await new E2EPage();
 
-await page.emulate({
-  userAgent: 'default',
-  viewport: {
-    width: 900,
-    height: 600
-  }
+await page.setViewport({
+  width: 900,
+  height: 600
 });
 
 // Query an element that is hidden by a media query when width < 901px
