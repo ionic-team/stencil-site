@@ -52,7 +52,7 @@ export const config: PrerenderConfig = {
 | `loadTemplate(filePath)` | Returns the template file's content. The template is the base HTML used for all prerendered pages. |  |
 | `normalizeUrl(href, base)` | Used to normalize the page's URL from a given a string and the current page's base URL. Largely used when reading an anchor's `href` attribute value and normalizing it into a `URL`. |  |
 | `staticSite` | Static Site Generated (SSG). Does not include Stencil's client-side JavaScript, custom elements or preload modules. | `false` |
-| `trailingSlash` | If the prerenndered URLs should have a trailing "/"" or not | `false` |
+| `trailingSlash` | If the prerendered URLs should have a trailing "/"" or not | `false` |
 
 
 ## Individual Page Hydrate Options

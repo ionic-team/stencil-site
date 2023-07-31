@@ -309,7 +309,7 @@ The `dist-custom-elements-bundle` has been removed starting with Stencil v3.0.0,
 Users of this output target should migrate to the `dist-custom-elements` output target.
 
 By default, `dist-custom-elements` does not automatically define all a project's component's with the CustomElementsRegistry.
-This allows for better treeshaking and smaller bundle sizes.
+This allows for better tree-shaking and smaller bundle sizes.
 
 For teams that need to migrate quickly to `dist-custom-elements`, the following configuration should be close to a drop-in replacement for `dist-custom-elements-bundle`:
 ```diff
@@ -331,7 +331,7 @@ export const config: Config = {
   // ...
 };
 ```
-However, it does not necessarily improve treeshaking/bundle size.
+However, it does not necessarily improve tree-shaking/bundle size.
 For more information on configuring this output target, please see the [`dist-custom-elements` documentation](../output-targets/custom-elements.md)
 
 ## Framework Integration Output Targets

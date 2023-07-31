@@ -7,7 +7,7 @@ slug: /distribution
 
 # Distribution Output Target
 
-The `dist` type is to generate the component(s) as a reusable library that can be self-lazy loading, such as [Ionic](https://www.npmjs.com/package/@ionic/core). When creating a distribution, the project's `package.json` will also have to be updated. However, the generated bundle is treeshakable, ensuring that only imported components will end up in the build.
+The `dist` type is to generate the component(s) as a reusable library that can be self-lazy loading, such as [Ionic](https://www.npmjs.com/package/@ionic/core). When creating a distribution, the project's `package.json` will also have to be updated. However, the generated bundle is tree-shakable, ensuring that only imported components will end up in the build.
 
 ```tsx
 outputTargets: [
