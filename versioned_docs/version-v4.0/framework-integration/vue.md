@@ -138,11 +138,15 @@ Update the generated `package.json` in your `vue-library`, adding the following 
 -  "main": "lib/vue-library.js",
 +  "main": "dist/index.js",
 +  "types": "dist/index.d.ts",
+  "files": [
+-    'lib'
++    'dist'
+  ],
   "scripts": {
 -    "test": "echo \"Error: run tests from root\" && exit 1"
 +    "test": "echo \"Error: run tests from root\" && exit 1",
 +    "build": "npm run tsc",
-+    "tsc": "tsc -p ."
++    "tsc": "tsc -p . --outDir ./dist"
 -  }
 +  },
 +  "publishConfig": {
@@ -281,7 +285,7 @@ npm init vue@3 my-app
 Follow the prompts and choose the options best for your project.
 
 You'll also need to link your Vue component library as a dependency. This step makes it so your Vue app will be able to correctly
-resolve imports from your Vue library. This is easily done by modifying your Vue app's `project.json` to include the following:
+resolve imports from your Vue library. This is easily done by modifying your Vue app's `package.json` to include the following:
 
 ```json
 "dependencies": {
@@ -528,6 +532,11 @@ using the `dir` property for `dist-custom-elements`, you need to also specify th
 [the API section](#customelementsdir) for more information.
 
 In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
+
+### TypeError: Cannot read properties of undefined (reading 'isProxied')
+
+If you encounter this error when running the Vue application consuming your proxy components, you can set the [`enableImportInjection`](../config/extras.md#enableimportinjection)
+flag on the Stencil config's `extras` object. Once set, this will require you to rebuild the Stencil component library and the Vue component library.
 
 ### Vue warns "Failed to resolve component: my-component"
 
