@@ -9,35 +9,30 @@ slug: /ember
 
 ## For Monorepos (recommended)
 
-It may be better to follow the [getting started](https://stenciljs.com/docs/getting-started) docs for creating a stencil project using the native stencil tooling.
+It's recommened to use the [getting started](https://stenciljs.com/docs/getting-started) docs for creating a Stencil project using the native Stencil tooling.
+This way, in your Ember project, you don't need to configure anything extra, and you can use Stencil components natively.
 
-This way, in your ember project, you don't need to configure anything extra, and you can use stencil components natively.
+For example, if using the [Ionic Framework](https://ionicframework.com/) in your Ember project:
 
-For example, if using the [ionic framework](https://ionicframework.com/)
-
-_add the stencil library to your app_
-```bash
+1. Add the Ionic Framework to your app:
+```bash npm2yarn
 npm add @ionic/core
 ```
 
-_install the components from the library_
-```js
-// in app/app.js
-import '@ionic/core'; // installs all the components from the stencil project
+2. Install the components from the library:
+```js title="app/app.js"
+import '@ionic/core'; // installs all the components from Ionic Framework
 ```
 
-_use the components anywhere_
-```js
-// app/components/example.gjs
-
+3. Use the components anywhere:
+```js title=app/components/example.gjs"
 <template>
   <ion-toggle></ion-toggle>
 </template>
 ```
 
-_and hook up events / state (controlled component pattern)_
-```js
-// app/components/example-with-state.gjs
+4. You can hook up events / state (controlled component pattern):
+```js title="app/components/example-with-state.gjs"
 import { on } from '@ember/modifier';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
