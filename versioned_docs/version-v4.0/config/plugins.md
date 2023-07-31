@@ -9,7 +9,7 @@ slug: /plugins
 
 ## Stencil plugins
 
-By default, Stencil does not come with `Sass` or `PostCss` support. However, either can be added using the `plugins` array.
+By default, Stencil does not come with `Sass` or `PostCSS` support. However, either can be added using the `plugins` array.
 
 ```tsx
 import { Config } from '@stencil/core';

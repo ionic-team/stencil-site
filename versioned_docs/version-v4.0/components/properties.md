@@ -725,7 +725,7 @@ See [Object Props](#object-props) for guidance as to how to configure `httpServi
 At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are 
 case-insensitive, so the attribute names will be `is-complete` & `thing-to-do` by default.
 
-Fortunately, this "default" behaviour can be changed using the `attribute` option of the `@Prop()` decorator:
+Fortunately, this "default" behavior can be changed using the `attribute` option of the `@Prop()` decorator:
 
 ```tsx
 import { Component, Prop, h } from '@stencil/core';

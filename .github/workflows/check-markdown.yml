@@ -1,4 +1,4 @@
-name: Check Markdown links
+name: Check Markdown
 
 on:
   pull_request:
@@ -22,3 +22,20 @@ jobs:
 
     - name: check internal markdown links
       run: npm run check-links
+
+  markdown-spelling-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+
+    - name: Use Node from Volta
+      uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
+      with:
+        node-version-file: 'package.json'
+        cache: 'npm'
+
+    - name: install dependencies
+      run: npm ci
+
+    - name: check spelling
+      run: npm run spellcheck

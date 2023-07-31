@@ -9,7 +9,7 @@ slug: /ember
 
 ## For Monorepos (recommended)
 
-It's recommened to use the [getting started](https://stenciljs.com/docs/getting-started) docs for creating a Stencil project using the native Stencil tooling.
+It's recommended to use the [getting started](https://stenciljs.com/docs/getting-started) docs for creating a Stencil project using the native Stencil tooling.
 This way, in your Ember project, you don't need to configure anything extra, and you can use Stencil components natively.
 
 For example, if using the [Ionic Framework](https://ionicframework.com/) in your Ember project:
