@@ -204,6 +204,8 @@ For non-shadow content:
 
 ### Emulate a display
 
+If you need to test how a component behaves with a particular viewport you can set the viewport width and height like so:
+
 ```ts
 const page = await new E2EPage();
 
