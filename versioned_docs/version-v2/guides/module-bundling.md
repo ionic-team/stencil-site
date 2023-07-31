@@ -44,15 +44,13 @@ In this case, the compiler will emit an error that looks like this:
 
 The solution is to move any shared functions or classes to a different `.ts` file, like this:
 
-**src/utils.ts:**
-```tsx
+```tsx title="src/utils.ts"
 export function someUtilFunction() {
   console.log('do stuff');
 }
 ```
 
-**src/components/my-cmp.tsx:**
-```tsx
+```tsx title="src/components/my-cmp.tsx"
 import { someUtilFunction } from '../utils.ts';
 
 @Component({
@@ -61,9 +59,7 @@ import { someUtilFunction } from '../utils.ts';
 export class MyCmp {}
 ```
 
-**src/components/my-cmp-two.tsx:**
-
-```tsx
+```tsx title="src/components/my-cmp-two.tsx"
 import { someUtilFunction } from '../utils.ts';
 
 @Component({
@@ -71,7 +67,6 @@ import { someUtilFunction } from '../utils.ts';
 })
 export class MyCmpTwo {}
 ```
-
 
 ## CommonJS Dependencies
 
