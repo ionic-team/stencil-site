@@ -95,8 +95,10 @@ export interface TestingConfig extends JestConfig {
   browserSlowMo?: number;
 
   /**
-   * Array of browser emulations to be using during e2e tests. A full e2e
-   * test is ran for each emulation.
+   * Array of browser emulations to be used during _screenshot_ tests. A full screenshot
+   * test is run for each emulation.
+   * 
+   * To emulate a device display for your e2e tests, use the `setViewport` method on a test's E2E page.
    */
   emulate?: EmulateConfig[];
 

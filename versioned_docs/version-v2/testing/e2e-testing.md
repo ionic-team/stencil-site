@@ -22,8 +22,9 @@ Most methods are async and return Promises. Use `async` and `await` to declutter
 
 `E2EPage` is a wrapper utility to Puppeteer to simplify writing tests. Some helpful methods on `E2EPage` include:
 
-- `setContent(html: string)`: Sets the content of a page. This is where you would include the markup of the component under test.
 - `find(selector: string)`: Find an element that matches the selector. Similar to `document.querySelector`.
+- `setContent(html: string)`: Sets the content of a page. This is where you would include the markup of the component under test.
+- `setViewport(viewport: Viewport)`: Updates the page to emulate a device display. This is helpful for testing a component's behavior in different orientations and viewport sizes.
 - `waitForChanges()`: Both Stencil and Puppeteer have an asynchronous architecture, which is a good thing for performance. Since all calls are async, it's required that `await page.waitForChanges()` is called when changes are made to components.
 
 An example E2E test might have the following boilerplate:
@@ -76,7 +77,7 @@ it('should create toggle, unchecked by default', async () => {
 
 ## E2E Testing Recipes
 
-#### Find an element in the Shadow DOM
+### Find an element in the Shadow DOM
 
 Use the "piercing" selector `>>>` to query for an object inside a component's shadow root:
 
@@ -84,7 +85,7 @@ Use the "piercing" selector `>>>` to query for an object inside a component's sh
 const el = await page.find('foo-component >>> .close-button');
 ```
 
-#### Set a @Prop() on a component
+### Set a @Prop() on a component
 
 Use `page.$eval` (part of the Puppeteer API) to set props or otherwise manipulate a component:
 
@@ -109,7 +110,7 @@ await page.$eval('prop-cmp', (elm: any) => {
 await page.waitForChanges();
 ```
 
-#### Set a @Prop() on a component using an external reference
+### Set a @Prop() on a component using an external reference
 
 Because `page.$eval` has an isolated scope, you’ll have to explicitly pass in outside references otherwise you’ll an encounter an `undefined` error. This is useful in case you’d like to import data from another file, or re-use mock data across multiple tests in the same file.
 
@@ -133,7 +134,7 @@ await page.waitForChanges();
 ```
 
 
-#### Call a @Method() on a component
+### Call a @Method() on a component
 
 ```typescript
 const elm = await page.find('method-cmp');
@@ -141,7 +142,7 @@ elm.setProperty('someProp', 88);
 const methodRtnValue = await elm.callMethod('someMethod');
 ```
 
-#### Type inside an input field
+### Type inside an input field
 
 ```typescript
 const page = await newE2EPage({
@@ -166,7 +167,7 @@ await input.press('KeyH');
 await page.keyboard.up('Shift');
 ```
 
-#### Checking the text of a rendered component
+### Checking the text of a rendered component
 
 ```typescript
 await page.setContent(`
@@ -177,7 +178,7 @@ const elm = await page.find('prop-cmp >>> div');
 expect(elm).toEqualText('Hello, my name is Marty McFly');
 ```
 
-#### Checking a component's HTML
+### Checking a component's HTML
 
 For shadowRoot content:
 
@@ -199,6 +200,23 @@ For non-shadow content:
         </div>
       </div>`);
     });
+```
+
+### Emulate a display
+
+If you need to test how a component behaves with a particular viewport you can set the viewport width and height like so:
+
+```ts
+const page = await new E2EPage();
+
+await page.setViewport({
+  width: 900,
+  height: 600
+});
+
+// Query an element that is hidden by a media query when width < 901px
+const el = await page.find('.desktop');
+expect(el).not.toBeDefined();
 ```
 
 ## Caveat about e2e tests automation on CD/CI
