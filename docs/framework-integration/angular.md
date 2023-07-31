@@ -122,6 +122,7 @@ workspace `package.json` file:
 # from `/packages/angular-workspace`
 npm uninstall jasmine-core @types/jasmine
 ```
+
 :::
 
 ### Adding the Angular Output Target
@@ -150,6 +151,7 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: 'stencil-library',
+      outputType: 'component',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
@@ -158,13 +160,16 @@ export const config: Config = {
 ```
 
 :::tip
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
+
+`outputType` should be set to `component` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `scam` or `standalone`.
+
 The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
 file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
 The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This
 constant can be used to easily declare and export all the wrappers.
 
-The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
 :::
 
 See the [API section below](#api) for details on each of the output target's options.
@@ -359,7 +364,7 @@ import { MyComponent } from 'my-component-lib/components/my-component.js';
 **Type: `string`**
 
 This option can be used to specify the directory where the generated
-custom elements live.
+custom elements live. Required to be set for `outputType: "scam"` or `outputType: "standalone"`.
 
 ### excludeComponents
 
@@ -398,13 +403,17 @@ first file you should import in your Angular project.
 
 **Type: `'component' | 'scam' | 'standalone`**
 
-This parameter allows you to choose the type of Angular component wrapper to generate. 
+Specifies the type of output to be generated. It can take one of the following values:
 
-`component` - Generates an individual component wrapper for each Stencil component. Recommended for the lazy/hydrated output of Stencil.
+1. `component`: Generates all the component wrappers to be declared on an Angular module. This option is required for Stencil projects using the `dist` hydrated output.
 
-`scam` - Generates a single component angular module and component for each Stencil component. Recommended for the custom elements output of Stencil.
+2. `scam`: Generates a separate Angular module for each component.
 
-`standalone` - Generates a standalone component wrapper for each Stencil component. Recommended for the custom elements output of Stencil.
+3. `standalone`: Generates standalone component wrappers.
+
+Both `scam` and `standalone` options are compatible with the `dist-custom-elements` output. Developers **must** set a `customElementsDir` in the output target config when using either `scam` or `standalone`.
+
+Note: Please choose the appropriate `outputType` based on your project's requirements and the desired output structure.
 
 ### valueAccessorConfigs
 
