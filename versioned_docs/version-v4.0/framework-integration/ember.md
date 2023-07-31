@@ -16,7 +16,7 @@ For example, if using the [Ionic Framework](https://ionicframework.com/) in your
 
 1. Add the Ionic Framework to your app:
 ```bash npm2yarn
-npm add @ionic/core
+npm install @ionic/core
 ```
 
 2. Install the components from the library:
@@ -25,7 +25,7 @@ import '@ionic/core'; // installs all the components from Ionic Framework
 ```
 
 3. Use the components anywhere:
-```js title=app/components/example.gjs"
+```js title="app/components/example.gjs"
 <template>
   <ion-toggle></ion-toggle>
 </template>
