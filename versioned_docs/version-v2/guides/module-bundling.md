@@ -17,8 +17,7 @@ Modules that contain a component are entry-points, which means that no other mod
 
 The following example is **NOT** valid:
 
-**src/components/my-cmp.tsx:**
-```tsx
+```tsx title="src/components/my-cmp.tsx"
 // This module has a component, you cannot export anything else
 export function someUtilFunction() {
   console.log('do stuff');
