@@ -39,7 +39,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class Demo extends Component {
   <template>
-    <ion-toggle value="{{this.isOn}}" {{on "click" this.toggle}}></ion-toggle>
+    <ion-toggle checked="{{this.isOn}}" {{on "ionChange" this.toggle}}></ion-toggle>
   </template>
 
   @tracked isOn = true;
