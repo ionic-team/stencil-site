@@ -87,3 +87,23 @@ It is possible to assign data to the actual `<script>` element's `data-opts` pro
 ### slotChildNodesFix
 
 For browsers that do not support shadow dom (IE11 and Edge 18 and below), slot is polyfilled to simulate the same behavior. However, the host element's `childNodes` and `children` getters are not patched to only show the child nodes and elements of the default slot. Defaults to `false`.
+
+### experimentalSlotFixes
+
+This option enables all current and future slot-related fixes. When enabled it
+will enable the following options, overriding their values if they are
+specified separately:
+
+- [`slotChildNodesFix`](#slotchildnodesfix)
+- [`scopedSlotTextContentFix`](#scopedslottextcontentfix).
+- [`appendChildSlotFix`](#appendchildslotfix)
+- [`cloneNodeFix`](#clonenodefix)
+
+Slot-related fixes to the runtime will be added over the course of Stencil v4,
+with the intent of making these the default behavior in Stencil v5. If this
+flag is set to `true` these will be automatically enabled.
+
+:::note
+New fixes enabled by this experimental flag are not subject to Stencil's
+[semantic versioning policy](../reference/versioning.md).
+:::
