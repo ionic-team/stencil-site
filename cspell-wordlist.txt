@@ -1,5 +1,6 @@
 !PostCss
 Brunelle
+!Javascript
 Deno
 FOUC
 POSIX
