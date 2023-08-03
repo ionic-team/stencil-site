@@ -219,9 +219,9 @@ it's up to you to choose which one of them should be available in the
 `module` entry.
 :::
 
-### Usage in Typescript
+### Usage in TypeScript
 
-If you plan to support consuming your component library in Typescript you'll
+If you plan to support consuming your component library in TypeScript you'll
 need to set `generateTypeDeclarations: true` on the your output target in
 `stencil.config.ts`, like so:
 
