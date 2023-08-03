@@ -3,6 +3,8 @@
 Brunelle
 !Javascript
 !Typescript
+!TurboRepo
+Turborepo
 Deno
 FOUC
 POSIX
