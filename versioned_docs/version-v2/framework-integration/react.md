@@ -36,7 +36,7 @@ top-most-directory/
             └── index.ts
 ```
 
-This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
+This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, Turborepo, etc.
 
 To use Lerna with this walk through, globally install Lerna:
 
