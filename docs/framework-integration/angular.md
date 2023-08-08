@@ -162,7 +162,7 @@ export const config: Config = {
 :::tip
 The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
 
-`outputType` should be set to `component` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `scam` or `standalone`.
+`outputType` should be set to `'component'` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `'scam'` or `'standalone'`.
 
 The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
 file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
