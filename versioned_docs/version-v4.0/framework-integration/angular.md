@@ -160,9 +160,9 @@ export const config: Config = {
 ```
 
 :::tip
-The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
 
-`outputType` should be set to `component` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `scam` or `standalone`.
+`outputType` should be set to `'component'` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `'scam'` or `'standalone'`.
 
 The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
 file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
@@ -361,10 +361,12 @@ import { MyComponent } from 'my-component-lib/components/my-component.js';
 
 **Optional**
 
+**Default: `'components'`**
+
 **Type: `string`**
 
 This option can be used to specify the directory where the generated
-custom elements live. Required to be set for `outputType: "scam"` or `outputType: "standalone"`.
+custom elements live.
 
 ### excludeComponents
 
@@ -411,7 +413,7 @@ Specifies the type of output to be generated. It can take one of the following v
 
 3. `standalone`: Generates standalone component wrappers.
 
-Both `scam` and `standalone` options are compatible with the `dist-custom-elements` output. Developers **must** set a `customElementsDir` in the output target config when using either `scam` or `standalone`.
+Both `scam` and `standalone` options are compatible with the `dist-custom-elements` output.
 
 Note: Please choose the appropriate `outputType` based on your project's requirements and the desired output structure.
 
