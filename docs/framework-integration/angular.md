@@ -160,7 +160,7 @@ export const config: Config = {
 ```
 
 :::tip
-The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
 
 `outputType` should be set to `component` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `scam` or `standalone`.
 
