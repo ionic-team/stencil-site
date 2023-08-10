@@ -17,8 +17,7 @@ Modules that contain a component are entry-points, which means that no other mod
 
 The following example is **NOT** valid:
 
-**src/components/my-cmp.tsx:**
-```tsx
+```tsx title="src/components/my-cmp.tsx"
 // This module has a component, you cannot export anything else
 export function someUtilFunction() {
   console.log('do stuff');
@@ -44,15 +43,13 @@ In this case, the compiler will emit an error that looks like this:
 
 The solution is to move any shared functions or classes to a different `.ts` file, like this:
 
-**src/utils.ts:**
-```tsx
+```tsx title="src/utils.ts"
 export function someUtilFunction() {
   console.log('do stuff');
 }
 ```
 
-**src/components/my-cmp.tsx:**
-```tsx
+```tsx title="src/components/my-cmp.tsx"
 import { someUtilFunction } from '../utils.ts';
 
 @Component({
@@ -61,9 +58,7 @@ import { someUtilFunction } from '../utils.ts';
 export class MyCmp {}
 ```
 
-**src/components/my-cmp-two.tsx:**
-
-```tsx
+```tsx title="src/components/my-cmp-two.tsx"
 import { someUtilFunction } from '../utils.ts';
 
 @Component({
@@ -81,39 +76,7 @@ Since CommonJS libraries are still common today, Stencil comes with [`rollup-plu
 
 At compiler-time, the `rollup-plugin-commonjs` plugin does a best-effort to **transform CommonJS into ESM**, but this is not always an easy task. CommonJS is dynamic by nature, while ESM is static by design.
 
-Stencil's config exposes a `commonjs` property that is passed down to the Rollup CommonJS plugin, you can use this setting to work around certain bundling issues.
-
-### NamedModules: X is not exported by X
-
-Sometimes, Rollup is unable to properly static analyze CommonJS modules, and it misses some named exports. Fortunately, there is a workaround we can use.
-
-As we already know, `stencil.config.ts` exposes a `commonjs` property, in this case, we can take advantage of [the `namedExports` property](https://github.com/rollup/rollup-plugin-commonjs#custom-named-exports).
-
-Let's say, Rollup fails, when trying to use the `hello` named export of the `commonjs-dep` module:
-
-```tsx
-// NamedModules: hello is not exported by commonjs-dep
-import { hello } from 'commonjs-dep';
-```
-
-We can use the `config.commonjs.namedExports` setting in the `stencil.config.ts` file to work around the issue:
-
-```tsx
-export const config = {
-  commonjs: {
-    namedExports: {
-       // commonjs-dep has a "hello" export
-      'commonjs-dep': ['hello']
-    }
-  }
-}
-```
-
-:::note
-We can set a map of `namedExports` for problematic dependencies, in this case, we are explicitly defining the named `hello` export in the `commonjs-dep` module.
-:::
-
-For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/rollup-plugin-commonjs).
+For further information, check out the [rollup-plugin-commonjs docs](https://github.com/rollup/plugins/tree/master/packages/commonjs).
 
 
 ## Custom Rollup plugins

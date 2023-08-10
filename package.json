@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "check-links": "remark --use remark-validate-links ."
+    "check-links": "remark --frail --use remark-validate-links .",
+    "spellcheck": "cspell --no-progress \"docs/**/*.md\" \"versioned_docs/**/*.md\""
   },
   "dependencies": {
     "@docusaurus/core": "^2.4.1",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.1",
+    "cspell": "^6.31.2",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.1"
   },
@@ -48,7 +50,7 @@
   },
   "prettier": "@ionic/prettier-config",
   "volta": {
-    "node": "20.4.0",
-    "npm": "9.8.0"
+    "node": "20.5.0",
+    "npm": "9.8.1"
   }
 }

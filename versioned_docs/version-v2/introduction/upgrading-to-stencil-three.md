@@ -309,7 +309,7 @@ The `dist-custom-elements-bundle` has been removed starting with Stencil v3.0.0,
 Users of this output target should migrate to the `dist-custom-elements` output target.
 
 By default, `dist-custom-elements` does not automatically define all a project's component's with the CustomElementsRegistry.
-This allows for better treeshaking and smaller bundle sizes.
+This allows for better tree-shaking and smaller bundle sizes.
 
 For teams that need to migrate quickly to `dist-custom-elements`, the following configuration should be close to a drop-in replacement for `dist-custom-elements-bundle`:
 ```diff
@@ -331,7 +331,7 @@ export const config: Config = {
   // ...
 };
 ```
-However, it does not necessarily improve treeshaking/bundle size.
+However, it does not necessarily improve tree-shaking/bundle size.
 For more information on configuring this output target, please see the [`dist-custom-elements` documentation](../output-targets/custom-elements.md)
 
 ## Framework Integration Output Targets
@@ -409,11 +409,11 @@ it's recommended that a project that uses any of the packages listed below updat
 
 | Package                          | Minimum Package Version                                                                                                  | GitHub                                                            | Documentation                                               |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------|
-| `@stencil-angular-output-target` | [0.5.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Fangular-output-target%400.5.0) | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/angular.md)                           |
+| `@stencil/angular-output-target` | [0.5.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Fangular-output-target%400.5.0) | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/angular.md)                           |
 | `@stencil/sass`                  | [2.0.3](https://github.com/ionic-team/stencil-sass/releases/tag/v2.0.3)                                                  | [GitHub](https://github.com/ionic-team/stencil-sass)              | [GitHub README](https://github.com/ionic-team/stencil-sass) |
 | `@stencil/store`                 | [2.0.0](https://github.com/ionic-team/stencil-store/releases/tag/v2.0.0)                                                 | [GitHub](https://github.com/ionic-team/stencil-store)             | [Stencil Doc Site](../guides/store.md)                     |
-| `@stencil-react-output-target`   | [0.4.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Freact-output-target%400.4.0)   | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/react.md)                             |
-| `@stencil-vue-output-target`     | [0.7.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Fvue-output-target%400.7.0)     | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/vue.md)                               |
+| `@stencil/react-output-target`   | [0.4.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Freact-output-target%400.4.0)   | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/react.md)                             |
+| `@stencil/vue-output-target`     | [0.7.0](https://github.com/ionic-team/stencil-ds-output-targets/releases/tag/%40stencil%2Fvue-output-target%400.7.0)     | [GitHub](https://github.com/ionic-team/stencil-ds-output-targets) | [Stencil Doc Site](../framework-integration/vue.md)                               |
 
 ## Need Help Upgrading?
 

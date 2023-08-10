@@ -36,7 +36,7 @@ top-most-directory/
             └── index.ts
 ```
 
-This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, TurboRepo, etc.
+This guide uses Lerna for the monorepo, but you can use other solutions such as Nx, Turborepo, etc.
 
 To use Lerna with this walk through, globally install Lerna:
 
@@ -148,13 +148,13 @@ Update the generated `package.json` in your `react-library`, adding the followin
 -    "test": "node ./__tests__/react-library.test.js"
 +    "test": "node ./__tests__/react-library.test.js",
 +    "build": "npm run tsc",
-+    "tsc": "tsc -p ."
++    "tsc": "tsc -p . --outDir ./dist"
 -  }
 +  },
    "files": [
 -    "lib"
 +    "dist"
-   ]
+   ],
 +  "publishConfig": {
 +    "access": "public"
 +  },
@@ -489,6 +489,11 @@ using the `dir` property for `dist-custom-elements`, you need to also specify th
 [the API section](#customelementsdir) for more information.
 
 In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
+
+### TypeError: Cannot read properties of undefined (reading 'isProxied')
+
+If you encounter this error when running the React application consuming your proxy components, you can set the [`enableImportInjection`](../config/extras.md#enableimportinjection)
+flag on the Stencil config's `extras` object. Once set, this will require you to rebuild the Stencil component library and the React component library.
 
 ### What is the best format to write event names?
 

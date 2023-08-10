@@ -46,7 +46,7 @@ The entire product development team is freed up to focus on what matters most: s
 Additionally, the avoidance of having teams working in parallel, recreating the same UI elements over and over, has a real-world project impact in terms of reduced time to market and increased cost savings.
 
 Design systems allow project teams to work better together.
-Designers define a centralized “source of truth” for software application best practices, referencable by anyone in a product organization.
+Designers define a centralized “source of truth” for software application best practices which can be referenced by anyone in a product organization.
 Developers no longer need to spend time rethinking how to build common app scenarios, such as application search or data table grids.
 When the business inevitably makes changes to the design system, they can easily be applied to all projects.
 The end result is a better product for your users.

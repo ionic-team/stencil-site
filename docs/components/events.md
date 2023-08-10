@@ -82,6 +82,13 @@ export class TodoList {
 }
 ```
 
+:::note
+In the case where the Stencil `Event` type conflicts with the native web `Event` type, it is suggested that the native web `Event` type be prefixed with `globalThis`:
+```ts title="Preventing Event Type Collisions"
+@Event() myEvent: EventEmitter<{value: string, ev: globalThis.Event}>;
+```
+:::
+
 ## Listen Decorator
 
 The `Listen()` decorator is for listening to DOM events, including the ones dispatched from `@Events`. The event listeners are automatically added and removed when the component gets added or removed from the DOM.
@@ -132,7 +139,7 @@ In the example below, we're going to listen for the scroll event, emitted from `
 
 #### passive
 
-By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. The `passive` option can be used to change the default behaviour.
+By default, Stencil uses several heuristics to determine if it must attach a `passive` event listener or not. The `passive` option can be used to change the default behavior.
 
 Please check out [https://developers.google.com/web/updates/2016/06/passive-event-listeners](https://developers.google.com/web/updates/2016/06/passive-event-listeners) for further information.
 
