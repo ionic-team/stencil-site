@@ -403,6 +403,8 @@ first file you should import in your Angular project.
 
 **Required**
 
+**Default: `'component'`**
+
 **Type: `'component' | 'scam' | 'standalone`**
 
 Specifies the type of output to be generated. It can take one of the following values:
