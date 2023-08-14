@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.1",
-    "cspell": "^6.31.2",
+    "cspell": "^7.0.0",
     "remark-cli": "^11.0.0",
     "remark-validate-links": "^12.1.1"
   },
