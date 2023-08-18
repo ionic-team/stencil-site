@@ -1,7 +1,9 @@
 # Release Guide
 
+## Automated Deployments
+
 The Stencil documentation site is automatically deployed to Vercel when a pull request is merged into the `main` branch.
-Releases for the most part automatically happen - with the exception of generating a new version of the docs.
+Changes to the doc site are therefore designed to automatically happen - with a few excecptions.
 If you have merged code to `main` and it has not deployed to Vercel, please see the Vercel dashboard for additional debugging.
 
 ## Creating a New Version Section
@@ -9,6 +11,10 @@ If you have merged code to `main` and it has not deployed to Vercel, please see 
 This section describes how to generate a new section of the docs that coincides with releasing a new major/minor version of Stencil.
 
 The Stencil team uses [Docusaurus' Versioning](https://docusaurus.io/docs/versioning) to create new documentation for new major and minor versions of Stencil core.
+The creation of a new version requires some manual work.
+Once a new version has been created, a pull request containing the new version can be created/merged.
+Once that pull request is merged, the new version will be automatically deployed to Vercel.
+
 Docusarus creates a new version of the documentation based on the contents of the root level `docs/` directory in this project.
 When generating a new version, it is assumed that all changes for the soon to be created new versions has already landed in the `main` branch.
 
