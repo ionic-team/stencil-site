@@ -16,7 +16,7 @@ Once a new version has been created, a pull request containing the new version c
 Once that pull request is merged, the new version will be automatically deployed to Vercel.
 
 Docusaurus creates a new version of the documentation based on the contents of the root level `docs/` directory in this project.
-When generating a new version, it is assumed that all changes for the soon to be created new versions has already landed in the `main` branch.
+When generating a new version, it is assumed that all changes for the soon to be created new versions have already landed in the `main` branch.
 
 To generate a new version:
 1. Ensure there are no changes in your local repository
