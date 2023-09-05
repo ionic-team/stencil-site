@@ -122,6 +122,7 @@ workspace `package.json` file:
 # from `/packages/angular-workspace`
 npm uninstall jasmine-core @types/jasmine
 ```
+
 :::
 
 ### Adding the Angular Output Target
@@ -150,6 +151,7 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: 'stencil-library',
+      outputType: 'component',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
@@ -158,13 +160,16 @@ export const config: Config = {
 ```
 
 :::tip
+The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
+
+`outputType` should be set to `'component'` for Stencil projects using the `dist` output. Otherwise if using the custom elements output, `outputType` should be set to `'scam'` or `'standalone'`.
+
 The `directivesProxyFile` is the relative path to the file that will be generated with all of the Angular component wrappers. You will replace the
 file path to match your project's structure and respective names. You can generate any file name instead of `components.ts`.
 
 The `directivesArrayFile` is the relative path to the file that will be generated with a constant of all the Angular component wrappers. This
 constant can be used to easily declare and export all the wrappers.
 
-The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`
 :::
 
 See the [API section below](#api) for details on each of the output target's options.
@@ -356,13 +361,12 @@ import { MyComponent } from 'my-component-lib/components/my-component.js';
 
 **Optional**
 
-**Default: 'dist/components'**
+**Default: `'components'`**
 
 **Type: `string`**
 
-If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
-custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
-the default directory.
+This option can be used to specify the directory where the generated
+custom elements live.
 
 ### excludeComponents
 
@@ -395,30 +399,25 @@ See [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/pa
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the
 first file you should import in your Angular project.
 
-### includeImportCustomElements
+### outputType
 
-**Optional**
+**Required**
 
-**Default: `false`**
+**Default: `'component'`**
 
-**Type: `boolean`**
+**Type: `'component' | 'scam' | 'standalone`**
 
-If `true`, Angular components will import and define elements from the `dist-custom-elements` build, rather than `dist`. For more information
-on using the `dist-custom-elements` output for the Angular proxies, see the [FAQ answer below](#do-i-have-to-use-the-dist-output-target).
+Specifies the type of output to be generated. It can take one of the following values:
 
-### includeSingleComponentAngularModules
+1. `component`: Generates all the component wrappers to be declared on an Angular module. This option is required for Stencil projects using the `dist` hydrated output.
 
-**Optional**
+2. `scam`: Generates a separate Angular module for each component.
 
-**Default: `false`**
+3. `standalone`: Generates standalone component wrappers.
 
-**Type: `boolean`**
+Both `scam` and `standalone` options are compatible with the `dist-custom-elements` output.
 
-**Available Since: `@stencil/angular-output-target@v0.6.0`**
-
-**Experimental:** This flag and its behaviors are subject to change at any time.
-
-If `true`, an Angular module will be generated for each component. This option requires that `includeImportCustomElements` is set to `true`.
+Note: Please choose the appropriate `outputType` based on your project's requirements and the desired output structure.
 
 ### valueAccessorConfigs
 
