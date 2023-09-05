@@ -108,4 +108,4 @@ with the intent of making these the default behavior in Stencil v5. When set to
 :::note
 New fixes enabled by this experimental flag are not subject to Stencil's
 [semantic versioning policy](../reference/versioning.md).
-::: 
+:::
