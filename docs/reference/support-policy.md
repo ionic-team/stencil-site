@@ -86,6 +86,7 @@ The table below describes recent versions of Stencil and the version of TypeScri
 
 | Stencil Version | TypeScript Version |
 |:---------------:|:------------------:|
+|     v4.2.0      |       v5.1.6       |
 |     v3.3.0      |       v5.0.4       |
 |     v3.0.0      |       v4.9.4       |
 |     v2.21.0     |       v4.9.3       |
@@ -139,9 +140,9 @@ compatibility tables to describe the interoperability requirements of these piec
 
 #### Puppeteer
 
-| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v11-19 | Puppeteer v20 |
-|:---------------:|:--------------:|:-------------:|:----------------:|:-------------:|
-|       V4        |    &#10060;    |    &#9989;    |     &#9989;      |    &#9989;    |
-|       V3        |    &#10060;    |    &#9989;    |     &#9989;      |    &#9989;    |
-|       V2        |    &#9989;     |    &#9989;    |     &#10060;     |   &#10060;    |
-|       V1        |    &#9989;     |   &#10060;    |     &#10060;     |   &#10060;    |
+| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v11-21 |
+|:---------------:|:--------------:|:-------------:|:----------------:|
+|       V4        |    &#10060;    |    &#9989;    |     &#9989;      |
+|       V3        |    &#10060;    |    &#9989;    |     &#9989;      |
+|       V2        |    &#9989;     |    &#9989;    |     &#10060;     |
+|       V1        |    &#9989;     |   &#10060;    |     &#10060;     |
