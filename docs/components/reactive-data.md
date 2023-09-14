@@ -83,7 +83,17 @@ onAriaLabelChange(newVal: string, oldVal: string) {
 ```
 
 :::note
-Since native attributes are not `@Prop()` or `State()` members of the Stencil component, they will not trigger re-renders when changed.
+Since native attributes are not `@Prop()` or `State()` members of the Stencil component, they will not automatically trigger a
+re-render when changed. If you wish to re-render a component in this instance, you can leverage the `forceUpdate()` method:
+
+```tsx
+import { Component, forceUpdate, h } from '@stencil/core';
+
+@Watch('aria-label')
+onAriaLabelChange() {
+  forceUpdate(this); // Forces a re-render
+}
+```
 :::
 
 ## Handling Arrays and Objects
