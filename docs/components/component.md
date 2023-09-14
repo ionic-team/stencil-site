@@ -114,6 +114,40 @@ In the example above, the following allows `todo-list` to display the provided a
 
 For more information on configuring assets, please see Stencil's [Assets Guide](../guides/assets.md)
 
+
+### formAssociated
+
+**Optional**
+
+**Type: `boolean`**
+
+**Default: `false`**
+
+If `true` the component will be
+[form-associated](https://html.spec.whatwg.org/dev/custom-elements.html#form-associated-custom-element),
+allowing you to take advantage of the
+[`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/attachInternals)
+API to enable your Stencil component to participate in forms.
+
+A minimal form-associated Stencil component could look like this:
+
+```tsx
+import { Component } from '@stencil/core';
+
+@Component({
+  tag: 'form-associated',
+  formAssociated: true
+})
+export class FormAssociated {
+  render() {
+    return <span>form associated!</span>
+  }
+}
+```
+
+See the documentation for [form-associated components](./form-associated.md)
+for more info and examples.
+
 ### scoped
 
 **Optional**

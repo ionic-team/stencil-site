@@ -10,6 +10,7 @@ Deno
 FOUC
 POSIX
 Vetur
+WHATWG
 async
 autoprefixing
 contentful
