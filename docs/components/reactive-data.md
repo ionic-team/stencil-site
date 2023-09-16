@@ -11,13 +11,13 @@ Stencil components update when props or state on a component change.
 
 ## Rendering methods
 
-When a props or state change on a component, the [`render()` method](./templating-and-jsx.md) is scheduled to run.
+When props or state change on a component, the [`render()` method](./templating-and-jsx.md) is scheduled to run.
 
 ## The Watch Decorator (`@Watch()`)
 
 `@Watch()` is a decorator that is applied to a method of a Stencil component.
-The decorator accepts a single argument, the name of a class member that is decorated with `@Prop()` or `@State()`.
-A method decorated with `@Watch()` will automatically run when its associated class member changes.
+The decorator accepts a single argument, the name of a class member that is decorated with `@Prop()` or `@State()`, or
+a host attribute. A method decorated with `@Watch()` will automatically run when its associated class member or attribute changes.
 
 ```tsx
 // We import Prop & State to show how `@Watch()` can be used on
@@ -58,15 +58,42 @@ export class LoadingIndicator {
   }
 }
 ```
+
 In the example above, there are two `@Watch()` decorators.
 One decorates `watchPropHandler`, which will fire when the class member `activated` changes.
 The other decorates `watchStateHandler`, which will fire when the class member `busy` changes.
 
-When fired, the `@Watch()`'ed method will receive the old and new values of the prop/state.
+When fired, the decorated method will receive the old and new values of the prop/state.
 This is useful for validation or the handling of side effects.
 
 :::info
 The `@Watch()` decorator does not fire when a component initially loads.
+:::
+
+### Watching Native HTML Attributes
+
+Stencil's `@Watch()` decorator also allows you to watch native HTML attributes on the constructed host element. Simply
+include the attribute name as the argument to the decorator (this is case-sensitive):
+
+```tsx
+@Watch('aria-label')
+onAriaLabelChange(newVal: string, oldVal: string) {
+  console.log('Label changed:', newVal, oldVal);
+}
+```
+
+:::note
+Since native attributes are not `@Prop()` or `State()` members of the Stencil component, they will not automatically trigger a
+re-render when changed. If you wish to re-render a component in this instance, you can leverage the `forceUpdate()` method:
+
+```tsx
+import { Component, forceUpdate, h } from '@stencil/core';
+
+@Watch('aria-label')
+onAriaLabelChange() {
+  forceUpdate(this); // Forces a re-render
+}
+```
 :::
 
 ## Handling Arrays and Objects
