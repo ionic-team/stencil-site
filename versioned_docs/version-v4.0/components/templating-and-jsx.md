@@ -175,6 +175,14 @@ render(){
 }
 ```
 
+:::caution
+Slots are native to the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), but Stencil polyfills
+the behavior to work for non-shadow components as well. However, you may encounter issues using slots outside the Shadow DOM especially with
+component trees mixing shadow and non-shadow components, or when passing a slot through many levels of components. In many cases, this behavior can
+be remedied by wrapping the `slot` in an additional element (like a `div` or `span`) so the Stencil runtime can correctly "anchor" the relocated
+content in its new location.
+:::
+
 ## Dealing with Children
 
 The children of a node in JSX correspond at runtime to an array of nodes,
