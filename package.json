@@ -16,8 +16,8 @@
     "spellcheck": "cspell --no-progress \"docs/**/*.md\" \"versioned_docs/**/*.md\" \"*.md\""
   },
   "dependencies": {
-    "@docusaurus/core": "^2.4.1",
-    "@docusaurus/remark-plugin-npm2yarn": "^2.4.1",
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.0.0",
     "@ionic-internal/preset-classic": "^0.0.0",
     "@ionic/prettier-config": "^4.0.0",
     "@mdx-js/react": "^1.6.22",
@@ -31,7 +31,7 @@
     "sass": "^1.63.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.4.1",
+    "@docusaurus/module-type-aliases": "^3.0.0",
     "cspell": "^7.0.0",
     "remark-cli": "^12.0.0",
     "remark-validate-links": "^13.0.0"
