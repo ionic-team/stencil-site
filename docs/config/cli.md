@@ -82,6 +82,12 @@ src
             └── page-home.tsx
 ```
 
+## `stencil help`
+
+Aliases: `stencil --help`, `stencil -h`
+
+Prints various tasks that can be run and their associated flags to the terminal.
+
 ## `stencil test`
 
 Tests a Stencil project. The flags below are the available options for the `test` command.
@@ -94,10 +100,8 @@ Tests a Stencil project. The flags below are the available options for the `test
 | `--devtools` | Opens the dev tools panel in Chrome for end-to-end tests. Setting this flag will disable `--headless` |
 | `--headless` | Sets the headless mode to use in Chrome for end-to-end tests. `--headless` and `--headless=true` will enable the "old" headless mode in Chrome, that was used by default prior to Chrome v112. `--headless=new` will enable the new headless mode introduced in Chrome v112. See [this article](https://developer.chrome.com/articles/new-headless/) for more information on Chrome's new headless mode. |
 
+## `stencil version`
 
-## `stencil`
+Alias: `stencil -v`
 
-| Flag | Description |
-|------|-------------|
-| `--help` | Display the help output explaining the different flags. | `-h` |
-| `--version` | Prints the current Stencil version. | `-v` |
+Prints the version of Stencil to the terminal.
