@@ -5,8 +5,10 @@ description: Stencil CLI
 slug: /cli
 ---
 
-# Command Line Interface (CLI)
+Stencil's command line interface (CLI) is how developers can build their projects, run tests, and more.
+Stencil's CLI is included in the compiler, and can be invoked with the `stencil` command in a project where `@stencil/core` is installed.
 
+# Command Line Interface (CLI)
 
 ## `stencil build`
 
@@ -33,6 +35,10 @@ Builds a Stencil project. The flags below are the available options for the `bui
 | `--verbose` | Logs additional information about each step of the build. | |
 | `--watch` | Watches files during development and triggers a rebuild when files are updated. | |
 
+## `stencil docs`
+
+Performs a one-time generation of documentation for your project.
+For more information on documentation generation, please see the [Documentation Generation section](../documentation-generation/01-overview.md).
 
 ## `stencil test`
 
