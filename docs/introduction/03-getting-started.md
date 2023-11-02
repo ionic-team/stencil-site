@@ -20,8 +20,9 @@ The `create-stencil` CLI can be used to scaffold a new Stencil project, and can 
  npm init stencil
 ```
 
-Stencil can be used to create standalone components, or entire apps.
-`create-stencil`, will provide a prompt so that you can choose the type of project to start:
+Stencil can be used to create standalone component libraries or entire applications.
+`create-stencil` will provide a prompt so that you can choose the project type that best suites your needs.
+Today, we'll select the 'component' option to create a new component library project:
 
 ```text
 ? Select a starter project.
@@ -153,7 +154,7 @@ Once compiled, this component can be used in HTML just like any other tag.
 
 When rendered, the browser will display `Hello World! I'm Stencil 'Don't call me a framework' JS`.
 
-### Anatomy of `my-component`
+### The @Component Decorator
 
 Let's dive in and describe what's happening in `my-component`, line-by-line.
 
@@ -180,6 +181,8 @@ export class MyComponent {
 
 Within this class is where you'll write the bulk of your code to bring your Stencil component to life.
 
+### The @Prop Decorator
+
 Next, the component contains three class members, `first`, `middle` and `last`.
 Each of these class members have the [`@Prop()` decorator](../components/properties.md#the-prop-decorator-prop) applied to them:
 ```ts
@@ -188,12 +191,16 @@ Each of these class members have the [`@Prop()` decorator](../components/propert
   @Prop() last: string;
 ```
 `@Prop()` tells Stencil that the property is public to the component, and allows Stencil to rerender when any of these public properties change.
-We'll see how this works after discussing the `render()` function.
+We'll see how this works in just a moment.
+First, we need to discuss the `render()` method.
 
-In order for the component to render something to the screen, we must declare a [`render()` function](../components/templating-and-jsx.md#basics) that returns JSX.
-If you're not sure what JSX is, be sure to reference the [Using JSX](../components/templating-and-jsx.md) docs.
+### The render Method
 
-The quick idea is that our render function needs to return a representation of the HTML we want to push to the DOM.
+In order for the component to display something to the screen, we must declare a [`render()` method](../components/templating-and-jsx.md#basics).
+The `render()` method returns JSX that describes what our component should render.
+If you're unfamiliar with JSX, be sure to reference the [Using JSX](../components/templating-and-jsx.md) docs.
+
+The quick idea is that our render method needs to return a representation of the HTML we want to push to the DOM.
 
 ```tsx
   private getText(): string {
@@ -207,11 +214,13 @@ The quick idea is that our render function needs to return a representation of t
 
 This component's `render()` returns a `<div>` element, containing text to render to the screen.
 
-The `render()` function uses all three class members decorated with `@Prop()`, through the `getText` function.
-Declaring private functions like `getText` helps pull logic out of the `render()` function's JSX.
+The `render()` method uses all three class members decorated with `@Prop()`, through the `getText` method.
+Declaring private methods like `getText` helps pull logic out of the `render()` method's JSX.
+
+### Reactivity with @Prop()
 
 Any property decorated with `@Prop()` is also automatically watched for changes.
-If a user of our component were to change the element's `first`, `middle`, or `last` properties, our component would fire its `render()` function again, updating the displayed content.
+If a user of our component were to change the element's `first`, `middle`, or `last` properties, our component would fire its `render()` method again, updating the displayed content.
 
 ## Component Generator
 
