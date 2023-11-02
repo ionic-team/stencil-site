@@ -5,10 +5,10 @@ description: Stencil CLI
 slug: /cli
 ---
 
+# Command Line Interface (CLI)
+
 Stencil's command line interface (CLI) is how developers can build their projects, run tests, and more.
 Stencil's CLI is included in the compiler, and can be invoked with the `stencil` command in a project where `@stencil/core` is installed.
-
-# Command Line Interface (CLI)
 
 ## `stencil build`
 
