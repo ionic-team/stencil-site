@@ -7,8 +7,8 @@ slug: /docs-readme
 
 # Docs Readme Markdown File Auto-Generation
 
-Stencil is able to auto-generate `readme.md` files in markdown. This opt-in
-feature will save the readme files as a sibling to the component within the
+Stencil is able to auto-generate `readme.md` files in markdown. This
+feature will save the readme files as a sibling to the component's source file within the
 same directory. This can help you to maintain consistently formatted
 documentation for your components which live right next to them and render in
 GitHub.
@@ -26,20 +26,23 @@ export const config: Config = {
 };
 ```
 
-Another option would be to use the `--docs` CLI flag, like so:
+Another option would be to use the `--docs` CLI flag as a part of the [build task](../config/cli.md#stencil-build), like so:
 
 ```bash
 stencil build --docs
 ```
 
 This will cause the Stencil compiler to perform a one-time generation of README
-files.
+files as a part of the build process.
 
 :::note
-If you use the `--docs` flag and don't add the `docs-readme` output target to
-your Stencil configuration your documentation won't be automatically updated
-when you build your project and could get out of date.
+If you don't add the `docs-readme` output target to your Stencil configuration, the `--docs` flag must be applied to regenerate documentation.
 :::
+
+Alternatively, the [docs task](../config/cli.md#stencil-docs) can be used to perform a one time generation of the documentation:
+```bash
+stencil docs
+```
 
 ## Adding Custom Markdown to Auto-Generated Files
 
@@ -69,7 +72,7 @@ export const config: Config = {
 ## Generating to a Directory
 
 By default, a readme file will be generated in the same directory as the
-component is corresponds to. This behavior can be changed by setting the `dir`
+component corresponds to. This behavior can be changed by setting the `dir`
 property on the output target configuration. Specifying a directory will create
 the structure `{dir}/{component}/readme.md`.
 
@@ -78,7 +81,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { 
+    {
       type: 'docs-readme',
       dir: 'output'
     }
@@ -96,7 +99,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { 
+    {
       type: 'docs-readme',
       strict: true
     }

@@ -61,7 +61,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { 
+    {
       type: 'docs-readme',
       footer: '*Built with love!*',
     }
@@ -81,7 +81,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { 
+    {
       type: 'docs-readme',
       dir: 'output'
     }
@@ -99,7 +99,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   outputTargets: [
-    { 
+    {
       type: 'docs-readme',
       strict: true
     }
