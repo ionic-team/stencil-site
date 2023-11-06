@@ -213,63 +213,6 @@ Declaring private functions like `getText` helps pull logic out of the `render()
 Any property decorated with `@Prop()` is also automatically watched for changes.
 If a user of our component were to change the element's `first`, `middle`, or `last` properties, our component would fire its `render()` function again, updating the displayed content.
 
-## Component Generator
-
-The `create-stencil` CLI can generate new components for you.
-If you used one of the starters, you can simply run the `generate` npm script in your project, which will start the interactive generator.
-
-```shell npm2yarn
-npm run generate
-```
-
-You can invoke the Stencil CLI directly with the `generate` command (`g` for short).
-
-```shell
-stencil generate
-# or
-stencil g
-```
-
-If you would like to run `stencil generate` outside of a Stencil project, it can be installed globally.
-To do so, prefix the command above with [`npx`](https://docs.npmjs.com/cli/v9/commands/npx), like so:
-```shell
-npx stencil generate
-```
-Running a command prefixed with `npx` will fetch the package for you automatically and prompt you to install it.
-Once installed, Stencil will run the task to scaffold a new component.
-
-You can optionally pass the component tag name directly to the command.
-The component tag name needs to be lowercase and contain at least one dash ('-').
-
-```sh npm2yarn
-stencil generate my-new-component
-```
-
-The generator will ask you which files to generate. 
-This allows you to bootstrap a stylesheet as well as spec and e2e tests along with the component file.
-
-All components will be generated within the `src/components` folder.
-Within that directory, a folder will be created with the same name as the component tag name you provided, and within that folder the files will be generated.
-It is also possible to specify one or multiple sub-folders to generate the component in.
-
-For example, if you specify `pages/page-home` as the component tag name, the files will be generated in `src/components/pages/page-home`.
-
-```shell
-stencil generate pages/page-home
-```
-
-```plain
-src
-└── components
-    └── pages
-        └── page-home
-            ├── page-home.css
-            ├── page-home.e2e.ts
-            ├── page-home.spec.ts
-            └── page-home.tsx
-```
-
-
 ## Updating Stencil
 
 To get the latest version of @stencil/core you can run:
