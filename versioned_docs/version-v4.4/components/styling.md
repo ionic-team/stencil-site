@@ -32,7 +32,7 @@ export class ShadowComponent {}
 
 If you'd like to learn more about enabling and configuring the shadow DOM, see the [shadow field of the component api](./component.md#component-options).
 
-By default, components created with the [`stencil generate` command](../config/cli.md#stencil-generate-sub-folder) use the shadow DOM.
+By default, components created with the [`stencil generate` command](../config/cli.md#stencil-generate) use the shadow DOM.
 
 ### Styling with the Shadow DOM
 
