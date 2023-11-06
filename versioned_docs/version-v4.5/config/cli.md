@@ -40,6 +40,48 @@ Builds a Stencil project. The flags below are the available options for the `bui
 Performs a one-time generation of documentation for your project.
 For more information on documentation generation, please see the [Documentation Generation section](../documentation-generation/01-overview.md).
 
+## `stencil generate`
+
+Alias: `stencil g`
+
+Starts the interactive generator for a new Stencil component.
+The generator will ask you for a name for your component, and whether any stylesheets or testing files should be generated.
+
+If you wish to skip the interactive generator, a component tag name may be provided on the command line:
+```shell
+stencil generate my-new-component
+```
+
+All components will be generated within the `src/components` folder.
+Within `src/components`, a directory will be created with the same name as the component tag name you provided containing the generated files.
+For example, if you specify `page-home` as the component tag name, the files will be generated in `src/components/page-home`:
+```plain
+src
+└── components
+    └── page-home
+        ├── page-home.css
+        ├── page-home.e2e.ts
+        ├── page-home.spec.ts
+        └── page-home.tsx
+```
+
+It is also possible to specify one or more sub-folders to generate the component in.
+For example, if you specify `pages/page-home` as the component tag name, the files will be generated in `src/components/pages/page-home`:
+```shell
+stencil generate pages/page-home
+```
+The command above will result in the following directory structure:
+```plain
+src
+└── components
+    └── pages
+        └── page-home
+            ├── page-home.css
+            ├── page-home.e2e.ts
+            ├── page-home.spec.ts
+            └── page-home.tsx
+```
+
 ## `stencil test`
 
 Tests a Stencil project. The flags below are the available options for the `test` command.
@@ -59,8 +101,3 @@ Tests a Stencil project. The flags below are the available options for the `test
 |------|-------------|
 | `--help` | Display the help output explaining the different flags. | `-h` |
 | `--version` | Prints the current Stencil version. | `-v` |
-
-
-## `stencil generate <sub-folder>`
-
-Starts the interactive component generator. You can specify one or more sub-folders to generate the component in.
