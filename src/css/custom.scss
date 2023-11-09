@@ -18,6 +18,9 @@
     --ifm-menu-color-background-active: var(--c-purple-0);
 
     --ifm-dropdown-hover-background-color: var(--ifm-menu-color-background-active);
+
+    --ifm-link-color: var(--ifm-color-primary);
+    --ifm-link-hover-color: var(--ifm-color-primary-lighter);
   }
 
   [data-theme='dark'] {
@@ -25,6 +28,9 @@
     --ifm-menu-color-active: var(--c-indigo-0);
 
     --search-border: var(--c-carbon-80);
+
+    --ifm-link-color: var(--ifm-color-primary-lighter);
+    --ifm-link-hover-color: var(--ifm-color-primary-lightest);
   }
 
   .theme-doc-version-badge {
