@@ -77,10 +77,10 @@ Upon successfully creating our project, the CLI will print something similar to 
 
 The first section describes a few commands required to finish getting your project bootstrapped.
 
-```bash
-    $ cd my-first-stencil-project
-    $ npm install
-    $ npm start
+```bash npm2yarn
+cd my-first-stencil-project
+npm install
+npm start
 ```
 
 This will change your current directory to `my-first-stencil-project`, install your dependencies for you, and start the development server.
