@@ -123,10 +123,178 @@ the `ElementInternals` API, including [setting the element's
 validity](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals/setValidity),
 reading the validity state of the form, reading other form values, and more.
 
+## Lifecycle Callbacks
+
+Stencil allows developers building form-associated custom elements to define a
+[standard series of lifecycle
+callbacks](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-reactions)
+which enable their components to react dynamically to events in their
+lifecycle. These could allow fetching data when a form loads, changing styles
+when a form's `disabled` state is toggled, resetting form data cleanly, and more.
+
+### `formAssociatedCallback`
+
+This callback is called when the browser both associates the element with and
+disassociates the element from a form element. The function is called with the
+form element as an argument. This could be used to set an `ariaLabel` when the
+form is ready to use, like so:
+
+```tsx title='src/components/form-associated-cb.tsx'
+import { Component, h, AttachInternals } from '@stencil/core';
+
+@Component({
+  tag: 'form-associated',
+  formAssociated: true,
+})
+export class FormAssociatedCmp {
+  @AttachInternals()
+  internals: ElementInternals;
+
+  formAssociatedCallback(form) {
+    form.ariaLabel = 'formAssociated called';
+  }
+
+  render() {
+    return <input type="text" />;
+  }
+}
+```
+
+### `formDisabledCallback`
+
+This is called whenever the `disabled` state on the element _changes_. This
+could be used to keep a CSS class in sync with the disabled state, like so:
+
+```tsx title='src/components/form-disabled-cb.tsx'
+import { Component, h, State } from '@stencil/core';
+
+@Component({
+  tag: 'form-disabled-cb',
+  formAssociated: true,
+})
+export class MyComponent {
+  @State() cssClass: string = "";
+
+  formDisabledCallback(disabled: boolean) {
+    if (disabled) {
+      this.cssClass = "background-mode";
+    } else {
+      this.cssClass = "";
+    }
+  }
+
+  render() {
+    return <input type="text" class={this.cssClass}></input>
+  }
+}
+```
+
+### `formResetCallback`
+
+This is called when the form is reset, and should be used to reset the
+form-associated component's internal state and validation. For example, you
+could do something like the following:
+
+```tsx title="src/components/form-reset-cb.tsx"
+import { Component, h, AttachInternals } from '@stencil/core';
+
+@Component({
+  tag: 'form-reset-cb',
+  formAssociated: true,
+})
+export class MyComponent {
+  @AttachInternals()
+  internals: ElementInternals;
+
+  formResetCallback() {
+    this.internals.setValidity({});
+    this.internals.setFormValue("");
+  }
+
+  render() {
+    return <input type="text"></input>
+  }
+}
+```
+
+### `formStateRestoreCallback`
+
+This method will be called in the event that the browser automatically fills
+out your form element, an event that could take place in two different
+scenarios. The first is that the browser can restore the state of an element
+after navigating or restarting, and the second is that an input was made using a
+form auto-filling feature. 
+
+In either case, in order to correctly reset itself your form-associated component
+will need the previously selected value, but other state may also be necessary.
+For instance, the form value to be submitted for a date picker component would
+be a specific date, but in order to correctly restore the component's visual
+state it might also be necessary to know whether the picker should display a
+week or month view.
+
+The
+[`setFormValue`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals/setFormValue)
+method on `ElementInternals`  provides some support for this use-case, allowing
+you to submit both a _value_ and a _state_, where the _state_ is not added to
+the form data sent to the server but could be used for storing some
+client-specific state. For instance, a pseudocode sketch of a date picker
+component that correctly restores whether the 'week' or 'month' view is active
+could look like:
+
+```tsx title="src/components/fa-date-picker.tsx"
+import { Component, h, State, AttachInternals } from '@stencil/core';
+
+@Component({
+  tag: 'fa-date-picker',
+  formAssociated: true,
+})
+export class MyDatePicker {
+  @State() value: string = "";
+  @State() view: "weeks" | "months" = "weeks";
+
+  @AttachInternals()
+  internals: ElementInternals;
+
+  onInputChange(e) {
+    e.preventDefault();
+    const date = e.target.value;
+    this.setValue(date);
+  }
+
+  setValue(date: string) {
+    // second 'state' parameter is used to store both
+    // the input value (`date`) _and_ the current view
+    this.internals.setFormValue(date, `${date}#${this.view}`);
+  }
+
+  formStateRestoreCallback(state, _mode) {
+    const [date, view] = state.split("#");
+    this.view = view;
+    this.setValue(date);
+  }
+
+  render() {
+    return <div>
+      Mock Date Picker, mode: {this.view}
+      <input class="date-picker" onChange={e => this.onInputChange(e)}></input>
+    </div>
+  }
+}
+```
+
+Note that the `formStateRestoreCallback` also receives a second argument,
+`mode`, which can be either `"restore"` or `"autocomplete"`, indicating the
+reason for the form restoration.
+
+For more on form restoration, including a complete example, check out [this
+great blog post on the
+subject](https://web.dev/articles/more-capable-form-controls#restoring-form-state).
+
 ## Resources
 
 - [WHATWG specification for form-associated custom elements](https://html.spec.whatwg.org/dev/custom-elements.html#form-associated-custom-elements)
 - [ElementInternals and Form-Associated Custom Elements](https://webkit.org/blog/13711/elementinternals-and-form-associated-custom-elements/) from the WebKit blog
+- [Web.dev post detailing how form-associated lifecycle callbacks work](https://web.dev/articles/more-capable-form-controls#lifecycle_callbacks)
 
 [^1]: See <https://caniuse.com/?search=attachInternals> for up-to-date adoption
     estimates.
