@@ -136,7 +136,7 @@ const config = {
             target: '_blank',
           },
           {
-            href: 'https://ionic.link/discord',
+            href: 'https://chat.stenciljs.com',
             position: 'right',
             className: 'icon-link icon-link-mask icon-link-discord',
             'aria-label': 'Discord',
@@ -185,6 +185,14 @@ const config = {
               key: 'twitter',
               url: {
                 href: 'https://twitter.com/stenciljs',
+                target: '_blank',
+                rel: 'noopener nofollow',
+              },
+            },
+            {
+              key: 'discord',
+              url: {
+                href: 'https://chat.stenciljs.com',
                 target: '_blank',
                 rel: 'noopener nofollow',
               },
