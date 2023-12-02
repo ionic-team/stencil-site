@@ -1,7 +1,5 @@
-@layer base, tokens, preset, site;
-
 @layer site {
-  @import "bs-chart";
+  @import 'bs-chart';
   /**
   * Colors generated using the color range tool in the Docusaurus docs, here:
   * https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima
@@ -25,24 +23,5 @@
     --ifm-menu-color-active: var(--c-indigo-0);
 
     --search-border: var(--c-carbon-80);
-  }
-
-  [class*='colorModeToggle'] {
-    margin-inline-start: -0.25rem;
-  }
-
-  .theme-doc-version-banner {
-    max-width: 50rem;
-    margin: auto;
-  }
-
-  .navbar {
-    .navbar__brand {
-      margin-right: 0;
-    }
-  
-    .navbar__logo {
-      min-width: 96px;
-    }
   }
 }
