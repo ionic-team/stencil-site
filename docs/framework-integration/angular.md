@@ -185,9 +185,7 @@ If the build is successful, you will now have contents in the file specified in 
 
 You can now finally import and export the generated component wrappers for your component library. For example, in your library's main Angular module:
 
-```ts
-// component-library.module.ts
-
+```ts title="component-library.module.ts"
 import { DIRECTIVES } from './stencil-generated';
 
 @NgModule({
@@ -201,9 +199,7 @@ Any components that are included in the `exports` array should additionally be e
 `index.ts`). Skipping this step will lead to Angular Ivy errors when building for production. For this guide, simply add the following line to the
 automatically generated `public-api.ts` file:
 
-```ts
-// public-api.ts
-
+```ts title="public-api.ts"
 export * from './lib/component-library.module';
 export { DIRECTIVES } from './lib/stencil-generated';
 export * from './lib/stencil-generated/components';
@@ -214,9 +210,7 @@ export * from './lib/stencil-generated/components';
 The default behavior for this output target does not handle automatically defining/registering the custom elements. One strategy (and the approach
 the [Ionic Framework](https://github.com/ionic-team/ionic-framework/blob/main/packages/angular/src/app-initialize.ts#L21-L34) takes) is to use the loader to define all custom elements during app initialization:
 
-```ts
-// component-library.module.ts
-
+```ts title="component-library.module.ts"
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { defineCustomElements } from 'stencil-library/loader';
 
@@ -270,21 +264,25 @@ however, will modify your `package.json` so it is important to make sure you do 
 
 ## Consumer Usage
 
-### Creating a Consumer Angular App
-
 :::note
+
 If you already have an Angular app, skip this section.
+
 :::
 
-From your Angular workspace (`/packages/angular-workspace`), run the following command to generate an Angular application:
+### Angular with Modules
+
+#### Creating a Consumer Angular App
+
+From your Angular workspace (`/packages/angular-workspace`), run the following command to generate an Angular application with modules:
 
 ```bash
-npx -p @angular/cli ng generate app my-app
+npx -p @angular/cli ng generate app my-app --standalone=false
 ```
 
-### Consuming the Angular Wrapper Components
+#### Consuming the Angular Wrapper Components
 
-This section covers how developers consuming your Angular component wrappers will use your package and component wrappers.
+This section covers how developers consuming your Angular component wrappers will use your package and component wrappers in an Angular project using modules.
 
 In order to use the generated component wrappers in the Angular app, you'll first need to build your Angular component library. From the root
 of your Angular workspace (`/packages/angular-workspace`), run the following command:
@@ -296,9 +294,7 @@ npx -p @angular/cli ng build component-library
 Now you can reference your component library as a standard import. If you distributed your components through a primary `NgModule`, you can
 simply import that module into an implementation to use your components.
 
-```ts
-// app.module.ts
-
+```ts title="app.module.ts"
 import { ComponentLibraryModule } from 'component-library';
 
 @NgModule({
@@ -309,14 +305,57 @@ export class AppModule {}
 
 You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
 
-```html
-<!-- app.component.html -->
-
+```html title="app.component.html"
 <my-component first="Your" last="Name"></my-component>
 ```
 
 From your Angular workspace (`/packages/angular-workspace`), run `npm start` and navigate to `localhost:4200`. You should see the
 component rendered correctly.
+
+### Angular with Standalone Components
+
+In Angular CLI v17, the default behavior is to generate a new project with standalone components.
+
+From your Angular workspace (`/packages/angular-workspace`), run the following command to generate an Angular application:
+
+```bash
+npx -p @angular/cli ng generate app my-app
+```
+
+#### Consuming the Angular Wrapper Components
+
+This section covers how developers consuming your Angular component wrappers will use your package and component wrappers.
+
+In order to use the generated component wrappers in the Angular app, you'll first need to build your Angular component library. From the root
+of your Angular workspace (`/packages/angular-workspace`), run the following command:
+
+```bash
+npx -p @angular/cli ng build component-library
+```
+
+Now you can import and reference your components in your consuming application in the same way you would with any other Angular components:
+
+```ts title="app.component.ts"
+import { Component } from '@angular/core';
+import { MyComponent } from 'component-library';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [MyComponent],
+})
+export class AppComponent {}
+```
+
+You can now leverage your components in the template and take advantage of Angular template binding syntax.
+
+```html title="app.component.html"
+<my-component first="Your" last="Name"></my-component>
+```
+
+From your Angular workspace (`/packages/angular-workspace`), run `npm start` and navigate to `localhost:4200`. You should see the component rendered correctly.
 
 ## API
 
@@ -337,9 +376,7 @@ npm init stencil component my-component-lib
 
 The `componentCorePackage` would be set to:
 
-```ts
-// stencil.config.ts
-
+```ts title="stencil.config.ts"
 export const config: Config = {
   ...,
   outputTargets: [
@@ -430,7 +467,7 @@ Note: Please choose the appropriate `outputType` based on your project's require
 This lets you define which components should be integrated with `ngModel` (i.e. form components). It lets you set what the target prop is (i.e. `value`),
 which event will cause the target prop to change, and more.
 
-```tsx
+```tsx title="stencil.config.ts"
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: ['my-input[type=text]'],
@@ -464,9 +501,7 @@ No! By default, this output target will look to use the `dist` output, but the o
 
 To do so, change the type `outputType` argument to either `scam` or `standalone`. For more information on both these options, see the [API section](#outputtype).
 
-```ts
-// stencil.config.ts
-
+```ts title="stencil.config.ts"
 export const config: Config = {
   ...,
   outputTargets: [
@@ -492,9 +527,7 @@ In addition, all the Web Component will be automatically defined as the generate
 the Stencil loader for lazy-loading the custom elements (i.e. you can remove the `APP_INITIALIZER` logic introduced [in this section](#adding-the-angular-output-target)).
 As such, the generated Angular components can now be directly imported and declared on any Angular module implementing them:
 
-```ts
-// app.module.ts
-
+```ts title="app.module.ts"
 import { MyComponent } from 'component-library';
 
 @NgModule({
