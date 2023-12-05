@@ -5,6 +5,9 @@ description: Learn how to wrap your components so that people can use them nativ
 slug: /angular
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Angular Integration
 
 **Supports: Angular 12+ • TypeScript 4.0+ • Stencil v2.9.0+**
@@ -291,8 +294,18 @@ of your Angular workspace (`/packages/angular-workspace`), run the following com
 npx -p @angular/cli ng build component-library
 ```
 
-Now you can reference your component library as a standard import. If you distributed your components through a primary `NgModule`, you can
-simply import that module into an implementation to use your components.
+<Tabs
+  groupId="outputType"
+  defaultValue="component"
+  values={[
+    { label: 'outputType: "component"', value: 'component' },
+    { label: 'outputType: "scam"', value: 'scam' },
+    { label: 'outputType: "standalone"', value: 'standalone' },
+  ]
+}>
+<TabItem value="component">
+
+Import your component library into your Angular app's module. If you distributed your components through a primary `NgModule`, you can simply import that module into an implementation to use your components.
 
 ```ts title="app.module.ts"
 import { ComponentLibraryModule } from 'component-library';
@@ -303,11 +316,74 @@ import { ComponentLibraryModule } from 'component-library';
 export class AppModule {}
 ```
 
+Otherwise you will need to add the components to your module's `declarations` and `exports` arrays.
+
+```ts title="app.module.ts"
+import { MyComponent } from 'component-library';
+
+@NgModule({
+  declarations: [MyComponent],
+  exports: [MyComponent],
+})
+export class AppModule {}
+```
+
 You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
 
 ```html title="app.component.html"
 <my-component first="Your" last="Name"></my-component>
 ```
+
+</TabItem>
+
+<TabItem value="scam">
+
+Now you can reference your component library as a standard import. Each component will be exported as a separate module.
+
+```ts title="app.module.ts"
+import { MyComponentModule } from 'component-library';
+
+@NgModule({
+  imports: [MyComponentModule],
+})
+export class AppModule {}
+```
+
+You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
+
+```html title="app.component.html"
+<my-component first="Your" last="Name"></my-component>
+```
+
+</TabItem>
+
+<TabItem value="standalone">
+
+Now you can import and reference your components in your consuming application in the same way you would with any other Angular components:
+
+```ts title="app.component.ts"
+import { Component } from '@angular/core';
+import { MyComponent } from 'component-library';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [MyComponent],
+})
+export class AppComponent {}
+```
+
+You can now leverage your components in the template and take advantage of Angular template binding syntax.
+
+```html title="app.component.html"
+<my-component first="Your" last="Name"></my-component>
+```
+
+</TabItem>
+
+</Tabs>
 
 From your Angular workspace (`/packages/angular-workspace`), run `npm start` and navigate to `localhost:4200`. You should see the
 component rendered correctly.
@@ -333,7 +409,68 @@ of your Angular workspace (`/packages/angular-workspace`), run the following com
 npx -p @angular/cli ng build component-library
 ```
 
-Now you can import and reference your components in your consuming application in the same way you would with any other Angular components:
+<Tabs
+  groupId="outputType"
+  defaultValue="component"
+  values={[
+    { label: 'outputType: "component"', value: 'component' },
+    { label: 'outputType: "scam"', value: 'scam' },
+    { label: 'outputType: "standalone"', value: 'standalone' },
+  ]
+}>
+<TabItem value="component">
+
+Import your component library into your component. You must distribute your components through a primary `NgModule` to use your components in a standalone component.
+
+```ts title="app.component.ts"
+import { Component } from '@angular/core';
+import { ComponentLibraryModule } from 'component-library';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [ComponentLibraryModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {}
+```
+
+You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
+
+```html title="app.component.html"
+<my-component first="Your" last="Name"></my-component>
+```
+
+</TabItem>
+
+<TabItem value="scam">
+
+Now you can reference your component library as a standard import. Each component will be exported as a separate module.
+
+```ts title="app.module.ts"
+import { Component } from '@angular/core';
+import { MyComponentModule } from 'component-library';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [MyComponentModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {}
+```
+
+You can now directly leverage your components in their template and take advantage of Angular template binding syntax.
+
+```html title="app.component.html"
+<my-component first="Your" last="Name"></my-component>
+```
+
+</TabItem>
+
+<TabItem value="standalone">
+
+Now you can import and reference your components in your consuming application in the same way you would with any other standalone Angular components:
 
 ```ts title="app.component.ts"
 import { Component } from '@angular/core';
@@ -341,10 +478,9 @@ import { MyComponent } from 'component-library';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
   standalone: true,
   imports: [MyComponent],
+  templateUrl: './app.component.html',
 })
 export class AppComponent {}
 ```
@@ -354,6 +490,10 @@ You can now leverage your components in the template and take advantage of Angul
 ```html title="app.component.html"
 <my-component first="Your" last="Name"></my-component>
 ```
+
+</TabItem>
+
+</Tabs>
 
 From your Angular workspace (`/packages/angular-workspace`), run `npm start` and navigate to `localhost:4200`. You should see the component rendered correctly.
 
