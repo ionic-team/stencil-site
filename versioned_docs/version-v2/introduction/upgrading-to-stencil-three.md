@@ -57,8 +57,8 @@ export const config: Config = {
 
 ### Legacy Browser Support Fields Deprecated
 
-Several configuration options related to support for Safari <11, IE11, and Edge
-<19 have been marked as deprecated, and will be removed entirely in a future
+Several configuration options related to support for Safari \<11, IE11, and Edge
+\<19 have been marked as deprecated, and will be removed entirely in a future
 version of Stencil.
 
 #### `dynamicImportShim`
