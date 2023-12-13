@@ -83,11 +83,18 @@ export class TodoList {
 ```
 
 :::note
-In the case where the Stencil `Event` type conflicts with the native web `Event` type, the Stencil `Event` import can be aliased like so:
+In the case where the Stencil `Event` type conflicts with the native web `Event` type, there are two possible solutions:
+
+1. Import aliasing:
 ```tsx
 import { Event as StencilEvent, EventEmitter } from '@stencil/core';
 
 @StencilEvent() myEvent: EventEmitter<{value: string, ev: Event}>;
+```
+
+2. Namespace the native web `Event` type with `globalThis`:
+```tsx
+@Event() myEvent: EventEmitter<{value: string, ev: globalThis.Event}>;
 ```
 :::
 
