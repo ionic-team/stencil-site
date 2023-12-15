@@ -296,4 +296,5 @@ subject](https://web.dev/articles/more-capable-form-controls#restoring-form-stat
 - [ElementInternals and Form-Associated Custom Elements](https://webkit.org/blog/13711/elementinternals-and-form-associated-custom-elements/) from the WebKit blog
 - [Web.dev post detailing how form-associated lifecycle callbacks work](https://web.dev/articles/more-capable-form-controls#lifecycle_callbacks)
 
-[^1]: See https://caniuse.com/?search=attachInternals for up-to-date adoption estimates.
+[^1]: See <https://caniuse.com/?search=attachInternals> for up-to-date adoption
+    estimates.
