@@ -63,6 +63,24 @@ Users of this flag should note that they may see an increase in their bundle siz
 
 Defaults to `false`.
 
+### experimentalScopedSlotChanges
+
+This option updates runtime behavior for Stencil's support of slots in **scoped** components to match more closely with
+the native Shadow DOM behaviors.
+
+When set to `true`, the following behaviors will be applied:
+
+<!-- TODO(NOW): link issues and fix versions -->
+- Stencil will hide projected nodes that do not have a destination `slot`
+- The `textContent` getter will return the text content of all nodes located in a slot
+- The `textContent` setter will overwrite all nodes located in a slot
+
+Defaults to `false`.
+
+:::note
+These behaviors only apply to components using scoped encapsulation!
+:::
+
 ### experimentalSlotFixes
 
 This option enables all current and future slot-related fixes. When enabled it
