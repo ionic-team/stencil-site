@@ -96,6 +96,13 @@ with the intent of making these the default behavior in Stencil v5. When set to
 `true` fixes for the following issues will be applied:
 
 - [Elements rendered outside of slot when shadow not enabled (#2641)](https://github.com/ionic-team/stencil/issues/2641) (since v4.2.0)
+- [A slot gets the attribute hidden when it shouldn't (#4523)](https://github.com/ionic-team/stencil/issues/4523) (since v4.7.0)
+- [Nested slots mis-ordered when not using Shadow DOM (#2997)](https://github.com/ionic-team/stencil/issues/2997) (since v4.7.0)
+- [Inconsistent behavior: slot-fb breaks styling of default slot content in component with 'shadow: false' (#2937)](https://github.com/ionic-team/stencil/issues/2937) (since v4.7.2)
+- [Slot content went missing within dynamic component (#4284)](https://github.com/ionic-team/stencil/issues/4284) (since v4.8.2)
+- [Slot element loses its parent reference and disappears when its parent is rendered conditionally (#3913)](https://github.com/ionic-team/stencil/issues/3913) (since v4.8.2)
+- [Failed to execute 'removeChild' on 'Node' (#3278)](https://github.com/ionic-team/stencil/issues/3278) (since v4.9.0)
+- [React fails to manage children in Stencil <slot /> (#2259)](https://github.com/ionic-team/stencil/issues/2259) (since v4.9.0)
 
 :::note
 New fixes enabled by this experimental flag are not subject to Stencil's
