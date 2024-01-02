@@ -166,8 +166,7 @@ import { MyComponent } from 'best-web-components';
 
 Now you can publish your library to [Node Package Manager
 (NPM)](https://www.npmjs.com/). For more information about setting up the
-`package.json` file, and publishing, see: [Publishing Component Library To
-NPM](../guides/publishing.md).
+`package.json` file, and publishing, see: [Publishing Component Library To NPM](../guides/publishing.md).
 
 ### Usage in TypeScript
 
