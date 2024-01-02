@@ -19,7 +19,7 @@
     "@docusaurus/core": "^3.0.1",
     "@docusaurus/remark-plugin-npm2yarn": "^3.0.1",
     "@ionic/prettier-config": "^4.0.0",
-    "@ionic-docs/preset-classic": "^1.0.1",
+    "@ionic-docs/preset-classic": "^1.0.2",
     "clsx": "^2.0.0",
     "prettier": "^3.1.1",
     "prism-react-renderer": "^2.3.0",
