@@ -388,7 +388,3 @@ export class MyParentComponent {
 ```
 
 The `my-parent-component` includes a reference to the `my-embedded-component` in the `render()` function.
-
-:::caution
-It is not recommended to re-export a component from a "barrel file" and attempt to dynamically render it in another component. this is a [known limitation](https://github.com/ionic-team/stencil/issues/5246) within Stencil. Instead just use the component without import.
-:::
