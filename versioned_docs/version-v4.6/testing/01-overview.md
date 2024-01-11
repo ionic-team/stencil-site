@@ -90,16 +90,23 @@ export const config: Config = {
 
 ### Command Line Arguments
 
-While the Stencil CLI offers a certain set of command line flags to specify e.g. which types of tests to run, you also have access to all Jest options through the CLI by separating them with `--`. For example to specify a single test, you can call:
+While the Stencil CLI offers a certain set of command line flags to specify e.g. which types of tests to run, you also have access to all Jest options through the CLI. For example to specify a single test, you can pass in a positional argument to the command, e.g.:
 
 ```sh
 # run a single unit test
-npx stencil test --spec -- src/components/my-component/my-component.spec.ts
+npx stencil test --spec src/components/my-component/my-component.spec.ts
 # run a single e2e test
-npx stencil test --e2e -- src/components/my-component/my-component.e2e.ts
+npx stencil test --e2e src/components/my-component/my-component.e2e.ts
 ```
 
-You can find a list of all supported [Jest CLI options](https://jestjs.io/docs/cli) in the project documentation.
+Next to positional arguments, Stencil also passes along [certain](https://github.com/ionic-team/stencil/blob/54d4ee252768e1d225baababee0093fdb0562b83/src/cli/config-flags.ts#L38-L85) Jest specific flags, e.g.:
+
+```sh
+# enable code coverage
+npx stencil test --spec --coverage
+```
+
+You can find more information about [Jest CLI options](https://jestjs.io/docs/cli) in the project documentation.
 
 ## Running and Debugging Tests in VS Code
 
