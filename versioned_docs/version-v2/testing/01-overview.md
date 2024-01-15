@@ -88,6 +88,26 @@ export const config: Config = {
 };
 ```
 
+### Command Line Arguments
+
+While the Stencil CLI offers a certain set of command line flags to specify e.g. which types of tests to run, you also have access to all Jest options through the CLI. For example to specify a single test, you can pass in a positional argument to Jest by adding a `--`, e.g.:
+
+```sh
+# run a single unit test
+npx stencil test --spec -- src/components/my-component/my-component.spec.ts
+# run a single e2e test
+npx stencil test --e2e -- src/components/my-component/my-component.e2e.ts
+```
+
+Next to positional arguments, Stencil also passes along [certain](https://github.com/ionic-team/stencil/blob/54d4ee252768e1d225baababee0093fdb0562b83/src/cli/config-flags.ts#L38-L85) Jest specific flags, e.g.:
+
+```sh
+# enable code coverage
+npx stencil test --spec --coverage
+```
+
+You can find more information about [Jest CLI options](https://jestjs.io/docs/cli) in the project documentation.
+
 ## Running and Debugging Tests in VS Code
 
 Adding the following configurations to `.vscode/launch.json` will allow you to use the VS Code Debugger to run the Stencil test runner for the currently active file in your editor.
