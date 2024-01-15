@@ -70,7 +70,7 @@ the native Shadow DOM behaviors.
 
 When set to `true`, the following behaviors will be applied:
 
-- Stencil will hide projected nodes that do not have a destination `slot` ((#2778)[https://github.com/ionic-team/stencil/issues/2877]) (since v4.10.0)
+- Stencil will hide projected nodes that do not have a destination `slot` ([#2778](https://github.com/ionic-team/stencil/issues/2877)) (since v4.10.0)
 - The `textContent` getter will return the text content of all nodes located in a slot (since v4.10.0)
 - The `textContent` setter will overwrite all nodes located in a slot (since v4.10.0)
 
