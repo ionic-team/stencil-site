@@ -103,7 +103,7 @@ Slot-related fixes to the runtime will be added over the course of Stencil v4,
 with the intent of making these the default behavior in Stencil v5. When set to
 `true` fixes for the following issues will be applied:
 
-- [Elements rendered outside of slot when shadow not enabled (#2641)](https://github.com/ionic-team/stencil/issues/2641) (since v4.2.0)
+- Elements rendered outside of slot when shadow not enabled [(#2641)](https://github.com/ionic-team/stencil/issues/2641) (since v4.2.0)
 
 :::note
 New fixes enabled by this experimental flag are not subject to Stencil's
