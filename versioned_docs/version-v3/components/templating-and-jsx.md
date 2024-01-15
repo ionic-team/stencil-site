@@ -175,6 +175,8 @@ render(){
 }
 ```
 
+### Slots Outside Shadow DOM
+
 :::caution
 Slots are native to the [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM), but Stencil polyfills
 the behavior to work for non-shadow components as well. However, you may encounter issues using slots outside the Shadow DOM especially with
@@ -182,6 +184,12 @@ component trees mixing shadow and non-shadow components, or when passing a slot 
 be remedied by wrapping the `slot` in an additional element (like a `div` or `span`) so the Stencil runtime can correctly "anchor" the relocated
 content in its new location.
 :::
+
+There are known use cases that the Stencil runtime is not able to support:
+
+- Forwarding slotted content to another slot with a different name:<br/>
+  It is recommended that slot names stay consistent when slotting content through multiple levels of components. **Avoid** defining slot tags like
+  `<slot name="start" slot="main" />`.
 
 ## Dealing with Children
 
