@@ -43,7 +43,7 @@
     {
       matchPackagePrefixes: ['@docusaurus'],
       groupName: '@docusaurus',
-    }
+    },
   ],
   // Never rebase the branch or update it unless manually requested to avoid noisy PR emails
   rebaseWhen: 'never',
@@ -55,5 +55,5 @@
    * By default, Angular-style semantic commits will have a type of 'chore' and a scope of 'deps':
    * `chore(deps): _your git commit title here_`
    */
-  semanticCommits: "enabled",
+  semanticCommits: 'enabled',
 }
