@@ -15,12 +15,12 @@ The whole API provided by stencil can be condensed in a set of decorators, lifec
 Decorators are a pure compiler-time construction used by stencil to collect all the metadata about a component, the properties, attributes and methods it might expose, the events it might emit or even the associated stylesheets.
 Once all the metadata has been collected, all the decorators are removed from the output, so they don't incur any runtime overhead.
 
-- [@Component()](./component.md#component-decorator) declares a new web component
+- [@Component()](./component.md) declares a new web component
 - [@Prop()](./properties.md#the-prop-decorator-prop) declares an exposed property/attribute
 - [@State()](./state.md#the-state-decorator-state) declares an internal state of the component
 - [@Watch()](./reactive-data.md#the-watch-decorator-watch) declares a hook that runs when a property or state changes
 - [@Element()](./host-element.md#element-decorator) declares a reference to the host element
-- [@Method()](./methods.md#method-decorator) declares an exposed public method
+- [@Method()](./methods.md) declares an exposed public method
 - [@Event()](./events.md#event-decorator) declares a DOM event the component might emit
 - [@Listen()](./events.md#listen-decorator) listens for DOM events
 

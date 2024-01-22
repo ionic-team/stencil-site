@@ -22,7 +22,7 @@ support have shipped the necessary APIs.
 
 ## Creating a Form-Associated Component
 
-A form-associated Stencil component is one which sets the new [`formAssociated`](./component.md#formAssociated)
+A form-associated Stencil component is one which sets the new [`formAssociated`](./component.md#formassociated)
 option in the argument to the `@Component`
 decorator to `true`, like so:
 

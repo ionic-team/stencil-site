@@ -60,7 +60,7 @@ export default function LifecycleMethodsChart() {
                 </Link>
               </g>
               <g>
-                <Link to="reactive-data#watch-decorator" className={styles.pathUpdate}>
+                <Link to="reactive-data#the-watch-decorator-watch" className={styles.pathUpdate}>
                   <rect x="303" y="161" width="252" height="49" rx="24.5" ry="24.5" fill="#7b83a6" />
                   <text x="2.5288086" y="-8" fill="#fff">
                     <tspan x="348.52881" y="190">
