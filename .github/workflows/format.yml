@@ -1,0 +1,31 @@
+name: Format Stencil Docs (Check)
+
+on:
+  workflow_call:
+    # Make this a reusable workflow, no value needed
+    # https://docs.github.com/en/actions/using-workflows/reusing-workflows
+
+jobs:
+  format:
+    name: Check
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      # this overrides previous versions of the node runtime that was set.
+      # jobs that need a different version of the Node runtime should explicitly
+      # set their node version after running this step
+      - name: Use Node Version from Volta
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+        with:
+          node-version-file: './package.json'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+        shell: bash
+
+      - name: Prettier Check
+        run: npm run prettier.dry-run
+        shell: bash
