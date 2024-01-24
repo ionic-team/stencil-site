@@ -248,6 +248,46 @@ ensure that each child has a key which does not change and which is unique
 among all its siblings.
 :::
 
+### Automatic Key Insertion
+
+During compilation Stencil will automatically add key attributes to any JSX
+nodes in your component's render method which are not nested within curly
+braces. This allows Stencil’s runtime to accurately reconcile children when
+their order changes or when a child is conditionally rendered.
+
+For instance, consider a render method looking something like this:
+
+```tsx
+  render() {
+    return (
+      <div>
+        { this.disabled && <div id="no-key">no key!</div> }
+        <div id="slot-wrapper">
+          <slot/>
+        </div>
+      </div>
+    );
+  }
+```
+
+While it might seem like adding a key attribute to the `#slot-wrapper` div
+could help ensure that elements will be matched up correctly when the component
+re-renders, this is actually superfluous because Stencil will automatically add
+a key to that element when it compiles your component.
+
+:::note
+The Stencil compiler can only safely perform automatic key insertion in certain
+scenarios where there is no danger of the keys accidentally causing elements to
+be considered different when they should be treated the same (or vice versa).
+
+In particular, the compiler will not automatically insert `key` attributes if a
+component's `render` method has more than one `return` statement or if it
+returns a [conditional
+expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator).
+Additionally, the compiler will not add key attributes to any JSX which is
+found within curly braces (`{ }`).
+:::
+
 ## Handling User Input
 
 Stencil uses native [DOM events](https://developer.mozilla.org/en-US/docs/Web/Events).
