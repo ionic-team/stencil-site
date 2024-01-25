@@ -25,7 +25,7 @@ The current status of each Stencil version is:
 | Version |      Status      |   Released   | Maintenance Ends | Ext. Support Ends |
 |:-------:|:----------------:|:------------:|:----------------:|:-----------------:|
 |   V3    | Extended Support | Jan 25, 2023 |   Dec 26, 2023   |   Jun 26, 2024    |
-|   V2    | Extended Support | Aug 08, 2020 |   Jul 25, 2023   |   Jan 25, 2024    |
+|   V2    |  End of Support  | Aug 08, 2020 |   Jul 25, 2023   |   Jan 25, 2024    |
 |   V1    |  End of Support  | Jun 03, 2019 |   Aug 08, 2020   |   Aug 08, 2020    |
 
 **Maintenance Period**: Only critical bug and security fixes. No major feature improvements.
