@@ -14,6 +14,7 @@ const config = {
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'throw',
   favicon: `https://${HOSTNAME}/favicon-32x32.png`,
 
   organizationName: 'ionic-team',
