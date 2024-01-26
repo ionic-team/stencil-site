@@ -20,6 +20,20 @@ export const config: Config = {
 };
 ```
 
+## buildDist
+
+*default: true (prod), false (dev)*
+
+Sets whether or not Stencil will execute output targets and write output to
+`dist/` when `stencil build` is called. Defaults to `false` when building for
+development and `true` when building for production. If set to `true` then
+Stencil will always build all output targets, regardless of whether the build
+is in dev or prod mode or using watch mode.
+
+```tsx
+buildDist: true
+```
+
 ## buildEs5
 
 Sets if the ES5 build should be generated or not. It defaults to `false`. Setting `true` will also create es5 builds for both dev and prod modes. Setting `buildEs5` to `prod` will only build ES5 in prod mode. Basically if the app does not need to run on legacy browsers (IE11 and Edge 18 and below), it's safe to use the default respectively, `buildEs5` set  to `false`, which will also speed up production build times. In addition to creating es5 builds, apps may also be interested in enable runtime options to __support__ legacy browsers. See [config extras](./extras.md) for more information.
