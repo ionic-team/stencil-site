@@ -20,6 +20,20 @@ export const config: Config = {
 };
 ```
 
+## buildDist
+
+*default: true (prod), false (dev)*
+
+Sets whether or not Stencil will execute output targets and write output to
+`dist/` when `stencil build` is called. Defaults to `false` when building for
+development and `true` when building for production. If set to `true` then
+Stencil will always build all output targets, regardless of whether the build
+is in dev or prod mode or using watch mode.
+
+```tsx
+buildDist: true
+```
+
 ## buildEs5
 
 Sets if the ES5 build should be generated or not.
