@@ -8,13 +8,11 @@ slug: /docs-readme
 # Docs Readme Markdown File Auto-Generation
 
 Stencil is able to auto-generate `readme.md` files for your components.
-This can help you to maintain consistently formatted
-documentation for your components which lives right next to them and render in
-GitHub.
+This can help you to maintain consistently formatted documentation for your components which lives right next to them and render in GitHub.
 
 ## Setup
 
-To generate markdown files using the `docs-readme` output target, it is recommended to add the following to your Stencil configuration file:
+To generate markdown files, it is recommended to add the `docs-readme` output target to your Stencil configuration file:
 
 ```tsx title="stencil.config.ts"
 import { Config } from '@stencil/core';
@@ -32,7 +30,7 @@ export const config: Config = {
 
 ### Using the Build Task
 
-If your project has a `docs-readme` output target configured in your Stencil configuration file, the Stencil [build task](../config/cli.md#stencil-build) is all that's needed to generate readme docs:
+If your project has a `docs-readme` output target configured in your Stencil configuration file, the Stencil [build task](../config/cli.md#stencil-build) is all that's needed to generate README docs:
 ```bash
 npx stencil build
 ```
@@ -59,9 +57,9 @@ As an alternative to the build task, the [docs task](../config/cli.md#stencil-do
 ```bash
 npx stencil docs
 ```
-Running `stencil docs` will generate documentation for all documentation output targets, not just `docs-readme`.
+Running `stencil docs` will generate documentation for [all documentation output targets](./01-overview.md), not just `docs-readme`.
 
-## Generating Content
+## README Sections
 
 Most generated markdown content will automatically be generated without requiring any additional configuration.
 Content is generated based on its Stencil component, rather than requiring you to configure multiple flags.
@@ -83,17 +81,17 @@ Any custom content placed above this comment will be persisted on subsequent bui
 A Stencil component may be marked as deprecated using the [JSDoc `@deprecated` tag](https://jsdoc.app/tags-deprecated).
 By placing `@deprecated` in a component's class-level JSDoc will cause the generated README to denote the component is deprecated.
 
-```tsx title="my-component.tsx with @deprecated"
+For a component with the JSDoc:
+
+```tsx title="A component with @deprecated in its JSDoc"
 /**
- * A simple component for formatting names.
- * 
  * @deprecated since v2.0.0
  */
 @Component({
   tag: 'my-component',
   shadow: true,
 })
-export class MyComponent { }
+export class MyComponent { /* omitted */ }
 ```
 
 In the code block above, `@deprecated` is added to the JSDoc for `MyComponent`.
@@ -102,18 +100,18 @@ This causes the generated README to contain:
 > **[DEPRECATED]** since v2.0.0
 ```
 
-The deprecation notice will always begin with `> **[DEPRECATED]**`, followed by the deprecation description.
+The deprecation notice will always begin with `> **[DEPRECATED]**`, followed by the description provided in the JSDoc.
 In this case, that description is "since v2.0.0".
 
-The deprecation notice will be placed after the [`<!-- Auto Generated Below -->` comment](#custom-markdown-content) in the README.
+The deprecation notice will be placed after the [custom content](#custom-markdown-content) in the README.
 
 If a component is not marked as deprecated, this section will be omitted from the generated README.
 
-### Overview Documentation
+### Component Overview
 
 A Stencil component that has a JSDoc comment on its class component like so:
 
-```tsx title="my-component.tsx with an overview"
+```tsx title="A component with an overview in its JSDoc"
 /**
  * A simple component for formatting names
  *
@@ -136,16 +134,18 @@ This component will do some neat things!
 ```
 
 The overview will be placed after the [deprecation notice](#deprecation-notices) section of the README.
+
 If a component's JSDoc does not contain an overview, this section will be omitted from the generated README.
 
 ### Usage Examples
 
 Usage examples are user-generated markdown files that demonstrate how another developer might use a component.
 These files are separate from a component's README file, and are placed in a `usage/` adjacent to a component's implementation.
+
 The content of these files will be added to a `Usage` section of the generated README. 
 This allows you to keep examples right next to the code, making it easy to include them in a documentation site or other downstream consumer(s) of your docs.
 
-The example usage file below gives us a high level overview of how to use the component, `my-component`:
+The example usage file below describes how to use a component defined in `src/components/my-component/my-component.tsx`:
 
 ````md title="src/components/my-component/usage/my-component-usage.md"
 # How to Use `my-component`
@@ -182,14 +182,13 @@ Stencil does not check that your usage examples are up-to-date.
 If you make any changes to your component's API, you'll need to update your usage examples manually.
 :::
 
-The usage section will be placed after the [overview section](#overview-documentation) of the README.
+The usage section will be placed after the [overview section](#component-overview) of the README.
 
 If a component's directory does not contain any usage files, this section will be omitted from the generated README.
 
-### @Prop() Information
+### @Prop() Details
 
-Components that use Stencil's [`@Prop()` decorator](../components/properties.md) will have a section describing the fields that are decorated with `@Prop()`.
-This information is presented in a table containing the following columns:
+Usages of Stencil's [`@Prop()` decorator](../components/properties.md) are described in a table containing the following information for each usage of `@Prop()`:
 - **Property**: The name of the property on the TypeScript class.
 - **Attribute**: The name of the attribute associated with the property name.
 - **Description**: A description of the property, if one was given in a JSDoc comment for the property.
@@ -202,7 +201,7 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() first!: string;
+  @Prop() first!: string; // the '!' denotes a required property
   /**
    * @deprecated since v2.1.0
    */
@@ -226,12 +225,11 @@ The following section will be generated:
 
 The properties section will be placed after the [usage examples section](#usage-examples) of the README.
 
-If a component does not use `@Prop()`, this section will be omitted from the generated README.
+If a component does not use the `@Prop()` decorator, this section will be omitted from the generated README.
 
-### @Event() Information
+### @Event() Details
 
-Components that use Stencil's [`@Event()` decorator](../components/events.md) will have a section describing the fields that are decorated with `@Event()`.
-This information is presented in a table containing the following columns:
+Usages of Stencil's [`@Event()` decorator](../components/events.md) are described in a table containing the following information for each usage of `@Event()`:
 - **Event**: The name of the property on the TypeScript class decorated with `@Event()`.
 - **Description**: A description of the property, if one was given in a JSDoc comment for the property.
 - **Type**: The TypeScript type of the property.
@@ -263,17 +261,19 @@ The following section will be generated:
 | `todoUndo`      | <span style="color:red">**[DEPRECATED]**</span> <br/><br/> | `CustomEvent<number>` |
 ```
 
-The events section will be placed after the [@Prop() section](#prop-information) of the README.
+The events section will be placed after the [@Prop() section](#prop-details) of the README.
 
-If a component does not use `@Event()`, this section will be omitted from the generated README.
+If a component does not use the `@Event()` decorator, this section will be omitted from the generated README.
 
-### @Method() Information
+### @Method() Details
 
 Components that use Stencil's [`@Method()` decorator](../components/methods.md) will have a section describing each usage `@Method`.
-Each usage of `@Method` will have the following subsections generated:
-- A description of the method, if one was provided in a JSDoc
-- A table containing the name, TypeScript type, and description of each parameter of the method
-- A description of the return value of the method, including its return type.
+
+Each usage of `@Method` will be documented with its own subsection containing the following:
+- The method signature will be used as the heading for each subsection 
+- A description of the method will immediately follow, if one was provided in a JSDoc
+- A 'Parameters' section that contains a table the describes the name, TypeScript type, and description of each parameter of the method
+- A 'Returns' section that contains the return type of the method, along with a description of the returned value.
 
 For the following usages of `@Method()` in a component:
 
@@ -288,7 +288,6 @@ export class MyComponent {
    * @returns the total distance travelled
    */
   @Method()
-  // @ts-ignore
   async scrollByPoint(x: number, y: number, duration: number): Promise<number> { /* omitted */ }
 
   // ...
@@ -319,20 +318,20 @@ Type: `Promise<number>`
 the total distance travelled
 ```
 
-The methods section will be placed after the [@Event section](#event-information) of the README.
+The methods section will be placed after the [@Event section](#event-details) of the README.
 
-If a component does not use `@Method()`, this section will be omitted from the generated README.
+If a component does not use the `@Method()` decorator, this section will be omitted from the generated README.
 
 ### @slot Details
 
-A component that uses [slots](../components/templating-and-jsx.md#slots) may describe the component's slots in the component's JSDoc using the Stencil-specific `@slot` JSDoc tag.
+A component that uses [slots](../components/templating-and-jsx.md#slots) may describe the its slots in the component's JSDoc using the Stencil-specific `@slot` JSDoc tag.
 The `@slot` tag follows the following format:
 ```
 @slot [slot-name] - [description]
 ```
 where `slot-name` corresponds to the name of the slot in the markup, and `description` describes the usage of the slot.
 
-For this tag to be read properly, the following is required:
+For this JSDoc tag to be read properly, the following is required:
 1. Either `slot-name` or `description` must be included. Both may be included though.
 2. The '-' separating the two is required.
 
@@ -346,11 +345,27 @@ For the following usages of `@slot()` in a component:
 ```tsx
 /**
  * @slot - Content is placed between the named slots if provided without a slot.
- * @slot primary - Content is placed to the right of the toolbar text.
- * @slot secondary - Content is placed to the left of the toolbar text.
+ * @slot primary - Content is placed to the left of the main slotted-in text.
+ * @slot secondary - Content is placed to the right of the main slotted-in text.
  */
+@Component({
+  tag: 'my-component',
+  shadow: true,
+})
 export class MyComponent {
   // ...
+  
+  render() {
+    return (
+      <section>
+        <slot name="primary"></slot>
+        <div class="content">
+          <slot></slot>
+        </div>
+        <slot name="secondary"></slot>
+      </section>
+    );
+  }
 }
 ```
 
@@ -362,23 +377,23 @@ The following table is generated:
 | Slot          | Description                                                           |
 | ------------- | --------------------------------------------------------------------- |
 |               | Content is placed between the named slots if provided without a slot. |
-| `"primary"`   | Content is placed to the right of the toolbar text.                   |
-| `"secondary"` | Content is placed to the left of the toolbar text.                    |
+| `"primary"`   | Content is placed to the left of the main slotted-in text.            |
+| `"secondary"` | Content is placed to the right of the main slotted-in text.           |
 
 ```
 
 The slots section will be placed after the [@Method section](#method-information) of the README.
 
-If a component does not use `@slot`, this section will be omitted from the generated README.
+If a component's top-level JSDoc does not use `@slot` tags, this section will be omitted from the generated README.
 
 ### Shadow Parts
 
-A component that uses [shadow parts](../components/styling.md#css-parts) may describe the component's shadow parts in the component's JSDoc using the Stencil-specific `@part` JSDoc tag.
+A component that uses [CSS shadow parts](../components/styling.md#css-parts) may describe the component's shadow parts in the component's JSDoc using the Stencil-specific `@part` JSDoc tag.
 The `@part` tag follows the following format:
 ```
 @part [part-name] - [description]
 ```
-where `part-name` corresponds to the name of the css part in the markup, and `description` describes the usage of the shadow part.
+where `part-name` corresponds to the name of the shadow part in the markup, and `description` describes its usage.
 
 For this tag to be read properly, the following is required:
 1. Either `part-name` or `description` must be included, although using both is strongly encouraged.
@@ -392,9 +407,7 @@ For the following usages of `@part()` in a component:
 
 ```tsx
 /**
- * @part container - The container for the checkbox mark.
- * @part label - The label text describing the checkbox.
- * @part mark  The checkmark used to indicate the checked state.
+ * @part label - The label text describing the component.
  */
 @Component({
   tag: 'my-component',
@@ -403,6 +416,14 @@ For the following usages of `@part()` in a component:
 })
 export class MyComponent {
   // ...
+
+  render() {
+    return (
+      <div part="label">
+        <slot></slot>
+      </div>
+    );
+  }
 }
 ```
 
@@ -410,28 +431,26 @@ The following table will be generated:
 ```md
 ## Shadow Parts
 
-| Part                                                        | Description                             |
-| ----------------------------------------------------------- | --------------------------------------- |
-| `"container"`                                               | The container for the checkbox mark.    |
-| `"label"`                                                   | The label text describing the checkbox. |
-| `"mark  The checkmark used to indicate the checked state."` |                                         |
+| Part                                                        | Description                              |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| `"label"`                                                   | The label text describing the component. |
 ```
 
 The shadow parts section will be placed after the [@Slot Details](#slot-details) of the README.
 
-If a component does not use `@part`, this section will be omitted from the generated README.
+If a component's top-level JSDoc does not use `@part` tags, this section will be omitted from the generated README.
 
 ### Styling Details
 
-Styles can be documented in Stencil components as well.
-An example of this is a CSS variable that a component's styling depends on.
+Styling in CSS files can be documented in Stencil components as well.
+One use case for documenting styles using Stencil is to note a CSS variable that a component's styling depends on.
 Using the `@prop` JSDoc in a component's CSS file, Stencil can generate this documentation as well.
 
 This information is presented in a table containing the following columns:
 - **Name**: The name of the custom property.
 - **Description**: A description of the custom property, if one was given.
 
-For the following usages of `@prop()` in a component's css file:
+For the following usages of `@prop` in a component's css file:
 
 ```css
 :host {
@@ -453,9 +472,9 @@ The following table will be generated:
 
 The styling details section will be placed after the [Shadow Parts Details](#shadow-parts) of the README.
 
-If a component does not include styling details, this section will be omitted from the generated README.
+If a component's styles does not include styling details, this section will be omitted from the generated README.
 
-### A Custom Footer
+### Custom Footers
 
 Removing or customizing the footer can be done by adding a `footer` property to
 the output target. This string is added to the generated Markdown files without
@@ -482,7 +501,7 @@ The following footer will be placed at the bottom of your component's README fil
 ## Configuration
 ### Specifying the Output Directory
 
-By default, a readme file will be generated in the same directory as the
+By default, a README file will be generated in the same directory as the
 component it corresponds to. This behavior can be changed by setting the `dir`
 property on the output target configuration. Specifying a directory will create
 the structure `{dir}/{component}/readme.md`.
