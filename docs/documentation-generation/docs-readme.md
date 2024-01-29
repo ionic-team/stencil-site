@@ -382,7 +382,7 @@ The following table is generated:
 
 ```
 
-The slots section will be placed after the [@Method section](#method-information) of the README.
+The slots section will be placed after the [@Method section](#method-details) of the README.
 
 If a component's top-level JSDoc does not use `@slot` tags, this section will be omitted from the generated README.
 
