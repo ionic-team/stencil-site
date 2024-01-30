@@ -28,32 +28,32 @@ export const config: Config = {
 
 ## Generating README Files
 
-### Using the Build Task
+### Using the Build Command
 
-If your project has a `docs-readme` output target configured in your Stencil configuration file, the Stencil [build task](../config/cli.md#stencil-build) is all that's needed to generate README docs:
+If your project has a `docs-readme` output target configured in your Stencil configuration file, the Stencil [build command](../config/cli.md#stencil-build) is all that's needed to generate README docs:
 ```bash
 npx stencil build
 ```
-If you're running the build task with the `--watch` flag, your project's README files will automatically update without requiring multiple explicit build commands:
+If you're running the build command with the `--watch` flag, your project's README files will automatically update without requiring multiple explicit build commands:
 ```bash
 npm stencil build --watch
 ```
 
 :::info
-When running the build task with the `--dev` flag, README files will not be generated.
+When running the build command with the `--dev` flag, README files will not be generated.
 This is to prevent unnecessary I/O operations during the development cycle.
 :::
 
-If you choose not to include a `docs-readme` output target in your Stencil configuration file, use the `--docs` CLI flag as a part of the build task:
+If you choose not to include a `docs-readme` output target in your Stencil configuration file, use the `--docs` CLI flag as a part of the build command:
 ```bash
 npx stencil build --docs
 ```
 
 This will cause the Stencil compiler to perform a one-time build of your entire project, including README files.
 
-### Using the Docs Task
+### Using the Docs Command
 
-As an alternative to the build task, the [docs task](../config/cli.md#stencil-docs) can be used to perform a one time generation of the documentation:
+As an alternative to the build command, the [docs command](../config/cli.md#stencil-docs) can be used to perform a one time generation of the documentation:
 ```bash
 npx stencil docs
 ```
