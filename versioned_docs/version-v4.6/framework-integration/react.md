@@ -427,6 +427,11 @@ If `true`, all Web Components will automatically be registered with the Custom E
 
 If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements](../output-targets/custom-elements.md) output and will not work with lazy loaded components.
 
+:::note
+The configuration for the [Custom Elements](../output-targets/custom-elements.md) output target must set the
+[export behavior](../output-targets/custom-elements.md#customelementsexportbehavior) to `single-export-module` for the wrappers to generate correctly.
+:::
+
 ### includePolyfills
 
 **Optional**
