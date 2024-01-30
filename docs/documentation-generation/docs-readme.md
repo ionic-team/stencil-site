@@ -8,7 +8,7 @@ slug: /docs-readme
 # Docs Readme Markdown File Auto-Generation
 
 Stencil is able to auto-generate `readme.md` files for your components.
-This can help you to maintain consistently formatted documentation for your components which lives right next to them and render in GitHub.
+This can help you to maintain consistently formatted documentation for your components which lives right next to them and renders in GitHub.
 
 ## Setup
 
