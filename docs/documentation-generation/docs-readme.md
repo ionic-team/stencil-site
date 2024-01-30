@@ -140,7 +140,7 @@ If a component's JSDoc does not contain an overview, this section will be omitte
 ### Usage Examples
 
 Usage examples are user-generated markdown files that demonstrate how another developer might use a component.
-These files are separate from a component's README file, and are placed in a `usage/` adjacent to a component's implementation.
+These files are separate from a component's README file, and are placed in a `usage/` directory adjacent to a component's implementation.
 
 The content of these files will be added to a `Usage` section of the generated README. 
 This allows you to keep examples right next to the code, making it easy to include them in a documentation site or other downstream consumer(s) of your docs.
