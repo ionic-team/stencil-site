@@ -324,7 +324,7 @@ If a component does not use the `@Method()` decorator, this section will be omit
 
 ### @slot Details
 
-A component that uses [slots](../components/templating-and-jsx.md#slots) may describe the its slots in the component's JSDoc using the Stencil-specific `@slot` JSDoc tag.
+A component that uses [slots](../components/templating-and-jsx.md#slots) may describe its slots in the component's JSDoc using the Stencil-specific `@slot` JSDoc tag.
 The `@slot` tag follows the following format:
 ```
 @slot [slot-name] - [description]
