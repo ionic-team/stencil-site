@@ -53,7 +53,7 @@ This will cause the Stencil compiler to perform a one-time build of your entire 
 
 ### Using the Docs Command
 
-As an alternative to the build command, the [docs command](../config/cli.md#stencil-docs) can be used to perform a one time generation of the documentation:
+As an alternative to the build command, the docs command can be used to perform a one time generation of the documentation:
 ```bash
 npx stencil docs
 ```
