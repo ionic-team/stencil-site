@@ -79,7 +79,7 @@ Any custom content placed above this comment will be persisted on subsequent bui
 ### Deprecation Notices
 
 A Stencil component may be marked as deprecated using the [JSDoc `@deprecated` tag](https://jsdoc.app/tags-deprecated).
-By placing `@deprecated` in a component's class-level JSDoc will cause the generated README to denote the component is deprecated.
+By placing `@deprecated` in a component's class-level JSDoc it will cause the generated README to denote the component as deprecated.
 
 For a component with the JSDoc:
 
