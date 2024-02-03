@@ -286,6 +286,8 @@ export class TodoList {
 }
 ```
 
+Read more on styling modes in the Components [Styling](styling#style-modes) section.
+
 ### styles
 
 **Optional**

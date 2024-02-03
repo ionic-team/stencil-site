@@ -233,6 +233,66 @@ By specifying "inner-text" as the value of the `exportparts` attribute, elements
 <outer-component />
 ```
 
+## Style Modes
+
+Component Style Modes enable you to create versatile designs for your components by utilizing different styling configurations. This is achieved by assigning the styleUrls property of a component to a collection of style mode names, each linked to their respective CSS files.
+
+### Example: Styling a Button Component
+
+Consider a basic button component that supports both iOS and Material Design aesthetics:
+
+```tsx
+@Component({
+  tag: 'simple-button',
+  styleUrls: {
+    md: './simple-button.md.css', // styles for Material Design
+    ios: './simple-button.ios.css' // styles for iOS
+  },
+})
+export class SimpleButton {
+  // ...
+}
+```
+
+To dictate the style mode (Material Design or iOS) in which the button should be rendered, you must initialize the desired mode before any component rendering occurs. This can be done as follows:
+
+```ts
+import { setMode } from '@stencil/core';
+setMode(() => 'ios'); // Setting iOS as the default mode for all components
+```
+
+The `setMode` function processes all elements, enabling the assignment of modes individually based on specific element attributes. For instance, by assigning the `colorMode` attribute to a component:
+
+```html
+<simple-button colorMode="ios"></simple-button>
+```
+
+You can conditionally set the style mode based on the `colorMode` property:
+
+```ts
+import { setMode } from '@stencil/core';
+
+const defaultMode = 'md'; // Default to Material Design
+setMode((el) => el.getAttribute('colorMode') || defaultMode);
+```
+
+Style modes can only be set once at the beginning of the component lifecycle.
+
+### Important Considerations
+
+- __Initialization:__ Style modes must be defined at the start of the component lifecycle and cannot be changed thereafter.
+- __Usage Requirement:__ A style mode must be set to ensure the component loads with styles. Without specifying a style mode, the component will not apply any styles.
+- __Querying Style Mode:__ To check the current style mode and e.g. provide different functionality based on the mode, use the `getMode` function:
+
+```ts
+import { setMode, getMode } from '@stencil/core';
+
+const simpleButton = document.queryElement('simple-button')
+console.log(getMode(simpleButton)); // Outputs the current style mode of component
+```
+
+This approach ensures your components are adaptable and can dynamically switch between different styles, enhancing the user experience across various platforms and design preferences.
+
 ## Global styles
 
 While most styles are usually scoped to each component, sometimes it's useful to have styles that are available to all the components in your project. To create styles that are globally available, start by creating a global stylesheet. For example, you can create a folder in your `src` directory called `global` and create a file called `global.css` within that. Most commonly, this file is used to declare CSS custom properties on the root element via the `:root` pseudo-class. This is because styles provided via the `:root` pseudo-class can pass through the shadow boundary. For example, you can define a primary color that all your components can use.
