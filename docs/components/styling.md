@@ -285,7 +285,7 @@ Style modes can only be set once at the beginning of the component lifecycle.
 - __Querying Style Mode:__ To check the current style mode and e.g. provide different functionality based on the mode, use the `getMode` function:
 
 ```ts
-import { setMode, getMode } from '@stencil/core';
+import { getMode } from '@stencil/core';
 
 const simpleButton = document.queryElement('simple-button')
 console.log(getMode(simpleButton)); // Outputs the current style mode of component
