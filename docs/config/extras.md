@@ -103,6 +103,7 @@ with the intent of making these the default behavior in Stencil v5. When set to
 - Slot element loses its parent reference and disappears when its parent is rendered conditionally [(#3913)](https://github.com/ionic-team/stencil/issues/3913) (since v4.8.2)
 - Failed to execute 'removeChild' on 'Node' [(#3278)](https://github.com/ionic-team/stencil/issues/3278) (since v4.9.0)
 - React fails to manage children in Stencil slot [(#2259)](https://github.com/ionic-team/stencil/issues/2259) (since v4.9.0)
+- Slot name is not updated when it is bind to a prop [(#2982)](https://github.com/ionic-team/stencil/issues/2982) (since 4.12.1)
 
 :::note
 New fixes enabled by this experimental flag are not subject to Stencil's
