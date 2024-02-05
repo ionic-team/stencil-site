@@ -169,6 +169,112 @@ During production builds, the content of each generated file is hashed to repres
 hashFileNames: true
 ```
 
+## hydratedFlag
+
+When using the [lazy build](https://stenciljs.com/docs/distribution) Stencil
+has support for automatically applying a class or attribute to a component and
+all of its child components when they have finished hydrating. This can be used
+to prevent a [flash of unstyled content
+(FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content), a
+typically-undesired 'flicker' of unstyled HTML that might otherwise occur
+during component rendering while various components are asynchronously
+downloaded and rendered.
+
+By default, Stencil will add the `hydrated` CSS class to elements to indicate
+hydration. The `hydratedFlag` config field allows this behavior to be
+customized, by changing the name of the applied CSS class, setting it to use an
+attribute to indicate hydration, or changing which type of CSS properties and
+values are assigned before and after hydrating. This config can also be used to
+turn off this behavior by setting it to `null`.
+
+If a Stencil configuration does not supply a value for `hydratedFlag` then
+Stencil will automatically generate the following default configuration:
+
+```ts
+const defaultHydratedFlag: HydratedFlag = {
+  hydratedValue: 'inherit',
+  initialValue: 'hidden',
+  name: 'hydrated',
+  property: 'visibility',
+  selector: 'class',
+};
+```
+
+If `hydratedFlag` is explicitly set to `null`, Stencil will not set a default
+configuration and the behavior of marking hydration with a class or attribute
+will be disabled.
+
+```tsx
+hydratedFlag: null | {
+    name?: string,
+    selector?: 'class' | 'attribute',
+    property?: string,
+    initialValue?: string,
+    hydratedValue?: string
+}
+```
+
+The supported options are as follows:
+
+### name
+
+*default: 'hydrated'*
+
+The name which Stencil will use for the attribute or class that it sets on
+elements to indicate that they are hydrated.
+
+```tsx
+name: string
+```
+
+### selector
+
+*default: 'class'*
+
+The way that Stencil will indicate that a component has been hydrated. When
+`'class'`, Stencil will set the `name` option on the element as a class, and
+when `'attribute'`, Stencil will similarly set the `name` option as an
+attribute.
+
+```tsx
+selector: 'class' | 'attribute'
+```
+
+### property
+
+*default: 'visibility'*
+
+The CSS property used to show and hide components. This defaults to the CSS
+`visibility` property. Other possible CSS properties might include `display`
+with the `initialValue` setting as `none`, or `opacity` with the `initialValue`
+as `0`. Defaults to `visibility`.
+
+```tsx
+property: string
+```
+
+### initialValue
+
+*default: 'hidden'*
+
+This is the value which should be set for the property specified by `property`
+on all components before hydration.
+
+```tsx
+initialValue: string
+```
+
+### hydratedValue
+
+*default: 'inherit'*
+
+This is the value which should be set for the property specified by `property`
+on all components once they've completed hydration.
+
+```tsx
+hydratedValue: string
+```
+
 ## invisiblePrehydration
 
 *default: `true`*
