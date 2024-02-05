@@ -244,4 +244,4 @@ export const config: Config = {
 };
 ```
 
-Check [the testing config docs](./config.md) to learn more about the possibilities on this matter. 
+Check [the testing config docs](./02-config.md) to learn more about the possibilities on this matter. 
