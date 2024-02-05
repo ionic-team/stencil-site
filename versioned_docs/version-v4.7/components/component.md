@@ -320,7 +320,7 @@ export class TodoList {
 }
 ```
 
-Read more on styling modes in the Components [Styling](styling#style-modes) section.
+Read more on styling modes in the Components [Styling](./styling.md#style-modes) section.
 
 ### styles
 

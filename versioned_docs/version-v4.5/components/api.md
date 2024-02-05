@@ -93,8 +93,8 @@ window.addEventListener('appload', (event) => {
 
 - **getAssetPath()**: Gets the path to local assets. Refer to the [Assets](../guides/assets.md#getassetpath) page for usage info.
 
-- **setMode()**: Sets the style mode of a component. Refer to the [Styling](styling#style-modes) page for usage info.
+- **setMode()**: Sets the style mode of a component. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
-- **getMode()**: Get the current style mode of your application. Refer to the [Styling](styling#style-modes) page for usage info.
+- **getMode()**: Get the current style mode of your application. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
 - getElement()
