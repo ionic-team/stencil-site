@@ -224,7 +224,7 @@ const config = {
       codeblock: {
         showGithubLink: true,
         githubLinkLabel: 'View on GitHub',
-        showRunmeLink: false
+        showRunmeLink: false,
       },
     }),
 };
