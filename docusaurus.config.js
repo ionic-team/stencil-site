@@ -67,6 +67,8 @@ const config = {
     ],
   ],
 
+  themes: ['docusaurus-theme-github-codeblock'],
+
   themeConfig:
     /** @type {import('@ionic-docs/preset-classic').ThemeConfig} */
     ({
@@ -219,6 +221,11 @@ const config = {
         contextualSearch: true,
       },
       image: `https://${HOSTNAME}/stencil-og.png`,
+      codeblock: {
+        showGithubLink: true,
+        githubLinkLabel: 'View on GitHub',
+        showRunmeLink: false
+      },
     }),
 };
 

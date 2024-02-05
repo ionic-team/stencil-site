@@ -23,6 +23,7 @@
     "@docusaurus/remark-plugin-npm2yarn": "^3.1.1",
     "@ionic-docs/preset-classic": "^1.1.0",
     "clsx": "^2.0.0",
+    "docusaurus-theme-github-codeblock": "^2.0.2",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

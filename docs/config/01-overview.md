@@ -63,7 +63,7 @@ bundles: [
 *default: '.stencil'*
 
 The directory where sub-directories will be created for caching when [`enableCache`](#enablecache) is set `true` or if using
-[Stencil's Screenshot Connector](../testing/screenshot-connector.md).
+[Stencil's Screenshot Connector](../testing/stencil-testrunner/screenshot-connector.md).
 
 A Stencil config like the following:
 
@@ -409,7 +409,7 @@ taskQueue: 'async'
 
 ## testing
 
-Please see the [testing config docs](../testing/config.md).
+Please see the [testing config docs](../testing/stencil-testrunner/config.md).
 
 ## transformAliasedImportPaths
 
