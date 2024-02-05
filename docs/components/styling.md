@@ -280,7 +280,7 @@ Style modes can only be set once at the beginning of the component lifecycle.
 
 ### Important Considerations
 
-- __Initialization:__ Style modes must be defined at the start of the component lifecycle and cannot be changed thereafter.
+- __Initialization:__ Style modes must be defined before the components gets rendered into the DOM and can't be changed afterwards. Updating the style mode requires manually re-rendering of all components.
 - __Usage Requirement:__ A style mode must be set to ensure the component loads with styles. Without specifying a style mode, the component will not apply any styles.
 - __Querying Style Mode:__ To check the current style mode and e.g. provide different functionality based on the mode, use the `getMode` function:
 
