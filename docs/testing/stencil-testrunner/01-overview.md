@@ -1,11 +1,11 @@
 ---
-title: Stencil Testrunner Overview
+title: Stencil Test Runner Overview
 sidebar_label: Overview
 ---
 
 # Overview
 
-Stencil has a built-in testrunner that uses [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/) as its testing libraries, and allows developers to install both libraries using their preferred package manager.
+Stencil has a built-in test runner that uses [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/) as its testing libraries, and allows developers to install both libraries using their preferred package manager.
 
 If you created a project using `npm init stencil`, these libraries were installed for you. Depending on when your project was created, you may or may not have the latest supported version installed.
 

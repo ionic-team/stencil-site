@@ -29,7 +29,7 @@ expects to receive the event `Z`.
 
 Stencil currently supports the following tools for testing components:
 
-- [__Stencil Testrunner__](./stencil-testrunner/01-overview.md): a built-in testrunner based on Jest for unit and end-to-end testing with Puppeteer to run within an actual browser in order to provide more realistic results.
+- [__Stencil Test Runner__](./stencil-testrunner/01-overview.md): a built-in test runner based on Jest for unit and end-to-end testing with Puppeteer to run within an actual browser in order to provide more realistic results.
 
 :::info
 
