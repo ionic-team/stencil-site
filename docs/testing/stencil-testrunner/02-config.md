@@ -13,7 +13,7 @@ The `testing` config setting in `stencil.config.ts` specifies an object that cor
 Keep in mind that the usual way of configuring Jest (`package.json` and `jest.config.js`) is not used with the `stencil testing` command. Jest can still be used, but configuring the presets, transpilation and setting up the correct commands must be done by the project.
 :::
 
-Some additional Stencil specific options may be set here as well for configuring the e2e tests:
+Some additional Stencil specific options may be set here as well for configuring the e2e tests.
 
 ```tsx reference title=""
 https://github.com/ionic-team/stencil/blob/278c336166e27d329fffb686f2ecb3185d156696/src/declarations/stencil-public-compiler.ts#L1817-L1963
