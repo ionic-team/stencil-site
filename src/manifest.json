@@ -3,11 +3,13 @@
   "short_name": "Stencil",
   "start_url": "/",
   "display": "standalone",
-  "icons": [{
-    "src": "assets/img/icon.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
+  "icons": [
+    {
+      "src": "assets/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "background_color": "#16161d",
   "theme_color": "#16161d"
 }

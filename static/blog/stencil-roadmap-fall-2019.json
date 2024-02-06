@@ -1,1 +1,277 @@
-{"title":"Stencil Blog - Fall 2019 Stencil Roadmap","date":"August 28, 2019","url":"/blog/stencil-roadmap-fall-2019","author":"Adam Bradley","twitter":"adamdbradley","description":"With the Stencil One release behind us, we’re seeing developers build lots of successful Stencil-based web components. Now that the dust has settled, we realized it was time to talk about what’s next for the future of the project.","img":"/assets/img/blog/posts/stencil-roadmap-fall-2019.jpg","srcPath":"./src/blog/stencil-roadmap-fall-2019.md","hypertext":["div",null,["p",null,["img",{"src":"/assets/img/blog/posts/stencil-roadmap-fall-2019.jpg","alt":"Fall 2019 Stencil Roadmap"}]],"\n",["p",null,"With the ",["a",{"href":"https://ionicframework.com/blog/introducing-stencil-one-1-0-0/","rel":"noopener noreferrer","target":"_blank"},"Stencil One release"],"  behind us, we’re seeing developers build lots of successful Stencil-based web components. Now that the dust has settled, we realized it was time to talk about what’s next for the future of the project."],"\n",["p",null,"From the very beginning, Stencil was built to directly meet ",["a",{"href":"https://ionicframework.com/docs","rel":"noopener noreferrer","target":"_blank"},"Ionic's"]," requirements, and we feel we’ve hit many of our original goals in generating a large UI library that can run in any framework, or no framework at all. ",["em",null,"Speaking of"],", the ",["a",{"href":"https://ionicframework.com/blog/announcing-ionic-react-release-candidate/","rel":"noopener noreferrer","target":"_blank"},"Ionic React release candidate was just published!"]],"\n",["p",null,"This isn’t to say we’re even close to “done”, since many more improvements can be made to developer experience, performance, build times, etc. As many large organizations have been adopting Stencil, we wanted to give a clear picture of where the project is going next."],"\n",["h2",{"id":"new-custom-element-output-target"},"New “Custom Element” Output Target"],"\n",["p",null,"By default, the Stencil compiler takes the developer’s source code and transforms it into ",["a",{"href":"/blog/how-lazy-loading-web-components-work","rel":"noopener noreferrer","target":"_blank"},"self lazy loading components"],". This was the original intent: making it easy to integrate into any project by ensuring that frameworks weren’t required and Ionic could be easily loaded from a CDN or script tag."],"\n",["p",null,"For Stencil, numerous output targets can be configured so developers, teams, and organizations can decide which build is best for their project, while always maintaining the original source code. Today, by default, only the lazy load output target is created."],"\n",["p",null,"However, we’re increasingly seeing a use case in which the Stencil compiler needs to export components as traditional ",["a",{"href":"https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements","rel":"noopener noreferrer","target":"_blank"},"custom elements"]," (i.e., extending ",["code",null,"HTMLElement"],") that can also lazy load themselves without a framework. The output target would not self define the components, so it’s up to the module that imports the custom element to ",["a",{"href":"https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define","rel":"noopener noreferrer","target":"_blank"},"define"]," it."],"\n",["p",null,"What we’re really excited about is that any new output targets do not require any refactoring on the developers end, and the original source code can stay the same. Expect more on this new output target soon."],"\n",["h2",{"id":"design-system-tooling-and-documentation"},"Design System Tooling and Documentation"],"\n",["p",null,"An area we’re looking to further improve is being able to generate ",["a",{"href":"https://stenciljs.com/docs/stencil-for-design-systems","rel":"noopener noreferrer","target":"_blank"},"design systems"]," that scale for numerous teams and projects. As you’ve guessed it, Ionic is already using a lot of Stencil’s tooling to generate the ",["a",{"href":"https://ionicframework.com/docs/api/button","rel":"noopener noreferrer","target":"_blank"},"Ionic Documentation"]," site. But there’s so much more to improve upon. Most of these features will be very specific to teams building actual design systems but one key feature we have been getting asked for is an isolated environment for developing components."],"\n",["p",null,"You will soon be able to develop a component in an environment that is isolated from the rest of your application.  Part of the tooling will allow you to specify multiple component states so that you can see many example states while developing your component."],"\n",["h2",{"id":"public-compiler-apis"},"Public Compiler APIs"],"\n",["p",null,"Another area we’re also focusing on is ensuring the compiler can work within a browser and used by other tools. We’ve already been working with a few awesome teams such as ",["a",{"href":"https://stackblitz.com/","rel":"noopener noreferrer","target":"_blank"},"Stackblitz"],", ",["a",{"href":"https://codesandbox.io/","rel":"noopener noreferrer","target":"_blank"},"CodeSandbox"],", and ",["a",{"href":"","rel":"noopener noreferrer","target":"_blank"}],["a",{"href":"https://webcomponents.dev/"},"WebComponents.dev"],". At the lowest levels, the compiler already works without running atop a ",["a",{"href":"https://nodejs.org/","rel":"noopener noreferrer","target":"_blank"},"NodeJS"]," environment, so technically this isn’t a major refactor, but more-so just exposing the correct APIs."],"\n",["p",null,"We’re also seeing many areas for improvement to ensure the compiler is easy to consume by other NodeJS tools, including ",["a",{"href":"https://rollupjs.org/","rel":"noopener noreferrer","target":"_blank"},"Rollup"],", ",["a",{"href":"https://parceljs.org/","rel":"noopener noreferrer","target":"_blank"},"Parcel"],", ",["a",{"href":"https://webpack.js.org/","rel":"noopener noreferrer","target":"_blank"},"WebPack"],", and ",["a",{"href":"https://bazel.build/","rel":"noopener noreferrer","target":"_blank"},"Bazel"],". If you’re a maintainer of any tooling, whether an online tool or a NodeJS environment, and you’re looking to implement the Stencil compiler, ",["a",{"href":"https://chat.stenciljs.com/","rel":"noopener noreferrer","target":"_blank"},"please feel free to reach out"]," and we’ll be happy to help!"],"\n",["h2",{"id":"component-asset-management"},"Component Asset Management"],"\n",["p",null,"A common challenge with components is not only improving shareability among developers, but also easily sharing all of the static assets a component may use. For example, if a component is using a static image in a development environment, it’s relatively straightforward to point the url directly to the image. However, once you deploy the component(s) to a CDN, or ",["a",{"href":"https://www.npmjs.com/","rel":"noopener noreferrer","target":"_blank"},"npm"],", or an internal network, etc., the direct URL path to that image becomes more of a challenge."],"\n",["p",null,"With ",["a",{"href":"https://ionic.io/ionicons","target":"_blank"},"Ionicons"],", we’re using Stencil’s ",["code",null,"getAssetPath()"]," API, which is where we’ll put more time into documenting and detailing best practices for loading static assets within components."],"\n",["h2",{"id":"web-workers"},"Web Workers"],"\n",["p",null,"An exciting area we’ll start putting more time into is increased utilization of  ",["a",{"href":"https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers","rel":"noopener noreferrer","target":"_blank"},"web workers"],". As it stands, developers can already implement web workers within Stencil components today (they’re just another web API, after all)."],"\n",["p",null,"However, from the very beginning, the Stencil runtime was designed to be asynchronous, meaning that every component can communicate with the outside world without having to be synchronously tied to one another. With traditional component models, this isn’t always true. Stencil’s asynchronous nature offers some great advantages for not only lazy loading and performance, but for web workers too!"],"\n",["p",null,"Stencil components are not directly wired up to the DOM, and even DOM updates are scheduled in an asynchronous queue. This means that the entire component runtime and logic can live instead within a web worker, thus dedicating the main thread to focusing only on updating the DOM. A new output target could be built to automatically generate this form of components. There’s a lot more to be researched here, but it’s an area we’re very excited about because it could offer some amazing performance implications."],"\n",["h2",{"id":"source-maps"},"Source Maps"],"\n",["p",null,"One major benefit of using native ",["a",{"href":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import","rel":"noopener noreferrer","target":"_blank"},"JavaScript modules and imports"]," is that the original source code is largely left untouched. Granted, TypeScript removes the types and Stencil removes the decorators, but the developer’s original source code is largely as-is."],"\n",["p",null,"Because of this, we focused our development time into different areas while Stencil was initially being developed. However, we recognize that source maps improve debugging and testing, so we’ll ensure they line up correctly in upcoming versions."],"\n",["h2",{"id":"conclusion"},"Conclusion"],"\n",["p",null,"We’re really happy with Stencil’s reception so far, but there’s still much more we can do to improve the developer experience and make it easier to build and maintain a large component library. The above represent our current ideas and goals, which may change as we head into 2020. That said, please feel free to swing by the ",["a",{"href":"https://chat.stenciljs.com/","rel":"noopener noreferrer","target":"_blank"},"discord channel"]," to share any feedback you have. As always, ",["a",{"href":"https://github.com/ionic-team/stencil","rel":"noopener noreferrer","target":"_blank"},"contributions to the project"]," are welcome too!"],"\n",["p",null,"Happy coding!"]]}
+{
+  "title": "Stencil Blog - Fall 2019 Stencil Roadmap",
+  "date": "August 28, 2019",
+  "url": "/blog/stencil-roadmap-fall-2019",
+  "author": "Adam Bradley",
+  "twitter": "adamdbradley",
+  "description": "With the Stencil One release behind us, we’re seeing developers build lots of successful Stencil-based web components. Now that the dust has settled, we realized it was time to talk about what’s next for the future of the project.",
+  "img": "/assets/img/blog/posts/stencil-roadmap-fall-2019.jpg",
+  "srcPath": "./src/blog/stencil-roadmap-fall-2019.md",
+  "hypertext": [
+    "div",
+    null,
+    [
+      "p",
+      null,
+      ["img", { "src": "/assets/img/blog/posts/stencil-roadmap-fall-2019.jpg", "alt": "Fall 2019 Stencil Roadmap" }]
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "With the ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/blog/introducing-stencil-one-1-0-0/",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "Stencil One release"
+      ],
+      "  behind us, we’re seeing developers build lots of successful Stencil-based web components. Now that the dust has settled, we realized it was time to talk about what’s next for the future of the project."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "From the very beginning, Stencil was built to directly meet ",
+      ["a", { "href": "https://ionicframework.com/docs", "rel": "noopener noreferrer", "target": "_blank" }, "Ionic's"],
+      " requirements, and we feel we’ve hit many of our original goals in generating a large UI library that can run in any framework, or no framework at all. ",
+      ["em", null, "Speaking of"],
+      ", the ",
+      [
+        "a",
+        {
+          "href": "https://ionicframework.com/blog/announcing-ionic-react-release-candidate/",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "Ionic React release candidate was just published!"
+      ]
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "This isn’t to say we’re even close to “done”, since many more improvements can be made to developer experience, performance, build times, etc. As many large organizations have been adopting Stencil, we wanted to give a clear picture of where the project is going next."
+    ],
+    "\n",
+    ["h2", { "id": "new-custom-element-output-target" }, "New “Custom Element” Output Target"],
+    "\n",
+    [
+      "p",
+      null,
+      "By default, the Stencil compiler takes the developer’s source code and transforms it into ",
+      [
+        "a",
+        { "href": "/blog/how-lazy-loading-web-components-work", "rel": "noopener noreferrer", "target": "_blank" },
+        "self lazy loading components"
+      ],
+      ". This was the original intent: making it easy to integrate into any project by ensuring that frameworks weren’t required and Ionic could be easily loaded from a CDN or script tag."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "For Stencil, numerous output targets can be configured so developers, teams, and organizations can decide which build is best for their project, while always maintaining the original source code. Today, by default, only the lazy load output target is created."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "However, we’re increasingly seeing a use case in which the Stencil compiler needs to export components as traditional ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "custom elements"
+      ],
+      " (i.e., extending ",
+      ["code", null, "HTMLElement"],
+      ") that can also lazy load themselves without a framework. The output target would not self define the components, so it’s up to the module that imports the custom element to ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "define"
+      ],
+      " it."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "What we’re really excited about is that any new output targets do not require any refactoring on the developers end, and the original source code can stay the same. Expect more on this new output target soon."
+    ],
+    "\n",
+    ["h2", { "id": "design-system-tooling-and-documentation" }, "Design System Tooling and Documentation"],
+    "\n",
+    [
+      "p",
+      null,
+      "An area we’re looking to further improve is being able to generate ",
+      [
+        "a",
+        {
+          "href": "https://stenciljs.com/docs/stencil-for-design-systems",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "design systems"
+      ],
+      " that scale for numerous teams and projects. As you’ve guessed it, Ionic is already using a lot of Stencil’s tooling to generate the ",
+      [
+        "a",
+        { "href": "https://ionicframework.com/docs/api/button", "rel": "noopener noreferrer", "target": "_blank" },
+        "Ionic Documentation"
+      ],
+      " site. But there’s so much more to improve upon. Most of these features will be very specific to teams building actual design systems but one key feature we have been getting asked for is an isolated environment for developing components."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "You will soon be able to develop a component in an environment that is isolated from the rest of your application.  Part of the tooling will allow you to specify multiple component states so that you can see many example states while developing your component."
+    ],
+    "\n",
+    ["h2", { "id": "public-compiler-apis" }, "Public Compiler APIs"],
+    "\n",
+    [
+      "p",
+      null,
+      "Another area we’re also focusing on is ensuring the compiler can work within a browser and used by other tools. We’ve already been working with a few awesome teams such as ",
+      ["a", { "href": "https://stackblitz.com/", "rel": "noopener noreferrer", "target": "_blank" }, "Stackblitz"],
+      ", ",
+      ["a", { "href": "https://codesandbox.io/", "rel": "noopener noreferrer", "target": "_blank" }, "CodeSandbox"],
+      ", and ",
+      ["a", { "href": "", "rel": "noopener noreferrer", "target": "_blank" }],
+      ["a", { "href": "https://webcomponents.dev/" }, "WebComponents.dev"],
+      ". At the lowest levels, the compiler already works without running atop a ",
+      ["a", { "href": "https://nodejs.org/", "rel": "noopener noreferrer", "target": "_blank" }, "NodeJS"],
+      " environment, so technically this isn’t a major refactor, but more-so just exposing the correct APIs."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "We’re also seeing many areas for improvement to ensure the compiler is easy to consume by other NodeJS tools, including ",
+      ["a", { "href": "https://rollupjs.org/", "rel": "noopener noreferrer", "target": "_blank" }, "Rollup"],
+      ", ",
+      ["a", { "href": "https://parceljs.org/", "rel": "noopener noreferrer", "target": "_blank" }, "Parcel"],
+      ", ",
+      ["a", { "href": "https://webpack.js.org/", "rel": "noopener noreferrer", "target": "_blank" }, "WebPack"],
+      ", and ",
+      ["a", { "href": "https://bazel.build/", "rel": "noopener noreferrer", "target": "_blank" }, "Bazel"],
+      ". If you’re a maintainer of any tooling, whether an online tool or a NodeJS environment, and you’re looking to implement the Stencil compiler, ",
+      [
+        "a",
+        { "href": "https://chat.stenciljs.com/", "rel": "noopener noreferrer", "target": "_blank" },
+        "please feel free to reach out"
+      ],
+      " and we’ll be happy to help!"
+    ],
+    "\n",
+    ["h2", { "id": "component-asset-management" }, "Component Asset Management"],
+    "\n",
+    [
+      "p",
+      null,
+      "A common challenge with components is not only improving shareability among developers, but also easily sharing all of the static assets a component may use. For example, if a component is using a static image in a development environment, it’s relatively straightforward to point the url directly to the image. However, once you deploy the component(s) to a CDN, or ",
+      ["a", { "href": "https://www.npmjs.com/", "rel": "noopener noreferrer", "target": "_blank" }, "npm"],
+      ", or an internal network, etc., the direct URL path to that image becomes more of a challenge."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "With ",
+      ["a", { "href": "https://ionic.io/ionicons", "target": "_blank" }, "Ionicons"],
+      ", we’re using Stencil’s ",
+      ["code", null, "getAssetPath()"],
+      " API, which is where we’ll put more time into documenting and detailing best practices for loading static assets within components."
+    ],
+    "\n",
+    ["h2", { "id": "web-workers" }, "Web Workers"],
+    "\n",
+    [
+      "p",
+      null,
+      "An exciting area we’ll start putting more time into is increased utilization of  ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "web workers"
+      ],
+      ". As it stands, developers can already implement web workers within Stencil components today (they’re just another web API, after all)."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "However, from the very beginning, the Stencil runtime was designed to be asynchronous, meaning that every component can communicate with the outside world without having to be synchronously tied to one another. With traditional component models, this isn’t always true. Stencil’s asynchronous nature offers some great advantages for not only lazy loading and performance, but for web workers too!"
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "Stencil components are not directly wired up to the DOM, and even DOM updates are scheduled in an asynchronous queue. This means that the entire component runtime and logic can live instead within a web worker, thus dedicating the main thread to focusing only on updating the DOM. A new output target could be built to automatically generate this form of components. There’s a lot more to be researched here, but it’s an area we’re very excited about because it could offer some amazing performance implications."
+    ],
+    "\n",
+    ["h2", { "id": "source-maps" }, "Source Maps"],
+    "\n",
+    [
+      "p",
+      null,
+      "One major benefit of using native ",
+      [
+        "a",
+        {
+          "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "JavaScript modules and imports"
+      ],
+      " is that the original source code is largely left untouched. Granted, TypeScript removes the types and Stencil removes the decorators, but the developer’s original source code is largely as-is."
+    ],
+    "\n",
+    [
+      "p",
+      null,
+      "Because of this, we focused our development time into different areas while Stencil was initially being developed. However, we recognize that source maps improve debugging and testing, so we’ll ensure they line up correctly in upcoming versions."
+    ],
+    "\n",
+    ["h2", { "id": "conclusion" }, "Conclusion"],
+    "\n",
+    [
+      "p",
+      null,
+      "We’re really happy with Stencil’s reception so far, but there’s still much more we can do to improve the developer experience and make it easier to build and maintain a large component library. The above represent our current ideas and goals, which may change as we head into 2020. That said, please feel free to swing by the ",
+      [
+        "a",
+        { "href": "https://chat.stenciljs.com/", "rel": "noopener noreferrer", "target": "_blank" },
+        "discord channel"
+      ],
+      " to share any feedback you have. As always, ",
+      [
+        "a",
+        { "href": "https://github.com/ionic-team/stencil", "rel": "noopener noreferrer", "target": "_blank" },
+        "contributions to the project"
+      ],
+      " are welcome too!"
+    ],
+    "\n",
+    ["p", null, "Happy coding!"]
+  ]
+}

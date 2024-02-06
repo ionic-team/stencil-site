@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 
 type DocSearchProps = {
   apiKey: string;
   indexName: string;
   inputSelector: string;
   debug: boolean;
-}
+};
 
 interface CustomWindow extends Window {
   docsearch: (props: DocSearchProps) => void;
@@ -25,7 +25,7 @@ export default function SearchBar() {
         apiKey: '6399791d239c7e56a6b47685a64f8873',
         indexName: 'stenciljs',
         inputSelector: '#algolia-search',
-        debug: false // Set debug to true if you want to inspect the dropdown
+        debug: false, // Set debug to true if you want to inspect the dropdown
       });
     };
 
