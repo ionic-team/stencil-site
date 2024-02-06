@@ -241,7 +241,7 @@ Component Style Modes enable you to create versatile designs for your components
 
 Consider a basic button component that supports both iOS and Material Design aesthetics:
 
-```tsx
+```tsx title="Using style modes to style a component"
 @Component({
   tag: 'simple-button',
   styleUrls: {
