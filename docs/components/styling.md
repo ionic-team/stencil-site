@@ -254,6 +254,8 @@ export class SimpleButton {
 }
 ```
 
+In the example above, two different modes are declared. One mode is named `md` (for 'Material Design') and refers back to a Material Design-specific stylesheet. Likewise, the other is named `ios` (for iOS) and references a different stylesheet for iOS-like styling. Both stylesheets are relative paths to the file that declares the component. While we have chosen short names in the above example, there's no limitation to the keys used in the `styleUrls` object.
+
 To dictate the style mode (Material Design or iOS) in which the button should be rendered, you must initialize the desired mode before any component rendering occurs. This can be done as follows:
 
 ```ts
