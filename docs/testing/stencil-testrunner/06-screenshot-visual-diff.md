@@ -5,6 +5,12 @@ description: Screenshot Visual Diff
 slug: /screenshot-visual-diff
 ---
 
+:::warning ⚠️ DEPRECATION NOTICE
+
+Stencils screenshot and visual diff testing capabilities were never moved out of their experimental state and are now considered deprecated. We recommend visual testing tooling from alternative testing frameworks.
+
+:::
+
 # Screenshot Visual Diff
 
 `EXPERIMENTAL`: screenshot visual diff testing is currently under heavy development and has not reached a stable status. However, any assistance testing would be appreciated.
