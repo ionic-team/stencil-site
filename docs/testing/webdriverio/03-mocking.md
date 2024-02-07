@@ -20,9 +20,9 @@ import { mock, fn } from '@wdio/browser-runner'
 import { format } from './utils/utils.ts'
 
 // mock files within the project
-mock('./utils/utils.ts', () => {
+mock('./utils/utils.ts', () => ({
     format: fn().mockReturnValue(42)
-})
+}))
 // mock whole modules and replace functionality with what is defined in `./__mocks__/leftpad.ts`
 mock('leftpad')
 
