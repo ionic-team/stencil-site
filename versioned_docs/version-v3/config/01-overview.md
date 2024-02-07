@@ -278,7 +278,7 @@ taskQueue: 'async'
 
 ## testing
 
-Please see the [testing config docs](../testing/config.md).
+Please see the [testing config docs](../testing/stencil-testrunner/02-config.md).
 
 ## transformAliasedImportPaths
 
