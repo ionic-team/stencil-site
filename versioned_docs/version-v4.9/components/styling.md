@@ -263,26 +263,26 @@ import { setMode } from '@stencil/core';
 setMode(() => 'ios'); // Setting iOS as the default mode for all components
 ```
 
-The `setMode` function processes all elements, enabling the assignment of modes individually based on specific element attributes. For instance, by assigning the `colorMode` attribute to a component:
+The `setMode` function processes all elements, enabling the assignment of modes individually based on specific element attributes. For instance, by assigning the `mode` attribute to a component:
 
 ```html
-<simple-button colorMode="ios"></simple-button>
+<simple-button mode="ios"></simple-button>
 ```
 
-You can conditionally set the style mode based on the `colorMode` property:
+You can conditionally set the style mode based on the `mode` property:
 
 ```ts
 import { setMode } from '@stencil/core';
 
 const defaultMode = 'md'; // Default to Material Design
-setMode((el) => el.getAttribute('colorMode') || defaultMode);
+setMode((el) => el.getAttribute('mode') || defaultMode);
 ```
 
-Style modes can only be set once at the beginning of the component lifecycle.
+The reason for deciding which mode to apply can be very arbitrary and based on your requirements, using an element property called `mode` is just one example.
 
 ### Important Considerations
 
-- __Initialization:__ Style modes must be defined at the start of the component lifecycle and cannot be changed thereafter.
+- __Initialization:__ Style modes must be defined at the start of the component lifecycle and cannot be changed thereafter. If you like to change the components mode dynamically you will have to re-render it entirely.
 - __Usage Requirement:__ A style mode must be set to ensure the component loads with styles. Without specifying a style mode, the component will not apply any styles.
 - __Input Validation:__ Verify a style mode is supported by a component you are setting it for. Setting an un-supported style mode keeps the component unstyled.
 - __Querying Style Mode:__ To check the current style mode and e.g. provide different functionality based on the mode, use the `getMode` function:
