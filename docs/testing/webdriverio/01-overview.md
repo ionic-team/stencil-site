@@ -10,7 +10,7 @@ WebdriverIO is a progressive automation framework built to automate modern web a
 Testing with WebdriverIO has the following advantages:
 
 - __Cross Browser Support__: WebdriverIO is designed to support all platforms, either on desktop or mobile. You can run tests on actual browser your users are using, including covering different versions of them.
-- __Real User Interaction__: Interacting with elements in WebdriverIO through the WebDriver protocol is the closes you can get to reality compared to emulated interaction in virtual DOM environments.
+- __Real User Interaction__: Interaction with elements in WebdriverIO through the WebDriver protocol is much closer to native user-triggered interactions than what can be achieved with emulated DOM environments (such as JSDom or Stencil's own Mock-Doc).
 - __Web Platform Support__: Running tests in actual browser allows you to tap into the latest Web Platform features for testing your components, often not available when using virtual DOM environments.
 
 ## Set Up
