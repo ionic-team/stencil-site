@@ -33,7 +33,7 @@ Below a series of example `npm` scripts which can be added to the project's `pac
 ```
 
 Each command above begins with `stencil test`, which tells Stencil to run tests. Note that each `stencil test` command 
-in example above is followed one or more of the optional flags. Looking at each script, one at a time:
+in the example above is followed by one or more of the optional flags. Looking at each script, one at a time:
 - the `test` script runs unit tests for our Stencil project.
 - the `test.watch` script runs unit tests for our Stencil project. It watches the filesystem for changes, and reruns
 tests when changes are detected.
