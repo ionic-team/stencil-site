@@ -5,12 +5,6 @@ description: Screenshot Connector
 slug: /screenshot-connector
 ---
 
-:::warning ⚠️ DEPRECATION NOTICE
-
-Stencils screenshot and visual diff testing capabilities were never moved out of their experimental state and are now considered deprecated. We recommend visual testing tooling from alternative testing frameworks.
-
-:::
-
 # Screenshot connector
 You can configure a screenshot connector module to be used by the screenshot testing process, to modify the default behavior of the caching, comparing and publishing of your tests.
 Just create a file which defines a connector class and point to it in your stencil testing config:
