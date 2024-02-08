@@ -23,7 +23,11 @@ npm init wdio@latest .
 
 This will initiate WebdriverIO's configuration wizard that walks you through the setup. Make sure you select the following options when walking through it:
 
-- __What type of testing would you like to do?__: select either `Component or Unit Testing - in the browser` if you are interested adding unit tests for your components or `E2E Testing - of Web or Mobile Applications` if you like to test your whole application (you can always add either of them later on)
+- __What type of testing would you like to do?__ Select either:
+  - `Component or Unit Testing - in the browser` if you are interested adding unit tests for your components
+  - `E2E Testing - of Web or Mobile Applications` if you like to test your whole application 
+  
+  You can always add either of them later on
 - __Which framework do you use for building components?__: if you select _Component or Unit Testing_ make sure to select `StencilJS` as preset so WebdriverIO knows how to compile your components properly
 
 The following questions can be answered as desired. Once setup the wizard has created a `wdio.conf.ts` file and a `wdio` script to run your tests. You should be able to run your first test on the auto-generated test file via:
