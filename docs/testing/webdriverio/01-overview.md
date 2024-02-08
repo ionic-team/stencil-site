@@ -17,7 +17,7 @@ Testing with WebdriverIO has the following advantages:
 
 To get started with WebdriverIO, all you need to do is to run their project starter:
 
-```sh
+```bash npm2yarn
 npm init wdio@latest .
 ```
 
