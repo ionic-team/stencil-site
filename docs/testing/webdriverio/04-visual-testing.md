@@ -15,7 +15,7 @@ If you don't have a WebdriverIO project set up yet, please take a look at the se
 
 Once you are set up, add the visual plugin to your project via:
 
-```sh
+```bash npm2yarn
 npm install --save-dev @wdio/visual-service
 ```
 

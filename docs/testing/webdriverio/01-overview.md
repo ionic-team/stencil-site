@@ -28,7 +28,7 @@ This will initiate WebdriverIOs configuration wizard that walks you through the 
 
 The following questions can be answered as desired. Once setup the wizard has created a `wdio.conf.ts` file and a `wdio` script to run your tests. You should be able to run your first test on the auto-generated test file via:
 
-```sh
+```bash npm2yarn
 npm run wdio
 ```
 
