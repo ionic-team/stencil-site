@@ -53,4 +53,4 @@ It is better to use WebdriverIOs matcher for asserting text:
 await expect($('my-component')).toHaveText(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
 ```
 
-You can read more about WebdriverIOs specific matcher, in the project [documentation](https://webdriver.io/docs/api/expect-webdriverio).
+You can read more about WebdriverIOs specific matchers, in the project [documentation](https://webdriver.io/docs/api/expect-webdriverio).
