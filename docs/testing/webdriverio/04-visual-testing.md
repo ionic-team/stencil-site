@@ -5,7 +5,7 @@ description: Visual Testing
 slug: /testing/webdriverio/visual-testing
 ---
 
-# Mocking
+# Visual Testing
 
 WebdriverIO supports [visual testing capabilities](https://webdriver.io/docs/visual-testing) out of the box through a plugin called [`@wdio/visual-service`](https://www.npmjs.com/package/@wdio/visual-service). It uses [ResembleJS](https://github.com/Huddle/Resemble.js) under the hood to do pixel perfect comparisons.
 
