@@ -13,7 +13,7 @@ WebdriverIO has support for file based module mocking as well as mocking of enti
 import { mock, fn, unmock } from '@wdio/browser-runner'
 ```
 
-To create a mock you can either create a file with the name of the module you like to mock the `__mocks__` directory, as described in [Manual Mocks](https://webdriver.io/docs/component-testing/mocking#manual-mocks), or mock the file directly as part of your test:
+To create a mock you can either create a file with the name of the module you would like to mock in the `__mocks__` directory, as described in [Manual Mocks](https://webdriver.io/docs/component-testing/mocking#manual-mocks), or mock the file directly as part of your test:
 
 ```ts
 import { mock, fn } from '@wdio/browser-runner'
