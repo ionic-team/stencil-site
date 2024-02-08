@@ -21,7 +21,7 @@ To get started with WebdriverIO, all you need to do is to run their project star
 npm init wdio@latest .
 ```
 
-This will initiate WebdriverIOs configuration wizard that walks you through the setup. Make sure you select the following options when walking through it:
+This will initiate WebdriverIO's configuration wizard that walks you through the setup. Make sure you select the following options when walking through it:
 
 - __What type of testing would you like to do?__: select either `Component or Unit Testing - in the browser` if you are interested adding unit tests for your components or `E2E Testing - of Web or Mobile Applications` if you like to test your whole application (you can always add either of them later on)
 - __Which framework do you use for building components?__: if you select _Component or Unit Testing_ make sure to select `StencilJS` as preset so WebdriverIO knows how to compile your components properly
