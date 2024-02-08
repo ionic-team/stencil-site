@@ -11,7 +11,7 @@ WebdriverIO makes it easy to unit test components and app utility functions in t
 
 ### Test Setup
 
-To resemble how your component is being used as close as possible to reality we need to render it into an actual DOM tree. WebdriverIO provides a helper package for this that you can use called `@wdio/browser-runner/stencil`. It exports a `render ` method that allows us to mount our component to the DOM.
+To resemble how your component is being used as close as possible to reality we need to render it into an actual DOM tree. WebdriverIO provides a helper package for this that you can use called `@wdio/browser-runner/stencil`. It exports a `render` method that allows us to mount our component to the DOM.
 
 For example, given the following component:
 
