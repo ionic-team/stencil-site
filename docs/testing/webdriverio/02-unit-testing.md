@@ -39,7 +39,7 @@ Missing an `await` can be a simple oversight and can cause us long hours of debu
 
 ### Matchers
 
-WebdriverIO provides their own matcher to assert an element in various ways. We recommend to use them over synchronous matcher like `toBe` or `toEqual` as they allow for retries and make your tests more resilient against flakiness.
+WebdriverIO provides their own matchers to assert an element in various ways. We recommend to use them over synchronous matchers like `toBe` or `toEqual` as they allow for retries and make your tests more resilient against flakiness.
 
 For example, instead of asserting the content of a component like this:
 
