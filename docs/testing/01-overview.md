@@ -34,6 +34,6 @@ Stencil currently supports the following tools for testing components:
 
 :::info
 
-We are actively working to support a wider range of testing tools, including Playwright and WebdriverIO. Stay tuned for updates!
+We are actively working to support a wider range of testing tools, including Playwright. Stay tuned for updates!
 
 :::
