@@ -47,7 +47,7 @@ For example, instead of asserting the content of a component like this:
 expect(await $('my-component').getText()).toBe(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
 ```
 
-It is better to use WebdriverIOs matcher for asserting text:
+It is better to use WebdriverIOs matchers for asserting text:
 
 ```ts
 await expect($('my-component')).toHaveText(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
