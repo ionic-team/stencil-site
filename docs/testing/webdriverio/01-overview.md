@@ -38,3 +38,17 @@ npm run wdio
 ```
 
 More information on setting up WebdriverIO can be found in their [documentation](https://webdriver.io/docs/component-testing/stencil).
+
+## Integration with Stencil
+
+If you have been using Stencil's test runner for unit or end-to-end tests to can continue to do so. For basic implementation details that don't require any web platform features, running tests through the Stencil test runner might still be the faster choice, since no browser needs to be spawned. However you can also migrate over to only one single framework one test at a time.
+
+We recommend to create a new NPM script for running both, Stencil and WebdriverIO tests, starting with Stencil tests first as they are likely to run faster. In your `package.json` this can be structured like so:
+
+```json title="package.json"
+{
+    "scripts:": {
+        "test.e2e": "stencil test && wdio run wdio.conf.ts"
+    }
+}
+```
