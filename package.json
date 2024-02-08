@@ -19,8 +19,15 @@
     "prettier.dry-run": "npm run prettier.base -- --list-different"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.1.0",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.1.0",
+    "@docusaurus/core": "^3.1.1",
+    "@docusaurus/plugin-content-docs": "^3.1.1",
+    "@docusaurus/plugin-content-pages": "^3.1.1",
+    "@docusaurus/plugin-debug": "^3.1.1",
+    "@docusaurus/plugin-google-tag-manager": "^3.1.1",
+    "@docusaurus/plugin-ideal-image": "^3.1.1",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.1.1",
+    "@docusaurus/theme-classic": "^3.1.1",
+    "@docusaurus/theme-search-algolia": "^3.1.1",
     "@ionic-docs/preset-classic": "^1.1.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
@@ -28,7 +35,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.1.0",
+    "@docusaurus/module-type-aliases": "^3.1.1",
     "@ionic/prettier-config": "^4.0.0",
     "cspell": "^8.0.0",
     "prettier": "^3.2.2",
