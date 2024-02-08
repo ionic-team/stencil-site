@@ -44,13 +44,15 @@ WebdriverIO provides their own matchers to assert an element in various ways. We
 For example, instead of asserting the content of a component like this:
 
 ```ts
-expect(await $('my-component').getText()).toBe(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
+expect(await $('my-component').getText())
+    .toBe(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
 ```
 
 It is better to use WebdriverIOs matchers for asserting text:
 
 ```ts
-await expect($('my-component')).toHaveText(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
+await expect($('my-component'))
+    .toHaveText(`Hello, World! I'm Stencil 'Don't call me a framework' JS`)
 ```
 
 You can read more about WebdriverIOs specific matchers, in the project [documentation](https://webdriver.io/docs/api/expect-webdriverio).
