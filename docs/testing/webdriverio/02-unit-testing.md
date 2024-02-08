@@ -25,7 +25,18 @@ We import the component into our test to render it in the browser:
 https://github.com/webdriverio/component-testing-examples/blob/main/stencil-component-starter/src/components/my-component/my-component.test.tsx#L2-L18
 ```
 
-You can find more information about the `render` methods option and its return object in the WebdriverIO [documentation](https://webdriver.io/docs/component-testing/stencil#render-options).
+If your component under test uses other Stencil components make sure you add these to the `components` list to. For example, let's say `ComponentA` uses `ComponentB` which also imports `ComponentC` and `ComponentD`. In this case you will have to import and pass in all components you like to have rendered, e.g.:
+
+```ts
+render({
+    components: [ComponentA, ComponentB, ComponentC, ComponentD],
+    template: () => <component-a first="Stencil" last="'Don't call me a framework' JS" />
+});
+```
+
+While this seems tedious at first, it gives you the flexibility to leave out components that are not relevant for your test, or have side effects that can cause flakiness.
+
+Find more information about the `render` method option and its return object in the WebdriverIO [documentation](https://webdriver.io/docs/component-testing/stencil#render-options).
 
 ### Handle Asynchronicity
 
