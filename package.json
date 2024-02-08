@@ -15,12 +15,12 @@
     "check-links": "remark --frail --use remark-validate-links .",
     "spellcheck": "cspell --no-progress \"docs/**/*.md\" \"versioned_docs/**/*.md\" \"*.md\"",
     "prettier": "npm run prettier.base -- --write",
-    "prettier.base": "prettier --cache \"./*.(js|jsx|ts|tsx|json5|json)\"",
+    "prettier.base": "prettier --cache \"./**/*.(js|jsx|ts|tsx|json5|json)\"",
     "prettier.dry-run": "npm run prettier.base -- --list-different"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.1.0",
-    "@docusaurus/remark-plugin-npm2yarn": "^3.1.0",
+    "@docusaurus/core": "^3.1.1",
+    "@docusaurus/remark-plugin-npm2yarn": "^3.1.1",
     "@ionic-docs/preset-classic": "^1.1.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
@@ -28,7 +28,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.1.0",
+    "@docusaurus/module-type-aliases": "^3.1.1",
     "@ionic/prettier-config": "^4.0.0",
     "cspell": "^8.0.0",
     "prettier": "^3.2.2",
