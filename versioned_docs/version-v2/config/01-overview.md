@@ -88,7 +88,7 @@ export default function() { // or export default async function()
 ```
 
 :::note
-The exported function can also be `async` but be aware that this can have implications on the performance of your application as all rendering operations are being executed after the global script finishes..
+The exported function can also be `async`.
 :::
 
 ## globalStyle
