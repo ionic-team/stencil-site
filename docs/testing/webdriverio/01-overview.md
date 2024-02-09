@@ -31,7 +31,27 @@ This will initiate WebdriverIO's configuration wizard that walks you through the
   You can always add either of them later on
 - __Which framework do you use for building components?__: if you select _Component or Unit Testing_ make sure to select `StencilJS` as preset so WebdriverIO knows how to compile your components properly
 
-The following questions can be answered as desired. Once setup the wizard has created a `wdio.conf.ts` file and a `wdio` script to run your tests. You should be able to run your first test on the auto-generated test file via:
+The following questions can be answered as desired. Once setup the wizard has created a `wdio.conf.ts` file and a `wdio` script to run your tests.
+
+:::info CJS vs. ESM
+
+WebdriverIO's generated config and test files use ESM syntax for imports. If you generated a project via the [`create-stencil`](https://www.npmjs.com/package/create-stencil) starter package your project is likely setup for CommonJS. To avoid any incompatibility issues, we recommend to rename your `wdio.conf.ts` to `wdio.conf.mts` and update the `wdio` script in your `package.json`.
+
+:::
+
+:::info Type Clashes
+
+It's possible that you run into TypeScript issues as WebdriverIO uses Mocha for component testing and Stencil Jest. Both register the same globals, e.g. `it` which causes type clashes. To fix these we recommend to add the following to your `tsconfig.json`:
+
+```json
+  "types": ["jest"]
+```
+
+This will ensure that Jest types will be preferred.
+
+:::
+
+You should be able to run your first test on the auto-generated test file via:
 
 ```bash npm2yarn
 npm run wdio
