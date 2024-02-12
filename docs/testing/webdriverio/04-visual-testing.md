@@ -34,7 +34,7 @@ As shown in the [Visual Testing](https://webdriver.io/docs/visual-testing/writin
 
 In the context of testing StencilJS components the best choice is to use `toMatchElementSnapshot` to verify a single component visually. Such a test may appear as follows:
 
-```ts reference title="wdio.conf.ts"
+```ts reference title="src/components/my-component/my-component.test.tsx"
 https://github.com/webdriverio/component-testing-examples/blob/2de295ab568b5163e67d716156221578b6536d9d/stencil-component-starter/src/components/my-component/my-component.test.tsx#L20-L28
 ```
 
