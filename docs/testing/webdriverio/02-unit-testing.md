@@ -25,7 +25,7 @@ We import the component into our test to render it in the browser:
 https://github.com/webdriverio/component-testing-examples/blob/main/stencil-component-starter/src/components/my-component/my-component.test.tsx#L2-L18
 ```
 
-If your component under test uses other Stencil components make sure you add these to the `components` list to. For example, let's say `ComponentA` uses `ComponentB` which also imports `ComponentC` and `ComponentD`. In this case you will have to import and pass in all components you like to have rendered, e.g.:
+If your component under test uses other Stencil components make sure you add these to the `components` list as well. For example, let's say `ComponentA` uses `ComponentB` which also imports `ComponentC` and `ComponentD`. In this case you will have to import and pass in all components you'd like to have rendered, e.g.:
 
 ```ts
 render({
