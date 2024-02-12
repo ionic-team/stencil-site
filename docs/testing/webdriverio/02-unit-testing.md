@@ -38,7 +38,7 @@ While this seems tedious at first, it gives you the flexibility to leave out com
 
 Find more information about the `render` method option and its return object in the WebdriverIO [documentation](https://webdriver.io/docs/component-testing/stencil#render-options).
 
-### Handle Asynchronicity
+### Handling Asynchronicity
 
 Instead of directly working on DOM objects, with WebdriverIO you are interacting with references of DOM nodes and interact through WebDriver commands that are async. Make sure you always use an `await` to ensure that all commands and assertion are executed sequentially.
 
