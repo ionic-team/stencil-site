@@ -72,3 +72,18 @@ We recommend to create a new NPM script for running both, Stencil and WebdriverI
     }
 }
 ```
+
+Make sure that each test runner picks up their respective tests by defining the `testRegex` property in your Stencil config, e.g.:
+
+```ts title="stencil.config.ts"
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  // ...
+  testing: {
+    testRegex: '(/__tests__/.*|\\.?(spec))\\.(ts|js)$',
+  },
+};
+```
+
+This will make Stencil pick up all files ending with `.spec.ts` or `.spec.js` while WebdriverIO picks up tests ending with `.test.ts`.
