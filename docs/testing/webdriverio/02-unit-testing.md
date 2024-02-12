@@ -40,7 +40,7 @@ Find more information about the `render` method option and its return object in 
 
 ### Handling Asynchronicity
 
-Instead of directly working on DOM objects, with WebdriverIO you are interacting with references of DOM nodes and interact through WebDriver commands that are async. Make sure you always use an `await` to ensure that all commands and assertion are executed sequentially.
+Instead of directly working on DOM objects, with WebdriverIO you interact with references to DOM nodes through asynchronous WebDriver commands. Make sure you always use an `await` to ensure that all commands and assertion are executed sequentially.
 
 :::info
 
