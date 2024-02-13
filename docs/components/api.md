@@ -81,20 +81,104 @@ window.addEventListener('appload', (event) => {
 
 ## Other
 
-- [**Host**](./host-element.md): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
+The following primitives can be imported from the `@stencil/core` package and used within the lifecycle of a component:
+
+- [**Host**](./host-element.md): `<Host>`, is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself. Refer to the [Host Element](./host-element.md) page for usage info.
+
+- **Fragment**: `<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
+
+  __Type:__ `FunctionalComponent`<br />
+  __Example:__
+  ```ts
+  import { Component, Fragment } from '@stencil/core'
+  @Component({
+    tag: 'cmp-fragment',
+  })
+  export class CmpFragment {
+    render() {
+      return (
+        <>
+          <div>...</div>
+          <div>...</div>
+          <div>...</div>
+        </>
+      );
+    }
+  }
+  ```
 
 - [**h()**](./templating-and-jsx.md): It's used within the `render()` to turn the JSX into Virtual DOM elements.
 
 - [**readTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-read task. The provided callback will be executed in the best moment to perform DOM reads without causing layout thrashing.
 
+  __Type:__ `(task: Function) => void`
+
 - [**writeTask()**](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing): Schedules a DOM-write task. The provided callback will be executed in the best moment to perform DOM mutations without causing layout thrashing.
+
+  __Type:__ `(task: Function) => void`
 
 - **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not synchronous and might perform the DOM render in the next frame.
 
+  __Type:__ `(ref: HTMLElement) => void`<br />
+  __Example:__
+  ```ts
+  import { forceUpdate } from '@stencil/core'
+
+  // inside a class component function
+  forceUpdate(this);
+  ```
+
 - **getAssetPath()**: Gets the path to local assets. Refer to the [Assets](../guides/assets.md#getassetpath) page for usage info.
+
+  __Type:__ `(path: string) => string`<br />
+  __Example:__
+  ```ts
+  import { Component, Prop, getAssetPath } from '@stencil/core'
+  @Component({
+    tag: 'cmp-asset',
+  })
+  export class CmpAsset {
+    @Prop() icon: string;
+
+    render() {
+      return (
+        <img src={getAssetPath(`assets/icons/${this.icon}.png`)} />
+      );
+    }
+  }
+  ```
 
 - **setMode()**: Sets the style mode of a component. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
+  __Type:__ `(ref: HTMLElement) => string`<br />
+  __Example:__
+  ```ts
+  import { setMode } from '@stencil/core'
+
+  // set mode based on a property
+  setMode((el) => el.getAttribute('mode'));
+  ```
+
 - **getMode()**: Get the current style mode of your application. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
-- getElement()
+  __Type:__ `(ref: HTMLElement) => string`<br />
+  __Example:__
+  ```ts
+  import { getMode } from '@stencil/core'
+
+  getMode(this);
+  ```
+
+- **getElement()**: Retrieve a Stencil element for a given reference.
+
+  __Type:__ `(ref: getElement) => string`<br />
+  __Example:__
+  ```ts
+  import { getElement } from '@stencil/core'
+
+  const stencilComponent = getElement(document.querySelector('my-cmp'))
+  if (stencilComponent) {
+    stencilComponent.componentOnReady().then(() => { ... })
+  }
+  ```
+

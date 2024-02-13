@@ -81,7 +81,9 @@ window.addEventListener('appload', (event) => {
 
 ## Other
 
-- [**Host**](./host-element.md): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself.
+The following primitives can be imported from the `@stencil/core` package and used within the lifecycle of a component:
+
+- [**Host**](./host-element.md): Host is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself. Refer to the [Host Element](./host-element.md) page for usage info.
 
 - [**h()**](./templating-and-jsx.md): It's used within the `render()` to turn the JSX into Virtual DOM elements.
 
