@@ -90,7 +90,7 @@ The following primitives can be imported from the `@stencil/core` package and us
   __Type:__ `FunctionalComponent`<br />
   __Example:__
   ```tsx
-  import { Component, Fragment } from '@stencil/core'
+  import { Component, Fragment, h } from '@stencil/core'
   @Component({
     tag: 'cmp-fragment',
   })
