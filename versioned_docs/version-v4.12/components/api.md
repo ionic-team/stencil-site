@@ -85,7 +85,7 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - [**Host**](./host-element.md): `<Host>`, is a functional component that can be used at the root of the render function to set attributes and event listeners to the host element itself. Refer to the [Host Element](./host-element.md) page for usage info.
 
-- **Fragment**: `<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
+- **Fragment**: `<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node. Make sure you define a `jsxFragmentFactory` compiler option alongside `jsxFactory` when using this functional component.
 
   __Type:__ `FunctionalComponent`<br />
   __Example:__
