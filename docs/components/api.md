@@ -132,8 +132,8 @@ The following primitives can be imported from the `@stencil/core` package and us
 
   __Type:__ `(path: string) => string`<br />
   __Example:__
-  ```ts
-  import { Component, Prop, getAssetPath } from '@stencil/core'
+  ```tsx
+  import { Component, Prop, getAssetPath, h } from '@stencil/core'
   @Component({
     tag: 'cmp-asset',
   })
