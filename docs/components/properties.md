@@ -568,7 +568,7 @@ and TSX:
 ```
 
 When using union types, the type of a component's `@Prop()` value can be ambiguous at runtime.
-In the example above, when is `@Prop() isComplete` a `string`, and when is it a `boolean`?
+In the provided example, under what circumstances does `@Prop() isComplete` function as a `string`, and when does it serve as a `boolean`?
 
 When using a component in HTML, the runtime value of a `@Prop()` is always a string.
 This is a result of setting the HTML attribute for the custom element.
