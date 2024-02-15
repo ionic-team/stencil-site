@@ -567,6 +567,61 @@ and TSX:
 <todo-list-item isComplete={false}></todo-list-item>
 ```
 
+When using union types, the type of a component's `@Prop()` value can be ambiguous at runtime.
+In the example above, when is `@Prop() isComplete` a `string`, and when is it a `boolean`?
+
+When using a component in HTML, the runtime value of a `@Prop()` is always a string.
+This is a result of setting the HTML attribute for the custom element.
+```html
+<!-- Since this is HTML, the value of `isComplete` in `ToDoListItem` will be a string -->
+
+<!-- Set isComplete to "true". -->
+<todo-list-item is-complete="true"></todo-list-item>
+<!-- Set isComplete to 'false' -->
+<todo-list-item is-complete="false"></todo-list-item>
+```
+
+Likewise, when the attribute on a component is set, the runtime value of a `@Prop()` is always a string.
+```html
+<script>
+  // both of these `setAttribute` calls set the property `isComplete` to "true" (string)
+  document.querySelector('todo-list-item').setAttribute('is-complete', true);
+  document.querySelector('todo-list-item').setAttribute('is-complete', "true");
+  // both of these `setAttribute` calls set the property `isComplete` to "false" (string)
+  document.querySelector('todo-list-item').setAttribute('is-complete', false);
+  document.querySelector('todo-list-item').setAttribute('is-complete', "false");
+</script>
+```
+
+However, if the property of a custom element is directly changed, the `typeof` of the `@Prop()` provided is used.
+```html
+<script>
+  // Set the property `isComplete` to `true` (boolean)
+  document.querySelector('todo-list-item').isComplete = true;
+  // Set the property `isComplete` to "true" (string)
+  document.querySelector('todo-list-item').isComplete = "true";
+  // Set the property `isComplete` to `false` (boolean)
+  document.querySelector('todo-list-item').isComplete = false;
+  // Set the property `isComplete` to "false" (string)
+  document.querySelector('todo-list-item').isComplete = "false";
+</script>
+```
+
+When using a component in TSX, the `typeof` of the `@Prop()` provided is used.
+```tsx
+// Since this is TSX, the value of `isComplete` in `ToDoListItem`
+// depends on the type of the value passed to the component.
+//
+// Set the property `isComplete` to `true` (boolean)
+<todo-list-item isComplete={true}></todo-list-item>
+// Set the property `isComplete` to "true" (string)
+<todo-list-item isComplete={"true"}></todo-list-item>
+// Set the property `isComplete` to `false` (boolean)
+<todo-list-item isComplete={false}></todo-list-item>
+// Set the property `isComplete` to "false" (string)
+<todo-list-item isComplete={"false"}></todo-list-item>
+```
+
 ## Default Values
 
 Stencil props can be given a default value as a fallback in the event a prop is not provided:
