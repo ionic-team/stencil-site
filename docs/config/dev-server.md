@@ -106,6 +106,20 @@ Every request to the server will be logged within the terminal.
 
 By default, when dev server is started the local dev URL is opened in your default browser. However, to prevent this URL to be opened change this value to `false`.
 
+### `pingRoute`
+
+**Optional**
+
+**Type: `string | null`**
+
+**Default: `/ping`**
+
+Route to be registered on the dev server that will respond with a 200 OK response once the Stencil build has completed. The Stencil dev server will "spin up"
+before the build process has completed, which can cause issues with processes that rely on the compiled and served output (like E2E testing). This route provides
+a way for these processes to know when the build has finished and is ready to be accessed.
+
+If set to `null`, no route will be registered.
+
 ### `port`
 
 **Optional**
