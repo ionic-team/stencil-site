@@ -9,11 +9,11 @@ There are numerous strategies to publish and distribute your component library t
 
 ## Use Cases
 
-For using Stencil components in other projects there are two important output targets necessary: [`dist`](distribution) and [`dist-custom-elements`](custom-elements). Both export your components for different use cases. Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
+For using Stencil components in other projects there are two important output targets necessary: [`dist`](../output-targets/distribution.md) and [`dist-custom-elements`](../output-targets/custom-elements.md). Both export your components for different use cases. Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
 
 ### Lazy Loading
 
-If you prefer to have your components automatically loaded when used in your application, we recommend to enable the [`dist`](distribution) output target. The bundle gives you a small entry file that registers all your components and only loads the full component logic when it gets rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
+If you prefer to have your components automatically loaded when used in your application, we recommend to enable the [`dist`](../output-targets/distribution.md) output target. The bundle gives you a small entry file that registers all your components and only loads the full component logic when it gets rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
 
 Your users can import your component library, e.g. called `my-design-system`, either via a `script` tag:
 
@@ -37,7 +37,7 @@ To ensure that the right entry file is loaded when importing the project, define
 }
 ```
 
-Read more about various options when it comes to distributing your components lazily in the [`dist`](distribution) output target section.
+Read more about various options when it comes to distributing your components lazily in the [`dist`](../output-targets/distribution.md) output target section.
 
 #### Considerations
 
@@ -47,7 +47,7 @@ However be aware that this approach is not ideal in all cases. It requires your 
 
 ### Standalone
 
-The [`dist-custom-elements`](custom-elements) output target builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
+The [`dist-custom-elements`](../output-targets/custom-elements.md) output target builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
 
 You can use these standalone components by importing them via:
 
@@ -92,7 +92,7 @@ import 'my-design-system/my-component'
 If you are distributing both the `dist` and `dist-custom-elements`, then it's best to pick one of them as the main entry depending on which use case is more prominent.
 :::
 
-Read more about various options when it comes to distributing your components as standalone components in the [`dist-custom-elements`](custom-elements) output target section.
+Read more about various options when it comes to distributing your components as standalone components in the [`dist-custom-elements`](../output-targets/custom-elements.md) output target section.
 
 #### Considerations
 
