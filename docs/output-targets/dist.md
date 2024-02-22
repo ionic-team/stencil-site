@@ -113,29 +113,3 @@ applyPolyfills().then(() => {
 ```
 
 This is an alternative approach to e.g. loading the components directly through a script tag as mentioned below. Read more about `setNonce` and when to set it in our guide on [Content Security Policy Nonces](../guides/csp-nonce.md).
-
-## Distribution Options
-
-Each output target's form of bundling and distribution has its own pros and cons. Luckily you can just worry about writing good source code for your component. Stencil will handle generating the various bundles and consumers of your library can decide how to apply your components to their external projects. Below are a few of the options.
-
-### Script tag
-
-- Use a script tag linked to a CDN copy of your published NPM module, for example: `<script type="module" src='https://cdn.jsdelivr.net/npm/my-name@0.0.1/dist/myname.js'></script>`.
-- The initial script itself is extremely tiny and does not represent the entire library. It's only a small registry.
-- You can use any or all components within your library anywhere within that webpage.
-- It doesn't matter if the actual component was written within the HTML or created with vanilla JavaScript, jQuery, React, etc.
-- Only the components used on that page will be requested and lazy-loaded.
-
-### Importing the `dist` library using a bundler
-
-- Run `npm install my-name --save`
-- Add an `import` within the root component: `import my-component`;
-- Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
-- Then you can use the element anywhere in your template, JSX, HTML etc.
-
-### Importing the `dist` library into another Stencil app
-
-- Run `npm install my-name --save`
-- Add an `import` within the root component: `import my-component`;
-- Stencil will automatically setup the lazy-loading capabilities for the Stencil library.
-- Then you can use the element anywhere in your template, JSX, HTML etc.
