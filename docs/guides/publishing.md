@@ -41,7 +41,7 @@ Read more about various options when it comes to distributing your components la
 
 #### Considerations
 
-Loading Stencil components in an application lazily is a great approach, especially if you develop a large design system with many components. It enables you to import a small single file and have all components available through the entire application.
+To start, Stencil was designed to lazy-load itself only when the component was actually used on a page. There are many benefits to this approach, such as simply adding a script tag to any page and the entire library is available for use, yet only the components actually used are downloaded. For example, [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) comes with over 100 components, but a one webpage may only need `ion-toggle`. Instead of requesting the entire component library, or generating a custom bundle for just `ion-toggle`, the `dist` output target is able to generate a tiny entry build ready to load any of its components on-demand.
 
 However be aware that this approach is not ideal in all cases. It requires your application to ship the bundled components as static assets in order for them to load properly. Furthermore, having many nested component dependencies can have an impact on the performance of your application. For example, given you have a component `CmpA` which uses a Stencil component `CmpB` which itself uses another Stencil component `CmpC`. In order to fully render `CmpA` the browser has to load 3 scripts sequentially which can result in undesired rendering delays.
 
@@ -96,7 +96,7 @@ Read more about various options when it comes to distributing your components as
 
 #### Considerations
 
-This distribution strategy is useful when you use an external bundler such as [Vite](https://vitejs.dev/), [WebPack](https://webpack.js.org/) or [Rollup](https://rollupjs.org) to compile your application. They ensure that only the components used within your application are bundled into compilation.
+The `dist-custom-elements` is a direct build of the custom element that extends `HTMLElement`, without any lazy-loading. This distribution strategy may be preferred for projects that use an external bundler such as [Vite](https://vitejs.dev/), [WebPack](https://webpack.js.org/) or [Rollup](https://rollupjs.org) to compile the application. They ensure that only the components used within your application are bundled into compilation.
 
 #### Usage in TypeScript
 

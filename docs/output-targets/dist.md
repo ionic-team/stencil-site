@@ -17,15 +17,6 @@ outputTargets: [
 ]
 ```
 
-
-## How is this different from "dist-custom-elements" output target?
-
-To start, Stencil was designed to lazy-load itself only when the component was actually used on a page. There are many benefits to this approach, such as simply adding a script tag to any page and the entire library is available for use, yet only the components actually used are downloaded. For example, [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) comes with over 100 components, but a one webpage may only need `ion-toggle`. Instead of requesting the entire component library, or generating a custom bundle for just `ion-toggle`, the `dist` output target is able to generate a tiny entry build ready to load any of its components on-demand.
-
-The `dist-custom-elements` on the other hand is a direct build of the custom element that extends `HTMLElement`, without any lazy-loading. The custom elements bundle does not apply polyfills, nor automatically define each custom elements. This may be preferred for projects that will handle bundling, lazy-loading and defining the custom elements themselves.
-
-Luckily, both builds can be generated at the same time, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
-
 ## Config
 
 ### collectionDir

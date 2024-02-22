@@ -230,7 +230,7 @@ import { defineCustomElements } from 'stencil-library/loader';
 export class ComponentLibraryModule {}
 ```
 
-See the [documentation](../output-targets/dist.md#distribution-options) for more information on defining custom elements using the
+See the [documentation](../output-targets/dist.md) for more information on defining custom elements using the
 `dist` output target, or [update the Angular output target](#do-i-have-to-use-the-dist-output-target) to use `dist-custom-elements`.
 
 ### Link Your Packages (Optional)
