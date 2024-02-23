@@ -9,11 +9,11 @@ There are numerous strategies to publish and distribute your component library t
 
 ## Use Cases
 
-For using Stencil components in other projects there are two important output targets necessary: [`dist`](../output-targets/distribution.md) and [`dist-custom-elements`](../output-targets/custom-elements.md). Both export your components for different use cases. Luckily, all builds can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
+To use your Stencil components in other projects, there are two different output targets to consider: [`dist`](../output-targets/dist.md) and [`dist-custom-elements`](../output-targets/custom-elements.md). Both export your components for different use cases. Luckily, both can be generated at the same time, using the same source code, and shipped in the same distribution. It would be up to the consumer of your component library to decide which build to use.
 
 ### Lazy Loading
 
-If you prefer to have your components automatically loaded when used in your application, we recommend to enable the [`dist`](../output-targets/distribution.md) output target. The bundle gives you a small entry file that registers all your components and only loads the full component logic when it gets rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
+If you prefer to have your components automatically loaded when used in your application, we recommend to enable the [`dist`](../output-targets/dist.md) output target. The bundle gives you a small entry file that registers all your components and only loads the full component logic when it gets rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
 
 Your users can import your component library, e.g. called `my-design-system`, either via a `script` tag:
 
@@ -37,11 +37,11 @@ To ensure that the right entry file is loaded when importing the project, define
 }
 ```
 
-Read more about various options when it comes to distributing your components lazily in the [`dist`](../output-targets/distribution.md) output target section.
+Read more about various options when it comes to configuring your project's components for lazy loading in the [`dist`](../output-targets/distribution.md) output target section.
 
 #### Considerations
 
-To start, Stencil was designed to lazy-load itself only when the component was actually used on a page. There are many benefits to this approach, such as simply adding a script tag to any page and the entire library is available for use, yet only the components actually used are downloaded. For example, [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) comes with over 100 components, but a one webpage may only need `ion-toggle`. Instead of requesting the entire component library, or generating a custom bundle for just `ion-toggle`, the `dist` output target is able to generate a tiny entry build ready to load any of its components on-demand.
+To start, Stencil was designed to lazy-load itself only when the component was actually used on a page. There are many benefits to this approach, such as simply adding a script tag to any page and the entire library is available for use, yet only the components actually used are downloaded. For example, [`@ionic/core`](https://www.npmjs.com/package/@ionic/core) comes with over 100 components, but a webpage may only need `ion-toggle`. Instead of requesting the entire component library, or generating a custom bundle for just `ion-toggle`, the `dist` output target is able to generate a tiny entry build ready to load any of its components on-demand.
 
 However be aware that this approach is not ideal in all cases. It requires your application to ship the bundled components as static assets in order for them to load properly. Furthermore, having many nested component dependencies can have an impact on the performance of your application. For example, given you have a component `CmpA` which uses a Stencil component `CmpB` which itself uses another Stencil component `CmpC`. In order to fully render `CmpA` the browser has to load 3 scripts sequentially which can result in undesired rendering delays.
 
@@ -100,7 +100,7 @@ The `dist-custom-elements` is a direct build of the custom element that extends 
 
 #### Usage in TypeScript
 
-If you plan to support consuming your component library in TypeScript you'll need to set `generateTypeDeclarations: true` on the your output target in `stencil.config.ts`, like so:
+If you plan to support consuming your component library in TypeScript you'll need to set `generateTypeDeclarations: true` on the output target in your `stencil.config.ts`, like so:
 
 ```tsx title="stencil.config.ts"
 import { Config } from '@stencil/core';
@@ -119,7 +119,7 @@ export const config: Config = {
 
 Then you can set the `types` property in `package.json` so that consumers of your package can find the type definitions, like so:
 
-```tsx title="package.json"
+```json title="package.json"
 {
   "types": "dist/components/index.d.ts",
   "dependencies": {
@@ -135,4 +135,4 @@ If you set the `dir` property on the output target config, replace `dist/compone
 
 ## Publishing to NPM
 
-The first step and highly recommended step is to [publish the component library to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages). [NPM](https://www.npmjs.com/) is an online software registry for sharing libraries, tools, utilities, packages, etc. Once the library is published to NPM, other projects are able to add your component library as a dependency and use the components within their own projects.
+[NPM](https://www.npmjs.com/) is an online software registry for sharing libraries, tools, utilities, packages, etc. To make your Stencil project widely available to be consumed, it's recommended to [publish the component library to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages). Once the library is published to NPM, other projects are able to add your component library as a dependency and use the components within their own projects.
