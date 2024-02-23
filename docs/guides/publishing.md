@@ -37,7 +37,7 @@ To ensure that the right entry file is loaded when importing the project, define
 }
 ```
 
-Read more about various options when it comes to configuring your project's components for lazy loading in the [`dist`](../output-targets/distribution.md) output target section.
+Read more about various options when it comes to configuring your project's components for lazy loading in the [`dist`](../output-targets/dist.md) output target section.
 
 #### Considerations
 
