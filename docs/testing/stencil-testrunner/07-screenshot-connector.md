@@ -35,24 +35,8 @@ For a good reference on how this can be done, have a look at the default `Stenci
 ## Methods
 The base connector which can be imported and extended from stencil has the following methods which can be overwritten:
 
-```tsx
-export interface ScreenshotConnector {
-  initBuild(opts: ScreenshotConnectorOptions): Promise<void>;
-
-  pullMasterBuild(): Promise<void>;
-
-  getMasterBuild(): Promise<ScreenshotBuild>;
-
-  getScreenshotCache(): Promise<ScreenshotCache>;
-
-  completeBuild(masterBuild: ScreenshotBuild): Promise<ScreenshotBuildResults>;
-  
-  publishBuild(buildResults: ScreenshotBuildResults): Promise<ScreenshotBuildResults>;
-
-  updateScreenshotCache(screenshotCache: ScreenshotCache, buildResults: ScreenshotBuildResults): Promise<ScreenshotCache>;
-
-  generateJsonpDataUris(build: ScreenshotBuild): Promise<void>;
-}
+```tsx reference title="ScreenshotConnector"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1631-L1645
 ```
 For references to the interfaces, [see here](#interfaces)
 
@@ -87,193 +71,31 @@ At the end of the whole run, the screenshot cache should be updated with this me
 
 
 ## Interfaces
-```tsx
-export interface ScreenshotConnectorOptions {
-  buildId: string;
 
-  buildMessage: string;
+```tsx reference title="ScreenshotConnectorOptions"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1676-L1698
+```
 
-  buildAuthor?: string;
+```tsx reference title="ScreenshotBuild"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1725-L1734
+```
 
-  buildUrl?: string;
+```tsx reference title="ScreenshotBuildResults"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1647-L1652
+```
 
-  previewUrl?: string;
+```tsx reference title="ScreenshotCompareResults"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1654-L1674
+```
 
-  appNamespace: string;
+```ts reference title="ScreenshotCache"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1736-L1756
+```
 
-  buildTimestamp: number;
+```ts reference title="Screenshot"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1758-L1772
+```
 
-  logger: Logger;
-
-  rootDir: string;
-
-  cacheDir: string;
-
-  packageDir: string;
-
-  screenshotDirName?: string;
-
-  imagesDirName?: string;
-
-  buildsDirName?: string;
-
-  currentBuildDir?: string;
-
-  updateMaster?: boolean;
-
-  allowableMismatchedPixels?: number;
-
-  allowableMismatchedRatio?: number;
-
-  pixelmatchThreshold?: number;
-
-  waitBeforeScreenshot?: number;
-
-  pixelmatchModulePath?: string;
-}
-
-export interface ScreenshotBuild {
-  id: string;
-
-  message: string;
-
-  author?: string;
-
-  url?: string;
-
-  previewUrl?: string;
-
-  appNamespace: string;
-
-  timestamp: number;
-
-  screenshots: Screenshot[];
-}
-
-export interface ScreenshotBuildResults {
-  appNamespace: string;
-
-  masterBuild: ScreenshotBuild;
-
-  currentBuild: ScreenshotBuild;
-
-  compare: ScreenshotCompareResults;
-}
-
-export interface ScreenshotCompareResults {
-  id: string;
-
-  a: {
-    id: string;
-    message: string;
-    author: string;
-    url: string;
-    previewUrl: string;
-  };
-
-  b: {
-    id: string;
-    message: string;
-    author: string;
-    url: string;
-    previewUrl: string;
-  };
-
-  timestamp: number;
-
-  url: string;
-
-  appNamespace: string;
-
-  diffs: ScreenshotDiff[];
-}
-
-export interface ScreenshotCache {
-  timestamp?: number;
-
-  lastBuildId?: string;
-
-  size?: number;
-
-  items?: {
-    /**
-     * Cache key
-     */
-    key: string;
-
-    /**
-     * Timestamp used to remove the oldest data
-     */
-    ts: number;
-
-    /**
-     * Mismatched pixels
-     */
-    mp: number;
-  }[];
-}
-
-export interface Screenshot {
-  id: string;
-
-  desc?: string;
-
-  image: string;
-
-  device?: string;
-
-  userAgent?: string;
-
-  width?: number;
-
-  height?: number;
-
-  deviceScaleFactor?: number;
-
-  hasTouch?: boolean;
-
-  isLandscape?: boolean;
-
-  isMobile?: boolean;
-
-  testPath?: string;
-
-  diff?: ScreenshotDiff;
-}
-
-export interface ScreenshotDiff {
-  mismatchedPixels: number;
-
-  id?: string;
-
-  desc?: string;
-
-  imageA?: string;
-
-  imageB?: string;
-
-  device?: string;
-
-  userAgent?: string;
-
-  width?: number;
-
-  height?: number;
-
-  deviceScaleFactor?: number;
-
-  hasTouch?: boolean;
-
-  isLandscape?: boolean;
-
-  isMobile?: boolean;
-
-  allowableMismatchedPixels: number;
-
-  allowableMismatchedRatio: number;
-
-  testPath?: string;
-
-  cacheKey?: string;
-}
+```ts reference title="ScreenshotDiff"
+https://github.com/ionic-team/stencil/blob/a2e119d059ba0d0fa6155dbd3d82c17612630828/src/declarations/stencil-private.ts#L1774-L1792
 ```

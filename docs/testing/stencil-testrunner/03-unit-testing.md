@@ -14,7 +14,7 @@ To run unit tests, run `stencil test --spec`. Files ending in `.spec.ts` will be
 
 ## newSpecPage()
 
-In order to unit test a component as rendered HTML, tests can use `newSpecPage()` imported from `@stencil/core/testing`. This testing utility method is similar to `newE2EPage()`, however, `newSpecPage()` is much faster since it does not require a full [Puppeteer](https://pptr.dev/) instance to be running. Please see the [newE2EPage()](./e2e-testing.md) docs on more information about complete End-to-end testing with Puppeteer.
+In order to unit test a component as rendered HTML, tests can use `newSpecPage()` imported from `@stencil/core/testing`. This testing utility method is similar to `newE2EPage()`, however, `newSpecPage()` is much faster since it does not require a full [Puppeteer](https://pptr.dev/) instance to be running. Please see the [newE2EPage()](./05-e2e-testing.md) docs for more information about complete End-to-end testing with Puppeteer.
 
 Below is a simple example where `newSpecPage()` is given one component class which was imported, and the initial HTML to use for the test. In this example, when the component `MyCmp` renders it sets its text content as "Success!". The matcher `toEqualHtml()` is then used to ensure the component renders as expected.
 
