@@ -87,6 +87,10 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - **Fragment**: `<Fragment>`, often used via `<>...</>` syntax, lets you group elements without a wrapper node.
 
+  To use this feature, ensure that the following TypeScript compiler options are set:
+  - [`jsxFragmentFactory` is set](https://www.typescriptlang.org/tsconfig#jsxFragmentFactory) to "Fragment"
+  - [`jsxFactory` is set](https://www.typescriptlang.org/tsconfig#jsxFactory) to "h"
+
   __Type:__ `FunctionalComponent`<br />
   __Example:__
   ```tsx
