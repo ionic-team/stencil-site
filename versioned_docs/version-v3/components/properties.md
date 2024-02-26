@@ -24,7 +24,6 @@ import { Component, Prop, h } from '@stencil/core';
 export class TodoList {
     // Second, we decorate a class member with @Prop()
     @Prop() name: string;
-    
     render() {
         // Within the component's class, its props are
         // accessed via `this`. This allows us to render
@@ -104,7 +103,7 @@ export class TodoList {
     return (
       <div>
         <h1>To-Do List Name: Stencil To Do List</h1>
-        <ul> 
+        <ul>
            {/* Below are three Stencil components that are children of `todo-list`, each representing an item on our list */}
            <todo-list-item thingToDo={"Learn about Stencil Props"}></todo-list-item>
            <todo-list-item thingToDo={"Write some Stencil Code with Props"}></todo-list-item>
@@ -123,7 +122,6 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class ToDoListItem {
   @Prop() thingToDo: string;
-  
   render() {
     return <li>{this.thingToDo}</li>;
   }
@@ -138,12 +136,12 @@ efficiently re-render your components. Passing a reference to a component as a p
 ## Mutability
 
 A Prop is by default immutable from inside the component logic. Once a value is set by a user, the component cannot
-update it internally. For more advanced control over the mutability of a prop, please see the 
+update it internally. For more advanced control over the mutability of a prop, please see the
 [mutable option](#prop-mutability-mutable) section of this document.
 
 ## Types
 
-Props can be a `boolean`, `number`, `string`, or even an `Object` or `Array`.  The example below expands the 
+Props can be a `boolean`, `number`, `string`, or even an `Object` or `Array`.  The example below expands the
 `todo-list-item` to add a few more props with different types.
 
 ```tsx
@@ -216,7 +214,7 @@ the following applies:
    2. the prop is included when using the component, but is not given a value
 
 ```html
-<!-- Both examples using the 'todo-list-item' component will have an --> 
+<!-- Both examples using the 'todo-list-item' component will have an -->
 <!-- isComplete value of `undefined` -->
 <todo-list-item></todo-list-item>
 <todo-list-item is-complete></todo-list-item>
@@ -305,7 +303,7 @@ export class ToDoListItem {
 }
 ```
 ```tsx
-// MyHttpService.ts 
+// MyHttpService.ts
 export class MyHttpService {
     // This implementation intentionally left blank
 }
@@ -451,14 +449,14 @@ own type information. Neither Stencil nor TypeScript will try to change the type
 `todo-list-item` twice, each with different prop values:
 
 ```tsx
-{/* Using todo-list-item in TSX using differnt values each time */}
+{/* Using todo-list-item in TSX using different values each time */}
 <todo-list-item isComplete={42} label={null} thingToDo={"Learn about any-typed props"}></todo-list-item>
 <todo-list-item isComplete={"42"} label={1} thingToDo={"Learn about any-typed props"}></todo-list-item>
 ```
 
-The following will rendered from the usage example above: 
+The following will rendered from the usage example above:
 ```md
-- isComplete has a value of - 42 - and a typeof value of "number" 
+- isComplete has a value of - 42 - and a typeof value of "number"
 - label has a value of -  - and a typeof value of "object"
 - thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
 
@@ -467,7 +465,7 @@ The following will rendered from the usage example above:
 - thingToDo has a value of - Learn about any-typed props - and a typeof value of "string"
 ```
 
-In the first usage of `todo-list-item`, `isComplete` is provided a number value of 42, whereas in the second usage it 
+In the first usage of `todo-list-item`, `isComplete` is provided a number value of 42, whereas in the second usage it
 receives a string containing "42". The types on `isComplete` reflect the type of the value it was provided, 'number' and
 'string', respectively.
 
@@ -495,7 +493,7 @@ export class ToDoListItem {
     // annotation, but does have a default value
     // of 'urgent'
     @Prop() label? = 'urgent';
-    // thingToDo has no type annotation and no 
+    // thingToDo has no type annotation and no
     // default value
     @Prop() thingToDo?;
 
@@ -560,75 +558,11 @@ This component can be used in both HTML:
 ```html
 <todo-list-item is-complete="true"></todo-list-item>
 <todo-list-item is-complete="false"></todo-list-item>
-<todo-list-item is-complete></todo-list-item>
-<todo-list-item></todo-list-item>
 ```
 and TSX:
 ```tsx
 <todo-list-item isComplete={true}></todo-list-item>
 <todo-list-item isComplete={false}></todo-list-item>
-```
-
-When using union types, the type of a component's `@Prop()` value can be ambiguous at runtime.
-In the provided example, under what circumstances does `@Prop() isComplete` function as a `string`, and when does it serve as a `boolean`?
-
-When using a component in HTML, the runtime value of a `@Prop()` is a string whenever an attribute is set.
-This is a result of setting the HTML attribute for the custom element.
-```html
-<!-- Since this is HTML, the value of `isComplete` in `ToDoListItem` will be a string -->
-
-<!-- Set isComplete to "true". -->
-<todo-list-item is-complete="true"></todo-list-item>
-<!-- Set isComplete to "false" -->
-<todo-list-item is-complete="false"></todo-list-item>
-<!-- Set isComplete to "" -->
-<todo-list-item is-complete></todo-list-item>
-```
-However, if an attribute is not specified, the runtime value of the property will be `undefined`:
-```html
-<!-- Since `is-complete` is omitted, the value of `isComplete` in `ToDoListItem` will be `undefined` -->
-<todo-list-item></todo-list-item>
-```
-
-When the attribute on a component is set using `setAttribute`, the runtime value of a `@Prop()` is always [coerced to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
-```html
-<script>
-  // both of these `setAttribute` calls set the property `isComplete` to "true" (string)
-  document.querySelector('todo-list-item').setAttribute('is-complete', true);
-  document.querySelector('todo-list-item').setAttribute('is-complete', "true");
-  // both of these `setAttribute` calls set the property `isComplete` to "false" (string)
-  document.querySelector('todo-list-item').setAttribute('is-complete', false);
-  document.querySelector('todo-list-item').setAttribute('is-complete', "false");
-</script>
-```
-
-However, if the property of a custom element is directly changed, its type will match the value that was provided. 
-```html
-<script>
-  // Set the property `isComplete` to `true` (boolean)
-  document.querySelector('todo-list-item').isComplete = true;
-  // Set the property `isComplete` to "true" (string)
-  document.querySelector('todo-list-item').isComplete = "true";
-  // Set the property `isComplete` to `false` (boolean)
-  document.querySelector('todo-list-item').isComplete = false;
-  // Set the property `isComplete` to "false" (string)
-  document.querySelector('todo-list-item').isComplete = "false";
-</script>
-```
-
-When using a component in TSX, a `@Prop()`'s type will match the value that was provided.
-```tsx
-// Since this is TSX, the value of `isComplete` in `ToDoListItem`
-// depends on the type of the value passed to the component.
-//
-// Set the property `isComplete` to `true` (boolean)
-<todo-list-item isComplete={true}></todo-list-item>
-// Set the property `isComplete` to "true" (string)
-<todo-list-item isComplete={"true"}></todo-list-item>
-// Set the property `isComplete` to `false` (boolean)
-<todo-list-item isComplete={false}></todo-list-item>
-// Set the property `isComplete` to "false" (string)
-<todo-list-item isComplete={"false"}></todo-list-item>
 ```
 
 ## Default Values
@@ -680,7 +614,6 @@ export class ComponentWithManyProps {
     // both props below are of type 'number'
     @Prop() number1: number;
     @Prop() number2 = 42;
-    
     // both props below are of type 'string'
     @Prop() string1: string;
     @Prop() string2 = 'defaultValue';
@@ -721,10 +654,10 @@ export class TodoList {
 
   @Watch('thingToDo')
   validateName(newValue: string, _oldValue: string) {
-    // don't allow `thingToDo` to be the empty string  
+    // don't allow `thingToDo` to be the empty string
     const isBlank = typeof newValue !== 'string' || newValue === '';
-    if (isBlank) { 
-        throw new Error('thingToDo is a required property and cannot be empty') 
+    if (isBlank) {
+        throw new Error('thingToDo is a required property and cannot be empty')
     };
     // don't allow `thingToDo` to be a string with a length of 1
     const has2chars = typeof newValue === 'string' && newValue.length >= 2;
@@ -738,7 +671,7 @@ export class TodoList {
 ## @Prop() Options
 
 The `@Prop()` decorator accepts an optional argument to specify certain options to modify how a prop on a component
-behaves. `@Prop()`'s optional argument is an object literal containing one or more of the following fields: 
+behaves. `@Prop()`'s optional argument is an object literal containing one or more of the following fields:
 
 ```tsx
 export interface PropOptions {
@@ -786,7 +719,7 @@ attributes can only be strings, it does not make sense to have an associated DOM
 Stencil will not attempt to serialize object-like strings written in HTML into a JavaScript object.
 See [Object Props](#object-props) for guidance as to how to configure `httpService`.
 
-At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are 
+At the same time, the `isComplete` & `thingToDo` properties follow 'camelCase' naming, but attributes are
 case-insensitive, so the attribute names will be `is-complete` & `thing-to-do` by default.
 
 Fortunately, this "default" behavior can be changed using the `attribute` option of the `@Prop()` decorator:
@@ -837,7 +770,7 @@ export class ToDoListItem {
 
 Stencil compares Props by reference in order to efficiently rerender components.
 Setting `mutable: true` on a Prop that is an object or array allows the _reference_ to the Prop to change inside the component and trigger a render.
-It does not allow a mutable change to an existing object or array to trigger a render. 
+It does not allow a mutable change to an existing object or array to trigger a render.
 
 For example, to update an array Prop:
 
@@ -857,9 +790,9 @@ export class MyComponent {
          // attempts to see if any of its Props have changed,
          // it sees the reference to its `contents` Prop is
          // the same, and will not trigger a render
-         
+
          // this.contents.push('Stencil')
-         
+
          // this does create a new array, and therefore a
          // new reference to the Prop. Stencil will pick up
          // this change and rerender
@@ -888,7 +821,7 @@ If Stencil had to walk every slot of the array to determine if it changed, it wo
 Rather, it is considered better for performance and more idiomatic to re-assign the Prop (in the example above, we use the spread operator).
 
 The same holds for objects as well.
-Rather than mutating an existing object in-place, a new object should be created using the spread operator. This object will be different-by-reference and therefore will trigger a re-render:  
+Rather than mutating an existing object in-place, a new object should be created using the spread operator. This object will be different-by-reference and therefore will trigger a re-render:
 
 
 ```tsx
