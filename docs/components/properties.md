@@ -560,6 +560,8 @@ This component can be used in both HTML:
 ```html
 <todo-list-item is-complete="true"></todo-list-item>
 <todo-list-item is-complete="false"></todo-list-item>
+<todo-list-item is-complete></todo-list-item>
+<todo-list-item></todo-list-item>
 ```
 and TSX:
 ```tsx
@@ -570,18 +572,25 @@ and TSX:
 When using union types, the type of a component's `@Prop()` value can be ambiguous at runtime.
 In the provided example, under what circumstances does `@Prop() isComplete` function as a `string`, and when does it serve as a `boolean`?
 
-When using a component in HTML, the runtime value of a `@Prop()` is always a string.
+When using a component in HTML, the runtime value of a `@Prop()` is a string whenever an attribute is set.
 This is a result of setting the HTML attribute for the custom element.
 ```html
 <!-- Since this is HTML, the value of `isComplete` in `ToDoListItem` will be a string -->
 
 <!-- Set isComplete to "true". -->
 <todo-list-item is-complete="true"></todo-list-item>
-<!-- Set isComplete to 'false' -->
+<!-- Set isComplete to "false" -->
 <todo-list-item is-complete="false"></todo-list-item>
+<!-- Set isComplete to "" -->
+<todo-list-item is-complete></todo-list-item>
+```
+However, if an attribute is not specified, the runtime value of the property will be `undefined`:
+```html
+<!-- Since `is-complete` is omitted, the value of `isComplete` in `ToDoListItem` will be `undefined` -->
+<todo-list-item></todo-list-item>
 ```
 
-Likewise, when the attribute on a component is set using `setAttribute`, the runtime value of a `@Prop()` is always [coerced to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+When the attribute on a component is set using `setAttribute`, the runtime value of a `@Prop()` is always [coerced to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 ```html
 <script>
   // both of these `setAttribute` calls set the property `isComplete` to "true" (string)
