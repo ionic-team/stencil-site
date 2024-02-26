@@ -558,11 +558,75 @@ This component can be used in both HTML:
 ```html
 <todo-list-item is-complete="true"></todo-list-item>
 <todo-list-item is-complete="false"></todo-list-item>
+<todo-list-item is-complete></todo-list-item>
+<todo-list-item></todo-list-item>
 ```
 and TSX:
 ```tsx
 <todo-list-item isComplete={true}></todo-list-item>
 <todo-list-item isComplete={false}></todo-list-item>
+```
+
+When using union types, the type of a component's `@Prop()` value can be ambiguous at runtime.
+In the provided example, under what circumstances does `@Prop() isComplete` function as a `string`, and when does it serve as a `boolean`?
+
+When using a component in HTML, the runtime value of a `@Prop()` is a string whenever an attribute is set.
+This is a result of setting the HTML attribute for the custom element.
+```html
+<!-- Since this is HTML, the value of `isComplete` in `ToDoListItem` will be a string -->
+
+<!-- Set isComplete to "true". -->
+<todo-list-item is-complete="true"></todo-list-item>
+<!-- Set isComplete to "false" -->
+<todo-list-item is-complete="false"></todo-list-item>
+<!-- Set isComplete to "" -->
+<todo-list-item is-complete></todo-list-item>
+```
+However, if an attribute is not specified, the runtime value of the property will be `undefined`:
+```html
+<!-- Since `is-complete` is omitted, the value of `isComplete` in `ToDoListItem` will be `undefined` -->
+<todo-list-item></todo-list-item>
+```
+
+When the attribute on a component is set using `setAttribute`, the runtime value of a `@Prop()` is always [coerced to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
+```html
+<script>
+  // both of these `setAttribute` calls set the property `isComplete` to "true" (string)
+  document.querySelector('todo-list-item').setAttribute('is-complete', true);
+  document.querySelector('todo-list-item').setAttribute('is-complete', "true");
+  // both of these `setAttribute` calls set the property `isComplete` to "false" (string)
+  document.querySelector('todo-list-item').setAttribute('is-complete', false);
+  document.querySelector('todo-list-item').setAttribute('is-complete', "false");
+</script>
+```
+
+However, if the property of a custom element is directly changed, its type will match the value that was provided.
+```html
+<script>
+  // Set the property `isComplete` to `true` (boolean)
+  document.querySelector('todo-list-item').isComplete = true;
+  // Set the property `isComplete` to "true" (string)
+  document.querySelector('todo-list-item').isComplete = "true";
+  // Set the property `isComplete` to `false` (boolean)
+  document.querySelector('todo-list-item').isComplete = false;
+  // Set the property `isComplete` to "false" (string)
+  document.querySelector('todo-list-item').isComplete = "false";
+</script>
+```
+
+When using a component in TSX, a `@Prop()`'s type will match the value that was provided.
+```tsx
+// Since this is TSX, the value of `isComplete` in `ToDoListItem`
+// depends on the type of the value passed to the component.
+//
+// Set the property `isComplete` to `true` (boolean)
+<todo-list-item isComplete={true}></todo-list-item>
+// Set the property `isComplete` to "true" (string)
+<todo-list-item isComplete={"true"}></todo-list-item>
+// Set the property `isComplete` to `false` (boolean)
+<todo-list-item isComplete={false}></todo-list-item>
+// Set the property `isComplete` to "false" (string)
+<todo-list-item isComplete={"false"}></todo-list-item>
 ```
 
 ## Default Values
