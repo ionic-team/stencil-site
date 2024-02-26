@@ -593,7 +593,7 @@ Likewise, when the attribute on a component is set using `setAttribute`, the run
 </script>
 ```
 
-However, if the property of a custom element is directly changed, the `typeof` of the `@Prop()` provided is used.
+However, if the property of a custom element is directly changed, its type will match the value that was provided. 
 ```html
 <script>
   // Set the property `isComplete` to `true` (boolean)
@@ -607,7 +607,7 @@ However, if the property of a custom element is directly changed, the `typeof` o
 </script>
 ```
 
-When using a component in TSX, the `typeof` of the `@Prop()` provided is used.
+When using a component in TSX, a `@Prop()`'s type will match the value that was provided.
 ```tsx
 // Since this is TSX, the value of `isComplete` in `ToDoListItem`
 // depends on the type of the value passed to the component.
