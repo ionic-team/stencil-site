@@ -581,7 +581,7 @@ This is a result of setting the HTML attribute for the custom element.
 <todo-list-item is-complete="false"></todo-list-item>
 ```
 
-Likewise, when the attribute on a component is set, the runtime value of a `@Prop()` is always a string.
+Likewise, when the attribute on a component is set using `setAttribute`, the runtime value of a `@Prop()` is always [coerced to a string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion).
 ```html
 <script>
   // both of these `setAttribute` calls set the property `isComplete` to "true" (string)
