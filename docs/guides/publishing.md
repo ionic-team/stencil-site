@@ -49,7 +49,7 @@ However be aware that this approach is not ideal in all cases. It requires your 
 
 The [`dist-custom-elements`](../output-targets/custom-elements.md) output target builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
 
-The generated files will each export a component class and will already have the styles bundled. However, this build does not define the custom elements or apply any polyfills. Static assets referenced within components will need to be set using `setAssetPath` (see [Making Assets Available](#making-assets-available)).
+The generated files will each export a component class and will already have the styles bundled. However, this build does not define the custom elements or apply any polyfills. Static assets referenced within components will need to be set using `setAssetPath` (see [Making Assets Available](../output-targets/custom-elements.md#making-assets-available)).
 
 You can use these standalone components by importing them via:
 
@@ -93,7 +93,7 @@ import { MyComponent } from 'my-design-system'
 import { MyComponent } from 'my-design-system/my-component'
 ```
 
-If you define exports targets for all your components as shown above and by using [`customElementsExportBehavior: 'auto-define-custom-elements'`](../docs/custom-elements.md#customelementsexportbehavior) as output target option, you can skip the `defineCustomElement` call and directly import the component where you need it:
+If you define exports targets for all your components as shown above and by using [`customElementsExportBehavior: 'auto-define-custom-elements'`](../output-targets/custom-elements.md#customelementsexportbehavior) as output target option, you can skip the `defineCustomElement` call and directly import the component where you need it:
 
 ```ts
 import 'my-design-system/my-component'
@@ -112,7 +112,7 @@ export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client'
 ```
 
 :::note
-The contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified!
+The contents may look different if [`customElementsExportBehavior`](../output-targets/custom-elements.md#customelementsexportbehavior) is specified!
 :::
 
 #### Considerations
