@@ -49,6 +49,8 @@ However be aware that this approach is not ideal in all cases. It requires your 
 
 The [`dist-custom-elements`](../output-targets/custom-elements.md) output target builds each component as a stand-alone class that extends `HTMLElement`. The output is a standardized custom element with the styles already attached and without any of Stencil's lazy-loading. This may be preferred for projects that are already handling bundling, lazy-loading and defining the custom elements themselves.
 
+The generated files will each export a component class and will already have the styles bundled. However, this build does not define the custom elements or apply any polyfills. Static assets referenced within components will need to be set using `setAssetPath` (see [Making Assets Available](#making-assets-available)).
+
 You can use these standalone components by importing them via:
 
 ```ts
@@ -64,7 +66,7 @@ class MyCustomComponent extends MyComponent {
 define('my-custom-component', MyCustomComponent)
 ```
 
-To ensure that the right entry file is loaded when importing the project, define the following fields in your `package.json`:
+To ensure that the right entry file is loaded when importing the project, define different [exports fields](https://nodejs.org/api/packages.html#exports) in your `package.json`:
 
 ```json
 {
@@ -73,13 +75,22 @@ To ensure that the right entry file is loaded when importing the project, define
       "import": "./dist/components/index.js",
       "types": "./dist/components/index.d.ts"
     },
-    "my-component": {
+    "./my-component": {
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
     }
   },
   "types": "dist/components/index.d.ts",
 }
+```
+
+This allows us to map certain import paths to specific components within our project and allows users to only import the component code they are interested in and reduce the amount of code that needs to downloaded by the browser, e.g.:
+
+```js
+// this import loads all compiled components
+import { MyComponent } from 'my-design-system'
+// only import compiled code for MyComponent
+import { MyComponent } from 'my-design-system/my-component'
 ```
 
 If you define exports targets for all your components as shown above and by using [`customElementsExportBehavior: 'auto-define-custom-elements'`](../docs/custom-elements.md#customelementsexportbehavior) as output target option, you can skip the `defineCustomElement` call and directly import the component where you need it:
@@ -93,6 +104,16 @@ If you are distributing both the `dist` and `dist-custom-elements`, then it's be
 :::
 
 Read more about various options when it comes to distributing your components as standalone components in the [`dist-custom-elements`](../output-targets/custom-elements.md) output target section.
+
+The output directory will also contain an `index.js` file which exports some helper methods by default. The contents of the file will look something like:
+
+```js
+export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
+```
+
+:::note
+The contents may look different if [`customElementsExportBehavior`](#customelementsexportbehavior) is specified!
+:::
 
 #### Considerations
 
