@@ -68,6 +68,12 @@ This flag defaults to `false` when omitted from a Stencil configuration file.
 If using the `dist-collection` output target directly, the same result can be achieved using the `transformAliasedImportPaths` flag on the target's config.
 :::
 
+### esmLoaderPath
+
+*default: `/dist/loader`*
+
+Provide a custom path for the ESM loader directory, containing files you can import in an initiation script within your application to register all your components for lazy loading.
+
 ## Publishing
 
 Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](../guides/publishing.md).
