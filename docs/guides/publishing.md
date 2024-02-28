@@ -82,7 +82,7 @@ To ensure that the right entry file is loaded when importing the project, define
 }
 ```
 
-If you define exports targets for all your components as shown above and by using `customElementsExportBehavior: 'auto-define-custom-elements'` as output target option, you can skip the `defineCustomElement` call and directly import the component where you need it:
+If you define exports targets for all your components as shown above and by using [`customElementsExportBehavior: 'auto-define-custom-elements'`](../docs/custom-elements.md#customelementsexportbehavior) as output target option, you can skip the `defineCustomElement` call and directly import the component where you need it:
 
 ```ts
 import 'my-design-system/my-component'
