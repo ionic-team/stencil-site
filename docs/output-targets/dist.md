@@ -79,6 +79,18 @@ If using the `dist-collection` output target directly, the same result can be ac
 
 Provide a custom path for the ESM loader directory, containing files you can import in an initiation script within your application to register all your components for lazy loading. Read more about the loader directory in the [section below](#loader).
 
+If you don't use a custom [exports](https://nodejs.org/api/packages.html#exports) map, users would have to import the loader script via:
+
+```js
+import { defineCustomElements } from 'stencil-library/dist/loader'
+```
+
+By setting `esmLoaderPath` to e.g. `../loader` you can shorten or rename the import path to:
+
+```js
+import { defineCustomElements } from 'stencil-library/loader'
+```
+
 ## Publishing
 
 Next you can publish your library to [Node Package Manager (NPM)](https://www.npmjs.com/). For more information about setting up the `package.json` file, and publishing, see: [Publishing A Component Library](../guides/publishing.md).
