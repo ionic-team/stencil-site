@@ -97,7 +97,7 @@ Next you can publish your library to [Node Package Manager (NPM)](https://www.np
 
 ## Loader
 
-The `dist` output target generates a loader directory that exports an `setNonce`, `applyPolyfills` and `defineCustomElements` helper function when imported within an ESM context. This allows you to register all components of your library to be used in your project in an application setup script, e.g.:
+The `dist` output target generates a loader directory that exports `setNonce`, `applyPolyfills` and `defineCustomElements` helper functions when imported within an ESM context. This allows you to register all components of your library to be used in your project in an application setup script, e.g.:
 
 ```ts
 import { applyPolyfills, defineCustomElements, setNonce } from 'stencil-library/loader';
