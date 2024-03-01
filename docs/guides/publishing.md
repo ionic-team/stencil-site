@@ -13,7 +13,7 @@ To use your Stencil components in other projects, there are two different output
 
 ### Lazy Loading
 
-If you prefer to have your components automatically loaded when used in your application, we recommend to enable the [`dist`](../output-targets/dist.md) output target. The bundle gives you a small entry file that registers all your components and only loads the full component logic when it gets rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
+If you prefer to have your components automatically loaded when used in your application, we recommend enabling the [`dist`](../output-targets/dist.md) output target. The bundle gives you a small entry file that registers all your components and defers loading the full component logic until it is rendered in your application. It doesn't matter if the actual application is written in HTML or created with vanilla JavaScript, jQuery, React, etc.
 
 Your users can import your component library, e.g. called `my-design-system`, either via a `script` tag:
 
