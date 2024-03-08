@@ -37,7 +37,7 @@ export const config: Config = {
 If `validatePrimaryPackageOutputTarget: true` is set in your project's [Stencil config](../config/01-overview.md#validateprimarypackageoutputtarget) Stencil will
 attempt to validate certain fields in your `package.json` that correspond with the generated distribution code. Because Stencil can output many different formats
 from a single project, it can only validate that the `package.json` has field values that align with one of the specified output targets in your project's config.
-So, Stencil allows you to designate which output target should be used for this validation and thus which will be the default distribution when bundling you
+So, Stencil allows you to designate which output target should be used for this validation and thus which will be the default distribution when bundling your
 project. 
 
 This behavior only affects a small subset of output targets so a flag exists on the following targets that are eligible for this level of validation: `dist`, `dist-types`,
