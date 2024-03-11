@@ -97,6 +97,8 @@ Setting this flag to `true` results in the following behaviors:
 2. Filenames will not be hashed.
 3. All imports from packages under `@stencil/core/*` will be marked as external and therefore not included in the generated Rollup bundle.
 
+Ensure that `@stencil/core` is included in your list of dependencies if you set this option to `true`. This is crucial to prevent any runtime errors.
+
 ### generateTypeDeclarations
 
 _default: `true`_
