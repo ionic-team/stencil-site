@@ -102,6 +102,6 @@ Tests a Stencil project. The flags below are the available options for the `test
 
 ## `stencil version`
 
-Alias: `stencil -v`
+Aliases: `stencil -v`, `stencil --version`
 
 Prints the version of Stencil to the terminal.
