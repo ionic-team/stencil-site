@@ -95,7 +95,8 @@ const otherShadowElement = await page.find('my-component >>> div > my-other-comp
 const divElement = await page.find('my-component >>> div');
 const otherShadowElement = await divElement.find('my-other-component >>> h3');
 ```
-:::
+
+Find more information about this selector type for Puppeteer in their [project docs](https://pptr.dev/guides/query-selectors#-and--combinators).
 
 ### Set a @Prop() on a component
 

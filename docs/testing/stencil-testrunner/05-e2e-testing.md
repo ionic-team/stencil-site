@@ -97,6 +97,8 @@ const otherShadowElement = await divElement.find('my-other-component >>> h3');
 ```
 :::
 
+Find more information about this selector type for Puppeteer in their [project docs](https://pptr.dev/guides/query-selectors#-and--combinators).
+
 ### Set a @Prop() on a component
 
 Use `page.$eval` (part of the Puppeteer API) to set props or otherwise manipulate a component:
