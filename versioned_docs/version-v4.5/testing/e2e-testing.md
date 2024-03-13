@@ -86,7 +86,7 @@ const el = await page.find('foo-component >>> .close-button');
 ```
 
 :::caution
-Make sure to only use `>>>` once in your query. Puppeteer does not support nested deep selectors. Instead, separate the calls if possible into two queries, e.g.:
+Make sure to only use `>>>` once in your query. Puppeteer does not support nested deep selectors. Instead, separate the calls into two queries, e.g.:
 
 ```ts
 // 👎 multiple nested deep selector aren't supported
