@@ -3,8 +3,12 @@ title: Playwright Overview
 sidebar_label: Overview
 ---
 
-Playwright is an automated end-to-end testing framework built to run on all modern browser engines and operating systems. Playwright leverages
-the DevTools protocol to provide reliable tests that run in actual browsers.
+:::note
+The Stencil Playwright adapter is designed to only work with **version 4.13.0 and higher** of Stencil!
+:::
+
+[Playwright](https://playwright.dev/) is an automated end-to-end testing framework built to run on all modern browser engines and operating systems.
+Playwright leverages the DevTools protocol to provide reliable tests that run in actual browsers.
 
 ## Set Up
 
@@ -12,7 +16,7 @@ To add Playwright to an existing Stencil project, leverage the [Stencil Playwrig
 is a tool built by the Stencil team to help Stencil and Playwright work better together. The best part is you'll write your tests using the same APIs
 as defined and documented by Playwright. So, be sure to [check out their documentation](https://playwright.dev/docs/writing-tests) for help writing your first tests!
 
-To install the Stencil Playwright adapter, follow these steps:
+To install the Stencil Playwright adapter in an existing Stencil project, follow these steps:
 
 1. Install the necessary dependencies:
 
@@ -57,7 +61,3 @@ To install the Stencil Playwright adapter, follow these steps:
      ...
    }
    ```
-
-:::note
-The Stencil Playwright adapter is designed to only work with **version 4.13.0 and higher** of Stencil!
-:::

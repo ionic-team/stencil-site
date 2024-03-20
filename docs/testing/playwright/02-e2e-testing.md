@@ -4,7 +4,7 @@ sidebar_label: E2E Testing
 ---
 
 When it comes to writing end-to-end tests using the Stencil Playwright adapter, the best advice we can give is to leverage
-[Playwright documentation](https://playwright.dev/docs/writing-tests). The adapter is setup in a way so that developers will use the
+[Playwright documentation](https://playwright.dev/docs/writing-tests). The adapter is set up in a way so that developers will use the
 same public APIs with as little Stencil nuances as possible.
 
 ## Writing Tests
@@ -21,7 +21,7 @@ import { test } from '@stencil/playwright';
 ```
 
 The adapter package extends Playwright's stock `test` function to provide additional fixtures and handle nuances related to web component hydration. More
-information is available in the [API documentation](./03-api.md/#test-function).
+information is available in the [API documentation](./03-api.md#test-function).
 
 ### Testing Patterns
 
@@ -103,12 +103,12 @@ test.describe('my-component', () => {
 
 ## Running Tests
 
+To run tests, either run `npx playwright test` from the **root** of the Stencil project, or update the project's `test` script in the `package.json` file to run the
+Playwright command.
+
 By default, the adapter will execute all tests in a project with a `.e2e.ts` file suffix. This can be modified by passing the
 [`testDir`](https://playwright.dev/docs/api/class-testproject#test-project-test-dir) and/or [`testMatch`](https://playwright.dev/docs/api/class-testproject#test-project-test-match)
 configuration options as overrides to `createStencilPlaywrightConfig()`.
-
-To run tests, either run `npx playwright test` from the **root** of the Stencil project, or update the project's `test` script in the `package.json` file to run the
-Playwright command.
 
 ## Debugging
 
