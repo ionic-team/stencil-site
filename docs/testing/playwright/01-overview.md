@@ -39,7 +39,9 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    // Add custom Stencil matchers to Playwright assertions
    expect.extend(matchers);
 
-   export default createStencilPlaywrightConfig();
+   export default createStencilPlaywrightConfig({
+     // Overwrite Playwright config options here
+   });
    ```
 
    The `createStencilPlaywrightConfig()` is a utility that will create a default Playwright configuration based on your project's Stencil config. Read
@@ -50,7 +52,8 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    the Stencil project's `www` output target config and [dev server config](../../config/dev-server.md). If no `www` output target is specified,
    tests will not be able to run.
 
-1. It _may_ be necessary to update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
+1. When building your Stencil project, you may encounter an error like `Property 'asyncDispose' does not exist on type 'SymbolConstructor'`. To resolve
+   this error, update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
 
    ```ts title="tsconfig.json"
    {

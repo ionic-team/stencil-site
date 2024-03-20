@@ -13,7 +13,7 @@ Returns a [Playwright test configuration](https://playwright.dev/docs/test-confi
 as some options to override specific values in the config options related to the Stencil integration:
 
 - `webServerCommand`: This can be specified to change the command that will run to start the Stencil dev server. Defaults to `npm start -- --no-open`.
-- `webServerTimeout`: This can be specified to change the amount of time Playwright will wait for the dev server to start. Defaults to 60 seconds.
+- `webServerTimeout`: This can be specified to change the amount of time (in milliseconds) Playwright will wait for the dev server to start. Defaults to 60000 (60 seconds).
 
 ```ts title="playwright.config.ts"
 import { expect } from '@playwright/test';
@@ -29,6 +29,13 @@ export default createStencilPlaywrightConfig({
   webServerTimeout: 30000,
 });
 ```
+
+:::caution
+Although any valid Playwright config option can be overridden, there are a few properties that may cause issues with tests if changed. In particular,
+these are the [`webServer`](https://playwright.dev/docs/api/class-testconfig#test-config-web-server) and [`baseUrl`](https://playwright.dev/docs/test-webserver#adding-a-baseurl)
+options. These properties are automatically generated based on the Stencil project's config (analyzing the output targets and dev server configuration),
+so be cautious when overriding these values as it can result in issues with Playwright connecting to the Stencil dev server.
+:::
 
 ## `test` Function
 

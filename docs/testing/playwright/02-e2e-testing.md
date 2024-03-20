@@ -47,6 +47,11 @@ tags pointing to the Stencil entry code (so all web components are correctly loa
 </html>
 ```
 
+In the above snippet, where it says "replace with the path to your entrypoint", the `src` attributes for the `script` tags should be the _relative_ path from the `www` output
+target's [output directory (`dir` option)](../../output-targets/www.md#config) to the namespaced entry file. The entry file will have the name
+`<namespace>.esm.js` for ESM output and `<namespace>.js` for CJS output. The "namespace" value is the kebab-case value of the `namespace` from your
+[Stencil config](../../config/01-overview.md#namespace).
+
 ```ts title="my-component.e2e.ts"
 import { expect } from '@playwright/test';
 import { test } from '@stencil/playwright';
@@ -60,6 +65,9 @@ test.describe('my-component', () => {
   });
 });
 ```
+
+In the above snippet, the path string passed to `page.goto()` should be the _absolute_ path to the HTML file from the
+[dev server's served directory](../../config/dev-server.md#root).
 
 #### `page.setContent()`
 
