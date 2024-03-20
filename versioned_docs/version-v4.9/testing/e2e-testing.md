@@ -85,6 +85,19 @@ Use the "piercing" selector `>>>` to query for an object inside a component's sh
 const el = await page.find('foo-component >>> .close-button');
 ```
 
+:::caution
+Make sure to only use `>>>` once in your query. Puppeteer does not support nested deep selectors. Instead, separate the calls into two queries, e.g.:
+
+```ts
+// 👎 multiple nested deep selector aren't supported
+const otherShadowElement = await page.find('my-component >>> div > my-other-component >>> h3');
+// 👍 separated calls using `>>>` once
+const divElement = await page.find('my-component >>> div');
+const otherShadowElement = await divElement.find('my-other-component >>> h3');
+```
+
+Find more information about this selector type for Puppeteer in their [project docs](https://pptr.dev/guides/query-selectors#-and--combinators).
+
 ### Set a @Prop() on a component
 
 Use `page.$eval` (part of the Puppeteer API) to set props or otherwise manipulate a component:
