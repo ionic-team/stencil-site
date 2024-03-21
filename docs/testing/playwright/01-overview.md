@@ -4,6 +4,8 @@ sidebar_label: Overview
 ---
 
 :::note
+The Stencil Playwright adapter is currently an experimental package. Breaking changes may be introduced at any time.
+
 The Stencil Playwright adapter is designed to only work with **version 4.13.0 and higher** of Stencil!
 :::
 
@@ -64,3 +66,5 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
      ...
    }
    ```
+
+1. Test away! Check out the [e2e testing page](./02-e2e-testing.md) for more help getting started writing tests.
