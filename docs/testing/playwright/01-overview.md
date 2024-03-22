@@ -49,13 +49,7 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    The `createStencilPlaywrightConfig()` is a utility that will create a default Playwright configuration based on your project's Stencil config. Read
    more about how to use this utility in the [API docs](./03-api.md#createstencilplaywrightconfig-function).
 
-1. Ensure the Stencil project has a [`www` output target](../../output-targets/www.md). Playwright relies on pre-compiled output running in a dev server
-   to run tests against. When using the `createStencilPlaywrightConfig()` helper, a configuration for the dev server will be automatically created based on
-   the Stencil project's `www` output target config and [dev server config](../../config/dev-server.md). If no `www` output target is specified,
-   tests will not be able to run.
-
-1. When building your Stencil project, you may encounter an error like `Property 'asyncDispose' does not exist on type 'SymbolConstructor'`. To resolve
-   this error, update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
+1. update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
 
    ```ts title="tsconfig.json"
    {
@@ -66,5 +60,40 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
      ...
    }
    ```
+
+   :::note
+   This will resolve a build error related to `Symbol.asyncDispose`. If this is not added, tests may fail to run since the Stencil dev server will be unable
+   to start due to the build error.
+   :::
+
+1. Ensure the Stencil project has a [`www` output target](../../output-targets/www.md). Playwright relies on pre-compiled output running in a dev server
+   to run tests against. When using the `createStencilPlaywrightConfig()` helper, a configuration for the dev server will be automatically created based on
+   the Stencil project's `www` output target config and [dev server config](../../config/dev-server.md). If no `www` output target is specified,
+   tests will not be able to run.
+
+1. Add the `copy` option to the `www` output target config:
+
+   ```ts title="stencil.config.ts"
+   {
+      type: 'www',
+      serviceWorker: null,
+      copy: copy: [{ src: '**/*.html' }, { src: '**/*.css' }]
+   }
+   ```
+
+   This will clone all HTML and CSS files to the `www` output directory so they can be served by the dev server. If you put all testing related
+   files in specific directory(s), you can update the `copy` task glob patterns to only copy those files:
+
+   ```ts title="stencil.config.ts"
+   {
+      type: 'www',
+      serviceWorker: null,
+      copy: copy: [{ src: '**/test/*.html' }, { src: '**/test/*.css' }]
+   }
+   ```
+
+   :::note
+   If the `copy` property is not set, you will not be able to use the `page.goto` testing pattern!
+   :::
 
 1. Test away! Check out the [e2e testing page](./02-e2e-testing.md) for more help getting started writing tests.
