@@ -31,6 +31,31 @@ The `goto()` method allows tests to load a pre-defined HTML template. This patte
 or if additional `script` or `style` tags need to be included in the HTML. However, with this pattern, developers are responsible for defining the necessary `script`
 tags pointing to the Stencil entry code (so all web components are correctly loaded and registered).
 
+For the following snippets, we'll imagine this is the simplified file structure for a Stencil project:
+
+```tree
+stencil-project-root
+└── src
+    └── components
+        ├── my.component.tsx
+        └── test <-- directory containing test files
+            ├── my-component.e2e.ts
+            └── my-component.e2e.html
+```
+
+```ts title="stencil.config.ts"
+export const config: Config = {
+  namespace: 'test-app',
+  outputTargets: [
+    {
+      type: 'www',
+      serviceWorker: null,
+      copy: [{ src: '**/test/*.html' }, { src: '**/test/*.css' }],
+    },
+  ],
+};
+```
+
 ```html title="my-component.e2e.html"
 <!doctype html>
 <html lang="en">
@@ -38,8 +63,8 @@ tags pointing to the Stencil entry code (so all web components are correctly loa
     <meta charset="utf8" />
 
     <!-- Replace with the path to your entrypoint -->
-    <script src="./build/test-app.esm.js" type="module"></script>
-    <script src="./build/test-app.js" nomodule></script>
+    <script src="../../../build/test-app.esm.js" type="module"></script>
+    <script src="../../../build/test-app.js" nomodule></script>
   </head>
   <body>
     <my-component first="Stencil"></my-component>
@@ -59,7 +84,7 @@ import { test } from '@stencil/playwright';
 test.describe('my-component', () => {
   test('should render the correct name', async ({ page }) => {
     // The path here is the path to the www output relative to the dev server root directory
-    await page.goto('/my-component/my-component.e2e.html');
+    await page.goto('/components/my-component/test/my-component.e2e.html');
 
     // Rest of test
   });
