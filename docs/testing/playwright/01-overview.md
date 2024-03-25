@@ -77,7 +77,7 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    {
       type: 'www',
       serviceWorker: null,
-      copy: copy: [{ src: '**/*.html' }, { src: '**/*.css' }]
+      copy: [{ src: '**/*.html' }, { src: '**/*.css' }]
    }
    ```
 
@@ -88,7 +88,7 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    {
       type: 'www',
       serviceWorker: null,
-      copy: copy: [{ src: '**/test/*.html' }, { src: '**/test/*.css' }]
+      copy: [{ src: '**/test/*.html' }, { src: '**/test/*.css' }]
    }
    ```
 
