@@ -140,3 +140,13 @@ Sets the server's port.
 
 When files are watched and updated, by default the dev server will use `hmr` (Hot Module Replacement) to update the page without a full page refresh.
 To have the page do a full refresh use `pageReload`. To disable any reloading, use `null`.
+
+### `root`
+
+**Optional**
+
+**Type: `string`**
+
+**Default: `www` output directory if exists, project root otherwise**
+
+The directory to serve files from.

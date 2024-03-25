@@ -14,7 +14,7 @@ box. Stencil offers both unit testing and end-to-end testing capabilities.
 
 Testing within Stencil is broken up into two distinct types: Unit tests and End-to-end (e2e) tests.
 
-There are several philosophies on how testing should be done, and how to differentiate what should be considered a unit 
+There are several philosophies on how testing should be done, and how to differentiate what should be considered a unit
 test versus an end-to-end test. Stencil takes an opinionated stance so developers have a description of each to better
 choose when to use each type of testing:
 
@@ -30,7 +30,8 @@ expects to receive the event `Z`.
 Stencil currently supports the following tools for testing components:
 
 - [Stencil Test Runner](./stencil-testrunner/01-overview.md): a built-in test runner based on Jest for unit and end-to-end testing with Puppeteer to run within an actual browser in order to provide more realistic results.
-- [WebdriverIO](./webdriverio/01-overview.md):  a browser and mobile automation test framework for Node.js that allows you to run component and end-to-end tests across all browsers.
+- [WebdriverIO](./webdriverio/01-overview.md): a browser and mobile automation test framework for Node.js that allows you to run component and end-to-end tests across all browsers.
+- [Playwright](./playwright/01-overview.md): an automated end-to-end testing framework that can run across all major browsers
 
 :::info
 
