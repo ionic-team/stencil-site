@@ -78,7 +78,7 @@ Any custom content placed above this comment will be persisted on subsequent bui
 
 ### Internal Components
 
-A Stencil component may be marked as deprecated using the unofficial JSDoc `@internal` tag.
+A Stencil component may be marked as internal to a library using the unofficial JSDoc `@internal` tag.
 By placing `@internal` in a component's class-level JSDoc it will skip the generation of the README for the component.
 
 In the code block below, `@internal` is added to the JSDoc for `MyComponent`:
