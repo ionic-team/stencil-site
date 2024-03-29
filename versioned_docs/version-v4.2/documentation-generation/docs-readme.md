@@ -76,6 +76,28 @@ Custom content goes here!
 
 Any custom content placed above this comment will be persisted on subsequent builds of the README file.
 
+### Internal Components
+
+A Stencil component may be marked as internal to a library using the unofficial JSDoc `@internal` tag.
+By placing `@internal` in a component's class-level JSDoc it will skip the generation of the README for the component.
+
+In the code block below, `@internal` is added to the JSDoc for `MyComponent`:
+
+```tsx title="A component with @internal in its JSDoc"
+/**
+ * @internal
+ */
+@Component({
+  tag: 'my-component',
+  shadow: true,
+})
+export class MyComponent { /* omitted */ }
+```
+
+The usage of `@internal` causes no README to be generated for `MyComponent`.
+
+If a README already exists for the component, it will not be updated.
+
 ### Deprecation Notices
 
 A Stencil component may be marked as deprecated using the [JSDoc `@deprecated` tag](https://jsdoc.app/tags-deprecated).
