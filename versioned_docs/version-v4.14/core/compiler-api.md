@@ -12,13 +12,9 @@ work within a NodeJS environment, web worker, and browser window. The
 `stencil.min.js` file is also provided and recommended when used within a browser.
 
 ```tsx
-// NodeJS (esm)
-import stencil from '@stencil/core/compiler';
-
 // NodeJS (commonjs)
 const stencil = require('@stencil/core/compiler');
 ```
-
 
 ## transpile()
 
