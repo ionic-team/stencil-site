@@ -14,16 +14,7 @@ work within a NodeJS environment, web worker, and browser window. The
 ```tsx
 // NodeJS (commonjs)
 const stencil = require('@stencil/core/compiler');
-
-// Web Worker from CDN URL (add the version to in the URL)
-importScripts('https://cdn.jsdelivr.net/npm/@stencil/core@[VERSION]/compiler/stencil.min.js');
-// self.stencil will be available after the script import
-
-// Browser Window
-<script src="https://cdn.jsdelivr.net/npm/@stencil/core@[VERSION]/compiler/stencil.min.js"></script>
-// window.stencil will be available after the script executes
 ```
-
 
 ## transpile()
 
