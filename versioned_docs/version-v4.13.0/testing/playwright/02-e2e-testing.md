@@ -143,7 +143,7 @@ Playwright command.
 
 By default, the adapter will execute all tests in a project with a `.e2e.ts` file suffix. This can be modified by passing the
 [`testDir`](https://playwright.dev/docs/api/class-testproject#test-project-test-dir) and/or [`testMatch`](https://playwright.dev/docs/api/class-testproject#test-project-test-match)
-configuration options as overrides to `createStencilPlaywrightConfig()`.
+configuration options as overrides to `createConfig()`.
 
 ## Debugging
 
