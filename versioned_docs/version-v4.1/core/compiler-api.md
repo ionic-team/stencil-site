@@ -8,8 +8,8 @@ slug: /compiler-api
 # Stencil Core Compiler API
 
 The compiler API can be found at `@stencil/core/compiler/stencil.js`. This module can 
-work within a NodeJS environment, web worker, and browser window. The
-`stencil.min.js` file is also provided and recommended when used within a browser.
+work in a NodeJS environment.
+
 
 ```tsx
 // NodeJS (commonjs)
