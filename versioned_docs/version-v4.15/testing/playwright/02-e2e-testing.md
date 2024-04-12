@@ -87,6 +87,8 @@ test.describe('my-component', () => {
     await page.goto('/components/my-component/test/my-component.e2e.html');
 
     // Rest of test
+    const component = await page.locator(‘my-component’);
+    await expect(component).toHaveText(`Hello World! I’m Stencil`);
   });
 });
 ```
@@ -96,8 +98,8 @@ In the above snippet, the path string passed to `page.goto()` should be the _abs
 
 #### `page.setContent()`
 
-The `setContent()` method allows tests to define their own HTML code on a test-by-test basis. This pattern is helpful if the HTML for a test is small, or to
-avoid affecting other tests is using the `page.goto()` pattern and modifying a shared HTML template file. With this pattern, the `script` tags pointing to Stencil
+The `setContent()` method allows tests to define their own HTML code on a test-by-test basis. This pattern is helpful if the HTML for a test is small or to
+avoid affecting other tests using the `page.goto()` pattern and modifying a shared HTML template file. With this pattern, the `script` tags pointing to Stencil
 entry code will be automatically injected into the generated HTML.
 
 ```ts title="my-component.e2e.ts"
@@ -127,7 +129,7 @@ test.describe('my-component', () => {
     await page.goto('/my-component/my-component.e2e.html');
 
     const button = page.locator('button');
-    // Assmume clicking the button changes the `@Prop()` values on `my-component`
+    // Assume clicking the button changes the `@Prop()` values on `my-component`
     button.click();
     await page.waitForChanges();
   });
