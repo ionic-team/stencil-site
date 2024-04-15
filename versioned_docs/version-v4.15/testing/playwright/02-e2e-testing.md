@@ -87,7 +87,7 @@ test.describe('my-component', () => {
     await page.goto('/components/my-component/test/my-component.e2e.html');
 
     // Rest of test
-    const component = await page.locator(‘my-component’);
+    const component = await page.locator('my-component');
     await expect(component).toHaveText(`Hello World! I’m Stencil`);
   });
 });
