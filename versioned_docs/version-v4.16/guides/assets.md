@@ -242,7 +242,12 @@ Calling this API will set the asset base path for all Stencil components attache
 As a result, calling `setAssetPath` should not be done from within a component in order to prevent unwanted side effects
 when using a component.
 
-If the file calling `setAssetPath` is a module, it's recommended to use `import.meta.url`.
+If the file calling `setAssetPath` is a module and your compiler is able to resolve the file location at build time, based on where the application is being deployed, you can use `import.meta.url`. In most cases however we recommend to use:
+
+```ts
+import { setAssetPath } from '@stencil/core';
+setAssetPath(`${window.location.origin}/`);
+```
 
 Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript)
 when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
