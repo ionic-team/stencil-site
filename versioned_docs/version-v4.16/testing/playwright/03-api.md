@@ -3,9 +3,9 @@ title: Playwright Adapter API
 sidebar_label: API
 ---
 
-## `createStencilPlaywrightConfig` Function
+## `createConfig` Function
 
-**Signature:** `createStencilPlaywrightConfig(overrides?: CreateStencilPlaywrightConfigOptions): Promise<PlaywrightTestConfig>`
+**Signature:** `createConfig(overrides?: CreateStencilPlaywrightConfigOptions): Promise<PlaywrightTestConfig>`
 
 Returns a [Playwright test configuration](https://playwright.dev/docs/test-configuration#introduction).
 
@@ -17,11 +17,11 @@ as some options to override specific values in the config options related to the
 
 ```ts title="playwright.config.ts"
 import { expect } from '@playwright/test';
-import { matchers, createStencilPlaywrightConfig } from '@stencil/playwright';
+import { matchers, createConfig } from '@stencil/playwright';
 
 expect.extend(matchers);
 
-export default createStencilPlaywrightConfig({
+export default createConfig({
   // Change which test files Playwright will execute
   testMatch: '*.spec.ts',
 
