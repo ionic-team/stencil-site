@@ -5,15 +5,12 @@ sidebar_label: API
 
 ## `createConfig` Function
 
-**Signature:** `createConfig(overrides?: CreateStencilPlaywrightConfigOptions): Promise<PlaywrightTestConfig>`
+**Signature:** `createConfig(overrides?: Partial<PlaywrightTestConfig>): Promise<PlaywrightTestConfig>`
 
 Returns a [Playwright test configuration](https://playwright.dev/docs/test-configuration#introduction).
 
-`overrides`, as the name implies, will overwrite the default configuration value(s) if supplied. These values can include any valid Playwright config option as well
-as some options to override specific values in the config options related to the Stencil integration:
-
-- `webServerCommand`: This can be specified to change the command that will run to start the Stencil dev server. Defaults to `npm start -- --no-open`.
-- `webServerTimeout`: This can be specified to change the amount of time (in milliseconds) Playwright will wait for the dev server to start. Defaults to 60000 (60 seconds).
+`overrides`, as the name implies, will overwrite the default configuration value(s) if supplied. These values can include any valid Playwright config option. Changing
+option values in a nested object will use a "deep merge" to combine the default and overridden values. So, creating a config like the following:
 
 ```ts title="playwright.config.ts"
 import { expect } from '@playwright/test';
@@ -25,9 +22,29 @@ export default createConfig({
   // Change which test files Playwright will execute
   testMatch: '*.spec.ts',
 
-  // Only wait max 30 seconds for server to start
-  webServerTimeout: 30000,
+  webServer: {
+    // Only wait max 30 seconds for server to start
+    timeout: 30000,
+  },
 });
+```
+
+Will result in:
+
+```ts
+{
+  testMatch: '*.spec.ts',
+  use: {
+    baseURL: 'http://localhost:3333',
+  },
+  webServer: {
+    command: 'stencil build --dev --watch --serve --no-open',
+    url: 'http://localhost:3333/ping',
+    reuseExistingServer: !process.env.CI,
+    // Only timeout gets overridden, not the entire object
+    timeout: 30000,
+  },
+}
 ```
 
 :::caution
