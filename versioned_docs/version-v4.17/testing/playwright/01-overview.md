@@ -47,7 +47,7 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    ```
 
    The `createConfig()` is a utility that will create a default Playwright configuration based on your project's Stencil config. Read
-   more about how to use this utility in the [API docs](./03-api.md#createConfig-function).
+   more about how to use this utility in the [API docs](./03-api.md#createconfig-function).
 
 1. update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
 
