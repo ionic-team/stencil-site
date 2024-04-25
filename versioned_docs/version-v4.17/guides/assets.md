@@ -62,6 +62,8 @@ When using `getAssetPath`, the assets in the directory structure above are resol
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments.
 The return value is a path that Stencil has built to retrieve the asset on the filesystem.
 ```ts
+import { getAssetPath } from '@stencil/core';
+
 // with an asset base path of "/build/":
 
 // '/build/assets/logo.png'
@@ -209,7 +211,8 @@ declare function getAssetPath(path: string): string;
 ```
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments, when an asset base path of `/build/` has been set.
-```ts
+import { getAssetPath } from '@stencil/core';
+
 // with an asset base path of "/build/":
 // "/build/"
 getAssetPath('');
