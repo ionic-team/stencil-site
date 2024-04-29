@@ -100,7 +100,7 @@ CSS file like the following:
 
 Then you'd get the following in the JSON output:
 
-```json
+```json title="Example docs-json Output"
 "styles": [
   {
     "name": "--background",
@@ -116,6 +116,32 @@ Then you'd get the following in the JSON output:
     "name": "--background-focused",
     "annotation": "prop",
     "docs": "Background of the button when focused"
+  }
+]
+```
+
+If the style sheet is configured to be used with [a specific mode](../components/styling.md), the mode associated with
+the CSS property will be provided as well:
+
+```diff title="Example docs-json Output with Mode"
+"styles": [
+  {
+    "name": "--background",
+    "annotation": "prop",
+    "docs": "Background of the button"
++   "mode": "ios",    
+  },
+  {
+    "name": "--background-activated",
+    "annotation": "prop",
+    "docs": "Background of the button when activated"
++   "mode": "ios",    
+  },
+  {
+    "name": "--background-focused",
+    "annotation": "prop",
+    "docs": "Background of the button when focused"
++   "mode": "ios",    
   }
 ]
 ```
