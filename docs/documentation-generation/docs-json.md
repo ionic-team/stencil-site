@@ -124,7 +124,7 @@ If the style sheet is configured to be used with [a specific mode](../components
 the CSS property will be provided as well:
 
 ```diff title="Example docs-json Output with Mode"
-"styles": [
+[
   {
     "name": "--background",
     "annotation": "prop",
