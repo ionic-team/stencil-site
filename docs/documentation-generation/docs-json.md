@@ -101,7 +101,7 @@ CSS file like the following:
 Then you'd get the following in the JSON output:
 
 ```json title="Example docs-json Output"
-"styles": [
+[
   {
     "name": "--background",
     "annotation": "prop",
