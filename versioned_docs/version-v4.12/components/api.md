@@ -158,7 +158,7 @@ The following primitives can be imported from the `@stencil/core` package and us
   __Example:__
   ```ts
   import { setAssetPath } from '@stencil/core';
-  setAssetPath(`{window.location.origin}/`)
+  setAssetPath(`{window.location.origin}/`);
   ```
 
 - **setMode()**: Sets the style mode of a component. Refer to the [Styling](./styling.md#style-modes) page for usage info.
