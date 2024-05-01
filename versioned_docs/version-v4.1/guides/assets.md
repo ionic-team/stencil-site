@@ -211,6 +211,8 @@ declare function getAssetPath(path: string): string;
 ```
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments, when an asset base path of `/build/` has been set.
+
+```ts
 import { getAssetPath } from '@stencil/core';
 
 // with an asset base path of "/build/":

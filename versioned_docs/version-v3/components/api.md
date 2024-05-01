@@ -152,15 +152,6 @@ The following primitives can be imported from the `@stencil/core` package and us
   }
   ```
 
-- **setAssetPath()**: Sets the path for Stencil to resolve local assets. Refer to the [Assets](../guides/assets.md#setassetpath) page for usage info.
-
-  __Type:__ `(path: string) => string`<br />
-  __Example:__
-  ```ts
-  import { setAssetPath } from '@stencil/core'
-  setAssetPath(import.meta.url)
-  ```
-
 - **setMode()**: Sets the style mode of a component. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
   __Type:__ `(ref: HTMLElement) => string`<br />

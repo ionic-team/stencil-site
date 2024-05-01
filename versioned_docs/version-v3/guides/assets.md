@@ -62,8 +62,6 @@ When using `getAssetPath`, the assets in the directory structure above are resol
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments.
 The return value is a path that Stencil has built to retrieve the asset on the filesystem.
 ```ts
-import { getAssetPath } from '@stencil/core';
-
 // with an asset base path of "/build/":
 
 // '/build/assets/logo.png'
@@ -211,6 +209,8 @@ declare function getAssetPath(path: string): string;
 ```
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments, when an asset base path of `/build/` has been set.
+
+```ts
 import { getAssetPath } from '@stencil/core';
 
 // with an asset base path of "/build/":
@@ -245,12 +245,7 @@ Calling this API will set the asset base path for all Stencil components attache
 As a result, calling `setAssetPath` should not be done from within a component in order to prevent unwanted side effects
 when using a component.
 
-If the file calling `setAssetPath` is a module and your compiler is able to resolve the file location at build time, based on where the application is being deployed, you can use `import.meta.url`. In most cases however we recommend to use:
-
-```ts
-import { setAssetPath } from '@stencil/core';
-setAssetPath(`${window.location.origin}/`);
-```
+If the file calling `setAssetPath` is a module, it's recommended to use `import.meta.url`.
 
 Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript)
 when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
