@@ -244,7 +244,7 @@ export declare function setAssetPath(path: string): string;
 
 Calling this API will set the asset base path for all Stencil components attached to a Stencil runtime. As a result, calling `setAssetPath` should not be done from within a component in order to prevent unwanted side effects when using a component.
 
-Make sure as component author to export this function as part of your module in order to give the consumer of your component the chance to change it, e.g. in your package entry file export the function via:
+Make sure as component author to export this function as part of your module in order to also make it accessible to the consumer of your component, e.g. in your package entry file export the function via:
 
 ```ts
 export { setAssetPath } from '@stencil/core';
