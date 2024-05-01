@@ -247,7 +247,7 @@ Calling this API will set the asset base path for all Stencil components attache
 
 Make sure as component author to export this function as part of your module in order to also make it accessible to the consumer of your component, e.g. in your package entry file export the function via:
 
-```ts
+```ts title="/src/index.ts"
 export { setAssetPath } from '@stencil/core';
 ```
 
