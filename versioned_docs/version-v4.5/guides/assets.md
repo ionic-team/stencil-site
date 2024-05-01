@@ -263,7 +263,7 @@ asset base path. This configuration depends on how your script is bundled, (or l
 
 :::note
 
-If your component library exports components compiled with [`dist-output-target`](custom-elements) and `externalRuntime` set to `true`, then `setAssetPath` has to be imported from `@stencil/core` directly.
+If your component library exports components compiled with [`dist-output-target`](/output-targets/custom-elements.md) and `externalRuntime` set to `true`, then `setAssetPath` has to be imported from `@stencil/core` directly.
 
 :::
 
