@@ -212,6 +212,8 @@ declare function getAssetPath(path: string): string;
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments, when an asset base path of `/build/` has been set.
 ```ts
+import { getAssetPath } from '@stencil/core';
+
 // with an asset base path of "/build/":
 // "/build/"
 getAssetPath('');
@@ -251,7 +253,22 @@ import { setAssetPath } from '@stencil/core';
 setAssetPath(`${window.location.origin}/`);
 ```
 
-Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript)
-when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
-asset base path. 
-This configuration depends on how your script is bundled, (or lack of bundling), and where your assets can be loaded from.
+Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript) when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
+asset base path. This configuration depends on how your script is bundled, (or lack of bundling), and where your assets can be loaded from.
+
+For example, in case you import a component directly via script tag, this would look like:
+
+```html
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic.js"></script>
+    <script type="module">
+      import { setAssetPath } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic.js';
+      setAssetPath(`${window.location.origin}/`);
+    </script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
+</html>
+```
