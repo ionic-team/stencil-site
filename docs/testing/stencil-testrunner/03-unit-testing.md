@@ -18,7 +18,6 @@ In order to unit test a component as rendered HTML, tests can use `newSpecPage()
 
 Below is a simple example where `newSpecPage()` is given one component class which was imported, and the initial HTML to use for the test. In this example, when the component `MyCmp` renders it sets its text content as "Success!". The matcher `toEqualHtml()` is then used to ensure the component renders as expected.
 
-
 ```typescript
 import { newSpecPage } from '@stencil/core/testing';
 import { MyCmp } from '../my-cmp';
@@ -35,8 +34,8 @@ it('should render my component', async () => {
 ```
 
 The example below uses the template option to test the component
-```tsx
-// mycmp.spec.tsx
+
+```tsx title="mycmp.spec.tsx"
 // Since the 'template' argument to `newSpecPage` is using jsx syntax, this should be in a .tsx file.
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
@@ -52,8 +51,47 @@ it('should render my component', async () => {
     <my-cmp>Hello World</my-cmp>
   `);
 });
-
 ```
+
+You render functional components without having them to define them in the `components` list, e.g.:
+
+```tsx title="mycmp.spec.tsx"
+import { Fragment, h } from '@stencil/core';
+import { newSpecPage } from '@stencil/core/testing';
+import { MyFunctionalComponent } from '../my-functional-cmp';
+
+it('should render my component', async () => {
+  /**
+   * or define functional components directly in your test
+   */
+  const AnotherFunctionalComponent = (props: never, children: Fragment) => (
+    <section>{children}</section>
+  );
+
+  const greeting = 'Hello World';
+  const page = await newSpecPage({
+    components: [],
+    template: () => (
+      <AnotherFunctionalComponent>
+        <MyFunctionalComponent>Hello World!</MyFunctionalComponent>
+      </AnotherFunctionalComponent>
+    ),
+  });
+  expect(page.root).toEqualHtml(`
+    <section>
+      <div>
+        Hello World!
+      </div>
+    </section>
+  `);
+});
+```
+
+:::note
+
+It is not supported to place Stencil class components within test files. If you need such a component for your test, we recommend to put this into an extra fixture file.
+
+:::
 
 ### Spec Page Options
 
