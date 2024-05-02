@@ -62,6 +62,8 @@ When using `getAssetPath`, the assets in the directory structure above are resol
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments.
 The return value is a path that Stencil has built to retrieve the asset on the filesystem.
 ```ts
+import { getAssetPath } from '@stencil/core';
+
 // with an asset base path of "/build/":
 
 // '/build/assets/logo.png'
@@ -210,6 +212,8 @@ declare function getAssetPath(path: string): string;
 
 The code sample below demonstrates the return value of `getAssetPath` for different `path` arguments, when an asset base path of `/build/` has been set.
 ```ts
+import { getAssetPath } from '@stencil/core';
+
 // with an asset base path of "/build/":
 // "/build/"
 getAssetPath('');
@@ -227,7 +231,7 @@ getAssetPath('/assets/my-image.png');
 
 ### setAssetPath
 
-`setAssetPath` is an API provided by Stencil to manually set the asset base path where assets can be found.
+`setAssetPath` is an API provided by Stencil's runtime to manually set the asset base path where assets can be found. If you are using `getAssetPath` to compose the path for your component assets, `setAssetPath` allows you or the consumer of the component to change that path.
 
 ```ts
 /**
@@ -238,13 +242,43 @@ getAssetPath('/assets/my-image.png');
 export declare function setAssetPath(path: string): string;
 ```
 
-Calling this API will set the asset base path for all Stencil components attached to a Stencil runtime.
-As a result, calling `setAssetPath` should not be done from within a component in order to prevent unwanted side effects
-when using a component.
+Calling this API will set the asset base path for all Stencil components attached to a Stencil runtime. As a result, calling `setAssetPath` should not be done from within a component in order to prevent unwanted side effects when using a component.
 
-If the file calling `setAssetPath` is a module, it's recommended to use `import.meta.url`.
+Make sure as component author to export this function as part of your module in order to also make it accessible to the consumer of your component, e.g. in your package entry file export the function via:
 
-Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript)
-when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
-asset base path. 
-This configuration depends on how your script is bundled, (or lack of bundling), and where your assets can be loaded from.
+```ts title="/src/index.ts"
+export { setAssetPath } from '@stencil/core';
+```
+
+Now your users can import it directly from your component library, e.g.:
+
+```ts
+import { setAssetPath } from 'my-component-library';
+setAssetPath(`${window.location.protocol}//assets.${window.location.host}/`);
+```
+
+Alternatively, one may use [`document.currentScript.src`](https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript) when working in the browser and not using modules or environment variables (e.g. `document.env.ASSET_PATH`) to set the
+asset base path. This configuration depends on how your script is bundled, (or lack of bundling), and where your assets can be loaded from.
+
+:::note
+
+If your component library exports components compiled with [`dist-output-target`](/output-targets/custom-elements.md) and `externalRuntime` set to `true`, then `setAssetPath` has to be imported from `@stencil/core` directly.
+
+:::
+
+In case you import a component directly via script tag, this would look like:
+
+```html
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/my-component-library/dist/my-component-library.js"></script>
+    <script type="module">
+      import { setAssetPath } from 'https://cdn.jsdelivr.net/npm/my-component-library/dist/my-component-library.js';
+      setAssetPath(`${window.location.origin}/`);
+    </script>
+  </head>
+  <body>
+    <ion-toggle></ion-toggle>
+  </body>
+</html>
+```
