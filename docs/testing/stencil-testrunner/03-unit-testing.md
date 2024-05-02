@@ -53,7 +53,7 @@ it('should render my component', async () => {
 });
 ```
 
-You render functional components without having them to define them in the `components` list, e.g.:
+You render functional components without defining them in the `components` list, e.g.:
 
 ```tsx title="mycmp.spec.tsx"
 import { Fragment, h } from '@stencil/core';
