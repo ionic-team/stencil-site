@@ -225,6 +225,18 @@ const el = await page.find('.desktop');
 expect(el).not.toBeDefined();
 ```
 
+### Asynchronous Global Script
+
+If you are using an asynchronous [global script](/config/01-overview.md#globalscript), it may happen that your Stencil components haven't been hydrated at the time you are trying to interact with them. In this case it is recommend to wait for the hydration flag to be set on the component, e.g.:
+
+```ts
+const page = await newE2EPage();
+await page.setContent(`<my-cmp></my-cmp>`);
+await page.waitForSelector('.hydrated')
+```
+
+__Note:__ the hydrate selector may be different depending on whether you have a custom [`hydratedFlag`](/config/01-overview.md#hydratedflag) options set.
+
 ## Caveat about e2e tests automation on CD/CI
 
 As it is a fairly common practice, you might want to automatically run your end-to-end tests on your Continuous Deployment/Integration (CD/CI) system. However, some environments might need you to tweak your configuration at times. If so, the `config` object in your `stencil.config.ts` file has a `testing` attribute that accepts parameters to modify how Headless Chrome is actually used in your pipeline.
