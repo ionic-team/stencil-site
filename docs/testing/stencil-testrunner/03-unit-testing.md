@@ -64,11 +64,10 @@ it('should render my component', async () => {
   /**
    * or define functional components directly in your test
    */
-  const AnotherFunctionalComponent = (props: never, children: Fragment) => (
+  const AnotherFunctionalComponent = (props: any, children: typeof Fragment) => (
     <section>{children}</section>
   );
 
-  const greeting = 'Hello World';
   const page = await newSpecPage({
     components: [],
     template: () => (
