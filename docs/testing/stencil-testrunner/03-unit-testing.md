@@ -89,7 +89,7 @@ it('should render my component', async () => {
 
 :::note
 
-It is not supported to place Stencil class components within test files. If you need such a component for your test, we recommend to put this into an extra fixture file.
+Declaring Stencil class components directly within class files is not supported. If you need such a component for your tests, we recommend to put this into an extra fixture file.
 
 :::
 
