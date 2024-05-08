@@ -28,7 +28,7 @@ This command installs:
 
 Next, we create a Vitest configuration as following:
 
-```ts vitest.config.ts
+```ts title="vitest.config.ts"
 import stencil from 'unplugin-stencil/vite'
 import { defineConfig } from 'vitest/config'
 
@@ -50,8 +50,7 @@ This configuration enables tests to run in a headless Chrome browser.
 
 Once you've setup Vitest you can start write your first test. In order to render a Stencil component into the browser, all you need to do is import the component and initiate an instance of the component on the page:
 
-```ts
-// src/components/my-component/my-component.test.ts
+```ts title="src/components/my-component/my-component.test.ts"
 import { expect, test } from 'vitest'
 
 import '../src/components/my-component/my-component.js'
@@ -118,8 +117,7 @@ The CJS build of Vite's Node API is deprecated. See https://vitejs.dev/guide/tro
 
 The example above creates the Stencil instance using basic DOM primitives. If you prefer to use JSX also for rendering Stencil components in your test, just create a `jsx.ts` utility file with the following content:
 
-```ts
-// src/utils/jsx.ts
+```ts title="src/utils/jsx.ts"
 export const createElement = (tag, props, ...children) => {
     if (typeof tag === 'function') {
         return tag(props, ...children)
@@ -156,8 +154,7 @@ export const createFragment = (_, ...children) => {
 
 Now update your test, import the `createElement` method and tell the JSX engine to use that method for rendering the JSX snippet. Our test should look as follows:
 
-```tsx
-// // src/components/my-component/my-component.test.tsx
+```tsx title="src/components/my-component/my-component.test.tsx"
 /** @jsx createElement */
 import { expect, test } from 'vitest'
 
