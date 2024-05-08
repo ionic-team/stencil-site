@@ -48,7 +48,7 @@ This configuration enables tests to run in a headless Chrome browser.
 
 ## Writing Tests
 
-Once you've setup Vitest you can start write your first test. In order to render a Stencil component into the browser, all you need to do is importing the component and initiating an instance of the component on the page:
+Once you've setup Vitest you can start write your first test. In order to render a Stencil component into the browser, all you need to do is import the component and initiate an instance of the component on the page:
 
 ```ts
 // src/components/my-component/my-component.test.ts
