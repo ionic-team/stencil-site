@@ -7,7 +7,7 @@ position: 5
 
 [Vitest](https://vitest.dev/) is a popular and modern test framework for unit testing. You can use Vitest to test Stencil components in the browser using its [browser mode feature](https://vitest.dev/guide/browser.html).
 
-:::note
+:::caution
 Vitest browser mode is an experimental feature and in early development. As such, it may not yet be fully optimized, and there may be some bugs or issues that have not yet been ironed out.
 :::
 
@@ -79,7 +79,7 @@ Lastly, let's add a Vitest script to our `package.json`:
 
 Execute the tests using:
 
-```sh
+```bash npm2yarn
 npm test
 ```
 
