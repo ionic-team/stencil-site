@@ -47,7 +47,7 @@ export const config = {
 
 - [@stencil/sass](https://www.npmjs.com/package/@stencil/sass)
 - [@stencil-community/postcss](https://www.npmjs.com/package/@stencil-community/postcss)
-- (Deprecated) [@stencil/less](https://www.npmjs.com/package/@stencil/less)
+- [@stencil-community/less](https://www.npmjs.com/package/@stencil-community/less)
 - (Deprecated) [@stencil/stylus](https://www.npmjs.com/package/@stencil/stylus)
 
 

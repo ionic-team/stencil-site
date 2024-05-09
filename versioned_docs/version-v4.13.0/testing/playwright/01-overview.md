@@ -36,18 +36,22 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
 
    ```ts title="playwright.config.ts"
    import { expect } from '@playwright/test';
-   import { matchers, createStencilPlaywrightConfig } from '@stencil/playwright';
+   import { matchers, createConfig } from '@stencil/playwright';
 
    // Add custom Stencil matchers to Playwright assertions
    expect.extend(matchers);
 
-   export default createStencilPlaywrightConfig({
+   export default createConfig({
      // Overwrite Playwright config options here
    });
    ```
 
-   The `createStencilPlaywrightConfig()` is a utility that will create a default Playwright configuration based on your project's Stencil config. Read
-   more about how to use this utility in the [API docs](./03-api.md#createstencilplaywrightconfig-function).
+   The `createConfig()` function is a utility that will create a default Playwright configuration based on your project's Stencil config. Read
+   more about how to use this utility in the [API docs](./03-api.md#createconfig-function).
+
+   :::note
+   For `createConfig()` to work correctly, your Stencil config must be named either `stencil.config.ts` or `stencil.config.js`.
+   :::
 
 1. update your project's `tsconfig.json` to add the `ESNext.Disposable` option to the `lib` array:
 
@@ -67,7 +71,7 @@ To install the Stencil Playwright adapter in an existing Stencil project, follow
    :::
 
 1. Ensure the Stencil project has a [`www` output target](../../output-targets/www.md). Playwright relies on pre-compiled output running in a dev server
-   to run tests against. When using the `createStencilPlaywrightConfig()` helper, a configuration for the dev server will be automatically created based on
+   to run tests against. When using the `createConfig()` helper, a configuration for the dev server will be automatically created based on
    the Stencil project's `www` output target config and [dev server config](../../config/dev-server.md). If no `www` output target is specified,
    tests will not be able to run.
 
@@ -107,7 +111,7 @@ options:
 - **Option 1:** Update the Playwright config to match a different test file pattern:
 
   ```ts title="playwright.config.ts"
-  export default createStencilPlaywrightConfig({
+  export default createConfig({
     // Example: match all test files with the 'e2e.playwright.ts' naming convention
     testMatch: '*.e2e.playwright.ts',
   });

@@ -294,6 +294,22 @@ of your Angular workspace (`/packages/angular-workspace`), run the following com
 npx -p @angular/cli ng build component-library
 ```
 
+:::note
+In the output of the `ng build` command you may see a warning that looks like this: 
+
+```
+▲ [WARNING] The glob pattern import("./**/.entry.js") did not match any files [empty-glob]
+
+node_modules/@stencil/core/internal/client/index.js:3808:2:
+  3808 │   `./${bundleId}.entry.js${BUILD.hotModuleReplacement && hmrVers...
+       ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+This is a known issue in esbuild (used under the hood by `ng build`) and should
+not cause an issue, but at present there's unfortunately no way to suppress
+this warning.
+:::
+
 <Tabs
   groupId="outputType"
   defaultValue="component"
@@ -408,6 +424,22 @@ of your Angular workspace (`/packages/angular-workspace`), run the following com
 ```bash
 npx -p @angular/cli ng build component-library
 ```
+
+:::note
+In the output of the `ng build` command you may see a warning that looks like this: 
+
+```
+▲ [WARNING] The glob pattern import("./**/.entry.js") did not match any files [empty-glob]
+
+node_modules/@stencil/core/internal/client/index.js:3808:2:
+  3808 │   `./${bundleId}.entry.js${BUILD.hotModuleReplacement && hmrVers...
+       ╵   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+This is a known issue in esbuild (used under the hood by `ng build`) and should
+not cause an issue, but at present there's unfortunately no way to suppress
+this warning.
+:::
 
 <Tabs
   groupId="outputType"
