@@ -7,7 +7,7 @@ slug: /react
 
 # React Integration
 
-**Supports: React v17+ • Stencil v4.2.0+**
+**Supports: React v17+ • TypeScript v5+ • Stencil v4.2.0+**
 
 Automate the creation of React component wrappers for your Stencil web components.
 
@@ -128,8 +128,8 @@ In your `react-library` project, create a project specific `tsconfig.json` that 
   "compilerOptions": {
     "outDir": "./dist",
     "lib": ["dom", "es2015"],
-    "module": "es2015",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "target": "es2015",
     "skipLibCheck": true,
     "jsx": "react",
@@ -228,6 +228,30 @@ Install the `@stencil/react-output-target` dependency to your React component li
 ```bash npm2yarn
 # Install dependency
 npm install @stencil/react-output-target --save
+```
+
+Verify or update your `tsconfig.json` file to include the following settings:
+
+```json
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  }
+}
+```
+
+:::info
+
+`moduleResolution": "bundler"` is required to resolve the secondary entry points in the `@stencil/react-output-target` runtime package. You can learn more about this setting in the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution).
+
+:::
+
+Verify or install Typescript v5.0 or later in your project:
+
+```bash npm2yarn
+# Install dependency
+npm install typescript@5 --save-dev
 ```
 
 No additional configuration is needed in the React component library. The generated component wrappers will reference the runtime dependencies directly.
