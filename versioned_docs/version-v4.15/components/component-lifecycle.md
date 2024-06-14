@@ -131,7 +131,7 @@ Even if some components may or may not be already loaded, the entire component h
 
 ## Async Lifecycle Methods
 
-Lifecycle methods can also return promises which allows the method to asynchronously retrieve data or perform any async tasks. A great example of this is fetching data to be rendered in a component. For example, this very site you're reading first fetches content data before rendering. But because `fetch()` is async, it's important that `componentWillLoad()` returns a `Promise` to ensure its parent component isn't considered "loaded" until all of its content has rendered.
+Some lifecycle methods, e.g. `componentWillRender`, `componentWillLoad` and `componentWillUpdate`, can also return promises which allows the method to asynchronously retrieve data or perform any async tasks. A great example of this is fetching data to be rendered in a component. For example, this very site you're reading first fetches content data before rendering. But because `fetch()` is async, it's important that `componentWillLoad()` returns a `Promise` to ensure its parent component isn't considered "loaded" until all of its content has rendered.
 
 Below is a quick example showing how `componentWillLoad()` is able to have its parent component wait on it to finish loading its data.
 
