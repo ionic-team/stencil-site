@@ -125,7 +125,7 @@ export const config: Config = {
 }
 ```
 
-Now when you build your components which this environment variable set, you can import it in your component as following:
+Now when you build your components with this environment variable set, you can import it in your component as follows:
 
 ```ts
 import { Component, h, Env, Host } from '@stencil/core';
