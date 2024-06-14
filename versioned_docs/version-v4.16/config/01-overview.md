@@ -108,6 +108,39 @@ enableCache: true
 
 Please see the [Extras docs](./extras.md).
 
+## env
+
+*default: `{}`*
+
+An object that can hold environment variables for your components to import and use. These variables can hold data objects depending on the environment you compile the components for. For example, let's say we want to provide an URL to our API based on a specific environment, we could provide it as such:
+
+```ts title="stencil.config.ts"
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  ...,
+  env: {
+    API_BASE_URL: process.env.API_BASE_URL
+  }
+}
+```
+
+Now when you build your components with this environment variable set, you can import it in your component as follows:
+
+```ts
+import { Component, h, Env, Host } from '@stencil/core';
+
+@Component({
+  tag: 'api-component',
+})
+export class APIComponent {
+  async connectedCallback () {
+    const res = await fetch(Env.API_BASE_URL)
+    // ...
+  }
+}
+```
+
 ## globalScript
 
 The global script config option takes a file path as a string.
