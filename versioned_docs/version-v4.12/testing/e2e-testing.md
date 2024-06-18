@@ -24,6 +24,7 @@ Most methods are async and return Promises. Use `async` and `await` to declutter
 
 - `find(selector: string)`: Find an element that matches the selector. Similar to `document.querySelector`.
 - `setContent(html: string)`: Sets the content of a page. This is where you would include the markup of the component under test.
+- `goto(url: string)`: open a page served by the dev server. URL has to start with `/`.
 - `setViewport(viewport: Viewport)`: Updates the page to emulate a device display. This is helpful for testing a component's behavior in different orientations and viewport sizes.
 - `waitForChanges()`: Both Stencil and Puppeteer have an asynchronous architecture, which is a good thing for performance. Since all calls are async, it's required that `await page.waitForChanges()` is called when changes are made to components.
 
@@ -41,6 +42,15 @@ describe('example', () => {
   });
 });
 ```
+
+## Options
+
+The `newE2EPage` accepts the following options:
+
+- `html`: a HTML template, e.g. containing your Stencil component to be rendered in the browser (same as calling `page.setContent('...')`)
+- `url`: opens a url to open a page served by the dev server (option will be ignored if `html` is set, same as calling `page.goto('...')`)
+- `failOnConsoleError`: If set to `true`, Stencil will throw an error if a console error occurs (default: `false`)
+- `failOnNetworkError`: If set to `true`, Stencil will throw an error if a network request fails (default: `false`)
 
 ## Example End-to-end Test
 
