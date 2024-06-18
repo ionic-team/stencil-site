@@ -48,7 +48,7 @@ describe('example', () => {
 The `newE2EPage` accepts the following options:
 
 - `html`: a HTML template, e.g. containing your Stencil component to be rendered in the browser (same as calling `page.setContent('...')`)
-- `url`: opens a url to open a page served by the [dev server](./dev-server) (option will be ignored if `html` is set, same as calling `page.goto('...')`)
+- `url`: opens a url to open a page served by the dev server (option will be ignored if `html` is set, same as calling `page.goto('...')`)
 - `failOnConsoleError`: If set to `true`, Stencil will throw an error if a console error occurs (default: `false`)
 - `failOnNetworkError`: If set to `true`, Stencil will throw an error if a network request fails (default: `false`)
 - `logFailingNetworkRequests`: If set to `true`, Stencil will log failing network requests (default: `false`)
