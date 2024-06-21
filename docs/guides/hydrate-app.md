@@ -37,14 +37,10 @@ After publishing your component library, you can import the hydrate app into
 your server's code like this:
 
 ```javascript
-import { hydrateDocument } from 'yourpackage/hydrate';
+import { hydrateDocument, renderToString, streamToString } from 'yourpackage/hydrate';
 ```
 
-The hydrate app module exports two functions, `hydrateDocument` and
-`renderToString`. `hydrateDocument` takes a
-[document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) as
-its input while `renderToString` takes a raw HTML string. Both functions return
-a Promise which wraps a result object.
+The hydrate app module exports 3 functions, `hydrateDocument`, `renderToString` and `streamToString`. `hydrateDocument` takes a [document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) as its input while `renderToString` as well as `streamToString` takes a raw HTML string. While `hydrateDocument` and `renderToString` return a Promise which wraps a result object, `streamToString` returns a [`Readable`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) stream that can be passed into a server response.
 
 ### hydrateDocument
 
@@ -97,21 +93,150 @@ the hydrated HTML can be found under the `html` property.
 *Example taken from Ionic Core*
 
 ```javascript
-const results = await hydrate.renderToString(srcHtml, {
-  prettyHtml: true,
-  removeScripts: true
-});
+const results = await hydrate.renderToString(
+  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+  {
+    fullDocument: false,
+    serializeShadowRoot: true,
+    prettyHtml: true,
+  }
+);
 
 console.log(results.html);
+/**
+ * outputs:
+ * ```html
+ * <my-component class="hydrated sc-my-component-h" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
+ *   <template shadowrootmode="open">
+ *     <style sty-id="sc-my-component">
+ *       .sc-my-component-h{display:block}
+ *     </style>
+ *     <div c-id="1.0.0.0" class="sc-my-component">
+ *       <!--t.1.1.1.0-->
+ *       Hello, World! I'm Stencil 'Don't call me a framework' JS\n" +
+ *     </div>
+ *   </template>
+ *   <!--r.1-->
+ * </my-component>
+ * ```
+ */
 ```
 
 #### renderToString Options
 
-  - `approximateLineWidth` - number
-  - `prettyHtml` - boolean
-  - `removeAttributeQuotes` - boolean
-  - `removeBooleanAttributeQuotes` - boolean
-  - `removeEmptyAttributes` - boolean
-  - `removeHtmlComments` - boolean
-  - `afterHydrate` - boolean
-  - `beforeHydrate` - boolean
+##### `approximateLineWidth`
+
+__Type:__ `number`
+
+Determines when line breaks are being set when serializing the component.
+
+##### `prettyHtml`<br />
+__Default:__ `false`
+
+__Type:__ `boolean`
+
+If set to `true` it prettifies the serialized HTML code, intends elements and escapes text nodes.
+
+##### `removeAttributeQuotes`
+
+__Type:__ `boolean`<br />
+__Default:__ `false`
+
+If set to `true` it removes attribute quotes when possible, e.g. replaces `someAttribute="foo"` to `someAttribute=foo`.
+
+##### `removeEmptyAttributes`
+
+__Type:__ `boolean`<br />
+__Default:__ `true`
+
+If set to `true` it removes attribute that don't have values, e.g. remove `class=""`.
+
+##### `removeHtmlComments`
+
+__Type:__ `boolean`<br />
+__Default:__ `false`
+
+If set to `true` it removes any abundant HTML comments. Stencil still requires to insert hydration comments to be able to reconcile the component.
+
+##### `beforeHydrate`
+
+__Type:__ `(document: Document, url: URL) => <void> | Promise<void>`
+
+Allows to modify the document and all its containing components to be modified before the hydration process starts.
+
+##### `afterHydrate`
+
+__Type:__ `(document: Document, url: URL, results: PrerenderUrlResults) => <void> | Promise<void>`
+
+Allows to modify the document and all its containing components after the component was rendered in the virtual DOM and before the serialization process starts.
+
+##### `serializeShadowRoot`<br />
+__Default:__ `false`
+
+__Type:__ `boolean`
+
+If set to `true` Stencil will render a component defined with a `shadow: true` flag into a [Declarative Shadow DOM](https://developer.chrome.com/docs/css-ui/declarative-shadow-dom), e.g.:
+
+```javascript
+const results = await hydrate.renderToString(
+  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+  {
+    fullDocument: false,
+    serializeShadowRoot: true,
+    prettyHtml: true,
+  }
+);
+
+console.log(results.html);
+/**
+ * outputs:
+ * ```html
+ * <my-component class="hydrated sc-my-component-h" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
+ *   <template shadowrootmode="open">
+ *     <style sty-id="sc-my-component">
+ *       .sc-my-component-h{display:block}
+ *     </style>
+ *     <div c-id="1.0.0.0" class="sc-my-component">
+ *       <!--t.1.1.1.0-->
+ *       Hello, World! I'm Stencil 'Don't call me a framework' JS
+ *     </div>
+ *   </template>
+ *   <!--r.1-->
+ * </my-component>
+ * ```
+ */
+```
+
+```javascript
+const results = await hydrate.renderToString(
+  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+  {
+    fullDocument: false,
+    serializeShadowRoot: false,
+    prettyHtml: true,
+  }
+);
+
+console.log(results.html);
+/**
+ * outputs:
+ * ```html
+ * <my-component class="hydrated sc-my-component-h" first=Stencil last="'Don't call me a framework' JS" s-id=1>
+ *   <!--r.1-->
+ *   <div c-id=1.0.0.0 class="sc-my-component">
+ *     <!--t.1.1.1.0-->
+ *     Hello, World! I'm Stencil 'Don't call me a framework' JS
+ *   </div>
+ * </my-component>
+ * ```
+ */
+```
+
+If set to `false` it renders the component as scoped component.
+
+##### `fullDocument`
+
+__Type:__ `boolean`<br />
+__Default:__ `true`
+
+If set to `true`, Stencil will serialize a complete HTML document for a server to respond. If set to `false` it will only render the components within the given template.
