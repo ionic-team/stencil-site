@@ -503,3 +503,12 @@ export declare function util(arg: UtilInterface): void;
 
 When `true`, validation for common `package.json` fields will occur based on setting an output target's `isPrimaryPackageOutputTarget` flag.
 For more information on package validation, please see the [output target docs](../output-targets/01-overview.md#primary-package-output-target-validation).
+
+## rollupConfig
+
+Passes custom configuration down to rollup itself. The following options can be overwritten:
+
+- `inputOptions`: [`context`](https://rollupjs.org/configuration-options/#context), [`external`](https://rollupjs.org/configuration-options/#external), [`moduleContext`](https://rollupjs.org/configuration-options/#modulecontext) [`treeshake`](https://rollupjs.org/configuration-options/#treeshake)
+- `outputOptions`: [`globals`](https://rollupjs.org/configuration-options/#output-globals) 
+
+*default: `{}`*
