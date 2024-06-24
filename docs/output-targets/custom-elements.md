@@ -130,6 +130,26 @@ _default: `false`_
 
 Setting this flag to `true` will cause file minification to follow what is specified in the [Stencil config](../config/01-overview.md#minifyjs). _However_, if [`externalRuntime`](#externalruntime) is enabled, it will override this option and always result in minification being disabled.
 
+## Register Components Manually
+
+If you compile your Stencil components using `dist-custom-elements` and have the `customElementsExportBehavior` property set to `bundle`, you have to manually import the component and register them to the Custom Component Registry using the `defineCustomElements` helper method, e.g.:
+
+```ts
+import { defineCustomElements } from 'my-stencil-library'
+
+defineCustomElements({
+  // options go here
+})
+```
+
+The function takes the following options:
+
+### transformTagName
+
+_default: `(tagName) => tagName`_
+
+The `transformTagName` function enables to change the component tag name at runtime when registering your component. __Note:__ requires `config.extras.tagNameTransform` option to be set to `true`.
+
 ## Making Assets Available
 
 For performance reasons, the generated bundle does not include [local assets](../guides/assets.md) built within the JavaScript output, 
