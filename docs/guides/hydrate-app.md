@@ -130,7 +130,8 @@ __Type:__ `number`
 
 Determines when line breaks are being set when serializing the component.
 
-##### `prettyHtml`<br />
+##### `prettyHtml`
+
 __Default:__ `false`
 
 __Type:__ `boolean`
@@ -139,21 +140,24 @@ If set to `true` it prettifies the serialized HTML code, intends elements and es
 
 ##### `removeAttributeQuotes`
 
-__Type:__ `boolean`<br />
+__Type:__ `boolean`
+
 __Default:__ `false`
 
 If set to `true` it removes attribute quotes when possible, e.g. replaces `someAttribute="foo"` to `someAttribute=foo`.
 
 ##### `removeEmptyAttributes`
 
-__Type:__ `boolean`<br />
+__Type:__ `boolean`
+
 __Default:__ `true`
 
 If set to `true` it removes attribute that don't have values, e.g. remove `class=""`.
 
 ##### `removeHtmlComments`
 
-__Type:__ `boolean`<br />
+__Type:__ `boolean`
+
 __Default:__ `false`
 
 If set to `true` it removes any abundant HTML comments. Stencil still requires to insert hydration comments to be able to reconcile the component.
@@ -170,7 +174,8 @@ __Type:__ `(document: Document, url: URL, results: PrerenderUrlResults) => <void
 
 Allows to modify the document and all its containing components after the component was rendered in the virtual DOM and before the serialization process starts.
 
-##### `serializeShadowRoot`<br />
+##### `serializeShadowRoot`
+
 __Default:__ `false`
 
 __Type:__ `boolean`
@@ -236,7 +241,8 @@ If set to `false` it renders the component as scoped component.
 
 ##### `fullDocument`
 
-__Type:__ `boolean`<br />
+__Type:__ `boolean`
+
 __Default:__ `true`
 
 If set to `true`, Stencil will serialize a complete HTML document for a server to respond. If set to `false` it will only render the components within the given template.
