@@ -30,6 +30,7 @@ prerenders
 proxied
 pseudocode
 runtimes
+shadowrootmode
 sourcemaps
 templating
 transpiles
