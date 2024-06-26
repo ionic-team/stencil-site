@@ -141,6 +141,14 @@ export class APIComponent {
 }
 ```
 
+## generateExportMaps
+
+*default: `false`*
+
+Stencil will generate [export maps](https://nodejs.org/api/packages.html#packages_exports) that correspond with various output target outputs. This includes the root
+entry point based on the [primary output target](../output-targets/01-overview.md#primary-package-output-target-validation) (or first eligible output target if not specified),
+the entry point for the lazy-loader (if using the `dist` output target), and entry points for each component (if using `dist-custom-elements`).
+
 ## globalScript
 
 The global script config option takes a file path as a string.
