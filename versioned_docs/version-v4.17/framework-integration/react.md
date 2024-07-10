@@ -15,6 +15,8 @@ a React application. The benefits of using Stencil's component wrappers over the
 - Custom events will be handled correctly and correctly propagate through the React render tree
 - Properties and attributes that are not a string or number will be correctly bound to the component
 
+To generate these framework wrappers, Stencil provides an Output Target library called [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target) that can be added to your `stencil.config.ts` file. This also enables Stencil components to be used within e.g. Next.js or other React based application frameworks.
+
 ## Setup
 
 ### Project Structure
@@ -210,6 +212,10 @@ The `componentCorePackage` should match the `name` field in your Stencil project
 :::
 
 See the [API section below](#api) for details on each of the output target's options.
+
+:::note
+In order to compile Stencil components optimized for server side rendering in e.g. Next.js applications, make sure to provide the `hydrateModule` property to the output target configuration.
+:::
 
 You can now build your Stencil component library to generate the component wrappers.
 
