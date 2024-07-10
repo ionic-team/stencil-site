@@ -460,6 +460,37 @@ The path to where the `defineCustomElements` helper method exists within the bui
 
 This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
 
+### hydrateModule
+
+**Optional**
+
+**Type: `string`**
+
+Enable React server side rendering (short SSR) for e.g. [Next.js](https://nextjs.org/) applications by providing an import path to the [hydrate module](../guides/hydrate-app.md) of your Stencil project that is generated through the `dist-hydrate-script` output target, e.g.:
+
+```ts title="stencil.config.ts"
+import type { Config } from '@stencil/core';
+
+/**
+ * excerpt from the Stencil example project:
+ * https://github.com/ionic-team/stencil-ds-output-targets/tree/cb/nextjs/packages/example-project
+ */
+export const config: Config = {
+  namespace: 'component-library',
+  outputTargets: [
+    reactOutputTarget({
+      outDir: '../next-app/src/app',
+      hydrateModule: 'component-library/hydrate'
+    }),
+    {
+      type: 'dist-hydrate-script',
+      dir: './hydrate',
+    },
+    // ...
+  ],
+};
+```
+
 ## FAQ's
 
 ### Do I have to use the `dist` output target?

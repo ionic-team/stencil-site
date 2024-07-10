@@ -401,6 +401,37 @@ The directory where the React components will be generated. Accepts a relative p
 
 The name of the package that exports the Stencil components. Defaults to the package.json detected by the Stencil compiler.
 
+### hydrateModule
+
+**Optional**
+
+**Type: `string`**
+
+Enable React server side rendering (short SSR) for e.g. [Next.js](https://nextjs.org/) applications by providing an import path to the [hydrate module](../guides/hydrate-app.md) of your Stencil project that is generated through the `dist-hydrate-script` output target, e.g.:
+
+```ts title="stencil.config.ts"
+import type { Config } from '@stencil/core';
+
+/**
+ * excerpt from the Stencil example project:
+ * https://github.com/ionic-team/stencil-ds-output-targets/tree/cb/nextjs/packages/example-project
+ */
+export const config: Config = {
+  namespace: 'component-library',
+  outputTargets: [
+    reactOutputTarget({
+      outDir: '../next-app/src/app',
+      hydrateModule: 'component-library/hydrate'
+    }),
+    {
+      type: 'dist-hydrate-script',
+      dir: './hydrate',
+    },
+    // ...
+  ],
+};
+```
+
 ## FAQ's
 
 ### What is the best format to write event names?
