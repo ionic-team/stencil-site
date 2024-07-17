@@ -211,7 +211,7 @@ file path to match your project's structure and respective names.
 See the [API section below](#api) for details on each of the output target's options.
 
 :::note
-In order to compile Stencil components optimized for server side rendering in e.g. Next.js applications that use [AppRouter](https://nextjs.org/docs/app), make sure to provide the `hydrateModule` property to the output target configuration.
+In order to compile Stencil components optimized for server side rendering in e.g. Next.js applications that use [AppRouter](https://nextjs.org/docs/app), make sure to provide the [`hydrateModule`](#hydratemodule) property to the output target configuration.
 :::
 
 You can now build your Stencil component library to generate the component wrappers.
