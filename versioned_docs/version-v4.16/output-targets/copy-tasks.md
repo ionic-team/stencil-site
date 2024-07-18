@@ -21,6 +21,69 @@ The `copy` attribute on these output targets expects an array of objects corresp
 https://github.com/ionic-team/stencil/blob/6ed2d4e285544945949ad8e4802fe7f70e392636/src/declarations/stencil-public-compiler.ts#L1594-L1665
 ```
 
+## Options
+
+A copy task can take the following options:
+
+#### `src`
+
+The source file path for a copy operation. This may be an absolute or relative path to a directory or a file, and may also include a glob pattern.
+
+If the path is a relative path it will be treated as relative to `Config.srcDir`.
+
+__Type:__ `string`
+
+#### `dest`
+
+An optional destination file path for a copy operation. This may be an absolute or relative path.
+
+If relative, this will be treated as relative to the output directory for the output target for which this copy operation is configured.
+
+__Type:__ `string`
+
+#### `ignore`
+
+An optional array of glob patterns to exclude from the copy operation.
+
+__Type:__ `string[]`
+
+__Default:__ `['**\/__mocks__/**', '**\/__fixtures__/**', '**\/dist/**', '**\/.{idea,git,cache,output,temp}/**', '.ds_store', '.gitignore', 'desktop.ini', 'thumbs.db']`
+
+#### `warn`
+
+Whether or not Stencil should issue warnings if it cannot find the specified source files or directories. Defaults to `false`.
+
+To receive warnings if a copy task source can't be found set this to `true`.
+
+__Type:__ `boolean`
+
+#### `keepDirStructure`
+
+Whether or not directory structure should be preserved when copying files from a source directory. Defaults to `true` if no `dest` path is supplied, else it defaults to `false`.
+
+If this is set to `false`, all the files from a source directory will be copied directly to the destination directory, but if it's set to `true` they will be copied to a new directory inside the destination directory with the same name as their original source directory.
+
+So if, for instance, `src` is set to `"images"` and `keepDirStructure` is set to `true` the copy task will then produce the following directory structure:
+
+```
+images
+└── foo.png
+dist
+└── images
+    └── foo.png
+```
+
+Conversely if `keepDirStructure` is set to `false` then files in `images/` will be copied to `dist` without first creating a new subdirectory, resulting in the following directory structure:
+
+```
+images
+└── foo.png
+dist
+└── foo.png
+```
+
+If a `dest` path is supplied then `keepDirStructure` will default to `false`, so that Stencil will write the copied files directly into the `dest` directory without creating a new subdirectory. This behavior can be overridden by setting `keepDirStructure` to `true`.
+
 ## Examples
 
 ### Images in the `www` Output Target
