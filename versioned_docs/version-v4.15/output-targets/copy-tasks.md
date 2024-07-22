@@ -41,14 +41,6 @@ If relative, this will be treated as relative to the output directory for the ou
 
 __Type:__ `string`
 
-#### `ignore`
-
-An optional array of glob patterns to exclude from the copy operation.
-
-__Type:__ `string[]`
-
-__Default:__ `['**\/__mocks__/**', '**\/__fixtures__/**', '**\/dist/**', '**\/.{idea,git,cache,output,temp}/**', '.ds_store', '.gitignore', 'desktop.ini', 'thumbs.db']`
-
 #### `warn`
 
 Whether or not Stencil should issue warnings if it cannot find the specified source files or directories. Defaults to `false`.
