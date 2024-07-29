@@ -184,7 +184,7 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - **getElement()**: Retrieve a Stencil element for a given reference.
 
-  __Type:__ `(ref: getElement) => string`<br />
+  __Type:__ `(ref: any) => HTMLStencilElement`<br />
   __Example:__
   ```ts
   import { getElement } from '@stencil/core'
