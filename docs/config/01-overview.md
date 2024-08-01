@@ -523,9 +523,9 @@ Passes custom configuration down to rollup itself. The following options can be 
 
 ## watchIgnoredRegex
 
-_default: `[]`_
+*default: `[]`*
 
-_type: `RegExp | RegExp[]`_
+*type: `RegExp | RegExp[]`*
 
 A regular expression (or array of regular expressions) that can be used to omit files from triggering a rebuild in watch mode. During compile-time, each file in the Stencil
 project will be tested against each regular expression to determine if changes to the file (or directory) should trigger a project rebuild.
