@@ -520,3 +520,28 @@ Passes custom configuration down to rollup itself. The following options can be 
 - `outputOptions`: [`globals`](https://rollupjs.org/configuration-options/#output-globals) 
 
 *default: `{}`*
+
+## watchIgnoredRegex
+
+*default: `[]`*
+
+*type: `RegExp | RegExp[]`*
+
+A regular expression (or array of regular expressions) that can be used to omit files from triggering a rebuild in watch mode. During compile-time, each file in the Stencil
+project will be tested against each regular expression to determine if changes to the file (or directory) should trigger a project rebuild.
+
+:::note
+If you want to ignore TS files such as `.ts`/`.js` or `.tsx`/`.jsx` extensions, these files will also need to be specified in your project's tsconfig's
+[`watchOptions`](https://www.typescriptlang.org/docs/handbook/configuring-watch.html#configuring-file-watching-using-a-tsconfigjson) _in addition_ to the
+`watchIgnoredRegex` option. For instance, if we wanted to ignore the `my-component.tsx` file, we'd specify:
+
+```json title="tsconfig.json"
+{
+  ...,
+  "watchOptions": {
+    "excludeFiles": ["src/components/my-component/my-component.tsx"]
+  }
+}
+```
+
+:::
