@@ -123,7 +123,7 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - **forceUpdate()**: Schedules a new render of the given instance or element even if no state changed. Notice `forceUpdate()` is not synchronous and might perform the DOM render in the next frame.
 
-  __Type:__ `(ref: HTMLElement) => void`<br />
+  __Type:__ `(ref: any) => void`<br />
   __Example:__
   ```ts
   import { forceUpdate } from '@stencil/core'
@@ -163,7 +163,7 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - **setMode()**: Sets the style mode of a component. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
-  __Type:__ `(ref: HTMLElement) => string`<br />
+  __Type:__ `((elm: HTMLElement) => string | undefined | null) => void`<br />
   __Example:__
   ```ts
   import { setMode } from '@stencil/core'
@@ -174,7 +174,7 @@ The following primitives can be imported from the `@stencil/core` package and us
 
 - **getMode()**: Get the current style mode of your application. Refer to the [Styling](./styling.md#style-modes) page for usage info.
 
-  __Type:__ `(ref: HTMLElement) => string`<br />
+  __Type:__ `(ref: any) => string | undefined`<br />
   __Example:__
   ```ts
   import { getMode } from '@stencil/core'
