@@ -714,7 +714,7 @@ This component has **3 properties**, but the compiler will create **only 2 attri
 `thing-to-do`.
 
 ```html
-<todo-list-item is-complete="false" thing-to-do="Read Attribute Naming Section of Stencil Docs"></my-cmp>
+<todo-list-item is-complete="false" thing-to-do="Read Attribute Naming Section of Stencil Docs"></todo-list-item>
 ```
 
 Notice that the `httpService` type is not a primitive (e.g. not a `number`, `boolean`, or `string`). Since DOM
@@ -746,7 +746,7 @@ By using this option, we are being explicit about which properties have an assoc
 when using the component in HTML.
 
 ```html
-<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" my-service="{}"></my-cmp>
+<todo-list-item complete="false" thing="Read Attribute Naming Section of Stencil Docs" my-service="{}"></todo-list-item>
 ```
 
 ### Prop Mutability (`mutable`)
