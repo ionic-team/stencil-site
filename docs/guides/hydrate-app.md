@@ -37,26 +37,24 @@ After publishing your component library, you can import the hydrate app into
 your server's code like this:
 
 ```javascript
-import { hydrateDocument, renderToString, streamToString } from 'yourpackage/hydrate';
+import { createWindowFromHtml, hydrateDocument, renderToString, streamToString } from 'yourpackage/hydrate';
 ```
 
 The hydrate app module exports 3 functions, `hydrateDocument`, `renderToString` and `streamToString`. `hydrateDocument` takes a [document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) as its input while `renderToString` as well as `streamToString` takes a raw HTML string. While `hydrateDocument` and `renderToString` return a Promise which wraps a result object, `streamToString` returns a [`Readable`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) stream that can be passed into a server response.
 
 ### hydrateDocument
 
-You can use `hydrateDocument` as a part of your server's response logic before
-serving the web page. `hydrateDocument` takes two arguments, a
-[document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) and a
-config object. The function returns a promise with the hydrated results, with
-the hydrated HTML under the `html` property.
+You can use `hydrateDocument` as a part of your server's response logic before serving the web page. `hydrateDocument` takes two arguments, a [document](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDocument) and a config object. The function returns a promise with the hydrated results, with the hydrated HTML under the `html` property.
 
 *Example taken from Ionic Angular server*
 
- ```javascript
-import { hydrateDocument } from 'yourpackage/hydrate';
+ ```ts
+import { hydrateDocument, createWindowFromHtml } from 'yourpackage/hydrate';
 
-export function hydrateComponents(doc) {
-  return hydrateDocument(doc)
+export function hydrateComponents(template: string) {
+  const win = createWindowFromHtml(template, Math.random().toString())
+
+  return hydrateDocument(win.document)
     .then((hydrateResults) => {
       // execute logic based on results
       console.log(hydrateResults.html);
@@ -64,6 +62,34 @@ export function hydrateComponents(doc) {
     });
 }
 ```
+
+You can call the `hydrateComponents` function from your Node.js server, e.g.:
+
+```ts
+import Koa from 'koa';
+
+const app = new Koa();
+app.use(async (ctx) => {
+  const res = await hydrateComponents(`<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://some-url.com" />
+    <style>
+      // custom styles here
+    </style>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>`)
+  ctx.body = res
+})
+```
+
+Please note that Stencil injects scoped component styles immediately after `<link />` tags with a `rel="preconnect"` attribute, but before your custom styles. This setup allows you to define custom styles for your components effectively.
 
 #### hydrateDocument Options
 
@@ -176,7 +202,7 @@ Allows to modify the document and all its containing components after the compon
 
 ##### `serializeShadowRoot`
 
-__Default:__ `false`
+__Default:__ `true`
 
 __Type:__ `boolean`
 
@@ -212,9 +238,11 @@ console.log(results.html);
  */
 ```
 
+When set to `false`, the component renders with its light DOM but delays hydration until runtime.
+
 ```javascript
 const results = await hydrate.renderToString(
-  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+  `<my-component first="Stencil" last="'Don't call me a framework' JS">👋</my-component>`,
   {
     fullDocument: false,
     serializeShadowRoot: false,
@@ -226,18 +254,10 @@ console.log(results.html);
 /**
  * outputs:
  * ```html
- * <my-component class="hydrated sc-my-component-h" first=Stencil last="'Don't call me a framework' JS" s-id=1>
- *   <!--r.1-->
- *   <div c-id=1.0.0.0 class="sc-my-component">
- *     <!--t.1.1.1.0-->
- *     Hello, World! I'm Stencil 'Don't call me a framework' JS
- *   </div>
- * </my-component>
+ * <my-component class="hydrated" first=Stencil last="'Don't call me a framework' JS" s-id=1>👋</my-component>
  * ```
  */
 ```
-
-If set to `false` it renders the component as scoped component.
 
 ##### `fullDocument`
 

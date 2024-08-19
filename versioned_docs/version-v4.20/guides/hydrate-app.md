@@ -176,7 +176,7 @@ Allows to modify the document and all its containing components after the compon
 
 ##### `serializeShadowRoot`
 
-__Default:__ `false`
+__Default:__ `true`
 
 __Type:__ `boolean`
 
@@ -212,9 +212,11 @@ console.log(results.html);
  */
 ```
 
+When set to `false`, the component renders with its light DOM but delays hydration until runtime.
+
 ```javascript
 const results = await hydrate.renderToString(
-  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+  `<my-component first="Stencil" last="'Don't call me a framework' JS">👋</my-component>`,
   {
     fullDocument: false,
     serializeShadowRoot: false,
@@ -226,18 +228,10 @@ console.log(results.html);
 /**
  * outputs:
  * ```html
- * <my-component class="hydrated sc-my-component-h" first=Stencil last="'Don't call me a framework' JS" s-id=1>
- *   <!--r.1-->
- *   <div c-id=1.0.0.0 class="sc-my-component">
- *     <!--t.1.1.1.0-->
- *     Hello, World! I'm Stencil 'Don't call me a framework' JS
- *   </div>
- * </my-component>
+ * <my-component class="hydrated" first=Stencil last="'Don't call me a framework' JS" s-id=1>👋</my-component>
  * ```
  */
 ```
-
-If set to `false` it renders the component as scoped component.
 
 ##### `fullDocument`
 
