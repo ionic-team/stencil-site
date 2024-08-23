@@ -7,13 +7,15 @@ slug: /react
 
 # React Integration
 
-**Supports: React v16.7+ • TypeScript 3.7+ • Stencil v2.9.0+**
+**Supports: React v17+ • TypeScript v5+ • Stencil v4.2.0+**
 
-Stencil can generate React component wrappers for your web components. This allows your Stencil components to be used within
-a React application. The benefits of using Stencil's component wrappers over the standard web components include:
+Automate the creation of React component wrappers for your Stencil web components.
 
-- Custom events will be handled correctly and correctly propagate through the React render tree
-- Properties and attributes that are not a string or number will be correctly bound to the component
+This package includes an output target for code generation that allows developers to generate a React component wrapper for each Stencil component and a minimal runtime package built around [@lit/react](https://www.npmjs.com/package/@lit/react) that is required to use the generated React components in your React library or application.
+
+- ♻️ Automate the generation of React component wrappers for Stencil components
+- 🌐 Generate React functional component wrappers with JSX bindings for custom events and properties
+- ⌨️ Typings and auto-completion for React components in your IDE
 
 ## Setup
 
@@ -93,11 +95,14 @@ cd packages/react-library
 
 # Install core dependencies
 npm install react react-dom typescript @types/react --save-dev
+
+# Install output target runtime dependency
+npm install @stencil/react-output-target --save
 ```
 
 Lerna does not ship with a TypeScript configuration. At the root of the workspace, create a `tsconfig.json`:
 
-```json
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -117,14 +122,14 @@ Lerna does not ship with a TypeScript configuration. At the root of the workspac
 
 In your `react-library` project, create a project specific `tsconfig.json` that will extend the root config:
 
-```json
+```json title="packages/react-library/tsconfig.json"
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
     "lib": ["dom", "es2015"],
-    "module": "es2015",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "target": "es2015",
     "skipLibCheck": true,
     "jsx": "react",
@@ -138,7 +143,7 @@ In your `react-library` project, create a project specific `tsconfig.json` that 
 
 Update the generated `package.json` in your `react-library`, adding the following options to the existing config:
 
-```diff
+```diff title="packages/react-library/package.json"
 {
 -  "main": "lib/react-library.js",
 +  "main": "dist/index.js",
@@ -171,6 +176,8 @@ The `stencil-library` dependency is how Lerna knows to resolve the internal Sten
 
 ### Adding the React Output Target
 
+#### Step 1 - Stencil Component Library
+
 Install the `@stencil/react-output-target` dependency to your Stencil component library package.
 
 ```bash npm2yarn
@@ -180,64 +187,81 @@ npm install @stencil/react-output-target --save-dev
 
 In your project's `stencil.config.ts`, add the `reactOutputTarget` configuration to the `outputTargets` array:
 
-```ts
+```ts title="stencil.config.ts"
 import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'stencil-library',
   outputTargets: [
-    // By default, the generated proxy components will
-    // leverage the output from the `dist` target, so we
-    // need to explicitly define that output alongside the
-    // React target
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-    },
     reactOutputTarget({
-      componentCorePackage: 'stencil-library',
-      proxiesFile: '../react-library/lib/components/stencil-generated/index.ts',
+      // Relative path to where the React components will be generated
+      outDir: '../react-library/lib/components/stencil-generated/',
     }),
+    // dist-custom-elements output target is required for the React output target
+    { type: 'dist-custom-elements' },
   ],
 };
 ```
 
 :::tip
-The `proxiesFile` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
-file path to match your project's structure and respective names. You can generate any file name instead of `index.ts`.
 
-The `componentCorePackage` should match the `name` field in your Stencil project's `package.json`.
+The `outDir` is the relative path to the file that will be generated with all of the React component wrappers. You will replace the
+file path to match your project's structure and respective names.
+
 :::
 
 See the [API section below](#api) for details on each of the output target's options.
 
-You can now build your Stencil component library to generate the component wrappers.
+You can now build your Stencil component library to generate the component wrappers in your React component library.
 
 ```bash npm2yarn
 # Build the library and wrappers
 npm run build
 ```
 
-If the build is successful, you’ll see the new generated file in your React component library at the location specified by the `proxiesFile` argument.
+If the build is successful, you’ll see the new generated file in your React component library at the location specified by the `outDir` argument.
+
+#### Step 2 - React Component Library
+
+Install the `@stencil/react-output-target` dependency to your React component library package. This step is required to add the runtime dependencies required to use the generated React components.
+
+```bash npm2yarn
+# Install dependency
+npm install @stencil/react-output-target --save
+```
+
+Verify or update your `tsconfig.json` file to include the following settings:
+
+```json
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  }
+}
+```
+
+:::info
+
+`moduleResolution": "bundler"` is required to resolve the secondary entry points in the `@stencil/react-output-target` runtime package. You can learn more about this setting in the [TypeScript documentation](https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution).
+
+:::
+
+Verify or install TypeScript v5.0 or later in your project:
+
+```bash npm2yarn
+# Install dependency
+npm install typescript@5 --save-dev
+```
+
+No additional configuration is needed in the React component library. The generated component wrappers will reference the runtime dependencies directly.
 
 ### Add the Components to your React Component Library's Entry File
 
 In order to make the generated files available within your React component library and its consumers, you’ll need to export everything from within your entry file. First, rename `react-library.js` to `index.ts`. Then, modify the contents to match the following:
 
-```tsx
-export * from './components/stencil-generated';
-```
-
-### Registering Custom Elements
-
-To register your web components for the lazy-loaded (hydrated) bundle, you'll need to expose a method for registering the underlying Stencil
-generated custom elements for the React proxy components to leverage. The easiest way to do this is to modify the React library's entry file
-to re-export the Stencil loader's `defineCustomElements()` method. In your React library's entry file (`packages/react-library/lib/index.ts`),
-add the following:
-
-```diff
-export * from "./components/stencil-generated";
-+ export { defineCustomElements } from "stencil-library/loader";
+```tsx title="packages/react-library/src/index.ts"
+export * from './components/stencil-generated/components';
 ```
 
 ### Link Your Packages (Optional)
@@ -312,7 +336,7 @@ is easily done by modifying your React app's `package.json` to include the follo
 
 This section covers how developers consuming your React component wrappers will use your package and component wrappers.
 
-Before you can consume your React proxy components, you'll need to build your React component library. From `packages/react-library` run:
+Before you can consume your React component wrappers, you'll need to build your React component library. From `packages/react-library` run:
 
 ```bash npm2yarn
 npm run build
@@ -320,12 +344,9 @@ npm run build
 
 To make use of your React component library in your React application, import your components from your React component library in the file where you want to use them.
 
-```tsx
-// App.tsx
+```tsx title="App.tsx"
 import './App.css';
-import { MyComponent, defineCustomElements } from 'react-library';
-
-defineCustomElements();
+import { MyComponent } from 'react-library';
 
 function App() {
   return (
@@ -340,166 +361,52 @@ export default App;
 
 ## API
 
-### componentCorePackage
+### esModule
 
 **Optional**
 
-**Default: The `components.d.ts` file in the Stencil project's `package.json` types field**
+**Type: `boolean`**
 
-**Type: `string`**
-
-The name of the Stencil package where components are available for consumers (i.e. the value of the `name` property in your Stencil component library's `package.json`).
-This is used during compilation to write the correct imports for components.
-
-For a starter Stencil project generated by running:
-
-```bash npm2yarn
-npm init stencil component my-component-lib
-```
-
-The `componentCorePackage` would be set to:
-
-```ts
-// stencil.config.ts
-
-export const config: Config = {
-  ...,
-  outputTargets: [
-    reactOutputTarget({
-      componentCorePackage: 'my-component-lib',
-      // ... additional config options
-    })
-  ]
-}
-```
-
-Which would result in an import path like:
-
-```js
-import { defineCustomElement as defineMyComponent } from 'my-component-lib/components/my-component.js';
-```
-
-:::note
-Although this field is optional, it is _highly_ recommended that it always be defined to avoid potential issues with paths not being generated correctly
-when combining other API arguments.
-:::
-
-### customElementsDir
-
-**Optional**
-
-**Default: 'dist/components'**
-
-**Type: `string`**
-
-If [includeImportCustomElements](#includeimportcustomelements) is `true`, this option can be used to specify the directory where the generated
-custom elements live. This value only needs to be set if the `dir` field on the `dist-custom-elements` output target was set to something other than
-the default directory.
+If `true`, the output target will generate a separate ES module for each React component wrapper. Defaults to `false`.
 
 ### excludeComponents
 
 **Optional**
 
-**Default: `[]`**
-
 **Type: `string[]`**
 
-This lets you specify component tag names for which you don't want to generate React wrapper components. This is useful if you need to write framework-specific versions of components. For instance, in Ionic Framework, this is used for routing components - like tabs - so that
-Ionic Framework can integrate better with React Router.
+An array of component tag names to exclude from the React output target. Useful if you want to prevent certain web components from being in the React library.
 
-### includeDefineCustomElements
+### experimentalUseClient
 
 **Optional**
-
-**Default: `true`**
 
 **Type: `boolean`**
 
-If `true`, all Web Components will automatically be registered with the Custom Elements Registry. This can only be used when lazy loading Web Components and will not work when `includeImportCustomElements` is `true`.
+If `true`, the generated output target will include the [use client;](https://react.dev/reference/react/use-client) directive.
 
-### includeImportCustomElements
-
-**Optional**
-
-**Default: `undefined`**
-
-**Type: `boolean`**
-
-If `true`, the output target will import the custom element instance and register it with the Custom Elements Registry when the component is imported inside of a user's app. This can only be used with the [Custom Elements](../output-targets/custom-elements.md) output and will not work with lazy loaded components.
-
-:::note
-The configuration for the [Custom Elements](../output-targets/custom-elements.md) output target must set the
-[export behavior](../output-targets/custom-elements.md#customelementsexportbehavior) to `single-export-module` for the wrappers to generate correctly.
-:::
-
-### includePolyfills
-
-**Optional**
-
-**Default: `true`**
-
-**Type: `boolean`**
-
-If `true`, polyfills will automatically be imported and the `applyPolyfills` function will be called in your proxies file. This can only be used when lazy loading Web Components and will not work when `includeImportCustomElements` is enabled.
-
-### loaderDir
-
-**Optional**
-
-**Default: `/dist/loader`**
-
-**Type: `string`**
-
-The path to where the `defineCustomElements` helper method exists within the built project. This option is only used when `includeDefineCustomElements` is enabled.
-
-### proxiesFile
+### outDir
 
 **Required**
 
 **Type: `string`**
 
-This parameter allows you to name the file that contains all the component wrapper definitions produced during the compilation process. This is the first file you should import in your React project.
+The directory where the React components will be generated. Accepts a relative path from the Stencil project's root directory.
+
+### stencilPackageName
+
+**Optional**
+
+**Type: `string`**
+
+The name of the package that exports the Stencil components. Defaults to the package.json detected by the Stencil compiler.
 
 ## FAQ's
-
-### Do I have to use the `dist` output target?
-
-No! By default, this output target will look to use the `dist` output, but the output from `dist-custom-elements` can be used alternatively.
-
-To do so, simply set the `includeImportCustomElements` option in the output target's config and ensure the
-[custom elements output target](../output-targets/custom-elements.md) is added to the Stencil config's output target array:
-
-```ts
-// stencil.config.ts
-
-export const config: Config = {
-  ...,
-  outputTargets: [
-    // Needs to be included
-    {
-      type: 'dist-custom-elements'
-    },
-    reactOutputTarget({
-      componentCorePackage: 'component-library',
-      proxiesFile: '{path to your proxy file}',
-      // This is what tells the target to use the custom elements output
-      includeImportCustomElements: true
-    })
-  ]
-}
-```
-
-Now, all generated imports will point to the default directory for the custom elements output. If you specified a different directory
-using the `dir` property for `dist-custom-elements`, you need to also specify that directory for the React output target. See
-[the API section](#customelementsdir) for more information.
-
-In addition, all the Web Components will be automatically defined as the generated component modules are bootstrapped.
-
-### TypeError: Cannot read properties of undefined (reading 'isProxied')
-
-If you encounter this error when running the React application consuming your proxy components, you can set the [`enableImportInjection`](../config/extras.md#enableimportinjection)
-flag on the Stencil config's `extras` object. Once set, this will require you to rebuild the Stencil component library and the React component library.
 
 ### What is the best format to write event names?
 
 Event names shouldn’t include special characters when initially written in Stencil. Try to lean on using camelCased event names for interoperability between frameworks.
+
+### Can I use `dist` output target with the React output target?
+
+No, the React output target requires the `dist-custom-elements` output target to be present in the Stencil project's configuration. The `dist-custom-elements` output target generates a separate entry for each component which best aligns with the expectations of React developers.
