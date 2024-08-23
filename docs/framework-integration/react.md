@@ -247,7 +247,7 @@ Verify or update your `tsconfig.json` file to include the following settings:
 
 :::
 
-Verify or install Typescript v5.0 or later in your project:
+Verify or install TypeScript v5.0 or later in your project:
 
 ```bash npm2yarn
 # Install dependency
