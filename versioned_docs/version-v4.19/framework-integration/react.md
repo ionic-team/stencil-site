@@ -15,6 +15,8 @@ a React application. The benefits of using Stencil's component wrappers over the
 - Custom events will be handled correctly and correctly propagate through the React render tree
 - Properties and attributes that are not a string or number will be correctly bound to the component
 
+To generate these framework wrappers, Stencil provides an Output Target library called [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target) that can be added to your `stencil.config.ts` file. This also enables Stencil components to be used within e.g. Next.js or other React based application frameworks.
+
 ## Setup
 
 ### Project Structure
@@ -211,6 +213,10 @@ The `componentCorePackage` should match the `name` field in your Stencil project
 
 See the [API section below](#api) for details on each of the output target's options.
 
+:::note
+In order to compile Stencil components optimized for server side rendering in e.g. Next.js applications that use [AppRouter](https://nextjs.org/docs/app), make sure to provide the [`hydrateModule`](#hydratemodule) property to the output target configuration.
+:::
+
 You can now build your Stencil component library to generate the component wrappers.
 
 ```bash npm2yarn
@@ -406,6 +412,41 @@ the default directory.
 
 This lets you specify component tag names for which you don't want to generate React wrapper components. This is useful if you need to write framework-specific versions of components. For instance, in Ionic Framework, this is used for routing components - like tabs - so that
 Ionic Framework can integrate better with React Router.
+
+### hydrateModule
+
+**Optional**
+
+**Type: `string`**
+
+Enable React server side rendering (short SSR) for e.g. [Next.js](https://nextjs.org/) applications by providing an import path to the [hydrate module](../guides/hydrate-app.md) of your Stencil project that is generated through the `dist-hydrate-script` output target, e.g.:
+
+```ts title="stencil.config.ts"
+import type { Config } from '@stencil/core';
+
+/**
+ * excerpt from the Stencil example project:
+ * https://github.com/ionic-team/stencil-ds-output-targets/tree/cb/nextjs/packages/example-project
+ */
+export const config: Config = {
+  namespace: 'component-library',
+  outputTargets: [
+    reactOutputTarget({
+      outDir: '../next-app/src/app',
+      hydrateModule: 'component-library/hydrate'
+    }),
+    {
+      type: 'dist-hydrate-script',
+      dir: './hydrate',
+    },
+    // ...
+  ],
+};
+```
+
+:::note
+Next.js support is only available for applications that use the [Next.js App Router](https://nextjs.org/docs/app).
+:::
 
 ### includeDefineCustomElements
 
