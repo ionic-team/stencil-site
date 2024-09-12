@@ -13,6 +13,10 @@ Automate the creation of React component wrappers for your Stencil web component
 
 This package includes an output target for code generation that allows developers to generate a React component wrapper for each Stencil component and a minimal runtime package built around [@lit/react](https://www.npmjs.com/package/@lit/react) that is required to use the generated React components in your React library or application.
 
+- ♻️ Automate the generation of React component wrappers for Stencil components
+- 🌐 Generate React functional component wrappers with JSX bindings for custom events and properties
+- ⌨️ Typings and auto-completion for React components in your IDE
+
 To generate these framework wrappers, Stencil provides an Output Target library called [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target) that can be added to your `stencil.config.ts` file. This also enables Stencil components to be used within e.g. Next.js or other React based application frameworks.
 
 ## Setup
