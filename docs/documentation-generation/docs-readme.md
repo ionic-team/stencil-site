@@ -563,3 +563,28 @@ When strict mode is enabled, the following items are checked:
 2. `@Method()` usages must be documented, unless the method is marked as `@deprecated`
 3. `@Event()` usages must be documented, unless the event is marked as `@deprecated`
 4. CSS Part usages must be documented
+
+### Diagram Colors
+
+**Optional**
+
+**Default: `{ text: '#333', background: '#f9f' }`**
+
+This option allows you to change the colors used when generating the dependency graph mermaid diagrams for components. Any hex color string is a valid
+value.
+
+```tsx title="stencil.config.ts"
+import { Config } from '@stencil/core';
+
+export const config: Config = {
+  outputTargets: [
+    {
+      type: 'docs-readme',
+      colors: {
+        text: '#fff',
+        background: '#000'
+      }
+    }
+  ]
+};
+```
