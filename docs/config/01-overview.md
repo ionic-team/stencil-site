@@ -94,6 +94,10 @@ stencil-project-root
 
 Please see the [Dev-Server docs](./dev-server.md).
 
+## docs
+
+Please see the [docs config](./docs.md).
+
 ## enableCache
 
 *default: `true`*
