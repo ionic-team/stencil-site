@@ -5,21 +5,19 @@ description: Server Side Rendering
 slug: /server-side-rendering
 ---
 
-# Server Side Rendering
+# Server-Side Rendering (SSR) with Stencil
 
-For React and Vue Output Targets Stencil has support for Server Side Rendering (SSR). If you use frameworks such as [Next.js](https://nextjs.org/) or [Nuxt](https://nuxt.com/) Stencil will automatically enhance the framework to allow render Stencil components on the server into a [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom).
+Stencil provides server-side rendering (SSR) support for React and Vue output targets. If you're using frameworks like [Next.js](https://nextjs.org/) or [Nuxt](https://nuxt.com/), Stencil automatically enhances these frameworks to render components on the server using a [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom).
 
-You can find more information on how to setup SSR support for [React](/docs/react) and [Vue](/docs/vue) in their respective Output Target documentations. All interfaces related to rendering a Stencil component into a string are exported by the [Stencil Hyrdate Module](/docs/hydrate-app).
+For detailed setup instructions, refer to the SSR documentation for [React](/docs/react) and [Vue](/docs/vue). All interfaces needed for rendering Stencil components into a string are exported through the [Stencil Hydrate Module](/docs/hydrate-app).
 
-## Tips & Tricks
+## Tips & Best Practices
 
-When server side rendering a component you may run into a few gotchas that may seem confusing when components don't appear as expected. Here are some important tips and tricks you should know to avoid these situations.
+When server-side rendering Stencil components, there are a few potential pitfalls you might encounter. To help you avoid these issues, here are some key tips and best practices.
 
-### Non-Primitive Parameters
+### Avoid Non-Primitive Parameters
 
-When we compose components we often don't think about too much how we structure the data we pass along to the component. For example, it may seem easier to just define an interface to represent a menu rather than creating extra components for menu items.
-
-Let's say we define a custom component for the footer menu on [stenciljs.com](https://stenciljs.com/):
+When building components, it's common to pass complex data structures like objects to components as props. For example, a footer menu could be structured as an object rather than as separate components for each menu item:
 
 ```tsx
 const menu = {
@@ -34,11 +32,9 @@ return (
 )
 ```
 
-While this works just fine when rendering the component in the browser, it may be challenging when rendering it on the server. Stencil __does not support__ the serialization of objects within parameters, causing the component to not server side render any footer menu items.
+While this approach works fine in the browser, it poses challenges for SSR. Stencil **does not support** the serialization of complex objects within parameters, so the footer items may not render on the server.
 
-In situations where you use parameters to render elements it is mostly better to structure them within the light DOM of the component instead of passing them along as parameters. Especially if parameters contribute to the structure of the component, it is usually a better approach to pass them in as DOM structure.
-
-For above example, a better solution would be:
+A better approach is to structure dynamic content as part of the component's light DOM rather than passing it as props. This ensures that the framework can fully render the component during SSR, avoiding hydration issues. Here’s an improved version of the example:
 
 ```tsx
 const menu = {
@@ -52,7 +48,7 @@ return (
             {Object.entries(menu).map(([section, links]) => (
                 <footer-navigation-section>
                     <h2>{section}</h2>
-                    {links.map((link) => (
+                    {links.map(link => (
                         <footer-navigation-entry href="#/">{link}</footer-navigation-entry>
                     ))}
                 </footer-navigation-section>
@@ -62,13 +58,13 @@ return (
 )
 ```
 
-With this approach your meta framework can properly generate a complete markup of your footer navigation without having to wait for your application runtime to hydrate the app.
+By rendering the menu directly in the light DOM, SSR can produce a complete, ready-to-render markup.
 
-### Cross Component Context
+### Cross-Component State Handling
 
-When components carry a certain state that you like to propagate to child components, there are several approaches that allows you to solve for that, e.g. reducers or context providers in React. If you use these state information to make decisions on how the element is being rendered you may run into issues when trying to server side render the application.
+When propagating state between parent and child components, patterns like reducers or context providers (as in React) are often used. However, this can be problematic with SSR in frameworks like Next.js, where each component is rendered independently.
 
-In Next.js and other meta frameworks, every component is rendered individually from its parents and childrens. For example, given the following structure:
+Consider the following structure:
 
 ```tsx
 <ParentComponent>
@@ -76,7 +72,7 @@ In Next.js and other meta frameworks, every component is rendered individually f
 </ParentComponent>
 ```
 
-When your application gets server side rendered, and e.g. Next.js wants to render `ParentComponent`, Stencil will try to parse the children into a string to give the `ParentComponent` information about its light DOM. The intermediate result of this operation will be as following:
+When `ParentComponent` is rendered on the server, Stencil will attempt to stringify its children (e.g., `ChildComponent`) for the light DOM. The intermediate markup may look like this:
 
 ```tsx
 <ParentComponent>
@@ -88,15 +84,15 @@ When your application gets server side rendered, and e.g. Next.js wants to rende
 </ParentComponent>
 ```
 
-In the process of rendering `ParentComponent` you have access to its light DOM, e.g. `ChildComponent`, which allows you to modify the component attributes. However, once `ParentComponent` and the framework moves forward to render `ChildComponent`, `ChildComponent` won't have access to `ParentComponent` as it is being rendered in an isolated environment. The same applies for any state objects you may import for the component, they may remain empty when the component is rendered.
+At this stage, `ParentComponent` can access and manipulate its children. However, when `ChildComponent` is rendered in isolation, it won’t have access to the parent’s state or context, potentially leading to inconsistencies.
 
-In summary, keep in mind that the part of your component that you want to server side render, should be able to do so without requiring any application state. If the component suppose to display data that is being loaded from the server during runtime, have the component render a loading view instead.
+To prevent this, ensure that components rendered on the server don’t depend on external state or context. If the component relies on data fetched at runtime, it’s better to display a loading placeholder during SSR.
 
-### Performance
+### Optimizing Performance
 
-To server side render a component, Stencil transforms your component into a [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom). A Declarative Shadow DOM contains all structural information of your component including styles. Depending on how your components are set up, and how many components you render on the server this can have a huge impact on the document size.
+When Stencil server-side renders a component, it converts it into [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom), which includes all structural information and styles. While this ensures accurate rendering, it can significantly increase document size if not managed carefully.
 
-Imaging a small button component in Stencil:
+For example, consider a button component:
 
 ```tsx
 import { Component, Fragment, h } from '@stencil/core'
@@ -115,7 +111,7 @@ export class MyBtn {
 }
 ```
 
-with `button.css` being something like:
+And this `button.css` which imports additional common styles:
 
 ```css
 /* button.css */
@@ -124,33 +120,19 @@ with `button.css` being something like:
 @import "../css/animations.css";
 @import "../css/utilities.css";
 
-/* component related styles: */
+/* component-specific styles */
 button {
     ...
 }
 ```
 
-It is convenient to just import all additional CSS the project uses even though it may not be used by the component itself. This can lead to performance issues in the context of server side rendering quickly.
+When SSR is performed, the entire CSS (including imports) is bundled with the component’s declarative shadow DOM. Rendering multiple instances of this button in SSR can lead to repeated inclusion of styles, bloating the document size and delaying [First Contentful Paint (FCP)](https://web.dev/articles/fcp).
 
-When Stencil transforms your component into a Declarative Shadow DOM, it includes all component styles into the template so that the component can be rendered imidiatelly. Now imagine you want to server side render a set of components:
+Here are some ways to mitigate this:
 
-```tsx
-<nav>
-    <ul>
-        <li><MyBtn>Introduction</MyBtn></li>
-        <li><MyBtn>Getting Started</MyBtn></li>
-        <li><MyBtn>Component API</MyBtn></li>
-    </ul>
-</nav>
-```
+- **Use CSS Variables**: CSS variables can pierce the Shadow DOM, reducing the need for redundant styles.
+- **Use the `::part` pseudo-element**: This allows you to style parts of the Shadow DOM from outside the component, minimizing the internal CSS.
+- **Optimize Component-Specific CSS**: Only include the necessary styles for each component.
+- **Limit SSR Scope**: In Next.js, apply `use client` to sections that don’t need SSR to reduce unnecessary rendering.
 
-This will cause the document to contain all your CSS from above already 3 times and may increase your document size to a point where it impacts the [First Contentful Paint (FCP)](https://web.dev/articles/fcp) because the browser takes a long time to pull the whole document from the server.
-
-There are several ways to mitigate this:
-
-- Use CSS variables wherever possible as they have the capability to pierce through the Shadow DOM
-- Use [`::part`](https://developer.mozilla.org/en-US/docs/Web/CSS/::part) CSS pseudo elements as they help styling sections of your Shadow DOM from the outside
-- Optimize the CSS per component and don't include unused styles
-- Limit the scope of what should be server side rendered, e.g. by applying `use client` in Next.js to these sections of the page that aren't on the critical rendering path
-
-Stencil will continue to improve the support for Server Side Rendering and will try to provide solutions for the challenges mentioned above. If you have ideas or feedback, don't hesitate to [file an issue](https://github.com/ionic-team/stencil/issues/new?assignees=&labels=&projects=&template=feature_request.yml&title=feat%3A+) and collaborate with us!
+Stencil continues to enhance SSR capabilities and is committed to solving performance and rendering challenges. Your feedback is important — feel free to [file an issue](https://github.com/ionic-team/stencil/issues/new?assignees=&labels=&projects=&template=feature_request.yml&title=feat%3A+) and contribute your ideas!
