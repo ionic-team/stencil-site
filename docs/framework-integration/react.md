@@ -16,6 +16,7 @@ This package includes an output target for code generation that allows developer
 - ♻️ Automate the generation of React component wrappers for Stencil components
 - 🌐 Generate React functional component wrappers with JSX bindings for custom events and properties
 - ⌨️ Typings and auto-completion for React components in your IDE
+- 🚀 Support for Server Side Rendering (SSR) when used with frameworks like [Next.js](https://nextjs.org/)
 
 To generate these framework wrappers, Stencil provides an Output Target library called [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target) that can be added to your `stencil.config.ts` file. This also enables Stencil components to be used within e.g. Next.js or other React based application frameworks.
 
@@ -129,10 +130,11 @@ In your `react-library` project, create a project specific `tsconfig.json` that 
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "lib": ["dom", "es2015"],
-    "module": "esnext",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "moduleResolution": "bundler",
-    "target": "es2015",
     "skipLibCheck": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
@@ -364,6 +366,68 @@ function App() {
 
 export default App;
 ```
+
+### Enable Server Side Rendering (SSR)
+
+If your React framework supports server side rendering, e.g. [Next.js](https://nextjs.org/) your Stencil components will get automatically server side rendered, if set up correctly. In order to enable this:
+
+1. Add a `dist-hydrate-script` output target to your `stencil.config.ts` if not already existing, e.g.:
+    ```ts title="stencil.config.ts"
+    import { Config } from '@stencil/core';
+
+    export const config: Config = {
+      outputTargets: [
+        {
+          type: 'dist-hydrate-script',
+          dir: './hydrate',
+        },
+        // ...
+      ]
+    };
+    ```
+
+2. Create an export for the compiled files within the `/hydrate` directory, e.g.
+    ```json
+    {
+      "name": "component-library",
+      ...
+      "exports": {
+        ...
+        "./hydrate": {
+          "types": "./hydrate/index.d.ts",
+          "import": "./hydrate/index.js",
+          "require": "./hydrate/index.cjs.js",
+          "default": "./hydrate/index.js"
+        },
+        ...
+      },
+      ...
+    }
+    ```
+
+3. Set the `hydrateModule` in your React output target configuration, e.g.
+    ```ts
+    import { Config } from '@stencil/core';
+    import { reactOutputTarget } from '@stencil/react-output-target';
+
+    export const config: Config = {
+      outputTargets: [
+        reactOutputTarget({
+          outDir: '../react-library/lib/components/stencil-generated/',
+          hydrateModule: 'component-library/hydrate'
+        }),
+        // ...
+      ]
+    };
+    ```
+
+That's it! Your Next.js application should now render a Declarative Shadow DOM on the server side which will get automatically hydrated once the React runtime initiates.
+
+:::cautions
+
+A Declarative Shadow DOM contains next to the HTML structure also all the CSS defined for the component. If you server side render a lot of small components that come with large amounts of CSS, it will drastically increase the initial page load time as the documented loaded by the browser increases in size. Make sure to keep the initial document size reasonable and aligned with your performance goals, server side rendering only the critical components needed to render the viewport and load the rest later on.
+
+:::
 
 ## API
 

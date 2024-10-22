@@ -348,6 +348,72 @@ In your page or component, you can now import and use your component wrappers:
 </template>
 ```
 
+### Enable Server Side Rendering (SSR)
+
+If your Vue framework supports server side rendering, e.g. when using [Nuxt](https://nuxt.com/) your Stencil components will get automatically server side rendered, if set up correctly. In order to enable this:
+
+1. Add a `dist-hydrate-script` output target to your `stencil.config.ts` if not already existing, e.g.:
+    ```ts title="stencil.config.ts"
+    import { Config } from '@stencil/core';
+
+    export const config: Config = {
+      outputTargets: [
+        {
+          type: 'dist-hydrate-script',
+          dir: './hydrate',
+        },
+        // ...
+      ]
+    };
+    ```
+
+2. Create an export for the compiled files within the `/hydrate` directory, e.g.
+    ```json
+    {
+      "name": "component-library",
+      ...
+      "exports": {
+        ...
+        "./hydrate": {
+          "types": "./hydrate/index.d.ts",
+          "import": "./hydrate/index.js",
+          "require": "./hydrate/index.cjs.js",
+          "default": "./hydrate/index.js"
+        },
+        ...
+      },
+      ...
+    }
+    ```
+
+3. Set the `hydrateModule` in your React output target configuration, e.g.
+    ```ts
+    import { Config } from '@stencil/core';
+    import { vueOutputTarget } from '@stencil/vue-output-target';
+
+    export const config: Config = {
+      outputTargets: [
+        vueOutputTarget({
+          includeImportCustomElements: true,
+          includePolyfills: false,
+          includeDefineCustomElements: false,
+          componentCorePackage: 'component-library',
+          hydrateModule: 'component-library/hydrate',
+          proxiesFile: '../component-library-vue/src/index.ts',
+        }),
+        // ...
+      ]
+    };
+    ```
+
+That's it! Your Nuxt application should now render a Declarative Shadow DOM on the server side which will get automatically hydrated once the Vue runtime initiates.
+
+:::cautions
+
+A Declarative Shadow DOM contains next to the HTML structure also all the CSS defined for the component. If you server side render a lot of small components that come with large amounts of CSS, it will drastically increase the initial page load time as the documented loaded by the browser increases in size. Make sure to keep the initial document size reasonable and aligned with your performance goals, server side rendering only the critical components needed to render the viewport and load the rest later on.
+
+:::
+
 ## API
 
 ### componentCorePackage
