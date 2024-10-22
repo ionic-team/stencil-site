@@ -20,6 +20,7 @@ expressjs
 lifecycles
 microtask
 minifier
+Nuxt
 polyfilling
 precache
 prehydration
