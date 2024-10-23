@@ -387,7 +387,7 @@ If your Vue framework supports server side rendering, e.g. when using [Nuxt](htt
     ```
 
 3. Set the `hydrateModule` in your React output target configuration, e.g.
-    ```ts
+    ```ts title="stencil.config.ts"
     import { Config } from '@stencil/core';
     import { vueOutputTarget } from '@stencil/vue-output-target';
 
