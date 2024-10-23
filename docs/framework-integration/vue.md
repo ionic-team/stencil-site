@@ -410,7 +410,7 @@ That's it! Your Nuxt application should now render a Declarative Shadow DOM on t
 
 :::cautions
 
-A Declarative Shadow DOM contains next to the HTML structure also all the CSS defined for the component. If you server side render a lot of small components that come with large amounts of CSS, it will drastically increase the initial page load time as the documented loaded by the browser increases in size. Make sure to keep the initial document size reasonable and aligned with your performance goals, server side rendering only the critical components needed to render the viewport and load the rest later on.
+A Declarative Shadow DOM not only encapsulates the HTML structure of a component but also includes all associated CSS. When server-side rendering numerous small components with extensive CSS, the overall document size can significantly increase, leading to longer initial page load times. To optimize performance, it's essential to maintain a manageable document size that aligns with your performance objectives. It is advisable to server-side render only the critical components required for rendering the initial viewport, while deferring the loading of additional components until after the initial render.
 
 :::
 
