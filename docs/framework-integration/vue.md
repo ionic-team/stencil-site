@@ -368,7 +368,7 @@ If your Vue framework supports server side rendering, e.g. when using [Nuxt](htt
     ```
 
 2. Create an export for the compiled files within the `/hydrate` directory, e.g.
-    ```json
+    ```json title="package.json"
     {
       "name": "component-library",
       ...
