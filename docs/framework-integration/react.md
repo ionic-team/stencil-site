@@ -425,7 +425,7 @@ That's it! Your Next.js application should now render a Declarative Shadow DOM o
 
 :::cautions
 
-A Declarative Shadow DOM contains next to the HTML structure also all the CSS defined for the component. If you server side render a lot of small components that come with large amounts of CSS, it will drastically increase the initial page load time as the documented loaded by the browser increases in size. Make sure to keep the initial document size reasonable and aligned with your performance goals, server side rendering only the critical components needed to render the viewport and load the rest later on.
+A Declarative Shadow DOM contains next to the HTML structure also all the CSS defined for the component. If you server side render a lot of small components that come with large amounts of CSS, it will drastically increase the initial page load time as the document loaded by the browser increases in size. Make sure to keep the initial document size reasonable and aligned with your performance goals. It is recommended to server side rendering only the critical components needed to render the viewport and load the rest later on.
 
 :::
 
