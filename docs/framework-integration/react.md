@@ -387,7 +387,7 @@ If your React framework supports server side rendering, e.g. [Next.js](https://n
     ```
 
 2. Create an export for the compiled files within the `/hydrate` directory, e.g.
-    ```json
+    ```json title="package.json"
     {
       "name": "component-library",
       ...
