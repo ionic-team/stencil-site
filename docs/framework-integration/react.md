@@ -502,9 +502,16 @@ export const config: Config = {
 };
 ```
 
-:::note
-Next.js support is only available for applications that use the [Next.js App Router](https://nextjs.org/docs/app).
-:::
+### excludeServerSideRenderingFor
+
+**Optional**
+
+**Type: `string[]`**
+
+Allows user to exclude a list of components to be server side rendered by Next.js or other React
+frameworks. This may be useful if you would like to generally ignore some components from being
+rendered on the server or if you like roll out SSR support for your design system one component at
+a time.
 
 ## FAQ's
 
