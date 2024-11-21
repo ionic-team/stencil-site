@@ -984,9 +984,9 @@ console.log(cmp.isComplete); // it prints 'false'
 import { Component, Prop, h } from '@stencil/core';
 
 @Component({
-    tag: 'todo-list-item',
+    tag: 'get-set-props',
 })
-export class ToDoListItem {
+export class GetSetProps {
     // A read-only prop
     private internalValue = 'should not change';
     @Prop()
@@ -1000,7 +1000,7 @@ export class ToDoListItem {
     }
     set validatedProp (incomingDodgyValue: any) {
       if (['this', 'or maybe this'].includes(incomingDodgyValue)) {
-        this.safeValue = incomingDodgyValue
+        this.safeValue = incomingDodgyValue;
       }
     }
 
