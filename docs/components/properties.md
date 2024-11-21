@@ -735,6 +735,8 @@ export class TodoList {
 }
 ```
 
+Alternatively, you could do validation within a setter. [Read about using `get()` / `set()` methods with decorated props](#prop-getters-and-setters)
+
 ## @Prop() Options
 
 The `@Prop()` decorator accepts an optional argument to specify certain options to modify how a prop on a component
@@ -972,3 +974,55 @@ not there - the `isComplete` property still contains the `false` value as assign
 const cmp = document.querySelector('todo-list-item');
 console.log(cmp.isComplete); // it prints 'false'
 ```
+
+### Prop Getters and Setters
+
+`@Prop` decorated members can additionally be used with `get()` and `set()` methods which can be useful for validation 
+([as an alternative to using a @Watch decorator](#prop-validation)), transforming incoming-data or exposing read-only properties. 
+
+```tsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+    tag: 'todo-list-item',
+})
+export class ToDoListItem {
+    // A read-only prop
+    private internalValue = 'should not change';
+    @Prop()
+    get readOnlyProp { return this.internalValue; }
+
+    // A validated prop
+    private safeValue: 'this' | 'or maybe this' = 'this';
+    @Prop()
+    get validatedProp {
+      return this.safeValue;
+    }
+    set validatedProp (incomingDodgyValue: any) {
+      if (['this', 'or maybe this'].includes(incomingDodgyValue)) {
+        this.safeValue = incomingDodgyValue
+      }
+    }
+
+    private dateValue: Date = new Date();
+    // A transformed prop
+    @Prop()
+    get transformedProp {
+      return this.dateValue;
+    }
+    set transformedProp (incomingStringVal: string) {
+      this.dateValue = new Date(Date.parse(incomingStringVal));
+    }
+}
+```
+
+Most of the documentation referring to [types](#types) and [options](#prop-options) also apply to get / set `@Prop`s 
+(with the exception of [mutable](#prop-mutability-mutable) as this makes little logical sense).
+
+:::note
+When using the [dist / 'lazy' output target](../output-targets/dist.md), a known limitation is if an initial value 
+is set (via an attribute e.g. `<my-cmp attr="initial">`) in-order to 'hit' the set() method, Stencil can only do so 
+*after* lazily fetching / loading the class component. This means one initial render / tick before being able to set the incoming, initial value.
+
+This limitation does not exist on the [custom-elements output-target](../output-targets/custom-elements.md).
+:::
