@@ -80,6 +80,32 @@ cd stencil-library
 npm install
 ```
 
+##### Troubleshooting Component Imports
+
+If you encounter import errors in your `components.ts` file, update the Stencil library's `package.json` to include comprehensive exports:
+
+```json title="package.json"
+"exports": {
+ ".": {
+   "import": "./dist/stencil-library/stencil-library.esm.js",
+   "require": "./dist/stencil-library/stencil-library.cjs.js"
+ },
+ "./dist/*": {
+   "import": "./dist/*",
+   "types": "./dist/*"
+ },
+ "./components/*": {
+   "import": "./dist/components/*.js",
+   "types": "./dist/components/*.d.ts"
+ },
+ "./loader": {
+   "import": "./loader/index.js",
+   "require": "./loader/index.cjs",
+   "types": "./loader/index.d.ts"
+ }
+}
+```
+
 #### Creating a React Component Library
 
 :::note
