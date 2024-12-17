@@ -456,7 +456,7 @@ own type information. Neither Stencil nor TypeScript will try to change the type
 <todo-list-item isComplete={"42"} label={1} thingToDo={"Learn about any-typed props"}></todo-list-item>
 ```
 
-The following will rendered from the usage example above: 
+The following will be rendered from the usage example above: 
 ```md
 - isComplete has a value of - 42 - and a typeof value of "number" 
 - label has a value of -  - and a typeof value of "object"
