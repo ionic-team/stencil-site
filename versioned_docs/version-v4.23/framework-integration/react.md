@@ -423,11 +423,12 @@ If your React framework supports server side rendering, e.g. [Next.js](https://n
 
 That's it! Your Next.js application should now render a Declarative Shadow DOM on the server side which will get automatically hydrated once the React runtime initiates.
 
-:::cautions
+#### SSR Limitations
 
-A Declarative Shadow DOM not only encapsulates the HTML structure of a component but also includes all associated CSS. When server-side rendering numerous small components with extensive CSS, the overall document size can significantly increase, leading to longer initial page load times. To optimize performance, it's essential to maintain a manageable document size that aligns with your performance objectives. It is advisable to server-side render only the critical components required for rendering the initial viewport, while deferring the loading of additional components until after the initial render.
+Please be aware of the following limitations when working with server side rendered applications:
 
-:::
+- A Declarative Shadow DOM not only encapsulates the HTML structure of a component but also includes all associated CSS. When server-side rendering numerous small components with extensive CSS, the overall document size can significantly increase, leading to longer initial page load times. To optimize performance, it's essential to maintain a manageable document size that aligns with your performance objectives. It is advisable to server-side render only the critical components required for rendering the initial viewport, while deferring the loading of additional components until after the initial render.
+- A Stencil component that dynamically renders content based on elements within its Light DOM may not render correctly as the Output Target can't always serialize the children of the React component into a template string especially when working with multiple nested Stencil components.
 
 ## API
 
