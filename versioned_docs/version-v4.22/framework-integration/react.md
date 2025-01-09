@@ -80,7 +80,7 @@ cd stencil-library
 npm install
 ```
 
-##### Troubleshooting Component Imports
+##### Component Imports
 
 If you encounter import errors in your `components.ts` file, update the Stencil library's `package.json` to include comprehensive exports:
 
