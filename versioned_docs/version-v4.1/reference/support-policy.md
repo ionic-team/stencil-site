@@ -139,7 +139,7 @@ compatibility tables to describe the interoperability requirements of these piec
 
 #### Puppeteer
 
-| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v11-21 |
+| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v22-24 |
 |:---------------:|:--------------:|:-------------:|:----------------:|
 |       V4        |    &#10060;    |    &#9989;    |     &#9989;      |
 |       V3        |    &#10060;    |    &#9989;    |     &#9989;      |

@@ -131,7 +131,7 @@ please see [this document](https://github.com/ionic-team/stencil/blob/main/docs/
 
 #### Puppeteer
 
-| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v11-21 |
+| Stencil Version | Puppeteer v5-9 | Puppeteer v10 | Puppeteer v22-24 |
 |:---------------:|:--------------:|:-------------:|:----------------:|
 |       V3        |    &#10060;    |    &#9989;    |     &#9989;      |
 |       V2        |    &#9989;     |    &#9989;    |     &#10060;     |
