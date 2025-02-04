@@ -17,7 +17,7 @@ Stencil generates standards-compliant Web Components that can work with popular 
 
 Compared to using Custom Elements directly, Stencil provides [extra APIs](../components/api.md) that makes writing fast components simpler. APIs like Virtual DOM, JSX, and async rendering make fast, powerful components easy to create, while still maintaining 100% compatibility with Web Components. Stencil also enables a number of key capabilities on top of Web Components, in particular, prerendering, and objects-as-properties (instead of just strings).
 
-The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
+The developer experience is also tuned, and comes with live reload and a small dev server baked into the compiler.
 
 ## How can I use Stencil?
 

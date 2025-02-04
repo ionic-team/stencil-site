@@ -27,7 +27,7 @@ Elements, Stencil also adds a number of key capabilities on top of Web
 Components, such as prerendering and objects-as-properties (instead of just
 strings).
 
-The developer experience is also tuned, and comes with live reload and a small dev server baked in to the compiler.
+The developer experience is also tuned, and comes with live reload and a small dev server baked into the compiler.
 
 ## How can I use Stencil?
 
