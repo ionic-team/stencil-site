@@ -16,5 +16,5 @@ Keep in mind that the usual way of configuring Jest (`package.json` and `jest.co
 Some additional Stencil specific options may be set here as well for configuring the e2e tests.
 
 ```tsx reference title=""
-https://github.com/ionic-team/stencil/blob/d847e92fbc297754cb8dbb7f633de9ce906f54ac/src/declarations/stencil-public-compiler.ts#L1892-L2044
+https://github.com/ionic-team/stencil/blob/32811591777de726f0374649a4f5e250a0a8e355/src/declarations/stencil-public-compiler.ts#L1968-L2119
 ```
