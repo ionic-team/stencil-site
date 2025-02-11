@@ -214,10 +214,10 @@ __Type:__
 
 Configure how Stencil serializes a component's shadow-root:
 - `declarative-shadow-dom` - all `shadow: true` components will be rendered with a [Declarative Shadow DOM](https://developer.chrome.com/docs/css-ui/declarative-shadow-dom).
-- `scoped` - all `shadow: true` components will be rendered with Stencil's custom scoped behaviour; a light-dom tree and single `<style />` during SSR which is converted into a shadow-root during client-side hydration.
+- `scoped` - all `shadow: true` components will be rendered with Stencil's custom scoped behavior; a light-dom tree and single `<style />` during SSR which is converted into a shadow-root during client-side hydration.
 - Alternatively you can mix `scoped` and `declarative-shadow-dom` behavior, for example:
-  * `{ 'declarative-shadow-dom': ['tag-1'], default: 'scoped'; }` will render component `tag-1` with DSD, but all others with Stencil's scoped behaviour.
-  * `{ 'scoped': ['tag-1'], default: 'declarative-shadow-dom'; }` will render component tag `tag-1` with Stencil's scoped behaviour, but all others with DSD.
+  * `{ 'declarative-shadow-dom': ['tag-1'], default: 'scoped'; }` will render component `tag-1` with DSD, but all others with Stencil's scoped behavior.
+  * `{ 'scoped': ['tag-1'], default: 'declarative-shadow-dom'; }` will render component tag `tag-1` with Stencil's scoped behavior, but all others with DSD.
 - `false`, will not render any `shadow: true` component on the server; delaying hydration until runtime.
 
 
