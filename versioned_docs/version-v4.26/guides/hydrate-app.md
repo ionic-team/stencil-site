@@ -123,7 +123,7 @@ const results = await hydrate.renderToString(
   `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
   {
     fullDocument: false,
-    serializeShadowRoot: true,
+    serializeShadowRoot: 'declarative-shadow-dom',
     prettyHtml: true,
   }
 );
@@ -132,14 +132,12 @@ console.log(results.html);
 /**
  * outputs:
  * ```html
- * <my-component class="hydrated sc-my-component-h" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
+ * <my-component class="hydrated" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
  *   <template shadowrootmode="open">
- *     <style sty-id="sc-my-component">
- *       .sc-my-component-h{display:block}
- *     </style>
- *     <div c-id="1.0.0.0" class="sc-my-component">
+ *     <style> :host { display: block; } </style>
+ *     <div c-id="1.0.0.0">
  *       <!--t.1.1.1.0-->
- *       Hello, World! I'm Stencil 'Don't call me a framework' JS\n" +
+ *       Hello, World! I'm Stencil 'Don't call me a framework' JS
  *     </div>
  *   </template>
  *   <!--r.1-->
@@ -202,18 +200,35 @@ Allows to modify the document and all its containing components after the compon
 
 ##### `serializeShadowRoot`
 
-__Default:__ `true`
+__Default:__ `'declarative-shadow-dom'`
 
-__Type:__ `boolean`
+__Type:__ 
 
-If set to `true` Stencil will render a component defined with a `shadow: true` flag into a [Declarative Shadow DOM](https://developer.chrome.com/docs/css-ui/declarative-shadow-dom), e.g.:
+```ts
+'declarative-shadow-dom' | 'scoped' | {
+  'declarative-shadow-dom'?: string[];
+  scoped?: string[];
+  default: 'declarative-shadow-dom' | 'scoped';
+} | false;
+```
+
+Configure how Stencil serializes a component's shadow-root:
+- `declarative-shadow-dom` - all `shadow: true` components will be rendered with a [Declarative Shadow DOM](https://developer.chrome.com/docs/css-ui/declarative-shadow-dom).
+- `scoped` - all `shadow: true` components will be rendered with Stencil's custom scoped behavior; a light-dom tree and single `<style />` during SSR which is converted into a shadow-root during client-side hydration.
+- Alternatively you can mix `scoped` and `declarative-shadow-dom` behavior, for example:
+  * `{ 'declarative-shadow-dom': ['tag-1'], default: 'scoped'; }` will render component `tag-1` with DSD, but all others with Stencil's scoped behavior.
+  * `{ 'scoped': ['tag-1'], default: 'declarative-shadow-dom'; }` will render component tag `tag-1` with Stencil's scoped behavior, but all others with DSD.
+- `false`, will not render any `shadow: true` component on the server; delaying hydration until runtime.
+
+
+**Declarative Shadow DOM Example:**
 
 ```javascript
 const results = await hydrate.renderToString(
   `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
   {
     fullDocument: false,
-    serializeShadowRoot: true,
+    serializeShadowRoot: 'declarative-shadow-dom',
     prettyHtml: true,
   }
 );
@@ -222,12 +237,10 @@ console.log(results.html);
 /**
  * outputs:
  * ```html
- * <my-component class="hydrated sc-my-component-h" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
+ * <my-component class="hydrated" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
  *   <template shadowrootmode="open">
- *     <style sty-id="sc-my-component">
- *       .sc-my-component-h{display:block}
- *     </style>
- *     <div c-id="1.0.0.0" class="sc-my-component">
+ *     <style> :host { display: block; } </style>
+ *     <div c-id="1.0.0.0">
  *       <!--t.1.1.1.0-->
  *       Hello, World! I'm Stencil 'Don't call me a framework' JS
  *     </div>
@@ -238,14 +251,14 @@ console.log(results.html);
  */
 ```
 
-When set to `false`, the component renders with its light DOM but delays hydration until runtime.
+**Scoped Example:**
 
 ```javascript
 const results = await hydrate.renderToString(
-  `<my-component first="Stencil" last="'Don't call me a framework' JS">👋</my-component>`,
+  `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
   {
-    fullDocument: false,
-    serializeShadowRoot: false,
+    fullDocument: true,
+    serializeShadowRoot: `scoped`,
     prettyHtml: true,
   }
 );
@@ -254,7 +267,18 @@ console.log(results.html);
 /**
  * outputs:
  * ```html
- * <my-component class="hydrated" first=Stencil last="'Don't call me a framework' JS" s-id=1>👋</my-component>
+ * <head>
+ *   <style sty-id="sc-my-component"> .sc-my-component-h { display: block; } </style>
+ * </head>
+ * <body>
+ *   <my-component class="hydrated sc-my-component-h" first="Stencil" last="'Don't call me a framework' JS" s-id="1">
+ *     <!--r.1-->
+ *     <div c-id="1.0.0.0" class="sc-my-component">
+ *       <!--t.1.1.1.0-->
+ *       Hello, World! I'm Stencil 'Don't call me a framework' JS
+ *     </div>
+ *   </my-component>
+ * </body>
  * ```
  */
 ```
